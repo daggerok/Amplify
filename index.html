@@ -92,6 +92,9 @@
           class="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 w-full lg:w-96 focus:outline-none focus:border-blue-500 text-sm placeholder-slate-400 dark:placeholder-slate-500 disabled:opacity-50 disabled:cursor-not-allowed shrink-0 transition"
         />
 
+        <!-- ETF catalogue tabs stay with search and actions, as in the original layout. -->
+        <div id="tabs-bar" class="hidden flex flex-wrap items-center justify-center gap-1.5 overflow-x-auto py-1 w-full max-w-full flex-1 themed-scroll"></div>
+
         <!-- Actions intentionally match iShares naming and placement -->
         <div class="flex flex-wrap items-center gap-2.5 w-full lg:w-auto justify-end shrink-0">
           <button id="copy-btn" disabled class="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 px-4 py-2 rounded-lg text-sm font-medium transition active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-slate-200 dark:hover:bg-slate-700 disabled:hover:bg-slate-100 dark:disabled:hover:bg-slate-800">Copy Tickers</button>
@@ -103,11 +106,9 @@
       </div>
 
 
-      <!-- All navigation lives here, immediately above the table. -->
-      <nav id="selected-tabs-panel" class="hidden bg-white dark:bg-slate-800/80 p-4 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm backdrop-blur" aria-label="ETF data views">
-        <div id="tabs-bar" class="flex flex-wrap items-center justify-center gap-1.5 overflow-x-auto py-1 w-full max-w-full themed-scroll"></div>
-        <div id="selected-funds-bar" class="hidden mt-2 flex flex-wrap items-center justify-center gap-1.5 overflow-x-auto py-1 w-full max-w-full themed-scroll"></div>
-        <div id="selected-tabs-bar" class="hidden mt-2 flex flex-wrap items-center justify-center gap-1.5 overflow-x-auto py-1 w-full max-w-full themed-scroll"></div>
+      <!-- Selected ETF detail tabs appear immediately above the table. -->
+      <nav id="selected-tabs-panel" class="hidden bg-white dark:bg-slate-800/80 p-4 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm backdrop-blur" aria-label="Selected ETF detail views">
+        <div id="selected-tabs-bar" class="flex flex-wrap items-center justify-center gap-1.5 overflow-x-auto py-1 w-full max-w-full themed-scroll"></div>
       </nav>
 
       <!-- Data Table Container -->
@@ -302,7 +303,6 @@ const el = {
   tabsBar: byId('tabs-bar'),
   selectedTabsPanel: byId('selected-tabs-panel'),
   selectedTabsBar: byId('selected-tabs-bar'),
-  selectedFundsBar: byId('selected-funds-bar'),
   copyBtn: byId('copy-btn'),
   exportCsvBtn: byId('export-csv-btn'),
   exportTxtBtn: byId('export-txt-btn'),
@@ -476,40 +476,12 @@ function uniqueCategories(): string[] {
 }
 
 function renderTabs(): void {
-  const catalogTabs = getTabs();
-  // Avoid TypeScript type predicates here: the in-browser Babel parser is intentionally conservative.
-  const selectedFunds: Array<{ id: string; label: string; count: number }> = [];
-  [...state.selected].forEach(ticker => {
-    const fund = state.funds.find(item => item.ticker === ticker);
-    if (fund) selectedFunds.push({ id: `fund:${fund.ticker}`, label: fund.ticker, count: fund.holdingsCount || 0 });
-  });
+  renderTabButtons(el.tabsBar, getTabs());
+
   const selectedTabs = getSelectedTabs();
-
-  // The table's navigation is intentionally consolidated in this one panel.
-  el.selectedTabsPanel.classList.toggle('hidden', catalogTabs.length === 0);
-  renderTabButtons(el.tabsBar, catalogTabs);
-  renderFundButtons(el.selectedFundsBar, selectedFunds);
+  // The panel above the table is reserved for detail and Watchlist tabs only.
+  el.selectedTabsPanel.classList.toggle('hidden', selectedTabs.length === 0);
   renderTabButtons(el.selectedTabsBar, selectedTabs);
-}
-
-function renderFundButtons(container: any, funds: Array<{ id: string; label: string; count: number }>): void {
-  container.classList.toggle('hidden', funds.length === 0);
-  container.innerHTML = funds.map(fund => {
-    const ticker = fund.id.replace('fund:', '');
-    const selected = ticker === state.activeFundTicker;
-    const classes = selected
-      ? 'bg-emerald-600 text-white font-medium border-emerald-500 shadow-sm'
-      : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200 dark:hover:bg-slate-700 border-slate-200 dark:border-slate-700';
-    return `<button data-fund="${escapeHtml(ticker)}" class="px-3.5 py-1.5 rounded-full text-xs transition border whitespace-nowrap ${classes}">${escapeHtml(fund.label)}</button>`;
-  }).join('');
-  container.querySelectorAll('button[data-fund]').forEach((button: any) => {
-    button.addEventListener('click', () => {
-      state.activeFundTicker = button.dataset.fund || null;
-      if (isDetailTab(state.activeTab)) applyDefaultSortForTab(state.activeTab);
-      persistSelection();
-      render();
-    });
-  });
 }
 
 function renderTabButtons(container: any, tabs: Array<{ id: ActiveTab; label: string; count: number }>): void {
