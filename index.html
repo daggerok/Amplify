@@ -326,6 +326,7 @@ const COLUMN_TOOLTIPS = {
   'History': 'Historical Records — Number of daily NAV / market-price snapshots stored for this fund (same idea as iShares History).',
   'As Of': 'As Of Date — Effective date of the holdings file used for this row (catalog) or of the metric shown (detail views).',
   'ETFs': 'ETFs — Badges for every selected Amplify ETF that currently holds this security.',
+  '# ETFs': '# ETFs — Number of selected Amplify ETFs that currently hold this security.',
   'Weight Sum': 'Weight Sum (%) — Combined allocation of this holding across all selected ETFs.',
   'Max Weight': 'Max Weight (%) — Largest single-fund portfolio weight of this holding among the selected ETFs.',
   'Market Value': 'Market Value ($) — Current dollar value of the position (or the sum across selected ETFs on Watchlist).',
@@ -819,7 +820,8 @@ function renderWatchlistTable(): void {
       ${indexHeader()}
       ${sortHeader('Ticker', 'symbol')}
       ${sortHeader('Name', 'name')}
-      ${sortHeader('ETFs', 'fundCount')}
+      ${sortHeader('# ETFs', 'fundCount', true)}
+      ${sortHeader('ETFs', 'fundTickers')}
       ${sortHeader('Weight Sum', 'weightSum', true)}
       ${sortHeader('Max Weight', 'maxWeight', true)}
       ${sortHeader('Market Value', 'marketValueSum', true)}
@@ -829,13 +831,14 @@ function renderWatchlistTable(): void {
   bindSortHeaders();
 
   if (!rows.length) {
-    el.tableBody.innerHTML = `<tr><td colspan="8" class="py-12 text-center text-slate-400 dark:text-slate-500">No watchlist tickers match your search. Select ETFs on an ETF tab first.</td></tr>`;
+    el.tableBody.innerHTML = `<tr><td colspan="9" class="py-12 text-center text-slate-400 dark:text-slate-500">No watchlist tickers match your search. Select ETFs on an ETF tab first.</td></tr>`;
   } else {
     el.tableBody.innerHTML = rows.map((row, index) => `
       <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/30 transition border-b border-slate-100 dark:border-slate-700/30">
         <td class="py-2.5 px-4 text-slate-400 dark:text-slate-500 text-xs text-center font-mono">${index + 1}</td>
         <td class="py-2.5 px-4 font-mono font-semibold text-blue-600 dark:text-blue-400">${escapeHtml(row.symbol)}</td>
         <td class="py-2.5 px-4 text-slate-700 dark:text-slate-300 font-medium">${escapeHtml(row.name)}</td>
+        <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${row.fundCount}</td>
         <td class="py-2.5 px-4 text-slate-700 dark:text-slate-300">
           <div class="flex flex-wrap gap-1 max-w-md">
             ${row.fundTickers.map((ticker: string) => `<span class="font-mono text-xs bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border border-blue-100 dark:border-blue-800 rounded-full px-2 py-0.5">${escapeHtml(ticker)}</span>`).join('')}
@@ -1470,10 +1473,11 @@ function copyTickers(): void {
 
 function exportCsv(): void {
   if (state.activeTab === 'watchlist') {
-    const headers = ['Ticker', 'Name', 'ETFs', 'Weight Sum (%)', 'Max Weight (%)', 'Market Value ($)', 'Flags'];
+    const headers = ['Ticker', 'Name', '# ETFs', 'ETFs', 'Weight Sum (%)', 'Max Weight (%)', 'Market Value ($)', 'Flags'];
     const rows = getVisibleWatchlistRows().map(row => [
       row.symbol,
       row.name,
+      String(row.fundCount),
       row.fundTickers.join('|'),
       numberCell(row.weightSum),
       numberCell(row.maxWeight),
