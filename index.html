@@ -93,7 +93,7 @@
         />
 
         <!-- Dynamic tabs from api/data.json categories, plus Watchlist when ETFs are selected -->
-        <div id="tabs-bar" class="hidden flex flex-wrap items-center justify-center gap-1.5 overflow-x-auto py-1 max-w-full flex-1 themed-scroll"></div>
+        <div id="tabs-bar" class="hidden flex flex-wrap items-center justify-center gap-1.5 overflow-x-auto py-1 w-full max-w-full flex-1 themed-scroll"></div>
 
         <!-- Actions intentionally match iShares naming and placement -->
         <div class="flex flex-wrap items-center gap-2.5 w-full lg:w-auto justify-end shrink-0">
@@ -108,15 +108,10 @@
 
       <!-- Selected ETF tabs: appear only after at least one ETF is selected -->
       <div id="selected-tabs-panel" class="hidden bg-white dark:bg-slate-800/80 p-4 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm backdrop-blur">
-        <div class="flex flex-col sm:flex-row sm:items-center gap-3">
-          <div class="text-xs uppercase tracking-wider font-semibold text-slate-500 dark:text-slate-400 shrink-0">Selected ETF</div>
-          <div id="selected-tabs-bar" class="flex flex-wrap items-center gap-1.5 overflow-x-auto py-1 max-w-full flex-1 themed-scroll"></div>
+        <div class="flex flex-col items-center justify-center gap-2">
+          <a id="active-fund-link" href="#" target="_blank" rel="noopener noreferrer" class="hidden text-sm font-semibold text-blue-600 dark:text-blue-400 hover:underline text-center"></a>
+          <div id="selected-tabs-bar" class="flex flex-wrap items-center justify-center gap-1.5 overflow-x-auto py-1 w-full max-w-full themed-scroll"></div>
         </div>
-      </div>
-
-      <!-- Small instruction bar: simple, visible, not a new complex panel -->
-      <div id="status-line" class="bg-blue-50 dark:bg-blue-950/30 border border-blue-100 dark:border-blue-800/50 text-blue-700 dark:text-blue-300 rounded-xl px-4 py-3 text-sm">
-        Loading Amplify ETF data…
       </div>
 
       <!-- Data Table Container -->
@@ -310,11 +305,11 @@ const el = {
   tabsBar: byId('tabs-bar'),
   selectedTabsPanel: byId('selected-tabs-panel'),
   selectedTabsBar: byId('selected-tabs-bar'),
+  activeFundLink: byId('active-fund-link'),
   copyBtn: byId('copy-btn'),
   exportCsvBtn: byId('export-csv-btn'),
   exportTxtBtn: byId('export-txt-btn'),
   resetBtn: byId('reset-btn'),
-  statusLine: byId('status-line'),
   tableHead: byId('table-head'),
   tableBody: byId('table-body'),
 };
@@ -487,7 +482,15 @@ function renderTabs(): void {
   renderTabButtons(el.tabsBar, getTabs());
 
   const selectedTabs = getSelectedTabs();
+  const activeFund = getActiveFund();
   el.selectedTabsPanel.classList.toggle('hidden', selectedTabs.length === 0);
+  if (activeFund) {
+    el.activeFundLink.href = `https://amplifyetfs.com/${encodeURIComponent(activeFund.ticker)}/`;
+    el.activeFundLink.textContent = `${activeFund.ticker} (${activeFund.name})`;
+    el.activeFundLink.classList.remove('hidden');
+  } else {
+    el.activeFundLink.classList.add('hidden');
+  }
   renderTabButtons(el.selectedTabsBar, selectedTabs);
 }
 
@@ -850,9 +853,11 @@ function renderControls(): void {
   el.resetBtn.disabled = !hasData || (!selected && !currentQuery());
 
   const generated = state.data?.generatedAt ? ` · data ${state.data.generatedAt.slice(0, 10)}` : '';
-  const selectedText = selected ? `${selected} selected ETF${selected === 1 ? '' : 's'}` : 'select ETFs by clicking rows';
-  const active = state.activeFundTicker ? ` · active ${state.activeFundTicker}` : '';
-  el.subtitle.innerHTML = `Search Amplify ETFs, select rows, inspect ETF detail tabs, then use Watchlist (${selectedText}${active}${generated}). Data: <a href="./api/data.json" target="_blank" rel="noopener noreferrer" class="font-semibold text-blue-600 dark:text-blue-400 hover:underline">api/data.json</a>`;
+  const activeFund = getActiveFund();
+  const activeText = activeFund
+    ? `<a href="https://amplifyetfs.com/${encodeURIComponent(activeFund.ticker)}/" target="_blank" rel="noopener noreferrer" class="font-semibold text-blue-600 dark:text-blue-400 hover:underline">${escapeHtml(activeFund.ticker)} (${escapeHtml(activeFund.name)})</a>${selected > 1 ? ` · ${selected} selected` : ''}`
+    : 'select ETFs by clicking rows';
+  el.subtitle.innerHTML = `Search Amplify ETFs, select rows, inspect ETF detail tabs, then use Watchlist (${activeText}${generated}). Data: <a href="./api/data.json" target="_blank" rel="noopener noreferrer" class="font-semibold text-blue-600 dark:text-blue-400 hover:underline">api/data.json</a>`;
 }
 
 
@@ -1331,13 +1336,7 @@ function applyTheme(dark: boolean): void {
 }
 
 function setStatus(message: string, tone: 'info' | 'success' | 'error'): void {
-  const toneClasses = {
-    info: 'bg-blue-50 dark:bg-blue-950/30 border-blue-100 dark:border-blue-800/50 text-blue-700 dark:text-blue-300',
-    success: 'bg-emerald-50 dark:bg-emerald-950/30 border-emerald-100 dark:border-emerald-800/50 text-emerald-700 dark:text-emerald-300',
-    error: 'bg-rose-50 dark:bg-rose-950/30 border-rose-100 dark:border-rose-800/50 text-rose-700 dark:text-rose-300',
-  };
-  el.statusLine.className = `rounded-xl px-4 py-3 text-sm border ${toneClasses[tone]}`;
-  el.statusLine.textContent = message;
+  console.debug(`[${tone}] ${message}`);
 }
 
 function setDetailStatus(fund: FundRow, message: string): void {
