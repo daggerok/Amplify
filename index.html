@@ -105,6 +105,15 @@
 
       </div>
 
+
+      <!-- Selected ETF tabs: appear only after at least one ETF is selected -->
+      <div id="selected-tabs-panel" class="hidden bg-white dark:bg-slate-800/80 p-4 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm backdrop-blur">
+        <div class="flex flex-col sm:flex-row sm:items-center gap-3">
+          <div class="text-xs uppercase tracking-wider font-semibold text-slate-500 dark:text-slate-400 shrink-0">Selected ETF</div>
+          <div id="selected-tabs-bar" class="flex flex-wrap items-center gap-1.5 overflow-x-auto py-1 max-w-full flex-1 themed-scroll"></div>
+        </div>
+      </div>
+
       <!-- Small instruction bar: simple, visible, not a new complex panel -->
       <div id="status-line" class="bg-blue-50 dark:bg-blue-950/30 border border-blue-100 dark:border-blue-800/50 text-blue-700 dark:text-blue-300 rounded-xl px-4 py-3 text-sm">
         Loading Amplify ETF data…
@@ -259,7 +268,7 @@ type AppState = {
   selected: Set<string>;
   activeFundTicker: string | null;
   activeTab: ActiveTab;
-  query: string;
+  searches: Record<string, string>;
   sortKey: string;
   sortDir: SortDirection;
 };
@@ -268,6 +277,7 @@ const DATA_API_URL = './api/data.json';
 const THEME_KEY = 'amplify-theme';
 const SELECTED_KEY = 'amplify-selected-etfs';
 const ACTIVE_FUND_KEY = 'amplify-active-fund';
+const SEARCHES_KEY = 'amplify-searches';
 
 const DETAIL_TABS: Array<{ key: FundDetailTab; label: string }> = [
   { key: 'overview', label: 'Overview' },
@@ -287,7 +297,7 @@ const state: AppState = {
   selected: new Set(),
   activeFundTicker: null,
   activeTab: 'All',
-  query: '',
+  searches: {},
   sortKey: 'rank',
   sortDir: 'asc',
 };
@@ -298,6 +308,8 @@ const el = {
   subtitle: byId('app-subtitle'),
   searchInput: byId('search-input'),
   tabsBar: byId('tabs-bar'),
+  selectedTabsPanel: byId('selected-tabs-panel'),
+  selectedTabsBar: byId('selected-tabs-bar'),
   copyBtn: byId('copy-btn'),
   exportCsvBtn: byId('export-csv-btn'),
   exportTxtBtn: byId('export-txt-btn'),
@@ -311,6 +323,7 @@ init();
 
 function init(): void {
   restoreSelectedEtfs();
+  restoreSearches();
   applyTheme(localStorage.getItem(THEME_KEY) === 'dark');
   bindEvents();
   void loadData();
@@ -324,7 +337,7 @@ function bindEvents(): void {
   });
 
   el.searchInput.addEventListener('input', () => {
-    state.query = el.searchInput.value.trim();
+    setCurrentQuery(el.searchInput.value.trim());
     render();
   });
 
@@ -396,6 +409,7 @@ function normalizeFundRow(fund: Fund, holdings: Record<string, FundHoldings>, in
 function render(): void {
   if (!state.data) return;
   ensureValidTab();
+  syncSearchInput();
   renderTabs();
 
   if (state.activeTab === 'watchlist') renderWatchlistTable();
@@ -409,7 +423,7 @@ function ensureValidTab(): void {
   if (!state.activeFundTicker && state.selected.size) state.activeFundTicker = [...state.selected][0] || null;
   if (state.activeFundTicker && !state.selected.has(state.activeFundTicker)) state.activeFundTicker = [...state.selected][0] || null;
 
-  const tabIds = getTabs().map(tab => tab.id);
+  const tabIds = getAllTabIds();
   if (!tabIds.includes(state.activeTab)) {
     state.activeTab = tabIds.includes('All') ? 'All' : (tabIds[0] || 'All');
     state.sortKey = 'rank';
@@ -430,7 +444,13 @@ function getTabs(): Array<{ id: ActiveTab; label: string; count: number }> {
     });
   });
 
+  return tabs;
+}
+
+function getSelectedTabs(): Array<{ id: ActiveTab; label: string; count: number }> {
+  const tabs: Array<{ id: ActiveTab; label: string; count: number }> = [];
   const activeFund = getActiveFund();
+
   if (activeFund) {
     DETAIL_TABS.forEach(tab => {
       tabs.push({
@@ -441,12 +461,15 @@ function getTabs(): Array<{ id: ActiveTab; label: string; count: number }> {
     });
   }
 
-  // Keep Watchlist to the right of all other rounded tab buttons.
   if (state.selected.size > 0) {
-    tabs.push({ id: 'watchlist', label: 'Watchlist', count: getVisibleWatchlistRows().length });
+    tabs.push({ id: 'watchlist', label: 'Watchlist', count: getDedupedWatchlistRows().length });
   }
 
   return tabs;
+}
+
+function getAllTabIds(): ActiveTab[] {
+  return [...getTabs(), ...getSelectedTabs()].map(tab => tab.id);
 }
 
 function uniqueCategories(): string[] {
@@ -461,9 +484,16 @@ function uniqueCategories(): string[] {
 }
 
 function renderTabs(): void {
-  const tabs = getTabs();
-  el.tabsBar.classList.toggle('hidden', tabs.length <= 1);
-  el.tabsBar.innerHTML = tabs.map(tab => {
+  renderTabButtons(el.tabsBar, getTabs());
+
+  const selectedTabs = getSelectedTabs();
+  el.selectedTabsPanel.classList.toggle('hidden', selectedTabs.length === 0);
+  renderTabButtons(el.selectedTabsBar, selectedTabs);
+}
+
+function renderTabButtons(container: any, tabs: Array<{ id: ActiveTab; label: string; count: number }>): void {
+  container.classList.toggle('hidden', tabs.length <= 1);
+  container.innerHTML = tabs.map(tab => {
     const isActive = tab.id === state.activeTab;
     const activeClasses = 'bg-blue-600 text-white font-medium border-blue-500 shadow-sm';
     const inactiveClasses = 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200 dark:hover:bg-slate-700 border-slate-200 dark:border-slate-700';
@@ -476,10 +506,11 @@ function renderTabs(): void {
     `;
   }).join('');
 
-  el.tabsBar.querySelectorAll('button[data-tab]').forEach((button: any) => {
+  container.querySelectorAll('button[data-tab]').forEach((button: any) => {
     button.addEventListener('click', () => {
       state.activeTab = button.dataset.tab || 'All';
       applyDefaultSortForTab(state.activeTab);
+      syncSearchInput();
       render();
     });
   });
@@ -496,7 +527,7 @@ function renderFundsTable(): void {
       ${sortHeader('Type', 'category')}
       ${sortHeader('NAV', 'navValue', true)}
       ${sortHeader('Net Assets', 'netAssetsValue', true)}
-      ${sortHeader('Expense', 'expenseRatio')}
+      ${sortHeader('Expense', 'expenseRatio', true)}
       ${sortHeader('Holdings', 'holdingsCount', true)}
       ${sortHeader('As Of', 'holdingsAsOfDate')}
     </tr>
@@ -537,7 +568,7 @@ function renderFundsTable(): void {
   });
 
   const selected = state.selected.size;
-  const queryText = state.query ? ` matching “${state.query}”` : '';
+  const queryText = currentQuery() ? ` matching “${currentQuery()}”` : '';
   const activeText = state.activeFundTicker ? ` Active ETF detail tabs are for ${state.activeFundTicker}.` : '';
   setStatus(`Showing ${rows.length} ETF${rows.length === 1 ? '' : 's'}${queryText}. Click rows to select ETFs.${selected ? ` ${selected} selected.` : ' No ETFs selected yet.'}${activeText}`, selected ? 'success' : 'info');
   el.tickerCount.textContent = `${rows.length} ETFs`;
@@ -550,7 +581,7 @@ function renderWatchlistTable(): void {
       <th class="py-3.5 px-4 w-12 text-center">#</th>
       ${sortHeader('Ticker', 'symbol')}
       ${sortHeader('Name', 'name')}
-      ${sortHeader('ETFs', 'fundCount', true)}
+      ${sortHeader('ETFs', 'fundCount')}
       ${sortHeader('Weight Sum', 'weightSum', true)}
       ${sortHeader('Max Weight', 'maxWeight', true)}
       ${sortHeader('Market Value', 'marketValueSum', true)}
@@ -580,7 +611,7 @@ function renderWatchlistTable(): void {
     `).join('');
   }
 
-  const queryText = state.query ? ` matching “${state.query}”` : '';
+  const queryText = currentQuery() ? ` matching “${currentQuery()}”` : '';
   setStatus(`Watchlist built from ${state.selected.size} selected ETF${state.selected.size === 1 ? '' : 's'}: ${rows.length} ticker${rows.length === 1 ? '' : 's'}${queryText}.`, 'success');
   el.tickerCount.textContent = `${rows.length} tickers`;
 }
@@ -816,7 +847,7 @@ function renderControls(): void {
   el.copyBtn.disabled = watchlistRows.length === 0;
   el.exportCsvBtn.disabled = !hasData || visibleRows.length === 0;
   el.exportTxtBtn.disabled = !hasData || visibleRows.length === 0;
-  el.resetBtn.disabled = !hasData || (!selected && !state.query);
+  el.resetBtn.disabled = !hasData || (!selected && !currentQuery());
 
   const generated = state.data?.generatedAt ? ` · data ${state.data.generatedAt.slice(0, 10)}` : '';
   const selectedText = selected ? `${selected} selected ETF${selected === 1 ? '' : 's'}` : 'select ETFs by clicking rows';
@@ -824,8 +855,50 @@ function renderControls(): void {
   el.subtitle.innerHTML = `Search Amplify ETFs, select rows, inspect ETF detail tabs, then use Watchlist (${selectedText}${active}${generated}). Data: <a href="./api/data.json" target="_blank" rel="noopener noreferrer" class="font-semibold text-blue-600 dark:text-blue-400 hover:underline">api/data.json</a>`;
 }
 
+
+function searchScope(): string {
+  if (state.activeTab === 'watchlist') return 'watchlist';
+  if (isDetailTab(state.activeTab)) return `${state.activeFundTicker || 'ETF'}:${state.activeTab}`;
+  return 'etfs';
+}
+
+function currentQuery(): string {
+  return state.searches[searchScope()] || '';
+}
+
+function setCurrentQuery(value: string): void {
+  const scope = searchScope();
+  if (value) state.searches[scope] = value;
+  else delete state.searches[scope];
+  persistSearches();
+}
+
+function syncSearchInput(): void {
+  const query = currentQuery();
+  if (document.activeElement !== el.searchInput && el.searchInput.value !== query) {
+    el.searchInput.value = query;
+  }
+  el.searchInput.placeholder = isEtfCatalogTab(state.activeTab)
+    ? 'Search ETFs, fund names, holdings, tickers, CUSIPs...'
+    : `Search ${tabLabel(state.activeTab)}...`;
+}
+
+function isEtfCatalogTab(tab: ActiveTab): boolean {
+  return tab === 'All' || state.funds.some(fund => fund.category === tab);
+}
+
+function tabLabel(tab: ActiveTab): string {
+  if (tab === 'watchlist') return 'Watchlist';
+  if (isDetailTab(tab)) {
+    const key = detailTabKey(tab);
+    const found = DETAIL_TABS.find(item => item.key === key);
+    return found ? found.label : 'ETF details';
+  }
+  return categoryLabel(tab);
+}
+
 function getVisibleFunds(): FundRow[] {
-  const query = normalizeSearchText(state.query);
+  const query = normalizeSearchText(currentQuery());
   return state.funds.filter(fund => {
     const tabMatch = state.activeTab === 'All' || state.activeTab === fund.category;
     const queryMatch = !query || fund.searchIndex.includes(query);
@@ -844,7 +917,7 @@ function getSelectedPositions(): Holding[] {
 }
 
 function getVisibleWatchlistRows(): WatchlistRow[] {
-  const query = normalizeSearchText(state.query);
+  const query = normalizeSearchText(currentQuery());
   return getDedupedWatchlistRows().filter(row => !query || row.searchIndex.includes(query));
 }
 
@@ -1043,7 +1116,7 @@ function getPriceRows(detail: FundDetail): TableRow[] {
 }
 
 function filterRows(rows: any[]): any[] {
-  const query = normalizeSearchText(state.query);
+  const query = normalizeSearchText(currentQuery());
   return rows.filter(row => !query || normalizeSearchText(row.searchIndex || Object.values(row).join(' ')).includes(query));
 }
 
@@ -1103,13 +1176,14 @@ function toggleFund(ticker: string): void {
 function clearSelectionAndSearch(): void {
   state.selected.clear();
   state.activeFundTicker = null;
-  state.query = '';
+  state.searches = {};
   state.activeTab = 'All';
   state.sortKey = 'rank';
   state.sortDir = 'asc';
   el.searchInput.value = '';
   localStorage.removeItem(SELECTED_KEY);
   localStorage.removeItem(ACTIVE_FUND_KEY);
+  localStorage.removeItem(SEARCHES_KEY);
   render();
 }
 
@@ -1233,6 +1307,20 @@ function persistSelection(): void {
   localStorage.setItem(SELECTED_KEY, JSON.stringify([...state.selected]));
   if (state.activeFundTicker) localStorage.setItem(ACTIVE_FUND_KEY, state.activeFundTicker);
   else localStorage.removeItem(ACTIVE_FUND_KEY);
+}
+
+
+function restoreSearches(): void {
+  try {
+    const saved = JSON.parse(localStorage.getItem(SEARCHES_KEY) || '{}');
+    state.searches = saved && typeof saved === 'object' ? saved : {};
+  } catch {
+    state.searches = {};
+  }
+}
+
+function persistSearches(): void {
+  localStorage.setItem(SEARCHES_KEY, JSON.stringify(state.searches));
 }
 
 function applyTheme(dark: boolean): void {
@@ -1411,7 +1499,7 @@ function cellToString(value: unknown): string {
 }
 
 function exportFileName(kind: string, extension: 'csv' | 'txt'): string {
-  const suffix = state.query ? '_filtered' : '';
+  const suffix = currentQuery() ? '_filtered' : '';
   return `Amplify_${kind}_${new Date().toISOString().slice(0, 10)}${suffix}.${extension}`;
 }
 
