@@ -14,6 +14,8 @@ The app reads Amplify ETF catalog, holdings, distributions, yields, performance/
 
 The catalog table surfaces Dividend Yield, 30-Day SEC Yield, YTD / 1-year total return, 3Y/5Y/10Y total return and CAGR, since-inception annualized return, and daily History count from that same feed. Hover any column header for the abbreviation and a short explanation (for example **Net Assets** = AUM, Assets Under Management). The **All ETFs** tab and the **Use** header have a checkbox to select or clear every fund.
 
+The **Watchlist** tab aggregates the underlying holdings of every selected ETF. The **# ETFs** column counts how many of the selected ETFs currently hold each ticker, right after the **ETFs** badge column.
+
 Regenerate it with bun:
 
 ```bash
