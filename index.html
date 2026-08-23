@@ -293,18 +293,18 @@ const state: AppState = {
 };
 
 const el = {
-  themeToggle: (byId('theme-toggle') as HTMLButtonElement),
-  tickerCount: (byId('ticker-count') as HTMLSpanElement),
-  subtitle: (byId('app-subtitle') as HTMLSpanElement),
-  searchInput: (byId('search-input') as HTMLInputElement),
-  tabsBar: (byId('tabs-bar') as HTMLDivElement),
-  copyBtn: (byId('copy-btn') as HTMLButtonElement),
-  exportCsvBtn: (byId('export-csv-btn') as HTMLButtonElement),
-  exportTxtBtn: (byId('export-txt-btn') as HTMLButtonElement),
-  resetBtn: (byId('reset-btn') as HTMLButtonElement),
-  statusLine: (byId('status-line') as HTMLDivElement),
-  tableHead: (byId('table-head') as HTMLTableSectionElement),
-  tableBody: (byId('table-body') as HTMLTableSectionElement),
+  themeToggle: byId('theme-toggle'),
+  tickerCount: byId('ticker-count'),
+  subtitle: byId('app-subtitle'),
+  searchInput: byId('search-input'),
+  tabsBar: byId('tabs-bar'),
+  copyBtn: byId('copy-btn'),
+  exportCsvBtn: byId('export-csv-btn'),
+  exportTxtBtn: byId('export-txt-btn'),
+  resetBtn: byId('reset-btn'),
+  statusLine: byId('status-line'),
+  tableHead: byId('table-head'),
+  tableBody: byId('table-body'),
 };
 
 init();
@@ -340,7 +340,7 @@ async function loadData(): Promise<void> {
     const response = await fetch(DATA_API_URL, { headers: { Accept: 'application/json' }, cache: 'no-cache' });
     if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
 
-    const data = await response.json() as DataApi;
+    const data: DataApi = await response.json();
     const holdings = data.holdings || {};
 
     state.data = data;
@@ -530,7 +530,7 @@ function renderFundsTable(): void {
 
   el.tableBody.querySelectorAll('tr[data-ticker]').forEach((row: any) => {
     row.addEventListener('click', (event: any) => {
-      const target = event.target as any;
+      const target: any = event.target;
       if (target.closest('a')) return;
       toggleFund(row.dataset.ticker || '');
     });
@@ -646,7 +646,7 @@ function renderSelectedFundHoldings(fund: FundRow): void {
         <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatNumber(row.shares)}</td>
         <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatMoney(row.marketValue)}</td>
         <td class="py-2.5 px-4 font-mono text-slate-600 dark:text-slate-400">${escapeHtml(row.cusip || '—')}</td>
-        <td class="py-2.5 px-4 text-slate-600 dark:text-slate-400">${renderFlags(row.flags as string[])}</td>
+        <td class="py-2.5 px-4 text-slate-600 dark:text-slate-400">${renderFlags(stringArray(row.flags))}</td>
       </tr>
     `).join('');
   }
@@ -1046,9 +1046,9 @@ function filterRows<T extends TableRow>(rows: T[]): T[] {
   return rows.filter(row => !query || normalizeSearchText(row.searchIndex || Object.values(row).join(' ')).includes(query));
 }
 
-function getCurrentVisibleRows(): TableRow[] {
-  if (state.activeTab === 'watchlist') return getVisibleWatchlistRows() as unknown as TableRow[];
-  if (!isDetailTab(state.activeTab)) return getVisibleFunds() as unknown as TableRow[];
+function getCurrentVisibleRows(): any[] {
+  if (state.activeTab === 'watchlist') return getVisibleWatchlistRows();
+  if (!isDetailTab(state.activeTab)) return getVisibleFunds();
   const fund = getActiveFund();
   const detail = getActiveDetail();
   if (!fund || !detail) return [];
@@ -1219,7 +1219,7 @@ function compareValues(a: unknown, b: unknown): number {
 
 function restoreSelectedEtfs(): void {
   try {
-    const saved = JSON.parse(localStorage.getItem(SELECTED_KEY) || '[]') as string[];
+    const saved = JSON.parse(localStorage.getItem(SELECTED_KEY) || '[]');
     state.selected = new Set(saved.map(sanitizeTicker).filter(Boolean));
   } catch {
     state.selected = new Set();
@@ -1267,8 +1267,9 @@ function isDetailTab(tab: ActiveTab | string): boolean {
   return tab.startsWith('detail:');
 }
 
-function detailTabKey(tab: ActiveTab | string): FundDetailTab {
-  return (tab.replace('detail:', '') || 'overview') as FundDetailTab;
+function detailTabKey(tab: ActiveTab | string): any {
+  const key = tab.replace('detail:', '') || 'overview';
+  return DETAIL_TABS.some(item => item.key === key) ? key : 'overview';
 }
 
 function applyDefaultSortForTab(tab: ActiveTab): void {
@@ -1277,7 +1278,7 @@ function applyDefaultSortForTab(tab: ActiveTab): void {
     state.sortDir = 'desc';
   } else if (isDetailTab(tab)) {
     const key = detailTabKey(tab);
-    const defaults: Record<FundDetailTab, [string, SortDirection]> = {
+    const defaults: any = {
       overview: ['section', 'asc'],
       holdings: ['weight', 'desc'],
       performance: ['period', 'asc'],
@@ -1286,7 +1287,7 @@ function applyDefaultSortForTab(tab: ActiveTab): void {
       yields: ['metric', 'asc'],
       price: ['metric', 'asc'],
     };
-    [state.sortKey, state.sortDir] = defaults[key];
+    [state.sortKey, state.sortDir] = defaults[key] || defaults.overview;
   } else {
     state.sortKey = 'rank';
     state.sortDir = 'asc';
@@ -1312,7 +1313,8 @@ function booleanLabel(value: unknown): string {
 }
 
 function returnLabel(key: string): string {
-  return ({ SI_Cum: 'SI Cum.', SI_Ann: 'SI Ann.' } as Record<string, string>)[key] || key;
+  const labels: any = { SI_Cum: 'SI Cum.', SI_Ann: 'SI Ann.' };
+  return labels[key] || key;
 }
 
 function sanitizeTicker(value: unknown): string {
@@ -1325,6 +1327,11 @@ function sanitizeWatchlistSymbol(value: unknown): string {
 
 function normalizeSearchText(value: unknown): string {
   return String(value || '').toLowerCase().replace(/\s+/g, ' ').trim();
+}
+
+
+function stringArray(value: unknown): string[] {
+  return Array.isArray(value) ? value.map(item => String(item)) : [];
 }
 
 function numberOrNull(value: unknown): number | null {
