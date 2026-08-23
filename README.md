@@ -17,7 +17,7 @@ The catalog table surfaces Dividend Yield, 30-Day SEC Yield, YTD / 1-year total 
 Regenerate it with bun:
 
 ```bash
-bun ./scripts/update-data.ts
+./scripts/update-data.ts
 ```
 
 The repository also includes a manually triggered GitHub Actions workflow that refreshes `api/data.json` and commits it back to the repository.
