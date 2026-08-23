@@ -284,7 +284,7 @@ const state: AppState = {
   funds: [],
   holdings: {},
   details: {},
-  selected: new Set<string>(),
+  selected: new Set(),
   activeFundTicker: null,
   activeTab: 'All',
   query: '',
@@ -293,18 +293,18 @@ const state: AppState = {
 };
 
 const el = {
-  themeToggle: byId<HTMLButtonElement>('theme-toggle'),
-  tickerCount: byId<HTMLSpanElement>('ticker-count'),
-  subtitle: byId<HTMLSpanElement>('app-subtitle'),
-  searchInput: byId<HTMLInputElement>('search-input'),
-  tabsBar: byId<HTMLDivElement>('tabs-bar'),
-  copyBtn: byId<HTMLButtonElement>('copy-btn'),
-  exportCsvBtn: byId<HTMLButtonElement>('export-csv-btn'),
-  exportTxtBtn: byId<HTMLButtonElement>('export-txt-btn'),
-  resetBtn: byId<HTMLButtonElement>('reset-btn'),
-  statusLine: byId<HTMLDivElement>('status-line'),
-  tableHead: byId<HTMLTableSectionElement>('table-head'),
-  tableBody: byId<HTMLTableSectionElement>('table-body'),
+  themeToggle: (byId('theme-toggle') as HTMLButtonElement),
+  tickerCount: (byId('ticker-count') as HTMLSpanElement),
+  subtitle: (byId('app-subtitle') as HTMLSpanElement),
+  searchInput: (byId('search-input') as HTMLInputElement),
+  tabsBar: (byId('tabs-bar') as HTMLDivElement),
+  copyBtn: (byId('copy-btn') as HTMLButtonElement),
+  exportCsvBtn: (byId('export-csv-btn') as HTMLButtonElement),
+  exportTxtBtn: (byId('export-txt-btn') as HTMLButtonElement),
+  resetBtn: (byId('reset-btn') as HTMLButtonElement),
+  statusLine: (byId('status-line') as HTMLDivElement),
+  tableHead: (byId('table-head') as HTMLTableSectionElement),
+  tableBody: (byId('table-body') as HTMLTableSectionElement),
 };
 
 init();
@@ -476,7 +476,7 @@ function renderTabs(): void {
     `;
   }).join('');
 
-  el.tabsBar.querySelectorAll<HTMLButtonElement>('button[data-tab]').forEach(button => {
+  el.tabsBar.querySelectorAll('button[data-tab]').forEach((button: any) => {
     button.addEventListener('click', () => {
       state.activeTab = button.dataset.tab || 'All';
       applyDefaultSortForTab(state.activeTab);
@@ -528,9 +528,9 @@ function renderFundsTable(): void {
     }).join('');
   }
 
-  el.tableBody.querySelectorAll<HTMLTableRowElement>('tr[data-ticker]').forEach(row => {
-    row.addEventListener('click', event => {
-      const target = event.target as HTMLElement;
+  el.tableBody.querySelectorAll('tr[data-ticker]').forEach((row: any) => {
+    row.addEventListener('click', (event: any) => {
+      const target = event.target as any;
       if (target.closest('a')) return;
       toggleFund(row.dataset.ticker || '');
     });
@@ -849,7 +849,7 @@ function getVisibleWatchlistRows(): WatchlistRow[] {
 }
 
 function getDedupedWatchlistRows(): WatchlistRow[] {
-  const map = new Map<string, {
+  const map: Map<string, {
     symbol: string;
     names: Set<string>;
     cusips: Set<string>;
@@ -858,7 +858,7 @@ function getDedupedWatchlistRows(): WatchlistRow[] {
     weightSum: number;
     maxWeight: number | null;
     marketValueSum: number;
-  }>();
+  }> = new Map();
 
   for (const position of getSelectedPositions()) {
     const symbol = sanitizeWatchlistSymbol(position.symbol);
@@ -867,10 +867,10 @@ function getDedupedWatchlistRows(): WatchlistRow[] {
     if (!map.has(symbol)) {
       map.set(symbol, {
         symbol,
-        names: new Set<string>(),
-        cusips: new Set<string>(),
-        flags: new Set<string>(),
-        funds: new Set<string>(),
+        names: new Set(),
+        cusips: new Set(),
+        flags: new Set(),
+        funds: new Set(),
         weightSum: 0,
         maxWeight: null,
         marketValueSum: 0,
@@ -1184,7 +1184,7 @@ function sortHeader(label: string, key: string, numeric = false): string {
 }
 
 function bindSortHeaders(): void {
-  el.tableHead.querySelectorAll<HTMLButtonElement>('button[data-sort]').forEach(button => {
+  el.tableHead.querySelectorAll('button[data-sort]').forEach((button: any) => {
     button.addEventListener('click', () => {
       const key = button.dataset.sort || 'rank';
       if (state.sortKey === key) state.sortDir = state.sortDir === 'asc' ? 'desc' : 'asc';
@@ -1222,7 +1222,7 @@ function restoreSelectedEtfs(): void {
     const saved = JSON.parse(localStorage.getItem(SELECTED_KEY) || '[]') as string[];
     state.selected = new Set(saved.map(sanitizeTicker).filter(Boolean));
   } catch {
-    state.selected = new Set<string>();
+    state.selected = new Set();
   }
   const savedActive = sanitizeTicker(localStorage.getItem(ACTIVE_FUND_KEY) || '');
   state.activeFundTicker = savedActive && state.selected.has(savedActive) ? savedActive : ([...state.selected][0] || null);
@@ -1447,10 +1447,10 @@ function escapeHtml(value: unknown): string {
   }[char] || char));
 }
 
-function byId<T extends HTMLElement>(id: string): T {
+function byId(id: string): any {
   const element = document.getElementById(id);
   if (!element) throw new Error(`Missing element #${id}`);
-  return element as T;
+  return element;
 }
   </script>
 </body>
