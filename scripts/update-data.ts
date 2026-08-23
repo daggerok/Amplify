@@ -72,6 +72,7 @@ async function main() {
       quarterlyPerformanceDoc,
       dimensionsDoc,
       distributionsDocs,
+      historyCount,
     ] = await Promise.all([
       fetchFirestoreDoc(['funds', ticker, 'fund_metadata', 'overview']).catch(error => emptyDoc('overview', error)),
       fetchLatestCollectionDoc(['funds', ticker, 'daily']).catch(error => emptyDoc('', error)),
@@ -83,6 +84,10 @@ async function main() {
       fetchDistributions(ticker).catch(error => {
         console.warn(`Failed distributions for ${ticker}:`, error?.message || error);
         return [] as DecodedDoc[];
+      }),
+      countCollectionDocs(['funds', ticker, 'daily']).catch(error => {
+        console.warn(`Failed daily history count for ${ticker}:`, error?.message || error);
+        return null;
       }),
     ]);
 
@@ -112,6 +117,7 @@ async function main() {
       expenseRatioValue,
       holdingsAsOfDate: asOfDate,
       holdingsCount: positions.length,
+      historyCount,
       fundPage: `https://amplifyetfs.com/${encodeURIComponent(ticker)}/`,
       holdingsPage: `https://amplifyetfs.com/${encodeURIComponent(ticker.toLowerCase())}-holdings/`,
     });
@@ -175,6 +181,18 @@ async function main() {
     console.log(`Wrote ${OUT_FILE.pathname}`);
   }
   console.log(`Funds: ${payload.counts.funds}; normalized positions: ${payload.counts.holdings}; distributions: ${payload.counts.distributions}`);
+}
+
+async function countCollectionDocs(pathParts: string[]): Promise<number> {
+  let total = 0;
+  let pageToken = '';
+  do {
+    const query = `pageSize=300&orderBy=__name__%20desc${pageToken ? `&pageToken=${encodeURIComponent(pageToken)}` : ''}`;
+    const json = await fetchJson(`${FIRESTORE_BASE}/${pathParts.map(encodeURIComponent).join('/')}?${query}`);
+    total += Array.isArray(json.documents) ? json.documents.length : 0;
+    pageToken = json.nextPageToken || '';
+  } while (pageToken);
+  return total;
 }
 
 async function fetchLatestCollectionDoc(pathParts: string[]): Promise<DecodedDoc | null> {
