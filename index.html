@@ -877,7 +877,8 @@ function getDedupedWatchlistRows(): WatchlistRow[] {
       });
     }
 
-    const row = map.get(symbol)!;
+    const row = map.get(symbol);
+    if (!row) continue;
     row.names.add(position.name || symbol);
     if (position.cusip) row.cusips.add(position.cusip);
     (position.flags || []).forEach(flag => row.flags.add(flag));
