@@ -21,8 +21,4 @@ The repository also includes a manually triggered GitHub Actions workflow that r
 
 ## TypeScript
 
-Browser app source lives in `./src/main.ts`. Rebuild the browser bundle with bun:
-
-```bash
-bun build ./src/main.ts --outfile=./src/main.js --target=browser --format=esm
-```
+The browser app is intentionally single-file: `index.html` contains inline TypeScript compiled in the browser with Babel standalone, following the `daggerok/youtube` no-src-files approach.
