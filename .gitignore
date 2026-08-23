@@ -1,8 +1,4 @@
-.DS_Store
-node_modules/
-dist/
-build/
-.cache/
+.idea/
 .parcel-cache/
-.env
-*.log
+dist/
+.DS_Store
