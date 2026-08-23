@@ -477,10 +477,12 @@ function uniqueCategories(): string[] {
 
 function renderTabs(): void {
   const catalogTabs = getTabs();
-  const selectedFunds = [...state.selected]
-    .map(ticker => state.funds.find(fund => fund.ticker === ticker))
-    .filter((fund): fund is FundRow => Boolean(fund))
-    .map(fund => ({ id: `fund:${fund.ticker}`, label: fund.ticker, count: fund.holdingsCount || 0 }));
+  // Avoid TypeScript type predicates here: the in-browser Babel parser is intentionally conservative.
+  const selectedFunds: Array<{ id: string; label: string; count: number }> = [];
+  [...state.selected].forEach(ticker => {
+    const fund = state.funds.find(item => item.ticker === ticker);
+    if (fund) selectedFunds.push({ id: `fund:${fund.ticker}`, label: fund.ticker, count: fund.holdingsCount || 0 });
+  });
   const selectedTabs = getSelectedTabs();
 
   // The table's navigation is intentionally consolidated in this one panel.
