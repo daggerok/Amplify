@@ -10,11 +10,19 @@ open http://0:1234
 
 ## Update static data API
 
-The app reads its ETF catalog and holdings from `./api/data.json`.
+The app reads Amplify ETF catalog and holdings from `./api/data.json`.
 Regenerate it with bun:
 
 ```bash
-bun ./scripts/update-data.js
+bun ./scripts/update-data.ts
 ```
 
-A manually triggered GitHub Actions workflow is included to refresh `api/data.json` and commit the update back to the repository.
+The repository also includes a manually triggered GitHub Actions workflow that refreshes `api/data.json` and commits it back to the repository.
+
+## TypeScript
+
+Browser app source lives in `./src/main.ts`. Rebuild the browser bundle with bun:
+
+```bash
+bun build ./src/main.ts --outfile=./src/main.js --target=browser --format=esm
+```
