@@ -137,7 +137,7 @@
   <script type="text/babel" data-presets="typescript">
 type CategoryId = string;
 type FundDetailTab = 'overview' | 'holdings' | 'performance' | 'distributions' | 'yields' | 'allocations' | 'price';
-type ActiveTab = 'watchlist' | CategoryId | `detail:${FundDetailTab}`;
+type ActiveTab = string;
 type SortDirection = 'asc' | 'desc';
 type TableRow = Record<string, unknown> & { searchIndex?: string };
 
@@ -1263,7 +1263,7 @@ function getActiveDetail(): FundDetail | null {
   return state.activeFundTicker ? state.details[state.activeFundTicker] || null : null;
 }
 
-function isDetailTab(tab: ActiveTab | string): tab is `detail:${FundDetailTab}` {
+function isDetailTab(tab: ActiveTab | string): boolean {
   return tab.startsWith('detail:');
 }
 
