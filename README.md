@@ -10,7 +10,7 @@ open http://0:1234
 
 ## Update static data API
 
-The app reads Amplify ETF catalog and holdings from `./api/data.json`.
+The app reads Amplify ETF catalog, holdings, distributions, yields, performance/total returns, allocations, and daily price metrics from `./api/data.json`.
 Regenerate it with bun:
 
 ```bash
