@@ -92,9 +92,6 @@
           class="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 w-full lg:w-96 focus:outline-none focus:border-blue-500 text-sm placeholder-slate-400 dark:placeholder-slate-500 disabled:opacity-50 disabled:cursor-not-allowed shrink-0 transition"
         />
 
-        <!-- Dynamic tabs from api/data.json categories, plus Watchlist when ETFs are selected -->
-        <div id="tabs-bar" class="hidden flex flex-wrap items-center justify-center gap-1.5 overflow-x-auto py-1 w-full max-w-full flex-1 themed-scroll"></div>
-
         <!-- Actions intentionally match iShares naming and placement -->
         <div class="flex flex-wrap items-center gap-2.5 w-full lg:w-auto justify-end shrink-0">
           <button id="copy-btn" disabled class="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 px-4 py-2 rounded-lg text-sm font-medium transition active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-slate-200 dark:hover:bg-slate-700 disabled:hover:bg-slate-100 dark:disabled:hover:bg-slate-800">Copy Tickers</button>
@@ -106,13 +103,12 @@
       </div>
 
 
-      <!-- Selected ETF tabs: appear only after at least one ETF is selected -->
-      <div id="selected-tabs-panel" class="hidden bg-white dark:bg-slate-800/80 p-4 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm backdrop-blur">
-        <div class="flex flex-col items-center justify-center gap-2">
-          <a id="active-fund-link" href="#" target="_blank" rel="noopener noreferrer" class="hidden text-sm font-semibold text-blue-600 dark:text-blue-400 hover:underline text-center"></a>
-          <div id="selected-tabs-bar" class="flex flex-wrap items-center justify-center gap-1.5 overflow-x-auto py-1 w-full max-w-full themed-scroll"></div>
-        </div>
-      </div>
+      <!-- All navigation lives here, immediately above the table. -->
+      <nav id="selected-tabs-panel" class="hidden bg-white dark:bg-slate-800/80 p-4 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm backdrop-blur" aria-label="ETF data views">
+        <div id="tabs-bar" class="flex flex-wrap items-center justify-center gap-1.5 overflow-x-auto py-1 w-full max-w-full themed-scroll"></div>
+        <div id="selected-funds-bar" class="hidden mt-2 flex flex-wrap items-center justify-center gap-1.5 overflow-x-auto py-1 w-full max-w-full themed-scroll"></div>
+        <div id="selected-tabs-bar" class="hidden mt-2 flex flex-wrap items-center justify-center gap-1.5 overflow-x-auto py-1 w-full max-w-full themed-scroll"></div>
+      </nav>
 
       <!-- Data Table Container -->
       <div class="bg-white dark:bg-slate-800/50 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm backdrop-blur overflow-hidden">
@@ -272,6 +268,7 @@ const DATA_API_URL = './api/data.json';
 const THEME_KEY = 'amplify-theme';
 const SELECTED_KEY = 'amplify-selected-etfs';
 const ACTIVE_FUND_KEY = 'amplify-active-fund';
+const DEFAULT_SELECTED_TICKERS = ['HACK', 'SILJ'];
 const SEARCHES_KEY = 'amplify-searches';
 
 const DETAIL_TABS: Array<{ key: FundDetailTab; label: string }> = [
@@ -305,7 +302,7 @@ const el = {
   tabsBar: byId('tabs-bar'),
   selectedTabsPanel: byId('selected-tabs-panel'),
   selectedTabsBar: byId('selected-tabs-bar'),
-  activeFundLink: byId('active-fund-link'),
+  selectedFundsBar: byId('selected-funds-bar'),
   copyBtn: byId('copy-btn'),
   exportCsvBtn: byId('export-csv-btn'),
   exportTxtBtn: byId('export-txt-btn'),
@@ -479,19 +476,38 @@ function uniqueCategories(): string[] {
 }
 
 function renderTabs(): void {
-  renderTabButtons(el.tabsBar, getTabs());
-
+  const catalogTabs = getTabs();
+  const selectedFunds = [...state.selected]
+    .map(ticker => state.funds.find(fund => fund.ticker === ticker))
+    .filter((fund): fund is FundRow => Boolean(fund))
+    .map(fund => ({ id: `fund:${fund.ticker}`, label: fund.ticker, count: fund.holdingsCount || 0 }));
   const selectedTabs = getSelectedTabs();
-  const activeFund = getActiveFund();
-  el.selectedTabsPanel.classList.toggle('hidden', selectedTabs.length === 0);
-  if (activeFund) {
-    el.activeFundLink.href = `https://amplifyetfs.com/${encodeURIComponent(activeFund.ticker)}/`;
-    el.activeFundLink.textContent = `${activeFund.ticker} (${activeFund.name})`;
-    el.activeFundLink.classList.remove('hidden');
-  } else {
-    el.activeFundLink.classList.add('hidden');
-  }
+
+  // The table's navigation is intentionally consolidated in this one panel.
+  el.selectedTabsPanel.classList.toggle('hidden', catalogTabs.length === 0);
+  renderTabButtons(el.tabsBar, catalogTabs);
+  renderFundButtons(el.selectedFundsBar, selectedFunds);
   renderTabButtons(el.selectedTabsBar, selectedTabs);
+}
+
+function renderFundButtons(container: any, funds: Array<{ id: string; label: string; count: number }>): void {
+  container.classList.toggle('hidden', funds.length === 0);
+  container.innerHTML = funds.map(fund => {
+    const ticker = fund.id.replace('fund:', '');
+    const selected = ticker === state.activeFundTicker;
+    const classes = selected
+      ? 'bg-emerald-600 text-white font-medium border-emerald-500 shadow-sm'
+      : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200 dark:hover:bg-slate-700 border-slate-200 dark:border-slate-700';
+    return `<button data-fund="${escapeHtml(ticker)}" class="px-3.5 py-1.5 rounded-full text-xs transition border whitespace-nowrap ${classes}">${escapeHtml(fund.label)}</button>`;
+  }).join('');
+  container.querySelectorAll('button[data-fund]').forEach((button: any) => {
+    button.addEventListener('click', () => {
+      state.activeFundTicker = button.dataset.fund || null;
+      if (isDetailTab(state.activeTab)) applyDefaultSortForTab(state.activeTab);
+      persistSelection();
+      render();
+    });
+  });
 }
 
 function renderTabButtons(container: any, tabs: Array<{ id: ActiveTab; label: string; count: number }>): void {
@@ -542,14 +558,13 @@ function renderFundsTable(): void {
   } else {
     el.tableBody.innerHTML = rows.map((fund, index) => {
       const selected = state.selected.has(fund.ticker);
-      const active = state.activeFundTicker === fund.ticker;
       return `
         <tr data-ticker="${escapeHtml(fund.ticker)}" class="cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-700/30 transition border-b border-slate-100 dark:border-slate-700/30 ${selected ? 'selected-row' : ''}">
           <td class="py-2.5 px-4 text-slate-400 dark:text-slate-500 text-xs text-center font-mono">${index + 1}</td>
           <td class="py-2.5 px-4 text-center">
             <input data-checkbox="${escapeHtml(fund.ticker)}" type="checkbox" ${selected ? 'checked' : ''} class="w-4 h-4 accent-blue-600" aria-label="Use ${escapeHtml(fund.ticker)}" />
           </td>
-          <td class="py-2.5 px-4 font-mono font-semibold text-blue-600 dark:text-blue-400">${escapeHtml(fund.ticker)}${active ? '<span class="ml-2 text-[10px] text-emerald-600 dark:text-emerald-400 font-sans uppercase">active</span>' : ''}</td>
+          <td class="py-2.5 px-4 font-mono font-semibold text-blue-600 dark:text-blue-400">${escapeHtml(fund.ticker)}</td>
           <td class="py-2.5 px-4 text-slate-700 dark:text-slate-300 font-medium">${escapeHtml(fund.name)}</td>
           <td class="py-2.5 px-4 text-slate-600 dark:text-slate-300">${escapeHtml(categoryLabel(fund.category))}</td>
           <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${escapeHtml(fund.nav || '—')}</td>
@@ -853,11 +868,11 @@ function renderControls(): void {
   el.resetBtn.disabled = !hasData || (!selected && !currentQuery());
 
   const generated = state.data?.generatedAt ? ` · data ${state.data.generatedAt.slice(0, 10)}` : '';
-  const activeFund = getActiveFund();
-  const activeText = activeFund
-    ? `<a href="https://amplifyetfs.com/${encodeURIComponent(activeFund.ticker)}/" target="_blank" rel="noopener noreferrer" class="font-semibold text-blue-600 dark:text-blue-400 hover:underline">${escapeHtml(activeFund.ticker)} (${escapeHtml(activeFund.name)})</a>${selected > 1 ? ` · ${selected} selected` : ''}`
-    : 'select ETFs by clicking rows';
-  el.subtitle.innerHTML = `Search Amplify ETFs, select rows, inspect ETF detail tabs, then use Watchlist (${activeText}${generated}). Data: <a href="./api/data.json" target="_blank" rel="noopener noreferrer" class="font-semibold text-blue-600 dark:text-blue-400 hover:underline">api/data.json</a>`;
+  const selectedLinks = [...state.selected]
+    .map(ticker => `<a href="https://amplifyetfs.com/${encodeURIComponent(ticker)}/" target="_blank" rel="noopener noreferrer" class="font-semibold text-blue-600 dark:text-blue-400 hover:underline">${escapeHtml(ticker)}</a>`)
+    .join(', ');
+  const selectionText = selectedLinks || 'none';
+  el.subtitle.innerHTML = `· ${selected} selected: ${selectionText}${generated}. Data: <a href="./api/data.json" target="_blank" rel="noopener noreferrer" class="font-semibold text-blue-600 dark:text-blue-400 hover:underline">api/data.json</a>`;
 }
 
 
@@ -1301,8 +1316,9 @@ function restoreSelectedEtfs(): void {
   try {
     const saved = JSON.parse(localStorage.getItem(SELECTED_KEY) || '[]');
     state.selected = new Set(saved.map(sanitizeTicker).filter(Boolean));
+    if (!state.selected.size && localStorage.getItem(SELECTED_KEY) === null) state.selected = new Set(DEFAULT_SELECTED_TICKERS);
   } catch {
-    state.selected = new Set();
+    state.selected = new Set(DEFAULT_SELECTED_TICKERS);
   }
   const savedActive = sanitizeTicker(localStorage.getItem(ACTIVE_FUND_KEY) || '');
   state.activeFundTicker = savedActive && state.selected.has(savedActive) ? savedActive : ([...state.selected][0] || null);
