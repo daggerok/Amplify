@@ -128,9 +128,9 @@
           <table class="w-full text-left border-collapse whitespace-nowrap">
             <thead id="table-head" class="bg-slate-50 dark:bg-slate-900/95 text-slate-500 dark:text-slate-400 text-xs uppercase tracking-wider border-b border-slate-200 dark:border-slate-700 sticky top-0 z-20 backdrop-blur">
               <tr>
-                <th class="py-3.5 px-4 w-12 text-center">#</th>
-                <th class="py-3.5 px-4">ETF</th>
-                <th class="py-3.5 px-4">Fund Name</th>
+                <th class="py-3.5 px-4 w-12 text-center" title="Row index in the current table view.">#</th>
+                <th class="py-3.5 px-4" title="Ticker Symbol — Unique exchange identifier for the Amplify ETF.">ETF</th>
+                <th class="py-3.5 px-4" title="Fund Name — Official legal name of the Amplify Exchange-Traded Fund (ETF).">Fund Name</th>
               </tr>
             </thead>
             <tbody id="table-body" class="divide-y divide-slate-100 dark:divide-slate-700/50 text-sm">
@@ -165,6 +165,18 @@ type Fund = {
   holdingsAsOfDate?: string;
   holdingsCount?: number;
   rank?: number;
+  distributionYield?: string;
+  distributionYieldValue?: number | null;
+  secYield?: string;
+  secYieldValue?: number | null;
+  ytdReturn?: number | null;
+  tr1y?: number | null;
+  cagr3y?: number | null;
+  cagr5y?: number | null;
+  cagr10y?: number | null;
+  siAnn?: number | null;
+  returnAsOf?: string;
+  inceptionDate?: string;
 };
 
 type Holding = {
@@ -278,6 +290,64 @@ type AppState = {
 
 const DATA_API_URL = './api/data.json';
 const THEME_KEY = 'amplify-theme';
+
+// Hover explanations for table headers. Native `title` tooltips, same pattern as daggerok/iShares.
+const COLUMN_TOOLTIPS = {
+  '#': 'Row index in the current table view.',
+  'Use': 'Use / Multi-ETF Selection — Check this box to include this ETF\'s underlying holdings in the combined Watchlist tab.',
+  'Ticker': 'Ticker Symbol — Unique exchange identifier for the Amplify ETF or underlying holding.',
+  'Fund Name': 'Fund Name — Official legal name of the Amplify Exchange-Traded Fund (ETF).',
+  'Name': 'Security Name — Full registered legal name of the company or underlying financial asset.',
+  'Type': 'Fund Type — Amplify product category: Income, Growth (Thematic), or Core.',
+  'NAV': 'NAV (Net Asset Value) — Per-share dollar value of the fund: (total assets − liabilities) ÷ shares outstanding.',
+  'Net Assets': 'Net Assets (AUM) — Assets Under Management: total market value of fund assets minus liabilities. AUM = Assets Under Management.',
+  'Expense': 'Expense Ratio — Annual management fee and operating expenses charged to shareholders, as a percent of fund assets.',
+  'Dividend Yield': 'Dividend Yield / Distribution Rate — Trailing distribution yield: recent cash distributions annualized, divided by current NAV. Amplify publishes this as Distribution Yield.',
+  'SEC Yield': '30-Day SEC Yield — Standardized yield required by the U.S. SEC, based on income earned over the last 30 days after expenses. Useful for comparing income funds.',
+  'YTD Return': 'YTD Return (Year-To-Date Total Return) — Cumulative NAV total return from January 1 of the current calendar year through the latest month-end, including reinvested distributions.',
+  'YTD': 'YTD (Year-To-Date) — Cumulative total return from the start of the current calendar year.',
+  'TR 1Y': 'TR 1Y (1-Year Total Return) — NAV total return over the past 1 year (TR = Total Return), including price change and reinvested distributions. For a 1-year window this equals the annualized 1-year figure Amplify publishes.',
+  'CAGR 3Y': 'CAGR 3Y (3-Year Compound Annual Growth Rate) — Annualized NAV total return over 3 years (CAGR = Compound Annual Growth Rate). Amplify publishes 3YR as an annualized figure, not a 3-year cumulative total.',
+  'CAGR 5Y': 'CAGR 5Y (5-Year Compound Annual Growth Rate) — Annualized NAV total return over 5 years (CAGR = Compound Annual Growth Rate). Amplify publishes 5YR as an annualized figure.',
+  'CAGR 10Y': 'CAGR 10Y (10-Year Compound Annual Growth Rate) — Annualized NAV total return over 10 years (CAGR = Compound Annual Growth Rate). Amplify publishes 10YR as an annualized figure.',
+  'SI Ann.': 'SI Ann. (Since Inception Annualized) — Compound annual growth rate from the fund\'s inception date through the latest month-end. SI = Since Inception.',
+  'SI Cum.': 'SI Cum. (Since Inception Cumulative) — Total cumulative NAV return from inception through the latest month-end, including reinvested distributions. SI = Since Inception.',
+  'Return As Of': 'Return As Of Date — Month-end cutoff for the published YTD, TR, CAGR, and since-inception performance figures.',
+  'Inception': 'Inception Date — Official date the ETF began operations / first traded.',
+  'Inception Date': 'Inception Date — Official date the ETF began operations / first traded.',
+  'Holdings': 'Holdings Count — Number of individual positions currently in the ETF portfolio.',
+  'As Of': 'As Of Date — Effective date of the holdings file used for this row (catalog) or of the metric shown (detail views).',
+  'ETFs': 'ETFs — Badges for every selected Amplify ETF that currently holds this security.',
+  'Weight Sum': 'Weight Sum (%) — Combined allocation of this holding across all selected ETFs.',
+  'Max Weight': 'Max Weight (%) — Largest single-fund portfolio weight of this holding among the selected ETFs.',
+  'Market Value': 'Market Value ($) — Current dollar value of the position (or the sum across selected ETFs on Watchlist).',
+  'Weight': 'Portfolio Weight (%) — Percentage of the fund\'s net assets allocated to this position.',
+  'Shares': 'Shares / Quantity — Number of shares or units of the security held by the fund.',
+  'Flags': 'Flags — Classification tags for the holding (symbol, cash, option, treasury, derivative, and so on).',
+  'CUSIP': 'CUSIP — Committee on Uniform Security Identification Procedures 9-character U.S. security identifier.',
+  'ISIN': 'ISIN — International Securities Identification Number, a 12-character unique identifier.',
+  'SEDOL': 'SEDOL — Stock Exchange Daily Official List 7-character security identifier.',
+  'Section': 'Section — Grouping of the overview metric (Fund, Price, Yield, Holdings).',
+  'Metric': 'Metric — Name of the reported data point.',
+  'Value': 'Value — Reported figure for this metric.',
+  'Period': 'Period — Whether the performance row is month-end or quarter-end.',
+  '1M': '1M (1-Month Total Return) — Cumulative NAV return over the most recent calendar month.',
+  '3M': '3M (3-Month Total Return) — Cumulative NAV return over the most recent 3 months.',
+  '6M': '6M (6-Month Total Return) — Cumulative NAV return over the most recent 6 months.',
+  '1Y': '1Y (1-Year Total Return) — NAV total return over the past 1 year, including reinvested distributions.',
+  '3Y': '3Y (3-Year CAGR) — Annualized NAV total return over 3 years. CAGR = Compound Annual Growth Rate.',
+  '5Y': '5Y (5-Year CAGR) — Annualized NAV total return over 5 years. CAGR = Compound Annual Growth Rate.',
+  '10Y': '10Y (10-Year CAGR) — Annualized NAV total return over 10 years. CAGR = Compound Annual Growth Rate.',
+  'Allocation': 'Allocation Dimension — How holdings are grouped (GICS sector, country, market cap, theme).',
+  'Ex-Date': 'Ex-Dividend Date — On or after this date, a buyer of the ETF is not entitled to the next distribution.',
+  'Record Date': 'Record Date — Date the fund locks the shareholder list eligible for the distribution.',
+  'Payable Date': 'Payable Date — Date cash is paid to shareholders of record.',
+  'Amount': 'Distribution Amount ($) — Cash paid per share, in USD.',
+  'Year': 'Distribution Year — Calendar year of the distribution.',
+  'Note': 'Note — Extra comment on the distribution, if Amplify provided one.',
+  'Price': 'Price ($) — Market price per share of the holding, when available.',
+};
+
 const SELECTED_KEY = 'amplify-selected-etfs';
 const ACTIVE_FUND_KEY = 'amplify-active-fund';
 const DEFAULT_SELECTED_TICKERS = ['HACK', 'SILJ'];
@@ -324,6 +394,31 @@ const el = {
 
 init();
 
+function getHeaderTooltip(header: string): string {
+  if (!header) return '';
+  if (COLUMN_TOOLTIPS[header]) return COLUMN_TOOLTIPS[header];
+  const clean = String(header).trim();
+  const keys = Object.keys(COLUMN_TOOLTIPS);
+  for (let i = 0; i < keys.length; i++) {
+    const key = keys[i];
+    if (key.toLowerCase() === clean.toLowerCase()) return COLUMN_TOOLTIPS[key];
+  }
+  if (/^TR\s+\d+/i.test(clean)) return `${clean} = Total Return: cumulative return over the period, including price change and reinvested distributions.`;
+  if (/^CAGR\s+\d+/i.test(clean)) return `${clean} = Compound Annual Growth Rate: annualized geometric mean return over the period.`;
+  if (/weight/i.test(clean)) return `${clean}: Portfolio weight percentage allocation.`;
+  if (/yield/i.test(clean)) return `${clean}: Annualized payout or dividend yield.`;
+  if (/return/i.test(clean)) return `${clean}: Performance total return metric.`;
+  return `${clean} — column in the current table.`;
+}
+
+function indexHeader(): string {
+  return `<th class="py-3.5 px-4 w-12 text-center" title="${escapeHtml(getHeaderTooltip('#'))}">#</th>`;
+}
+
+function useHeader(): string {
+  return `<th class="py-3.5 px-4 w-20 text-center" title="${escapeHtml(getHeaderTooltip('Use'))}">Use</th>`;
+}
+
 function init(): void {
   restoreSelectedEtfs();
   restoreSearches();
@@ -363,7 +458,7 @@ async function loadData(): Promise<void> {
     state.holdings = holdings;
     state.details = data.details || {};
     state.funds = (data.funds || [])
-      .map((fund, index) => normalizeFundRow(fund, holdings, index))
+      .map((fund, index) => normalizeFundRow(fund, holdings, data.details || {}, index))
       .sort((a, b) => (a.rank ?? 9999) - (b.rank ?? 9999) || a.ticker.localeCompare(b.ticker));
 
     if (state.activeFundTicker && !state.funds.some(fund => fund.ticker === state.activeFundTicker)) {
@@ -381,9 +476,11 @@ async function loadData(): Promise<void> {
   }
 }
 
-function normalizeFundRow(fund: Fund, holdings: Record<string, FundHoldings>, index: number): FundRow {
+function normalizeFundRow(fund: Fund, holdings: Record<string, FundHoldings>, details: Record<string, FundDetail>, index: number): FundRow {
   const ticker = sanitizeTicker(fund.ticker);
   const positions = holdings[ticker]?.positions || [];
+  const detail = details[ticker];
+  const catalogMetrics = getCatalogMetrics(detail);
   const holdingsText = positions
     .map(position => [position.symbol, position.name, position.cusip, position.flags?.join(' ')].filter(Boolean).join(' '))
     .join(' ');
@@ -395,6 +492,18 @@ function normalizeFundRow(fund: Fund, holdings: Record<string, FundHoldings>, in
     category: normalizeCategory(fund.category),
     holdingsCount: numberOrNull(fund.holdingsCount) ?? positions.length,
     rank: numberOrNull(fund.rank) ?? index + 1,
+    distributionYield: catalogMetrics.distributionYield,
+    distributionYieldValue: catalogMetrics.distributionYieldValue,
+    secYield: catalogMetrics.secYield,
+    secYieldValue: catalogMetrics.secYieldValue,
+    ytdReturn: catalogMetrics.ytdReturn,
+    tr1y: catalogMetrics.tr1y,
+    cagr3y: catalogMetrics.cagr3y,
+    cagr5y: catalogMetrics.cagr5y,
+    cagr10y: catalogMetrics.cagr10y,
+    siAnn: catalogMetrics.siAnn,
+    returnAsOf: catalogMetrics.returnAsOf,
+    inceptionDate: catalogMetrics.inceptionDate,
     searchIndex: normalizeSearchText([
       ticker,
       fund.name,
@@ -403,10 +512,52 @@ function normalizeFundRow(fund: Fund, holdings: Record<string, FundHoldings>, in
       fund.nav,
       fund.netAssets,
       fund.expenseRatio,
+      catalogMetrics.distributionYield,
+      catalogMetrics.secYield,
+      catalogMetrics.inceptionDate,
+      catalogMetrics.returnAsOf,
       fund.holdingsAsOfDate,
       holdingsText,
     ].join(' ')),
   };
+}
+
+function getCatalogMetrics(detail) {
+  const yields = (detail && detail.yields) || {};
+  const meta = (detail && detail.metadata) || {};
+  const monthly = detail && detail.performance ? detail.performance.monthly : null;
+  const navRows = (monthly && monthly.returns) || [];
+  let navRow = null;
+  for (let i = 0; i < navRows.length; i++) {
+    if (String(navRows[i].type || '').toUpperCase() === 'NAV') {
+      navRow = navRows[i];
+      break;
+    }
+  }
+  const returns = (navRow && navRow.returns) || {};
+  return {
+    distributionYield: formatYieldDisplay(yields.Distribution_Yield),
+    distributionYieldValue: numberOrNull(yields.Distribution_Yield),
+    secYield: formatYieldDisplay(yields['30_Day_SECYield']),
+    secYieldValue: numberOrNull(yields['30_Day_SECYield']),
+    ytdReturn: numberOrNull(returns.YTD),
+    tr1y: numberOrNull(returns['1Y']),
+    cagr3y: numberOrNull(returns['3Y']),
+    cagr5y: numberOrNull(returns['5Y']),
+    cagr10y: numberOrNull(returns['10Y']),
+    siAnn: numberOrNull(returns.SI_Ann),
+    returnAsOf: String((monthly && monthly.asOfDate) || ''),
+    inceptionDate: String(meta.InceptionDate || meta.LaunchDate || ''),
+  };
+}
+
+function formatYieldDisplay(value) {
+  if (value === null || value === undefined || value === '') return '—';
+  const text = String(value).trim();
+  if (text === '-' || text === '—') return '—';
+  if (text.includes('%')) return text;
+  const parsed = numberOrNull(text);
+  return parsed === null ? text : parsed.toFixed(2) + '%';
 }
 
 function render(): void {
@@ -532,14 +683,24 @@ function renderFundsTable(): void {
   const rows = sortRows(getVisibleFunds());
   el.tableHead.innerHTML = `
     <tr>
-      <th class="py-3.5 px-4 w-12 text-center">#</th>
-      <th class="py-3.5 px-4 w-20 text-center">Use</th>
+      ${indexHeader()}
+      ${useHeader()}
       ${sortHeader('Ticker', 'ticker')}
       ${sortHeader('Fund Name', 'name')}
       ${sortHeader('Type', 'category')}
       ${sortHeader('NAV', 'navValue', true)}
       ${sortHeader('Net Assets', 'netAssetsValue', true)}
       ${sortHeader('Expense', 'expenseRatio', true)}
+      ${sortHeader('Dividend Yield', 'distributionYieldValue', true)}
+      ${sortHeader('SEC Yield', 'secYieldValue', true)}
+      ${sortHeader('YTD Return', 'ytdReturn', true)}
+      ${sortHeader('TR 1Y', 'tr1y', true)}
+      ${sortHeader('CAGR 3Y', 'cagr3y', true)}
+      ${sortHeader('CAGR 5Y', 'cagr5y', true)}
+      ${sortHeader('CAGR 10Y', 'cagr10y', true)}
+      ${sortHeader('SI Ann.', 'siAnn', true)}
+      ${sortHeader('Return As Of', 'returnAsOf')}
+      ${sortHeader('Inception', 'inceptionDate')}
       ${sortHeader('Holdings', 'holdingsCount', true)}
       ${sortHeader('As Of', 'holdingsAsOfDate')}
     </tr>
@@ -547,7 +708,7 @@ function renderFundsTable(): void {
   bindSortHeaders();
 
   if (!rows.length) {
-    el.tableBody.innerHTML = `<tr><td colspan="10" class="py-12 text-center text-slate-400 dark:text-slate-500">No ETFs match your search.</td></tr>`;
+    el.tableBody.innerHTML = `<tr><td colspan="20" class="py-12 text-center text-slate-400 dark:text-slate-500">No ETFs match your search.</td></tr>`;
   } else {
     el.tableBody.innerHTML = rows.map((fund, index) => {
       const selected = state.selected.has(fund.ticker);
@@ -563,6 +724,16 @@ function renderFundsTable(): void {
           <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${escapeHtml(fund.nav || '—')}</td>
           <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${escapeHtml(fund.netAssets || '—')}</td>
           <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${escapeHtml(fund.expenseRatio || '—')}</td>
+          <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${escapeHtml(fund.distributionYield || '—')}</td>
+          <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${escapeHtml(fund.secYield || '—')}</td>
+          <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatPercent(fund.ytdReturn)}</td>
+          <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatPercent(fund.tr1y)}</td>
+          <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatPercent(fund.cagr3y)}</td>
+          <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatPercent(fund.cagr5y)}</td>
+          <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatPercent(fund.cagr10y)}</td>
+          <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatPercent(fund.siAnn)}</td>
+          <td class="py-2.5 px-4 font-mono text-slate-600 dark:text-slate-400">${escapeHtml(fund.returnAsOf || '—')}</td>
+          <td class="py-2.5 px-4 font-mono text-slate-600 dark:text-slate-400">${escapeHtml(fund.inceptionDate || '—')}</td>
           <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatInteger(fund.holdingsCount)}</td>
           <td class="py-2.5 px-4 font-mono text-slate-600 dark:text-slate-400">${escapeHtml(fund.holdingsAsOfDate || '—')}</td>
         </tr>
@@ -589,7 +760,7 @@ function renderWatchlistTable(): void {
   const rows = sortRows(getVisibleWatchlistRows());
   el.tableHead.innerHTML = `
     <tr>
-      <th class="py-3.5 px-4 w-12 text-center">#</th>
+      ${indexHeader()}
       ${sortHeader('Ticker', 'symbol')}
       ${sortHeader('Name', 'name')}
       ${sortHeader('ETFs', 'fundCount')}
@@ -648,7 +819,7 @@ function renderOverviewTable(fund: FundRow, detail: FundDetail): void {
   const rows = sortRows(filterRows(getOverviewRows(fund, detail)));
   el.tableHead.innerHTML = `
     <tr>
-      <th class="py-3.5 px-4 w-12 text-center">#</th>
+      ${indexHeader()}
       ${sortHeader('Section', 'section')}
       ${sortHeader('Metric', 'metric')}
       ${sortHeader('Value', 'value')}
@@ -664,7 +835,7 @@ function renderSelectedFundHoldings(fund: FundRow): void {
   const rows = sortRows(filterRows(getFundHoldingRows(fund.ticker)));
   el.tableHead.innerHTML = `
     <tr>
-      <th class="py-3.5 px-4 w-12 text-center">#</th>
+      ${indexHeader()}
       ${sortHeader('Ticker', 'symbol')}
       ${sortHeader('Name', 'name')}
       ${sortHeader('Weight', 'weight', true)}
@@ -701,7 +872,7 @@ function renderPerformanceTable(fund: FundRow, detail: FundDetail): void {
   const returnColumns = ['1M', '3M', '6M', 'YTD', '1Y', '3Y', '5Y', '10Y', 'SI_Cum', 'SI_Ann'];
   el.tableHead.innerHTML = `
     <tr>
-      <th class="py-3.5 px-4 w-12 text-center">#</th>
+      ${indexHeader()}
       ${sortHeader('Period', 'period')}
       ${sortHeader('As Of', 'asOfDate')}
       ${sortHeader('Type', 'type')}
@@ -733,7 +904,7 @@ function renderAllocationsTable(fund: FundRow, detail: FundDetail): void {
   const rows = sortRows(filterRows(getAllocationRows(detail)));
   el.tableHead.innerHTML = `
     <tr>
-      <th class="py-3.5 px-4 w-12 text-center">#</th>
+      ${indexHeader()}
       ${sortHeader('Allocation', 'dimension')}
       ${sortHeader('Value', 'label')}
       ${sortHeader('Weight', 'weight', true)}
@@ -765,7 +936,7 @@ function renderDistributionsTable(fund: FundRow, detail: FundDetail): void {
   const rows = sortRows(filterRows(getDistributionRows(detail)));
   el.tableHead.innerHTML = `
     <tr>
-      <th class="py-3.5 px-4 w-12 text-center">#</th>
+      ${indexHeader()}
       ${sortHeader('Ex-Date', 'exDate')}
       ${sortHeader('Record Date', 'recordDate')}
       ${sortHeader('Payable Date', 'payableDate')}
@@ -801,7 +972,7 @@ function renderYieldsTable(fund: FundRow, detail: FundDetail): void {
   const rows = sortRows(filterRows(getYieldRows(detail)));
   el.tableHead.innerHTML = `
     <tr>
-      <th class="py-3.5 px-4 w-12 text-center">#</th>
+      ${indexHeader()}
       ${sortHeader('Metric', 'metric')}
       ${sortHeader('Value', 'value')}
       ${sortHeader('As Of', 'asOfDate')}
@@ -817,7 +988,7 @@ function renderPriceTable(fund: FundRow, detail: FundDetail): void {
   const rows = sortRows(filterRows(getPriceRows(detail)));
   el.tableHead.innerHTML = `
     <tr>
-      <th class="py-3.5 px-4 w-12 text-center">#</th>
+      ${indexHeader()}
       ${sortHeader('Metric', 'metric')}
       ${sortHeader('Value', 'value')}
       ${sortHeader('As Of', 'asOfDate')}
@@ -844,7 +1015,7 @@ function renderSimpleRows(rows: TableRow[], columns: string[], emptyText: string
 }
 
 function renderEmptyDetail(message: string): void {
-  el.tableHead.innerHTML = '<tr><th class="py-3.5 px-4">ETF details</th></tr>';
+  el.tableHead.innerHTML = `<tr><th class="py-3.5 px-4" title="${escapeHtml(getHeaderTooltip('Fund Name'))}">ETF details</th></tr>`;
   el.tableBody.innerHTML = `<tr><td class="py-12 text-center text-slate-400 dark:text-slate-500">${escapeHtml(message)}</td></tr>`;
   setStatus(message, 'info');
 }
@@ -1238,7 +1409,7 @@ function exportCsv(): void {
     return;
   }
 
-  const headers = ['Selected', 'Ticker', 'Fund Name', 'Type', 'NAV', 'Net Assets', 'Expense Ratio', 'Holdings', 'Holdings As Of'];
+  const headers = ['Selected', 'Ticker', 'Fund Name', 'Type', 'NAV', 'Net Assets', 'Expense Ratio', 'Dividend Yield', 'SEC Yield', 'YTD Return', 'TR 1Y', 'CAGR 3Y', 'CAGR 5Y', 'CAGR 10Y', 'SI Ann.', 'Return As Of', 'Inception', 'Holdings', 'Holdings As Of'];
   const rows = getVisibleFunds().map(fund => [
     state.selected.has(fund.ticker) ? 'yes' : 'no',
     fund.ticker,
@@ -1247,6 +1418,16 @@ function exportCsv(): void {
     fund.nav || '',
     fund.netAssets || '',
     fund.expenseRatio || '',
+    fund.distributionYield || '',
+    fund.secYield || '',
+    numberCell(fund.ytdReturn),
+    numberCell(fund.tr1y),
+    numberCell(fund.cagr3y),
+    numberCell(fund.cagr5y),
+    numberCell(fund.cagr10y),
+    numberCell(fund.siAnn),
+    fund.returnAsOf || '',
+    fund.inceptionDate || '',
     numberCell(fund.holdingsCount),
     fund.holdingsAsOfDate || '',
   ]);
@@ -1272,7 +1453,8 @@ function sortHeader(label: string, key: string, numeric = false): string {
   const active = state.sortKey === key;
   const arrow = active ? (state.sortDir === 'asc' ? ' ↑' : ' ↓') : '';
   const align = numeric ? ' text-right' : '';
-  return `<th class="py-3.5 px-4${align}"><button data-sort="${escapeHtml(key)}" class="uppercase tracking-wider hover:text-blue-600 dark:hover:text-blue-400">${escapeHtml(label)}${arrow}</button></th>`;
+  const tooltip = getHeaderTooltip(label);
+  return `<th class="py-3.5 px-4${align}" title="${escapeHtml(tooltip)}"><button data-sort="${escapeHtml(key)}" title="${escapeHtml(tooltip)}" class="uppercase tracking-wider hover:text-blue-600 dark:hover:text-blue-400">${escapeHtml(label)}${arrow}</button></th>`;
 }
 
 function bindSortHeaders(): void {
