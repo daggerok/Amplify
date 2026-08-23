@@ -175,8 +175,12 @@ type Fund = {
   cagr5y?: number | null;
   cagr10y?: number | null;
   siAnn?: number | null;
+  tr3y?: number | null;
+  tr5y?: number | null;
+  tr10y?: number | null;
   returnAsOf?: string;
   inceptionDate?: string;
+  historyCount?: number | null;
 };
 
 type Holding = {
@@ -307,6 +311,9 @@ const COLUMN_TOOLTIPS = {
   'YTD Return': 'YTD Return (Year-To-Date Total Return) — Cumulative NAV total return from January 1 of the current calendar year through the latest month-end, including reinvested distributions.',
   'YTD': 'YTD (Year-To-Date) — Cumulative total return from the start of the current calendar year.',
   'TR 1Y': 'TR 1Y (1-Year Total Return) — NAV total return over the past 1 year (TR = Total Return), including price change and reinvested distributions. For a 1-year window this equals the annualized 1-year figure Amplify publishes.',
+  'TR 3Y': 'TR 3Y (3-Year Total Return) — Cumulative NAV total return over 3 years (TR = Total Return). Derived from Amplify\'s published 3-year annualized return: (1 + CAGR)^3 − 1.',
+  'TR 5Y': 'TR 5Y (5-Year Total Return) — Cumulative NAV total return over 5 years (TR = Total Return). Derived from Amplify\'s published 5-year annualized return: (1 + CAGR)^5 − 1.',
+  'TR 10Y': 'TR 10Y (10-Year Total Return) — Cumulative NAV total return over 10 years (TR = Total Return). Derived from Amplify\'s published 10-year annualized return: (1 + CAGR)^10 − 1.',
   'CAGR 3Y': 'CAGR 3Y (3-Year Compound Annual Growth Rate) — Annualized NAV total return over 3 years (CAGR = Compound Annual Growth Rate). Amplify publishes 3YR as an annualized figure, not a 3-year cumulative total.',
   'CAGR 5Y': 'CAGR 5Y (5-Year Compound Annual Growth Rate) — Annualized NAV total return over 5 years (CAGR = Compound Annual Growth Rate). Amplify publishes 5YR as an annualized figure.',
   'CAGR 10Y': 'CAGR 10Y (10-Year Compound Annual Growth Rate) — Annualized NAV total return over 10 years (CAGR = Compound Annual Growth Rate). Amplify publishes 10YR as an annualized figure.',
@@ -316,6 +323,7 @@ const COLUMN_TOOLTIPS = {
   'Inception': 'Inception Date — Official date the ETF began operations / first traded.',
   'Inception Date': 'Inception Date — Official date the ETF began operations / first traded.',
   'Holdings': 'Holdings Count — Number of individual positions currently in the ETF portfolio.',
+  'History': 'Historical Records — Number of daily NAV / market-price snapshots stored for this fund (same idea as iShares History).',
   'As Of': 'As Of Date — Effective date of the holdings file used for this row (catalog) or of the metric shown (detail views).',
   'ETFs': 'ETFs — Badges for every selected Amplify ETF that currently holds this security.',
   'Weight Sum': 'Weight Sum (%) — Combined allocation of this holding across all selected ETFs.',
@@ -416,7 +424,13 @@ function indexHeader(): string {
 }
 
 function useHeader(): string {
-  return `<th class="py-3.5 px-4 w-20 text-center" title="${escapeHtml(getHeaderTooltip('Use'))}">Use</th>`;
+  const allSelected = state.funds.length > 0 && state.selected.size === state.funds.length;
+  return `<th class="py-3.5 px-4 w-20 text-center" title="${escapeHtml(getHeaderTooltip('Use'))}">
+    <div class="inline-flex items-center justify-center gap-1">
+      <input type="checkbox" id="select-all-checkbox" ${allSelected ? 'checked' : ''} class="w-4 h-4 accent-blue-600 cursor-pointer" title="Select / Deselect all ETFs" />
+      <span>Use</span>
+    </div>
+  </th>`;
 }
 
 function init(): void {
@@ -502,8 +516,12 @@ function normalizeFundRow(fund: Fund, holdings: Record<string, FundHoldings>, de
     cagr5y: catalogMetrics.cagr5y,
     cagr10y: catalogMetrics.cagr10y,
     siAnn: catalogMetrics.siAnn,
+    tr3y: catalogMetrics.tr3y,
+    tr5y: catalogMetrics.tr5y,
+    tr10y: catalogMetrics.tr10y,
     returnAsOf: catalogMetrics.returnAsOf,
     inceptionDate: catalogMetrics.inceptionDate,
+    historyCount: numberOrNull(fund.historyCount),
     searchIndex: normalizeSearchText([
       ticker,
       fund.name,
@@ -516,6 +534,7 @@ function normalizeFundRow(fund: Fund, holdings: Record<string, FundHoldings>, de
       catalogMetrics.secYield,
       catalogMetrics.inceptionDate,
       catalogMetrics.returnAsOf,
+      fund.historyCount,
       fund.holdingsAsOfDate,
       holdingsText,
     ].join(' ')),
@@ -546,9 +565,17 @@ function getCatalogMetrics(detail) {
     cagr5y: numberOrNull(returns['5Y']),
     cagr10y: numberOrNull(returns['10Y']),
     siAnn: numberOrNull(returns.SI_Ann),
+    tr3y: cumulativeFromCagr(numberOrNull(returns['3Y']), 3),
+    tr5y: cumulativeFromCagr(numberOrNull(returns['5Y']), 5),
+    tr10y: cumulativeFromCagr(numberOrNull(returns['10Y']), 10),
     returnAsOf: String((monthly && monthly.asOfDate) || ''),
     inceptionDate: String(meta.InceptionDate || meta.LaunchDate || ''),
   };
+}
+
+function cumulativeFromCagr(annualized, years) {
+  if (annualized === null || annualized === undefined) return null;
+  return (Math.pow(1 + annualized / 100, years) - 1) * 100;
 }
 
 function formatYieldDisplay(value) {
@@ -656,10 +683,21 @@ function renderTabs(): void {
 
 function renderTabButtons(container: any, tabs: Array<{ id: ActiveTab; label: string; count: number }>): void {
   container.classList.toggle('hidden', tabs.length <= 1);
+  const allSelected = state.funds.length > 0 && state.selected.size === state.funds.length;
   container.innerHTML = tabs.map(tab => {
     const isActive = tab.id === state.activeTab;
     const activeClasses = 'bg-blue-600 text-white font-medium border-blue-500 shadow-sm';
     const inactiveClasses = 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200 dark:hover:bg-slate-700 border-slate-200 dark:border-slate-700';
+    if (tab.id === 'All') {
+      return `
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs transition border whitespace-nowrap ${isActive ? activeClasses : inactiveClasses}">
+          <input type="checkbox" id="select-all-toggle" ${allSelected ? 'checked' : ''} class="w-3.5 h-3.5 accent-blue-600 cursor-pointer" title="Select / Deselect all ETFs" />
+          <button data-tab="All" class="font-medium hover:underline focus:outline-none">
+            ${escapeHtml(tab.label)} (${tab.count})
+          </button>
+        </div>
+      `;
+    }
     return `
       <button
         data-tab="${escapeHtml(tab.id)}"
@@ -677,6 +715,15 @@ function renderTabButtons(container: any, tabs: Array<{ id: ActiveTab; label: st
       render();
     });
   });
+
+  const selectAllToggle = container.querySelector('#select-all-toggle');
+  if (selectAllToggle) {
+    selectAllToggle.addEventListener('change', (event: any) => {
+      event.stopPropagation();
+      toggleSelectAll(Boolean(event.target.checked));
+    });
+    selectAllToggle.addEventListener('click', (event: any) => event.stopPropagation());
+  }
 }
 
 function renderFundsTable(): void {
@@ -695,6 +742,9 @@ function renderFundsTable(): void {
       ${sortHeader('SEC Yield', 'secYieldValue', true)}
       ${sortHeader('YTD Return', 'ytdReturn', true)}
       ${sortHeader('TR 1Y', 'tr1y', true)}
+      ${sortHeader('TR 3Y', 'tr3y', true)}
+      ${sortHeader('TR 5Y', 'tr5y', true)}
+      ${sortHeader('TR 10Y', 'tr10y', true)}
       ${sortHeader('CAGR 3Y', 'cagr3y', true)}
       ${sortHeader('CAGR 5Y', 'cagr5y', true)}
       ${sortHeader('CAGR 10Y', 'cagr10y', true)}
@@ -702,13 +752,15 @@ function renderFundsTable(): void {
       ${sortHeader('Return As Of', 'returnAsOf')}
       ${sortHeader('Inception', 'inceptionDate')}
       ${sortHeader('Holdings', 'holdingsCount', true)}
+      ${sortHeader('History', 'historyCount', true)}
       ${sortHeader('As Of', 'holdingsAsOfDate')}
     </tr>
   `;
   bindSortHeaders();
+  bindSelectAllCheckbox();
 
   if (!rows.length) {
-    el.tableBody.innerHTML = `<tr><td colspan="20" class="py-12 text-center text-slate-400 dark:text-slate-500">No ETFs match your search.</td></tr>`;
+    el.tableBody.innerHTML = `<tr><td colspan="23" class="py-12 text-center text-slate-400 dark:text-slate-500">No ETFs match your search.</td></tr>`;
   } else {
     el.tableBody.innerHTML = rows.map((fund, index) => {
       const selected = state.selected.has(fund.ticker);
@@ -728,6 +780,9 @@ function renderFundsTable(): void {
           <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${escapeHtml(fund.secYield || '—')}</td>
           <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatPercent(fund.ytdReturn)}</td>
           <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatPercent(fund.tr1y)}</td>
+          <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatPercent(fund.tr3y)}</td>
+          <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatPercent(fund.tr5y)}</td>
+          <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatPercent(fund.tr10y)}</td>
           <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatPercent(fund.cagr3y)}</td>
           <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatPercent(fund.cagr5y)}</td>
           <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatPercent(fund.cagr10y)}</td>
@@ -735,6 +790,7 @@ function renderFundsTable(): void {
           <td class="py-2.5 px-4 font-mono text-slate-600 dark:text-slate-400">${escapeHtml(fund.returnAsOf || '—')}</td>
           <td class="py-2.5 px-4 font-mono text-slate-600 dark:text-slate-400">${escapeHtml(fund.inceptionDate || '—')}</td>
           <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatInteger(fund.holdingsCount)}</td>
+          <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatInteger(fund.historyCount)}</td>
           <td class="py-2.5 px-4 font-mono text-slate-600 dark:text-slate-400">${escapeHtml(fund.holdingsAsOfDate || '—')}</td>
         </tr>
       `;
@@ -1345,6 +1401,33 @@ function passesWatchlistDefault(position: Holding): boolean {
   return /[A-Z]/.test(symbol);
 }
 
+function bindSelectAllCheckbox(): void {
+  const checkbox = el.tableHead.querySelector('#select-all-checkbox');
+  if (!checkbox) return;
+  checkbox.addEventListener('change', (event: any) => {
+    event.stopPropagation();
+    toggleSelectAll(Boolean(event.target.checked));
+  });
+  checkbox.addEventListener('click', (event: any) => event.stopPropagation());
+}
+
+function toggleSelectAll(selectAll: boolean): void {
+  if (selectAll) {
+    state.selected = new Set(state.funds.map(fund => fund.ticker));
+    if (!state.activeFundTicker) state.activeFundTicker = state.funds[0] ? state.funds[0].ticker : null;
+  } else {
+    state.selected.clear();
+    state.activeFundTicker = null;
+    if (state.activeTab === 'watchlist' || isDetailTab(state.activeTab)) {
+      state.activeTab = 'All';
+      state.sortKey = 'rank';
+      state.sortDir = 'asc';
+    }
+  }
+  persistSelection();
+  render();
+}
+
 function toggleFund(ticker: string): void {
   const cleanTicker = sanitizeTicker(ticker);
   if (!cleanTicker) return;
@@ -1409,7 +1492,7 @@ function exportCsv(): void {
     return;
   }
 
-  const headers = ['Selected', 'Ticker', 'Fund Name', 'Type', 'NAV', 'Net Assets', 'Expense Ratio', 'Dividend Yield', 'SEC Yield', 'YTD Return', 'TR 1Y', 'CAGR 3Y', 'CAGR 5Y', 'CAGR 10Y', 'SI Ann.', 'Return As Of', 'Inception', 'Holdings', 'Holdings As Of'];
+  const headers = ['Selected', 'Ticker', 'Fund Name', 'Type', 'NAV', 'Net Assets', 'Expense Ratio', 'Dividend Yield', 'SEC Yield', 'YTD Return', 'TR 1Y', 'TR 3Y', 'TR 5Y', 'TR 10Y', 'CAGR 3Y', 'CAGR 5Y', 'CAGR 10Y', 'SI Ann.', 'Return As Of', 'Inception', 'Holdings', 'History', 'Holdings As Of'];
   const rows = getVisibleFunds().map(fund => [
     state.selected.has(fund.ticker) ? 'yes' : 'no',
     fund.ticker,
@@ -1422,6 +1505,9 @@ function exportCsv(): void {
     fund.secYield || '',
     numberCell(fund.ytdReturn),
     numberCell(fund.tr1y),
+    numberCell(fund.tr3y),
+    numberCell(fund.tr5y),
+    numberCell(fund.tr10y),
     numberCell(fund.cagr3y),
     numberCell(fund.cagr5y),
     numberCell(fund.cagr10y),
@@ -1429,6 +1515,7 @@ function exportCsv(): void {
     fund.returnAsOf || '',
     fund.inceptionDate || '',
     numberCell(fund.holdingsCount),
+    numberCell(fund.historyCount),
     fund.holdingsAsOfDate || '',
   ]);
   downloadText(toCsv([headers, ...rows]), exportFileName('etfs', 'csv'), 'text/csv;charset=utf-8;');
