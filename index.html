@@ -50,6 +50,11 @@
 
     .selected-row{background:#eff6ff}
     .dark .selected-row{background:rgba(30,64,175,.22)}
+
+    /* Detail navigation expands into place after an ETF is selected. */
+    main.space-y-6 > #selected-tabs-panel{max-height:0;margin-top:0;overflow:hidden;opacity:0;transform:translateY(-10px);padding-top:0;padding-bottom:0;border-color:transparent;transition:max-height .32s ease,margin-top .32s ease,padding .32s ease,opacity .22s ease,transform .32s ease,border-color .22s ease}
+    main.space-y-6 > #selected-tabs-panel.is-visible{max-height:8rem;margin-top:1.5rem;padding-top:1rem;padding-bottom:1rem;opacity:1;transform:translateY(0);border-color:rgb(226 232 240)}
+    .dark main.space-y-6 > #selected-tabs-panel.is-visible{border-color:rgb(51 65 85)}
   </style>
 </head>
 <body class="min-h-screen font-sans bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300">
@@ -58,12 +63,14 @@
     <!-- Header: intentionally mirrors daggerok/iShares look and feel -->
     <header class="bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 px-4 sm:px-8 py-3 flex flex-wrap justify-between items-center gap-3 z-40 shadow-xs shrink-0">
       <div class="flex flex-1 flex-wrap items-center gap-x-3 gap-y-1.5 min-w-0">
-        <svg class="w-6 h-6 text-blue-600 dark:text-blue-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M22 7l-8.5 8.5-5-5L2 17" />
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7h6v6" />
-        </svg>
-        <h1 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white leading-tight">Amplify ETF Holdings to Watchlist</h1>
-        <span id="app-subtitle" class="text-sm text-slate-500 dark:text-slate-400">
+        <div class="flex items-start gap-3 min-w-0">
+          <svg class="w-6 h-6 text-blue-600 dark:text-blue-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M22 7l-8.5 8.5-5-5L2 17" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7h6v6" />
+          </svg>
+          <h1 class="min-w-0 text-xl font-bold tracking-tight text-slate-900 dark:text-white leading-tight">Amplify ETF Holdings to Watchlist</h1>
+        </div>
+        <span id="app-subtitle" class="basis-full sm:basis-auto text-sm text-slate-500 dark:text-slate-400">
           Search Amplify ETFs, select rows, then use the Watchlist tab. Data comes from
           <a href="./api/data.json" target="_blank" rel="noopener noreferrer" class="font-semibold text-blue-600 dark:text-blue-400 hover:underline">api/data.json</a>
           generated from
@@ -107,7 +114,7 @@
 
 
       <!-- Selected ETF detail tabs appear immediately above the table. -->
-      <nav id="selected-tabs-panel" class="hidden bg-white dark:bg-slate-800/80 p-4 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm backdrop-blur" aria-label="Selected ETF detail views">
+      <nav id="selected-tabs-panel" class="bg-white dark:bg-slate-800/80 px-4 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm backdrop-blur" aria-label="Selected ETF detail views">
         <div id="selected-tabs-bar" class="flex flex-wrap items-center justify-center gap-1.5 overflow-x-auto py-1 w-full max-w-full themed-scroll"></div>
       </nav>
 
@@ -480,7 +487,7 @@ function renderTabs(): void {
 
   const selectedTabs = getSelectedTabs();
   // The panel above the table is reserved for detail and Watchlist tabs only.
-  el.selectedTabsPanel.classList.toggle('hidden', selectedTabs.length === 0);
+  el.selectedTabsPanel.classList.toggle('is-visible', selectedTabs.length > 0);
   renderTabButtons(el.selectedTabsBar, selectedTabs);
 }
 

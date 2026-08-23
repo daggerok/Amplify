@@ -2,12 +2,26 @@
 
 // Bun provides Node-compatible fs/promises and process globals for this script.
 // @ts-expect-error node types are intentionally not installed in this no-dependency repo.
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
 
 declare const process: { env: Record<string, string | undefined>; exitCode?: number };
 
 const FIRESTORE_BASE = 'https://firestore.googleapis.com/v1/projects/amplify-etfs-data-feed/databases/(default)/documents';
 const OUT_FILE = new URL('../api/data.json', import.meta.url);
+
+async function readExistingPayload(): Promise<{ text: string; payload: JsonRecord | null }> {
+  try {
+    const text = await readFile(OUT_FILE, 'utf8');
+    return { text, payload: JSON.parse(text) };
+  } catch {
+    return { text: '', payload: null };
+  }
+}
+
+function comparablePayload(payload: JsonRecord): JsonRecord {
+  const { generatedAt: _generatedAt, ...stablePayload } = payload;
+  return stablePayload;
+}
 const CONCURRENCY = Number(process.env.AMPLIFY_DATA_CONCURRENCY || 6);
 
 type JsonRecord = Record<string, any>;
@@ -30,6 +44,7 @@ function emptyDoc(id = '', error?: unknown): DecodedDoc {
 }
 
 async function main() {
+  const existing = await readExistingPayload();
   console.log('Fetching Amplify ETF catalog...');
   const categoryDocs = await fetchFirestoreList(['fund_category'], 'pageSize=200');
   const catalog: CatalogFund[] = categoryDocs
@@ -129,8 +144,7 @@ async function main() {
   funds.sort((a, b) => (b.netAssetsValue ?? -Infinity) - (a.netAssetsValue ?? -Infinity) || a.ticker.localeCompare(b.ticker));
   funds.forEach((fund, index) => { fund.rank = index + 1; });
 
-  const payload = {
-    generatedAt: new Date().toISOString(),
+  const stablePayload = {
     source: {
       site: 'https://amplifyetfs.com/our-etfs/',
       firestoreProject: 'amplify-etfs-data-feed',
@@ -146,9 +160,20 @@ async function main() {
     details: detailsByTicker,
   };
 
-  await mkdir(new URL('../api/', import.meta.url), { recursive: true });
-  await writeFile(OUT_FILE, `${JSON.stringify(payload, null, 2)}\n`, 'utf8');
-  console.log(`Wrote ${OUT_FILE.pathname}`);
+  const unchanged = existing.payload && JSON.stringify(comparablePayload(existing.payload)) === JSON.stringify(stablePayload);
+  const payload = {
+    generatedAt: unchanged ? existing.payload?.generatedAt : new Date().toISOString(),
+    ...stablePayload,
+  };
+  const nextText = `${JSON.stringify(payload, null, 2)}\n`;
+
+  if (nextText === existing.text) {
+    console.log('Fetched data is unchanged; keeping api/data.json untouched.');
+  } else {
+    await mkdir(new URL('../api/', import.meta.url), { recursive: true });
+    await writeFile(OUT_FILE, nextText, 'utf8');
+    console.log(`Wrote ${OUT_FILE.pathname}`);
+  }
   console.log(`Funds: ${payload.counts.funds}; normalized positions: ${payload.counts.holdings}; distributions: ${payload.counts.distributions}`);
 }
 
