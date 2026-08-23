@@ -841,12 +841,16 @@ function renderControls(): void {
   el.exportTxtBtn.disabled = !hasData || visibleRows.length === 0;
   el.resetBtn.disabled = !hasData || (!selected && !currentQuery());
 
-  const generated = state.data?.generatedAt ? ` · data ${state.data.generatedAt.slice(0, 10)}` : '';
+  const generated = state.data?.generatedAt ? `data ${state.data.generatedAt.slice(0, 10)}` : '';
   const selectedLinks = [...state.selected]
     .map(ticker => `<a href="https://amplifyetfs.com/${encodeURIComponent(ticker)}/" target="_blank" rel="noopener noreferrer" class="font-semibold text-blue-600 dark:text-blue-400 hover:underline">${escapeHtml(ticker)}</a>`)
     .join(', ');
-  const selectionText = selectedLinks || 'none';
-  el.subtitle.innerHTML = `· ${selected} selected: ${selectionText}${generated}. Data: <a href="./api/data.json" target="_blank" rel="noopener noreferrer" class="font-semibold text-blue-600 dark:text-blue-400 hover:underline">api/data.json</a>`;
+  const dataItem = `<span class="block sm:inline">·${generated ? ` ${generated}` : ''}. Data: <a href="./api/data.json" target="_blank" rel="noopener noreferrer" class="font-semibold text-blue-600 dark:text-blue-400 hover:underline">api/data.json</a></span>`;
+  const selectionItem = selected
+    ? `<span class="block sm:inline"><span class="hidden sm:inline"> · </span><span class="sm:hidden">· </span>${selected} selected: ${selectedLinks}</span>`
+    : '';
+  // On phones the data and selection summaries are separate list-like lines.
+  el.subtitle.innerHTML = `${dataItem}${selectionItem}`;
 }
 
 
