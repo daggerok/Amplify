@@ -569,7 +569,7 @@ function renderWatchlistTable(): void {
         <td class="py-2.5 px-4 text-slate-700 dark:text-slate-300 font-medium">${escapeHtml(row.name)}</td>
         <td class="py-2.5 px-4 text-slate-700 dark:text-slate-300">
           <div class="flex flex-wrap gap-1 max-w-md">
-            ${row.fundTickers.map(ticker => `<span class="font-mono text-xs bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border border-blue-100 dark:border-blue-800 rounded-full px-2 py-0.5">${escapeHtml(ticker)}</span>`).join('')}
+            ${row.fundTickers.map((ticker: string) => `<span class="font-mono text-xs bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border border-blue-100 dark:border-blue-800 rounded-full px-2 py-0.5">${escapeHtml(ticker)}</span>`).join('')}
           </div>
         </td>
         <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatPercent(row.weightSum)}</td>
@@ -1042,7 +1042,7 @@ function getPriceRows(detail: FundDetail): TableRow[] {
   ].filter(row => row.value && row.value !== '—').map(row => ({ ...row, asOfDate }));
 }
 
-function filterRows<T extends TableRow>(rows: T[]): T[] {
+function filterRows(rows: any[]): any[] {
   const query = normalizeSearchText(state.query);
   return rows.filter(row => !query || normalizeSearchText(row.searchIndex || Object.values(row).join(' ')).includes(query));
 }
@@ -1198,7 +1198,7 @@ function bindSortHeaders(): void {
   });
 }
 
-function sortRows<T extends Record<string, unknown>>(rows: T[]): T[] {
+function sortRows(rows: any[]): any[] {
   const direction = state.sortDir === 'asc' ? 1 : -1;
   const key = state.sortKey;
   return [...rows].sort((a, b) => compareValues(sortValue(a, key), sortValue(b, key)) * direction);
