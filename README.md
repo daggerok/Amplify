@@ -24,6 +24,8 @@ Regenerate it with bun:
 
 The repository also includes a manually triggered GitHub Actions workflow that refreshes `api/data.json` and commits it back to the repository.
 
+The vendor feed refreshes document stamps (`UpdatedAt`) on its own schedule even when a fund's data did not change. The updater compares each ticker's blocks with the stamps stripped and keeps the previously committed block on stamp-only refreshes, so `UpdatedAt` moves in `api/data.json` only together with a real data change.
+
 ## TypeScript
 
 The browser app is intentionally single-file: `index.html` contains inline TypeScript compiled in the browser with Babel standalone, following the `daggerok/youtube` no-src-files approach.
