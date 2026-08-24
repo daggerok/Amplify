@@ -22,6 +22,34 @@ function comparablePayload(payload: JsonRecord): JsonRecord {
   const { generatedAt: _generatedAt, ...stablePayload } = payload;
   return stablePayload;
 }
+
+// The vendor feed refreshes document stamps (UpdatedAt) on its own schedule,
+// even when the document's data did not change, which used to turn every
+// updater run into a stamp-only api/data.json diff. Comparing blocks with the
+// stamps stripped and keeping the previously committed block hides those
+// refreshes; a real data change still brings the fresh block and its fresh
+// stamp.
+function stripUpdatedStamps(value: unknown): unknown {
+  if (Array.isArray(value)) return value.map(stripUpdatedStamps);
+  if (value && typeof value === 'object') {
+    const out: JsonRecord = {};
+    Object.entries(value as JsonRecord).forEach(([key, inner]) => {
+      if (key === 'UpdatedAt' || key === 'updatedAt') return;
+      out[key] = stripUpdatedStamps(inner);
+    });
+    return out;
+  }
+  return value;
+}
+
+function preserveUnchangedBlock(previous: unknown, next: JsonRecord): JsonRecord {
+  if (!previous || typeof previous !== 'object' || Array.isArray(previous)) return next;
+  const previousBlock = previous as JsonRecord;
+  const onlyStampsChanged =
+    JSON.stringify(stripUpdatedStamps(previousBlock)) === JSON.stringify(stripUpdatedStamps(next));
+  return onlyStampsChanged ? previousBlock : next;
+}
+
 const CONCURRENCY = Number(process.env.AMPLIFY_DATA_CONCURRENCY || 6);
 
 type JsonRecord = Record<string, any>;
@@ -152,11 +180,15 @@ async function main() {
 
   // Key insertion order must not depend on which concurrent fetch finished
   // first: rebuild both maps in the deterministic (rank) order of `funds`.
+  // Blocks whose only change is an UpdatedAt stamp keep their committed
+  // version, so stamp-only vendor refreshes do not show up in the diff.
+  const previousHoldings: JsonRecord = (existing.payload?.holdings as JsonRecord) || {};
+  const previousDetails: JsonRecord = (existing.payload?.details as JsonRecord) || {};
   const orderedHoldings: JsonRecord = {};
   const orderedDetails: JsonRecord = {};
   for (const fund of funds) {
-    orderedHoldings[fund.ticker] = holdingsByTicker[fund.ticker];
-    orderedDetails[fund.ticker] = detailsByTicker[fund.ticker];
+    orderedHoldings[fund.ticker] = preserveUnchangedBlock(previousHoldings[fund.ticker], holdingsByTicker[fund.ticker]);
+    orderedDetails[fund.ticker] = preserveUnchangedBlock(previousDetails[fund.ticker], detailsByTicker[fund.ticker]);
   }
 
   const stablePayload = {
