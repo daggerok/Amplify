@@ -150,6 +150,15 @@ async function main() {
   funds.sort((a, b) => (b.netAssetsValue ?? -Infinity) - (a.netAssetsValue ?? -Infinity) || a.ticker.localeCompare(b.ticker));
   funds.forEach((fund, index) => { fund.rank = index + 1; });
 
+  // Key insertion order must not depend on which concurrent fetch finished
+  // first: rebuild both maps in the deterministic (rank) order of `funds`.
+  const orderedHoldings: JsonRecord = {};
+  const orderedDetails: JsonRecord = {};
+  for (const fund of funds) {
+    orderedHoldings[fund.ticker] = holdingsByTicker[fund.ticker];
+    orderedDetails[fund.ticker] = detailsByTicker[fund.ticker];
+  }
+
   const stablePayload = {
     source: {
       site: 'https://amplifyetfs.com/our-etfs/',
@@ -158,12 +167,12 @@ async function main() {
     },
     counts: {
       funds: funds.length,
-      holdings: Object.values(holdingsByTicker).reduce((sum, item) => sum + item.positions.length, 0),
-      distributions: Object.values(detailsByTicker).reduce((sum, item) => sum + (item.distributions?.length || 0), 0),
+      holdings: Object.values(orderedHoldings).reduce((sum, item) => sum + item.positions.length, 0),
+      distributions: Object.values(orderedDetails).reduce((sum, item) => sum + (item.distributions?.length || 0), 0),
     },
     funds,
-    holdings: holdingsByTicker,
-    details: detailsByTicker,
+    holdings: orderedHoldings,
+    details: orderedDetails,
   };
 
   const unchanged = existing.payload && JSON.stringify(comparablePayload(existing.payload)) === JSON.stringify(stablePayload);
@@ -237,8 +246,15 @@ async function fetchJson(url: string): Promise<JsonRecord> {
 function decodeDocument(doc: JsonRecord): DecodedDoc {
   const id = doc.name ? doc.name.split('/').pop() : '';
   const fields: JsonRecord = {};
-  Object.entries(doc.fields || {}).forEach(([key, value]) => { fields[key] = decodeFirestoreValue(value); });
+  sortedFieldEntries(doc.fields).forEach(([key, value]) => { fields[key] = decodeFirestoreValue(value); });
   return { id, name: doc.name, fields };
+}
+
+// Firestore returns document and map fields in a non-stable order, which made
+// identical updater runs rewrite api/data.json with reshuffled keys. Decoding
+// fields in sorted key order keeps the generated JSON byte-identical.
+function sortedFieldEntries(fields: JsonRecord | undefined): [string, any][] {
+  return Object.entries(fields || {}).sort(([left], [right]) => left.localeCompare(right));
 }
 
 function decodeFirestoreValue(value: any): any {
@@ -252,7 +268,7 @@ function decodeFirestoreValue(value: any): any {
   if ('arrayValue' in value) return (value.arrayValue.values || []).map(decodeFirestoreValue);
   if ('mapValue' in value) {
     const out: JsonRecord = {};
-    Object.entries(value.mapValue.fields || {}).forEach(([key, inner]) => { out[key] = decodeFirestoreValue(inner); });
+    sortedFieldEntries(value.mapValue.fields).forEach(([key, inner]) => { out[key] = decodeFirestoreValue(inner); });
     return out;
   }
   return value;
