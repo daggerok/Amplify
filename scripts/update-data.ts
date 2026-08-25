@@ -292,7 +292,7 @@ function fundFilterReasons(metrics: FundMetrics, config: UpdaterConfig): string[
   return reasons;
 }
 
-function monthlyNavReturns(doc: DecodedDoc): JsonRecord {
+function monthlyNavReturns(doc: DecodedDoc | null): JsonRecord {
   const monthly = normalizePerformanceDoc(doc);
   const rows = monthly && Array.isArray(monthly.returns) ? monthly.returns : [];
   const navRow = rows.find(row => String(row.type || '').toUpperCase() === 'NAV');
