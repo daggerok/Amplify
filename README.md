@@ -14,7 +14,9 @@ The app reads Amplify ETF catalog, holdings, distributions, yields, performance/
 
 The catalog table surfaces Dividend Yield, 30-Day SEC Yield, YTD / 1-year total return, 3Y/5Y/10Y total return and CAGR, since-inception annualized return, and daily History count from that same feed. Hover any column header for the abbreviation and a short explanation (for example **Net Assets** = AUM, Assets Under Management). The **All ETFs** tab and the **Use** header have a checkbox to select or clear every fund.
 
-The **Watchlist** tab aggregates the underlying holdings of every selected ETF. The **# ETFs** column counts how many of the selected ETFs currently hold each ticker, right after the **ETFs** badge column.
+The **Watchlist** tab aggregates the underlying holdings of every selected ETF. The **ETFs** column shows a badge per selected ETF holding the ticker, followed by the **# ETFs** count column.
+
+Any ETF can be **blacklisted**: click the small ✕ next to a fund's Use checkbox or type tickers into the **Blacklist** panel in the toolbar. Blacklisted ETFs disappear from All ETFs (and from selection); the list is kept per browser in localStorage and can be edited or cleared in the same panel.
 
 Regenerate it with bun:
 

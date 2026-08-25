@@ -112,8 +112,22 @@
           <button id="export-csv-btn" disabled class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg text-sm font-medium transition active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-blue-600">Export .csv</button>
           <button id="export-txt-btn" disabled class="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-lg text-sm font-medium transition active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-emerald-600">Export .txt</button>
           <button id="reset-btn" disabled class="bg-rose-100 dark:bg-rose-900/40 text-rose-700 dark:text-rose-300 border border-rose-200 dark:border-rose-700/50 px-3 py-2 rounded-lg text-sm font-medium transition active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-rose-200 dark:hover:bg-rose-800/60 disabled:hover:bg-rose-100 dark:disabled:hover:bg-rose-900/40">Clear</button>
+          <button id="blacklist-btn" class="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 px-4 py-2 rounded-lg text-sm font-medium transition active:scale-95 hover:bg-slate-200 dark:hover:bg-slate-700" title="Manage the blacklist of ETFs hidden from All ETFs (kept in browser localStorage)">Blacklist</button>
         </div>
 
+      </div>
+
+      <!-- Blacklist manager: blacklisted ETFs are hidden from All ETFs and stored in localStorage. -->
+      <div id="blacklist-panel" class="hidden bg-white dark:bg-slate-800/80 p-4 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm backdrop-blur">
+        <div class="flex flex-col sm:flex-row sm:items-center gap-2.5">
+          <input type="text" id="blacklist-input" placeholder="Add ETF tickers to blacklist (e.g. DIVO, IDVO)" class="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 w-full sm:w-80 focus:outline-none focus:border-blue-500 text-sm placeholder-slate-400 dark:placeholder-slate-500 transition" />
+          <div class="flex flex-wrap items-center gap-2.5">
+            <button id="blacklist-add-btn" class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg text-sm font-medium transition active:scale-95">Add</button>
+            <button id="blacklist-clear-btn" class="bg-rose-100 dark:bg-rose-900/40 text-rose-700 dark:text-rose-300 border border-rose-200 dark:border-rose-700/50 px-3 py-2 rounded-lg text-sm font-medium transition active:scale-95 hover:bg-rose-200 dark:hover:bg-rose-800/60">Clear Blacklist</button>
+          </div>
+        </div>
+        <div id="blacklist-chips" class="flex flex-wrap gap-1.5 mt-3"></div>
+        <p id="blacklist-empty" class="text-xs text-slate-400 dark:text-slate-500 mt-3">The blacklist is empty. Blacklisted ETFs disappear from All ETFs (and from selection), and are kept in your browser localStorage.</p>
       </div>
 
 
@@ -280,6 +294,7 @@ type WatchlistRow = {
 };
 
 type AppState = {
+  blacklist: Set<string>;
   data: DataApi | null;
   funds: FundRow[];
   holdings: Record<string, FundHoldings>;
@@ -358,6 +373,7 @@ const COLUMN_TOOLTIPS = {
 };
 
 const SELECTED_KEY = 'amplify-selected-etfs';
+const BLACKLIST_KEY = 'amplify-blacklisted-etfs';
 const ACTIVE_FUND_KEY = 'amplify-active-fund';
 const DEFAULT_SELECTED_TICKERS = ['HACK', 'SILJ'];
 const SEARCHES_KEY = 'amplify-searches';
@@ -373,6 +389,7 @@ const DETAIL_TABS: Array<{ key: FundDetailTab; label: string }> = [
 ];
 
 const state: AppState = {
+  blacklist: new Set(),
   data: null,
   funds: [],
   holdings: {},
@@ -397,6 +414,13 @@ const el = {
   exportCsvBtn: byId('export-csv-btn'),
   exportTxtBtn: byId('export-txt-btn'),
   resetBtn: byId('reset-btn'),
+  blacklistBtn: byId('blacklist-btn'),
+  blacklistPanel: byId('blacklist-panel'),
+  blacklistInput: byId('blacklist-input'),
+  blacklistAddBtn: byId('blacklist-add-btn'),
+  blacklistClearBtn: byId('blacklist-clear-btn'),
+  blacklistChips: byId('blacklist-chips'),
+  blacklistEmpty: byId('blacklist-empty'),
   tableHead: byId('table-head'),
   tableBody: byId('table-body'),
 };
@@ -425,7 +449,8 @@ function indexHeader(): string {
 }
 
 function useHeader(): string {
-  const allSelected = state.funds.length > 0 && state.selected.size === state.funds.length;
+  const candidates = visibleFunds();
+  const allSelected = candidates.length > 0 && state.selected.size === candidates.length;
   return `<th class="py-3.5 px-4 w-20 text-center" title="${escapeHtml(getHeaderTooltip('Use'))}">
     <div class="inline-flex items-center justify-center gap-1">
       <input type="checkbox" id="select-all-checkbox" ${allSelected ? 'checked' : ''} class="w-4 h-4 accent-blue-600 cursor-pointer" title="Select / Deselect all ETFs" />
@@ -436,6 +461,7 @@ function useHeader(): string {
 
 function init(): void {
   restoreSelectedEtfs();
+  restoreBlacklist();
   restoreSearches();
   applyTheme(localStorage.getItem(THEME_KEY) === 'dark');
   bindEvents();
@@ -458,6 +484,17 @@ function bindEvents(): void {
   el.exportCsvBtn.addEventListener('click', exportCsv);
   el.exportTxtBtn.addEventListener('click', exportTxt);
   el.resetBtn.addEventListener('click', clearSelectionAndSearch);
+
+  el.blacklistBtn.addEventListener('click', () => {
+    const hidden = el.blacklistPanel.classList.toggle('hidden');
+    el.blacklistBtn.setAttribute('aria-expanded', String(!hidden));
+    renderBlacklistPanel();
+  });
+  el.blacklistAddBtn.addEventListener('click', submitBlacklistInput);
+  el.blacklistInput.addEventListener('keydown', (event: any) => {
+    if (event.key === 'Enter') submitBlacklistInput();
+  });
+  el.blacklistClearBtn.addEventListener('click', clearBlacklist);
 }
 
 async function loadData(): Promise<void> {
@@ -475,6 +512,14 @@ async function loadData(): Promise<void> {
     state.funds = (data.funds || [])
       .map((fund, index) => normalizeFundRow(fund, holdings, data.details || {}, index))
       .sort((a, b) => (a.rank ?? 9999) - (b.rank ?? 9999) || a.ticker.localeCompare(b.ticker));
+
+    // A restored selection must not contain blacklisted (hidden) ETFs.
+    state.blacklist = new Set([...state.blacklist].filter(ticker => state.funds.some(fund => fund.ticker === ticker)));
+    if (state.blacklist.size) {
+      const before = state.selected.size;
+      state.selected = new Set([...state.selected].filter(ticker => !state.blacklist.has(ticker)));
+      if (state.selected.size !== before) persistSelection();
+    }
 
     if (state.activeFundTicker && !state.funds.some(fund => fund.ticker === state.activeFundTicker)) {
       state.activeFundTicker = [...state.selected][0] || null;
@@ -599,6 +644,7 @@ function render(): void {
   else renderFundsTable();
 
   renderControls();
+  renderBlacklistPanel();
   animateTableUpdate();
 }
 
@@ -625,12 +671,12 @@ function getTabs(): Array<{ id: ActiveTab; label: string; count: number }> {
   const categories = uniqueCategories();
   const tabs: Array<{ id: ActiveTab; label: string; count: number }> = [];
 
-  tabs.push({ id: 'All', label: 'All ETFs', count: state.funds.length });
+  tabs.push({ id: 'All', label: 'All ETFs', count: visibleFunds().length });
   categories.forEach(category => {
     tabs.push({
       id: category,
       label: categoryLabel(category),
-      count: state.funds.filter(fund => fund.category === category).length,
+      count: visibleFunds().filter(fund => fund.category === category).length,
     });
   });
 
@@ -769,7 +815,10 @@ function renderFundsTable(): void {
         <tr data-ticker="${escapeHtml(fund.ticker)}" class="cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-700/30 transition border-b border-slate-100 dark:border-slate-700/30 ${selected ? 'selected-row' : ''}">
           <td class="py-2.5 px-4 text-slate-400 dark:text-slate-500 text-xs text-center font-mono">${index + 1}</td>
           <td class="py-2.5 px-4 text-center">
-            <input data-checkbox="${escapeHtml(fund.ticker)}" type="checkbox" ${selected ? 'checked' : ''} class="w-4 h-4 accent-blue-600" aria-label="Use ${escapeHtml(fund.ticker)}" />
+            <div class="inline-flex items-center justify-center gap-1.5">
+              <input data-checkbox="${escapeHtml(fund.ticker)}" type="checkbox" ${selected ? 'checked' : ''} class="w-4 h-4 accent-blue-600" aria-label="Use ${escapeHtml(fund.ticker)}" />
+              <button data-blacklist="${escapeHtml(fund.ticker)}" class="w-4 h-4 rounded text-slate-300 dark:text-slate-600 hover:text-rose-500 dark:hover:text-rose-400 leading-none transition" title="Blacklist ${escapeHtml(fund.ticker)} — hide it from All ETFs">✕</button>
+            </div>
           </td>
           <td class="py-2.5 px-4 font-mono font-semibold text-blue-600 dark:text-blue-400">${escapeHtml(fund.ticker)}</td>
           <td class="py-2.5 px-4 text-slate-700 dark:text-slate-300 font-medium">${escapeHtml(fund.name)}</td>
@@ -802,7 +851,15 @@ function renderFundsTable(): void {
     row.addEventListener('click', (event: any) => {
       const target: any = event.target;
       if (target.closest('a')) return;
+      if (target.closest('button[data-blacklist]')) return;
       toggleFund(row.dataset.ticker || '');
+    });
+  });
+
+  el.tableBody.querySelectorAll('button[data-blacklist]').forEach((button: any) => {
+    button.addEventListener('click', (event: any) => {
+      event.stopPropagation();
+      blacklistTickers([button.dataset.blacklist || '']);
     });
   });
 
@@ -1146,7 +1203,7 @@ function tabLabel(tab: ActiveTab): string {
 
 function getVisibleFunds(): FundRow[] {
   const query = normalizeSearchText(currentQuery());
-  return state.funds.filter(fund => {
+  return visibleFunds().filter(fund => {
     const tabMatch = state.activeTab === 'All' || state.activeTab === fund.category;
     const queryMatch = !query || fund.searchIndex.includes(query);
     return tabMatch && queryMatch;
@@ -1415,9 +1472,10 @@ function bindSelectAllCheckbox(): void {
 }
 
 function toggleSelectAll(selectAll: boolean): void {
+  const candidates = visibleFunds();
   if (selectAll) {
-    state.selected = new Set(state.funds.map(fund => fund.ticker));
-    if (!state.activeFundTicker) state.activeFundTicker = state.funds[0] ? state.funds[0].ticker : null;
+    state.selected = new Set(candidates.map(fund => fund.ticker));
+    if (!state.activeFundTicker) state.activeFundTicker = candidates[0] ? candidates[0].ticker : null;
   } else {
     state.selected.clear();
     state.activeFundTicker = null;
@@ -1592,6 +1650,95 @@ function restoreSelectedEtfs(): void {
   }
   const savedActive = sanitizeTicker(localStorage.getItem(ACTIVE_FUND_KEY) || '');
   state.activeFundTicker = savedActive && state.selected.has(savedActive) ? savedActive : ([...state.selected][0] || null);
+}
+
+// Blacklist: ETFs hidden from All ETFs, persisted in browser localStorage.
+function restoreBlacklist(): void {
+  try {
+    const saved = JSON.parse(localStorage.getItem(BLACKLIST_KEY) || '[]');
+    state.blacklist = new Set((Array.isArray(saved) ? saved : []).map(sanitizeTicker).filter(Boolean));
+  } catch {
+    state.blacklist = new Set();
+  }
+}
+
+function persistBlacklist(): void {
+  localStorage.setItem(BLACKLIST_KEY, JSON.stringify([...state.blacklist].sort()));
+}
+
+function visibleFunds(): FundRow[] {
+  return state.funds.filter(fund => !state.blacklist.has(fund.ticker));
+}
+
+function submitBlacklistInput(): void {
+  const raw = el.blacklistInput.value || '';
+  const tickers = raw.split(/[\s,;]+/).map(ticker => ticker.trim()).filter(Boolean);
+  el.blacklistInput.value = '';
+  if (!tickers.length) return;
+  blacklistTickers(tickers);
+}
+
+function blacklistTickers(tickers: string[]): void {
+  const known = new Set(state.funds.map(fund => fund.ticker));
+  const added: string[] = [];
+  for (const raw of tickers) {
+    const clean = sanitizeTicker(raw);
+    if (!clean || !known.has(clean)) continue;
+    if (!state.blacklist.has(clean)) {
+      state.blacklist.add(clean);
+      added.push(clean);
+    }
+    if (state.selected.has(clean)) {
+      state.selected.delete(clean);
+      if (state.activeFundTicker === clean) state.activeFundTicker = [...state.selected][0] || null;
+    }
+  }
+  if (!added.length) {
+    setStatus('No matching ETF tickers to blacklist.', 'error');
+    renderBlacklistPanel();
+    return;
+  }
+  persistBlacklist();
+  persistSelection();
+  render();
+  renderBlacklistPanel();
+  setStatus(`Blacklisted ${added.join(', ')} — hidden from All ETFs.`, 'success');
+}
+
+function unblacklistTicker(ticker: string): void {
+  const clean = sanitizeTicker(ticker);
+  if (!clean || !state.blacklist.has(clean)) return;
+  state.blacklist.delete(clean);
+  persistBlacklist();
+  render();
+  renderBlacklistPanel();
+  setStatus(`Removed ${clean} from the blacklist.`, 'success');
+}
+
+function clearBlacklist(): void {
+  if (!state.blacklist.size) return;
+  state.blacklist.clear();
+  persistBlacklist();
+  render();
+  renderBlacklistPanel();
+  setStatus('Blacklist cleared.', 'success');
+}
+
+function renderBlacklistPanel(): void {
+  const tickers = [...state.blacklist].sort();
+  el.blacklistBtn.textContent = tickers.length ? `Blacklist (${tickers.length})` : 'Blacklist';
+  el.blacklistEmpty.classList.toggle('hidden', tickers.length > 0);
+  el.blacklistChips.innerHTML = tickers.map(ticker => `
+    <span class="inline-flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 rounded-full pl-3 pr-1.5 py-1 font-mono text-xs">
+      ${escapeHtml(ticker)}
+      <button data-unblacklist="${escapeHtml(ticker)}" class="w-4 h-4 rounded-full bg-slate-200 dark:bg-slate-700 hover:bg-rose-200 dark:hover:bg-rose-800/60 text-slate-600 dark:text-slate-300 hover:text-rose-700 dark:hover:text-rose-300 leading-none transition" title="Remove ${escapeHtml(ticker)} from the blacklist">✕</button>
+    </span>`).join('');
+  el.blacklistChips.querySelectorAll('button[data-unblacklist]').forEach((button: any) => {
+    button.addEventListener('click', (event: any) => {
+      event.stopPropagation();
+      unblacklistTicker(button.dataset.unblacklist || '');
+    });
+  });
 }
 
 function persistSelection(): void {
