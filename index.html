@@ -1672,7 +1672,7 @@ function visibleFunds(): FundRow[] {
 
 function submitBlacklistInput(): void {
   const raw = el.blacklistInput.value || '';
-  const tickers = raw.split(/[\s,;]+/).map(ticker => ticker.trim()).filter(Boolean);
+  const tickers = raw.split(/[\s,;]+/).map((ticker: string) => ticker.trim()).filter(Boolean);
   el.blacklistInput.value = '';
   if (!tickers.length) return;
   blacklistTickers(tickers);
