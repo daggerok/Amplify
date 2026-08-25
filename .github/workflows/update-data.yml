@@ -2,13 +2,115 @@ name: Update Amplify ETF data
 
 on:
   workflow_dispatch:
+    inputs:
+      concurrency:
+        description: "Parallel fund fetch workers"
+        required: false
+        default: "6"
+        type: string
+      tickers:
+        description: "Only include these tickers, separated by spaces or commas"
+        required: false
+        default: ""
+        type: string
+      category:
+        description: "Only include these categories (Income, Thematic/Growth, Core), comma-separated"
+        required: false
+        default: ""
+        type: string
+      aum:
+        description: "AUM min:max; bounds may be amounts or nano/micro/small/mid/large"
+        required: false
+        default: ":"
+        type: string
+      dividend_yield:
+        description: "Trailing distribution yield range in %: min:max, min:, :max, or :"
+        required: false
+        default: ":"
+        type: string
+      sec_yield:
+        description: "30-Day SEC yield range in %: min:max, min:, :max, or :"
+        required: false
+        default: ":"
+        type: string
+      performance_ytd:
+        description: "YTD NAV return range in %; colon required"
+        required: false
+        default: ""
+        type: string
+      performance_1y:
+        description: "1Y NAV return range in %; colon required"
+        required: false
+        default: ""
+        type: string
+      performance_3y:
+        description: "3Y annualized NAV return (CAGR) range in %; colon required"
+        required: false
+        default: ""
+        type: string
+      performance_5y:
+        description: "5Y annualized NAV return (CAGR) range in %; colon required"
+        required: false
+        default: ""
+        type: string
+      performance_10y:
+        description: "10Y annualized NAV return (CAGR) range in %; colon required"
+        required: false
+        default: ""
+        type: string
+      total_return_ytd:
+        description: "YTD cumulative total-return range in %; colon required"
+        required: false
+        default: ""
+        type: string
+      total_return_1y:
+        description: "1Y cumulative total-return (TR 1Y) range in %; colon required"
+        required: false
+        default: ""
+        type: string
+      total_return_3y:
+        description: "3Y cumulative total-return (TR 3Y) range in %; colon required"
+        required: false
+        default: ""
+        type: string
+      total_return_5y:
+        description: "5Y cumulative total-return (TR 5Y) range in %; colon required"
+        required: false
+        default: ""
+        type: string
+      total_return_10y:
+        description: "10Y cumulative total-return (TR 10Y) range in %; colon required"
+        required: false
+        default: ""
+        type: string
 
 permissions:
   contents: write
 
+concurrency:
+  group: update-data
+  cancel-in-progress: false
+
 jobs:
   update-data:
     runs-on: ubuntu-latest
+    env:
+      CONCURRENCY: ${{ inputs.concurrency || '6' }}
+      TICKERS: ${{ inputs.tickers || '' }}
+      CATEGORY: ${{ inputs.category || '' }}
+      AUM: ${{ inputs.aum || ':' }}
+      DIVIDEND_YIELD: ${{ inputs.dividend_yield || ':' }}
+      SEC_YIELD: ${{ inputs.sec_yield || ':' }}
+      PERFORMANCE_YTD: ${{ inputs.performance_ytd || '' }}
+      PERFORMANCE_1Y: ${{ inputs.performance_1y || '' }}
+      PERFORMANCE_3Y: ${{ inputs.performance_3y || '' }}
+      PERFORMANCE_5Y: ${{ inputs.performance_5y || '' }}
+      PERFORMANCE_10Y: ${{ inputs.performance_10y || '' }}
+      TOTAL_RETURN_YTD: ${{ inputs.total_return_ytd || '' }}
+      TOTAL_RETURN_1Y: ${{ inputs.total_return_1y || '' }}
+      TOTAL_RETURN_3Y: ${{ inputs.total_return_3y || '' }}
+      TOTAL_RETURN_5Y: ${{ inputs.total_return_5y || '' }}
+      TOTAL_RETURN_10Y: ${{ inputs.total_return_10y || '' }}
 
     steps:
       - name: Checkout

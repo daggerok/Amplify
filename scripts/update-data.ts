@@ -4,7 +4,7 @@
 // @ts-expect-error node types are intentionally not installed in this no-dependency repo.
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 
-declare const process: { env: Record<string, string | undefined>; exitCode?: number };
+declare const process: { env: Record<string, string | undefined>; argv: string[]; exitCode?: number };
 
 const FIRESTORE_BASE = 'https://firestore.googleapis.com/v1/projects/amplify-etfs-data-feed/databases/(default)/documents';
 const OUT_FILE = new URL('../api/data.json', import.meta.url);
@@ -50,9 +50,330 @@ function preserveUnchangedBlock(previous: unknown, next: JsonRecord): JsonRecord
   return onlyStampsChanged ? previousBlock : next;
 }
 
-const CONCURRENCY = Number(process.env.AMPLIFY_DATA_CONCURRENCY || 6);
-
+const CONCURRENCY_FALLBACK = 6;
 type JsonRecord = Record<string, any>;
+
+// ---------------------------------------------------------------------------
+// Updater configuration (environment variables, daggerok/iShares-style)
+// ---------------------------------------------------------------------------
+// All filters combine with AND logic and decide which funds are included in
+// api/data.json. Running without filters rebuilds the full active catalog.
+
+type ReturnPeriod = 'YTD' | '1Y' | '3Y' | '5Y' | '10Y';
+const RETURN_PERIODS: readonly ReturnPeriod[] = ['YTD', '1Y', '3Y', '5Y', '10Y'];
+
+type Range = { min?: number; max?: number };
+type AumRange = Range & { maxExclusive?: boolean; source: string };
+type RangeMap = Partial<Record<ReturnPeriod, Range>>;
+
+type UpdaterConfig = {
+  concurrency: number;
+  tickers: string[];
+  categories: string[];
+  aumRange?: AumRange;
+  dividendYieldRange?: Range;
+  secYieldRange?: Range;
+  performanceRanges: RangeMap;
+  totalReturnRanges: RangeMap;
+};
+
+const AUM_PRESET_BOUNDS = {
+  nano: { min: 0, max: 10_000_000 },
+  micro: { min: 10_000_000, max: 300_000_000 },
+  small: { min: 300_000_000, max: 2_000_000_000 },
+  mid: { min: 2_000_000_000, max: 10_000_000_000 },
+  large: { min: 10_000_000_000, max: undefined },
+} as const;
+type AumPreset = keyof typeof AUM_PRESET_BOUNDS;
+
+function envValue(env: Record<string, string | undefined>, name: string, aliases: string[] = []): string {
+  for (const key of [name, `AMPLIFY_${name}`, ...aliases]) {
+    const value = env[key];
+    if (value !== undefined && value.trim() !== '') return value.trim();
+  }
+  return '';
+}
+
+function parseDataNumber(value: unknown): number | null {
+  if (typeof value === 'number') return Number.isFinite(value) ? value : null;
+  if (typeof value !== 'string') return null;
+  const normalized = value.replace(/[$,%\s,]/g, '');
+  if (!normalized || !/^[+-]?(?:\d+(?:\.\d*)?|\.\d+)$/.test(normalized)) return null;
+  const parsed = Number(normalized);
+  return Number.isFinite(parsed) ? parsed : null;
+}
+
+function parseConfigNumber(value: string, name: string): number {
+  const parsed = parseDataNumber(value);
+  if (parsed === null) throw Error(`${name} must be a number; received ${JSON.stringify(value)}`);
+  return parsed;
+}
+
+function parseInteger(value: string, name: string, fallback: number, minimum: number): number {
+  if (!value) return fallback;
+  const parsed = Number(value);
+  if (!Number.isInteger(parsed) || parsed < minimum) {
+    throw Error(`${name} must be an integer >= ${minimum}; received ${JSON.stringify(value)}`);
+  }
+  return parsed;
+}
+
+function parseRange(value: string, name = 'range'): Range | undefined {
+  const input = value.trim();
+  if (!input) return undefined;
+  const parts = input.split(':');
+  if (parts.length !== 2) {
+    throw Error(`${name} must contain exactly one colon using min:max syntax; received ${JSON.stringify(value)}`);
+  }
+  const min = parts[0].trim() ? parseConfigNumber(parts[0], name) : undefined;
+  const max = parts[1].trim() ? parseConfigNumber(parts[1], name) : undefined;
+  if (min === undefined && max === undefined) return undefined;
+  if (min !== undefined && max !== undefined && min > max) {
+    throw Error(`${name} minimum cannot exceed its maximum`);
+  }
+  return { min, max };
+}
+
+function isAumPreset(value: string): value is AumPreset {
+  return Object.hasOwn(AUM_PRESET_BOUNDS, value);
+}
+
+function parseAum(value: string, name: string): number {
+  const normalized = value.replace(/[$,\s]/g, '').toUpperCase();
+  const match = normalized.match(/^([+-]?(?:\d+(?:\.\d*)?|\.\d+))([KMBT])?$/);
+  if (!match) {
+    throw Error(`${name} must be a USD amount such as 300M or 2000000000; received ${JSON.stringify(value)}`);
+  }
+  const multipliers: Record<string, number> = { '': 1, K: 1_000, M: 1_000_000, B: 1_000_000_000, T: 1_000_000_000_000 };
+  return Number(match[1]) * multipliers[match[2] || ''];
+}
+
+function parseAumRange(value: string, name = 'AUM'): AumRange | undefined {
+  const input = value.trim();
+  if (!input) return undefined;
+  const parts = input.split(':');
+  if (parts.length !== 2) {
+    throw Error(`${name} must contain exactly one colon using min:max syntax; received ${JSON.stringify(value)}`);
+  }
+  const [rawMin, rawMax] = parts.map(part => part.trim());
+  if (!rawMin && !rawMax) return undefined;
+
+  const parseBound = (bound: string, side: 'min' | 'max') => {
+    if (!bound) return { value: undefined, preset: false };
+    const preset = bound.toLowerCase();
+    if (isAumPreset(preset)) return { value: AUM_PRESET_BOUNDS[preset][side], preset: true };
+    return { value: parseAum(bound, name), preset: false };
+  };
+
+  const minBound = parseBound(rawMin, 'min');
+  const maxBound = parseBound(rawMax, 'max');
+  const min = minBound.value;
+  const max = maxBound.value;
+  const maxExclusive = maxBound.preset && max !== undefined;
+  if (min !== undefined && max !== undefined && (min > max || (maxExclusive && min >= max))) {
+    throw Error(`${name} minimum cannot reach or exceed its maximum`);
+  }
+  return { min, max, maxExclusive, source: input };
+}
+
+function parseRanges(env: Record<string, string | undefined>, prefix: 'PERFORMANCE' | 'TOTAL_RETURN'): RangeMap {
+  const ranges: RangeMap = {};
+  for (const period of RETURN_PERIODS) {
+    const range = parseRange(envValue(env, `${prefix}_${period}`), `${prefix}_${period}`);
+    if (range) ranges[period] = range;
+  }
+  return ranges;
+}
+
+function readConfig(env: Record<string, string | undefined> = process.env): UpdaterConfig {
+  return {
+    concurrency: parseInteger(envValue(env, 'CONCURRENCY', ['AMPLIFY_DATA_CONCURRENCY']), 'CONCURRENCY', CONCURRENCY_FALLBACK, 1),
+    tickers: [
+      ...new Set(
+        envValue(env, 'TICKERS')
+          .toUpperCase()
+          .split(/[\s,;]+/)
+          .map(ticker => ticker.trim())
+          .filter(Boolean),
+      ),
+    ],
+    categories: envValue(env, 'CATEGORY')
+      .split(/[\s,;]+/)
+      .map(category => category.trim())
+      .filter(Boolean),
+    aumRange: parseAumRange(envValue(env, 'AUM'), 'AUM'),
+    dividendYieldRange: parseRange(envValue(env, 'DIVIDEND_YIELD'), 'DIVIDEND_YIELD'),
+    secYieldRange: parseRange(envValue(env, 'SEC_YIELD'), 'SEC_YIELD'),
+    performanceRanges: parseRanges(env, 'PERFORMANCE'),
+    totalReturnRanges: parseRanges(env, 'TOTAL_RETURN'),
+  };
+}
+
+function rangeLabel(range?: Range): string {
+  if (!range) return ':';
+  return `${range.min ?? ''}:${range.max ?? ''}`;
+}
+
+function configLines(config: UpdaterConfig): string[] {
+  const lines = [
+    `CONCURRENCY=${config.concurrency}`,
+    `TICKERS=${config.tickers.join(' ') || 'all'}`,
+    `CATEGORY=${config.categories.join(',') || 'all'}`,
+    `AUM=${config.aumRange?.source ?? ':'}`,
+    `DIVIDEND_YIELD=${rangeLabel(config.dividendYieldRange)}`,
+    `SEC_YIELD=${rangeLabel(config.secYieldRange)}`,
+  ];
+  for (const period of RETURN_PERIODS) lines.push(`PERFORMANCE_${period}=${rangeLabel(config.performanceRanges[period])}`);
+  for (const period of RETURN_PERIODS) lines.push(`TOTAL_RETURN_${period}=${rangeLabel(config.totalReturnRanges[period])}`);
+  return lines;
+}
+
+function inRange(value: number, range: Range): boolean {
+  return !((range.min !== undefined && value < range.min) || (range.max !== undefined && value > range.max));
+}
+
+function cumulativeFromCagr(cagr: number, years: number): number {
+  return (Math.pow(1 + cagr / 100, years) - 1) * 100;
+}
+
+type FundMetrics = {
+  netAssetsValue: number | null;
+  dividendYield: number | null;
+  secYield: number | null;
+  returns: JsonRecord;
+};
+
+// YTD and 1Y are period returns as published; 3Y/5Y/10Y are annualized (CAGR).
+function performanceValue(returns: JsonRecord, period: ReturnPeriod): number | null {
+  return parseDataNumber(returns[period]);
+}
+
+// TR nY is cumulative: TR = (1 + CAGR)^n - 1 (same math the UI uses).
+function totalReturnValue(returns: JsonRecord, period: ReturnPeriod): number | null {
+  if (period === 'YTD' || period === '1Y') return parseDataNumber(returns[period]);
+  const cagr = parseDataNumber(returns[period]);
+  return cagr === null ? null : cumulativeFromCagr(cagr, Number(period.replace('Y', '')));
+}
+
+function inAumRange(value: number, range: AumRange): boolean {
+  if (range.min !== undefined && value < range.min) return false;
+  if (range.max === undefined) return true;
+  return range.maxExclusive ? value < range.max : value <= range.max;
+}
+
+function fundFilterReasons(metrics: FundMetrics, config: UpdaterConfig): string[] {
+  const reasons: string[] = [];
+  if (config.aumRange) {
+    if (metrics.netAssetsValue === null) reasons.push('net assets unavailable');
+    else if (!inAumRange(metrics.netAssetsValue, config.aumRange)) reasons.push(`AUM range (${config.aumRange.source})`);
+  }
+  if (config.dividendYieldRange) {
+    if (metrics.dividendYield === null) reasons.push('dividend yield unavailable');
+    else if (!inRange(metrics.dividendYield, config.dividendYieldRange)) reasons.push(`dividend yield range (${rangeLabel(config.dividendYieldRange)})`);
+  }
+  if (config.secYieldRange) {
+    if (metrics.secYield === null) reasons.push('SEC yield unavailable');
+    else if (!inRange(metrics.secYield, config.secYieldRange)) reasons.push(`SEC yield range (${rangeLabel(config.secYieldRange)})`);
+  }
+  for (const period of RETURN_PERIODS) {
+    const performanceRange = config.performanceRanges[period];
+    if (performanceRange) {
+      const value = performanceValue(metrics.returns, period);
+      if (value === null) reasons.push(`${period} performance unavailable`);
+      else if (!inRange(value, performanceRange)) reasons.push(`${period} performance range (${rangeLabel(performanceRange)})`);
+    }
+    const totalReturnRange = config.totalReturnRanges[period];
+    if (totalReturnRange) {
+      const value = totalReturnValue(metrics.returns, period);
+      if (value === null) reasons.push(`${period} total return unavailable`);
+      else if (!inRange(value, totalReturnRange)) reasons.push(`${period} total return range (${rangeLabel(totalReturnRange)})`);
+    }
+  }
+  return reasons;
+}
+
+function monthlyNavReturns(doc: DecodedDoc): JsonRecord {
+  const monthly = normalizePerformanceDoc(doc);
+  const rows = monthly && Array.isArray(monthly.returns) ? monthly.returns : [];
+  const navRow = rows.find(row => String(row.type || '').toUpperCase() === 'NAV');
+  return (navRow && navRow.returns) || {};
+}
+
+function selectCatalog(catalog: CatalogFund[], config: UpdaterConfig): CatalogFund[] {
+  let selected = catalog;
+  if (config.tickers.length) {
+    const known = new Set(catalog.map(fund => fund.ticker));
+    for (const ticker of config.tickers) {
+      if (!known.has(ticker)) console.warn(`Requested ticker not found: ${ticker}`);
+    }
+    selected = selected.filter(fund => config.tickers.includes(fund.ticker));
+  }
+  if (config.categories.length) {
+    const wanted = new Set(config.categories.map(category => category.toLowerCase()));
+    selected = selected.filter(fund => wanted.has(fund.category.toLowerCase()));
+  }
+  return selected;
+}
+
+function hasFilters(config: UpdaterConfig): boolean {
+  return Boolean(
+    config.tickers.length ||
+      config.categories.length ||
+      config.aumRange ||
+      config.dividendYieldRange ||
+      config.secYieldRange ||
+      Object.keys(config.performanceRanges).length ||
+      Object.keys(config.totalReturnRanges).length,
+  );
+}
+
+const HELP_FLAGS = new Set(['-h', '--help', 'help']);
+
+function wantsHelp(args: string[]): boolean {
+  return args.some(arg => HELP_FLAGS.has(arg.toLowerCase()));
+}
+
+function printHelp(): void {
+  console.log(`Update Amplify ETF static data (api/data.json).
+
+Usage:
+  ./scripts/update-data.ts [-h|--help]
+
+Configuration is read from environment variables (AMPLIFY_-prefixed aliases
+work too). All filters combine with AND logic and decide which funds are
+included in api/data.json; a configured filter also drops funds that do not
+publish the metric. Run without filters to rebuild the full active catalog.
+
+  CONCURRENCY=6              Parallel fund fetch workers (alias AMPLIFY_DATA_CONCURRENCY)
+  TICKERS="DIVO IDVO"        Only include these tickers (spaces, commas, semicolons)
+  CATEGORY="Income,Thematic" Only include these fund categories (Thematic = Growth in the UI)
+  AUM=":"                    Net-assets range min:max; bounds are USD amounts (300M, 2B)
+                             or nano/micro/small/mid/large presets; inclusive
+  DIVIDEND_YIELD=":"         Trailing Distribution Yield range in %
+  SEC_YIELD=":"              30-Day SEC Yield range in %
+  PERFORMANCE_YTD=":"        YTD NAV return range in %
+  PERFORMANCE_1Y=":"         1Y NAV return range in %
+  PERFORMANCE_3Y=":"         3Y annualized NAV return (CAGR) range in %
+  PERFORMANCE_5Y=":"         5Y annualized NAV return (CAGR) range in %
+  PERFORMANCE_10Y=":"        10Y annualized NAV return (CAGR) range in %
+  TOTAL_RETURN_YTD=":"       YTD cumulative total return range in %
+  TOTAL_RETURN_1Y=":"        1Y cumulative total return (TR 1Y) range in %
+  TOTAL_RETURN_3Y=":"        3Y cumulative total return (TR 3Y) range in %
+  TOTAL_RETURN_5Y=":"        5Y cumulative total return (TR 5Y) range in %
+  TOTAL_RETURN_10Y=":"       10Y cumulative total return (TR 10Y) range in %
+
+Ranges use strict inclusive min:max syntax ("15:", ":20", "5:20", "-5%:7.5",
+":"); the colon is required.
+
+Examples:
+  TOTAL_RETURN_1Y="15:" ./scripts/update-data.ts
+      api/data.json keeps only funds whose 1-year Total Return (TR 1Y) is at
+      least 15%; funds below 15% are filtered out.
+  AUM="mid:" DIVIDEND_YIELD="4:" ./scripts/update-data.ts
+      Only funds with >= $2B net assets and trailing yield >= 4%.
+  TICKERS="DIVO" ./scripts/update-data.ts
+      Single-fund api/data.json.`);
+}
 
 type DecodedDoc = {
   id: string;
@@ -72,24 +393,32 @@ function emptyDoc(id = '', error?: unknown): DecodedDoc {
 }
 
 async function main() {
+  if (wantsHelp(process.argv.slice(2))) {
+    printHelp();
+    return;
+  }
+  const config = readConfig();
+  console.log(`Config: ${configLines(config).join(' ')}`);
+
   const existing = await readExistingPayload();
   console.log('Fetching Amplify ETF catalog...');
   const categoryDocs = await fetchFirestoreList(['fund_category'], 'pageSize=200');
-  const catalog: CatalogFund[] = categoryDocs
+  const activeCatalog: CatalogFund[] = categoryDocs
     .map(doc => ({
       ticker: sanitizeTicker(doc.fields.ticker || doc.id),
       category: doc.fields.category || 'Unknown',
       active: doc.fields.isActive !== false,
     }))
     .filter(fund => fund.ticker && fund.active && fund.category !== 'Unknown');
+  const catalog = selectCatalog(activeCatalog, config);
 
-  console.log(`Found ${catalog.length} active Amplify ETFs.`);
+  console.log(`Found ${activeCatalog.length} active Amplify ETFs; updating ${catalog.length}.`);
 
   const funds: JsonRecord[] = [];
   const holdingsByTicker: Record<string, JsonRecord> = {};
   const detailsByTicker: Record<string, JsonRecord> = {};
 
-  await promisePool(catalog, CONCURRENCY, async ({ ticker, category }) => {
+  await promisePool(catalog, config.concurrency, async ({ ticker, category }) => {
     console.log(`Fetching ${ticker}...`);
     const [
       metaDoc,
@@ -132,6 +461,19 @@ async function main() {
     const navValue = finiteNumber(daily.NAV);
     const netAssetsValue = finiteNumber(daily.NetAssets);
     const expenseRatioValue = finiteNumber(meta.ExpenseRatio);
+
+    const yields = normalizeAsOfDoc(yieldsDoc) || {};
+    const metrics: FundMetrics = {
+      netAssetsValue,
+      dividendYield: parsePercent(yields.Distribution_Yield),
+      secYield: parsePercent(yields['30_Day_SECYield']),
+      returns: monthlyNavReturns(monthlyPerformanceDoc),
+    };
+    const reasons = fundFilterReasons(metrics, config);
+    if (reasons.length) {
+      console.log(`Filtered out ${ticker}: ${reasons.join(', ')}`);
+      return;
+    }
 
     funds.push({
       ticker,
@@ -221,7 +563,7 @@ async function main() {
     await writeFile(OUT_FILE, nextText, 'utf8');
     console.log(`Wrote ${OUT_FILE.pathname}`);
   }
-  console.log(`Funds: ${payload.counts.funds}; normalized positions: ${payload.counts.holdings}; distributions: ${payload.counts.distributions}`);
+  console.log(`Funds: ${payload.counts.funds}${hasFilters(config) ? ` of ${activeCatalog.length} (filters applied)` : ''}; normalized positions: ${payload.counts.holdings}; distributions: ${payload.counts.distributions}`);
 }
 
 async function countCollectionDocs(pathParts: string[]): Promise<number> {
