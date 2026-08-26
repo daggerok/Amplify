@@ -98,7 +98,7 @@
         <input
           type="text"
           id="search-input"
-          placeholder="Search ETFs, fund names, holdings, tickers, CUSIPs..."
+          placeholder="Search ETFs, fund names, holdings, tickers, CUSIPs, ISINs..."
           disabled
           class="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 w-full lg:w-96 focus:outline-none focus:border-blue-500 text-sm placeholder-slate-400 dark:placeholder-slate-500 disabled:opacity-50 disabled:cursor-not-allowed shrink-0 transition"
         />
@@ -375,7 +375,7 @@ const COLUMN_TOOLTIPS = {
 const SELECTED_KEY = 'amplify-selected-etfs';
 const BLACKLIST_KEY = 'amplify-blacklisted-etfs';
 const ACTIVE_FUND_KEY = 'amplify-active-fund';
-const DEFAULT_SELECTED_TICKERS = ['HACK', 'SILJ'];
+const DEFAULT_SELECTED_TICKERS: string[] = []; // start clean: users choose the funds to compare
 const SEARCHES_KEY = 'amplify-searches';
 
 const DETAIL_TABS: Array<{ key: FundDetailTab; label: string }> = [
