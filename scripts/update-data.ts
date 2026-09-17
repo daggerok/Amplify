@@ -1,7 +1,7 @@
 #!/usr/bin/env bun
 
 // Bun provides Node-compatible fs/promises and process globals for this script.
-// @ts-expect-error node types are intentionally not installed in this no-dependency repo.
+/// <reference types="bun" />
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 
 declare const process: { env: Record<string, string | undefined>; argv: string[]; exitCode?: number };
