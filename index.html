@@ -59,6 +59,33 @@
     @keyframes tableRefresh{from{opacity:.32;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
     #table-body.table-content-enter{animation:tableRefresh .22s ease-out}
     @media (prefers-reduced-motion:reduce){#table-body.table-content-enter{animation:none}main.space-y-6 > #selected-tabs-panel{transition:none}}
+
+    /* Pinned (sticky) columns. The sticky positioning is applied directly to
+       the <th>/<td> elements via dedicated classes — never to a nested
+       wrapper — and only the catalog Use/Ticker columns and the Watchlist
+       Ticker column pin; every other table reuses the same <table> skeleton
+       with different columns, so no positional selectors are used.
+       Pinned cells carry opaque backgrounds for default/hover/selected in
+       both themes so scrolled columns cannot bleed through. */
+    #table-scroll table{border-collapse:separate;border-spacing:0;isolation:isolate}
+    #table-scroll tbody{position:relative;z-index:0}
+    #table-scroll tbody tr{position:relative;z-index:0}
+    #table-scroll .catalog-sticky-col{position:sticky;background:#fff;background-clip:padding-box}
+    #table-scroll thead .catalog-sticky-col{top:0;z-index:30}
+    #table-scroll tbody .catalog-sticky-col{z-index:20}
+    #table-scroll .catalog-sticky-use{left:0;width:5rem;min-width:5rem}
+    #table-scroll .catalog-sticky-ticker{left:5rem;width:5rem;min-width:5rem;box-shadow:4px 0 6px -6px rgba(15,23,42,.7)}
+    #table-scroll .watchlist-sticky-ticker{position:sticky;left:0;width:10rem;min-width:10rem;max-width:10rem;overflow:hidden;text-overflow:ellipsis;background:#fff;background-clip:padding-box;box-shadow:4px 0 6px -6px rgba(15,23,42,.7)}
+    #table-scroll thead .watchlist-sticky-ticker{top:0;z-index:30}
+    #table-scroll tbody .watchlist-sticky-ticker{z-index:20}
+    .dark #table-scroll .catalog-sticky-col{background:#1e293b}
+    .dark #table-scroll .watchlist-sticky-ticker{background:#1e293b}
+    #table-scroll tbody tr:hover .catalog-sticky-col{background:#f8fafc}
+    #table-scroll tbody tr:hover .watchlist-sticky-ticker{background:#f8fafc}
+    #table-scroll tbody tr.selected-row .catalog-sticky-col{background:#eff6ff}
+    .dark #table-scroll tbody tr:hover .catalog-sticky-col{background:#243043}
+    .dark #table-scroll tbody tr:hover .watchlist-sticky-ticker{background:#243043}
+    .dark #table-scroll tbody tr.selected-row .catalog-sticky-col{background:#1e2e55}
   </style>
 </head>
 <body class="min-h-screen font-sans bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300">
@@ -74,7 +101,7 @@
           </svg>
           <h1 class="min-w-0 text-xl font-bold tracking-tight text-slate-900 dark:text-white leading-tight">Amplify ETF Holdings to Watchlist</h1>
         </div>
-        <span id="app-subtitle" class="basis-full sm:basis-auto text-sm text-slate-500 dark:text-slate-400">
+        <span id="app-subtitle" aria-live="polite" class="basis-full sm:basis-auto text-sm text-slate-500 dark:text-slate-400">
           Search Amplify ETFs, select rows, then use the Watchlist tab. Data comes from
           <a href="./api/data.json" target="_blank" rel="noopener noreferrer" class="font-semibold text-blue-600 dark:text-blue-400 hover:underline">api/data.json</a>
           generated from
@@ -104,7 +131,7 @@
         />
 
         <!-- ETF catalogue tabs stay with search and actions, as in the original layout. -->
-        <div id="tabs-bar" class="hidden flex flex-wrap items-center justify-center gap-1.5 overflow-x-auto py-1 w-full max-w-full flex-1 themed-scroll"></div>
+        <div id="tabs-bar" role="tablist" aria-label="ETF catalog tabs" class="hidden flex flex-wrap items-center justify-center gap-1.5 overflow-x-auto py-1 w-full max-w-full flex-1 themed-scroll"></div>
 
         <!-- Actions intentionally match iShares naming and placement -->
         <div class="flex flex-wrap items-center gap-2.5 w-full lg:w-auto justify-end shrink-0">
@@ -133,12 +160,12 @@
 
       <!-- Selected ETF detail tabs appear immediately above the table. -->
       <nav id="selected-tabs-panel" class="bg-white dark:bg-slate-800/80 px-4 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm backdrop-blur" aria-label="Selected ETF detail views">
-        <div id="selected-tabs-bar" class="flex flex-wrap items-center justify-center gap-1.5 overflow-x-auto py-1 w-full max-w-full themed-scroll"></div>
+        <div id="selected-tabs-bar" role="tablist" aria-label="Selected ETF detail tabs" class="flex flex-wrap items-center justify-center gap-1.5 overflow-x-auto py-1 w-full max-w-full themed-scroll"></div>
       </nav>
 
       <!-- Data Table Container -->
       <div class="bg-white dark:bg-slate-800/50 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm backdrop-blur overflow-hidden">
-        <div class="max-h-[calc(100vh-245px)] overflow-x-auto overflow-y-auto themed-scroll">
+        <div id="table-scroll" class="max-h-[calc(100vh-245px)] overflow-x-auto overflow-y-auto themed-scroll">
           <table class="w-full text-left border-collapse whitespace-nowrap">
             <thead id="table-head" class="bg-slate-50 dark:bg-slate-900/95 text-slate-500 dark:text-slate-400 text-xs uppercase tracking-wider border-b border-slate-200 dark:border-slate-700 sticky top-0 z-20 backdrop-blur">
               <tr>
@@ -284,6 +311,7 @@ type WatchlistRow = {
   name: string;
   names: string[];
   cusips: string[];
+  identifier: string;
   flags: string[];
   fundTickers: string[];
   fundCount: number;
@@ -303,6 +331,7 @@ type AppState = {
   activeFundTicker: string | null;
   activeTab: ActiveTab;
   searches: Record<string, string>;
+  sortByTab: Record<string, { key: string; dir: SortDirection }>;
   sortKey: string;
   sortDir: SortDirection;
 };
@@ -311,9 +340,9 @@ const DATA_API_URL = './api/data.json';
 const THEME_KEY = 'amplify-theme';
 
 // Hover explanations for table headers. Native `title` tooltips, same pattern as daggerok/iShares.
-const COLUMN_TOOLTIPS = {
+const COLUMN_TOOLTIPS: Record<string, string> = {
   '#': 'Row index in the current table view.',
-  'Use': 'Use / Multi-ETF Selection — Check this box to include this ETF\'s underlying holdings in the combined Watchlist tab.',
+  'Use': 'Use / Multi-ETF Selection — Check this box to include this ETF\'s underlying holdings in the combined Watchlist tab. The header box selects only the rows currently rendered (current tab + search filter).',
   'Ticker': 'Ticker Symbol — Unique exchange identifier for the Amplify ETF or underlying holding.',
   'Fund Name': 'Fund Name — Official legal name of the Amplify Exchange-Traded Fund (ETF).',
   'Name': 'Security Name — Full registered legal name of the company or underlying financial asset.',
@@ -351,6 +380,7 @@ const COLUMN_TOOLTIPS = {
   'CUSIP': 'CUSIP — Committee on Uniform Security Identification Procedures 9-character U.S. security identifier.',
   'ISIN': 'ISIN — International Securities Identification Number, a 12-character unique identifier.',
   'SEDOL': 'SEDOL — Stock Exchange Daily Official List 7-character security identifier.',
+  'Identifier': 'Identifier — Security identifier (CUSIP in this feed) merged into the row; also the dedup key when no exchange ticker is published (bonds, and rows whose Ticker is a placeholder).',
   'Section': 'Section — Grouping of the overview metric (Fund, Price, Yield, Holdings).',
   'Metric': 'Metric — Name of the reported data point.',
   'Value': 'Value — Reported figure for this metric.',
@@ -377,6 +407,13 @@ const BLACKLIST_KEY = 'amplify-blacklisted-etfs';
 const ACTIVE_FUND_KEY = 'amplify-active-fund';
 const DEFAULT_SELECTED_TICKERS: string[] = []; // start clean: users choose the funds to compare
 const SEARCHES_KEY = 'amplify-searches';
+const TAB_SORTS_KEY = 'amplify-tab-sorts';
+// Large all-catalog Watchlists are rendered in scroll chunks so the DOM never
+// receives tens of thousands of rows at once. Copy/export always use the full
+// filtered result, not just the rendered chunk.
+const WATCHLIST_PAGE_SIZE = 500;
+let watchlistVisibleLimit = WATCHLIST_PAGE_SIZE;
+let watchlistScrollObserver: any = null;
 
 const DETAIL_TABS: Array<{ key: FundDetailTab; label: string }> = [
   { key: 'overview', label: 'Overview' },
@@ -398,6 +435,7 @@ const state: AppState = {
   activeFundTicker: null,
   activeTab: 'All',
   searches: {},
+  sortByTab: {},
   sortKey: 'rank',
   sortDir: 'asc',
 };
@@ -421,6 +459,7 @@ const el = {
   blacklistClearBtn: byId('blacklist-clear-btn'),
   blacklistChips: byId('blacklist-chips'),
   blacklistEmpty: byId('blacklist-empty'),
+  tableScroll: byId('table-scroll'),
   tableHead: byId('table-head'),
   tableBody: byId('table-body'),
 };
@@ -449,11 +488,16 @@ function indexHeader(): string {
 }
 
 function useHeader(): string {
-  const candidates = visibleFunds();
-  const allSelected = candidates.length > 0 && state.selected.size === candidates.length;
-  return `<th class="py-3.5 px-4 w-20 text-center" title="${escapeHtml(getHeaderTooltip('Use'))}">
+  // The header box manages only the rows currently rendered by the catalog
+  // table: current tab + active search filter (visibleFunds is already
+  // blacklist-excluded, getVisibleFunds applies tab + search). Checked is
+  // true iff *every* visible row is selected — computed with .every, because
+  // unrelated selections may exist outside the current scope.
+  const visible = getVisibleFunds();
+  const allSelected = visible.length > 0 && visible.every(fund => state.selected.has(fund.ticker));
+  return `<th class="catalog-sticky-col catalog-sticky-use py-3.5 px-4 w-20 text-center" title="${escapeHtml(getHeaderTooltip('Use'))}">
     <div class="inline-flex items-center justify-center gap-1">
-      <input type="checkbox" id="select-all-checkbox" ${allSelected ? 'checked' : ''} class="w-4 h-4 accent-blue-600 cursor-pointer" title="Select / Deselect all ETFs" />
+      <input type="checkbox" id="select-all-checkbox" ${allSelected ? 'checked' : ''} class="w-4 h-4 accent-blue-600 cursor-pointer" title="Select / Deselect all visible ETFs (current tab + search filter)" />
       <span>Use</span>
     </div>
   </th>`;
@@ -463,6 +507,7 @@ function init(): void {
   restoreSelectedEtfs();
   restoreBlacklist();
   restoreSearches();
+  restoreTabSorts();
   applyTheme(localStorage.getItem(THEME_KEY) === 'dark');
   bindEvents();
   void loadData();
@@ -477,7 +522,16 @@ function bindEvents(): void {
 
   el.searchInput.addEventListener('input', () => {
     setCurrentQuery(el.searchInput.value.trim());
+    if (state.activeTab === 'watchlist') resetWatchlistPaging();
     render();
+  });
+
+  // Auto-load the next Watchlist chunk when the user scrolls near the bottom.
+  el.tableScroll.addEventListener('scroll', () => {
+    if (state.activeTab !== 'watchlist') return;
+    const node: any = el.tableScroll;
+    const distanceToBottom = node.scrollHeight - node.scrollTop - node.clientHeight;
+    if (distanceToBottom < 600) loadMoreWatchlistRows();
   });
 
   el.copyBtn.addEventListener('click', copyTickers);
@@ -527,6 +581,9 @@ async function loadData(): Promise<void> {
 
     el.searchInput.disabled = false;
     ensureValidTab();
+    // After a full reload the catalog must come back with its remembered
+    // sort (or the default when never explicitly sorted).
+    applySortForTab(state.activeTab);
     render();
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
@@ -587,19 +644,19 @@ function normalizeFundRow(fund: Fund, holdings: Record<string, FundHoldings>, de
   };
 }
 
-function getCatalogMetrics(detail) {
+function getCatalogMetrics(detail: FundDetail | undefined) {
   const yields = (detail && detail.yields) || {};
   const meta = (detail && detail.metadata) || {};
   const monthly = detail && detail.performance ? detail.performance.monthly : null;
   const navRows = (monthly && monthly.returns) || [];
-  let navRow = null;
+  let navRow: { type?: string; returns?: Record<string, number | string | null> } | null = null;
   for (let i = 0; i < navRows.length; i++) {
     if (String(navRows[i].type || '').toUpperCase() === 'NAV') {
       navRow = navRows[i];
       break;
     }
   }
-  const returns = (navRow && navRow.returns) || {};
+  const returns: Record<string, number | string | null> = (navRow && navRow.returns) || {};
   return {
     distributionYield: formatYieldDisplay(yields.Distribution_Yield),
     distributionYieldValue: numberOrNull(yields.Distribution_Yield),
@@ -619,12 +676,12 @@ function getCatalogMetrics(detail) {
   };
 }
 
-function cumulativeFromCagr(annualized, years) {
+function cumulativeFromCagr(annualized: number | null, years: number) {
   if (annualized === null || annualized === undefined) return null;
   return (Math.pow(1 + annualized / 100, years) - 1) * 100;
 }
 
-function formatYieldDisplay(value) {
+function formatYieldDisplay(value: unknown) {
   if (value === null || value === undefined || value === '') return '—';
   const text = String(value).trim();
   if (text === '-' || text === '—') return '—';
@@ -662,8 +719,9 @@ function ensureValidTab(): void {
   const tabIds = getAllTabIds();
   if (!tabIds.includes(state.activeTab)) {
     state.activeTab = tabIds.includes('All') ? 'All' : (tabIds[0] || 'All');
-    state.sortKey = 'rank';
-    state.sortDir = 'asc';
+    // Invalid-tab fallback must restore the remembered sort (or the tab
+    // default when never sorted) — never an unconditional default reset.
+    applySortForTab(state.activeTab);
   }
 }
 
@@ -730,7 +788,11 @@ function renderTabs(): void {
 
 function renderTabButtons(container: any, tabs: Array<{ id: ActiveTab; label: string; count: number }>): void {
   container.classList.toggle('hidden', tabs.length <= 1);
-  const allSelected = state.funds.length > 0 && state.selected.size === state.funds.length;
+  // The pill box covers the whole catalog (it sits next to the "All ETFs (N)"
+  // count), so its checked state ignores the current tab and search filter:
+  // every non-blacklisted catalog ETF selected.
+  const nonBlacklisted = visibleFunds();
+  const allSelected = nonBlacklisted.length > 0 && nonBlacklisted.every(fund => state.selected.has(fund.ticker));
   container.innerHTML = tabs.map(tab => {
     const isActive = tab.id === state.activeTab;
     const activeClasses = 'bg-blue-600 text-white font-medium border-blue-500 shadow-sm';
@@ -738,8 +800,8 @@ function renderTabButtons(container: any, tabs: Array<{ id: ActiveTab; label: st
     if (tab.id === 'All') {
       return `
         <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs transition border whitespace-nowrap ${isActive ? activeClasses : inactiveClasses}">
-          <input type="checkbox" id="select-all-toggle" ${allSelected ? 'checked' : ''} class="w-3.5 h-3.5 accent-blue-600 cursor-pointer" title="Select / Deselect all ETFs" />
-          <button data-tab="All" class="font-medium hover:underline focus:outline-none">
+          <input type="checkbox" id="select-all-toggle" ${allSelected ? 'checked' : ''} class="w-3.5 h-3.5 accent-blue-600 cursor-pointer" title="Select / Deselect all ETFs" aria-label="Select or deselect every ETF in the catalog" />
+          <button data-tab="All" role="tab" aria-selected="${isActive}" class="font-medium hover:underline focus:outline-none">
             ${escapeHtml(tab.label)} (${tab.count})
           </button>
         </div>
@@ -748,6 +810,8 @@ function renderTabButtons(container: any, tabs: Array<{ id: ActiveTab; label: st
     return `
       <button
         data-tab="${escapeHtml(tab.id)}"
+        role="tab"
+        aria-selected="${isActive}"
         class="px-3.5 py-1.5 rounded-full text-xs transition border whitespace-nowrap ${isActive ? activeClasses : inactiveClasses}">
         ${escapeHtml(tab.label)} (${tab.count})
       </button>
@@ -757,7 +821,10 @@ function renderTabButtons(container: any, tabs: Array<{ id: ActiveTab; label: st
   container.querySelectorAll('button[data-tab]').forEach((button: any) => {
     button.addEventListener('click', () => {
       state.activeTab = button.dataset.tab || 'All';
-      applyDefaultSortForTab(state.activeTab);
+      // Coming back to a tab (e.g. All ETFs after visiting Watchlist) must
+      // show the sort the user last chose there, not the tab default.
+      applySortForTab(state.activeTab);
+      if (state.activeTab === 'watchlist') resetWatchlistPaging();
       syncSearchInput();
       render();
     });
@@ -767,7 +834,9 @@ function renderTabButtons(container: any, tabs: Array<{ id: ActiveTab; label: st
   if (selectAllToggle) {
     selectAllToggle.addEventListener('change', (event: any) => {
       event.stopPropagation();
-      toggleSelectAll(Boolean(event.target.checked));
+      // 'catalog': the pill manages every non-blacklisted catalog ETF from
+      // any tab/filter, and only toggles selection (it never navigates).
+      toggleSelectAll(Boolean(event.target.checked), 'catalog');
     });
     selectAllToggle.addEventListener('click', (event: any) => event.stopPropagation());
   }
@@ -779,7 +848,7 @@ function renderFundsTable(): void {
     <tr>
       ${indexHeader()}
       ${useHeader()}
-      ${sortHeader('Ticker', 'ticker')}
+      ${sortHeader('Ticker', 'ticker', false, ' catalog-sticky-col catalog-sticky-ticker')}
       ${sortHeader('Fund Name', 'name')}
       ${sortHeader('Type', 'category')}
       ${sortHeader('NAV', 'navValue', true)}
@@ -814,13 +883,15 @@ function renderFundsTable(): void {
       return `
         <tr data-ticker="${escapeHtml(fund.ticker)}" class="cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-700/30 transition border-b border-slate-100 dark:border-slate-700/30 ${selected ? 'selected-row' : ''}">
           <td class="py-2.5 px-4 text-slate-400 dark:text-slate-500 text-xs text-center font-mono">${index + 1}</td>
-          <td class="py-2.5 px-4 text-center">
+          <td class="catalog-sticky-col catalog-sticky-use py-2.5 px-4 text-center">
             <div class="inline-flex items-center justify-center gap-1.5">
               <input data-checkbox="${escapeHtml(fund.ticker)}" type="checkbox" ${selected ? 'checked' : ''} class="w-4 h-4 accent-blue-600" aria-label="Use ${escapeHtml(fund.ticker)}" />
               <button data-blacklist="${escapeHtml(fund.ticker)}" class="w-4 h-4 rounded text-slate-300 dark:text-slate-600 hover:text-rose-500 dark:hover:text-rose-400 leading-none transition" title="Blacklist ${escapeHtml(fund.ticker)} — hide it from All ETFs">✕</button>
             </div>
           </td>
-          <td class="py-2.5 px-4 font-mono font-semibold text-blue-600 dark:text-blue-400">${escapeHtml(fund.ticker)}</td>
+          <td class="catalog-sticky-col catalog-sticky-ticker py-2.5 px-4">
+            <button data-open-fund="${escapeHtml(fund.ticker)}" class="font-mono font-semibold text-blue-600 dark:text-blue-400 hover:underline focus:outline-none focus:underline" title="Open ${escapeHtml(fund.ticker)} details">${escapeHtml(fund.ticker)}</button>
+          </td>
           <td class="py-2.5 px-4 text-slate-700 dark:text-slate-300 font-medium">${escapeHtml(fund.name)}</td>
           <td class="py-2.5 px-4 text-slate-600 dark:text-slate-300">${escapeHtml(categoryLabel(fund.category))}</td>
           <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${escapeHtml(fund.nav || '—')}</td>
@@ -852,6 +923,7 @@ function renderFundsTable(): void {
       const target: any = event.target;
       if (target.closest('a')) return;
       if (target.closest('button[data-blacklist]')) return;
+      if (target.closest('button[data-open-fund]')) return;
       toggleFund(row.dataset.ticker || '');
     });
   });
@@ -863,6 +935,13 @@ function renderFundsTable(): void {
     });
   });
 
+  el.tableBody.querySelectorAll('button[data-open-fund]').forEach((button: any) => {
+    button.addEventListener('click', (event: any) => {
+      event.stopPropagation();
+      openFundDetails(button.dataset.openFund || '');
+    });
+  });
+
   const selected = state.selected.size;
   const queryText = currentQuery() ? ` matching “${currentQuery()}”` : '';
   const activeText = state.activeFundTicker ? ` Active ETF detail tabs are for ${state.activeFundTicker}.` : '';
@@ -871,11 +950,15 @@ function renderFundsTable(): void {
 }
 
 function renderWatchlistTable(): void {
-  const rows = sortRows(getVisibleWatchlistRows());
+  // The aggregation is computed over the full selected set; only the DOM
+  // rendering is chunked (WATCHLIST_PAGE_SIZE rows per scroll chunk).
+  // Copy/export always use the complete filtered result.
+  const allRows = sortRows(getVisibleWatchlistRows());
+  const rows = allRows.slice(0, watchlistVisibleLimit);
   el.tableHead.innerHTML = `
     <tr>
       ${indexHeader()}
-      ${sortHeader('Ticker', 'symbol')}
+      ${sortHeader('Ticker', 'symbol', false, ' watchlist-sticky-ticker')}
       ${sortHeader('Name', 'name')}
       ${sortHeader('ETFs', 'fundTickers')}
       ${sortHeader('# ETFs', 'fundCount', true)}
@@ -883,21 +966,31 @@ function renderWatchlistTable(): void {
       ${sortHeader('Max Weight', 'maxWeight', true)}
       ${sortHeader('Market Value', 'marketValueSum', true)}
       ${sortHeader('Flags', 'flags')}
+      ${sortHeader('Identifier', 'identifier')}
     </tr>
   `;
   bindSortHeaders();
 
-  if (!rows.length) {
-    el.tableBody.innerHTML = `<tr><td colspan="9" class="py-12 text-center text-slate-400 dark:text-slate-500">No watchlist tickers match your search. Select ETFs on an ETF tab first.</td></tr>`;
+  let emptyMessage = '';
+  if (!state.selected.size) {
+    emptyMessage = 'No ETFs selected yet. Select ETFs in All ETFs to build the aggregated Watchlist.';
+  } else if (!allRows.length && currentQuery() && getDedupedWatchlistRows().length > 0) {
+    emptyMessage = 'No Watchlist holdings match your search.';
+  } else if (!allRows.length) {
+    emptyMessage = 'Holdings data is not available yet for the selected ETFs. Run the data refresh workflow (./scripts/update-data.ts) to regenerate api/data.json.';
+  }
+
+  if (emptyMessage) {
+    el.tableBody.innerHTML = `<tr><td colspan="10" class="py-12 text-center text-slate-400 dark:text-slate-500">${escapeHtml(emptyMessage)}</td></tr>`;
   } else {
     el.tableBody.innerHTML = rows.map((row, index) => `
       <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/30 transition border-b border-slate-100 dark:border-slate-700/30">
         <td class="py-2.5 px-4 text-slate-400 dark:text-slate-500 text-xs text-center font-mono">${index + 1}</td>
-        <td class="py-2.5 px-4 font-mono font-semibold text-blue-600 dark:text-blue-400">${escapeHtml(row.symbol)}</td>
-        <td class="py-2.5 px-4 text-slate-700 dark:text-slate-300 font-medium">${escapeHtml(row.name)}</td>
+        <td class="watchlist-sticky-ticker py-2.5 px-4 font-mono font-semibold text-blue-600 dark:text-blue-400" title="${escapeHtml(row.symbol)}">${escapeHtml(row.symbol)}</td>
+        <td class="py-2.5 px-4 text-slate-700 dark:text-slate-300 font-medium" title="${escapeHtml(row.name)}">${escapeHtml(row.name)}</td>
         <td class="py-2.5 px-4 text-slate-700 dark:text-slate-300">
           <div class="flex flex-wrap gap-1 max-w-md">
-            ${row.fundTickers.map((ticker: string) => `<span class="font-mono text-xs bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border border-blue-100 dark:border-blue-800 rounded-full px-2 py-0.5">${escapeHtml(ticker)}</span>`).join('')}
+            ${row.fundTickers.map((ticker: string) => `<button data-watchlist-fund="${escapeHtml(ticker)}" class="font-mono text-xs bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border border-blue-100 dark:border-blue-800 rounded-full px-2 py-0.5 hover:underline" title="Open ${escapeHtml(ticker)} details">${escapeHtml(ticker)}</button>`).join('')}
           </div>
         </td>
         <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${row.fundCount}</td>
@@ -905,13 +998,71 @@ function renderWatchlistTable(): void {
         <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatPercent(row.maxWeight)}</td>
         <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatMoney(row.marketValueSum)}</td>
         <td class="py-2.5 px-4 text-slate-600 dark:text-slate-400">${renderFlags(row.flags)}</td>
+        <td class="py-2.5 px-4 font-mono text-slate-600 dark:text-slate-400 text-xs">${escapeHtml(row.identifier || '—')}</td>
       </tr>
     `).join('');
   }
 
+  el.tableBody.querySelectorAll('button[data-watchlist-fund]').forEach((button: any) => {
+    button.addEventListener('click', (event: any) => {
+      event.stopPropagation();
+      openFundDetails(button.dataset.watchlistFund || '');
+    });
+  });
+
+  renderWatchlistSentinel(allRows.length);
+
   const queryText = currentQuery() ? ` matching “${currentQuery()}”` : '';
-  setStatus(`Watchlist built from ${state.selected.size} selected ETF${state.selected.size === 1 ? '' : 's'}: ${rows.length} ticker${rows.length === 1 ? '' : 's'}${queryText}.`, 'success');
-  el.tickerCount.textContent = `${rows.length} tickers`;
+  setStatus(`Watchlist built from ${state.selected.size} selected ETF${state.selected.size === 1 ? '' : 's'}: ${allRows.length} deduplicated holding${allRows.length === 1 ? '' : 's'}${queryText}.`, 'success');
+  el.tickerCount.textContent = `${allRows.length.toLocaleString('en-US')} holdings`;
+}
+
+/** Loads the next Watchlist chunk (bounded, idempotent — no duplicate work). */
+function loadMoreWatchlistRows(): void {
+  if (state.activeTab !== 'watchlist') return;
+  const total = getVisibleWatchlistRows().length;
+  if (watchlistVisibleLimit < total) {
+    watchlistVisibleLimit += WATCHLIST_PAGE_SIZE;
+    renderWatchlistTable();
+  }
+}
+
+/**
+ * Renders the "Showing X of Y" sentinel below the Watchlist chunk. Copy and
+ * export keep working on the complete filtered result regardless of how many
+ * chunks are rendered.
+ */
+function renderWatchlistSentinel(total: number): void {
+  const shown = Math.min(watchlistVisibleLimit, total);
+  const moreRows = shown < total;
+  if (moreRows) {
+    el.tableBody.insertAdjacentHTML('beforeend', `
+      <tr id="load-more-row" class="border-t border-slate-100 dark:border-slate-700/50">
+        <td colspan="10" class="py-3 text-center text-xs text-slate-500 dark:text-slate-400">
+          Showing ${shown.toLocaleString('en-US')} of ${total.toLocaleString('en-US')} holdings — scroll or click to load more…
+          <button id="load-more-rows" class="ml-2 rounded-full border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 px-3 py-1 text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700">Load more</button>
+        </td>
+      </tr>`);
+    const button = el.tableBody.querySelector('#load-more-rows');
+    button.addEventListener('click', () => loadMoreWatchlistRows());
+  }
+  if (watchlistScrollObserver) {
+    try { watchlistScrollObserver.disconnect(); } catch { /* ignore */ }
+    watchlistScrollObserver = null;
+  }
+  if (moreRows && typeof window.IntersectionObserver !== 'undefined') {
+    const sentinel = el.tableBody.querySelector('#load-more-row');
+    if (sentinel) {
+      try {
+        watchlistScrollObserver = new window.IntersectionObserver((entries: any[]) => {
+          if (entries.some(entry => entry.isIntersecting)) loadMoreWatchlistRows();
+        }, { root: el.tableScroll, rootMargin: '600px' });
+        watchlistScrollObserver.observe(sentinel);
+      } catch {
+        watchlistScrollObserver = null; // scroll listener still covers loading
+      }
+    }
+  }
 }
 
 function renderDetailTable(tab: FundDetailTab): void {
@@ -942,7 +1093,7 @@ function renderOverviewTable(fund: FundRow, detail: FundDetail): void {
     </tr>
   `;
   bindSortHeaders();
-  renderSimpleRows(rows, ['section', 'metric', 'value'], 'No overview metrics match your search.');
+  renderSimpleRows(rows, ['section', 'metric', 'value'], detailEmptyMessage(fund, 'Overview', getOverviewRows(fund, detail).length));
   setDetailStatus(fund, `Overview · ${rows.length} metrics`);
   el.tickerCount.textContent = `${fund.ticker}`;
 }
@@ -964,7 +1115,7 @@ function renderSelectedFundHoldings(fund: FundRow): void {
   bindSortHeaders();
 
   if (!rows.length) {
-    el.tableBody.innerHTML = `<tr><td colspan="8" class="py-12 text-center text-slate-400 dark:text-slate-500">No holdings match your search.</td></tr>`;
+    el.tableBody.innerHTML = `<tr><td colspan="8" class="py-12 text-center text-slate-400 dark:text-slate-500">${escapeHtml(detailEmptyMessage(fund, 'Holdings', getFundHoldingRows(fund.ticker).length))}</td></tr>`;
   } else {
     el.tableBody.innerHTML = rows.map((row, index) => `
       <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/30 transition border-b border-slate-100 dark:border-slate-700/30">
@@ -999,7 +1150,7 @@ function renderPerformanceTable(fund: FundRow, detail: FundDetail): void {
   bindSortHeaders();
 
   if (!rows.length) {
-    el.tableBody.innerHTML = `<tr><td colspan="15" class="py-12 text-center text-slate-400 dark:text-slate-500">No performance data available.</td></tr>`;
+    el.tableBody.innerHTML = `<tr><td colspan="15" class="py-12 text-center text-slate-400 dark:text-slate-500">${escapeHtml(detailEmptyMessage(fund, 'Performance', getPerformanceRows(detail).length))}</td></tr>`;
   } else {
     el.tableBody.innerHTML = rows.map((row, index) => `
       <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/30 transition border-b border-slate-100 dark:border-slate-700/30">
@@ -1031,7 +1182,7 @@ function renderAllocationsTable(fund: FundRow, detail: FundDetail): void {
   bindSortHeaders();
 
   if (!rows.length) {
-    el.tableBody.innerHTML = `<tr><td colspan="6" class="py-12 text-center text-slate-400 dark:text-slate-500">No allocation data available.</td></tr>`;
+    el.tableBody.innerHTML = `<tr><td colspan="6" class="py-12 text-center text-slate-400 dark:text-slate-500">${escapeHtml(detailEmptyMessage(fund, 'Allocation', getAllocationRows(detail).length))}</td></tr>`;
   } else {
     el.tableBody.innerHTML = rows.map((row, index) => `
       <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/30 transition border-b border-slate-100 dark:border-slate-700/30">
@@ -1065,7 +1216,7 @@ function renderDistributionsTable(fund: FundRow, detail: FundDetail): void {
   bindSortHeaders();
 
   if (!rows.length) {
-    el.tableBody.innerHTML = `<tr><td colspan="8" class="py-12 text-center text-slate-400 dark:text-slate-500">No distributions match your search.</td></tr>`;
+    el.tableBody.innerHTML = `<tr><td colspan="8" class="py-12 text-center text-slate-400 dark:text-slate-500">${escapeHtml(detailEmptyMessage(fund, 'Distributions', getDistributionRows(detail).length))}</td></tr>`;
   } else {
     el.tableBody.innerHTML = rows.map((row, index) => `
       <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/30 transition border-b border-slate-100 dark:border-slate-700/30">
@@ -1095,7 +1246,7 @@ function renderYieldsTable(fund: FundRow, detail: FundDetail): void {
     </tr>
   `;
   bindSortHeaders();
-  renderSimpleRows(rows, ['metric', 'value', 'asOfDate'], 'No yield data available.');
+  renderSimpleRows(rows, ['metric', 'value', 'asOfDate'], detailEmptyMessage(fund, 'Yield', getYieldRows(detail).length));
   setDetailStatus(fund, `Yields as of ${detail.yields?.asOfDate || 'latest'} · ${rows.length} rows`);
   el.tickerCount.textContent = `${rows.length} yields`;
 }
@@ -1111,9 +1262,20 @@ function renderPriceTable(fund: FundRow, detail: FundDetail): void {
     </tr>
   `;
   bindSortHeaders();
-  renderSimpleRows(rows, ['metric', 'value', 'asOfDate'], 'No price data available.');
+  renderSimpleRows(rows, ['metric', 'value', 'asOfDate'], detailEmptyMessage(fund, 'Price', getPriceRows(detail).length));
   setDetailStatus(fund, `NAV / market price as of ${detail.daily?.asOfDate || 'latest'} · ${rows.length} rows`);
   el.tickerCount.textContent = `${rows.length} metrics`;
+}
+
+/**
+ * Detail-table empty state. A search that matches nothing says so; a dataset
+ * that genuinely has no rows gets the provider-specific explanation (the
+ * Amplify feed is regenerated by the data refresh workflow) instead of a
+ * misleading "no search matches".
+ */
+function detailEmptyMessage(fund: FundRow, datasetLabel: string, totalRows: number): string {
+  if (currentQuery() && totalRows > 0) return `No ${datasetLabel.toLowerCase()} rows match your search.`;
+  return `${datasetLabel} data is not available yet for ${fund.ticker}. Run the data refresh workflow (./scripts/update-data.ts) to regenerate api/data.json.`;
 }
 
 function renderSimpleRows(rows: TableRow[], columns: string[], emptyText: string): void {
@@ -1148,8 +1310,10 @@ function renderControls(): void {
   el.resetBtn.disabled = !hasData || (!selected && !currentQuery());
 
   const generated = state.data?.generatedAt ? `data ${state.data.generatedAt.slice(0, 10)}` : '';
-  const selectedLinks = [...state.selected]
-    .map(ticker => `<a href="https://amplifyetfs.com/${encodeURIComponent(ticker)}/" target="_blank" rel="noopener noreferrer" class="font-semibold text-blue-600 dark:text-blue-400 hover:underline">${escapeHtml(ticker)}</a>`)
+  // Selected tickers are clickable badges: clicking one activates that fund
+  // and opens its detail view (Overview).
+  const selectedLinks = [...state.selected].sort()
+    .map(ticker => `<button data-selected-fund="${escapeHtml(ticker)}" class="font-mono font-semibold text-blue-600 dark:text-blue-400 hover:underline ${ticker === state.activeFundTicker ? 'underline' : ''}" title="Open ${escapeHtml(ticker)} details">${escapeHtml(ticker)}</button>`)
     .join(', ');
   const dataItem = `<span class="block sm:inline">·${generated ? ` ${generated}` : ''}. Data: <a href="./api/data.json" target="_blank" rel="noopener noreferrer" class="font-semibold text-blue-600 dark:text-blue-400 hover:underline">api/data.json</a></span>`;
   const selectionItem = selected
@@ -1157,6 +1321,12 @@ function renderControls(): void {
     : '';
   // On phones the data and selection summaries are separate list-like lines.
   el.subtitle.innerHTML = `${dataItem}${selectionItem}`;
+  el.subtitle.querySelectorAll('button[data-selected-fund]').forEach((button: any) => {
+    button.addEventListener('click', (event: any) => {
+      event.stopPropagation();
+      openFundDetails(button.dataset.selectedFund || '');
+    });
+  });
 }
 
 
@@ -1225,6 +1395,29 @@ function getVisibleWatchlistRows(): WatchlistRow[] {
   return getDedupedWatchlistRows().filter(row => !query || row.searchIndex.includes(query));
 }
 
+/**
+ * Placeholder / "missing" cell values. A literal `-`, `—`, `N/A` (any
+ * casing) etc. must never be treated as a usable identifier, so a position
+ * whose Ticker is a placeholder still falls back to its CUSIP / name instead
+ * of being dropped.
+ */
+const WATCHLIST_MISSING_VALUES = ['', '-', '—', 'n/a', 'na', 'null', 'none'];
+function usableWatchlistValue(value: unknown): string {
+  const text = String(value ?? '').trim();
+  return WATCHLIST_MISSING_VALUES.includes(text.toLowerCase()) ? '' : text;
+}
+
+/**
+ * Watchlist identity for one position, using the provider's fallback order:
+ * Ticker/Symbol -> CUSIP -> published security name. The Amplify feed
+ * publishes symbol, rawSymbol, cusip and name per position (no ISIN/SEDOL/
+ * FIGI), so the chain stops at the name for legitimate cash, futures, swaps
+ * or derivatives that genuinely have no identifier.
+ */
+function positionIdentity(position: Holding): string {
+  return usableWatchlistValue(position.symbol) || usableWatchlistValue(position.cusip) || usableWatchlistValue(position.name);
+}
+
 function getDedupedWatchlistRows(): WatchlistRow[] {
   const map: Map<string, {
     symbol: string;
@@ -1238,12 +1431,18 @@ function getDedupedWatchlistRows(): WatchlistRow[] {
   }> = new Map();
 
   for (const position of getSelectedPositions()) {
-    const symbol = sanitizeWatchlistSymbol(position.symbol);
-    if (!symbol || !passesWatchlistDefault(position)) continue;
+    // Every published position is retained — including cash, options,
+    // derivatives, treasuries and zero-weight rows. The only drop is a
+    // position with no usable ticker, identifier or name at all.
+    const identity = positionIdentity(position);
+    if (!identity) continue;
+    // Display and dedupe keys are uppercased (tickers/CUSIPs already are),
+    // so a name-keyed row keeps the same look as a ticker-keyed one.
+    const dedupeKey = identity.toUpperCase();
 
-    if (!map.has(symbol)) {
-      map.set(symbol, {
-        symbol,
+    if (!map.has(dedupeKey)) {
+      map.set(dedupeKey, {
+        symbol: dedupeKey,
         names: new Set(),
         cusips: new Set(),
         flags: new Set(),
@@ -1254,10 +1453,11 @@ function getDedupedWatchlistRows(): WatchlistRow[] {
       });
     }
 
-    const row = map.get(symbol);
+    const row = map.get(dedupeKey);
     if (!row) continue;
-    row.names.add(position.name || symbol);
-    if (position.cusip) row.cusips.add(position.cusip);
+    row.names.add(usableWatchlistValue(position.name) || dedupeKey);
+    const cusip = usableWatchlistValue(position.cusip);
+    if (cusip) row.cusips.add(cusip);
     (position.flags || []).forEach(flag => row.flags.add(flag));
     row.funds.add(position.fundTicker);
 
@@ -1281,6 +1481,9 @@ function getDedupedWatchlistRows(): WatchlistRow[] {
       name,
       names,
       cusips,
+      // The identifier is the first real identifier merged into the row
+      // (CUSIP in this feed); shown in the Identifier column.
+      identifier: cusips[0] || '',
       flags,
       fundTickers,
       fundCount: fundTickers.length,
@@ -1453,39 +1656,48 @@ function getDetailCount(tab: FundDetailTab): number {
   return getPriceRows(detail).length;
 }
 
-function passesWatchlistDefault(position: Holding): boolean {
-  const symbol = sanitizeWatchlistSymbol(position.symbol);
-  const flags = new Set(position.flags || []);
-  if (!symbol) return false;
-  if (['cash', 'money-market', 'treasury', 'option', 'derivative', 'cusip-like'].some(flag => flags.has(flag))) return false;
-  return /[A-Z]/.test(symbol);
-}
-
 function bindSelectAllCheckbox(): void {
   const checkbox = el.tableHead.querySelector('#select-all-checkbox');
   if (!checkbox) return;
   checkbox.addEventListener('change', (event: any) => {
     event.stopPropagation();
-    toggleSelectAll(Boolean(event.target.checked));
+    // 'visible': the header box manages only the rows currently rendered
+    // (current tab + active search filter), never the hidden ones.
+    toggleSelectAll(Boolean(event.target.checked), 'visible');
   });
   checkbox.addEventListener('click', (event: any) => event.stopPropagation());
 }
 
-function toggleSelectAll(selectAll: boolean): void {
-  const candidates = visibleFunds();
-  if (selectAll) {
-    state.selected = new Set(candidates.map(fund => fund.ticker));
-    if (!state.activeFundTicker) state.activeFundTicker = candidates[0] ? candidates[0].ticker : null;
-  } else {
-    state.selected.clear();
-    state.activeFundTicker = null;
-    if (state.activeTab === 'watchlist' || isDetailTab(state.activeTab)) {
-      state.activeTab = 'All';
-      state.sortKey = 'rank';
-      state.sortDir = 'asc';
-    }
+function resetWatchlistPaging(): void {
+  watchlistVisibleLimit = WATCHLIST_PAGE_SIZE;
+}
+
+/**
+ * Toggles the selection in bulk. `scope`:
+ *  - 'visible' (table-header Use checkbox) — only the rows currently rendered
+ *    by the catalog table: current tab + active search filter + blacklist
+ *    exclusion. Selecting with a filter active must not drag hidden ETFs into
+ *    the selection, and unchecking must not drop selections made while a
+ *    different filter was on.
+ *  - 'catalog' (checkbox inside the All ETFs pill) — every non-blacklisted
+ *    ETF in the entire catalog, from every tab/filter. It sits next to the
+ *    "All ETFs (N)" count and represents the whole catalog; candidates come
+ *    directly from all catalog funds minus the blacklist, never from a
+ *    category-scoped helper.
+ */
+function toggleSelectAll(selectAll: boolean, scope: 'visible' | 'catalog'): void {
+  const candidates = scope === 'visible' ? getVisibleFunds() : visibleFunds();
+  candidates.forEach(fund => {
+    if (selectAll) state.selected.add(fund.ticker);
+    else state.selected.delete(fund.ticker);
+  });
+  if (!state.selected.size) state.activeFundTicker = null;
+  else if (!state.activeFundTicker || !state.selected.has(state.activeFundTicker)) {
+    state.activeFundTicker = [...state.selected][0] || null;
   }
+  resetWatchlistPaging();
   persistSelection();
+  ensureValidTab();
   render();
 }
 
@@ -1501,7 +1713,28 @@ function toggleFund(ticker: string): void {
     state.activeFundTicker = cleanTicker;
   }
 
+  resetWatchlistPaging();
   persistSelection();
+  ensureValidTab();
+  render();
+}
+
+/**
+ * Activates a fund and opens its detail view (Overview). Used by catalog
+ * tickers, selected-ticker badges in the subtitle, and Watchlist ETF badges.
+ * Selects the fund first if it is not selected yet.
+ */
+function openFundDetails(ticker: string): void {
+  const cleanTicker = sanitizeTicker(ticker);
+  const known = state.funds.some(fund => fund.ticker === cleanTicker);
+  if (!cleanTicker || !known || state.blacklist.has(cleanTicker)) return;
+  if (!state.selected.has(cleanTicker)) state.selected.add(cleanTicker);
+  state.activeFundTicker = cleanTicker;
+  state.activeTab = 'detail:overview';
+  applySortForTab(state.activeTab);
+  resetWatchlistPaging();
+  persistSelection();
+  syncSearchInput();
   render();
 }
 
@@ -1510,8 +1743,11 @@ function clearSelectionAndSearch(): void {
   state.activeFundTicker = null;
   state.searches = {};
   state.activeTab = 'All';
-  state.sortKey = 'rank';
-  state.sortDir = 'asc';
+  resetWatchlistPaging();
+  // Sort preferences survive Clear: a sort configured in the past is always
+  // kept (per tab, in browser localStorage) and reused. Clear resets only the
+  // selection and the searches — never the sort order or its memory.
+  applySortForTab('All');
   el.searchInput.value = '';
   localStorage.removeItem(SELECTED_KEY);
   localStorage.removeItem(ACTIVE_FUND_KEY);
@@ -1531,7 +1767,8 @@ function copyTickers(): void {
 
 function exportCsv(): void {
   if (state.activeTab === 'watchlist') {
-    const headers = ['Ticker', 'Name', 'ETFs', '# ETFs', 'Weight Sum (%)', 'Max Weight (%)', 'Market Value ($)', 'Flags'];
+    // Exports use the complete filtered result, not just the rendered chunk.
+    const headers = ['Ticker', 'Name', 'ETFs', '# ETFs', 'Weight Sum (%)', 'Max Weight (%)', 'Market Value ($)', 'Flags', 'Identifier'];
     const rows = getVisibleWatchlistRows().map(row => [
       row.symbol,
       row.name,
@@ -1541,6 +1778,7 @@ function exportCsv(): void {
       numberCell(row.maxWeight),
       numberCell(row.marketValueSum),
       row.flags.join('|'),
+      row.identifier || '',
     ]);
     downloadText(toCsv([headers, ...rows]), exportFileName('watchlist', 'csv'), 'text/csv;charset=utf-8;');
     return;
@@ -1598,12 +1836,13 @@ function exportTxt(): void {
   downloadText(values.join('\n'), exportFileName(state.activeTab === 'watchlist' ? 'watchlist' : isDetailTab(state.activeTab) ? detailTabKey(state.activeTab) : 'etfs', 'txt'), 'text/plain;charset=utf-8;');
 }
 
-function sortHeader(label: string, key: string, numeric = false): string {
+function sortHeader(label: string, key: string, numeric = false, extraClass = ''): string {
   const active = state.sortKey === key;
   const arrow = active ? (state.sortDir === 'asc' ? ' ↑' : ' ↓') : '';
   const align = numeric ? ' text-right' : '';
+  const ariaSort = active ? (state.sortDir === 'asc' ? ' aria-sort="ascending"' : ' aria-sort="descending"') : '';
   const tooltip = getHeaderTooltip(label);
-  return `<th class="py-3.5 px-4${align}" title="${escapeHtml(tooltip)}"><button data-sort="${escapeHtml(key)}" title="${escapeHtml(tooltip)}" class="uppercase tracking-wider hover:text-blue-600 dark:hover:text-blue-400">${escapeHtml(label)}${arrow}</button></th>`;
+  return `<th class="py-3.5 px-4${align}${extraClass}"${ariaSort} title="${escapeHtml(tooltip)}"><button data-sort="${escapeHtml(key)}" title="${escapeHtml(tooltip)}" class="uppercase tracking-wider hover:text-blue-600 dark:hover:text-blue-400">${escapeHtml(label)}${arrow}</button></th>`;
 }
 
 function bindSortHeaders(): void {
@@ -1615,6 +1854,9 @@ function bindSortHeaders(): void {
         state.sortKey = key;
         state.sortDir = ['ticker', 'name', 'category', 'symbol', 'section', 'metric', 'period', 'label', 'exDate'].includes(key) ? 'asc' : 'desc';
       }
+      // An explicit header click is the only way a sort gets remembered.
+      rememberSortForCurrentTab();
+      if (state.activeTab === 'watchlist') resetWatchlistPaging();
       render();
     });
   });
@@ -1698,8 +1940,10 @@ function blacklistTickers(tickers: string[]): void {
     renderBlacklistPanel();
     return;
   }
+  resetWatchlistPaging();
   persistBlacklist();
   persistSelection();
+  ensureValidTab();
   render();
   renderBlacklistPanel();
   setStatus(`Blacklisted ${added.join(', ')} — hidden from All ETFs.`, 'success');
@@ -1709,6 +1953,7 @@ function unblacklistTicker(ticker: string): void {
   const clean = sanitizeTicker(ticker);
   if (!clean || !state.blacklist.has(clean)) return;
   state.blacklist.delete(clean);
+  resetWatchlistPaging();
   persistBlacklist();
   render();
   renderBlacklistPanel();
@@ -1718,6 +1963,7 @@ function unblacklistTicker(ticker: string): void {
 function clearBlacklist(): void {
   if (!state.blacklist.size) return;
   state.blacklist.clear();
+  resetWatchlistPaging();
   persistBlacklist();
   render();
   renderBlacklistPanel();
@@ -1815,6 +2061,56 @@ function applyDefaultSortForTab(tab: ActiveTab): void {
   }
 }
 
+/**
+ * Restores the sort the user last chose on this tab (recorded on every
+ * column-header click, persisted in localStorage under TAB_SORTS_KEY) or
+ * falls back to the tab default when the tab was never explicitly sorted.
+ * No button or checkbox ever resets the sort — only this function (or an
+ * explicit header click) does.
+ */
+function applySortForTab(tab: ActiveTab): void {
+  const remembered = state.sortByTab[tab];
+  if (remembered) {
+    state.sortKey = remembered.key;
+    state.sortDir = remembered.dir;
+    return;
+  }
+  applyDefaultSortForTab(tab);
+}
+
+/** Records the current sort as this tab's remembered sort (header click only). */
+function rememberSortForCurrentTab(): void {
+  state.sortByTab[state.activeTab] = { key: state.sortKey, dir: state.sortDir };
+  persistTabSorts();
+}
+
+function persistTabSorts(): void {
+  localStorage.setItem(TAB_SORTS_KEY, JSON.stringify(state.sortByTab));
+}
+
+function restoreTabSorts(): void {
+  try {
+    const saved = JSON.parse(localStorage.getItem(TAB_SORTS_KEY) || '{}') || {};
+    const sorts: Record<string, { key: string; dir: SortDirection }> = {};
+    if (saved && typeof saved === 'object') {
+      Object.keys(saved).forEach(tab => {
+        const entry = saved[tab];
+        // Keep only well-formed entries. A stale key that no longer matches a
+        // column simply sorts a missing value (stable no-op) and cannot break
+        // rendering; malformed entries are dropped.
+        if (entry && typeof entry.key === 'string' && entry.key !== '' && (entry.dir === 'asc' || entry.dir === 'desc')) {
+          sorts[tab] = { key: entry.key, dir: entry.dir };
+        }
+      });
+    }
+    state.sortByTab = sorts;
+  } catch {
+    state.sortByTab = {};
+  }
+  // Normalize what we keep in storage so the next boot never sees garbage.
+  persistTabSorts();
+}
+
 function categoryLabel(category: string): string {
   return category === 'Thematic' ? 'Growth' : category || 'Other';
 }
@@ -1840,10 +2136,6 @@ function returnLabel(key: string): string {
 
 function sanitizeTicker(value: unknown): string {
   return String(value || '').trim().toUpperCase().replace(/[^A-Z0-9._-]/g, '');
-}
-
-function sanitizeWatchlistSymbol(value: unknown): string {
-  return String(value || '').trim().toUpperCase();
 }
 
 function normalizeSearchText(value: unknown): string {

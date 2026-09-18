@@ -12,7 +12,24 @@ The published application is available at <https://daggerok.github.io/Amplify/>.
 
 ## Shared UI contract
 
-The common interaction and data-state rules are documented in [`docs/ui-contract.md`](./docs/ui-contract.md). New provider-specific behavior should preserve this contract.
+The common interaction and data-state rules are documented in [`docs/ui-contract.md`](./docs/ui-contract.md). New provider-specific behavior should preserve this contract. The highlights for this app:
+
+- **Sort persistence.** Every tab remembers its last explicitly chosen column and direction in `localStorage` (`amplify-tab-sorts`) and restores it on tab switch and after a full reload. No button or checkbox — including **Clear** — resets sorting; Clear removes selection and searches only. Never-sorted tabs keep their existing default sort.
+- **Selection scopes.** The row **Use** checkbox toggles one ETF. The **header Use** checkbox toggles exactly the rows currently rendered (current tab + search filter + blacklist exclusion) and is checked iff every visible row is selected. The **All ETFs pill** checkbox always toggles every non-blacklisted catalog ETF from any tab/filter and never navigates.
+- **Reactivity.** After every selection change the selected count, clickable subtitle ticker badges, detail-tabs panel, and Watchlist count/badges update immediately. Catalog tickers, subtitle badges, and Watchlist ETF badges all open the fund's detail view.
+- **Watchlist.** Aggregates deduplicated holding rows (count = unique securities, not selected ETFs) with Ticker → CUSIP → name fallback and placeholder (`-`, `—`, `N/A`) handling; cash/option/derivative/treasury/zero-weight rows are retained with their flags. Because this provider embeds all holdings in one static `api/data.json`, the count is always exact (no per-fund fetch, no page races). Large all-catalog Watchlists render in 500-row scroll chunks while Copy/CSV/TXT always export the complete filtered result.
+- **Detail states.** Missing datasets show a provider-specific explanation (“Run the data refresh workflow…”); a search that matches nothing says so; feed load failure shows a failure state.
+- **Sticky columns.** During horizontal scrolling the catalog Use + Ticker columns and the Watchlist Ticker column stay pinned (applied directly to the `th`/`td` cells with opaque backgrounds per state/theme).
+
+## Testing and typecheck
+
+```bash
+bun install
+bun test              # UI-contract regression suite (happy-dom + the real api/data.json)
+bun run typecheck     # strict tsc over the inline app script (and see below for the updater)
+```
+
+The suite in `scripts/ui-contract.test.ts` boots the real single-file app in happy-dom, serves the committed `api/data.json` through a mocked fetch, and drives the DOM like a user. Expected watchlist counts, overlap weights, and sort orders are computed independently from the feed inside the test file. Feed integrity (counts, per-fund `holdingsCount`, ranks) is covered there too.
 
 ## Sibling applications
 

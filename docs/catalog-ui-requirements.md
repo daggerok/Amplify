@@ -1,5 +1,7 @@
 # Catalog UI implementation plan: Frequency column + pinned columns
 
+> **Status (2026-09-18):** The **pinned columns** part of this plan is implemented in `index.html` (the `#table-scroll` wrapper, the `.catalog-sticky-use` / `.catalog-sticky-ticker` classes on the catalog `Use`/`Ticker` `th`/`td`, plus the Watchlist `Ticker` pinning and the per-state opaque backgrounds), and is covered by the sticky-columns tests in `scripts/ui-contract.test.ts`. The shared interaction rules around it (per-tab sort persistence, selection scopes, Watchlist reactivity) are documented in [`ui-contract.md`](./ui-contract.md). The **distribution-frequency column** part of this plan is **not** implemented and remains pending.
+
 This is a concrete, Amplify-specific implementation plan for two catalog-table features that were already built and verified in the sibling repo `daggerok/SPDR`. It is written for an implementing agent with no access to SPDR or to the conversation that produced this plan — every instruction below is self-contained and points at real code in this repo.
 
 ## 0. Architecture note (read this first)

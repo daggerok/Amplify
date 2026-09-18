@@ -2,6 +2,12 @@
   "dependencies": {},
   "devDependencies": {
     "@types/bun": "1.4.2",
-    "@types/node": "22.20.3"
+    "@types/node": "22.20.3",
+    "happy-dom": "^20.14.5",
+    "typescript": "5.9.3"
+  },
+  "scripts": {
+    "test": "bun test",
+    "typecheck": "bun scripts/typecheck-app.ts"
   }
 }
