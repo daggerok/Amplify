@@ -1004,3 +1004,272 @@ describe('localStorage resilience', () => {
     expect(catalogRowTickers(ctx.doc)[0]).toBe(FEED.funds[0].ticker);
   });
 });
+
+// ---------------------------------------------------------------------------
+// K. Frequency column (catalog only, derived in scripts/update-data.ts)
+// ---------------------------------------------------------------------------
+function catalogHeaderLabels(doc: any): string[] {
+  return [...doc.querySelectorAll('#table-head th')].map((th: any) =>
+    (th.textContent || '').replace(/[↑↓]/g, '').trim());
+}
+
+describe('frequency column', () => {
+  test('catalog header sits between SEC Yield and YTD Return with a tooltip', async () => {
+    const ctx = await boot();
+    const { doc } = ctx;
+    const labels = catalogHeaderLabels(doc);
+    const secIdx = labels.indexOf('SEC Yield');
+    const freqIdx = labels.indexOf('Frequency');
+    const ytdIdx = labels.indexOf('YTD Return');
+    expect(freqIdx).toBe(secIdx + 1);
+    expect(ytdIdx).toBe(freqIdx + 1);
+    expect(sortButton(doc, 'distributionFrequency')).toBeTruthy();
+    const th = sortButton(doc, 'distributionFrequency')?.closest('th');
+    expect(th?.getAttribute('title')).toContain('Distribution Frequency');
+  });
+
+  test('cells show the feed-derived coded label; funds without history show an em dash', async () => {
+    const data = JSON.parse(JSON.stringify(FEED));
+    data.details.DIVO.distributionFrequency = '01 - Monthly';
+    data.details.IDVO.distributionFrequency = '04 - Quarterly';
+    const ctx = await boot({ data });
+    const { doc } = ctx;
+    const freqIdx = catalogHeaderLabels(doc).indexOf('Frequency');
+    const cellOf = (ticker: string) =>
+      doc.querySelector(`#table-body tr[data-ticker="${ticker}"]`)?.querySelectorAll('td')[freqIdx]?.textContent?.trim();
+    expect(cellOf('DIVO')).toBe('01 - Monthly');
+    expect(cellOf('IDVO')).toBe('04 - Quarterly');
+    expect(cellOf('AIEQ')).toBe('—');
+  });
+
+  test('plain string sort works on the coded labels (asc first, like other text columns)', async () => {
+    const data = JSON.parse(JSON.stringify(FEED));
+    data.details.DIVO.distributionFrequency = '01 - Monthly';
+    data.details.IDVO.distributionFrequency = '04 - Quarterly';
+    data.details.AIEQ.distributionFrequency = '12 - Annually';
+    const ctx = await boot({ data });
+    const { doc } = ctx;
+    const freqIdx = catalogHeaderLabels(doc).indexOf('Frequency');
+    const cells = () => catalogRowTickers(doc).map(ticker =>
+      doc.querySelector(`#table-body tr[data-ticker="${ticker}"]`)?.querySelectorAll('td')[freqIdx]?.textContent?.trim());
+    // Expected: empty values (em dash cell, '' sort value) first in rank order,
+    // then the coded labels in plain string order.
+    const expectedAsc = [
+      ...ALL_TICKERS.filter(t => !['DIVO', 'IDVO', 'AIEQ'].includes(t)).map(() => '—'),
+      '01 - Monthly', '04 - Quarterly', '12 - Annually',
+    ];
+    ctx.click(sortButton(doc, 'distributionFrequency'));
+    await ctx.sleep();
+    expect(sortArrow(doc, 'distributionFrequency')).toBe('asc');
+    expect(cells()).toEqual(expectedAsc);
+    ctx.click(sortButton(doc, 'distributionFrequency'));
+    await ctx.sleep();
+    expect(sortArrow(doc, 'distributionFrequency')).toBe('desc');
+    expect(cells()).toEqual([...expectedAsc].reverse());
+  });
+
+  test('Watchlist has no Frequency column (catalog only)', async () => {
+    const ctx = await boot();
+    const { doc } = ctx;
+    ctx.click(doc.querySelector('#table-body tr[data-ticker="DIVO"]'));
+    await ctx.sleep();
+    ctx.click(tabButton(doc, 'watchlist'));
+    await ctx.sleep();
+    expect(sortButton(doc, 'distributionFrequency')).toBeNull();
+    expect(catalogHeaderLabels(doc)).not.toContain('Frequency');
+  });
+});
+
+// ---------------------------------------------------------------------------
+// L. Per-tab filters (amplify-tab-filters) + one-time legacy migration
+// ---------------------------------------------------------------------------
+function typeQuery(ctx: Ctx, text: string): Promise<void> {
+  const input = ctx.doc.getElementById('search-input');
+  input.value = text;
+  input.dispatchEvent(new ctx.window.Event('input', { bubbles: true }));
+  return ctx.sleep();
+}
+
+describe('per-tab filters', () => {
+  test('each tab remembers its own query; switching tabs swaps the query', async () => {
+    const ctx = await boot();
+    const { doc } = ctx;
+    await typeQuery(ctx, 'cwp');
+    expect(catalogRowTickers(doc)).toEqual(['DIVO', 'IDVO', 'QDVO']);
+
+    ctx.click(tabButton(doc, 'Income'));
+    await ctx.sleep();
+    expect(doc.getElementById('search-input').value).toBe('');
+    // Unfiltered Income list: every Income fund is back (DIVO is one of them).
+    const incomeCount = FEED.funds.filter(fund => fund.category === 'Income').length;
+    expect(catalogRowTickers(doc)).toHaveLength(incomeCount);
+    await typeQuery(ctx, 'IDVO');
+    expect(catalogRowTickers(doc)).toEqual(['IDVO']);
+
+    ctx.click(tabButton(doc, 'All'));
+    await ctx.sleep();
+    expect(doc.getElementById('search-input').value).toBe('cwp');
+    expect(catalogRowTickers(doc)).toEqual(['DIVO', 'IDVO', 'QDVO']);
+    ctx.click(tabButton(doc, 'Income'));
+    await ctx.sleep();
+    expect(doc.getElementById('search-input').value).toBe('IDVO');
+
+    const saved = JSON.parse(ctx.window.localStorage.getItem('amplify-tab-filters') || '{}');
+    expect(saved).toEqual({ All: 'cwp', Income: 'IDVO' });
+    expect(ctx.window.localStorage.getItem('amplify-searches')).toBeNull();
+  });
+
+  test('a full reload restores every tab query independently', async () => {
+    const ctx = await boot();
+    await typeQuery(ctx, 'cwp');
+    ctx.click(tabButton(ctx.doc, 'Income'));
+    await ctx.sleep();
+    await typeQuery(ctx, 'IDVO');
+
+    const reloaded = await ctx.reload();
+    expect(reloaded.doc.getElementById('search-input').value).toBe('cwp');
+    reloaded.click(tabButton(reloaded.doc, 'Income'));
+    await reloaded.sleep();
+    expect(reloaded.doc.getElementById('search-input').value).toBe('IDVO');
+  });
+
+  test('legacy amplify-searches blob migrates once and is removed', async () => {
+    const ctx = await boot({
+      localStorageSeed: {
+        'amplify-searches': JSON.stringify({ etfs: 'cwp', watchlist: 'divo' }),
+        'amplify-selected-etfs': JSON.stringify(['DIVO']),
+      },
+    });
+    const { doc } = ctx;
+    expect(doc.getElementById('search-input').value).toBe('cwp');
+    expect(catalogRowTickers(doc)).toEqual(['DIVO', 'IDVO', 'QDVO']);
+    ctx.click(tabButton(doc, 'watchlist'));
+    await ctx.sleep();
+    expect(doc.getElementById('search-input').value).toBe('divo');
+    expect(ctx.window.localStorage.getItem('amplify-searches')).toBeNull();
+    expect(JSON.parse(ctx.window.localStorage.getItem('amplify-tab-filters') || '{}'))
+      .toEqual({ All: 'cwp', watchlist: 'divo' });
+  });
+
+  test('#search-clear-btn appears with a query and clears only the active tab', async () => {
+    const ctx = await boot();
+    const { doc } = ctx;
+    const clearBtn = doc.getElementById('search-clear-btn');
+    expect(clearBtn.classList.contains('hidden')).toBe(true);
+
+    await typeQuery(ctx, 'cwp');
+    expect(clearBtn.classList.contains('hidden')).toBe(false);
+    ctx.click(clearBtn);
+    await ctx.sleep();
+    expect(doc.getElementById('search-input').value).toBe('');
+    expect(catalogRowTickers(doc).length).toBe(ALL_TICKERS.length);
+    expect(clearBtn.classList.contains('hidden')).toBe(true);
+
+    // Another tab's remembered query must survive clearing this tab's.
+    ctx.click(tabButton(doc, 'Income'));
+    await ctx.sleep();
+    await typeQuery(ctx, 'IDVO');
+    ctx.click(tabButton(doc, 'All'));
+    await ctx.sleep();
+    await typeQuery(ctx, 'cwp');
+    ctx.click(doc.getElementById('search-clear-btn'));
+    await ctx.sleep();
+    expect(JSON.parse(ctx.window.localStorage.getItem('amplify-tab-filters') || '{}'))
+      .toEqual({ Income: 'IDVO' });
+  });
+
+  test('a malformed per-tab filter map cannot crash boot and is normalized', async () => {
+    const ctx = await boot({ localStorageSeed: { 'amplify-tab-filters': '[1,2,3]' } });
+    expect(catalogRowTickers(ctx.doc).length).toBe(ALL_TICKERS.length);
+    expect(JSON.parse(ctx.window.localStorage.getItem('amplify-tab-filters') || '"x"')).toEqual({});
+  });
+});
+
+// ---------------------------------------------------------------------------
+// M. Blacklist panel smooth expand/collapse
+// ---------------------------------------------------------------------------
+describe('blacklist panel animation', () => {
+  test('panel toggles is-visible + aria-expanded and keeps max-height in sync', async () => {
+    const ctx = await boot();
+    const { doc } = ctx;
+    const panel = doc.getElementById('blacklist-panel');
+    const btn = doc.getElementById('blacklist-btn');
+    // The `hidden` utility is gone; the collapsed state is CSS-driven.
+    expect(panel.classList.contains('hidden')).toBe(false);
+    expect(panel.classList.contains('is-visible')).toBe(false);
+    expect(btn.getAttribute('aria-expanded')).toBe('false');
+
+    // happy-dom performs no real layout (scrollHeight is always 0), so stub
+    // the measurement to verify the contract: syncBlacklistPanelHeight() must
+    // copy the measured scrollHeight into style.maxHeight.
+    Object.defineProperty(panel, 'scrollHeight', { configurable: true, get: () => 140 });
+    ctx.click(btn);
+    await ctx.sleep();
+    expect(panel.classList.contains('is-visible')).toBe(true);
+    expect(btn.getAttribute('aria-expanded')).toBe('true');
+    expect(panel.style.maxHeight).toBe('140px');
+
+    ctx.click(btn);
+    await ctx.sleep();
+    expect(panel.classList.contains('is-visible')).toBe(false);
+    expect(btn.getAttribute('aria-expanded')).toBe('false');
+    expect(panel.style.maxHeight).toBe('0px');
+  });
+
+  test('adding/removing a blacklisted ticker while open resizes the panel', async () => {
+    const ctx = await boot();
+    const { doc } = ctx;
+    const panel = doc.getElementById('blacklist-panel');
+    let measured = 140;
+    Object.defineProperty(panel, 'scrollHeight', { configurable: true, get: () => measured });
+    ctx.click(doc.getElementById('blacklist-btn'));
+    await ctx.sleep();
+    expect(panel.classList.contains('is-visible')).toBe(true);
+    expect(panel.style.maxHeight).toBe('140px');
+
+    doc.getElementById('blacklist-input').value = 'SILJ';
+    ctx.click(doc.getElementById('blacklist-add-btn'));
+    await ctx.sleep();
+    expect(panel.classList.contains('is-visible')).toBe(true);
+    expect(panel.textContent).toContain('SILJ');
+    // The chip changed the content height; the panel must have re-measured.
+    measured = 176;
+    // (Any render — e.g. another add — re-syncs the max-height.)
+    doc.getElementById('blacklist-input').value = 'HACK';
+    ctx.click(doc.getElementById('blacklist-add-btn'));
+    await ctx.sleep();
+    expect(panel.textContent).toContain('HACK');
+    expect(panel.style.maxHeight).toBe('176px');
+
+    ctx.click(panel.querySelector('button[data-unblacklist="SILJ"]'));
+    await ctx.sleep();
+    expect(panel.classList.contains('is-visible')).toBe(true);
+    measured = 150;
+    ctx.click(panel.querySelector('button[data-unblacklist="HACK"]'));
+    await ctx.sleep();
+    expect(panel.classList.contains('is-visible')).toBe(true);
+    expect(panel.style.maxHeight).toBe('150px');
+  });
+});
+
+// ---------------------------------------------------------------------------
+// N. Sticky column colors (opaque pinned cells, both themes)
+// ---------------------------------------------------------------------------
+describe('sticky column colors', () => {
+  test('pinned cells carry explicit backgrounds: light header, composited dark base/hover/selected', async () => {
+    const ctx = await boot();
+    const css = [...ctx.doc.querySelectorAll('style')].map((s: any) => s.textContent).join('\n');
+    expect(css).toContain('#table-scroll thead .catalog-sticky-col{top:0;z-index:30;background:#f8fafc}');
+    expect(css).toContain('#table-scroll thead .watchlist-sticky-ticker{top:0;z-index:30;background:#f8fafc}');
+    expect(css).toContain('.dark #table-scroll thead .catalog-sticky-col,.dark #table-scroll thead .watchlist-sticky-ticker{background:#0f172a}');
+    expect(css).toContain('.dark #table-scroll .catalog-sticky-col{background:#172033}');
+    expect(css).toContain('.dark #table-scroll .watchlist-sticky-ticker{background:#172033}');
+    expect(css).toContain('.dark #table-scroll tbody tr:hover .catalog-sticky-col{background:#1f2a3d}');
+    expect(css).toContain('.dark #table-scroll tbody tr:hover .watchlist-sticky-ticker{background:#1f2a3d}');
+    expect(css).toContain('.dark #table-scroll tbody tr.selected-row .catalog-sticky-col{background:#19274e}');
+    // The old translucent-unfriendly flat tokens must be gone.
+    expect(css).not.toContain('#1e293b');
+    expect(css).not.toContain('#243043');
+    expect(css).not.toContain('#1e2e55');
+  });
+});

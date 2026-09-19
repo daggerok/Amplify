@@ -43,7 +43,7 @@ The suite in `scripts/ui-contract.test.ts` boots the real single-file app in hap
 
 The app reads Amplify ETF catalog, holdings, distributions, yields, performance/total returns, allocations, and daily price metrics from `./api/data.json`.
 
-The catalog table surfaces Dividend Yield, 30-Day SEC Yield, YTD / 1-year total return, 3Y/5Y/10Y total return and CAGR, since-inception annualized return, and daily History count from that same feed. Hover any column header for the abbreviation and a short explanation (for example **Net Assets** = AUM, Assets Under Management). The **All ETFs** tab and the **Use** header have a checkbox to select or clear every fund.
+The catalog table surfaces Dividend Yield, 30-Day SEC Yield, Distribution Frequency (derived by the updater from the fund's distribution history — how often it pays), YTD / 1-year total return, 3Y/5Y/10Y total return and CAGR, since-inception annualized return, and daily History count from that same feed. Hover any column header for the abbreviation and a short explanation (for example **Net Assets** = AUM, Assets Under Management). The **All ETFs** tab and the **Use** header have a checkbox to select or clear every fund.
 
 The **Watchlist** tab aggregates the underlying holdings of every selected ETF. The **ETFs** column shows a badge per selected ETF holding the ticker, followed by the **# ETFs** count column.
 
