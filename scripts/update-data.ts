@@ -501,6 +501,8 @@ async function main() {
       error: holdingsDoc?.error ? String((holdingsDoc.error as Error).message || holdingsDoc.error) : undefined,
     };
 
+    const distributionRows = distributionsDocs.map(normalizeDistribution).filter(Boolean);
+
     detailsByTicker[ticker] = {
       ticker,
       fundName,
@@ -508,7 +510,8 @@ async function main() {
       metadata: normalizeMetadata(meta),
       daily: normalizeAsOfDoc(dailyDoc),
       yields: normalizeAsOfDoc(yieldsDoc),
-      distributions: distributionsDocs.map(normalizeDistribution).filter(Boolean),
+      distributions: distributionRows,
+      distributionFrequency: deriveDistributionFrequency(distributionRows),
       performance: {
         monthly: normalizePerformanceDoc(monthlyPerformanceDoc),
         quarterly: normalizePerformanceDoc(quarterlyPerformanceDoc),
@@ -696,6 +699,69 @@ function normalizeDistribution(doc: DecodedDoc): JsonRecord | null {
     note: doc.fields.note || null,
     year: doc.fields.year || inferYear(doc.fields.exDate || doc.id),
   };
+}
+
+// ---------------------------------------------------------------------------
+// Distribution frequency (catalog "Frequency" column)
+// ---------------------------------------------------------------------------
+// The Firestore `distributions` subcollection publishes per-event rows only —
+// there is no raw cadence/frequency field. The UI parity contract therefore
+// requires the frequency to be derived here, from the raw per-event
+// distribution history, and published as a coded label so a plain string sort
+// orders funds from most to least frequent across all provider apps:
+//   00 - —            no (usable) distribution history
+//   01 - Monthly      ~monthly payouts
+//   04 - Quarterly    ~quarterly payouts
+//   06 - Semi-annually ~twice-a-year payouts
+//   12 - Annually     ~yearly payouts
+//   99 - Irregular    events whose cadence does not fit a bucket
+function distributionDateTs(row: JsonRecord): number {
+  return Date.parse(String(row.exDate || row.recordDate || row.payableDate || row.id || ''));
+}
+
+function median(values: number[]): number {
+  const sorted = [...values].sort((a, b) => a - b);
+  const mid = Math.floor(sorted.length / 2);
+  return sorted.length % 2 ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2;
+}
+
+type FrequencyBucket = 'monthly' | 'quarterly' | 'semiAnnual' | 'annually' | 'irregular';
+
+const FREQUENCY_LABELS: Record<FrequencyBucket | 'none', string> = {
+  none: '00 - —',
+  monthly: '01 - Monthly',
+  quarterly: '04 - Quarterly',
+  semiAnnual: '06 - Semi-annually',
+  annually: '12 - Annually',
+  irregular: '99 - Irregular',
+};
+
+// Typical intervals: monthly ~28-31d, quarterly ~91d, semi-annual ~182d,
+// annual ~365d. Bucket edges leave room for calendar drift and declared
+// ex-date shifts; anything beyond a yearly gap (or a history whose intervals
+// mostly disagree with its own median) is irregular.
+function frequencyBucket(days: number): FrequencyBucket {
+  if (days <= 45) return 'monthly';
+  if (days <= 130) return 'quarterly';
+  if (days <= 270) return 'semiAnnual';
+  if (days <= 548) return 'annually';
+  return 'irregular';
+}
+
+function deriveDistributionFrequency(rows: JsonRecord[]): string {
+  const dates = rows
+    .map(distributionDateTs)
+    .filter(ts => Number.isFinite(ts))
+    .sort((a, b) => a - b);
+  if (dates.length < 2) return FREQUENCY_LABELS.none;
+  const intervals: number[] = [];
+  for (let i = 1; i < dates.length; i++) intervals.push((dates[i] - dates[i - 1]) / 86_400_000);
+  const medianBucket = frequencyBucket(median(intervals));
+  // Erratic cadence: a strict majority of intervals disagree with the
+  // typical one (variable/special distributions), so call it irregular.
+  const agreeing = intervals.filter(days => frequencyBucket(days) === medianBucket).length;
+  if (agreeing * 2 < intervals.length) return FREQUENCY_LABELS.irregular;
+  return FREQUENCY_LABELS[medianBucket];
 }
 
 function normalizePerformanceDoc(doc: DecodedDoc | null): JsonRecord | null {
