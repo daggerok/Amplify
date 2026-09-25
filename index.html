@@ -116,7 +116,7 @@
           <h1 class="min-w-0 text-xl font-bold tracking-tight text-slate-900 dark:text-white leading-tight">Amplify ETF Holdings to Watchlist</h1>
         </div>
         <span id="app-subtitle" aria-live="polite" class="basis-full sm:basis-auto text-sm text-slate-500 dark:text-slate-400">
-          Search Amplify ETFs, select ETFs via the “Use” checkbox, then use the Watchlist tab. Data comes from
+          Search Amplify ETFs, select rows, then use the Watchlist tab. Data comes from
           <a href="./api/data.json" target="_blank" rel="noopener noreferrer" class="font-semibold text-blue-600 dark:text-blue-400 hover:underline">api/data.json</a>
           generated from
           <a href="https://amplifyetfs.com/our-etfs/" target="_blank" rel="noopener noreferrer" class="font-semibold text-blue-600 dark:text-blue-400 hover:underline">Amplify ETFs</a>
@@ -974,7 +974,7 @@ function renderFundsTable(): void {
   el.tableBody.querySelectorAll('input[data-checkbox]').forEach((checkbox: any) => {
     checkbox.addEventListener('change', (event: any) => {
       event.stopPropagation();
-      const ticker = checkbox.dataset.checkbox || '';
+      const ticker = (checkbox as any).dataset.checkbox || '';
       toggleFund(ticker);
     });
     checkbox.addEventListener('click', (event: any) => event.stopPropagation());
