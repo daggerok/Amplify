@@ -971,7 +971,7 @@ function classifyHolding({ symbol, name, cusip, raw }: JsonRecord): string[] {
   const isNumericIdentifier = /^[0-9][0-9A-Z]{7,}$/.test(symbol) || (/^[0-9A-Z]{9}$/.test(symbol) && /\d/.test(symbol) && !/[.\-\s]/.test(symbol));
   const isForeignSuffix = /\s[A-Z]{2,3}$/.test(symbol);
   if (isCash) flags.push('cash');
-  if (isMoneyMarket) flags.push('outputMoney-market');
+  if (isMoneyMarket) flags.push('money-market');
   if (isTreasury) flags.push('treasury');
   if (isOption) flags.push('option');
   if (isDerivative) flags.push('derivative');
