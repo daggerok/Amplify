@@ -1,5 +1,7 @@
 #!/usr/bin/env bun
 
+/// <reference types="bun" />
+/// <reference types="node" />
 // Console presentation; no changes to provider requests or persisted data.
 /** Presentation only: no requests, writes, filtering, or changes to updater state. */
 

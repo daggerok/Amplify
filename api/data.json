@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-25T06:07:39.461Z",
+  "generatedAt": "2026-09-25T13:49:08.131Z",
   "source": {
     "site": "https://amplifyetfs.com/our-etfs/",
     "firestoreProject": "amplify-etfs-data-feed",
@@ -34950,7 +34950,7 @@
         "UnderlyingIndexTicker": "NMFSM",
         "isActivelyManaged": false,
         "isTrading": true,
-        "UpdatedAt": "2026-09-25T06:00:56.054223"
+        "UpdatedAt": "2026-09-25T13:30:46.230915"
       },
       "daily": {
         "asOfDate": "2026-09-24",
@@ -34958,7 +34958,7 @@
         "MarketPrice": 28.93,
         "MarketPriceChangeDollars": -0.47,
         "MarketPriceChangePercentage": -1.5986,
-        "Median30DaySpread": 0.0324,
+        "Median30DaySpread": 0.0326,
         "NAV": 28.9335,
         "NAVChangeDollars": -0.4566,
         "NAVChangePercentage": -1.5536,
@@ -35257,7 +35257,7 @@
         "UnderlyingIndexTicker": "HXRXL",
         "isActivelyManaged": false,
         "isTrading": true,
-        "UpdatedAt": "2026-09-25T06:00:55.787362"
+        "UpdatedAt": "2026-09-25T13:30:46.041443"
       },
       "daily": {
         "asOfDate": "2026-09-24",
@@ -35265,7 +35265,7 @@
         "MarketPrice": 122.18,
         "MarketPriceChangeDollars": -1.89,
         "MarketPriceChangePercentage": -1.5233,
-        "Median30DaySpread": 0.1644,
+        "Median30DaySpread": 0.163,
         "NAV": 122.1475,
         "NAVChangeDollars": -1.9175,
         "NAVChangePercentage": -1.5456,
@@ -35563,7 +35563,7 @@
         "CUFee": "300",
         "isActivelyManaged": true,
         "isTrading": true,
-        "UpdatedAt": "2026-09-25T06:00:55.323631"
+        "UpdatedAt": "2026-09-25T13:30:45.547480"
       },
       "daily": {
         "asOfDate": "2026-09-24",
@@ -35571,7 +35571,7 @@
         "MarketPrice": 42.29,
         "MarketPriceChangeDollars": -0.12,
         "MarketPriceChangePercentage": -0.283,
-        "Median30DaySpread": 0.0936,
+        "Median30DaySpread": 0.0937,
         "NAV": 42.262,
         "NAVChangeDollars": -0.1174,
         "NAVChangePercentage": -0.277,
@@ -35914,7 +35914,7 @@
         "CUFee": "500",
         "isActivelyManaged": true,
         "isTrading": true,
-        "UpdatedAt": "2026-09-25T06:00:54.976500"
+        "UpdatedAt": "2026-09-25T13:30:45.198010"
       },
       "daily": {
         "asOfDate": "2026-09-24",
@@ -35922,7 +35922,7 @@
         "MarketPrice": 64.94,
         "MarketPriceChangeDollars": -0.57,
         "MarketPriceChangePercentage": -0.8701,
-        "Median30DaySpread": 0.1499,
+        "Median30DaySpread": 0.1485,
         "NAV": 64.8552,
         "NAVChangeDollars": -0.3461,
         "NAVChangePercentage": -0.5308,
@@ -36285,7 +36285,7 @@
         "CUFee": "300",
         "isActivelyManaged": true,
         "isTrading": true,
-        "UpdatedAt": "2026-09-25T06:00:56.214249"
+        "UpdatedAt": "2026-09-25T13:30:46.313827"
       },
       "daily": {
         "asOfDate": "2026-09-24",
@@ -36293,7 +36293,7 @@
         "MarketPrice": 30.36,
         "MarketPriceChangeDollars": 0.08,
         "MarketPriceChangePercentage": 0.2642,
-        "Median30DaySpread": 0.1014,
+        "Median30DaySpread": 0.1015,
         "NAV": 30.3251,
         "NAVChangeDollars": 0.1085,
         "NAVChangePercentage": 0.3591,
@@ -36523,7 +36523,7 @@
         "UnderlyingIndexTicker": "YLDATR",
         "isActivelyManaged": false,
         "isTrading": true,
-        "UpdatedAt": "2026-09-25T06:00:55.221335"
+        "UpdatedAt": "2026-09-25T13:30:45.460199"
       },
       "daily": {
         "asOfDate": "2026-09-24",
@@ -36531,7 +36531,7 @@
         "MarketPrice": 10.57,
         "MarketPriceChangeDollars": -0.03,
         "MarketPriceChangePercentage": -0.283,
-        "Median30DaySpread": 0.09,
+        "Median30DaySpread": 0.0909,
         "NAV": 10.5565,
         "NAVChangeDollars": -0.0897,
         "NAVChangePercentage": -0.8426,
@@ -37039,7 +37039,7 @@
         "UnderlyingIndexTicker": "BWETFF",
         "isActivelyManaged": false,
         "isTrading": true,
-        "UpdatedAt": "2026-09-25T06:00:55.656820"
+        "UpdatedAt": "2026-09-25T13:30:45.903720"
       },
       "daily": {
         "asOfDate": "2026-09-24",
@@ -37047,7 +37047,7 @@
         "MarketPrice": 684.29,
         "MarketPriceChangeDollars": -55.11,
         "MarketPriceChangePercentage": -7.4533,
-        "Median30DaySpread": 0.6515,
+        "Median30DaySpread": 0.6761,
         "NAV": 810.8053,
         "NAVChangeDollars": 78.2925,
         "NAVChangePercentage": 10.6882,
@@ -37188,7 +37188,7 @@
         "UnderlyingIndexTicker": "ETHO",
         "isActivelyManaged": false,
         "isTrading": true,
-        "UpdatedAt": "2026-09-25T06:00:55.688261"
+        "UpdatedAt": "2026-09-25T13:30:45.949289"
       },
       "daily": {
         "asOfDate": "2026-09-24",
@@ -37196,7 +37196,7 @@
         "MarketPrice": 79.81,
         "MarketPriceChangeDollars": 0.0929,
         "MarketPriceChangePercentage": 0.1165,
-        "Median30DaySpread": 0.1886,
+        "Median30DaySpread": 0.1881,
         "NAV": 79.7457,
         "NAVChangeDollars": 0.0396,
         "NAVChangePercentage": 0.0497,
@@ -37470,7 +37470,7 @@
         "UnderlyingIndexTicker": "SWANXT",
         "isActivelyManaged": false,
         "isTrading": true,
-        "UpdatedAt": "2026-09-25T06:00:55.063859"
+        "UpdatedAt": "2026-09-25T13:30:45.376167"
       },
       "daily": {
         "asOfDate": "2026-09-24",
@@ -37478,7 +37478,7 @@
         "MarketPrice": 32.4578,
         "MarketPriceChangeDollars": -0.0823,
         "MarketPriceChangePercentage": -0.2529,
-        "Median30DaySpread": 0.3647,
+        "Median30DaySpread": 0.3679,
         "NAV": 32.457,
         "NAVChangeDollars": -0.0867,
         "NAVChangePercentage": -0.2664,
@@ -37664,7 +37664,7 @@
         "UnderlyingIndexTicker": "WALLET",
         "isActivelyManaged": false,
         "isTrading": true,
-        "UpdatedAt": "2026-09-25T06:00:55.825313"
+        "UpdatedAt": "2026-09-25T13:30:46.058687"
       },
       "daily": {
         "asOfDate": "2026-09-24",
@@ -37672,7 +37672,7 @@
         "MarketPrice": 47.55,
         "MarketPriceChangeDollars": 0.54,
         "MarketPriceChangePercentage": 1.1487,
-        "Median30DaySpread": 0.3657,
+        "Median30DaySpread": 0.3594,
         "NAV": 47.4932,
         "NAVChangeDollars": 0.2991,
         "NAVChangePercentage": 0.6338,
@@ -38062,7 +38062,7 @@
         "UnderlyingIndexTicker": "BAIVT",
         "isActivelyManaged": false,
         "isTrading": true,
-        "UpdatedAt": "2026-09-25T06:00:55.913676"
+        "UpdatedAt": "2026-09-25T13:30:46.145449"
       },
       "daily": {
         "asOfDate": "2026-09-24",
@@ -38070,7 +38070,7 @@
         "MarketPrice": 115.6444,
         "MarketPriceChangeDollars": -0.1339,
         "MarketPriceChangePercentage": -0.1157,
-        "Median30DaySpread": 0.3118,
+        "Median30DaySpread": 0.3104,
         "NAV": 116.1242,
         "NAVChangeDollars": -0.0213,
         "NAVChangePercentage": -0.0183,
@@ -38366,7 +38366,7 @@
         "UnderlyingIndexTicker": "IBUYXT",
         "isActivelyManaged": false,
         "isTrading": true,
-        "UpdatedAt": "2026-09-25T06:00:54.871788"
+        "UpdatedAt": "2026-09-25T13:30:45.105559"
       },
       "daily": {
         "asOfDate": "2026-09-24",
@@ -38374,7 +38374,7 @@
         "MarketPrice": 66.2351,
         "MarketPriceChangeDollars": -0.1316,
         "MarketPriceChangePercentage": -0.1983,
-        "Median30DaySpread": 0.1868,
+        "Median30DaySpread": 0.182,
         "NAV": 66.1398,
         "NAVChangeDollars": -0.2008,
         "NAVChangePercentage": -0.3027,
@@ -38714,7 +38714,7 @@
         "CUFee": "300",
         "isActivelyManaged": false,
         "isTrading": true,
-        "UpdatedAt": "2026-09-25T06:00:55.515632"
+        "UpdatedAt": "2026-09-25T13:30:45.784313"
       },
       "daily": {
         "asOfDate": "2026-09-24",
@@ -38722,7 +38722,7 @@
         "MarketPrice": 49.5482,
         "MarketPriceChangeDollars": -0.1049,
         "MarketPriceChangePercentage": -0.2113,
-        "Median30DaySpread": 0.3218,
+        "Median30DaySpread": 0.3223,
         "NAV": 49.5568,
         "NAVChangeDollars": -0.1215,
         "NAVChangePercentage": -0.2446,
@@ -38984,7 +38984,7 @@
         "UnderlyingIndexTicker": "BATTIDX",
         "isActivelyManaged": false,
         "isTrading": true,
-        "UpdatedAt": "2026-09-25T06:00:55.017119"
+        "UpdatedAt": "2026-09-25T13:30:45.243453"
       },
       "daily": {
         "asOfDate": "2026-09-24",
@@ -38992,7 +38992,7 @@
         "MarketPrice": 14.64,
         "MarketPriceChangeDollars": -0.18,
         "MarketPriceChangePercentage": -1.2146,
-        "Median30DaySpread": 0.4512,
+        "Median30DaySpread": 0.4725,
         "NAV": 14.6705,
         "NAVChangeDollars": -0.2052,
         "NAVChangePercentage": -1.3794,
@@ -39312,7 +39312,7 @@
         "UnderlyingIndexTicker": "HARVESTN",
         "isActivelyManaged": false,
         "isTrading": true,
-        "UpdatedAt": "2026-09-25T06:00:55.950537"
+        "UpdatedAt": "2026-09-25T13:30:46.194029"
       },
       "daily": {
         "asOfDate": "2026-09-24",
@@ -39320,7 +39320,7 @@
         "MarketPrice": 27.0699,
         "MarketPriceChangeDollars": -0.5901,
         "MarketPriceChangePercentage": -2.1334,
-        "Median30DaySpread": 0.6228,
+        "Median30DaySpread": 0.6371,
         "NAV": 26.9614,
         "NAVChangeDollars": -0.6027,
         "NAVChangePercentage": -2.1865,
@@ -39596,7 +39596,7 @@
         "UnderlyingIndexTicker": "BGTH",
         "isActivelyManaged": false,
         "isTrading": true,
-        "UpdatedAt": "2026-09-25T06:00:55.865722"
+        "UpdatedAt": "2026-09-25T13:30:46.104926"
       },
       "daily": {
         "asOfDate": "2026-09-24",
@@ -39604,7 +39604,7 @@
         "MarketPrice": 62.1594,
         "MarketPriceChangeDollars": -0.568,
         "MarketPriceChangePercentage": -0.9055,
-        "Median30DaySpread": 0.2012,
+        "Median30DaySpread": 0.2024,
         "NAV": 62.2646,
         "NAVChangeDollars": -0.6601,
         "NAVChangePercentage": -1.049,
@@ -39889,7 +39889,7 @@
         "CUFee": "500",
         "isActivelyManaged": true,
         "isTrading": true,
-        "UpdatedAt": "2026-09-25T06:00:55.103966"
+        "UpdatedAt": "2026-09-25T13:30:45.417033"
       },
       "daily": {
         "asOfDate": "2026-09-24",
@@ -39897,7 +39897,7 @@
         "MarketPrice": 29.6529,
         "MarketPriceChangeDollars": -1.1287,
         "MarketPriceChangePercentage": -3.6668,
-        "Median30DaySpread": 0.2425,
+        "Median30DaySpread": 0.2421,
         "NAV": 29.7074,
         "NAVChangeDollars": -1.1731,
         "NAVChangePercentage": -3.7988,
@@ -40142,7 +40142,7 @@
         "CUFee": "300",
         "isActivelyManaged": true,
         "isTrading": true,
-        "UpdatedAt": "2026-09-25T06:00:56.501013"
+        "UpdatedAt": "2026-09-25T13:30:46.501868"
       },
       "daily": {
         "asOfDate": "2026-09-24",
@@ -40150,7 +40150,7 @@
         "MarketPrice": 29.68,
         "MarketPriceChangeDollars": -0.2488,
         "MarketPriceChangePercentage": -0.8313,
-        "Median30DaySpread": 0.5999,
+        "Median30DaySpread": 0.6014,
         "NAV": 29.6335,
         "NAVChangeDollars": -0.2918,
         "NAVChangePercentage": -0.9751,
@@ -40670,7 +40670,7 @@
         "UnderlyingIndexTicker": "COWSETF",
         "isActivelyManaged": false,
         "isTrading": true,
-        "UpdatedAt": "2026-09-25T06:00:55.404647"
+        "UpdatedAt": "2026-09-25T13:30:45.632212"
       },
       "daily": {
         "asOfDate": "2026-09-24",
@@ -40678,7 +40678,7 @@
         "MarketPrice": 36.7454,
         "MarketPriceChangeDollars": -0.5168,
         "MarketPriceChangePercentage": -1.3869,
-        "Median30DaySpread": 0.1817,
+        "Median30DaySpread": 0.1815,
         "NAV": 36.7499,
         "NAVChangeDollars": -0.5068,
         "NAVChangePercentage": -1.3603,
@@ -40945,7 +40945,7 @@
         "UnderlyingIndexTicker": "BDRYFF",
         "isActivelyManaged": false,
         "isTrading": true,
-        "UpdatedAt": "2026-09-25T06:00:55.601243"
+        "UpdatedAt": "2026-09-25T13:30:45.866471"
       },
       "daily": {
         "asOfDate": "2026-09-24",
@@ -40953,7 +40953,7 @@
         "MarketPrice": 15.77,
         "MarketPriceChangeDollars": -0.19,
         "MarketPriceChangePercentage": -1.1905,
-        "Median30DaySpread": 0.6104,
+        "Median30DaySpread": 0.6266,
         "NAV": 15.8296,
         "NAVChangeDollars": -0.0653,
         "NAVChangePercentage": -0.4108,
@@ -41068,7 +41068,7 @@
         "UnderlyingIndexTicker": "ISWNXT",
         "isActivelyManaged": false,
         "isTrading": true,
-        "UpdatedAt": "2026-09-25T06:00:55.275481"
+        "UpdatedAt": "2026-09-25T13:30:45.500496"
       },
       "daily": {
         "asOfDate": "2026-09-24",
@@ -41076,7 +41076,7 @@
         "MarketPrice": 21.2606,
         "MarketPriceChangeDollars": -0.1701,
         "MarketPriceChangePercentage": -0.7937,
-        "Median30DaySpread": 0.534,
+        "Median30DaySpread": 0.5345,
         "NAV": 21.2977,
         "NAVChangeDollars": -0.0934,
         "NAVChangePercentage": -0.4366,
@@ -41326,7 +41326,7 @@
         "UnderlyingIndexTicker": "NDIVITR",
         "isActivelyManaged": false,
         "isTrading": true,
-        "UpdatedAt": "2026-09-25T06:00:55.365151"
+        "UpdatedAt": "2026-09-25T13:30:45.590272"
       },
       "daily": {
         "asOfDate": "2026-09-24",
@@ -41334,7 +41334,7 @@
         "MarketPrice": 34.0634,
         "MarketPriceChangeDollars": -0.1229,
         "MarketPriceChangePercentage": -0.3595,
-        "Median30DaySpread": 0.4791,
+        "Median30DaySpread": 0.48,
         "NAV": 34.0676,
         "NAVChangeDollars": -0.0091,
         "NAVChangePercentage": -0.0267,
@@ -41896,7 +41896,7 @@
         "UnderlyingIndexTicker": "PTRAVELN",
         "isActivelyManaged": false,
         "isTrading": true,
-        "UpdatedAt": "2026-09-25T06:00:55.560881"
+        "UpdatedAt": "2026-09-25T13:30:45.828663"
       },
       "daily": {
         "asOfDate": "2026-09-24",
@@ -41904,7 +41904,7 @@
         "MarketPrice": 16.7962,
         "MarketPriceChangeDollars": 0.0511,
         "MarketPriceChangePercentage": 0.3052,
-        "Median30DaySpread": 0.5512,
+        "Median30DaySpread": 0.5515,
         "NAV": 16.8119,
         "NAVChangeDollars": 0.0045,
         "NAVChangePercentage": 0.0268,
@@ -42206,7 +42206,7 @@
         "CUSize": "30000",
         "isActivelyManaged": true,
         "isTrading": true,
-        "UpdatedAt": "2026-09-25T06:00:55.432906"
+        "UpdatedAt": "2026-09-25T13:30:45.672337"
       },
       "daily": {
         "asOfDate": "2026-09-24",
@@ -42214,7 +42214,7 @@
         "MarketPrice": 23.9066,
         "MarketPriceChangeDollars": -0.315,
         "MarketPriceChangePercentage": -1.3005,
-        "Median30DaySpread": 0.4373,
+        "Median30DaySpread": 0.4274,
         "NAV": 23.8916,
         "NAVChangeDollars": -0.3121,
         "NAVChangePercentage": -1.2895,
@@ -42695,7 +42695,7 @@
         "CUFee": "300",
         "isActivelyManaged": true,
         "isTrading": true,
-        "UpdatedAt": "2026-09-25T06:00:56.364414"
+        "UpdatedAt": "2026-09-25T13:30:46.418889"
       },
       "daily": {
         "asOfDate": "2026-09-24",
@@ -42703,7 +42703,7 @@
         "MarketPrice": 24.17,
         "MarketPriceChangeDollars": 0.0361,
         "MarketPriceChangePercentage": 0.1496,
-        "Median30DaySpread": 0.24,
+        "Median30DaySpread": 0.21,
         "NAV": 24.1198,
         "NAVChangeDollars": -0.0131,
         "NAVChangePercentage": -0.0543,
@@ -42844,7 +42844,7 @@
         "CUFee": "300",
         "isActivelyManaged": true,
         "isTrading": true,
-        "UpdatedAt": "2026-09-25T06:00:56.455348"
+        "UpdatedAt": "2026-09-25T13:30:46.469882"
       },
       "daily": {
         "asOfDate": "2026-09-24",
@@ -42852,7 +42852,7 @@
         "MarketPrice": 34.85,
         "MarketPriceChangeDollars": -0.11,
         "MarketPriceChangePercentage": -0.3146,
-        "Median30DaySpread": 0.1959,
+        "Median30DaySpread": 0.1961,
         "NAV": 34.8756,
         "NAVChangeDollars": -0.1089,
         "NAVChangePercentage": -0.3113,
@@ -43063,7 +43063,7 @@
         "CUFee": "300",
         "isActivelyManaged": true,
         "isTrading": true,
-        "UpdatedAt": "2026-09-25T06:00:56.807776"
+        "UpdatedAt": "2026-09-25T13:30:47.013646"
       },
       "daily": {
         "asOfDate": "2026-09-24",
@@ -43071,7 +43071,7 @@
         "MarketPrice": 32.35,
         "MarketPriceChangeDollars": -0.5,
         "MarketPriceChangePercentage": -1.5221,
-        "Median30DaySpread": 0.8123,
+        "Median30DaySpread": 0.823,
         "NAV": 32.1864,
         "NAVChangeDollars": -0.4599,
         "NAVChangePercentage": -1.4087,
@@ -43216,7 +43216,7 @@
         "UnderlyingIndexTicker": "AHBM",
         "isActivelyManaged": true,
         "isTrading": true,
-        "UpdatedAt": "2026-09-25T06:00:57.146156"
+        "UpdatedAt": "2026-09-25T13:30:47.182163"
       },
       "daily": {
         "asOfDate": "2026-09-24",
@@ -43224,7 +43224,7 @@
         "MarketPrice": 25.405,
         "MarketPriceChangeDollars": -0.5931,
         "MarketPriceChangePercentage": -2.2813,
-        "Median30DaySpread": 0.3303,
+        "Median30DaySpread": 0.3339,
         "NAV": 25.6646,
         "NAVChangeDollars": -0.3392,
         "NAVChangePercentage": -1.3044,
@@ -43376,7 +43376,7 @@
         "UnderlyingIndexTicker": "THINR",
         "isActivelyManaged": false,
         "isTrading": true,
-        "UpdatedAt": "2026-09-25T06:00:56.095920"
+        "UpdatedAt": "2026-09-25T13:30:46.271653"
       },
       "daily": {
         "asOfDate": "2026-09-24",
@@ -43384,7 +43384,7 @@
         "MarketPrice": 25.6817,
         "MarketPriceChangeDollars": -0.3185,
         "MarketPriceChangePercentage": -1.225,
-        "Median30DaySpread": 0.2249,
+        "Median30DaySpread": 0.2253,
         "NAV": 25.6604,
         "NAVChangeDollars": -0.2941,
         "NAVChangePercentage": -1.1331,
@@ -43942,7 +43942,7 @@
         "CUFee": "300",
         "isActivelyManaged": true,
         "isTrading": true,
-        "UpdatedAt": "2026-09-25T06:00:57.088907"
+        "UpdatedAt": "2026-09-25T13:30:47.142109"
       },
       "daily": {
         "asOfDate": "2026-09-24",
@@ -43950,7 +43950,7 @@
         "MarketPrice": 32.742,
         "MarketPriceChangeDollars": 0.0504,
         "MarketPriceChangePercentage": 0.1542,
-        "Median30DaySpread": 0.3865,
+        "Median30DaySpread": 0.3904,
         "NAV": 32.6626,
         "NAVChangeDollars": -0.0009,
         "NAVChangePercentage": -0.0028,
@@ -44170,7 +44170,7 @@
         "UnderlyingIndexTicker": "MVSTBQ",
         "isActivelyManaged": false,
         "isTrading": true,
-        "UpdatedAt": "2026-09-25T06:00:56.725420"
+        "UpdatedAt": "2026-09-25T13:30:46.845881"
       },
       "daily": {
         "asOfDate": "2026-09-24",
@@ -44178,7 +44178,7 @@
         "MarketPrice": 24.1499,
         "MarketPriceChangeDollars": 0.3915,
         "MarketPriceChangePercentage": 1.6478,
-        "Median30DaySpread": 0.2099,
+        "Median30DaySpread": 0.21,
         "NAV": 24.0708,
         "NAVChangeDollars": 0.3888,
         "NAVChangePercentage": 1.6418,
@@ -44417,7 +44417,7 @@
         "CUFee": "300",
         "isActivelyManaged": true,
         "isTrading": true,
-        "UpdatedAt": "2026-09-25T06:00:56.640066"
+        "UpdatedAt": "2026-09-25T13:30:46.764168"
       },
       "daily": {
         "asOfDate": "2026-09-24",
@@ -44425,7 +44425,7 @@
         "MarketPrice": 10.644,
         "MarketPriceChangeDollars": 0.284,
         "MarketPriceChangePercentage": 2.7413,
-        "Median30DaySpread": 0.31,
+        "Median30DaySpread": 0.3,
         "NAV": 10.6162,
         "NAVChangeDollars": 0.2977,
         "NAVChangePercentage": 2.8851,
@@ -44554,7 +44554,7 @@
         "UnderlyingIndexTicker": "YLDM",
         "isActivelyManaged": false,
         "isTrading": true,
-        "UpdatedAt": "2026-09-25T06:00:56.851873"
+        "UpdatedAt": "2026-09-25T13:30:47.047686"
       },
       "daily": {
         "asOfDate": "2026-09-24",
@@ -44562,7 +44562,7 @@
         "MarketPrice": 17.6447,
         "MarketPriceChangeDollars": -0.2913,
         "MarketPriceChangePercentage": -1.6241,
-        "Median30DaySpread": 0.3228,
+        "Median30DaySpread": 0.315,
         "NAV": 17.657,
         "NAVChangeDollars": -0.2808,
         "NAVChangePercentage": -1.5654,
@@ -44783,7 +44783,7 @@
         "UnderlyingIndexTicker": "B10QTMT",
         "isActivelyManaged": false,
         "isTrading": true,
-        "UpdatedAt": "2026-09-25T06:00:57.373032"
+        "UpdatedAt": "2026-09-25T13:30:47.392651"
       },
       "daily": {
         "asOfDate": "2026-09-24",
@@ -44791,7 +44791,7 @@
         "MarketPrice": 24.7494,
         "MarketPriceChangeDollars": 0.4093,
         "MarketPriceChangePercentage": 1.6816,
-        "Median30DaySpread": 0.299,
+        "Median30DaySpread": 0.2979,
         "NAV": 24.694,
         "NAVChangeDollars": 0.3481,
         "NAVChangePercentage": 1.4298,
@@ -45455,7 +45455,7 @@
         "UnderlyingIndexTicker": "SPXDDIUT",
         "isActivelyManaged": false,
         "isTrading": true,
-        "UpdatedAt": "2026-09-25T06:00:56.951616"
+        "UpdatedAt": "2026-09-25T13:30:47.133060"
       },
       "daily": {
         "asOfDate": "2026-09-24",
@@ -45463,7 +45463,7 @@
         "MarketPrice": 24.1885,
         "MarketPriceChangeDollars": -0.2244,
         "MarketPriceChangePercentage": -0.9192,
-        "Median30DaySpread": 0.194,
+        "Median30DaySpread": 0.1943,
         "NAV": 24.1813,
         "NAVChangeDollars": -0.2239,
         "NAVChangePercentage": -0.9174,
@@ -45542,7 +45542,7 @@
         "UnderlyingIndexTicker": "B10SPCT",
         "isActivelyManaged": false,
         "isTrading": true,
-        "UpdatedAt": "2026-09-25T06:00:57.415173"
+        "UpdatedAt": "2026-09-25T13:30:47.442066"
       },
       "daily": {
         "asOfDate": "2026-09-24",
@@ -45550,7 +45550,7 @@
         "MarketPrice": 23.2675,
         "MarketPriceChangeDollars": 0.1748,
         "MarketPriceChangePercentage": 0.7569,
-        "Median30DaySpread": 0.3094,
+        "Median30DaySpread": 0.3071,
         "NAV": 23.1228,
         "NAVChangeDollars": 0.0666,
         "NAVChangePercentage": 0.2889,
@@ -45721,7 +45721,7 @@
         "UnderlyingIndexTicker": "B10ROBT",
         "isActivelyManaged": false,
         "isTrading": true,
-        "UpdatedAt": "2026-09-25T06:00:57.267098"
+        "UpdatedAt": "2026-09-25T13:30:47.301410"
       },
       "daily": {
         "asOfDate": "2026-09-24",
@@ -45729,7 +45729,7 @@
         "MarketPrice": 22.7822,
         "MarketPriceChangeDollars": -0.0578,
         "MarketPriceChangePercentage": -0.2531,
-        "Median30DaySpread": 0.3063,
+        "Median30DaySpread": 0.3061,
         "NAV": 22.6275,
         "NAVChangeDollars": 0.1308,
         "NAVChangePercentage": 0.5814,
@@ -45890,7 +45890,7 @@
         "UnderlyingIndexTicker": "BTSICTHY",
         "isActivelyManaged": false,
         "isTrading": true,
-        "UpdatedAt": "2026-09-25T06:00:56.886414"
+        "UpdatedAt": "2026-09-25T13:30:47.082304"
       },
       "daily": {
         "asOfDate": "2026-09-24",
@@ -45898,7 +45898,7 @@
         "MarketPrice": 24.0699,
         "MarketPriceChangeDollars": -0.0699,
         "MarketPriceChangePercentage": -0.2896,
-        "Median30DaySpread": 0.29,
+        "Median30DaySpread": 0.28,
         "NAV": 24.0595,
         "NAVChangeDollars": -0.0644,
         "NAVChangePercentage": -0.267,
