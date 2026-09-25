@@ -66,19 +66,27 @@ function outputMoney(value: any): string {
 function outputFundLine(index: number, total: number, ticker: string, status: string, data: any = {}, reason?: unknown): string {
   const width = Math.max(2, String(total).length);
   const metrics = data.metrics ?? {};
+  // Presentation only. Keep valid zero/false values; omit unavailable fields.
+  // outputMoney returns the string 'null' for an unavailable monetary value.
+  const field = (key: string, value: unknown): string =>
+    value === null || value === undefined || value === 'null' ? '' : `${key}=${outputClean(value)}`;
+  const sources = [
+    field('official', data.officialHistoryCount),
+    field('yahoo', data.yahooHistoryCount),
+  ].filter(part => part !== '').join(' ');
   const detail = [
-    `port=${outputClean(data.portId ?? data.portfolioId)}`,
-    `history=${outputClean(outputCount(data.history ?? data.historyCount))}`,
-    `(official=${outputClean(data.officialHistoryCount)} yahoo=${outputClean(data.yahooHistoryCount)})`,
-    `holdings=${outputClean(outputCount(data.holdings ?? data.holdingsCount))}`,
-    `divs=${outputClean(outputCount(data.worksheets?.Distributions ?? data.distributions))}`,
-    `netAssets=${outputMoney(data.netAssets ?? data.aum)}`,
-    `total=${outputMoney(data.totalFundNetAssets ?? data.totalNetAssets)}`,
-    `div=${outputClean(outputScalar(data.trailingYield ?? data.yields?.effectiveYield ?? data.yields?.dividendYield ?? data.dividendYield ?? metrics.dividendYield))}`,
-    `sec=${outputClean(outputScalar(data.secYield ?? data.yields?.secYield ?? metrics.secYield))}`,
-    `wp=${outputClean(data.workplaceRaw)}`,
-  ].join(' ');
-  return `[ ${String(index).padStart(width)}/${String(total).padEnd(width)}  ] ${outputClean(ticker).padEnd(5)} ${status.padEnd(9)} ${detail}${reason ? ` reason=${outputClean(reason)}` : ''}`;
+    field('port', data.portId ?? data.portfolioId),
+    field('history', outputCount(data.history ?? data.historyCount)),
+    sources ? `(${sources})` : '',
+    field('holdings', outputCount(data.holdings ?? data.holdingsCount)),
+    field('divs', outputCount(data.worksheets?.Distributions ?? data.distributions)),
+    field('netAssets', outputMoney(data.netAssets ?? data.aum)),
+    field('total', outputMoney(data.totalFundNetAssets ?? data.totalNetAssets)),
+    field('div', outputScalar(data.trailingYield ?? data.yields?.effectiveYield ?? data.yields?.dividendYield ?? data.dividendYield ?? metrics.dividendYield)),
+    field('sec', outputScalar(data.secYield ?? data.yields?.secYield ?? metrics.secYield)),
+    field('wp', data.workplaceRaw),
+  ].filter(part => part !== '').join(' ');
+  return `[ ${String(index).padStart(width)}/${String(total).padEnd(width)}  ] ${outputClean(ticker).padEnd(5)} ${status.padEnd(9)}${detail ? ` ${detail}` : ''}${reason ? ` reason=${outputClean(reason)}` : ''}`;
 }
 
 
