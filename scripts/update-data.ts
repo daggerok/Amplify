@@ -1,5 +1,86 @@
 #!/usr/bin/env bun
-import { hasOutputFilters, printConfig, printFilter, fundLine, contentKey } from './update-output.ts';
+
+// Console presentation; no changes to provider requests or persisted data.
+/** Presentation only: no requests, writes, filtering, or changes to updater state. */
+
+const outputClean = (value: unknown): string => String(value ?? 'null').replace(/[\r\n\t]+/g, ' ');
+/** Names are the canonical environment knobs, not internal parser properties. */
+function outputConfigEntries(config: Record<string, any>): [string, string][] {
+  const values = new Map<string, string>();
+  const aliases: Record<string, string> = {
+    requestSleepSeconds: 'REQUEST_SLEEP', categories: 'CATEGORY',
+    aumRange: 'AUM', terRange: 'TER', dividendYieldRange: 'DIVIDEND_YIELD', secYieldRange: 'SEC_YIELD',
+    performanceRanges: 'PERFORMANCE', totalReturnRanges: 'TOTAL_RETURN',
+    skipVanEck: 'SKIP_VANECK', skipProShares: 'SKIP_PROSHARES',
+    skipWisdomTree: 'SKIP_WISDOMTREE', skipGoldmanSachs: 'SKIP_GOLDMANSACHS',
+  };
+  const range = (v: any): string => v?.source ?? `${Number.isFinite(v?.min) ? v.min : ''}:${Number.isFinite(v?.max) ? v.max : ''}`;
+  for (const [key, value] of Object.entries(config)) {
+    const name = aliases[key] ?? key.replace(/([a-z0-9])([A-Z])/g, '$1_$2').toUpperCase();
+    if (name === 'PERFORMANCE' || name === 'TOTAL_RETURN') {
+      for (const period of ['YTD', '1Y', '3Y', '5Y', '10Y']) values.set(`${name}_${period}`, range(value?.[period]));
+    } else if (['AUM', 'TER', 'DIVIDEND_YIELD', 'SEC_YIELD'].includes(name)) {
+      values.set(name, range(value));
+    } else {
+      values.set(name, value instanceof Set ? [...value].join(',') || 'all' : Array.isArray(value) ? value.join(',') || 'all' : outputClean(value));
+    }
+  }
+  const first = ['MAX_FETCHES', 'REQUEST_SLEEP', 'CONCURRENCY'];
+  return [...values].sort(([a], [b]) => {
+    const ai = first.indexOf(a), bi = first.indexOf(b);
+    return (ai < 0 ? first.length : ai) - (bi < 0 ? first.length : bi) || a.localeCompare(b);
+  });
+}
+function outputPrintConfig(brand: string, config: Record<string, any>): void {
+  console.log(`[ config ] ${brand} updater:\n${outputConfigEntries(config).map(([key, value]) => `            ${key}=${/TOKEN|PASSWORD|SECRET|COOKIE/i.test(key) ? '<redacted>' : outputClean(value)}`).join('\n')}`);
+}
+function outputHasOutputFilters(config: Record<string, any>): boolean {
+  return outputConfigEntries(config).some(([name, value]) =>
+    /^(TICKERS|CATEGORY|AUM|TER|DIVIDEND_YIELD|SEC_YIELD|PERFORMANCE_|TOTAL_RETURN_)/.test(name) &&
+    !['', ':', 'null', 'all'].includes(value));
+}
+function outputPrintFilter(selected: number, total: number, deferred = false): void {
+  console.log(`[ filter ] ${selected} of ${total} funds ${deferred ? 'selected for evaluation (data-dependent filters applied per fund)' : 'pass filters'}`);
+}
+function outputStable(value: any): any {
+  if (Array.isArray(value)) return value.map(outputStable);
+  if (value && typeof value === 'object') return Object.fromEntries(Object.keys(value).sort().filter(key => !['generatedAt', 'catalogReadAt'].includes(key)).map(key => [key, outputStable(value[key])]));
+  return value;
+}
+function outputContentKey(value: unknown): string { return JSON.stringify(outputStable(value)) ?? 'null'; }
+const outputCount = (value: any): unknown => typeof value === 'number' ? value : Array.isArray(value) ? value.length : value?.totalRows ?? value?.rows?.length ?? null;
+const outputScalar = (value: any): any => value && typeof value === 'object' ? value.display ?? value.value ?? null : value;
+function outputMoney(value: any): string {
+  const raw = outputScalar(value);
+  if (raw === null || raw === undefined || raw === '—' || raw === '--') return 'null';
+  const text = String(raw).replace(/[$,\s]/g, '');
+  const match = text.match(/^([+-]?[\d.]+)([KMBT])?$/i);
+  if (!match) return outputClean(raw);
+  const number = Number(match[1]) * ({ K: 1e3, M: 1e6, B: 1e9, T: 1e12 }[match[2]?.toUpperCase() as 'K' | 'M' | 'B' | 'T'] ?? 1);
+  if (!Number.isFinite(number)) return 'null';
+  for (const [unit, scale] of [['T', 1e12], ['B', 1e9], ['M', 1e6], ['K', 1e3]] as const) {
+    if (Math.abs(number) >= scale) return `$${(number / scale).toFixed(1)}${unit}`;
+  }
+  return `$${number.toFixed(2)}`;
+}
+function outputFundLine(index: number, total: number, ticker: string, status: string, data: any = {}, reason?: unknown): string {
+  const width = Math.max(2, String(total).length);
+  const metrics = data.metrics ?? {};
+  const detail = [
+    `port=${outputClean(data.portId ?? data.portfolioId)}`,
+    `history=${outputClean(outputCount(data.history ?? data.historyCount))}`,
+    `(official=${outputClean(data.officialHistoryCount)} yahoo=${outputClean(data.yahooHistoryCount)})`,
+    `holdings=${outputClean(outputCount(data.holdings ?? data.holdingsCount))}`,
+    `divs=${outputClean(outputCount(data.worksheets?.Distributions ?? data.distributions))}`,
+    `netAssets=${outputMoney(data.netAssets ?? data.aum)}`,
+    `total=${outputMoney(data.totalFundNetAssets ?? data.totalNetAssets)}`,
+    `div=${outputClean(outputScalar(data.trailingYield ?? data.yields?.effectiveYield ?? data.yields?.dividendYield ?? data.dividendYield ?? metrics.dividendYield))}`,
+    `sec=${outputClean(outputScalar(data.secYield ?? data.yields?.secYield ?? metrics.secYield))}`,
+    `wp=${outputClean(data.workplaceRaw)}`,
+  ].join(' ');
+  return `[ ${String(index).padStart(width)}/${String(total).padEnd(width)}  ] ${outputClean(ticker).padEnd(5)} ${status.padEnd(9)} ${detail}${reason ? ` reason=${outputClean(reason)}` : ''}`;
+}
+
 
 // Bun provides Node-compatible fs/promises and process globals for this script.
 /// <reference types="bun" />
@@ -399,7 +480,7 @@ async function main() {
     return;
   }
   const config = readConfig();
-  printConfig('Amplify', config);
+  outputPrintConfig('Amplify', config);
 
   const existing = await readExistingPayload();
 
@@ -413,117 +494,151 @@ async function main() {
     .filter(fund => fund.ticker && fund.active && fund.category !== 'Unknown');
   const catalog = selectCatalog(activeCatalog, config);
 
-  printFilter(catalog.length, activeCatalog.length, hasOutputFilters(config));
+  outputPrintFilter(catalog.length, activeCatalog.length, outputHasOutputFilters(config));
   let completed = 0;
+  let partialFetches = 0;
 
   const funds: JsonRecord[] = [];
   const holdingsByTicker: Record<string, JsonRecord> = {};
   const detailsByTicker: Record<string, JsonRecord> = {};
 
   await promisePool(catalog, config.concurrency, async ({ ticker, category }) => {
+    const warnings: string[] = [];
+    let distributionsUnavailable = false;
     try {
-    const [
-      metaDoc,
-      dailyDoc,
-      holdingsDoc,
-      yieldsDoc,
-      monthlyPerformanceDoc,
-      quarterlyPerformanceDoc,
-      dimensionsDoc,
-      distributionsDocs,
-      historyCount,
-    ] = await Promise.all([
-      fetchFirestoreDoc(['funds', ticker, 'fund_metadata', 'overview']).catch(error => emptyDoc('overview', error)),
-      fetchLatestCollectionDoc(['funds', ticker, 'daily']).catch(error => emptyDoc('', error)),
-      fetchLatestCollectionDoc(['funds', ticker, 'holdings']).catch(error => emptyDoc('', error)),
-      fetchLatestCollectionDoc(['funds', ticker, 'yields']).catch(error => emptyDoc('', error)),
-      fetchLatestCollectionDoc(['funds', ticker, 'performance_monthly']).catch(error => emptyDoc('', error)),
-      fetchLatestCollectionDoc(['funds', ticker, 'performance_quarterly']).catch(error => emptyDoc('', error)),
-      fetchLatestCollectionDoc(['funds', ticker, 'dimensions']).catch(error => emptyDoc('', error)),
-      fetchDistributions(ticker).catch(error => {
-        console.warn(`Failed distributions for ${ticker}:`, error?.message || error);
-        return [] as DecodedDoc[];
-      }),
-      countCollectionDocs(['funds', ticker, 'daily']).catch(error => {
-        console.warn(`Failed daily history count for ${ticker}:`, error?.message || error);
-        return null;
-      }),
-    ]);
+      const [
+        metaDoc,
+        dailyDoc,
+        holdingsDoc,
+        yieldsDoc,
+        monthlyPerformanceDoc,
+        quarterlyPerformanceDoc,
+        dimensionsDoc,
+        distributionsDocs,
+        historyCount,
+      ] = await Promise.all([
+        fetchFirestoreDoc(['funds', ticker, 'fund_metadata', 'overview']).catch(error => emptyDoc('overview', error)),
+        fetchLatestCollectionDoc(['funds', ticker, 'daily']).catch(error => emptyDoc('', error)),
+        fetchLatestCollectionDoc(['funds', ticker, 'holdings']).catch(error => emptyDoc('', error)),
+        fetchLatestCollectionDoc(['funds', ticker, 'yields']).catch(error => emptyDoc('', error)),
+        fetchLatestCollectionDoc(['funds', ticker, 'performance_monthly']).catch(error => emptyDoc('', error)),
+        fetchLatestCollectionDoc(['funds', ticker, 'performance_quarterly']).catch(error => emptyDoc('', error)),
+        fetchLatestCollectionDoc(['funds', ticker, 'dimensions']).catch(error => emptyDoc('', error)),
+        fetchDistributions(ticker).catch(error => {
+          distributionsUnavailable = true;
+          warnings.push(`distributions: ${error?.message || error}`);
+          return [] as DecodedDoc[];
+        }),
+        countCollectionDocs(['funds', ticker, 'daily']).catch(error => {
+          warnings.push(`history: ${error?.message || error}`);
+          return null;
+        }),
+      ]);
 
-    const meta: JsonRecord = metaDoc?.fields || {};
-    const daily: JsonRecord = dailyDoc?.fields || {};
-    const holdingsFields: JsonRecord = holdingsDoc?.fields || {};
-    const asOfDate = holdingsFields.asOfDate || holdingsDoc?.id || '';
-    const fundName = meta.DisplayName || meta.FundName || meta.Name || ticker;
-    const rawHoldings: JsonRecord[] = Array.isArray(holdingsFields.holdings) ? holdingsFields.holdings : [];
-    const positions = rawHoldings
-      .map((holding: JsonRecord, index: number) => normalizePosition(holding, { ticker, fundName, asOfDate, index }))
-      .filter(Boolean);
+      // Collect optional-source failures on this fund's single result line.
+      // Keep the original empty/null fallbacks and persisted payload unchanged.
+      for (const [source, doc] of [
+        ['metadata', metaDoc], ['daily', dailyDoc], ['holdings', holdingsDoc],
+        ['yields', yieldsDoc], ['monthly performance', monthlyPerformanceDoc],
+        ['quarterly performance', quarterlyPerformanceDoc], ['allocations', dimensionsDoc],
+      ] as const) {
+        if (doc?.error) warnings.push(`${source}: ${doc.error instanceof Error ? doc.error.message : String(doc.error)}`);
+      }
+      if (warnings.length) partialFetches += 1;
 
-    const navValue = finiteNumber(daily.NAV);
-    const netAssetsValue = finiteNumber(daily.NetAssets);
-    const expenseRatioValue = finiteNumber(meta.ExpenseRatio);
+      const meta: JsonRecord = metaDoc?.fields || {};
+      const daily: JsonRecord = dailyDoc?.fields || {};
+      const holdingsFields: JsonRecord = holdingsDoc?.fields || {};
+      const asOfDate = holdingsFields.asOfDate || holdingsDoc?.id || '';
+      const fundName = meta.DisplayName || meta.FundName || meta.Name || ticker;
+      const rawHoldings: JsonRecord[] = Array.isArray(holdingsFields.holdings) ? holdingsFields.holdings : [];
+      const positions = rawHoldings
+        .map((holding: JsonRecord, index: number) => normalizePosition(holding, { ticker, fundName, asOfDate, index }))
+        .filter(Boolean);
 
-    const yields = normalizeAsOfDoc(yieldsDoc) || {};
-    const metrics: FundMetrics = {
-      netAssetsValue,
-      dividendYield: parsePercent(yields.Distribution_Yield),
-      secYield: parsePercent(yields['30_Day_SECYield']),
-      returns: monthlyNavReturns(monthlyPerformanceDoc),
-    };
-    const reasons = fundFilterReasons(metrics, config);
-    if (reasons.length) {
-      console.log(fundLine(++completed, catalog.length, ticker, 'skipped', {}, reasons.join(', ')));
-      return;
-    }
+      const navValue = finiteNumber(daily.NAV);
+      const netAssetsValue = finiteNumber(daily.NetAssets);
+      const expenseRatioValue = finiteNumber(meta.ExpenseRatio);
 
-    funds.push({
-      ticker,
-      name: fundName,
-      category,
-      nav: Number.isFinite(navValue) ? formatMoney(navValue, { decimals: 2 }) : '—',
-      navValue: Number.isFinite(navValue) ? navValue : null,
-      netAssets: Number.isFinite(netAssetsValue) ? formatMoney(netAssetsValue, { decimals: 0 }) : '—',
-      netAssetsValue: Number.isFinite(netAssetsValue) ? netAssetsValue : null,
-      expenseRatio: expenseRatioValue !== null ? formatPercent(expenseRatioValue * 100) : '—',
-      expenseRatioValue,
-      holdingsAsOfDate: asOfDate,
-      holdingsCount: positions.length,
-      historyCount,
-      fundPage: `https://amplifyetfs.com/${encodeURIComponent(ticker)}/`,
-      holdingsPage: `https://amplifyetfs.com/${encodeURIComponent(ticker.toLowerCase())}-holdings/`,
-    });
+      const yields = normalizeAsOfDoc(yieldsDoc) || {};
+      const metrics: FundMetrics = {
+        netAssetsValue,
+        dividendYield: parsePercent(yields.Distribution_Yield),
+        secYield: parsePercent(yields['30_Day_SECYield']),
+        returns: monthlyNavReturns(monthlyPerformanceDoc),
+      };
+      const reasons = fundFilterReasons(metrics, config);
+      if (reasons.length) {
+        console.log(outputFundLine(++completed, catalog.length, ticker, 'skipped', {}, [...reasons, ...warnings].join('; ')));
+        return;
+      }
 
-    holdingsByTicker[ticker] = {
-      ticker,
-      fundName,
-      asOfDate,
-      source: holdingsFields.source || '',
-      positions,
-      error: holdingsDoc?.error ? String((holdingsDoc.error as Error).message || holdingsDoc.error) : undefined,
-    };
+      const fund: JsonRecord = {
+        ticker,
+        name: fundName,
+        category,
+        nav: Number.isFinite(navValue) ? formatMoney(navValue, { decimals: 2 }) : '—',
+        navValue: Number.isFinite(navValue) ? navValue : null,
+        netAssets: Number.isFinite(netAssetsValue) ? formatMoney(netAssetsValue, { decimals: 0 }) : '—',
+        netAssetsValue: Number.isFinite(netAssetsValue) ? netAssetsValue : null,
+        expenseRatio: expenseRatioValue !== null ? formatPercent(expenseRatioValue * 100) : '—',
+        expenseRatioValue,
+        holdingsAsOfDate: asOfDate,
+        holdingsCount: positions.length,
+        historyCount,
+        fundPage: `https://amplifyetfs.com/${encodeURIComponent(ticker)}/`,
+        holdingsPage: `https://amplifyetfs.com/${encodeURIComponent(ticker.toLowerCase())}-holdings/`,
+      };
+      funds.push(fund);
 
-    const distributionRows = distributionsDocs
-      .map(normalizeDistribution)
-      .filter((row): row is JsonRecord => row !== null);
+      holdingsByTicker[ticker] = {
+        ticker,
+        fundName,
+        asOfDate,
+        source: holdingsFields.source || '',
+        positions,
+        error: holdingsDoc?.error ? String((holdingsDoc.error as Error).message || holdingsDoc.error) : undefined,
+      };
 
-    detailsByTicker[ticker] = {
-      ticker,
-      fundName,
-      category,
-      metadata: normalizeMetadata(meta),
-      daily: normalizeAsOfDoc(dailyDoc),
-      yields: normalizeAsOfDoc(yieldsDoc),
-      distributions: distributionRows,
-      distributionFrequency: deriveDistributionFrequency(distributionRows),
-      performance: {
-        monthly: normalizePerformanceDoc(monthlyPerformanceDoc),
-        quarterly: normalizePerformanceDoc(quarterlyPerformanceDoc),
-      },
-      allocations: normalizeAllocationDoc(dimensionsDoc),
-    };
+      const distributionRows = distributionsDocs
+        .map(normalizeDistribution)
+        .filter((row): row is JsonRecord => row !== null);
+
+      detailsByTicker[ticker] = {
+        ticker,
+        fundName,
+        category,
+        metadata: normalizeMetadata(meta),
+        daily: normalizeAsOfDoc(dailyDoc),
+        yields: normalizeAsOfDoc(yieldsDoc),
+        distributions: distributionRows,
+        distributionFrequency: deriveDistributionFrequency(distributionRows),
+        performance: {
+          monthly: normalizePerformanceDoc(monthlyPerformanceDoc),
+          quarterly: normalizePerformanceDoc(quarterlyPerformanceDoc),
+        },
+        allocations: normalizeAllocationDoc(dimensionsDoc),
+      };
+
+      // Emit as each worker finishes, not after the whole aggregate has been saved.
+      // Rank is assigned later from all funds; it is not part of a per-fund fetch.
+      const prior = existing.payload?.funds?.find((row: JsonRecord) => row.ticker === ticker);
+      const { rank: _rank, ...previousFund } = prior || {};
+      const previousHoldings = existing.payload?.holdings?.[ticker];
+      const previousDetails = existing.payload?.details?.[ticker];
+      const nextHoldings = preserveUnchangedBlock(previousHoldings, holdingsByTicker[ticker]);
+      const nextDetails = preserveUnchangedBlock(previousDetails, detailsByTicker[ticker]);
+      const changed = outputContentKey([previousFund, previousHoldings, previousDetails]) !==
+        outputContentKey([fund, nextHoldings, nextDetails]);
+      console.log(outputFundLine(++completed, catalog.length, ticker, changed ? 'updated' : 'unchanged', {
+        ...fund,
+        holdingsCount: holdingsDoc?.error ? null : positions.length,
+        distributions: distributionsUnavailable ? null : distributionRows,
+        dividendYield: metrics.dividendYield,
+        secYield: metrics.secYield,
+      }, warnings.length ? `partial refresh: ${warnings.join('; ')}` : undefined));
     } catch (error) {
-      console.log(fundLine(++completed, catalog.length, ticker, 'failed', {}, String(error)));
+      console.log(outputFundLine(++completed, catalog.length, ticker, 'failed', {}, String(error)));
       throw error; // Preserve the original failure behavior.
     }
   });
@@ -574,17 +689,7 @@ async function main() {
     await writeFile(OUT_FILE, nextText, 'utf8');
     console.log(`Wrote ${OUT_FILE.pathname}`);
   }
-  for (const fund of funds) {
-    const ticker = fund.ticker;
-    const prior = existing.payload?.funds?.find((row: JsonRecord) => row.ticker === ticker);
-    const changed = contentKey([prior, previousHoldings[ticker], previousDetails[ticker]]) !== contentKey([fund, orderedHoldings[ticker], orderedDetails[ticker]]);
-    console.log(fundLine(++completed, catalog.length, ticker, changed ? 'updated' : 'unchanged', {
-      ...fund, distributions: orderedDetails[ticker]?.distributions,
-      dividendYield: parsePercent(orderedDetails[ticker]?.yields?.Distribution_Yield),
-      secYield: parsePercent(orderedDetails[ticker]?.yields?.['30_Day_SECYield']),
-    }));
-  }
-  console.log(`Funds: ${payload.counts.funds}${hasFilters(config) ? ` of ${activeCatalog.length} (filters applied)` : ''}; normalized positions: ${payload.counts.holdings}; distributions: ${payload.counts.distributions}`);
+  console.log(`Funds: ${payload.counts.funds}${hasFilters(config) ? ` of ${activeCatalog.length} (filters applied)` : ''}; normalized positions: ${payload.counts.holdings}; stored distributions: ${payload.counts.distributions}; partial fetches: ${partialFetches}`);
 }
 
 async function countCollectionDocs(pathParts: string[]): Promise<number> {
@@ -866,7 +971,7 @@ function classifyHolding({ symbol, name, cusip, raw }: JsonRecord): string[] {
   const isNumericIdentifier = /^[0-9][0-9A-Z]{7,}$/.test(symbol) || (/^[0-9A-Z]{9}$/.test(symbol) && /\d/.test(symbol) && !/[.\-\s]/.test(symbol));
   const isForeignSuffix = /\s[A-Z]{2,3}$/.test(symbol);
   if (isCash) flags.push('cash');
-  if (isMoneyMarket) flags.push('money-market');
+  if (isMoneyMarket) flags.push('outputMoney-market');
   if (isTreasury) flags.push('treasury');
   if (isOption) flags.push('option');
   if (isDerivative) flags.push('derivative');
