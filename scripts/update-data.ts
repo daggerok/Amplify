@@ -1,4 +1,5 @@
 #!/usr/bin/env bun
+import { hasOutputFilters, printConfig, printFilter, fundLine, contentKey } from './update-output.ts';
 
 // Bun provides Node-compatible fs/promises and process globals for this script.
 /// <reference types="bun" />
@@ -398,10 +399,10 @@ async function main() {
     return;
   }
   const config = readConfig();
-  console.log(`Config: ${configLines(config).join(' ')}`);
+  printConfig('Amplify', config);
 
   const existing = await readExistingPayload();
-  console.log('Fetching Amplify ETF catalog...');
+
   const categoryDocs = await fetchFirestoreList(['fund_category'], 'pageSize=200');
   const activeCatalog: CatalogFund[] = categoryDocs
     .map(doc => ({
@@ -412,14 +413,15 @@ async function main() {
     .filter(fund => fund.ticker && fund.active && fund.category !== 'Unknown');
   const catalog = selectCatalog(activeCatalog, config);
 
-  console.log(`Found ${activeCatalog.length} active Amplify ETFs; updating ${catalog.length}.`);
+  printFilter(catalog.length, activeCatalog.length, hasOutputFilters(config));
+  let completed = 0;
 
   const funds: JsonRecord[] = [];
   const holdingsByTicker: Record<string, JsonRecord> = {};
   const detailsByTicker: Record<string, JsonRecord> = {};
 
   await promisePool(catalog, config.concurrency, async ({ ticker, category }) => {
-    console.log(`Fetching ${ticker}...`);
+    try {
     const [
       metaDoc,
       dailyDoc,
@@ -471,7 +473,7 @@ async function main() {
     };
     const reasons = fundFilterReasons(metrics, config);
     if (reasons.length) {
-      console.log(`Filtered out ${ticker}: ${reasons.join(', ')}`);
+      console.log(fundLine(++completed, catalog.length, ticker, 'skipped', {}, reasons.join(', ')));
       return;
     }
 
@@ -520,6 +522,10 @@ async function main() {
       },
       allocations: normalizeAllocationDoc(dimensionsDoc),
     };
+    } catch (error) {
+      console.log(fundLine(++completed, catalog.length, ticker, 'failed', {}, String(error)));
+      throw error; // Preserve the original failure behavior.
+    }
   });
 
   funds.sort((a, b) => (b.netAssetsValue ?? -Infinity) - (a.netAssetsValue ?? -Infinity) || a.ticker.localeCompare(b.ticker));
@@ -567,6 +573,16 @@ async function main() {
     await mkdir(new URL('../api/', import.meta.url), { recursive: true });
     await writeFile(OUT_FILE, nextText, 'utf8');
     console.log(`Wrote ${OUT_FILE.pathname}`);
+  }
+  for (const fund of funds) {
+    const ticker = fund.ticker;
+    const prior = existing.payload?.funds?.find((row: JsonRecord) => row.ticker === ticker);
+    const changed = contentKey([prior, previousHoldings[ticker], previousDetails[ticker]]) !== contentKey([fund, orderedHoldings[ticker], orderedDetails[ticker]]);
+    console.log(fundLine(++completed, catalog.length, ticker, changed ? 'updated' : 'unchanged', {
+      ...fund, distributions: orderedDetails[ticker]?.distributions,
+      dividendYield: parsePercent(orderedDetails[ticker]?.yields?.Distribution_Yield),
+      secYield: parsePercent(orderedDetails[ticker]?.yields?.['30_Day_SECYield']),
+    }));
   }
   console.log(`Funds: ${payload.counts.funds}${hasFilters(config) ? ` of ${activeCatalog.length} (filters applied)` : ''}; normalized positions: ${payload.counts.holdings}; distributions: ${payload.counts.distributions}`);
 }
