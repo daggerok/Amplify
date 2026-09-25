@@ -501,7 +501,9 @@ async function main() {
       error: holdingsDoc?.error ? String((holdingsDoc.error as Error).message || holdingsDoc.error) : undefined,
     };
 
-    const distributionRows = distributionsDocs.map(normalizeDistribution).filter(Boolean);
+    const distributionRows = distributionsDocs
+      .map(normalizeDistribution)
+      .filter((row): row is JsonRecord => row !== null);
 
     detailsByTicker[ticker] = {
       ticker,
@@ -786,7 +788,9 @@ function normalizeAllocationDoc(doc: DecodedDoc | null): JsonRecord | null {
   if (!doc || doc.error || !doc.fields) return null;
   return {
     asOfDate: doc.fields.asOfDate || doc.id,
-    allocations: Array.isArray(doc.fields.allocations) ? doc.fields.allocations.map(normalizeAllocationDimension).filter(Boolean) : [],
+    allocations: Array.isArray(doc.fields.allocations)
+        ? doc.fields.allocations.map(normalizeAllocationDimension).filter(Boolean)
+        : [],
   };
 }
 
