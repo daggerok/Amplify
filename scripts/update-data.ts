@@ -846,7 +846,7 @@ function normalizeDistribution(doc: DecodedDoc): JsonRecord | null {
 // requires the frequency to be derived here, from the raw per-event
 // distribution history, and published as a coded label so a plain string sort
 // orders funds from most to least frequent across all provider apps:
-//   00 - —            no (usable) distribution history
+//   00 - None            no (usable) distribution history
 //   01 - Monthly      ~monthly payouts
 //   04 - Quarterly    ~quarterly payouts
 //   06 - Semi-annually ~twice-a-year payouts
@@ -865,7 +865,7 @@ function median(values: number[]): number {
 type FrequencyBucket = 'monthly' | 'quarterly' | 'semiAnnual' | 'annually' | 'irregular';
 
 const FREQUENCY_LABELS: Record<FrequencyBucket | 'none', string> = {
-  none: '00 - —',
+  none: '00 - None',
   monthly: '01 - Monthly',
   quarterly: '04 - Quarterly',
   semiAnnual: '06 - Semi-annually',
