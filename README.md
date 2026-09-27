@@ -1,6 +1,6 @@
 # Amplify
 
-Amplify ETF holdings to Watchlist. A single-file client-side tool that reads the generated `./api/amplify` static feed (Amplify ETFs Firestore data feed, Yahoo Finance history) into a searchable ETF/category catalog with per-fund tabs, watchlist aggregation, ticker copy and CSV/TXT export — the same look, feel, columns and business logic as the sibling applications.
+One of the app's features lets you select Amplify ETFs in the Watchlist and aggregate their holdings to see how often each ticker appears across the selected funds. Repeated holdings make overlapping exposure visible: the more selected funds include a ticker, the greater its potential influence on the portfolio; gains in that holding may help, while declines may hurt, and actual impact also depends on each fund's position size. A single-file client-side tool that reads the generated `./api/amplify` static feed (Amplify ETFs Firestore data feed, Yahoo Finance history) into a searchable ETF/category catalog with per-fund tabs, watchlist aggregation, ticker copy and CSV/TXT export — the same look, feel, columns and business logic as the sibling applications.
 
 ## Using Bun
 
