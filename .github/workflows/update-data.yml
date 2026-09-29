@@ -9,7 +9,7 @@ on:
       concurrency:
         description: "Parallel fund fetch workers"
         required: false
-        default: "6"
+        default: ""
         type: string
       tickers:
         description: "Only include these tickers, separated by spaces or commas"
@@ -24,17 +24,17 @@ on:
       aum:
         description: "AUM min:max; bounds may be amounts or nano/micro/small/mid/large"
         required: false
-        default: ":"
+        default: ""
         type: string
       dividend_yield:
         description: "Trailing distribution yield range in %: min:max, min:, :max, or :"
         required: false
-        default: ":"
+        default: ""
         type: string
       sec_yield:
         description: "30-Day SEC yield range in %: min:max, min:, :max, or :"
         required: false
-        default: ":"
+        default: ""
         type: string
       performance_ytd:
         description: "YTD NAV return range in %; colon required"
@@ -98,12 +98,12 @@ jobs:
   update-data:
     runs-on: ubuntu-latest
     env:
-      CONCURRENCY: ${{ inputs.concurrency || '6' }}
+      CONCURRENCY: ${{ inputs.concurrency || '' }}
       TICKERS: ${{ inputs.tickers || '' }}
       CATEGORY: ${{ inputs.category || '' }}
-      AUM: ${{ inputs.aum || ':' }}
-      DIVIDEND_YIELD: ${{ inputs.dividend_yield || ':' }}
-      SEC_YIELD: ${{ inputs.sec_yield || ':' }}
+      AUM: ${{ inputs.aum || '' }}
+      DIVIDEND_YIELD: ${{ inputs.dividend_yield || '' }}
+      SEC_YIELD: ${{ inputs.sec_yield || '' }}
       PERFORMANCE_YTD: ${{ inputs.performance_ytd || '' }}
       PERFORMANCE_1Y: ${{ inputs.performance_1y || '' }}
       PERFORMANCE_3Y: ${{ inputs.performance_3y || '' }}
