@@ -1,16 +1,4 @@
 #!/usr/bin/env bun
-// Checked-in JSON is the runtime default; any nonblank environment value wins.
-import { readFileSync as readUpdaterConfig } from 'node:fs';
-try {
-  const updaterDefaults = JSON.parse(readUpdaterConfig(new URL('./update-data.config.json', import.meta.url), 'utf8')) as Record<string, unknown>;
-  for (const [key, value] of Object.entries(updaterDefaults)) {
-    const current = process.env[key];
-    if ((current === undefined || current.trim() === '') && value !== null && value !== undefined) process.env[key] = String(value);
-  }
-} catch (error) {
-  if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error;
-}
-
 /// <reference types="bun" />
 /// <reference types="node" />
 // Console presentation; no changes to provider requests or persisted data.
@@ -193,12 +181,8 @@ const AUM_PRESET_BOUNDS = {
 } as const;
 type AumPreset = keyof typeof AUM_PRESET_BOUNDS;
 
-function envValue(env: Record<string, string | undefined>, name: string, aliases: string[] = []): string {
-  for (const key of [name, `AMPLIFY_${name}`, ...aliases]) {
-    const value = env[key];
-    if (value !== undefined && value.trim() !== '') return value.trim();
-  }
-  return '';
+function envValue(env: Record<string, string | undefined>, name: string): string {
+  return (env[name] ?? '').trim();
 }
 
 function parseDataNumber(value: unknown): number | null {
@@ -292,9 +276,9 @@ function parseRanges(env: Record<string, string | undefined>, prefix: 'PERFORMAN
   return ranges;
 }
 
-function readConfig(env: Record<string, string | undefined> = process.env): UpdaterConfig {
+export function readConfig(env: Record<string, string | undefined>): UpdaterConfig {
   return {
-    concurrency: parseInteger(envValue(env, 'CONCURRENCY', ['AMPLIFY_DATA_CONCURRENCY']), 'CONCURRENCY', CONCURRENCY_FALLBACK, 1),
+    concurrency: parseInteger(envValue(env, 'CONCURRENCY'), 'CONCURRENCY', CONCURRENCY_FALLBACK, 1),
     tickers: [
       ...new Set(
         envValue(env, 'TICKERS')
@@ -446,12 +430,15 @@ function printHelp(): void {
 Usage:
   ./scripts/update-data.ts [-h|--help]
 
-Configuration is read from environment variables (AMPLIFY_-prefixed aliases
-work too). All filters combine with AND logic and decide which funds are
-included in api/data.json; a configured filter also drops funds that do not
-publish the metric. Run without filters to rebuild the full active catalog.
+Defaults live in scripts/update-data.config.json; environment variables
+override them (AMPLIFY_-prefixed aliases win over plain names). In GitHub
+Actions the precedence is: file defaults < advanced JSON < nonblank inputs <
+protected Actions variable/env. All filters combine with AND logic and decide
+which funds are included in api/data.json; a configured filter also drops
+funds that do not publish the metric. Run without filters to rebuild the full
+active catalog.
 
-  CONCURRENCY=6              Parallel fund fetch workers (alias AMPLIFY_DATA_CONCURRENCY)
+  CONCURRENCY=6              Parallel fund fetch workers (legacy alias AMPLIFY_DATA_CONCURRENCY)
   TICKERS="DIVO IDVO"        Only include these tickers (spaces, commas, semicolons)
   CATEGORY="Income,Thematic" Only include these fund categories (Thematic = Growth in the UI)
   AUM=":"                    Net-assets range min:max; bounds are USD amounts (300M, 2B)
@@ -468,6 +455,7 @@ publish the metric. Run without filters to rebuild the full active catalog.
   TOTAL_RETURN_3Y=":"        3Y cumulative total return (TR 3Y) range in %
   TOTAL_RETURN_5Y=":"        5Y cumulative total return (TR 5Y) range in %
   TOTAL_RETURN_10Y=":"       10Y cumulative total return (TR 10Y) range in %
+  VERBOSE=false              Print per-fund retry and fallback notices (true/false)
 
 Ranges use strict inclusive min:max syntax ("15:", ":20", "5:20", "-5%:7.5",
 ":"); the colon is required.
@@ -499,12 +487,66 @@ function emptyDoc(id = '', error?: unknown): DecodedDoc {
   return { id, fields: {}, error };
 }
 
+// File defaults and explicit overrides, same mechanism as the sibling updaters:
+// allowlisted scalar controls only, so GitHub Actions can resolve them without
+// interpolating user input into bash. Precedence: config file < advanced JSON <
+// nonblank inputs < environment (`AMPLIFY_<KEY>` alias wins over `<KEY>`;
+// `AMPLIFY_DATA_CONCURRENCY` is the legacy alias of CONCURRENCY).
+export const CONTROL_NAMES = [
+  'CONCURRENCY', 'TICKERS', 'CATEGORY', 'AUM', 'DIVIDEND_YIELD', 'SEC_YIELD',
+  ...['PERFORMANCE', 'TOTAL_RETURN'].flatMap(prefix => RETURN_PERIODS.map(period => `${prefix}_${period}`)),
+  'VERBOSE',
+] as const;
+export type ControlName = (typeof CONTROL_NAMES)[number];
+export const CONFIG_FILE_URL = new URL('./update-data.config.json', import.meta.url);
+
+export function resolveControls(
+  file: unknown = {},
+  advanced: unknown = {},
+  inputs: unknown = {},
+  env: Record<string, string | undefined> = {},
+): Record<string, string> {
+  const result: Record<string, string> = {};
+  const known = new Set<string>(CONTROL_NAMES);
+  const apply = (value: unknown, skipEmpty = false): void => {
+    if (!value || typeof value !== 'object' || Array.isArray(value)) throw new Error('Configuration must be a JSON object');
+    for (const [key, raw] of Object.entries(value)) {
+      if (!known.has(key)) throw new Error(`Unknown updater control: ${key}`);
+      if (skipEmpty && (raw === '' || raw === undefined || raw === null)) continue;
+      if (!['string', 'number', 'boolean'].includes(typeof raw)) throw new Error(`${key}: expected string, number or boolean`);
+      const text = String(raw);
+      if (/[\r\n\0]/.test(text)) throw new Error(`${key}: multiline/control characters are not allowed`);
+      result[key] = text;
+    }
+  };
+  apply(file);
+  apply(advanced);
+  apply(inputs, true);
+  for (const key of CONTROL_NAMES) {
+    const legacy = key === 'CONCURRENCY' ? env.AMPLIFY_DATA_CONCURRENCY : undefined;
+    const value = env[`AMPLIFY_${key}`] ?? env[key] ?? legacy;
+    if (value !== undefined) apply({ [key]: value });
+  }
+  if (result.VERBOSE && !/^(0|1|true|false|yes|no|y|n|on|off)$/i.test(result.VERBOSE)) throw new Error('VERBOSE: expected boolean');
+  readConfig(result); // validate CONCURRENCY and every min:max filter before any request or write
+  return result;
+}
+
+export async function runtimeControls(env: Record<string, string | undefined> = process.env): Promise<Record<string, string>> {
+  let file: unknown = {};
+  try { file = JSON.parse(await readFile(CONFIG_FILE_URL, 'utf8')); }
+  catch (error) { if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error; }
+  return resolveControls(file, {}, {}, env);
+}
+
 async function main() {
   if (wantsHelp(process.argv.slice(2))) {
     printHelp();
     return;
   }
-  const config = readConfig();
+  const controls = await runtimeControls();
+  if (controls.VERBOSE !== undefined) process.env.VERBOSE = controls.VERBOSE;
+  const config = readConfig(controls);
   outputPrintConfig('Amplify', config);
 
   const existing = await readExistingPayload();
@@ -1067,7 +1109,9 @@ function normalizeWhitespace(value: unknown): string {
   return String(value || '').replace(/\s+/g, ' ').trim();
 }
 
-main().catch(error => {
-  console.error(error);
-  process.exitCode = 1;
-});
+if (import.meta.main) {
+  main().catch(error => {
+    console.error(error);
+    process.exitCode = 1;
+  });
+}
