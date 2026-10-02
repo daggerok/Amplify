@@ -62,6 +62,7 @@ The **Update Amplify ETF data** GitHub Actions workflow runs weekly and on deman
 | `HISTORY_PAGE_SIZE` | `300` | Page size of the daily-history document count query (`historyCount`) |
 | `MAX_RETRIES` | `2` | Retries (at least 1) for network errors, HTTP 429 and 5xx; other 4xx fail immediately |
 | `VERBOSE` | `false` | Print per-fund retry and fallback notices |
+| `USE_SYSTEM_CA` | `auto` | TLS trust store: `auto` restarts the updater once with Bun's `--use-system-ca` when a request fails with an untrusted-certificate error; `true` always uses the system CA store; `false` never restarts. Not an individual workflow input: use `advanced`, the config file or the CLI environment. |
 
 `TICKERS` combines with the other filters using AND logic; it does not override them
 

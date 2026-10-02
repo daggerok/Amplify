@@ -2,7 +2,7 @@
 import { afterEach, expect, test } from 'bun:test';
 import { readFileSync, readdirSync } from 'node:fs';
 import {
-  CONTROL_NAMES, classifyHolding, decodeDocument, deriveDistributionFrequency, fetchJson, fundFilterReasons,
+  CONTROL_NAMES, installSystemCa, isCertError, classifyHolding, decodeDocument, deriveDistributionFrequency, fetchJson, fundFilterReasons,
   normalizePosition, parseAumRange, parsePercent, preserveUnchangedBlock, readConfig, resolveControls,
   runtimeControls, selectCatalog, setHttpSettings, runFundPool,
 } from './update-data';
@@ -41,13 +41,14 @@ test('scheduled path (empty inputs and advanced) equals the config defaults', ()
   expect(config.dividendYieldRange).toBeUndefined(); expect(config.secYieldRange).toBeUndefined();
   expect(config.performanceRanges).toEqual({}); expect(config.totalReturnRanges).toEqual({});
   expect(defaults.VERBOSE).toBe('false');
+  expect(defaults.USE_SYSTEM_CA).toBe('auto');
 });
 
 test('resolver rejects unknown, invalid, non-scalar and multiline values', () => {
   for (const value of [
     { UNKNOWN: 1 }, { OUTPUT_DIR: '/tmp' }, { CONCURRENCY: 0 }, { CONCURRENCY: 1.5 }, { MAX_RETRIES: 0 }, { MAX_RETRIES: 'x' },
     { MAX_FETCHES: -1 }, { MAX_FETCHES: 1.5 }, { REQUEST_SLEEP: -1 }, { REQUEST_SLEEP: 'fast' }, { HISTORY_PAGE_SIZE: 0 },
-    { VERBOSE: 'maybe' }, { AUM: '1:2:3' }, { TER: '1' }, { DIVIDEND_YIELD: '5' }, { PERFORMANCE_1Y: '9:1' },
+    { VERBOSE: 'maybe' }, { USE_SYSTEM_CA: 'maybe' }, { AUM: '1:2:3' }, { TER: '1' }, { DIVIDEND_YIELD: '5' }, { PERFORMANCE_1Y: '9:1' },
     { TICKERS: ['DIVO'] }, { TICKERS: null }, { TICKERS: { a: 1 } }, null, [],
   ]) expect(() => resolveControls(value)).toThrow();
   expect(() => resolveControls({}, { TICKERS: 'DIVO\nEVIL=yes' })).toThrow();
@@ -246,4 +247,57 @@ test('CONCURRENCY bounds in-flight requests per worker lanes, with REQUEST_SLEEP
     expect(peak).toBe(concurrency);
     if (sleepMs && concurrency === 3) expect(Date.now() - started).toBeLessThan(18 * sleepMs * 0.6 + 100);
   }
+});
+
+// ---- TLS trust store -------------------------------------------------------
+
+test('USE_SYSTEM_CA accepts auto/true/false case-insensitively and rejects anything else', () => {
+  for (const value of ['auto', 'TRUE', 'False', 'Auto']) expect(resolveControls({}, {}, {}, { USE_SYSTEM_CA: value }).USE_SYSTEM_CA).toBe(value);
+  expect(() => resolveControls({}, {}, {}, { USE_SYSTEM_CA: 'maybe' })).toThrow();
+  expect(() => resolveControls({ USE_SYSTEM_CA: 'yes' })).toThrow();
+});
+
+test('isCertError recognizes untrusted-certificate errors, also through cause', () => {
+  expect(isCertError({ code: 'UNABLE_TO_GET_ISSUER_CERT_LOCALLY' })).toBe(true);
+  expect(isCertError(new Error('unable to get local issuer certificate'))).toBe(true);
+  expect(isCertError(Object.assign(new Error('fetch failed'), { cause: new Error('unable to get local issuer certificate') }))).toBe(true);
+  expect(isCertError(Object.assign(new Error('read ECONNRESET'), { code: 'ECONNRESET' }))).toBe(false);
+  expect(isCertError(new Error('HTTP 403 Forbidden'))).toBe(false);
+  expect(isCertError(null)).toBe(false);
+});
+
+test('installSystemCa wraps globalThis.fetch only in auto mode and restarts once on cert errors', async () => {
+  const original = globalThis.fetch;
+  try {
+    let calls = 0;
+    const reexec = (() => { calls++; return undefined as never; }) as () => never;
+    installSystemCa('false', reexec, false);
+    expect(globalThis.fetch).toBe(original);
+    installSystemCa('auto', reexec, true);
+    expect(globalThis.fetch).toBe(original);
+    installSystemCa('true', reexec, true);
+    expect(calls).toBe(0);
+    installSystemCa('true', reexec, false);
+    expect(calls).toBe(1);
+    globalThis.fetch = original; // a real reexec never returns; the mock does
+
+    calls = 0;
+    globalThis.fetch = (async () => { throw Object.assign(new Error('fetch failed'), { cause: { code: 'SELF_SIGNED_CERT_IN_CHAIN' } }); }) as any;
+    const certFetch = globalThis.fetch;
+    installSystemCa('auto', reexec, false);
+    expect(globalThis.fetch).not.toBe(certFetch);
+    await globalThis.fetch('https://x.test/');
+    expect(calls).toBe(1);
+
+    calls = 0;
+    globalThis.fetch = (async () => { throw Object.assign(new Error('read ECONNRESET'), { code: 'ECONNRESET' }); }) as any;
+    installSystemCa('auto', reexec, false);
+    await expect(globalThis.fetch('https://x.test/')).rejects.toThrow('ECONNRESET');
+    expect(calls).toBe(0);
+
+    globalThis.fetch = (async () => new Response('ok')) as any;
+    installSystemCa('auto', reexec, false);
+    expect(await (await globalThis.fetch('https://x.test/')).text()).toBe('ok');
+    expect(calls).toBe(0);
+  } finally { globalThis.fetch = original; }
 });
