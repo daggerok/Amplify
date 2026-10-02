@@ -1,6 +1,6 @@
 # Amplify
 
-One of the app's features lets you select Amplify ETFs in the Watchlist and aggregate their holdings to see how often each ticker appears across the selected funds. Repeated holdings make overlapping exposure visible: the more selected funds include a ticker, the greater its potential influence on the portfolio; gains in that holding may help, while declines may hurt, and actual impact also depends on each fund's position size.  Another feature makes it faster and easier to find funds with stronger growth over different periods, higher dividend yields or distributions, greater Total Return (price performance plus dividends), and other key performance metrics. A single-file client-side tool that reads the generated `./api/amplify` static feed (Amplify ETFs Firestore data feed, Yahoo Finance history) into a searchable ETF/category catalog with per-fund tabs, watchlist aggregation, ticker copy and CSV/TXT export - the same look, feel, columns and business logic as the sibling applications.
+One of the app's features lets you select Amplify ETFs in the Watchlist and aggregate their holdings to see how often each ticker appears across the selected funds. Repeated holdings make overlapping exposure visible: the more selected funds include a ticker, the greater its potential influence on the portfolio; gains in that holding may help, while declines may hurt, and actual impact also depends on each fund's position size.  Another feature makes it faster and easier to find funds with stronger growth over different periods, higher dividend yields or distributions, greater Total Return (price performance plus dividends), and other key performance metrics. A single-file client-side tool that reads the generated `./api/data.json` static feed (Amplify's public Firestore data feed; no SEC or Yahoo Finance sources) into a searchable ETF/category catalog with per-fund tabs, watchlist aggregation, ticker copy and CSV/TXT export - the same look, feel, columns and business logic as the sibling applications.
 
 ## Using Bun
 
@@ -19,7 +19,7 @@ bun install --frozen-lockfile
 ./scripts/update-data.ts
 ```
 
-Defaults for every control live in `scripts/update-data.config.json` (flat object, all values strings). Run `./scripts/update-data.ts -h` (or `--help`) to print every control with usage examples. Environment variables override the file, and an `AMPLIFY_` prefixed name wins over the plain one.
+Defaults for every control live in `scripts/update-data.config.json` (flat object, all values strings). Run `./scripts/update-data.ts -h` (or `--help`) to print every control with usage examples. Environment variables override the file (an explicitly set variable wins even when empty and clears the control), and an `AMPLIFY_` prefixed name wins over the plain one.
 
 The **Update Amplify ETF data** GitHub Actions workflow runs weekly and on demand. Precedence: file defaults < `advanced` JSON < nonblank inputs < protected Actions variable/env. A blank input inherits the file value, and `advanced` accepts any control from the table below as a JSON object of scalars. The workflow and the CLI share the same `resolveControls` function, and the output is always `api/data.json`. All supplied filters use **AND** logic
 
@@ -37,6 +37,8 @@ The **Update Amplify ETF data** GitHub Actions workflow runs weekly and on deman
 - `TOTAL_RETURN_*` filters use cumulative total return: YTD and 1Y as published, 3Y, 5Y and 10Y as `(1 + CAGR)^n - 1`
 - `DIVIDEND_YIELD` is the published trailing distribution yield and `SEC_YIELD` the 30-day SEC yield, both in %
 - `AUM` compares against the latest daily net assets; the `nano`, `micro`, `small`, `mid` and `large` presets use upper bounds that are exclusive
+- `TER` compares the published expense ratio in %
+- `historyCount` is the number of published daily documents, not a price history; `HISTORY_RANGE`, `HOLDINGS_PAGE_SIZE`, `SEC_UA`, `SKIP_YAHOO` and `EDGAR_FALLBACK` do not exist because holdings come as one document per fund and no SEC or Yahoo source is used
 - A configured filter drops funds that do not publish the metric: unavailable is never treated as 0
 - Document stamps (`UpdatedAt`) refreshed by the vendor without a data change keep the previously committed block, so stamp-only refreshes do not produce a diff
 - The app derives its catalog columns (YTD Return, TR 1Y/3Y/5Y/10Y, CAGR, SI Ann.) from the published performance data
@@ -46,14 +48,19 @@ The **Update Amplify ETF data** GitHub Actions workflow runs weekly and on deman
 
 | Control | Default | Meaning |
 | --- | --: | --- |
+| `MAX_FETCHES` | `0` | `0` means all selected funds; a positive value fetches only the first N selected tickers (alphabetical) |
+| `REQUEST_SLEEP` | `0` | Minimum seconds between request starts, shared by all workers, retries included |
 | `CONCURRENCY` | `6` | Parallel fund fetch workers (legacy alias `AMPLIFY_DATA_CONCURRENCY`) |
 | `TICKERS` | all | Space-, comma- or semicolon-separated ticker allowlist, e.g. `DIVO IDVO SILJ BLOK` |
 | `CATEGORY` | all | Fund categories to include, comma-separated (`Income`, `Thematic`, `Core`) |
 | `AUM` | `:` | Net Assets range `min:max`. Each bound may be a USD amount or `K`/`M`/`B`/`T`, or one of `nano`, `micro`, `small`, `mid`, `large` |
+| `TER` | `:` | Expense-ratio range in % |
 | `DIVIDEND_YIELD` | `:` | Trailing distribution yield range in % |
 | `SEC_YIELD` | `:` | 30-day SEC yield range in % |
 | `PERFORMANCE_YTD` / `_1Y` / `_3Y` / `_5Y` / `_10Y` | `:` | NAV return range in % per period (3Y, 5Y and 10Y are annualized); the colon is required |
 | `TOTAL_RETURN_YTD` / `_1Y` / `_3Y` / `_5Y` / `_10Y` | `:` | Cumulative total-return range in % per period; the colon is required |
+| `HISTORY_PAGE_SIZE` | `300` | Page size of the daily-history document count query (`historyCount`) |
+| `MAX_RETRIES` | `2` | Retries (at least 1) for network errors, HTTP 429 and 5xx; other 4xx fail immediately |
 | `VERBOSE` | `false` | Print per-fund retry and fallback notices |
 
 `TICKERS` combines with the other filters using AND logic; it does not override them
@@ -62,13 +69,14 @@ The **Update Amplify ETF data** GitHub Actions workflow runs weekly and on deman
 
 ```bash
 TICKERS="DIVO IDVO SILJ BLOK" ./scripts/update-data.ts
-AUM="mid:" DIVIDEND_YIELD="4:" ./scripts/update-data.ts
+MAX_FETCHES=3 REQUEST_SLEEP=0.5 MAX_RETRIES=1 ./scripts/update-data.ts
+AUM="mid:" TER=":0.75" DIVIDEND_YIELD="4:" ./scripts/update-data.ts
 TOTAL_RETURN_1Y="15:" ./scripts/update-data.ts
 ```
 
 ## TypeScript and verification
 
-The browser app is intentionally build-free: `index.html` carries the markup, styles and bootstrap, and `app.tsx` is TypeScript compiled in the browser with Babel standalone - no build step, no bundler, no `tsconfig.json` needed. Bun runs TypeScript out of the box.
+The browser app is intentionally build-free: `index.html` carries the markup, styles and TypeScript compiled in the browser - no build step, no bundler, no `tsconfig.json` needed. Bun runs TypeScript out of the box.
 
 Verification before every publish:
 
@@ -79,7 +87,7 @@ bun build --target=bun scripts/update-data.ts --outfile=/dev/null
 git diff --check
 ```
 
-`bun test` also covers the README, config file, `--help` and workflow parity (`scripts/config-docs.test.ts`).
+`bun test` (`scripts/update-data.test.ts`) also covers the resolver, parsers, request retries, and README, config file, `--help` and workflow parity.
 
 ## Brands table
 
@@ -104,7 +112,7 @@ git diff --check
 | **ProShares** | [proshares.com](https://www.proshares.com/our-etfs/find-proshares-etfs) \| [ProShares](https://daggerok.github.io/ProShares/) |
 | **Schwab** | [schwabassetmanagement.com](https://www.schwabassetmanagement.com/products) \| [Schwab](https://daggerok.github.io/Schwab/) |
 | **SPDR** | [ssga.com](https://www.ssga.com/us/en/intermediary/etfs/fund-finder) \| [SPDR](https://daggerok.github.io/SPDR/) |
-| **Sprott ETFs** | [sprottetfs.com](https://sprottetfs.com/) \| [Sprott](https://daggerok.github.io/Sprott/) (deployment pending) |
+| **Sprott ETFs** | [sprottetfs.com](https://sprottetfs.com/) \| [Sprott](https://daggerok.github.io/Sprott/) |
 | **Tema ETFs** | [temaetfs.com](https://temaetfs.com/funds) \| [Tema](https://daggerok.github.io/Tema/) |
 | **Themes ETFs** | [themesetfs.com/etfs](https://themesetfs.com/etfs) \| [Themes](https://daggerok.github.io/Themes/) |
 | **VanEck** | [vaneck.com](https://www.vaneck.com/us/en/etf-mutual-fund-finder/) \| [VanEck](https://daggerok.github.io/VanEck/) |
