@@ -6,112 +6,122 @@ on:
   workflow_dispatch:
     inputs:
       max_fetches:
-        description: "0 means all selected funds; N fetches only the first N selected tickers; blank inherits scripts/update-data.config.json"
+        description: "0 means all selected funds; N fetches only the first N selected tickers (alphabetical); blank inherits scripts/update-data.config.json"
         required: false
         default: ""
         type: string
       request_sleep:
-        description: "Minimum seconds between request starts, shared by all workers; blank inherits scripts/update-data.config.json"
+        description: "Seconds between request starts on each worker lane, retries included; blank inherits scripts/update-data.config.json"
         required: false
         default: ""
         type: string
       concurrency:
-        description: "Parallel fund fetch workers; blank inherits scripts/update-data.config.json"
+        description: "Parallel fund workers, one request lane each; blank inherits scripts/update-data.config.json"
         required: false
         default: ""
         type: string
       tickers:
-        description: "Only include these tickers, separated by spaces or commas; blank inherits scripts/update-data.config.json"
+        description: "Only refresh these tickers, separated by spaces, commas or semicolons; blank inherits scripts/update-data.config.json"
         required: false
         default: ""
         type: string
       category:
-        description: "Only include these categories (Income, Thematic/Growth, Core), comma-separated; blank inherits scripts/update-data.config.json"
+        description: "Only refresh these Amplify categories (Income, Thematic, Core, International), comma-separated; blank inherits scripts/update-data.config.json"
         required: false
         default: ""
         type: string
       aum:
-        description: "AUM min:max; bounds may be amounts or nano/micro/small/mid/large; blank inherits scripts/update-data.config.json"
+        description: "Net assets min:max in USD; K/M/B/T suffixes or nano/micro/small/mid/large presets; blank inherits scripts/update-data.config.json"
         required: false
         default: ""
         type: string
       ter:
-        description: "Expense-ratio range in %: min:max, min:, :max, or :; blank inherits scripts/update-data.config.json"
+        description: "Expense-ratio percent min:max; blank inherits scripts/update-data.config.json"
         required: false
         default: ""
         type: string
       dividend_yield:
-        description: "Trailing distribution yield range in %: min:max, min:, :max, or :; blank inherits scripts/update-data.config.json"
+        description: "Trailing distribution yield percent min:max (indicated yield from Yahoo dividends when unpublished); blank inherits scripts/update-data.config.json"
         required: false
         default: ""
         type: string
       sec_yield:
-        description: "30-Day SEC yield range in %: min:max, min:, :max, or :; blank inherits scripts/update-data.config.json"
+        description: "30-day SEC yield percent min:max; blank inherits scripts/update-data.config.json"
         required: false
         default: ""
         type: string
       performance_ytd:
-        description: "YTD NAV return range in %; colon required; blank inherits scripts/update-data.config.json"
+        description: "YTD return percent min:max; colon required; blank inherits scripts/update-data.config.json"
         required: false
         default: ""
         type: string
       performance_1y:
-        description: "1Y NAV return range in %; colon required; blank inherits scripts/update-data.config.json"
+        description: "1Y return percent min:max; colon required; blank inherits scripts/update-data.config.json"
         required: false
         default: ""
         type: string
       performance_3y:
-        description: "3Y annualized NAV return (CAGR) range in %; colon required; blank inherits scripts/update-data.config.json"
+        description: "3Y annualized return (CAGR) percent min:max; colon required; blank inherits scripts/update-data.config.json"
         required: false
         default: ""
         type: string
       performance_5y:
-        description: "5Y annualized NAV return (CAGR) range in %; colon required; blank inherits scripts/update-data.config.json"
+        description: "5Y annualized return (CAGR) percent min:max; colon required; blank inherits scripts/update-data.config.json"
         required: false
         default: ""
         type: string
       performance_10y:
-        description: "10Y annualized NAV return (CAGR) range in %; colon required; blank inherits scripts/update-data.config.json"
+        description: "10Y annualized return (CAGR) percent min:max; colon required; blank inherits scripts/update-data.config.json"
         required: false
         default: ""
         type: string
       total_return_ytd:
-        description: "YTD cumulative total-return range in %; colon required; blank inherits scripts/update-data.config.json"
+        description: "YTD cumulative total-return percent min:max; colon required; blank inherits scripts/update-data.config.json"
         required: false
         default: ""
         type: string
       total_return_1y:
-        description: "1Y cumulative total-return (TR 1Y) range in %; colon required; blank inherits scripts/update-data.config.json"
+        description: "1Y cumulative total-return percent min:max; colon required; blank inherits scripts/update-data.config.json"
         required: false
         default: ""
         type: string
       total_return_3y:
-        description: "3Y cumulative total-return (TR 3Y) range in %; colon required; blank inherits scripts/update-data.config.json"
+        description: "3Y cumulative total-return percent min:max; colon required; blank inherits scripts/update-data.config.json"
         required: false
         default: ""
         type: string
       total_return_5y:
-        description: "5Y cumulative total-return (TR 5Y) range in %; colon required; blank inherits scripts/update-data.config.json"
+        description: "5Y cumulative total-return percent min:max; colon required; blank inherits scripts/update-data.config.json"
         required: false
         default: ""
         type: string
       total_return_10y:
-        description: "10Y cumulative total-return (TR 10Y) range in %; colon required; blank inherits scripts/update-data.config.json"
+        description: "10Y cumulative total-return percent min:max; colon required; blank inherits scripts/update-data.config.json"
+        required: false
+        default: ""
+        type: string
+      holdings_page_size:
+        description: "Rows per holdings JSON page; blank inherits scripts/update-data.config.json"
         required: false
         default: ""
         type: string
       history_page_size:
-        description: "Page size of the daily-history document count query; blank inherits scripts/update-data.config.json"
+        description: "Rows per daily-history JSON page; blank inherits scripts/update-data.config.json"
         required: false
         default: ""
         type: string
       max_retries:
-        description: "Retries (at least 1) for network errors, HTTP 429 and 5xx; blank inherits scripts/update-data.config.json"
+        description: "Retries after the first request; integer >= 1; blank inherits scripts/update-data.config.json"
         required: false
         default: ""
         type: string
-      verbose:
-        description: "Print per-fund retry and fallback notices (true or false); blank inherits scripts/update-data.config.json"
+      history_range:
+        description: "Yahoo daily history range: max or Ny (for example 5y); merges with previously published history; blank inherits scripts/update-data.config.json"
+        required: false
+        default: ""
+        type: string
+      skip_yahoo:
+        description: "Skip Yahoo history and dividends; retain published data; blank inherits scripts/update-data.config.json"
         required: false
         default: ""
         type: string
@@ -148,6 +158,7 @@ jobs:
       - name: Resolve file defaults and manual overrides
         env:
           DISPATCH_INPUTS: ${{ toJSON(inputs) }}
+          PROTECTED_SEC_UA: ${{ vars.SEC_UA }}
         run: |
           bun --eval '
             import { resolveControls } from "./scripts/update-data.ts";
@@ -161,24 +172,25 @@ jobs:
             const file = await Bun.file("scripts/update-data.config.json").json();
             // Protected repository Actions variables: highest precedence, applied only when nonblank (never printed).
             const protectedVars = {};
+            if ((process.env.PROTECTED_SEC_UA ?? "").trim()) protectedVars.SEC_UA = process.env.PROTECTED_SEC_UA.trim();
             const controls = resolveControls(file, advanced, individual, protectedVars);
             await appendFile(process.env.GITHUB_ENV,
               Object.entries(controls).map(([key, value]) => `${key}=${value}\n`).join(""));
           '
-      - name: Generate api/data.json static data
+      - name: Generate api/amplify static data
         run: bun ./scripts/update-data.ts
       - name: Commit updated data
         if: ${{ !cancelled() }}
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
-          git add api/data.json
-          if git diff --cached --quiet -- api/data.json; then
-            echo "api/data.json is already up to date"
+          git add api/amplify
+          if git diff --cached --quiet -- api/amplify; then
+            echo "api/amplify is already up to date"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "chore(data): Update Amplify ETF data"
+          git commit -m "chore(data): update Amplify ETF data"
           # Runtime-only auth; no token/header stored in URL, file or Git config.
           git -c credential.helper= -c credential.helper='!f() { if test "$1" = get; then printf "username=x-access-token\npassword=%s\n" "$GITHUB_TOKEN"; fi; }; f' push

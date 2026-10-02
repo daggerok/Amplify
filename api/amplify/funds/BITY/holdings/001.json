@@ -1,0 +1,80 @@
+{
+ "ticker": "BITY",
+ "page": 1,
+ "pageSize": 250,
+ "totalRows": 7,
+ "headers": [
+  "Name",
+  "Ticker",
+  "Identifier",
+  "Weight",
+  "Market Value",
+  "Shares Held",
+  "SEDOL"
+ ],
+ "rows": [
+  {
+   "Name": "Invesco Government & Agency Portfolio 12/31/2031",
+   "Ticker": "AGPXX",
+   "Identifier": "825252885",
+   "Weight": "41.72",
+   "Market Value": "5617940.52",
+   "Shares Held": "5617940.52",
+   "SEDOL": ""
+  },
+  {
+   "Name": "iShares Bitcoin Trust ETF",
+   "Ticker": "IBIT",
+   "Identifier": "46438F101",
+   "Weight": "26.63",
+   "Market Value": "3585537.56",
+   "Shares Held": "74761",
+   "SEDOL": ""
+  },
+  {
+   "Name": "MBTX 12/18/2026 169.25 C",
+   "Ticker": "4MBTX 261218C00169250",
+   "Identifier": "4MBTX 261218C00169250",
+   "Weight": "15.6",
+   "Market Value": "2101167.76",
+   "Shares Held": "584",
+   "SEDOL": ""
+  },
+  {
+   "Name": "United States Treasury Bill 11/05/2026",
+   "Ticker": "912797UM7",
+   "Identifier": "912797UM7",
+   "Weight": "11.1",
+   "Market Value": "1494519.09",
+   "Shares Held": "1500000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Cash & Other",
+   "Ticker": "CASH&OTHER",
+   "Identifier": "Cash&Other",
+   "Weight": "6.73",
+   "Market Value": "906040.99",
+   "Shares Held": "906040.99",
+   "SEDOL": ""
+  },
+  {
+   "Name": "MBTX 10/06/2026 208.8 C",
+   "Ticker": "4MBTX 261006C00208800",
+   "Identifier": "4MBTX 261006C00208800",
+   "Weight": "-0.21",
+   "Market Value": "-27629.04",
+   "Shares Held": "-584",
+   "SEDOL": ""
+  },
+  {
+   "Name": "MBTX 12/18/2026 169.25 P",
+   "Ticker": "4MBTX 261218P00169250",
+   "Identifier": "4MBTX 261218P00169250",
+   "Weight": "-1.52",
+   "Market Value": "-205083.28",
+   "Shares Held": "-584",
+   "SEDOL": ""
+  }
+ ]
+}

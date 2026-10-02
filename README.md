@@ -1,6 +1,6 @@
 # Amplify
 
-One of the app's features lets you select Amplify ETFs in the Watchlist and aggregate their holdings to see how often each ticker appears across the selected funds. Repeated holdings make overlapping exposure visible: the more selected funds include a ticker, the greater its potential influence on the portfolio; gains in that holding may help, while declines may hurt, and actual impact also depends on each fund's position size.  Another feature makes it faster and easier to find funds with stronger growth over different periods, higher dividend yields or distributions, greater Total Return (price performance plus dividends), and other key performance metrics. A single-file client-side tool that reads the generated `./api/data.json` static feed (Amplify's public Firestore data feed; no SEC or Yahoo Finance sources) into a searchable ETF/category catalog with per-fund tabs, watchlist aggregation, ticker copy and CSV/TXT export - the same look, feel, columns and business logic as the sibling applications.
+One of the app's features lets you select Amplify ETFs in the Watchlist and aggregate their holdings to see how often each ticker appears across the selected funds. Repeated holdings make overlapping exposure visible: the more selected funds include a ticker, the greater its potential influence on the portfolio; gains in that holding may help, while declines may hurt, and actual impact also depends on each fund's position size.  Another feature makes it faster and easier to find funds with stronger growth over different periods, higher dividend yields or distributions, greater Total Return (price performance plus dividends), and other key performance metrics. A single-file client-side tool that reads the generated `./api/amplify` static feed (Amplify's public Firestore data feed for the catalog, holdings, NAV, yields and official performance, with SEC EDGAR N-PORT-P as a holdings fallback and Yahoo Finance daily prices/history/dividends) into a searchable ETF/category catalog with per-fund tabs, watchlist aggregation, ticker copy and CSV/TXT export - the same look, feel, columns and business logic as the sibling applications.
 
 ## Using Bun
 
@@ -21,27 +21,30 @@ bun install --frozen-lockfile
 
 Defaults for every control live in `scripts/update-data.config.json` (flat object, all values strings). Run `./scripts/update-data.ts -h` (or `--help`) to print every control with usage examples. Environment variables override the file (an explicitly set variable wins even when empty and clears the control), and an `AMPLIFY_` prefixed name wins over the plain one.
 
-The **Update Amplify ETF data** GitHub Actions workflow runs weekly and on demand. Precedence: file defaults < `advanced` JSON < nonblank inputs < protected Actions variable/env. A blank input inherits the file value, and `advanced` accepts any control from the table below as a JSON object of scalars. The workflow and the CLI share the same `resolveControls` function, and the output is always `api/data.json`. All supplied filters use **AND** logic
+The **Update Amplify ETF data** GitHub Actions workflow runs weekly and on demand. Precedence: file defaults < `advanced` JSON < nonblank inputs < protected Actions variable/env. A blank input inherits the file value, and `advanced` accepts any control from the table below as a JSON object of scalars. The workflow and the CLI share the same `resolveControls` function, and the output is always `api/amplify`: `index.json` (catalog, counts, per-fund metrics), `funds/<TICKER>/meta.json` and the paginated `funds/<TICKER>/holdings/NNN.json` and `funds/<TICKER>/history/NNN.json` pages, the same layout as every sibling feed. A fund that is not refreshed keeps its published files; a full unfiltered pass also drops funds Amplify no longer lists as active. All supplied filters use **AND** logic
 
 ### Data sources
 
 | Block | Source |
 | --- | --- |
-| Catalog (active US Amplify ETFs) | Firestore project `amplify-etfs-data-feed` (`fund_category` collection) behind <https://amplifyetfs.com/> |
-| Fund metadata, daily NAV and net assets, yields, performance, allocations, holdings, distributions | Per-fund Firestore collections of the same project |
-| Previously published data | `api/data.json`, used to keep unchanged blocks and to compute the run summary |
+| Catalog (active Amplify ETFs) | Firestore project `amplify-etfs-data-feed` (`fund_category` collection) behind <https://amplifyetfs.com/> |
+| Fund facts, daily NAV, market price, net assets, premium/discount, yields, month-end/quarter-end NAV returns | Per-fund Firestore documents of the same project (`fund_metadata`, `daily`, `yields`, `performance_monthly`, `performance_quarterly`) |
+| Holdings per fund | The latest Firestore `holdings` document; SEC EDGAR Form N-PORT-P (resolved through the SEC fund ticker table, exact series match) when Firestore has none (`EDGAR_FALLBACK`); the previously published sheet as the last resort |
+| Daily history, dividends | Yahoo Finance chart prices, adjusted closes and dividend events (`SKIP_YAHOO`, `HISTORY_RANGE`) |
+| Previously published data | `api/amplify`, merged with fresh history and kept for any source that fails |
+
+The Firestore `distributions` and `history` collections answer `403 Missing or insufficient permissions` to the public key, so distributions come from Yahoo dividend events (the Firestore rows would win for the same ex-date if access ever opens) and the price history comes from Yahoo. International funds listed by Amplify (K-DIVO, K-QDVO, HK-BLOK) publish only net assets in Firestore and have no Yahoo or SEC data, so their holdings, history and returns stay empty.
 
 ### Metrics and caveats
 
-- `PERFORMANCE_*` filters use the official monthly NAV returns: YTD and 1Y are period returns, 3Y, 5Y and 10Y are annualized (CAGR)
-- `TOTAL_RETURN_*` filters use cumulative total return: YTD and 1Y as published, 3Y, 5Y and 10Y as `(1 + CAGR)^n - 1`
-- `DIVIDEND_YIELD` is the published trailing distribution yield and `SEC_YIELD` the 30-day SEC yield, both in %
-- `AUM` compares against the latest daily net assets; the `nano`, `micro`, `small`, `mid` and `large` presets use upper bounds that are exclusive
-- `TER` compares the published expense ratio in %
-- `historyCount` is the number of published daily documents, not a price history; `HISTORY_RANGE`, `HOLDINGS_PAGE_SIZE`, `SEC_UA`, `SKIP_YAHOO` and `EDGAR_FALLBACK` do not exist because holdings come as one document per fund and no SEC or Yahoo source is used
-- A configured filter drops funds that do not publish the metric: unavailable is never treated as 0
-- Document stamps (`UpdatedAt`) refreshed by the vendor without a data change keep the previously committed block, so stamp-only refreshes do not produce a diff
-- The app derives its catalog columns (YTD Return, TR 1Y/3Y/5Y/10Y, CAGR, SI Ann.) from the published performance data
+- Each fund carries a derived `metrics` object in `index.json` that powers the catalog columns: `ytd`, `tr1y`, `cagr3y`/`cagr5y`/`cagr10y`, `tr3y`/`tr5y`/`tr10y` as `(1 + CAGR)^n - 1`, `siAnn`, `secYield` and `dividendYield`
+- Returns are the official Amplify NAV month-end/quarter-end figures (YTD and 1Y are period returns, 3Y, 5Y, 10Y and since inception are annualized); only missing metrics are derived from Yahoo adjusted closes at the same reporting date and the `derivedFrom` label says which basis applies. A range-limited `HISTORY_RANGE` never produces a since-inception figure
+- The history series is Yahoo daily market price (close and adjusted close), not official NAV
+- `dividendYield` is the trailing distribution yield published by Amplify; when Amplify publishes none it is the indicated yield (latest distribution x payments per year / market price) from the Yahoo dividends. `secYield` is the published 30-day SEC yield
+- `PERFORMANCE_*` filters compare YTD and 1Y returns and the 3Y, 5Y and 10Y annualized (CAGR) values; `TOTAL_RETURN_*` filters compare YTD and 1Y as published and 3Y, 5Y and 10Y as `(1 + CAGR)^n - 1`
+- `AUM` compares against the latest daily net assets; the `nano`, `micro`, `small`, `mid` and `large` presets use upper bounds that are exclusive; `TER` compares the published expense ratio in %
+- A configured filter skips funds that do not publish the metric: unavailable is never treated as 0, and no value is ever invented as zero (missing weights, market values and prices stay empty or `null`)
+- A failed source keeps the previously published value for that source only; a fund with no usable source at all fails the run
 - With no filters the full active catalog is rebuilt
 
 ### Update controls
@@ -50,26 +53,32 @@ The **Update Amplify ETF data** GitHub Actions workflow runs weekly and on deman
 | --- | --: | --- |
 | `MAX_FETCHES` | `0` | `0` means all selected funds; a positive value fetches only the first N selected tickers (alphabetical) |
 | `REQUEST_SLEEP` | `0` | Minimum seconds between request starts of each worker lane (N workers give about N times the throughput), retries included |
-| `CONCURRENCY` | `6` | Funds fetched in parallel, one request in flight per worker, so peak in-flight requests equal CONCURRENCY (legacy alias `AMPLIFY_DATA_CONCURRENCY`) |
+| `CONCURRENCY` | `6` | Funds fetched in parallel, one request in flight per worker for Firestore, Yahoo and SEC alike, so peak in-flight requests equal CONCURRENCY (legacy alias `AMPLIFY_DATA_CONCURRENCY`) |
 | `TICKERS` | all | Space-, comma- or semicolon-separated ticker allowlist, e.g. `DIVO IDVO SILJ BLOK` |
-| `CATEGORY` | all | Fund categories to include, comma-separated (`Income`, `Thematic`, `Core`) |
+| `CATEGORY` | all | Fund categories to include, comma-separated (`Income`, `Thematic`, `Core`, `International`) |
 | `AUM` | `:` | Net Assets range `min:max`. Each bound may be a USD amount or `K`/`M`/`B`/`T`, or one of `nano`, `micro`, `small`, `mid`, `large` |
 | `TER` | `:` | Expense-ratio range in % |
 | `DIVIDEND_YIELD` | `:` | Trailing distribution yield range in % |
 | `SEC_YIELD` | `:` | 30-day SEC yield range in % |
-| `PERFORMANCE_YTD` / `_1Y` / `_3Y` / `_5Y` / `_10Y` | `:` | NAV return range in % per period (3Y, 5Y and 10Y are annualized); the colon is required |
-| `TOTAL_RETURN_YTD` / `_1Y` / `_3Y` / `_5Y` / `_10Y` | `:` | Cumulative total-return range in % per period; the colon is required |
-| `HISTORY_PAGE_SIZE` | `300` | Page size of the daily-history document count query (`historyCount`) |
+| `HOLDINGS_PAGE_SIZE` | `250` | Holdings rows per JSON page |
+| `HISTORY_PAGE_SIZE` | `1000` | Daily history rows per JSON page (alias `HISTORICAL_PAGE_SIZE`) |
 | `MAX_RETRIES` | `2` | Retries (at least 1) for network errors, HTTP 429 and 5xx; other 4xx fail immediately |
+| `HISTORY_RANGE` | `max` | Yahoo daily history range: `max` or `Ny` (for example `5y`), sent as explicit `period1`/`period2`; merges with the previously published history |
+| `SEC_UA` | `daggerok ETF feed daggerok@gmail.com` | SEC EDGAR contact User-Agent, redacted in logs; the Actions variable `SEC_UA` overrides it when nonblank. Do not put credentials here |
+| `SKIP_YAHOO` | `false` | Skip Yahoo history and dividends; retain published data |
+| `EDGAR_FALLBACK` | `true` | SEC N-PORT-P holdings fallback for funds without Firestore holdings |
+| `PERFORMANCE_YTD` / `_1Y` / `_3Y` / `_5Y` / `_10Y` | `:` | Return range in % per period (3Y, 5Y and 10Y are annualized); the colon is required |
+| `TOTAL_RETURN_YTD` / `_1Y` / `_3Y` / `_5Y` / `_10Y` | `:` | Cumulative total-return range in % per period; the colon is required |
 | `VERBOSE` | `false` | Print per-fund retry and fallback notices |
 | `USE_SYSTEM_CA` | `auto` | TLS trust store: `auto` restarts the updater once with Bun's `--use-system-ca` when a request fails with an untrusted-certificate error; `true` always uses the system CA store; `false` never restarts. Not an individual workflow input: use `advanced`, the config file or the CLI environment. |
 
-`TICKERS` combines with the other filters using AND logic; it does not override them
+`TICKERS` combines with the other filters using AND logic; it does not override them. A fund filtered out keeps its published files. `EDGAR_FALLBACK`, `SEC_UA` and `VERBOSE` are reached in the workflow through `advanced` (the workflow has 24 individual inputs plus `advanced`).
 
 ### Examples
 
 ```bash
 TICKERS="DIVO IDVO SILJ BLOK" ./scripts/update-data.ts
+SKIP_YAHOO=true HISTORY_RANGE=5y ./scripts/update-data.ts
 MAX_FETCHES=3 REQUEST_SLEEP=0.5 MAX_RETRIES=1 ./scripts/update-data.ts
 AUM="mid:" TER=":0.75" DIVIDEND_YIELD="4:" ./scripts/update-data.ts
 TOTAL_RETURN_1Y="15:" ./scripts/update-data.ts
@@ -77,7 +86,7 @@ TOTAL_RETURN_1Y="15:" ./scripts/update-data.ts
 
 ## TypeScript and verification
 
-The browser app is intentionally build-free: `index.html` carries the markup, styles and TypeScript compiled in the browser - no build step, no bundler, no `tsconfig.json` needed. Bun runs TypeScript out of the box.
+The browser app is intentionally build-free: `index.html` carries the markup, styles and bootstrap, and `app.tsx` is TypeScript compiled in the browser with Babel standalone - no build step, no bundler, no `tsconfig.json` needed. Bun runs TypeScript out of the box.
 
 Verification before every publish:
 

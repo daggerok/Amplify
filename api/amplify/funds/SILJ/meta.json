@@ -1,0 +1,172 @@
+{
+ "ticker": "SILJ",
+ "name": "Amplify Junior Silver Miners ETF",
+ "category": "Thematic",
+ "categoryPath": "Thematic",
+ "source": {
+  "fundPage": "https://amplifyetfs.com/SILJ/",
+  "catalog": "https://firestore.googleapis.com/v1/projects/amplify-etfs-data-feed/databases/(default)/documents/fund_category",
+  "holdingsDownload": "https://amplifyetfs.com/silj-holdings/",
+  "holdingsSource": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
+  "historySource": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/SILJ",
+  "provider": "Amplify ETFs Firestore data feed (amplify-etfs-data-feed); SEC EDGAR N-PORT-P holdings fallback; Yahoo Finance market-history/dividend data"
+ },
+ "providerIds": {
+  "fundPage": "https://amplifyetfs.com/SILJ/",
+  "holdingsPage": "https://amplifyetfs.com/silj-holdings/"
+ },
+ "legalStructure": "ETF",
+ "identifiers": {
+  "cusip": "032108649",
+  "isin": "US0321086490",
+  "sedol": "BMGCF20",
+  "indexTicker": "NMFSM"
+ },
+ "inception": {
+  "fundInceptionDate": "2012-11-27",
+  "shareClassInceptionDate": "2012-11-28",
+  "exchange": "NYSE Arca"
+ },
+ "expenseRatio": {
+  "display": "0.69%",
+  "value": 0.69,
+  "gross": 0.69,
+  "net": 0.69
+ },
+ "nav": {
+  "display": "$27.10",
+  "value": 27.1047,
+  "asOfDate": "Oct 01 2026"
+ },
+ "marketPrice": {
+  "display": "$27.11",
+  "value": 27.11,
+  "asOfDate": "Oct 01 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.02%",
+  "value": 0.0196
+ },
+ "aum": {
+  "display": "$3,523,612,491",
+  "value": 3523612491.3,
+  "asOfDate": "Oct 01 2026",
+  "source": "Amplify Firestore daily net assets"
+ },
+ "yields": {
+  "dividendYield": 2.03,
+  "dividendYieldText": "2.03%",
+  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields)",
+  "secYield": -0.23,
+  "secYieldText": "-0.23%",
+  "secYieldKind": "30-day SEC yield published by Amplify (Firestore yields)",
+  "unsubsidizedSecYield": -0.23
+ },
+ "returns": {
+  "monthEnd": {
+   "asOfDate": "Sep 30 2026",
+   "ytd": -1.23,
+   "yr1": 20.62,
+   "yr3": 52.42,
+   "yr5": 20.51,
+   "yr10": 7.34,
+   "sinceInception": 3.55,
+   "mo1": -12.96,
+   "qtd": 5.29
+  },
+  "quarterEnd": {
+   "asOfDate": "Sep 30 2026",
+   "ytd": -1.23,
+   "yr1": 20.62,
+   "yr3": 52.42,
+   "yr5": 20.51,
+   "yr10": 7.34,
+   "sinceInception": 3.55,
+   "mo1": -12.96,
+   "qtd": null
+  },
+  "derivedFrom": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date"
+ },
+ "distributions": {
+  "frequency": "Annually",
+  "paymentsPerYear": 1,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "12/27/2013",
+    "0.009"
+   ],
+   [
+    "12/29/2015",
+    "0.124"
+   ],
+   [
+    "12/28/2016",
+    "0.063"
+   ],
+   [
+    "12/24/2018",
+    "0.133"
+   ],
+   [
+    "09/20/2019",
+    "0.01"
+   ],
+   [
+    "12/30/2019",
+    "0.17"
+   ],
+   [
+    "12/14/2020",
+    "0.2"
+   ],
+   [
+    "12/28/2021",
+    "0.045"
+   ],
+   [
+    "12/28/2022",
+    "0.006"
+   ],
+   [
+    "12/27/2023",
+    "0.001"
+   ],
+   [
+    "12/30/2024",
+    "0.721"
+   ],
+   [
+    "12/29/2025",
+    "0.554"
+   ]
+  ]
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 70,
+  "asOfDate": "2026-10-02",
+  "asOf": "Oct 02 2026",
+  "source": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
+  "status": "available"
+ },
+ "history": {
+  "pages": [
+   "history/001.json",
+   "history/002.json",
+   "history/003.json",
+   "history/004.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 3480,
+  "asOf": "Oct 01 2026",
+  "source": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)"
+ }
+}

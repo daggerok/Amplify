@@ -1,0 +1,116 @@
+{
+ "ticker": "MJ",
+ "page": 1,
+ "pageSize": 250,
+ "totalRows": 11,
+ "headers": [
+  "Name",
+  "Ticker",
+  "Identifier",
+  "Weight",
+  "Market Value",
+  "Shares Held",
+  "SEDOL"
+ ],
+ "rows": [
+  {
+   "Name": "Amplify Seymour Cannabis ETF",
+   "Ticker": "CNBS",
+   "Identifier": "032108482",
+   "Weight": "49.78",
+   "Market Value": "51341340.57",
+   "Shares Held": "1953784",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Cronos Group Inc",
+   "Ticker": "CRON",
+   "Identifier": "22717L101",
+   "Weight": "10.4",
+   "Market Value": "10723351.68",
+   "Shares Held": "3340608",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Tilray Brands Inc",
+   "Ticker": "TLRY",
+   "Identifier": "88688T209",
+   "Weight": "9.37",
+   "Market Value": "9666267.66",
+   "Shares Held": "2707638",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Canopy Growth Corp",
+   "Ticker": "CGC",
+   "Identifier": "138035704",
+   "Weight": "7.37",
+   "Market Value": "7604113.77",
+   "Shares Held": "8617536",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Village Farms International Inc",
+   "Ticker": "VFF",
+   "Identifier": "92707Y108",
+   "Weight": "6.06",
+   "Market Value": "6245558.4",
+   "Shares Held": "2191424",
+   "SEDOL": ""
+  },
+  {
+   "Name": "SNDL Inc",
+   "Ticker": "SNDL",
+   "Identifier": "83307B101",
+   "Weight": "5.84",
+   "Market Value": "6021345.96",
+   "Shares Held": "4778846",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Aurora Cannabis Inc",
+   "Ticker": "ACB",
+   "Identifier": "05156X850",
+   "Weight": "4.65",
+   "Market Value": "4798739.4",
+   "Shares Held": "1230446",
+   "SEDOL": ""
+  },
+  {
+   "Name": "High Tide Inc",
+   "Ticker": "HITI",
+   "Identifier": "42981E401",
+   "Weight": "4.05",
+   "Market Value": "4173468.99",
+   "Shares Held": "1563097",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Organigram Global Inc",
+   "Ticker": "OGI",
+   "Identifier": "68617J100",
+   "Weight": "1.88",
+   "Market Value": "1938794.98",
+   "Shares Held": "1973730",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Invesco Government & Agency Portfolio 12/31/2031",
+   "Ticker": "AGPXX",
+   "Identifier": "825252885",
+   "Weight": "0.54",
+   "Market Value": "561246.2",
+   "Shares Held": "561246.2",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Cash & Other",
+   "Ticker": "CASH&OTHER",
+   "Identifier": "Cash&Other",
+   "Weight": "0.05",
+   "Market Value": "53541.39",
+   "Shares Held": "53541.39",
+   "SEDOL": ""
+  }
+ ]
+}

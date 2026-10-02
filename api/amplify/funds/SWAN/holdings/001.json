@@ -1,0 +1,143 @@
+{
+ "ticker": "SWAN",
+ "page": 1,
+ "pageSize": 250,
+ "totalRows": 14,
+ "headers": [
+  "Name",
+  "Ticker",
+  "Identifier",
+  "Weight",
+  "Market Value",
+  "Shares Held",
+  "SEDOL"
+ ],
+ "rows": [
+  {
+   "Name": "United States Treasury Note/Bond 1.375% 11/15/2031",
+   "Ticker": "91282CDJ7",
+   "Identifier": "91282CDJ7",
+   "Weight": "8.74",
+   "Market Value": "13199635.23",
+   "Shares Held": "15781000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "United States Treasury Note/Bond 2.875% 05/15/2032",
+   "Ticker": "91282CEP2",
+   "Identifier": "91282CEP2",
+   "Weight": "8.68",
+   "Market Value": "13106026.94",
+   "Shares Held": "14658000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "United States Treasury Note/Bond 4.125% 11/15/2032",
+   "Ticker": "91282CFV8",
+   "Identifier": "91282CFV8",
+   "Weight": "8.63",
+   "Market Value": "13029639.31",
+   "Shares Held": "13714000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "United States Treasury Note/Bond 4% 11/15/2035",
+   "Ticker": "91282CPJ4",
+   "Identifier": "91282CPJ4",
+   "Weight": "8.63",
+   "Market Value": "13026617.48",
+   "Shares Held": "14284000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "United States Treasury Note/Bond 3.375% 05/15/2033",
+   "Ticker": "91282CHC8",
+   "Identifier": "91282CHC8",
+   "Weight": "8.62",
+   "Market Value": "13022370.63",
+   "Shares Held": "14413000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "United States Treasury Note/Bond 4.375% 05/15/2036",
+   "Ticker": "91282CQQ7",
+   "Identifier": "91282CQQ7",
+   "Weight": "8.61",
+   "Market Value": "13001294.99",
+   "Shares Held": "13897000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "United States Treasury Note/Bond 4.5% 11/15/2033",
+   "Ticker": "91282CJJ1",
+   "Identifier": "91282CJJ1",
+   "Weight": "8.58",
+   "Market Value": "12961292.96",
+   "Shares Held": "13463000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "United States Treasury Note/Bond 4.375% 05/15/2034",
+   "Ticker": "91282CKQ3",
+   "Identifier": "91282CKQ3",
+   "Weight": "8.57",
+   "Market Value": "12934455.08",
+   "Shares Held": "13599000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "United States Treasury Note/Bond 4.25% 11/15/2034",
+   "Ticker": "91282CLW9",
+   "Identifier": "91282CLW9",
+   "Weight": "8.55",
+   "Market Value": "12902848.28",
+   "Shares Held": "13747000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "United States Treasury Note/Bond 4.25% 05/15/2035",
+   "Ticker": "91282CNC1",
+   "Identifier": "91282CNC1",
+   "Weight": "8.53",
+   "Market Value": "12878886.6",
+   "Shares Held": "13784000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "SPY 12/18/2026 645.01 C",
+   "Ticker": "2SPY 261218C00645010",
+   "Identifier": "2SPY 261218C00645010",
+   "Weight": "7.03",
+   "Market Value": "10614045",
+   "Shares Held": "845",
+   "SEDOL": ""
+  },
+  {
+   "Name": "SPY 06/17/2027 720.01 C",
+   "Ticker": "2SPY 270617C00720010",
+   "Identifier": "2SPY 270617C00720010",
+   "Weight": "5.2",
+   "Market Value": "7849024",
+   "Shares Held": "928",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Cash & Other",
+   "Ticker": "CASH&OTHER",
+   "Identifier": "Cash&Other",
+   "Weight": "1.61",
+   "Market Value": "2436960.79",
+   "Shares Held": "2436960.79",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Invesco Government & Agency Portfolio 12/31/2031",
+   "Ticker": "AGPXX",
+   "Identifier": "825252885",
+   "Weight": "0.02",
+   "Market Value": "30728.33",
+   "Shares Held": "30728.33",
+   "SEDOL": ""
+  }
+ ]
+}

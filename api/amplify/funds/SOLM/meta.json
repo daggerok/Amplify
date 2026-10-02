@@ -1,0 +1,165 @@
+{
+ "ticker": "SOLM",
+ "name": "Amplify Solana 3% Monthly Option Income ETF",
+ "category": "Income",
+ "categoryPath": "Income",
+ "source": {
+  "fundPage": "https://amplifyetfs.com/SOLM/",
+  "catalog": "https://firestore.googleapis.com/v1/projects/amplify-etfs-data-feed/databases/(default)/documents/fund_category",
+  "holdingsDownload": "https://amplifyetfs.com/solm-holdings/",
+  "holdingsSource": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
+  "historySource": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/SOLM",
+  "provider": "Amplify ETFs Firestore data feed (amplify-etfs-data-feed); SEC EDGAR N-PORT-P holdings fallback; Yahoo Finance market-history/dividend data"
+ },
+ "providerIds": {
+  "fundPage": "https://amplifyetfs.com/SOLM/",
+  "holdingsPage": "https://amplifyetfs.com/solm-holdings/"
+ },
+ "legalStructure": "ETF",
+ "identifiers": {
+  "cusip": "032108391",
+  "isin": "US0321083919",
+  "sedol": null,
+  "indexTicker": null
+ },
+ "inception": {
+  "fundInceptionDate": "2025-11-03",
+  "shareClassInceptionDate": "2025-11-04",
+  "exchange": "Cboe BZX"
+ },
+ "expenseRatio": {
+  "display": "0.75%",
+  "value": 0.75,
+  "gross": 0.75,
+  "net": 0.75
+ },
+ "nav": {
+  "display": "$10.54",
+  "value": 10.541,
+  "asOfDate": "Oct 01 2026"
+ },
+ "marketPrice": {
+  "display": "$10.55",
+  "value": 10.5526,
+  "asOfDate": "Oct 01 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.11%",
+  "value": 0.11
+ },
+ "aum": {
+  "display": "$2,213,620",
+  "value": 2213620.42,
+  "asOfDate": "Oct 01 2026",
+  "source": "Amplify Firestore daily net assets"
+ },
+ "yields": {
+  "dividendYield": 38.35,
+  "dividendYieldText": "38.35%",
+  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields)",
+  "secYield": 2.14,
+  "secYieldText": "2.14%",
+  "secYieldKind": "30-day SEC yield published by Amplify (Firestore yields)",
+  "unsubsidizedSecYield": 2.14
+ },
+ "returns": {
+  "monthEnd": {
+   "asOfDate": "Sep 30 2026",
+   "ytd": -26.53,
+   "yr1": null,
+   "yr3": null,
+   "yr5": null,
+   "yr10": null,
+   "sinceInception": null,
+   "mo1": 7.1,
+   "qtd": 31.48
+  },
+  "quarterEnd": {
+   "asOfDate": "Sep 30 2026",
+   "ytd": -26.53,
+   "yr1": null,
+   "yr3": null,
+   "yr5": null,
+   "yr10": null,
+   "sinceInception": null,
+   "mo1": 7.1,
+   "qtd": null
+  },
+  "derivedFrom": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date"
+ },
+ "distributions": {
+  "frequency": "Monthly",
+  "paymentsPerYear": 12,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "11/26/2025",
+    "0.626"
+   ],
+   [
+    "12/30/2025",
+    "0.564"
+   ],
+   [
+    "01/29/2026",
+    "0.553"
+   ],
+   [
+    "02/26/2026",
+    "0.345"
+   ],
+   [
+    "03/30/2026",
+    "0.35"
+   ],
+   [
+    "04/29/2026",
+    "0.338"
+   ],
+   [
+    "05/28/2026",
+    "0.322"
+   ],
+   [
+    "06/29/2026",
+    "0.226"
+   ],
+   [
+    "07/30/2026",
+    "0.249"
+   ],
+   [
+    "08/28/2026",
+    "0.28"
+   ],
+   [
+    "09/29/2026",
+    "0.332"
+   ]
+  ]
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 10,
+  "asOfDate": "2026-10-02",
+  "asOf": "Oct 02 2026",
+  "source": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
+  "status": "available"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 228,
+  "asOf": "Oct 01 2026",
+  "source": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)"
+ }
+}

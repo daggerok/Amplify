@@ -1,0 +1,118 @@
+{
+ "ticker": "SMAP",
+ "name": "Amplify Small-Mid Cap Equity ETF",
+ "category": "Core",
+ "categoryPath": "Core",
+ "source": {
+  "fundPage": "https://amplifyetfs.com/SMAP/",
+  "catalog": "https://firestore.googleapis.com/v1/projects/amplify-etfs-data-feed/databases/(default)/documents/fund_category",
+  "holdingsDownload": "https://amplifyetfs.com/smap-holdings/",
+  "holdingsSource": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
+  "historySource": "unavailable",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/SMAP",
+  "provider": "Amplify ETFs Firestore data feed (amplify-etfs-data-feed); SEC EDGAR N-PORT-P holdings fallback; Yahoo Finance market-history/dividend data"
+ },
+ "providerIds": {
+  "fundPage": "https://amplifyetfs.com/SMAP/",
+  "holdingsPage": "https://amplifyetfs.com/smap-holdings/"
+ },
+ "legalStructure": "ETF",
+ "identifiers": {
+  "cusip": "032108490",
+  "isin": "US0321084909",
+  "sedol": "BPYRZW8",
+  "indexTicker": null
+ },
+ "inception": {
+  "fundInceptionDate": "2024-10-22",
+  "shareClassInceptionDate": "2024-10-23",
+  "exchange": "NYSE Arca"
+ },
+ "expenseRatio": {
+  "display": "0.60%",
+  "value": 0.6,
+  "gross": 0.6,
+  "net": 0.6
+ },
+ "nav": {
+  "display": "$26.51",
+  "value": 26.5136,
+  "asOfDate": "Jun 04 2026"
+ },
+ "marketPrice": {
+  "display": "$26.50",
+  "value": 26.505,
+  "asOfDate": "Jun 04 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.03%",
+  "value": -0.0324
+ },
+ "aum": {
+  "display": "$1,325,682",
+  "value": 1325681.98,
+  "asOfDate": "Jun 04 2026",
+  "source": "Amplify Firestore daily net assets"
+ },
+ "yields": {
+  "dividendYield": 0.4,
+  "dividendYieldText": "0.40%",
+  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields)",
+  "secYield": 0.59,
+  "secYieldText": "0.59%",
+  "secYieldKind": "30-day SEC yield published by Amplify (Firestore yields)",
+  "unsubsidizedSecYield": 0.59
+ },
+ "returns": {
+  "monthEnd": {
+   "asOfDate": "May 31 2026",
+   "ytd": 7.36,
+   "yr1": 13.14,
+   "yr3": null,
+   "yr5": null,
+   "yr10": null,
+   "sinceInception": 4.69,
+   "mo1": 0.83,
+   "qtd": null
+  },
+  "quarterEnd": {
+   "asOfDate": "Mar 31 2026",
+   "ytd": -0.85,
+   "yr1": 6.32,
+   "yr3": null,
+   "yr5": null,
+   "yr10": null,
+   "sinceInception": -0.42,
+   "mo1": -5.73,
+   "qtd": null
+  },
+  "derivedFrom": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date"
+ },
+ "distributions": {
+  "frequency": "—",
+  "paymentsPerYear": null,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": []
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 2,
+  "asOfDate": "2026-06-04",
+  "asOf": "Jun 04 2026",
+  "source": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
+  "status": "available"
+ },
+ "history": {
+  "pages": [],
+  "pageSize": 1000,
+  "totalRows": 0,
+  "asOf": "—",
+  "source": "unavailable"
+ }
+}

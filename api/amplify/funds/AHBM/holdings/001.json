@@ -1,0 +1,170 @@
+{
+ "ticker": "AHBM",
+ "page": 1,
+ "pageSize": 250,
+ "totalRows": 17,
+ "headers": [
+  "Name",
+  "Ticker",
+  "Identifier",
+  "Weight",
+  "Market Value",
+  "Shares Held",
+  "SEDOL"
+ ],
+ "rows": [
+  {
+   "Name": "SK hynix Inc",
+   "Ticker": "SKHY",
+   "Identifier": "78392B206",
+   "Weight": "23.2",
+   "Market Value": "1840185",
+   "Shares Held": "9510",
+   "SEDOL": ""
+  },
+  {
+   "Name": "SAMSUNG ELECTRONICS CO., LTD.-SWAP-MREX-L",
+   "Ticker": "6771720-TRS-08/19/29-L-MX",
+   "Identifier": "6771720-TRS-08/19/29-L-MX",
+   "Weight": "17.81",
+   "Market Value": "1412258.42",
+   "Shares Held": "6950",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Invesco Government & Agency Portfolio 12/31/2031",
+   "Ticker": "AGPXX",
+   "Identifier": "825252885",
+   "Weight": "16.96",
+   "Market Value": "1345328.92",
+   "Shares Held": "1345328.92",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Kioxia Holdings Corp",
+   "Ticker": "285A JP",
+   "Identifier": "BMGYJ02",
+   "Weight": "11.32",
+   "Market Value": "897445.14",
+   "Shares Held": "7430",
+   "SEDOL": ""
+  },
+  {
+   "Name": "CXMT CORPORATION-SWAP-GOLD-L",
+   "Ticker": "BTMTQT8-TRS-08/20/29-L-GS",
+   "Identifier": "BTMTQT8-TRS-08/20/29-L-GS",
+   "Weight": "9.52",
+   "Market Value": "755002.83",
+   "Shares Held": "92400",
+   "SEDOL": ""
+  },
+  {
+   "Name": "NANYA TECHNOLOGY CORPORATION-SWAP-GOLD-L",
+   "Ticker": "6283601-TRS-08/20/29-L-GS",
+   "Identifier": "6283601-TRS-08/20/29-L-GS",
+   "Weight": "5.54",
+   "Market Value": "439279",
+   "Shares Held": "27000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "WINBOND ELECTRONICS CORPORATION-SWAP-GOLD-L",
+   "Ticker": "6966515-TRS-08/20/29-L-GS",
+   "Identifier": "6966515-TRS-08/20/29-L-GS",
+   "Weight": "5.41",
+   "Market Value": "428840.13",
+   "Shares Held": "76000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Tokyo Electron Ltd",
+   "Ticker": "8035 JT",
+   "Identifier": "6895675",
+   "Weight": "5.12",
+   "Market Value": "405729.46",
+   "Shares Held": "5100",
+   "SEDOL": ""
+  },
+  {
+   "Name": "SAMSUNG ELECTRONICS CO., LTD.-SWAP-GOLD-L",
+   "Ticker": "6771720-TRS-08/20/29-L-GS",
+   "Identifier": "6771720-TRS-08/20/29-L-GS",
+   "Weight": "4.56",
+   "Market Value": "361700.72",
+   "Shares Held": "1780",
+   "SEDOL": ""
+  },
+  {
+   "Name": "MACRONIX INTERNATIONAL CO., LTD.-SWAP-GOLD-L",
+   "Ticker": "6574101-TRS-08/20/29-L-GS",
+   "Identifier": "6574101-TRS-08/20/29-L-GS",
+   "Weight": "4.5",
+   "Market Value": "356551.72",
+   "Shares Held": "94000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Advantest Corp",
+   "Ticker": "6857 JP",
+   "Identifier": "6870490",
+   "Weight": "4.14",
+   "Market Value": "328222.35",
+   "Shares Held": "1380",
+   "SEDOL": ""
+  },
+  {
+   "Name": "POWERCHIP SEMICONDUCTOR MANUFACTURING CORP.-SWAP-GOLD-L",
+   "Ticker": "BJBXT36-TRS-08/20/29-L-GS",
+   "Identifier": "BJBXT36-TRS-08/20/29-L-GS",
+   "Weight": "4.09",
+   "Market Value": "324623.82",
+   "Shares Held": "139000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "NANYA TECHNOLOGY CORPORATION-SWAP-MREX-L",
+   "Ticker": "6283601-TRS-08/19/29-L-MX",
+   "Identifier": "6283601-TRS-08/19/29-L-MX",
+   "Weight": "2.46",
+   "Market Value": "195235.11",
+   "Shares Held": "12000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "WINBOND ELECTRONICS CORPORATION-SWAP-MREX-L",
+   "Ticker": "6966515-TRS-08/19/29-L-MX",
+   "Identifier": "6966515-TRS-08/19/29-L-MX",
+   "Weight": "1.14",
+   "Market Value": "90282.13",
+   "Shares Held": "16000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Macronix International Co Ltd",
+   "Ticker": "2337 TT",
+   "Identifier": "6574101",
+   "Weight": "0.77",
+   "Market Value": "60689.66",
+   "Shares Held": "16000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Winbond Electronics Corp",
+   "Ticker": "2344 TT",
+   "Identifier": "6966515",
+   "Weight": "0.14",
+   "Market Value": "11285.27",
+   "Shares Held": "2000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Cash & Other",
+   "Ticker": "CASH&OTHER",
+   "Identifier": "Cash&Other",
+   "Weight": "-16.72",
+   "Market Value": "-1325714.97",
+   "Shares Held": "-1325714.97",
+   "SEDOL": ""
+  }
+ ]
+}

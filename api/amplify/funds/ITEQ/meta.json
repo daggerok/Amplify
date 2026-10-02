@@ -1,0 +1,151 @@
+{
+ "ticker": "ITEQ",
+ "name": "Amplify BlueStar Israel Technology ETF",
+ "category": "Thematic",
+ "categoryPath": "Thematic",
+ "source": {
+  "fundPage": "https://amplifyetfs.com/ITEQ/",
+  "catalog": "https://firestore.googleapis.com/v1/projects/amplify-etfs-data-feed/databases/(default)/documents/fund_category",
+  "holdingsDownload": "https://amplifyetfs.com/iteq-holdings/",
+  "holdingsSource": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
+  "historySource": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/ITEQ",
+  "provider": "Amplify ETFs Firestore data feed (amplify-etfs-data-feed); SEC EDGAR N-PORT-P holdings fallback; Yahoo Finance market-history/dividend data"
+ },
+ "providerIds": {
+  "fundPage": "https://amplifyetfs.com/ITEQ/",
+  "holdingsPage": "https://amplifyetfs.com/iteq-holdings/"
+ },
+ "legalStructure": "ETF",
+ "identifiers": {
+  "cusip": "032108599",
+  "isin": "US0321085997",
+  "sedol": "BMGC4F6",
+  "indexTicker": "BGTH"
+ },
+ "inception": {
+  "fundInceptionDate": "2015-11-01",
+  "shareClassInceptionDate": "2015-11-02",
+  "exchange": "NYSE Arca"
+ },
+ "expenseRatio": {
+  "display": "0.75%",
+  "value": 0.75,
+  "gross": 0.75,
+  "net": 0.75
+ },
+ "nav": {
+  "display": "$62.33",
+  "value": 62.3278,
+  "asOfDate": "Oct 01 2026"
+ },
+ "marketPrice": {
+  "display": "$62.49",
+  "value": 62.4906,
+  "asOfDate": "Oct 01 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.26%",
+  "value": 0.2612
+ },
+ "aum": {
+  "display": "$109,073,704",
+  "value": 109073703.64,
+  "asOfDate": "Oct 01 2026",
+  "source": "Amplify Firestore daily net assets"
+ },
+ "yields": {
+  "dividendYield": 0.79,
+  "dividendYieldText": "0.79%",
+  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields)",
+  "secYield": -0.13,
+  "secYieldText": "-0.13%",
+  "secYieldKind": "30-day SEC yield published by Amplify (Firestore yields)",
+  "unsubsidizedSecYield": -0.13
+ },
+ "returns": {
+  "monthEnd": {
+   "asOfDate": "Sep 30 2026",
+   "ytd": 6.79,
+   "yr1": 6.47,
+   "yr3": 14.86,
+   "yr5": -1.11,
+   "yr10": 9.56,
+   "sinceInception": 8.95,
+   "mo1": -1.81,
+   "qtd": -7.14
+  },
+  "quarterEnd": {
+   "asOfDate": "Sep 30 2026",
+   "ytd": 6.79,
+   "yr1": 6.47,
+   "yr3": 14.86,
+   "yr5": -1.11,
+   "yr10": 9.56,
+   "sinceInception": 8.95,
+   "mo1": -1.81,
+   "qtd": null
+  },
+  "derivedFrom": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date"
+ },
+ "distributions": {
+  "frequency": "Annually",
+  "paymentsPerYear": 1,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "12/26/2017",
+    "0.172"
+   ],
+   [
+    "12/24/2018",
+    "0.092"
+   ],
+   [
+    "09/20/2019",
+    "0.01"
+   ],
+   [
+    "12/14/2020",
+    "0.39"
+   ],
+   [
+    "03/23/2021",
+    "0.05"
+   ],
+   [
+    "12/30/2024",
+    "0.006"
+   ],
+   [
+    "12/30/2025",
+    "0.492"
+   ]
+  ]
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 61,
+  "asOfDate": "2026-10-02",
+  "asOf": "Oct 02 2026",
+  "source": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
+  "status": "available"
+ },
+ "history": {
+  "pages": [
+   "history/001.json",
+   "history/002.json",
+   "history/003.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 2743,
+  "asOf": "Oct 01 2026",
+  "source": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)"
+ }
+}

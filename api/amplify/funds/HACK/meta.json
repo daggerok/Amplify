@@ -1,0 +1,219 @@
+{
+ "ticker": "HACK",
+ "name": "Amplify Cybersecurity ETF",
+ "category": "Thematic",
+ "categoryPath": "Thematic",
+ "source": {
+  "fundPage": "https://amplifyetfs.com/HACK/",
+  "catalog": "https://firestore.googleapis.com/v1/projects/amplify-etfs-data-feed/databases/(default)/documents/fund_category",
+  "holdingsDownload": "https://amplifyetfs.com/hack-holdings/",
+  "holdingsSource": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
+  "historySource": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/HACK",
+  "provider": "Amplify ETFs Firestore data feed (amplify-etfs-data-feed); SEC EDGAR N-PORT-P holdings fallback; Yahoo Finance market-history/dividend data"
+ },
+ "providerIds": {
+  "fundPage": "https://amplifyetfs.com/HACK/",
+  "holdingsPage": "https://amplifyetfs.com/hack-holdings/"
+ },
+ "legalStructure": "ETF",
+ "identifiers": {
+  "cusip": "032108664",
+  "isin": "US0321086649",
+  "sedol": "BMGC490",
+  "indexTicker": "HXRXL"
+ },
+ "inception": {
+  "fundInceptionDate": "2014-11-10",
+  "shareClassInceptionDate": "2014-11-11",
+  "exchange": "NYSE Arca"
+ },
+ "expenseRatio": {
+  "display": "0.60%",
+  "value": 0.6,
+  "gross": 0.6,
+  "net": 0.6
+ },
+ "nav": {
+  "display": "$121.73",
+  "value": 121.7308,
+  "asOfDate": "Oct 01 2026"
+ },
+ "marketPrice": {
+  "display": "$121.77",
+  "value": 121.77,
+  "asOfDate": "Oct 01 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.03%",
+  "value": 0.0322
+ },
+ "aum": {
+  "display": "$3,347,596,152",
+  "value": 3347596152.4,
+  "asOfDate": "Oct 01 2026",
+  "source": "Amplify Firestore daily net assets"
+ },
+ "yields": {
+  "dividendYield": 0.05,
+  "dividendYieldText": "0.05%",
+  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields)",
+  "secYield": -0.1,
+  "secYieldText": "-0.10%",
+  "secYieldKind": "30-day SEC yield published by Amplify (Firestore yields)",
+  "unsubsidizedSecYield": -0.1
+ },
+ "returns": {
+  "monthEnd": {
+   "asOfDate": "Sep 30 2026",
+   "ytd": 50.58,
+   "yr1": 39.41,
+   "yr3": 33.01,
+   "yr5": 14.84,
+   "yr10": 16.21,
+   "sinceInception": 14.6,
+   "mo1": 3.5,
+   "qtd": 13.2
+  },
+  "quarterEnd": {
+   "asOfDate": "Sep 30 2026",
+   "ytd": 50.58,
+   "yr1": 39.41,
+   "yr3": 33.01,
+   "yr5": 14.84,
+   "yr10": 16.21,
+   "sinceInception": 14.6,
+   "mo1": 3.5,
+   "qtd": null
+  },
+  "derivedFrom": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date"
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/20/2016",
+    "0.07"
+   ],
+   [
+    "09/13/2016",
+    "0.12"
+   ],
+   [
+    "12/28/2016",
+    "0.134"
+   ],
+   [
+    "12/26/2017",
+    "0.004"
+   ],
+   [
+    "12/24/2018",
+    "0.03"
+   ],
+   [
+    "06/28/2019",
+    "0.02"
+   ],
+   [
+    "12/30/2019",
+    "0.04"
+   ],
+   [
+    "03/17/2020",
+    "0.58"
+   ],
+   [
+    "06/15/2020",
+    "0.02"
+   ],
+   [
+    "12/14/2020",
+    "0.04"
+   ],
+   [
+    "06/22/2021",
+    "0.02"
+   ],
+   [
+    "09/21/2021",
+    "0.12"
+   ],
+   [
+    "12/28/2021",
+    "0.017"
+   ],
+   [
+    "03/23/2022",
+    "0.025"
+   ],
+   [
+    "06/22/2022",
+    "0.02"
+   ],
+   [
+    "12/28/2022",
+    "0.059"
+   ],
+   [
+    "06/21/2023",
+    "0.03"
+   ],
+   [
+    "09/20/2023",
+    "0.01"
+   ],
+   [
+    "12/27/2023",
+    "0.084"
+   ],
+   [
+    "03/26/2024",
+    "0.001"
+   ],
+   [
+    "06/27/2024",
+    "0.026"
+   ],
+   [
+    "09/27/2024",
+    "0.023"
+   ],
+   [
+    "12/30/2024",
+    "0.054"
+   ],
+   [
+    "12/30/2025",
+    "0.06"
+   ]
+  ]
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 25,
+  "asOfDate": "2026-10-02",
+  "asOf": "Oct 02 2026",
+  "source": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
+  "status": "available"
+ },
+ "history": {
+  "pages": [
+   "history/001.json",
+   "history/002.json",
+   "history/003.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 2988,
+  "asOf": "Oct 01 2026",
+  "source": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)"
+ }
+}

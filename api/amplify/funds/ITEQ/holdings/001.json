@@ -1,0 +1,566 @@
+{
+ "ticker": "ITEQ",
+ "page": 1,
+ "pageSize": 250,
+ "totalRows": 61,
+ "headers": [
+  "Name",
+  "Ticker",
+  "Identifier",
+  "Weight",
+  "Market Value",
+  "Shares Held",
+  "SEDOL"
+ ],
+ "rows": [
+  {
+   "Name": "Palo Alto Networks Inc",
+   "Ticker": "PANW",
+   "Identifier": "697435105",
+   "Weight": "11.58",
+   "Market Value": "12629676.25",
+   "Shares Held": "31873",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Tower Semiconductor Ltd",
+   "Ticker": "TSEM",
+   "Identifier": "M87915274",
+   "Weight": "6.86",
+   "Market Value": "7484402.1",
+   "Shares Held": "31017",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Elbit Systems Ltd",
+   "Ticker": "ESLT",
+   "Identifier": "M3760D101",
+   "Weight": "6.34",
+   "Market Value": "6911580.8",
+   "Shares Held": "9935",
+   "SEDOL": ""
+  },
+  {
+   "Name": "JFrog Ltd",
+   "Ticker": "FROG",
+   "Identifier": "M6191J100",
+   "Weight": "4.25",
+   "Market Value": "4635037.05",
+   "Shares Held": "47495",
+   "SEDOL": ""
+  },
+  {
+   "Name": "SentinelOne Inc",
+   "Ticker": "S",
+   "Identifier": "81730H109",
+   "Weight": "3.44",
+   "Market Value": "3752652.38",
+   "Shares Held": "152114",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Check Point Software Technologies Ltd",
+   "Ticker": "CHKP",
+   "Identifier": "M22465104",
+   "Weight": "3.42",
+   "Market Value": "3732733.69",
+   "Shares Held": "28553",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Nice Ltd",
+   "Ticker": "NICE",
+   "Identifier": "653656108",
+   "Weight": "3.02",
+   "Market Value": "3289861.12",
+   "Shares Held": "28244",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Nova Ltd",
+   "Ticker": "NVMI",
+   "Identifier": "M7516K103",
+   "Weight": "2.83",
+   "Market Value": "3085454.6",
+   "Shares Held": "7981",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Varonis Systems Inc",
+   "Ticker": "VRNS",
+   "Identifier": "922280102",
+   "Weight": "2.48",
+   "Market Value": "2705788.8",
+   "Shares Held": "57024",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Global-e Online Ltd",
+   "Ticker": "GLBE",
+   "Identifier": "M5216V106",
+   "Weight": "2.41",
+   "Market Value": "2624345.86",
+   "Shares Held": "65266",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Amdocs Ltd",
+   "Ticker": "DOX",
+   "Identifier": "G02602103",
+   "Weight": "2.18",
+   "Market Value": "2378228.36",
+   "Shares Held": "40751",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Enlight Renewable Energy Ltd",
+   "Ticker": "ENLT IT",
+   "Identifier": "6767677",
+   "Weight": "2.09",
+   "Market Value": "2277586.93",
+   "Shares Held": "35043.6",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Next Vision Stabilized Systems Ltd",
+   "Ticker": "NXSN IT",
+   "Identifier": "BN6JDH9",
+   "Weight": "2.01",
+   "Market Value": "2187997.86",
+   "Shares Held": "27892",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Camtek Ltd/Israel",
+   "Ticker": "CAMT",
+   "Identifier": "M20791105",
+   "Weight": "1.84",
+   "Market Value": "2012188.36",
+   "Shares Held": "13084",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Monday.com Ltd",
+   "Ticker": "MNDY",
+   "Identifier": "M7S64H106",
+   "Weight": "1.75",
+   "Market Value": "1908888.39",
+   "Shares Held": "23769",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Ondas Inc",
+   "Ticker": "ONDS",
+   "Identifier": "68236H204",
+   "Weight": "1.7",
+   "Market Value": "1857850.08",
+   "Shares Held": "260934",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Ormat Technologies Inc",
+   "Ticker": "ORA",
+   "Identifier": "686688102",
+   "Weight": "1.61",
+   "Market Value": "1751956.4",
+   "Shares Held": "19540",
+   "SEDOL": ""
+  },
+  {
+   "Name": "UroGen Pharma Ltd",
+   "Ticker": "URGN",
+   "Identifier": "M96088105",
+   "Weight": "1.57",
+   "Market Value": "1707803.8",
+   "Shares Held": "42116",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Riskified Ltd",
+   "Ticker": "RSKD",
+   "Identifier": "M8216R109",
+   "Weight": "1.52",
+   "Market Value": "1655522.31",
+   "Shares Held": "208767",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Lemonade Inc",
+   "Ticker": "LMND",
+   "Identifier": "52567D107",
+   "Weight": "1.48",
+   "Market Value": "1613968.16",
+   "Shares Held": "34516",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Wix.com Ltd",
+   "Ticker": "WIX",
+   "Identifier": "M98068105",
+   "Weight": "1.48",
+   "Market Value": "1619347.95",
+   "Shares Held": "22077",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Matrix IT Ltd",
+   "Ticker": "MTRX IT",
+   "Identifier": "6747754",
+   "Weight": "1.37",
+   "Market Value": "1492967.8",
+   "Shares Held": "45110",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Payoneer Global Inc",
+   "Ticker": "PAYO",
+   "Identifier": "70451X104",
+   "Weight": "1.33",
+   "Market Value": "1451754.78",
+   "Shares Held": "203327",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Pagaya Technologies Ltd",
+   "Ticker": "PGY",
+   "Identifier": "M7S64L123",
+   "Weight": "1.22",
+   "Market Value": "1326294.56",
+   "Shares Held": "76049",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Plus500 Ltd",
+   "Ticker": "PLUS LN",
+   "Identifier": "BBT3PS9",
+   "Weight": "1.22",
+   "Market Value": "1335948.11",
+   "Shares Held": "29604",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Cellebrite DI Ltd",
+   "Ticker": "CLBT",
+   "Identifier": "M2197Q107",
+   "Weight": "1.14",
+   "Market Value": "1240171.64",
+   "Shares Held": "111326",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Hilan Ltd",
+   "Ticker": "HLAN IT",
+   "Identifier": "6267230",
+   "Weight": "1.11",
+   "Market Value": "1212767.79",
+   "Shares Held": "15880",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Inmode Ltd",
+   "Ticker": "INMD",
+   "Identifier": "M5425M103",
+   "Weight": "1.11",
+   "Market Value": "1207836.35",
+   "Shares Held": "85967",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Novocure Ltd",
+   "Ticker": "NVCR",
+   "Identifier": "G6674U108",
+   "Weight": "1.1",
+   "Market Value": "1195703.44",
+   "Shares Held": "75107",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Radware Ltd",
+   "Ticker": "RDWR",
+   "Identifier": "M81873107",
+   "Weight": "1.07",
+   "Market Value": "1170975.24",
+   "Shares Held": "38877",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Kornit Digital Ltd",
+   "Ticker": "KRNT",
+   "Identifier": "M6372Q113",
+   "Weight": "1.04",
+   "Market Value": "1129041.62",
+   "Shares Held": "66926",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Mobileye Global Inc",
+   "Ticker": "MBLY",
+   "Identifier": "60741F104",
+   "Weight": "1.04",
+   "Market Value": "1137228.75",
+   "Shares Held": "154725",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Etoro Group Ltd",
+   "Ticker": "ETOR",
+   "Identifier": "G32089107",
+   "Weight": "1.03",
+   "Market Value": "1127694.54",
+   "Shares Held": "43743",
+   "SEDOL": ""
+  },
+  {
+   "Name": "One Software Technologies Ltd",
+   "Ticker": "ONE IT",
+   "Identifier": "6987709",
+   "Weight": "1",
+   "Market Value": "1092996.93",
+   "Shares Held": "50712",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Priortech Ltd",
+   "Ticker": "PRTC IT",
+   "Identifier": "6677776",
+   "Weight": "0.99",
+   "Market Value": "1076616.31",
+   "Shares Held": "10801",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Stratasys Ltd",
+   "Ticker": "SSYS",
+   "Identifier": "M85548101",
+   "Weight": "0.98",
+   "Market Value": "1064441.64",
+   "Shares Held": "124788",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Formula Systems 1985 Ltd",
+   "Ticker": "FORTY IT",
+   "Identifier": "6348425",
+   "Weight": "0.97",
+   "Market Value": "1060619.72",
+   "Shares Held": "9413",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Nano Dimension Ltd",
+   "Ticker": "NNDM",
+   "Identifier": "63008G203",
+   "Weight": "0.97",
+   "Market Value": "1062561.24",
+   "Shares Held": "655902",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Doral Group Renewable Energy Resources Ltd",
+   "Ticker": "DORL IT",
+   "Identifier": "BMHMVP4",
+   "Weight": "0.93",
+   "Market Value": "1019102.9",
+   "Shares Held": "61924",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Energix-Renewable Energies Ltd",
+   "Ticker": "ENRG IT",
+   "Identifier": "B469X43",
+   "Weight": "0.93",
+   "Market Value": "1009926.24",
+   "Shares Held": "172036",
+   "SEDOL": ""
+  },
+  {
+   "Name": "CEVA Inc",
+   "Ticker": "CEVA",
+   "Identifier": "157210105",
+   "Weight": "0.92",
+   "Market Value": "1000243.2",
+   "Shares Held": "28160",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Cognyte Software Ltd",
+   "Ticker": "CGNT",
+   "Identifier": "M25133105",
+   "Weight": "0.92",
+   "Market Value": "1005625.18",
+   "Shares Held": "116123",
+   "SEDOL": ""
+  },
+  {
+   "Name": "SolarEdge Technologies Inc",
+   "Ticker": "SEDG",
+   "Identifier": "83417M104",
+   "Weight": "0.88",
+   "Market Value": "959377.86",
+   "Shares Held": "31078",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Ituran Location and Control Ltd",
+   "Ticker": "ITRN",
+   "Identifier": "M6158M104",
+   "Weight": "0.87",
+   "Market Value": "953628.24",
+   "Shares Held": "18582",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Brainsway Ltd",
+   "Ticker": "BWAY",
+   "Identifier": "10501L106",
+   "Weight": "0.84",
+   "Market Value": "912051",
+   "Shares Held": "72385",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Nayax Ltd",
+   "Ticker": "NYAX IT",
+   "Identifier": "BMXT7N9",
+   "Weight": "0.81",
+   "Market Value": "885725.99",
+   "Shares Held": "18204",
+   "SEDOL": ""
+  },
+  {
+   "Name": "TAT Technologies Ltd",
+   "Ticker": "TATT",
+   "Identifier": "M8740S227",
+   "Weight": "0.78",
+   "Market Value": "853613.64",
+   "Shares Held": "24508",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Fiverr International Ltd",
+   "Ticker": "FVRR",
+   "Identifier": "M4R82T106",
+   "Weight": "0.77",
+   "Market Value": "838837.2",
+   "Shares Held": "97995",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Gilat Satellite Networks Ltd",
+   "Ticker": "GILT",
+   "Identifier": "M51474118",
+   "Weight": "0.74",
+   "Market Value": "808100.16",
+   "Shares Held": "82124",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Meshek Energy Renewable Energies Ltd",
+   "Ticker": "MSKE IT",
+   "Identifier": "BMFR0X2",
+   "Weight": "0.74",
+   "Market Value": "808863.48",
+   "Shares Held": "261015",
+   "SEDOL": ""
+  },
+  {
+   "Name": "OY Nofar Energy Ltd",
+   "Ticker": "NOFR IT",
+   "Identifier": "BMTS893",
+   "Weight": "0.73",
+   "Market Value": "794109.76",
+   "Shares Held": "17511",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Taboola.com Ltd",
+   "Ticker": "TBLA",
+   "Identifier": "M8744T106",
+   "Weight": "0.73",
+   "Market Value": "795913.56",
+   "Shares Held": "239733",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Vishay Precision Group Inc",
+   "Ticker": "VPG",
+   "Identifier": "92835K103",
+   "Weight": "0.69",
+   "Market Value": "750599.64",
+   "Shares Held": "9996",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Elsight Ltd",
+   "Ticker": "ELS AU",
+   "Identifier": "BD36ZB1",
+   "Weight": "0.65",
+   "Market Value": "711461.36",
+   "Shares Held": "218112",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Weebit Nano Ltd",
+   "Ticker": "WBT AU",
+   "Identifier": "BD82NL0",
+   "Weight": "0.64",
+   "Market Value": "701298.79",
+   "Shares Held": "272947",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Playtika Holding Corp",
+   "Ticker": "PLTK",
+   "Identifier": "72815L107",
+   "Weight": "0.62",
+   "Market Value": "676977.07",
+   "Shares Held": "311971",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Qualitau Ltd",
+   "Ticker": "QLTU IT",
+   "Identifier": "6221689",
+   "Weight": "0.62",
+   "Market Value": "674385.48",
+   "Shares Held": "5771",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Aryt Industries Ltd",
+   "Ticker": "ARYT IT",
+   "Identifier": "6049740",
+   "Weight": "0.48",
+   "Market Value": "519548.44",
+   "Shares Held": "105864",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Invesco Government & Agency Portfolio 12/31/2031",
+   "Ticker": "AGPXX",
+   "Identifier": "825252885",
+   "Weight": "0.15",
+   "Market Value": "160597.45",
+   "Shares Held": "160597.45",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Cash & Other",
+   "Ticker": "CASH&OTHER",
+   "Identifier": "Cash&Other",
+   "Weight": "0.01",
+   "Market Value": "11054.87",
+   "Shares Held": "11054.87",
+   "SEDOL": ""
+  },
+  {
+   "Name": "ISRAELI NEW SHEKEL",
+   "Ticker": "ILS",
+   "Identifier": "CASHILS",
+   "Weight": "0.01",
+   "Market Value": "7948.67",
+   "Shares Held": "24521.25",
+   "SEDOL": ""
+  }
+ ]
+}

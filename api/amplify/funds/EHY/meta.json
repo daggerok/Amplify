@@ -1,0 +1,165 @@
+{
+ "ticker": "EHY",
+ "name": "Amplify Ethereum Max Income Covered Call ETF",
+ "category": "Income",
+ "categoryPath": "Income",
+ "source": {
+  "fundPage": "https://amplifyetfs.com/EHY/",
+  "catalog": "https://firestore.googleapis.com/v1/projects/amplify-etfs-data-feed/databases/(default)/documents/fund_category",
+  "holdingsDownload": "https://amplifyetfs.com/ehy-holdings/",
+  "holdingsSource": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
+  "historySource": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/EHY",
+  "provider": "Amplify ETFs Firestore data feed (amplify-etfs-data-feed); SEC EDGAR N-PORT-P holdings fallback; Yahoo Finance market-history/dividend data"
+ },
+ "providerIds": {
+  "fundPage": "https://amplifyetfs.com/EHY/",
+  "holdingsPage": "https://amplifyetfs.com/ehy-holdings/"
+ },
+ "legalStructure": "ETF",
+ "identifiers": {
+  "cusip": "032108417",
+  "isin": "US0321084172",
+  "sedol": null,
+  "indexTicker": null
+ },
+ "inception": {
+  "fundInceptionDate": "2025-10-08",
+  "shareClassInceptionDate": "2025-10-09",
+  "exchange": "Cboe BZX"
+ },
+ "expenseRatio": {
+  "display": "0.75%",
+  "value": 0.75,
+  "gross": 0.75,
+  "net": 0.75
+ },
+ "nav": {
+  "display": "$8.23",
+  "value": 8.2313,
+  "asOfDate": "Oct 01 2026"
+ },
+ "marketPrice": {
+  "display": "$8.26",
+  "value": 8.2577,
+  "asOfDate": "Oct 01 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.32%",
+  "value": 0.3207
+ },
+ "aum": {
+  "display": "$4,856,439",
+  "value": 4856438.99,
+  "asOfDate": "Oct 01 2026",
+  "source": "Amplify Firestore daily net assets"
+ },
+ "yields": {
+  "dividendYield": 52.64,
+  "dividendYieldText": "52.64%",
+  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields)",
+  "secYield": 0.68,
+  "secYieldText": "0.68%",
+  "secYieldKind": "30-day SEC yield published by Amplify (Firestore yields)",
+  "unsubsidizedSecYield": 0.68
+ },
+ "returns": {
+  "monthEnd": {
+   "asOfDate": "Sep 30 2026",
+   "ytd": -28.14,
+   "yr1": null,
+   "yr3": null,
+   "yr5": null,
+   "yr10": null,
+   "sinceInception": null,
+   "mo1": 3.25,
+   "qtd": 35.44
+  },
+  "quarterEnd": {
+   "asOfDate": "Sep 30 2026",
+   "ytd": -28.14,
+   "yr1": null,
+   "yr3": null,
+   "yr5": null,
+   "yr10": null,
+   "sinceInception": null,
+   "mo1": 3.25,
+   "qtd": null
+  },
+  "derivedFrom": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date"
+ },
+ "distributions": {
+  "frequency": "Monthly",
+  "paymentsPerYear": 12,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "11/26/2025",
+    "0.75"
+   ],
+   [
+    "12/30/2025",
+    "0.703"
+   ],
+   [
+    "01/29/2026",
+    "0.679"
+   ],
+   [
+    "02/26/2026",
+    "0.474"
+   ],
+   [
+    "03/30/2026",
+    "0.444"
+   ],
+   [
+    "04/29/2026",
+    "0.487"
+   ],
+   [
+    "05/28/2026",
+    "0.421"
+   ],
+   [
+    "06/29/2026",
+    "0.283"
+   ],
+   [
+    "07/30/2026",
+    "0.335"
+   ],
+   [
+    "08/28/2026",
+    "0.351"
+   ],
+   [
+    "09/29/2026",
+    "0.357"
+   ]
+  ]
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 7,
+  "asOfDate": "2026-10-02",
+  "asOf": "Oct 02 2026",
+  "source": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
+  "status": "available"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 246,
+  "asOf": "Oct 01 2026",
+  "source": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)"
+ }
+}

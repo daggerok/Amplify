@@ -1,0 +1,215 @@
+{
+ "ticker": "THNR",
+ "page": 1,
+ "pageSize": 250,
+ "totalRows": 22,
+ "headers": [
+  "Name",
+  "Ticker",
+  "Identifier",
+  "Weight",
+  "Market Value",
+  "Shares Held",
+  "SEDOL"
+ ],
+ "rows": [
+  {
+   "Name": "Eli Lilly & Co",
+   "Ticker": "LLY",
+   "Identifier": "532457108",
+   "Weight": "10.19",
+   "Market Value": "578374.55",
+   "Shares Held": "503",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Novo Nordisk A/S",
+   "Ticker": "NVO",
+   "Identifier": "670100205",
+   "Weight": "8.45",
+   "Market Value": "480029",
+   "Shares Held": "12835",
+   "SEDOL": ""
+  },
+  {
+   "Name": "CSPC Pharmaceutical Group Ltd",
+   "Ticker": "1093 HK",
+   "Identifier": "6191997",
+   "Weight": "5.92",
+   "Market Value": "336229.19",
+   "Shares Held": "262000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Amgen Inc",
+   "Ticker": "AMGN",
+   "Identifier": "031162100",
+   "Weight": "5.65",
+   "Market Value": "320928.76",
+   "Shares Held": "788",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Pfizer Inc",
+   "Ticker": "PFE",
+   "Identifier": "717081103",
+   "Weight": "5.4",
+   "Market Value": "306395.52",
+   "Shares Held": "10896",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Innovent Biologics Inc",
+   "Ticker": "1801 HK",
+   "Identifier": "BGR6KX5",
+   "Weight": "5.39",
+   "Market Value": "306138.77",
+   "Shares Held": "24500",
+   "SEDOL": ""
+  },
+  {
+   "Name": "AbbVie Inc",
+   "Ticker": "ABBV",
+   "Identifier": "00287Y109",
+   "Weight": "5.26",
+   "Market Value": "298659.57",
+   "Shares Held": "1149",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Gilead Sciences Inc",
+   "Ticker": "GILD",
+   "Identifier": "375558103",
+   "Weight": "5.26",
+   "Market Value": "298540",
+   "Shares Held": "2024",
+   "SEDOL": ""
+  },
+  {
+   "Name": "AstraZeneca PLC",
+   "Ticker": "AZN",
+   "Identifier": "G0593M107",
+   "Weight": "5.24",
+   "Market Value": "297737.6",
+   "Shares Held": "1888",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Roche Holding AG",
+   "Ticker": "ROP SW",
+   "Identifier": "BTMJD19",
+   "Weight": "5.24",
+   "Market Value": "297432.44",
+   "Shares Held": "708",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Merck & Co Inc",
+   "Ticker": "MRK",
+   "Identifier": "58933Y105",
+   "Weight": "5.13",
+   "Market Value": "291215.25",
+   "Shares Held": "2025",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Regeneron Pharmaceuticals Inc",
+   "Ticker": "REGN",
+   "Identifier": "75886F107",
+   "Weight": "4.92",
+   "Market Value": "279227.8",
+   "Shares Held": "380",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Viking Therapeutics Inc",
+   "Ticker": "VKTX",
+   "Identifier": "92686J106",
+   "Weight": "4.9",
+   "Market Value": "278190.18",
+   "Shares Held": "9118",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Chugai Pharmaceutical Co Ltd",
+   "Ticker": "4519 JP",
+   "Identifier": "6196408",
+   "Weight": "4.83",
+   "Market Value": "274018.19",
+   "Shares Held": "7000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Arrowhead Pharmaceuticals Inc",
+   "Ticker": "ARWR",
+   "Identifier": "04280A100",
+   "Weight": "4.04",
+   "Market Value": "229421.39",
+   "Shares Held": "3541",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Invesco Government & Agency Portfolio 12/31/2031",
+   "Ticker": "AGPXX",
+   "Identifier": "825252885",
+   "Weight": "3.94",
+   "Market Value": "223945.95",
+   "Shares Held": "223945.95",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Zealand Pharma A/S",
+   "Ticker": "ZEAL DC",
+   "Identifier": "B0SDJB4",
+   "Weight": "3.74",
+   "Market Value": "212549.96",
+   "Shares Held": "5542",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Hanmi Pharm Co Ltd",
+   "Ticker": "128940 KS",
+   "Identifier": "B613DJ9",
+   "Weight": "3.56",
+   "Market Value": "202186.64",
+   "Shares Held": "552",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Structure Therapeutics Inc",
+   "Ticker": "GPCR",
+   "Identifier": "86366E106",
+   "Weight": "3.11",
+   "Market Value": "176720.04",
+   "Shares Held": "6098",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Jiangsu Hengrui Pharmaceuticals Co Ltd",
+   "Ticker": "1276 HK",
+   "Identifier": "BMV9P26",
+   "Weight": "2.41",
+   "Market Value": "136905.89",
+   "Shares Held": "21400",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Kailera Therapeutics Inc",
+   "Ticker": "KLRA",
+   "Identifier": "482931102",
+   "Weight": "0.97",
+   "Market Value": "54918.37",
+   "Shares Held": "4979",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Cash & Other",
+   "Ticker": "CASH&OTHER",
+   "Identifier": "Cash&Other",
+   "Weight": "-3.6",
+   "Market Value": "-204190.5",
+   "Shares Held": "-204190.5",
+   "SEDOL": ""
+  }
+ ]
+}

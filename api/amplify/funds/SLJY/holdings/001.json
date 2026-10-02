@@ -1,0 +1,629 @@
+{
+ "ticker": "SLJY",
+ "page": 1,
+ "pageSize": 250,
+ "totalRows": 68,
+ "headers": [
+  "Name",
+  "Ticker",
+  "Identifier",
+  "Weight",
+  "Market Value",
+  "Shares Held",
+  "SEDOL"
+ ],
+ "rows": [
+  {
+   "Name": "Amplify Junior Silver Miners ETF",
+   "Ticker": "SILJ",
+   "Identifier": "032108649",
+   "Weight": "24.29",
+   "Market Value": "17685642.26",
+   "Shares Held": "652366",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Hecla Mining Co",
+   "Ticker": "HL",
+   "Identifier": "422704106",
+   "Weight": "6.9",
+   "Market Value": "5020695",
+   "Shares Held": "295335",
+   "SEDOL": ""
+  },
+  {
+   "Name": "First Majestic Silver Corp",
+   "Ticker": "AG",
+   "Identifier": "32076V103",
+   "Weight": "6.37",
+   "Market Value": "4637516",
+   "Shares Held": "262600",
+   "SEDOL": ""
+  },
+  {
+   "Name": "COEUR MINING INC.",
+   "Ticker": "CDE",
+   "Identifier": "192108504",
+   "Weight": "5.94",
+   "Market Value": "4326257.2",
+   "Shares Held": "246370",
+   "SEDOL": ""
+  },
+  {
+   "Name": "United States Treasury Bill 12/10/2026",
+   "Ticker": "912797VG9",
+   "Identifier": "912797VG9",
+   "Weight": "5.68",
+   "Market Value": "4133489.82",
+   "Shares Held": "4165000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Skeena Resources Ltd",
+   "Ticker": "SKE",
+   "Identifier": "83056P715",
+   "Weight": "4.62",
+   "Market Value": "3365306.28",
+   "Shares Held": "112854",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Endeavour Silver Corp",
+   "Ticker": "EXK",
+   "Identifier": "29258Y103",
+   "Weight": "4.1",
+   "Market Value": "2988424.4",
+   "Shares Held": "349115",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Wheaton Precious Metals Corp",
+   "Ticker": "WPM",
+   "Identifier": "962879102",
+   "Weight": "4.03",
+   "Market Value": "2934973.16",
+   "Shares Held": "21998",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Franco-Nevada Corp",
+   "Ticker": "FNV",
+   "Identifier": "351858105",
+   "Weight": "3.78",
+   "Market Value": "2750490.35",
+   "Shares Held": "11665",
+   "SEDOL": ""
+  },
+  {
+   "Name": "McEwen Inc",
+   "Ticker": "MUX",
+   "Identifier": "58039P305",
+   "Weight": "3.61",
+   "Market Value": "2626730.74",
+   "Shares Held": "148739",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Pan American Silver Corp",
+   "Ticker": "PAAS",
+   "Identifier": "697900108",
+   "Weight": "3.6",
+   "Market Value": "2624583",
+   "Shares Held": "58350",
+   "SEDOL": ""
+  },
+  {
+   "Name": "OR Royalties Inc",
+   "Ticker": "OR",
+   "Identifier": "68390D106",
+   "Weight": "3.51",
+   "Market Value": "2555431.92",
+   "Shares Held": "75204",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Perpetua Resources Corp",
+   "Ticker": "PPTA",
+   "Identifier": "714266103",
+   "Weight": "3.04",
+   "Market Value": "2209998.7",
+   "Shares Held": "105590",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Cia de Minas Buenaventura SAA",
+   "Ticker": "BVN",
+   "Identifier": "204448104",
+   "Weight": "2.9",
+   "Market Value": "2112286.22",
+   "Shares Held": "67078",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Seabridge Gold Inc",
+   "Ticker": "SA",
+   "Identifier": "811927102",
+   "Weight": "2.88",
+   "Market Value": "2099394.5",
+   "Shares Held": "77042",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Triple Flag Precious Metals Corp",
+   "Ticker": "TFPM",
+   "Identifier": "89679M104",
+   "Weight": "2.4",
+   "Market Value": "1749782.52",
+   "Shares Held": "57483",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Cash & Other",
+   "Ticker": "CASH&OTHER",
+   "Identifier": "Cash&Other",
+   "Weight": "2.38",
+   "Market Value": "1731999.22",
+   "Shares Held": "1731999.22",
+   "SEDOL": ""
+  },
+  {
+   "Name": "SSR Mining Inc",
+   "Ticker": "SSRM",
+   "Identifier": "784730103",
+   "Weight": "2.24",
+   "Market Value": "1630762.32",
+   "Shares Held": "48796",
+   "SEDOL": ""
+  },
+  {
+   "Name": "United States Treasury Bill 02/18/2027",
+   "Ticker": "912797TV9",
+   "Identifier": "912797TV9",
+   "Weight": "2.13",
+   "Market Value": "1547351.68",
+   "Shares Held": "1572000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Hycroft Mining Holding Corp",
+   "Ticker": "HYMC",
+   "Identifier": "44862P208",
+   "Weight": "1.58",
+   "Market Value": "1153385.97",
+   "Shares Held": "60929",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Royal Gold Inc",
+   "Ticker": "RGLD",
+   "Identifier": "780287108",
+   "Weight": "1.58",
+   "Market Value": "1149073.38",
+   "Shares Held": "4956",
+   "SEDOL": ""
+  },
+  {
+   "Name": "United States Treasury Bill 07/08/2027",
+   "Ticker": "912797VQ7",
+   "Identifier": "912797VQ7",
+   "Weight": "1.45",
+   "Market Value": "1052351.06",
+   "Shares Held": "1087000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "United States Treasury Note/Bond 2.375% 05/15/2027",
+   "Ticker": "912828X88",
+   "Identifier": "912828X88",
+   "Weight": "0.86",
+   "Market Value": "626403.34",
+   "Shares Held": "634000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Invesco Government & Agency Portfolio 12/31/2031",
+   "Ticker": "AGPXX",
+   "Identifier": "825252885",
+   "Weight": "0.83",
+   "Market Value": "606709.28",
+   "Shares Held": "606709.28",
+   "SEDOL": ""
+  },
+  {
+   "Name": "SLV US 11/20/26 C56",
+   "Ticker": "SLV 261120C00056000",
+   "Identifier": "SLV 261120C00056000",
+   "Weight": "0.57",
+   "Market Value": "417703",
+   "Shares Held": "1651",
+   "SEDOL": ""
+  },
+  {
+   "Name": "SILJ US 10/16/26 C33",
+   "Ticker": "SILJ 261016C00033000",
+   "Identifier": "SILJ 261016C00033000",
+   "Weight": "0.13",
+   "Market Value": "91322",
+   "Shares Held": "6523",
+   "SEDOL": ""
+  },
+  {
+   "Name": "COEUR MI CLL OPT 10/26 19",
+   "Ticker": "CDE 261016C00019000",
+   "Identifier": "CDE 261016C00019000",
+   "Weight": "0.1",
+   "Market Value": "73890",
+   "Shares Held": "2463",
+   "SEDOL": ""
+  },
+  {
+   "Name": "SEABRIDG CLL OPT 11/26 32",
+   "Ticker": "SA 261120C00032000",
+   "Identifier": "SA 261120C00032000",
+   "Weight": "0.1",
+   "Market Value": "69300",
+   "Shares Held": "770",
+   "SEDOL": ""
+  },
+  {
+   "Name": "HECLA M CLL OPT 10/26 19",
+   "Ticker": "HL 261016C00019000",
+   "Identifier": "HL 261016C00019000",
+   "Weight": "0.07",
+   "Market Value": "53154",
+   "Shares Held": "2953",
+   "SEDOL": ""
+  },
+  {
+   "Name": "OR ROYAL CLL OPT 11/26 40",
+   "Ticker": "OR 261120C00040000",
+   "Identifier": "OR 261120C00040000",
+   "Weight": "0.06",
+   "Market Value": "45120",
+   "Shares Held": "752",
+   "SEDOL": ""
+  },
+  {
+   "Name": "WHEATON CLL OPT 10/26 140",
+   "Ticker": "WPM 261016C00140000",
+   "Identifier": "WPM 261016C00140000",
+   "Weight": "0.06",
+   "Market Value": "45442.5",
+   "Shares Held": "219",
+   "SEDOL": ""
+  },
+  {
+   "Name": "FRANCO-N CLL OPT 11/26 280",
+   "Ticker": "FNV 261120C00280000",
+   "Identifier": "FNV 261120C00280000",
+   "Weight": "0.05",
+   "Market Value": "32770",
+   "Shares Held": "116",
+   "SEDOL": ""
+  },
+  {
+   "Name": "AG US 10/16/26 C21",
+   "Ticker": "AG 261016C00021000",
+   "Identifier": "AG 261016C00021000",
+   "Weight": "0.04",
+   "Market Value": "31512",
+   "Shares Held": "2626",
+   "SEDOL": ""
+  },
+  {
+   "Name": "MUX US 10/16/26 C20",
+   "Ticker": "MUX 261016C00020000",
+   "Identifier": "MUX 261016C00020000",
+   "Weight": "0.04",
+   "Market Value": "29740",
+   "Shares Held": "1487",
+   "SEDOL": ""
+  },
+  {
+   "Name": "BVN US 10/16/26 C37",
+   "Ticker": "BVN 261016C00037000",
+   "Identifier": "BVN 261016C00037000",
+   "Weight": "0.03",
+   "Market Value": "24900",
+   "Shares Held": "664",
+   "SEDOL": ""
+  },
+  {
+   "Name": "SLV US 10/16/26 C62",
+   "Ticker": "SLV 261016C00062000",
+   "Identifier": "SLV 261016C00062000",
+   "Weight": "0.03",
+   "Market Value": "18250",
+   "Shares Held": "1460",
+   "SEDOL": ""
+  },
+  {
+   "Name": "HYMC US 10/16/26 C23",
+   "Ticker": "HYMC 261016C00023000",
+   "Identifier": "HYMC 261016C00023000",
+   "Weight": "0.02",
+   "Market Value": "15225",
+   "Shares Held": "609",
+   "SEDOL": ""
+  },
+  {
+   "Name": "SSRM US 10/16/26 C39",
+   "Ticker": "SSRM 261016C00039000",
+   "Identifier": "SSRM 261016C00039000",
+   "Weight": "0.02",
+   "Market Value": "13392.5",
+   "Shares Held": "487",
+   "SEDOL": ""
+  },
+  {
+   "Name": "TRIPLE F CLL OPT 11/26 40",
+   "Ticker": "TFPM 261120C00040000",
+   "Identifier": "TFPM 261120C00040000",
+   "Weight": "0.02",
+   "Market Value": "11480",
+   "Shares Held": "574",
+   "SEDOL": ""
+  },
+  {
+   "Name": "PAAS US 10/16/26 C55",
+   "Ticker": "PAAS 261016C00055000",
+   "Identifier": "PAAS 261016C00055000",
+   "Weight": "0.01",
+   "Market Value": "4372.5",
+   "Shares Held": "583",
+   "SEDOL": ""
+  },
+  {
+   "Name": "PPTA US 10/16/26 C30",
+   "Ticker": "PPTA 261016C00030000",
+   "Identifier": "PPTA 261016C00030000",
+   "Weight": "0.01",
+   "Market Value": "5275",
+   "Shares Held": "1055",
+   "SEDOL": ""
+  },
+  {
+   "Name": "COMPANIA CLL OPT 11/26 33",
+   "Ticker": "BVN 261120C00033000",
+   "Identifier": "BVN 261120C00033000",
+   "Weight": "0",
+   "Market Value": "-1080",
+   "Shares Held": "-6",
+   "SEDOL": ""
+  },
+  {
+   "Name": "COMPANIA CLL OPT 11/26 35",
+   "Ticker": "BVN 261120C00035000",
+   "Identifier": "BVN 261120C00035000",
+   "Weight": "0",
+   "Market Value": "750",
+   "Shares Held": "6",
+   "SEDOL": ""
+  },
+  {
+   "Name": "EXK US 10/16/26 C10",
+   "Ticker": "EXK 261016C00010000",
+   "Identifier": "EXK 261016C00010000",
+   "Weight": "0",
+   "Market Value": "-890",
+   "Shares Held": "-89",
+   "SEDOL": ""
+  },
+  {
+   "Name": "ISHARES CLL OPT 10/26 56",
+   "Ticker": "SLV 261016C00056000",
+   "Identifier": "SLV 261016C00056000",
+   "Weight": "0",
+   "Market Value": "-1590",
+   "Shares Held": "-15",
+   "SEDOL": ""
+  },
+  {
+   "Name": "ISHARES CLL OPT 10/26 58",
+   "Ticker": "SLV 261016C00058000",
+   "Identifier": "SLV 261016C00058000",
+   "Weight": "0",
+   "Market Value": "735",
+   "Shares Held": "15",
+   "SEDOL": ""
+  },
+  {
+   "Name": "RGLD US 10/16/26 C270",
+   "Ticker": "RGLD 261016C00270000",
+   "Identifier": "RGLD 261016C00270000",
+   "Weight": "0",
+   "Market Value": "3307.5",
+   "Shares Held": "49",
+   "SEDOL": ""
+  },
+  {
+   "Name": "SLV US 10/16/26 C61",
+   "Ticker": "SLV 261016C00061000",
+   "Identifier": "SLV 261016C00061000",
+   "Weight": "0",
+   "Market Value": "-2904",
+   "Shares Held": "-176",
+   "SEDOL": ""
+  },
+  {
+   "Name": "SLV US 10/16/26 C65",
+   "Ticker": "SLV 261016C00065000",
+   "Identifier": "SLV 261016C00065000",
+   "Weight": "0",
+   "Market Value": "1144",
+   "Shares Held": "176",
+   "SEDOL": ""
+  },
+  {
+   "Name": "EXK US 10/16/26 C12.5",
+   "Ticker": "EXK 261016C00012500",
+   "Identifier": "EXK 261016C00012500",
+   "Weight": "-0.01",
+   "Market Value": "-8505.02",
+   "Shares Held": "-3402",
+   "SEDOL": ""
+  },
+  {
+   "Name": "RGLD US 10/16/26 C260",
+   "Ticker": "RGLD 261016C00260000",
+   "Identifier": "RGLD 261016C00260000",
+   "Weight": "-0.01",
+   "Market Value": "-4655",
+   "Shares Held": "-49",
+   "SEDOL": ""
+  },
+  {
+   "Name": "PPTA US 10/16/26 C25",
+   "Ticker": "PPTA 261016C00025000",
+   "Identifier": "PPTA 261016C00025000",
+   "Weight": "-0.02",
+   "Market Value": "-13187.5",
+   "Shares Held": "-1055",
+   "SEDOL": ""
+  },
+  {
+   "Name": "HYMC US 10/16/26 C22",
+   "Ticker": "HYMC 261016C00022000",
+   "Identifier": "HYMC 261016C00022000",
+   "Weight": "-0.03",
+   "Market Value": "-19792.5",
+   "Shares Held": "-609",
+   "SEDOL": ""
+  },
+  {
+   "Name": "PAAS US 10/16/26 C50",
+   "Ticker": "PAAS 261016C00050000",
+   "Identifier": "PAAS 261016C00050000",
+   "Weight": "-0.03",
+   "Market Value": "-18947.5",
+   "Shares Held": "-583",
+   "SEDOL": ""
+  },
+  {
+   "Name": "SSRM US 10/16/26 C37",
+   "Ticker": "SSRM 261016C00037000",
+   "Identifier": "SSRM 261016C00037000",
+   "Weight": "-0.03",
+   "Market Value": "-19480",
+   "Shares Held": "-487",
+   "SEDOL": ""
+  },
+  {
+   "Name": "TRIPLE F CLL OPT 11/26 35",
+   "Ticker": "TFPM 261120C00035000",
+   "Identifier": "TFPM 261120C00035000",
+   "Weight": "-0.05",
+   "Market Value": "-33005",
+   "Shares Held": "-574",
+   "SEDOL": ""
+  },
+  {
+   "Name": "AG US 10/16/26 C20",
+   "Ticker": "AG 261016C00020000",
+   "Identifier": "AG 261016C00020000",
+   "Weight": "-0.06",
+   "Market Value": "-44642",
+   "Shares Held": "-2626",
+   "SEDOL": ""
+  },
+  {
+   "Name": "BVN US 10/16/26 C35",
+   "Ticker": "BVN 261016C00035000",
+   "Identifier": "BVN 261016C00035000",
+   "Weight": "-0.07",
+   "Market Value": "-51460",
+   "Shares Held": "-664",
+   "SEDOL": ""
+  },
+  {
+   "Name": "SLV US 10/16/26 C59",
+   "Ticker": "SLV 261016C00059000",
+   "Identifier": "SLV 261016C00059000",
+   "Weight": "-0.07",
+   "Market Value": "-48180",
+   "Shares Held": "-1460",
+   "SEDOL": ""
+  },
+  {
+   "Name": "MUX US 10/16/26 C19",
+   "Ticker": "MUX 261016C00019000",
+   "Identifier": "MUX 261016C00019000",
+   "Weight": "-0.08",
+   "Market Value": "-59480",
+   "Shares Held": "-1487",
+   "SEDOL": ""
+  },
+  {
+   "Name": "FRANCO-N CLL OPT 11/26 260",
+   "Ticker": "FNV 261120C00260000",
+   "Identifier": "FNV 261120C00260000",
+   "Weight": "-0.09",
+   "Market Value": "-65540",
+   "Shares Held": "-116",
+   "SEDOL": ""
+  },
+  {
+   "Name": "SILJ US 10/16/26 C31",
+   "Ticker": "SILJ 261016C00031000",
+   "Identifier": "SILJ 261016C00031000",
+   "Weight": "-0.09",
+   "Market Value": "-65230",
+   "Shares Held": "-6523",
+   "SEDOL": ""
+  },
+  {
+   "Name": "WHEATON CLL OPT 10/26 137",
+   "Ticker": "WPM 261016C00137000",
+   "Identifier": "WPM 261016C00137000",
+   "Weight": "-0.09",
+   "Market Value": "-65700",
+   "Shares Held": "-219",
+   "SEDOL": ""
+  },
+  {
+   "Name": "COEUR MI CLL OPT 10/26 18.500",
+   "Ticker": "CDE 261016C00018500",
+   "Identifier": "CDE 261016C00018500",
+   "Weight": "-0.15",
+   "Market Value": "-110835",
+   "Shares Held": "-2463",
+   "SEDOL": ""
+  },
+  {
+   "Name": "HECLA M CLL OPT 10/26 18",
+   "Ticker": "HL 261016C00018000",
+   "Identifier": "HL 261016C00018000",
+   "Weight": "-0.15",
+   "Market Value": "-110737.5",
+   "Shares Held": "-2953",
+   "SEDOL": ""
+  },
+  {
+   "Name": "SEABRIDG CLL OPT 11/26 30",
+   "Ticker": "SA 261120C00030000",
+   "Identifier": "SA 261120C00030000",
+   "Weight": "-0.15",
+   "Market Value": "-109725",
+   "Shares Held": "-770",
+   "SEDOL": ""
+  },
+  {
+   "Name": "OR ROYAL CLL OPT 11/26 35",
+   "Ticker": "OR 261120C00035000",
+   "Identifier": "OR 261120C00035000",
+   "Weight": "-0.19",
+   "Market Value": "-137240",
+   "Shares Held": "-752",
+   "SEDOL": ""
+  },
+  {
+   "Name": "SLV 11/20/2026 56.01 P",
+   "Ticker": "2SLV 261120P00056010",
+   "Identifier": "2SLV 261120P00056010",
+   "Weight": "-0.73",
+   "Market Value": "-528121.88",
+   "Shares Held": "-1651",
+   "SEDOL": ""
+  }
+ ]
+}

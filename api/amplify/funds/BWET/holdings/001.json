@@ -1,0 +1,89 @@
+{
+ "ticker": "BWET",
+ "page": 1,
+ "pageSize": 250,
+ "totalRows": 8,
+ "headers": [
+  "Name",
+  "Ticker",
+  "Identifier",
+  "Weight",
+  "Market Value",
+  "Shares Held",
+  "SEDOL"
+ ],
+ "rows": [
+  {
+   "Name": "Cash & Other",
+   "Ticker": "CASH&OTHER",
+   "Identifier": "Cash&Other",
+   "Weight": "86.99",
+   "Market Value": "169096412.21",
+   "Shares Held": "169096412.21",
+   "SEDOL": ""
+  },
+  {
+   "Name": "TD3C FFA 270kt Middle East Gulf to China USD/MT M Nov 26",
+   "Ticker": "DD3CM X26 INDEX",
+   "Identifier": "DD3CM X26",
+   "Weight": "31.39",
+   "Market Value": "61021284",
+   "Shares Held": "292",
+   "SEDOL": ""
+  },
+  {
+   "Name": "TD3C FFA 270kt Middle East Gulf to China USD/MT M Oct 26",
+   "Ticker": "DD3CM V26 INDEX",
+   "Identifier": "DD3CM V26",
+   "Weight": "29.45",
+   "Market Value": "57247520",
+   "Shares Held": "242",
+   "SEDOL": ""
+  },
+  {
+   "Name": "TD3C FFA 270kt Middle East Gulf to China USD/MT M Dec 26",
+   "Ticker": "DD3CM Z26 INDEX",
+   "Identifier": "DD3CM Z26",
+   "Weight": "27.8",
+   "Market Value": "54042296",
+   "Shares Held": "302",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Invesco Government & Agency Portfolio 12/31/2031",
+   "Ticker": "AGPXX",
+   "Identifier": "825252885",
+   "Weight": "12.98",
+   "Market Value": "25236272.81",
+   "Shares Held": "25236272.81",
+   "SEDOL": ""
+  },
+  {
+   "Name": "TD20 FFA 130kt West Africa to Continent USD/MT M Oct 26",
+   "Ticker": "DD20M V26 INDEX",
+   "Identifier": "DD20M V26",
+   "Weight": "4.8",
+   "Market Value": "9337800",
+   "Shares Held": "75",
+   "SEDOL": ""
+  },
+  {
+   "Name": "TD20 FFA 130kt West Africa to Continent USD/MT M Nov 26",
+   "Ticker": "DD20M X26 INDEX",
+   "Identifier": "DD20M X26",
+   "Weight": "4.11",
+   "Market Value": "7996350",
+   "Shares Held": "75",
+   "SEDOL": ""
+  },
+  {
+   "Name": "TD20 FFA 130kt West Africa to Continent USD/MT M Dec 26",
+   "Ticker": "DD20M Z26 INDEX",
+   "Identifier": "DD20M Z26",
+   "Weight": "3.2",
+   "Market Value": "6227025",
+   "Shares Held": "75",
+   "SEDOL": ""
+  }
+ ]
+}

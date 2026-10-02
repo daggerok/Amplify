@@ -1,0 +1,120 @@
+{
+ "ticker": "XWNG",
+ "name": "Amplify Top 10 Space ETF",
+ "category": "Thematic",
+ "categoryPath": "Thematic",
+ "source": {
+  "fundPage": "https://amplifyetfs.com/XWNG/",
+  "catalog": "https://firestore.googleapis.com/v1/projects/amplify-etfs-data-feed/databases/(default)/documents/fund_category",
+  "holdingsDownload": "https://amplifyetfs.com/xwng-holdings/",
+  "holdingsSource": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
+  "historySource": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/XWNG",
+  "provider": "Amplify ETFs Firestore data feed (amplify-etfs-data-feed); SEC EDGAR N-PORT-P holdings fallback; Yahoo Finance market-history/dividend data"
+ },
+ "providerIds": {
+  "fundPage": "https://amplifyetfs.com/XWNG/",
+  "holdingsPage": "https://amplifyetfs.com/xwng-holdings/"
+ },
+ "legalStructure": "ETF",
+ "identifiers": {
+  "cusip": "032108219",
+  "isin": "US0321082192",
+  "sedol": null,
+  "indexTicker": "B10SPCT"
+ },
+ "inception": {
+  "fundInceptionDate": "2026-08-18",
+  "shareClassInceptionDate": "2026-08-19",
+  "exchange": "NYSE Arca"
+ },
+ "expenseRatio": {
+  "display": "0.49%",
+  "value": 0.49,
+  "gross": 0.49,
+  "net": 0.49
+ },
+ "nav": {
+  "display": "$22.54",
+  "value": 22.5388,
+  "asOfDate": "Oct 01 2026"
+ },
+ "marketPrice": {
+  "display": "$22.55",
+  "value": 22.5543,
+  "asOfDate": "Oct 01 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.07%",
+  "value": 0.0688
+ },
+ "aum": {
+  "display": "$1,126,939",
+  "value": 1126938.58,
+  "asOfDate": "Oct 01 2026",
+  "source": "Amplify Firestore daily net assets"
+ },
+ "yields": {
+  "dividendYield": 0,
+  "dividendYieldText": "0.00%",
+  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields)",
+  "secYield": 0.33,
+  "secYieldText": "0.33%",
+  "secYieldKind": "30-day SEC yield published by Amplify (Firestore yields)",
+  "unsubsidizedSecYield": 0.33
+ },
+ "returns": {
+  "monthEnd": {
+   "asOfDate": "Sep 30 2026",
+   "ytd": null,
+   "yr1": null,
+   "yr3": null,
+   "yr5": null,
+   "yr10": null,
+   "sinceInception": null,
+   "mo1": 1.18,
+   "qtd": null
+  },
+  "quarterEnd": {
+   "asOfDate": "Sep 30 2026",
+   "ytd": null,
+   "yr1": null,
+   "yr3": null,
+   "yr5": null,
+   "yr10": null,
+   "sinceInception": null,
+   "mo1": 1.18,
+   "qtd": null
+  },
+  "derivedFrom": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date"
+ },
+ "distributions": {
+  "frequency": "—",
+  "paymentsPerYear": null,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": []
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 23,
+  "asOfDate": "2026-10-02",
+  "asOf": "Oct 02 2026",
+  "source": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
+  "status": "available"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 31,
+  "asOf": "Oct 01 2026",
+  "source": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)"
+ }
+}

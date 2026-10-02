@@ -1,0 +1,264 @@
+{
+ "ticker": "ETHO",
+ "name": "Amplify Etho Climate Leadership U.S. ETF",
+ "category": "Core",
+ "categoryPath": "Core",
+ "source": {
+  "fundPage": "https://amplifyetfs.com/ETHO/",
+  "catalog": "https://firestore.googleapis.com/v1/projects/amplify-etfs-data-feed/databases/(default)/documents/fund_category",
+  "holdingsDownload": "https://amplifyetfs.com/etho-holdings/",
+  "holdingsSource": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
+  "historySource": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/ETHO",
+  "provider": "Amplify ETFs Firestore data feed (amplify-etfs-data-feed); SEC EDGAR N-PORT-P holdings fallback; Yahoo Finance market-history/dividend data"
+ },
+ "providerIds": {
+  "fundPage": "https://amplifyetfs.com/ETHO/",
+  "holdingsPage": "https://amplifyetfs.com/etho-holdings/"
+ },
+ "legalStructure": "ETF",
+ "identifiers": {
+  "cusip": "032108557",
+  "isin": "US0321085575",
+  "sedol": "BMGC423",
+  "indexTicker": "ETHO"
+ },
+ "inception": {
+  "fundInceptionDate": "2015-11-17",
+  "shareClassInceptionDate": "2015-11-18",
+  "exchange": "NYSE Arca"
+ },
+ "expenseRatio": {
+  "display": "0.45%",
+  "value": 0.45,
+  "gross": 0.45,
+  "net": 0.45
+ },
+ "nav": {
+  "display": "$80.03",
+  "value": 80.0299,
+  "asOfDate": "Oct 01 2026"
+ },
+ "marketPrice": {
+  "display": "$80.06",
+  "value": 80.0595,
+  "asOfDate": "Oct 01 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.04%",
+  "value": 0.037
+ },
+ "aum": {
+  "display": "$192,071,786",
+  "value": 192071785.96,
+  "asOfDate": "Oct 01 2026",
+  "source": "Amplify Firestore daily net assets"
+ },
+ "yields": {
+  "dividendYield": 0.7,
+  "dividendYieldText": "0.70%",
+  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields)",
+  "secYield": 0.67,
+  "secYieldText": "0.67%",
+  "secYieldKind": "30-day SEC yield published by Amplify (Firestore yields)",
+  "unsubsidizedSecYield": 0.67
+ },
+ "returns": {
+  "monthEnd": {
+   "asOfDate": "Sep 30 2026",
+   "ytd": 21.92,
+   "yr1": 25.99,
+   "yr3": 17.65,
+   "yr5": 6.98,
+   "yr10": 12.45,
+   "sinceInception": 12.23,
+   "mo1": -1.88,
+   "qtd": -1.17
+  },
+  "quarterEnd": {
+   "asOfDate": "Sep 30 2026",
+   "ytd": 21.92,
+   "yr1": 25.99,
+   "yr3": 17.65,
+   "yr5": 6.98,
+   "yr10": 12.45,
+   "sinceInception": 12.23,
+   "mo1": -1.88,
+   "qtd": null
+  },
+  "derivedFrom": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date"
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "06/20/2016",
+    "0.03"
+   ],
+   [
+    "09/13/2016",
+    "0.07"
+   ],
+   [
+    "12/28/2016",
+    "0.224"
+   ],
+   [
+    "03/21/2017",
+    "0.05"
+   ],
+   [
+    "06/20/2017",
+    "0.05"
+   ],
+   [
+    "09/19/2017",
+    "0.06"
+   ],
+   [
+    "12/26/2017",
+    "0.117"
+   ],
+   [
+    "03/20/2018",
+    "0.04"
+   ],
+   [
+    "06/19/2018",
+    "0.08"
+   ],
+   [
+    "09/25/2018",
+    "0.07"
+   ],
+   [
+    "12/24/2018",
+    "0.101"
+   ],
+   [
+    "03/26/2019",
+    "0.06"
+   ],
+   [
+    "06/28/2019",
+    "0.08"
+   ],
+   [
+    "09/20/2019",
+    "0.09"
+   ],
+   [
+    "12/30/2019",
+    "0.12"
+   ],
+   [
+    "03/17/2020",
+    "0.05"
+   ],
+   [
+    "06/15/2020",
+    "0.11"
+   ],
+   [
+    "09/15/2020",
+    "0.07"
+   ],
+   [
+    "12/14/2020",
+    "0.17"
+   ],
+   [
+    "03/23/2021",
+    "0.07"
+   ],
+   [
+    "06/22/2021",
+    "0.1"
+   ],
+   [
+    "09/21/2021",
+    "0.12"
+   ],
+   [
+    "12/28/2021",
+    "0.14"
+   ],
+   [
+    "03/23/2022",
+    "0.089"
+   ],
+   [
+    "06/22/2022",
+    "0.12"
+   ],
+   [
+    "09/21/2022",
+    "0.12"
+   ],
+   [
+    "12/28/2022",
+    "0.207"
+   ],
+   [
+    "03/22/2023",
+    "0.1"
+   ],
+   [
+    "06/21/2023",
+    "0.18"
+   ],
+   [
+    "09/20/2023",
+    "0.15"
+   ],
+   [
+    "12/27/2023",
+    "0.431"
+   ],
+   [
+    "06/27/2024",
+    "0.135"
+   ],
+   [
+    "09/27/2024",
+    "0.133"
+   ],
+   [
+    "12/30/2024",
+    "0.146"
+   ],
+   [
+    "12/30/2025",
+    "0.559"
+   ]
+  ]
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json",
+   "holdings/002.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 287,
+  "asOfDate": "2026-10-02",
+  "asOf": "Oct 02 2026",
+  "source": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
+  "status": "available"
+ },
+ "history": {
+  "pages": [
+   "history/001.json",
+   "history/002.json",
+   "history/003.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 2731,
+  "asOf": "Oct 01 2026",
+  "source": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)"
+ }
+}

@@ -1,0 +1,122 @@
+{
+ "ticker": "BDRY",
+ "name": "Breakwave Dry Bulk Shipping ETF",
+ "category": "Thematic",
+ "categoryPath": "Thematic",
+ "source": {
+  "fundPage": "https://amplifyetfs.com/BDRY/",
+  "catalog": "https://firestore.googleapis.com/v1/projects/amplify-etfs-data-feed/databases/(default)/documents/fund_category",
+  "holdingsDownload": "https://amplifyetfs.com/bdry-holdings/",
+  "holdingsSource": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
+  "historySource": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BDRY",
+  "provider": "Amplify ETFs Firestore data feed (amplify-etfs-data-feed); SEC EDGAR N-PORT-P holdings fallback; Yahoo Finance market-history/dividend data"
+ },
+ "providerIds": {
+  "fundPage": "https://amplifyetfs.com/BDRY/",
+  "holdingsPage": "https://amplifyetfs.com/bdry-holdings/"
+ },
+ "legalStructure": "ETF",
+ "identifiers": {
+  "cusip": "03210A107",
+  "isin": "US03210A1079",
+  "sedol": "BQNLB19",
+  "indexTicker": "BDRYFF"
+ },
+ "inception": {
+  "fundInceptionDate": "2018-03-21",
+  "shareClassInceptionDate": "2018-03-22",
+  "exchange": "NYSE Arca"
+ },
+ "expenseRatio": {
+  "display": "3.50%",
+  "value": 3.5,
+  "gross": 3.5,
+  "net": 3.5
+ },
+ "nav": {
+  "display": "$14.57",
+  "value": 14.574,
+  "asOfDate": "Oct 01 2026"
+ },
+ "marketPrice": {
+  "display": "$14.52",
+  "value": 14.52,
+  "asOfDate": "Oct 01 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.37%",
+  "value": -0.3705
+ },
+ "aum": {
+  "display": "$36,071,151",
+  "value": 36071150.86,
+  "asOfDate": "Oct 01 2026",
+  "source": "Amplify Firestore daily net assets"
+ },
+ "yields": {
+  "dividendYield": null,
+  "dividendYieldText": "—",
+  "dividendYieldKind": "indicated (latest distribution x payments per year / market price)",
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "not published",
+  "unsubsidizedSecYield": null
+ },
+ "returns": {
+  "monthEnd": {
+   "asOfDate": "Sep 30 2026",
+   "ytd": 68.11,
+   "yr1": 93.02,
+   "yr3": 38.77,
+   "yr5": -16.23,
+   "yr10": null,
+   "sinceInception": -6.04,
+   "mo1": -4.62,
+   "qtd": 20.75
+  },
+  "quarterEnd": {
+   "asOfDate": "Sep 30 2026",
+   "ytd": 68.11,
+   "yr1": 93.02,
+   "yr3": 38.77,
+   "yr5": -16.23,
+   "yr10": null,
+   "sinceInception": -6.04,
+   "mo1": -4.62,
+   "qtd": null
+  },
+  "derivedFrom": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date"
+ },
+ "distributions": {
+  "frequency": "—",
+  "paymentsPerYear": null,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": []
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 11,
+  "asOfDate": "2026-10-02",
+  "asOf": "Oct 02 2026",
+  "source": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
+  "status": "available"
+ },
+ "history": {
+  "pages": [
+   "history/001.json",
+   "history/002.json",
+   "history/003.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 2144,
+  "asOf": "Oct 01 2026",
+  "source": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)"
+ }
+}

@@ -1,0 +1,155 @@
+{
+ "ticker": "BLOK",
+ "name": "Amplify Blockchain Technology ETF",
+ "category": "Thematic",
+ "categoryPath": "Thematic",
+ "source": {
+  "fundPage": "https://amplifyetfs.com/BLOK/",
+  "catalog": "https://firestore.googleapis.com/v1/projects/amplify-etfs-data-feed/databases/(default)/documents/fund_category",
+  "holdingsDownload": "https://amplifyetfs.com/blok-holdings/",
+  "holdingsSource": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
+  "historySource": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/BLOK",
+  "provider": "Amplify ETFs Firestore data feed (amplify-etfs-data-feed); SEC EDGAR N-PORT-P holdings fallback; Yahoo Finance market-history/dividend data"
+ },
+ "providerIds": {
+  "fundPage": "https://amplifyetfs.com/BLOK/",
+  "holdingsPage": "https://amplifyetfs.com/blok-holdings/"
+ },
+ "legalStructure": "ETF",
+ "identifiers": {
+  "cusip": "032108607",
+  "isin": "US0321086078",
+  "sedol": "BF2BQ52",
+  "indexTicker": null
+ },
+ "inception": {
+  "fundInceptionDate": "2018-01-16",
+  "shareClassInceptionDate": "2018-01-17",
+  "exchange": "NYSE Arca"
+ },
+ "expenseRatio": {
+  "display": "0.70%",
+  "value": 0.7,
+  "gross": 0.7,
+  "net": 0.7
+ },
+ "nav": {
+  "display": "$61.42",
+  "value": 61.4224,
+  "asOfDate": "Oct 01 2026"
+ },
+ "marketPrice": {
+  "display": "$61.36",
+  "value": 61.36,
+  "asOfDate": "Oct 01 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.10%",
+  "value": -0.1016
+ },
+ "aum": {
+  "display": "$1,108,673,619",
+  "value": 1108673619.03,
+  "asOfDate": "Oct 01 2026",
+  "source": "Amplify Firestore daily net assets"
+ },
+ "yields": {
+  "dividendYield": 0.8,
+  "dividendYieldText": "0.80%",
+  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields)",
+  "secYield": -0.03,
+  "secYieldText": "-0.03%",
+  "secYieldKind": "30-day SEC yield published by Amplify (Firestore yields)",
+  "unsubsidizedSecYield": -0.03
+ },
+ "returns": {
+  "monthEnd": {
+   "asOfDate": "Sep 30 2026",
+   "ytd": 7.59,
+   "yr1": -8,
+   "yr3": 49.1,
+   "yr5": 10.99,
+   "yr10": null,
+   "sinceInception": 17.19,
+   "mo1": -2.14,
+   "qtd": -2.31
+  },
+  "quarterEnd": {
+   "asOfDate": "Sep 30 2026",
+   "ytd": 7.59,
+   "yr1": -8,
+   "yr3": 49.1,
+   "yr5": 10.99,
+   "yr10": null,
+   "sinceInception": 17.19,
+   "mo1": -2.14,
+   "qtd": null
+  },
+  "derivedFrom": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date"
+ },
+ "distributions": {
+  "frequency": "Annually",
+  "paymentsPerYear": 1,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "12/28/2018",
+    "0.192"
+   ],
+   [
+    "12/30/2019",
+    "0.385"
+   ],
+   [
+    "12/29/2020",
+    "0.658"
+   ],
+   [
+    "12/29/2021",
+    "5.75"
+   ],
+   [
+    "12/27/2023",
+    "0.344"
+   ],
+   [
+    "12/30/2024",
+    "2.59"
+   ],
+   [
+    "12/30/2025",
+    "0.408"
+   ],
+   [
+    "06/29/2026",
+    "0.08"
+   ]
+  ]
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 53,
+  "asOfDate": "2026-10-02",
+  "asOf": "Oct 02 2026",
+  "source": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
+  "status": "available"
+ },
+ "history": {
+  "pages": [
+   "history/001.json",
+   "history/002.json",
+   "history/003.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 2183,
+  "asOf": "Oct 01 2026",
+  "source": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)"
+ }
+}
