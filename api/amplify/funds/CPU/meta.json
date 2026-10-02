@@ -1,0 +1,96 @@
+{
+ "ticker": "CPU",
+ "name": "Amplify Top 10 Semiconductors ETF",
+ "category": "Thematic",
+ "categoryPath": "Thematic",
+ "source": {
+  "fundPage": "https://amplifyetfs.com/CPU/",
+  "catalog": "https://firestore.googleapis.com/v1/projects/amplify-etfs-data-feed/databases/(default)/documents/fund_category",
+  "holdingsDownload": "https://amplifyetfs.com/cpu-holdings/",
+  "holdingsSource": "unavailable from Firestore or SEC N-PORT-P",
+  "historySource": "unavailable",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/CPU",
+  "provider": "Amplify ETFs Firestore data feed (amplify-etfs-data-feed); SEC EDGAR N-PORT-P holdings fallback; Yahoo Finance market-history/dividend data"
+ },
+ "providerIds": {
+  "fundPage": "https://amplifyetfs.com/CPU/",
+  "holdingsPage": "https://amplifyetfs.com/cpu-holdings/"
+ },
+ "legalStructure": "ETF",
+ "identifiers": {
+  "cusip": "032108227",
+  "isin": "US0321082275",
+  "sedol": null,
+  "indexTicker": "B10SEMT"
+ },
+ "inception": {
+  "fundInceptionDate": "2026-10-06",
+  "shareClassInceptionDate": "2026-10-07",
+  "exchange": "NYSE Arca"
+ },
+ "expenseRatio": {
+  "display": "0.49%",
+  "value": 0.49,
+  "gross": 0.49,
+  "net": 0.49
+ },
+ "nav": {
+  "display": "$25.00",
+  "value": 25,
+  "asOfDate": "Oct 05 2026"
+ },
+ "marketPrice": {
+  "display": "$25.00",
+  "value": 25,
+  "asOfDate": "Oct 05 2026"
+ },
+ "premiumDiscount": {
+  "display": "0.00%",
+  "value": 0
+ },
+ "aum": {
+  "display": "$25",
+  "value": 25,
+  "asOfDate": "Oct 05 2026",
+  "source": "Amplify Firestore daily net assets"
+ },
+ "yields": {
+  "dividendYield": null,
+  "dividendYieldText": "—",
+  "dividendYieldKind": "indicated (latest distribution x payments per year / market price)",
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "not published",
+  "unsubsidizedSecYield": null
+ },
+ "returns": {
+  "monthEnd": null,
+  "quarterEnd": null,
+  "derivedFrom": "Yahoo adjusted market-price returns, not official NAV"
+ },
+ "distributions": {
+  "frequency": "—",
+  "paymentsPerYear": null,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": []
+ },
+ "holdings": {
+  "pages": [],
+  "pageSize": 250,
+  "totalRows": 0,
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "unavailable from Firestore or SEC N-PORT-P",
+  "status": "unavailable"
+ },
+ "history": {
+  "pages": [],
+  "pageSize": 1000,
+  "totalRows": 0,
+  "asOf": "—",
+  "source": "unavailable"
+ }
+}

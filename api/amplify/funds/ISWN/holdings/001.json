@@ -1,0 +1,143 @@
+{
+ "ticker": "ISWN",
+ "page": 1,
+ "pageSize": 250,
+ "totalRows": 14,
+ "headers": [
+  "Name",
+  "Ticker",
+  "Identifier",
+  "Weight",
+  "Market Value",
+  "Shares Held",
+  "SEDOL"
+ ],
+ "rows": [
+  {
+   "Name": "United States Treasury Note/Bond 1.375% 11/15/2031",
+   "Ticker": "91282CDJ7",
+   "Identifier": "91282CDJ7",
+   "Weight": "8.91",
+   "Market Value": "3052117.67",
+   "Shares Held": "3649000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "United States Treasury Note/Bond 2.875% 05/15/2032",
+   "Ticker": "91282CEP2",
+   "Identifier": "91282CEP2",
+   "Weight": "8.84",
+   "Market Value": "3029282.25",
+   "Shares Held": "3388000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "United States Treasury Note/Bond 3.375% 05/15/2033",
+   "Ticker": "91282CHC8",
+   "Identifier": "91282CHC8",
+   "Weight": "8.79",
+   "Market Value": "3011417.56",
+   "Shares Held": "3333000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "United States Treasury Note/Bond 4.375% 05/15/2034",
+   "Ticker": "91282CKQ3",
+   "Identifier": "91282CKQ3",
+   "Weight": "8.73",
+   "Market Value": "2991312.69",
+   "Shares Held": "3145000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "United States Treasury Note/Bond 4% 11/15/2035",
+   "Ticker": "91282CPJ4",
+   "Identifier": "91282CPJ4",
+   "Weight": "8.72",
+   "Market Value": "2988534.41",
+   "Shares Held": "3277000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "United States Treasury Note/Bond 4.375% 05/15/2036",
+   "Ticker": "91282CQQ7",
+   "Identifier": "91282CQQ7",
+   "Weight": "8.7",
+   "Market Value": "2981587.91",
+   "Shares Held": "3187000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "United States Treasury Note/Bond 4.125% 11/15/2032",
+   "Ticker": "91282CFV8",
+   "Identifier": "91282CFV8",
+   "Weight": "8.48",
+   "Market Value": "2903498.45",
+   "Shares Held": "3056000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "United States Treasury Note/Bond 4.5% 11/15/2033",
+   "Ticker": "91282CJJ1",
+   "Identifier": "91282CJJ1",
+   "Weight": "8.45",
+   "Market Value": "2893016.81",
+   "Shares Held": "3005000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "United States Treasury Note/Bond 4.25% 11/15/2034",
+   "Ticker": "91282CLW9",
+   "Identifier": "91282CLW9",
+   "Weight": "8.39",
+   "Market Value": "2874912.66",
+   "Shares Held": "3063000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "United States Treasury Note/Bond 4.25% 05/15/2035",
+   "Ticker": "91282CNC1",
+   "Identifier": "91282CNC1",
+   "Weight": "8.37",
+   "Market Value": "2868411.34",
+   "Shares Held": "3070000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "EFA 12/18/2026 88.01 C",
+   "Ticker": "2EFA 261218C00088010",
+   "Identifier": "2EFA 261218C00088010",
+   "Weight": "6.88",
+   "Market Value": "2357704",
+   "Shares Held": "1543",
+   "SEDOL": ""
+  },
+  {
+   "Name": "EFA 06/17/2027 98.01 C",
+   "Ticker": "2EFA 270617C00098010",
+   "Identifier": "2EFA 270617C00098010",
+   "Weight": "4.61",
+   "Market Value": "1579734",
+   "Shares Held": "1677",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Invesco Government & Agency Portfolio 12/31/2031",
+   "Ticker": "AGPXX",
+   "Identifier": "825252885",
+   "Weight": "1.88",
+   "Market Value": "642465.14",
+   "Shares Held": "642465.14",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Cash & Other",
+   "Ticker": "CASH&OTHER",
+   "Identifier": "Cash&Other",
+   "Weight": "0.24",
+   "Market Value": "81470.24",
+   "Shares Held": "81470.24",
+   "SEDOL": ""
+  }
+ ]
+}

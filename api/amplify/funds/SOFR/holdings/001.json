@@ -1,0 +1,80 @@
+{
+ "ticker": "SOFR",
+ "page": 1,
+ "pageSize": 250,
+ "totalRows": 7,
+ "headers": [
+  "Name",
+  "Ticker",
+  "Identifier",
+  "Weight",
+  "Market Value",
+  "Shares Held",
+  "SEDOL"
+ ],
+ "rows": [
+  {
+   "Name": "SOF REPO 10/08/26 3.90% 10/08/2026",
+   "Ticker": "SOF100826",
+   "Identifier": "SOF100826",
+   "Weight": "32.44",
+   "Market Value": "150000000",
+   "Shares Held": "150000000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "SOF REPO 10/02/26 3.90% 10/02/2026",
+   "Ticker": "SOF1002263",
+   "Identifier": "SOF1002263",
+   "Weight": "28",
+   "Market Value": "129480000",
+   "Shares Held": "129480000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "SOF REPO 10/02/26 3.89% 10/02/2026",
+   "Ticker": "SOF1002261",
+   "Identifier": "SOF1002261",
+   "Weight": "17.3",
+   "Market Value": "79999920",
+   "Shares Held": "79999920",
+   "SEDOL": ""
+  },
+  {
+   "Name": "SOF REPO 10/02/26 3.89% 10/02/2026",
+   "Ticker": "SOF1002262",
+   "Identifier": "SOF1002262",
+   "Weight": "15.14",
+   "Market Value": "69999093.6",
+   "Shares Held": "69999093.6",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Brookfield Corporate Treasury Ltd 11/02/2026",
+   "Ticker": "11271GL27",
+   "Identifier": "11271GL27",
+   "Weight": "6.47",
+   "Market Value": "29891500",
+   "Shares Held": "30000000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Cash & Other",
+   "Ticker": "CASH&OTHER",
+   "Identifier": "Cash&Other",
+   "Weight": "0.64",
+   "Market Value": "2965249.47",
+   "Shares Held": "2965249.47",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Invesco Government & Agency Portfolio 12/31/2031",
+   "Ticker": "AGPXX",
+   "Identifier": "825252885",
+   "Weight": "0",
+   "Market Value": "4712.3",
+   "Shares Held": "4712.3",
+   "SEDOL": ""
+  }
+ ]
+}

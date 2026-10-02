@@ -1,0 +1,145 @@
+{
+ "ticker": "YYYM",
+ "name": "Amplify Municipal CEF High Income ETF",
+ "category": "Income",
+ "categoryPath": "Income",
+ "source": {
+  "fundPage": "https://amplifyetfs.com/YYYM/",
+  "catalog": "https://firestore.googleapis.com/v1/projects/amplify-etfs-data-feed/databases/(default)/documents/fund_category",
+  "holdingsDownload": "https://amplifyetfs.com/yyym-holdings/",
+  "holdingsSource": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
+  "historySource": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/YYYM",
+  "provider": "Amplify ETFs Firestore data feed (amplify-etfs-data-feed); SEC EDGAR N-PORT-P holdings fallback; Yahoo Finance market-history/dividend data"
+ },
+ "providerIds": {
+  "fundPage": "https://amplifyetfs.com/YYYM/",
+  "holdingsPage": "https://amplifyetfs.com/yyym-holdings/"
+ },
+ "legalStructure": "ETF",
+ "identifiers": {
+  "cusip": "032108342",
+  "isin": "US032108342",
+  "sedol": null,
+  "indexTicker": "YLDM"
+ },
+ "inception": {
+  "fundInceptionDate": "2026-03-09",
+  "shareClassInceptionDate": "2026-03-10",
+  "exchange": "NYSE Arca"
+ },
+ "expenseRatio": {
+  "display": "2.78%",
+  "value": 2.78,
+  "gross": 2.78,
+  "net": 2.78
+ },
+ "nav": {
+  "display": "$17.27",
+  "value": 17.2718,
+  "asOfDate": "Oct 01 2026"
+ },
+ "marketPrice": {
+  "display": "$17.25",
+  "value": 17.2466,
+  "asOfDate": "Oct 01 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.15%",
+  "value": -0.1459
+ },
+ "aum": {
+  "display": "$1,554,462",
+  "value": 1554461.55,
+  "asOfDate": "Oct 01 2026",
+  "source": "Amplify Firestore daily net assets"
+ },
+ "yields": {
+  "dividendYield": 7.17,
+  "dividendYieldText": "7.17%",
+  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields)",
+  "secYield": 7.93,
+  "secYieldText": "7.93%",
+  "secYieldKind": "30-day SEC yield published by Amplify (Firestore yields)",
+  "unsubsidizedSecYield": 7.93
+ },
+ "returns": {
+  "monthEnd": {
+   "asOfDate": "Sep 30 2026",
+   "ytd": null,
+   "yr1": null,
+   "yr3": null,
+   "yr5": null,
+   "yr10": null,
+   "sinceInception": null,
+   "mo1": -10.87,
+   "qtd": -13.29
+  },
+  "quarterEnd": {
+   "asOfDate": "Sep 30 2026",
+   "ytd": null,
+   "yr1": null,
+   "yr3": null,
+   "yr5": null,
+   "yr10": null,
+   "sinceInception": null,
+   "mo1": -10.87,
+   "qtd": null
+  },
+  "derivedFrom": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date"
+ },
+ "distributions": {
+  "frequency": "Monthly",
+  "paymentsPerYear": 12,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "04/29/2026",
+    "0.116"
+   ],
+   [
+    "05/28/2026",
+    "0.124"
+   ],
+   [
+    "06/29/2026",
+    "0.118"
+   ],
+   [
+    "07/30/2026",
+    "0.115"
+   ],
+   [
+    "08/28/2026",
+    "0.114"
+   ],
+   [
+    "09/29/2026",
+    "0.103"
+   ]
+  ]
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 32,
+  "asOfDate": "2026-10-02",
+  "asOf": "Oct 02 2026",
+  "source": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
+  "status": "available"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 143,
+  "asOf": "Oct 01 2026",
+  "source": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)"
+ }
+}

@@ -1,0 +1,404 @@
+{
+ "ticker": "IPAY",
+ "page": 1,
+ "pageSize": 250,
+ "totalRows": 43,
+ "headers": [
+  "Name",
+  "Ticker",
+  "Identifier",
+  "Weight",
+  "Market Value",
+  "Shares Held",
+  "SEDOL"
+ ],
+ "rows": [
+  {
+   "Name": "Visa Inc",
+   "Ticker": "V",
+   "Identifier": "92826C839",
+   "Weight": "6.52",
+   "Market Value": "9542862.15",
+   "Shares Held": "26519",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Mastercard Inc",
+   "Ticker": "MA",
+   "Identifier": "57636Q104",
+   "Weight": "6.36",
+   "Market Value": "9321950",
+   "Shares Held": "16949",
+   "SEDOL": ""
+  },
+  {
+   "Name": "American Express Co",
+   "Ticker": "AXP",
+   "Identifier": "025816109",
+   "Weight": "6.04",
+   "Market Value": "8846101.47",
+   "Shares Held": "29283",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Capital One Financial Corp",
+   "Ticker": "COF",
+   "Identifier": "14040H105",
+   "Weight": "5.99",
+   "Market Value": "8780577.52",
+   "Shares Held": "45149",
+   "SEDOL": ""
+  },
+  {
+   "Name": "PayPal Holdings Inc",
+   "Ticker": "PYPL",
+   "Identifier": "70450Y103",
+   "Weight": "5.79",
+   "Market Value": "8480685.92",
+   "Shares Held": "159832",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Coinbase Global Inc",
+   "Ticker": "COIN",
+   "Identifier": "19260Q107",
+   "Weight": "5.11",
+   "Market Value": "7489069.56",
+   "Shares Held": "39564",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Corpay Inc",
+   "Ticker": "CPAY",
+   "Identifier": "219948106",
+   "Weight": "4.71",
+   "Market Value": "6895492.89",
+   "Shares Held": "17693",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Affirm Holdings Inc",
+   "Ticker": "AFRM",
+   "Identifier": "00827B106",
+   "Weight": "4.61",
+   "Market Value": "6746207.98",
+   "Shares Held": "95786",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Block Inc",
+   "Ticker": "XYZ",
+   "Identifier": "852234103",
+   "Weight": "4.54",
+   "Market Value": "6649236.24",
+   "Shares Held": "89806",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Wise Group PLC",
+   "Ticker": "WISE LN",
+   "Identifier": "BQKY081",
+   "Weight": "4.36",
+   "Market Value": "6384914.53",
+   "Shares Held": "571975",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Fiserv Inc",
+   "Ticker": "FISV",
+   "Identifier": "337738108",
+   "Weight": "4.35",
+   "Market Value": "6367993.88",
+   "Shares Held": "140326",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Global Payments Inc",
+   "Ticker": "GPN",
+   "Identifier": "37940X102",
+   "Weight": "4.33",
+   "Market Value": "6336807.96",
+   "Shares Held": "78924",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Fidelity National Information Services Inc",
+   "Ticker": "FIS",
+   "Identifier": "31620M106",
+   "Weight": "4.03",
+   "Market Value": "5907754.2",
+   "Shares Held": "178482",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Toast Inc",
+   "Ticker": "TOST",
+   "Identifier": "888787108",
+   "Weight": "4.02",
+   "Market Value": "5886132.79",
+   "Shares Held": "201373",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Adyen NV",
+   "Ticker": "ADYEN NA",
+   "Identifier": "BZ1HM42",
+   "Weight": "3.87",
+   "Market Value": "5675020.9",
+   "Shares Held": "5888",
+   "SEDOL": ""
+  },
+  {
+   "Name": "WEX Inc",
+   "Ticker": "WEX",
+   "Identifier": "96208T104",
+   "Weight": "3.12",
+   "Market Value": "4565626.2",
+   "Shares Held": "27070",
+   "SEDOL": ""
+  },
+  {
+   "Name": "ACI Worldwide Inc",
+   "Ticker": "ACIW",
+   "Identifier": "004498101",
+   "Weight": "2.3",
+   "Market Value": "3371267.74",
+   "Shares Held": "67846",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Remitly Global Inc",
+   "Ticker": "RELY",
+   "Identifier": "75960P104",
+   "Weight": "2.17",
+   "Market Value": "3174679.56",
+   "Shares Held": "147797",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Nexi SpA",
+   "Ticker": "NEXI IM",
+   "Identifier": "BJ1F880",
+   "Weight": "1.86",
+   "Market Value": "2721065.49",
+   "Shares Held": "594662",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Q2 Holdings Inc",
+   "Ticker": "QTWO",
+   "Identifier": "74736L109",
+   "Weight": "1.62",
+   "Market Value": "2366624.96",
+   "Shares Held": "41902",
+   "SEDOL": ""
+  },
+  {
+   "Name": "GMO Payment Gateway Inc",
+   "Ticker": "3769 JP",
+   "Identifier": "B06CMQ9",
+   "Weight": "1.47",
+   "Market Value": "2156234.09",
+   "Shares Held": "39546",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Flywire Corp",
+   "Ticker": "FLYW",
+   "Identifier": "302492103",
+   "Weight": "1.18",
+   "Market Value": "1734067.56",
+   "Shares Held": "98751",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Euronet Worldwide Inc",
+   "Ticker": "EEFT",
+   "Identifier": "298736109",
+   "Weight": "1.15",
+   "Market Value": "1682959.8",
+   "Shares Held": "26445",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Shift4 Payments Inc",
+   "Ticker": "FOUR",
+   "Identifier": "82452J109",
+   "Weight": "1.09",
+   "Market Value": "1593877.26",
+   "Shares Held": "44797",
+   "SEDOL": ""
+  },
+  {
+   "Name": "StoneCo Ltd",
+   "Ticker": "STNE",
+   "Identifier": "G85158106",
+   "Weight": "0.95",
+   "Market Value": "1388602.2",
+   "Shares Held": "147410",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Western Union Co/The",
+   "Ticker": "WU",
+   "Identifier": "959802109",
+   "Weight": "0.95",
+   "Market Value": "1392763.12",
+   "Shares Held": "231356",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Zip Co Ltd",
+   "Ticker": "ZIP AU",
+   "Identifier": "BPP1Y77",
+   "Weight": "0.91",
+   "Market Value": "1337056.48",
+   "Shares Held": "967734",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Etoro Group Ltd",
+   "Ticker": "ETOR",
+   "Identifier": "G32089107",
+   "Weight": "0.81",
+   "Market Value": "1187426.8",
+   "Shares Held": "46060",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Pagseguro Digital Ltd",
+   "Ticker": "PAGS",
+   "Identifier": "G68707101",
+   "Weight": "0.77",
+   "Market Value": "1132787.7",
+   "Shares Held": "127710",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Dlocal Ltd/Uruguay",
+   "Ticker": "DLO",
+   "Identifier": "G29018101",
+   "Weight": "0.72",
+   "Market Value": "1049795.8",
+   "Shares Held": "76460",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Marqeta Inc",
+   "Ticker": "MQ",
+   "Identifier": "57142B203",
+   "Weight": "0.69",
+   "Market Value": "1013931",
+   "Shares Held": "59643",
+   "SEDOL": ""
+  },
+  {
+   "Name": "EVERTEC Inc",
+   "Ticker": "EVTC",
+   "Identifier": "30040P103",
+   "Weight": "0.59",
+   "Market Value": "871412.85",
+   "Shares Held": "31815",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Kakaopay Corp",
+   "Ticker": "377300 KS",
+   "Identifier": "BP8ZCS3",
+   "Weight": "0.5",
+   "Market Value": "731117.06",
+   "Shares Held": "24795",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Boku Inc",
+   "Ticker": "BOKU LN",
+   "Identifier": "BF0GJW7",
+   "Weight": "0.41",
+   "Market Value": "606639.3",
+   "Shares Held": "316695",
+   "SEDOL": ""
+  },
+  {
+   "Name": "NCR Voyix Corp",
+   "Ticker": "VYX",
+   "Identifier": "62886E108",
+   "Weight": "0.38",
+   "Market Value": "563027.76",
+   "Shares Held": "82314",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Ibotta Inc",
+   "Ticker": "IBTA",
+   "Identifier": "451051106",
+   "Weight": "0.36",
+   "Market Value": "520716.48",
+   "Shares Held": "13044",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Invesco Government & Agency Portfolio 12/31/2031",
+   "Ticker": "AGPXX",
+   "Identifier": "825252885",
+   "Weight": "0.34",
+   "Market Value": "502048.97",
+   "Shares Held": "502048.97",
+   "SEDOL": ""
+  },
+  {
+   "Name": "PayPoint PLC",
+   "Ticker": "PAY LN",
+   "Identifier": "BVMTNR9",
+   "Weight": "0.33",
+   "Market Value": "487220.34",
+   "Shares Held": "57492",
+   "SEDOL": ""
+  },
+  {
+   "Name": "PAX Global Technology Ltd",
+   "Ticker": "327 HK",
+   "Identifier": "B3LX5R0",
+   "Weight": "0.32",
+   "Market Value": "468193.61",
+   "Shares Held": "981000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Worldline SA/France",
+   "Ticker": "WLN FP",
+   "Identifier": "BQS7SF5",
+   "Weight": "0.28",
+   "Market Value": "414364.33",
+   "Shares Held": "34313",
+   "SEDOL": ""
+  },
+  {
+   "Name": "EURO",
+   "Ticker": "EUR",
+   "Identifier": "CASHEUR",
+   "Weight": "0.12",
+   "Market Value": "182131.82",
+   "Shares Held": "161680.24",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Nanduq PLC",
+   "Ticker": "QIWI",
+   "Identifier": "74735M108",
+   "Weight": "0",
+   "Market Value": "0",
+   "Shares Held": "235051",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Cash & Other",
+   "Ticker": "CASH&OTHER",
+   "Identifier": "Cash&Other",
+   "Weight": "-0.04",
+   "Market Value": "-63058.33",
+   "Shares Held": "-63058.33",
+   "SEDOL": ""
+  }
+ ]
+}

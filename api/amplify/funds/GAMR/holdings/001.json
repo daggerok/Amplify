@@ -1,0 +1,242 @@
+{
+ "ticker": "GAMR",
+ "page": 1,
+ "pageSize": 250,
+ "totalRows": 25,
+ "headers": [
+  "Name",
+  "Ticker",
+  "Identifier",
+  "Weight",
+  "Market Value",
+  "Shares Held",
+  "SEDOL"
+ ],
+ "rows": [
+  {
+   "Name": "Advanced Micro Devices Inc",
+   "Ticker": "AMD",
+   "Identifier": "007903107",
+   "Weight": "11.71",
+   "Market Value": "4815008.6",
+   "Shares Held": "7820",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Meta Platforms Inc",
+   "Ticker": "META",
+   "Identifier": "30303M102",
+   "Weight": "10.79",
+   "Market Value": "4436158.23",
+   "Shares Held": "6111",
+   "SEDOL": ""
+  },
+  {
+   "Name": "NVIDIA Corp",
+   "Ticker": "NVDA",
+   "Identifier": "67066G104",
+   "Weight": "10.13",
+   "Market Value": "4163560.1",
+   "Shares Held": "18035",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Microsoft Corp",
+   "Ticker": "MSFT",
+   "Identifier": "594918104",
+   "Weight": "9.98",
+   "Market Value": "4100348.8",
+   "Shares Held": "7996",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Tencent Holdings Ltd",
+   "Ticker": "700 HK",
+   "Identifier": "BMMV2K8",
+   "Weight": "9.18",
+   "Market Value": "3771802.7",
+   "Shares Held": "68670",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Invesco Government & Agency Portfolio 12/31/2031",
+   "Ticker": "AGPXX",
+   "Identifier": "825252885",
+   "Weight": "5.92",
+   "Market Value": "2433848.82",
+   "Shares Held": "2433848.82",
+   "SEDOL": ""
+  },
+  {
+   "Name": "NETEASE INC",
+   "Ticker": "NTES",
+   "Identifier": "64110W102",
+   "Weight": "5",
+   "Market Value": "2053747.08",
+   "Shares Held": "17028",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Sony Group Corp",
+   "Ticker": "6758 JP",
+   "Identifier": "6821506",
+   "Weight": "4.87",
+   "Market Value": "1999791.44",
+   "Shares Held": "83300",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Nintendo Co Ltd",
+   "Ticker": "7974 JT",
+   "Identifier": "6639550",
+   "Weight": "4.64",
+   "Market Value": "1909234.14",
+   "Shares Held": "37931",
+   "SEDOL": ""
+  },
+  {
+   "Name": "AppLovin Corp",
+   "Ticker": "APP",
+   "Identifier": "03831W108",
+   "Weight": "4.28",
+   "Market Value": "1760719.29",
+   "Shares Held": "6259",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Sea Ltd",
+   "Ticker": "SE",
+   "Identifier": "81141R100",
+   "Weight": "4.24",
+   "Market Value": "1742011.95",
+   "Shares Held": "18285",
+   "SEDOL": ""
+  },
+  {
+   "Name": "International Games System Co Ltd",
+   "Ticker": "3293 TT",
+   "Identifier": "6744807",
+   "Weight": "2.73",
+   "Market Value": "1122758.62",
+   "Shares Held": "44000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Bandai Namco Holdings Inc",
+   "Ticker": "7832 JP",
+   "Identifier": "B0JDQD4",
+   "Weight": "2.57",
+   "Market Value": "1056910.52",
+   "Shares Held": "28970",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Konami Group Corp",
+   "Ticker": "9766 JP",
+   "Identifier": "6496681",
+   "Weight": "2.57",
+   "Market Value": "1054472.85",
+   "Shares Held": "7513",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Unity Software Inc",
+   "Ticker": "U",
+   "Identifier": "91332U101",
+   "Weight": "2.48",
+   "Market Value": "1020648.44",
+   "Shares Held": "23404",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Capcom Co Ltd",
+   "Ticker": "9697 JP",
+   "Identifier": "6173694",
+   "Weight": "2.42",
+   "Market Value": "994795.4",
+   "Shares Held": "36000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "ROBLOX Corp",
+   "Ticker": "RBLX",
+   "Identifier": "771049103",
+   "Weight": "2.29",
+   "Market Value": "943291",
+   "Shares Held": "21937",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Aristocrat Leisure Ltd",
+   "Ticker": "ALL AU",
+   "Identifier": "6253983",
+   "Weight": "2.28",
+   "Market Value": "937103.54",
+   "Shares Held": "22981",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Asustek Computer Inc",
+   "Ticker": "2357 TT",
+   "Identifier": "6051046",
+   "Weight": "2.28",
+   "Market Value": "937774.29",
+   "Shares Held": "31000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Take-Two Interactive Software Inc",
+   "Ticker": "TTWO",
+   "Identifier": "874054109",
+   "Weight": "2.25",
+   "Market Value": "923620.32",
+   "Shares Held": "4536",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Nexon Co Ltd",
+   "Ticker": "3659 JP",
+   "Identifier": "B63QM77",
+   "Weight": "1.99",
+   "Market Value": "816762.81",
+   "Shares Held": "48500",
+   "SEDOL": ""
+  },
+  {
+   "Name": "JAPANESE YEN",
+   "Ticker": "JPY",
+   "Identifier": "CASHJPY",
+   "Weight": "0",
+   "Market Value": "-1337.86",
+   "Shares Held": "-211041",
+   "SEDOL": ""
+  },
+  {
+   "Name": "NEW TAIWAN DOLLAR",
+   "Ticker": "TWD",
+   "Identifier": "CASHTWD",
+   "Weight": "0",
+   "Market Value": "-0.03",
+   "Shares Held": "-1",
+   "SEDOL": ""
+  },
+  {
+   "Name": "VK IPJSC",
+   "Ticker": "VKCO LI",
+   "Identifier": "B53NQB3",
+   "Weight": "0",
+   "Market Value": "0",
+   "Shares Held": "21975",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Cash & Other",
+   "Ticker": "CASH&OTHER",
+   "Identifier": "Cash&Other",
+   "Weight": "-4.6",
+   "Market Value": "-1889275.99",
+   "Shares Held": "-1889275.99",
+   "SEDOL": ""
+  }
+ ]
+}

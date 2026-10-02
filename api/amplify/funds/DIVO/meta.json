@@ -1,0 +1,543 @@
+{
+ "ticker": "DIVO",
+ "name": "Amplify CWP Enhanced Dividend Income ETF",
+ "category": "Income",
+ "categoryPath": "Income",
+ "source": {
+  "fundPage": "https://amplifyetfs.com/DIVO/",
+  "catalog": "https://firestore.googleapis.com/v1/projects/amplify-etfs-data-feed/databases/(default)/documents/fund_category",
+  "holdingsDownload": "https://amplifyetfs.com/divo-holdings/",
+  "holdingsSource": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
+  "historySource": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/DIVO",
+  "provider": "Amplify ETFs Firestore data feed (amplify-etfs-data-feed); SEC EDGAR N-PORT-P holdings fallback; Yahoo Finance market-history/dividend data"
+ },
+ "providerIds": {
+  "fundPage": "https://amplifyetfs.com/DIVO/",
+  "holdingsPage": "https://amplifyetfs.com/divo-holdings/"
+ },
+ "legalStructure": "ETF",
+ "identifiers": {
+  "cusip": "032108409",
+  "isin": "US0321084099",
+  "sedol": "BD9N4L9",
+  "indexTicker": null
+ },
+ "inception": {
+  "fundInceptionDate": "2016-12-13",
+  "shareClassInceptionDate": "2016-12-14",
+  "exchange": "NYSE Arca"
+ },
+ "expenseRatio": {
+  "display": "0.56%",
+  "value": 0.56,
+  "gross": 0.56,
+  "net": 0.56
+ },
+ "nav": {
+  "display": "$46.47",
+  "value": 46.4729,
+  "asOfDate": "Oct 01 2026"
+ },
+ "marketPrice": {
+  "display": "$46.47",
+  "value": 46.47,
+  "asOfDate": "Oct 01 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.01%",
+  "value": -0.0062
+ },
+ "aum": {
+  "display": "$7,744,711,311",
+  "value": 7744711311.36,
+  "asOfDate": "Oct 01 2026",
+  "source": "Amplify Firestore daily net assets"
+ },
+ "yields": {
+  "dividendYield": 4.88,
+  "dividendYieldText": "4.88%",
+  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields)",
+  "secYield": 1.4,
+  "secYieldText": "1.40%",
+  "secYieldKind": "30-day SEC yield published by Amplify (Firestore yields)",
+  "unsubsidizedSecYield": 1.39
+ },
+ "returns": {
+  "monthEnd": {
+   "asOfDate": "Sep 30 2026",
+   "ytd": 8.25,
+   "yr1": 11.43,
+   "yr3": 16.38,
+   "yr5": 11.55,
+   "yr10": null,
+   "sinceInception": 12.4,
+   "mo1": -3.34,
+   "qtd": 2.76
+  },
+  "quarterEnd": {
+   "asOfDate": "Sep 30 2026",
+   "ytd": 8.25,
+   "yr1": 11.43,
+   "yr3": 16.38,
+   "yr5": 11.55,
+   "yr10": null,
+   "sinceInception": 12.4,
+   "mo1": -3.34,
+   "qtd": null
+  },
+  "derivedFrom": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date"
+ },
+ "distributions": {
+  "frequency": "Monthly",
+  "paymentsPerYear": 12,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "03/29/2017",
+    "0.139"
+   ],
+   [
+    "06/28/2017",
+    "0.311"
+   ],
+   [
+    "09/28/2017",
+    "0.316"
+   ],
+   [
+    "12/28/2017",
+    "0.344"
+   ],
+   [
+    "03/28/2018",
+    "0.332"
+   ],
+   [
+    "06/28/2018",
+    "0.335"
+   ],
+   [
+    "07/30/2018",
+    "0.115"
+   ],
+   [
+    "08/30/2018",
+    "0.124"
+   ],
+   [
+    "09/27/2018",
+    "0.125"
+   ],
+   [
+    "10/30/2018",
+    "0.129"
+   ],
+   [
+    "11/29/2018",
+    "0.131"
+   ],
+   [
+    "12/28/2018",
+    "0.116"
+   ],
+   [
+    "01/30/2019",
+    "0.127"
+   ],
+   [
+    "02/27/2019",
+    "0.133"
+   ],
+   [
+    "03/28/2019",
+    "0.133"
+   ],
+   [
+    "04/29/2019",
+    "0.136"
+   ],
+   [
+    "05/30/2019",
+    "0.133"
+   ],
+   [
+    "06/27/2019",
+    "0.139"
+   ],
+   [
+    "07/30/2019",
+    "0.141"
+   ],
+   [
+    "08/29/2019",
+    "0.137"
+   ],
+   [
+    "09/27/2019",
+    "0.14"
+   ],
+   [
+    "10/30/2019",
+    "0.14"
+   ],
+   [
+    "11/27/2019",
+    "0.143"
+   ],
+   [
+    "12/30/2019",
+    "1.004"
+   ],
+   [
+    "01/29/2020",
+    "0.139"
+   ],
+   [
+    "02/26/2020",
+    "0.137"
+   ],
+   [
+    "03/27/2020",
+    "0.109"
+   ],
+   [
+    "04/28/2020",
+    "0.125"
+   ],
+   [
+    "05/27/2020",
+    "0.126"
+   ],
+   [
+    "06/26/2020",
+    "0.129"
+   ],
+   [
+    "07/29/2020",
+    "0.134"
+   ],
+   [
+    "08/27/2020",
+    "0.141"
+   ],
+   [
+    "09/28/2020",
+    "0.132"
+   ],
+   [
+    "10/28/2020",
+    "0.14"
+   ],
+   [
+    "11/25/2020",
+    "0.147"
+   ],
+   [
+    "12/29/2020",
+    "0.149"
+   ],
+   [
+    "01/27/2021",
+    "0.153"
+   ],
+   [
+    "02/24/2021",
+    "0.153"
+   ],
+   [
+    "03/29/2021",
+    "0.157"
+   ],
+   [
+    "04/28/2021",
+    "0.154"
+   ],
+   [
+    "05/26/2021",
+    "0.157"
+   ],
+   [
+    "06/28/2021",
+    "0.148"
+   ],
+   [
+    "07/28/2021",
+    "0.153"
+   ],
+   [
+    "08/27/2021",
+    "0.153"
+   ],
+   [
+    "09/28/2021",
+    "0.149"
+   ],
+   [
+    "10/27/2021",
+    "0.148"
+   ],
+   [
+    "11/26/2021",
+    "0.15"
+   ],
+   [
+    "12/29/2021",
+    "0.153"
+   ],
+   [
+    "01/27/2022",
+    "0.145"
+   ],
+   [
+    "02/24/2022",
+    "0.145"
+   ],
+   [
+    "03/29/2022",
+    "0.151"
+   ],
+   [
+    "04/27/2022",
+    "0.147"
+   ],
+   [
+    "05/26/2022",
+    "0.141"
+   ],
+   [
+    "06/28/2022",
+    "0.137"
+   ],
+   [
+    "07/27/2022",
+    "0.138"
+   ],
+   [
+    "08/29/2022",
+    "0.144"
+   ],
+   [
+    "09/28/2022",
+    "0.13"
+   ],
+   [
+    "10/27/2022",
+    "0.139"
+   ],
+   [
+    "11/28/2022",
+    "0.147"
+   ],
+   [
+    "12/28/2022",
+    "0.144"
+   ],
+   [
+    "01/27/2023",
+    "0.144"
+   ],
+   [
+    "02/24/2023",
+    "0.141"
+   ],
+   [
+    "03/29/2023",
+    "0.139"
+   ],
+   [
+    "04/26/2023",
+    "0.145"
+   ],
+   [
+    "05/26/2023",
+    "0.139"
+   ],
+   [
+    "06/28/2023",
+    "0.142"
+   ],
+   [
+    "07/27/2023",
+    "0.148"
+   ],
+   [
+    "08/29/2023",
+    "0.143"
+   ],
+   [
+    "09/27/2023",
+    "0.141"
+   ],
+   [
+    "10/27/2023",
+    "0.138"
+   ],
+   [
+    "11/28/2023",
+    "0.142"
+   ],
+   [
+    "12/27/2023",
+    "0.146"
+   ],
+   [
+    "01/29/2024",
+    "0.149"
+   ],
+   [
+    "02/27/2024",
+    "0.152"
+   ],
+   [
+    "03/26/2024",
+    "0.155"
+   ],
+   [
+    "04/26/2024",
+    "0.153"
+   ],
+   [
+    "05/30/2024",
+    "0.154"
+   ],
+   [
+    "06/27/2024",
+    "0.156"
+   ],
+   [
+    "07/30/2024",
+    "0.158"
+   ],
+   [
+    "08/29/2024",
+    "0.161"
+   ],
+   [
+    "09/27/2024",
+    "0.163"
+   ],
+   [
+    "10/30/2024",
+    "0.164"
+   ],
+   [
+    "11/27/2024",
+    "0.171"
+   ],
+   [
+    "12/30/2024",
+    "0.165"
+   ],
+   [
+    "01/30/2025",
+    "0.169"
+   ],
+   [
+    "02/27/2025",
+    "0.167"
+   ],
+   [
+    "03/28/2025",
+    "0.165"
+   ],
+   [
+    "04/29/2025",
+    "0.158"
+   ],
+   [
+    "05/29/2025",
+    "0.165"
+   ],
+   [
+    "06/27/2025",
+    "0.168"
+   ],
+   [
+    "07/30/2025",
+    "0.172"
+   ],
+   [
+    "08/28/2025",
+    "0.175"
+   ],
+   [
+    "09/29/2025",
+    "0.177"
+   ],
+   [
+    "10/30/2025",
+    "0.182"
+   ],
+   [
+    "11/26/2025",
+    "0.214"
+   ],
+   [
+    "12/30/2025",
+    "0.953"
+   ],
+   [
+    "01/29/2026",
+    "0.183"
+   ],
+   [
+    "02/26/2026",
+    "0.186"
+   ],
+   [
+    "03/30/2026",
+    "0.179"
+   ],
+   [
+    "04/29/2026",
+    "0.181"
+   ],
+   [
+    "05/28/2026",
+    "0.184"
+   ],
+   [
+    "06/29/2026",
+    "0.183"
+   ],
+   [
+    "07/30/2026",
+    "0.188"
+   ],
+   [
+    "08/28/2026",
+    "0.195"
+   ],
+   [
+    "09/29/2026",
+    "0.189"
+   ]
+  ]
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 32,
+  "asOfDate": "2026-10-02",
+  "asOf": "Oct 02 2026",
+  "source": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
+  "status": "available"
+ },
+ "history": {
+  "pages": [
+   "history/001.json",
+   "history/002.json",
+   "history/003.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 2461,
+  "asOf": "Oct 01 2026",
+  "source": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)"
+ }
+}

@@ -1,0 +1,224 @@
+{
+ "ticker": "XWNG",
+ "page": 1,
+ "pageSize": 250,
+ "totalRows": 23,
+ "headers": [
+  "Name",
+  "Ticker",
+  "Identifier",
+  "Weight",
+  "Market Value",
+  "Shares Held",
+  "SEDOL"
+ ],
+ "rows": [
+  {
+   "Name": "Invesco Government & Agency Portfolio 12/31/2031",
+   "Ticker": "AGPXX",
+   "Identifier": "825252885",
+   "Weight": "18.7",
+   "Market Value": "210724.38",
+   "Shares Held": "210724.38",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Filtronic PLC",
+   "Ticker": "FTC LN",
+   "Identifier": "0336299",
+   "Weight": "13.93",
+   "Market Value": "157019.57",
+   "Shares Held": "46300",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Huber + Suhner AG",
+   "Ticker": "HUBN SW",
+   "Identifier": "7132832",
+   "Weight": "10.08",
+   "Market Value": "113559.26",
+   "Shares Held": "520",
+   "SEDOL": ""
+  },
+  {
+   "Name": "ASTROSCALE HOLDING NPV-SWAP-GOLD-L",
+   "Ticker": "BSMRM19-TRS-08/20/29-L-GS",
+   "Identifier": "BSMRM19-TRS-08/20/29-L-GS",
+   "Weight": "8.54",
+   "Market Value": "96296.09",
+   "Shares Held": "12700",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Astronics Corp",
+   "Ticker": "ATRO",
+   "Identifier": "046433108",
+   "Weight": "8.4",
+   "Market Value": "94706.3",
+   "Shares Held": "1385",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Space Exploration Technologies Corp",
+   "Ticker": "SPCX",
+   "Identifier": "84615Q103",
+   "Weight": "7.42",
+   "Market Value": "83659.55",
+   "Shares Held": "565",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Spire Global Inc",
+   "Ticker": "SPIR",
+   "Identifier": "848560306",
+   "Weight": "6.04",
+   "Market Value": "68014",
+   "Shares Held": "6200",
+   "SEDOL": ""
+  },
+  {
+   "Name": "REDWIRE CORPORATION-SWAP-NBCB-L",
+   "Ticker": "75776W103-TRS-11/30/29-L-NBC",
+   "Identifier": "75776W103-TRS-11/30/29-L-NBC",
+   "Weight": "5.95",
+   "Market Value": "67077.22",
+   "Shares Held": "6346",
+   "SEDOL": ""
+  },
+  {
+   "Name": "VIASAT, INC.-SWAP-NBCB-L",
+   "Ticker": "92552V100-TRS-11/30/29-L-NBC",
+   "Identifier": "92552V100-TRS-11/30/29-L-NBC",
+   "Weight": "5.39",
+   "Market Value": "60712.05",
+   "Shares Held": "863",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Astroscale Holdings Inc",
+   "Ticker": "186A JP",
+   "Identifier": "BSMRM19",
+   "Weight": "4.49",
+   "Market Value": "50650.22",
+   "Shares Held": "6680",
+   "SEDOL": ""
+  },
+  {
+   "Name": "MDA SPACE LTD.-SWAP-GOLD-L",
+   "Ticker": "55293N109-TRS-08/20/29-L-GS",
+   "Identifier": "55293N109-TRS-08/20/29-L-GS",
+   "Weight": "4.26",
+   "Market Value": "48003.29",
+   "Shares Held": "1657",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Viasat Inc",
+   "Ticker": "VSAT",
+   "Identifier": "92552V100",
+   "Weight": "3.81",
+   "Market Value": "42913.5",
+   "Shares Held": "610",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Rocket Lab Corp",
+   "Ticker": "RKLB",
+   "Identifier": "773121108",
+   "Weight": "3.5",
+   "Market Value": "39457.6",
+   "Shares Held": "560",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Redwire Corp",
+   "Ticker": "RDW",
+   "Identifier": "75776W103",
+   "Weight": "3.43",
+   "Market Value": "38686.2",
+   "Shares Held": "3660",
+   "SEDOL": ""
+  },
+  {
+   "Name": "MDA Space Ltd",
+   "Ticker": "MDA",
+   "Identifier": "55293N109",
+   "Weight": "3.3",
+   "Market Value": "37226.45",
+   "Shares Held": "1285",
+   "SEDOL": ""
+  },
+  {
+   "Name": "VIASAT, INC.-SWAP-MREX-L",
+   "Ticker": "92552V100-TRS-08/19/29-L-MX",
+   "Identifier": "92552V100-TRS-08/19/29-L-MX",
+   "Weight": "2.57",
+   "Market Value": "28984.2",
+   "Shares Held": "412",
+   "SEDOL": ""
+  },
+  {
+   "Name": "ROCKET LAB CORPORATION-SWAP-GOLD-L",
+   "Ticker": "773121108-TRS-08/20/29-L-GS",
+   "Identifier": "773121108-TRS-08/20/29-L-GS",
+   "Weight": "2.44",
+   "Market Value": "27479.4",
+   "Shares Held": "390",
+   "SEDOL": ""
+  },
+  {
+   "Name": "ROCKET LAB CORPORATION-SWAP-NBCB-L",
+   "Ticker": "773121108-TRS-11/30/29-L-NBC",
+   "Identifier": "773121108-TRS-11/30/29-L-NBC",
+   "Weight": "2.44",
+   "Market Value": "27479.4",
+   "Shares Held": "390",
+   "SEDOL": ""
+  },
+  {
+   "Name": "MDA SPACE LTD.-SWAP-NBCB-L",
+   "Ticker": "55293N109-TRS-11/30/29-L-NBC",
+   "Identifier": "55293N109-TRS-11/30/29-L-NBC",
+   "Weight": "1.82",
+   "Market Value": "20510.76",
+   "Shares Held": "708",
+   "SEDOL": ""
+  },
+  {
+   "Name": "REDWIRE CORPORATION-SWAP-GOLD-L",
+   "Ticker": "75776W103-TRS-08/20/29-L-GS",
+   "Identifier": "75776W103-TRS-08/20/29-L-GS",
+   "Weight": "0.78",
+   "Market Value": "8836.52",
+   "Shares Held": "836",
+   "SEDOL": ""
+  },
+  {
+   "Name": "REDWIRE CORPORATION-SWAP-MREX-L",
+   "Ticker": "75776W103-TRS-08/19/29-L-MX",
+   "Identifier": "75776W103-TRS-08/19/29-L-MX",
+   "Weight": "0.75",
+   "Market Value": "8434.86",
+   "Shares Held": "798",
+   "SEDOL": ""
+  },
+  {
+   "Name": "VIASAT, INC.-SWAP-GOLD-L",
+   "Ticker": "92552V100-TRS-08/20/29-L-GS",
+   "Identifier": "92552V100-TRS-08/20/29-L-GS",
+   "Weight": "0.61",
+   "Market Value": "6894.3",
+   "Shares Held": "98",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Cash & Other",
+   "Ticker": "CASH&OTHER",
+   "Identifier": "Cash&Other",
+   "Weight": "-18.69",
+   "Market Value": "-210605.15",
+   "Shares Held": "-210605.15",
+   "SEDOL": ""
+  }
+ ]
+}

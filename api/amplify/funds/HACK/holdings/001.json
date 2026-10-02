@@ -1,0 +1,242 @@
+{
+ "ticker": "HACK",
+ "page": 1,
+ "pageSize": 250,
+ "totalRows": 25,
+ "headers": [
+  "Name",
+  "Ticker",
+  "Identifier",
+  "Weight",
+  "Market Value",
+  "Shares Held",
+  "SEDOL"
+ ],
+ "rows": [
+  {
+   "Name": "Broadcom Inc",
+   "Ticker": "AVGO",
+   "Identifier": "11135F101",
+   "Weight": "6.47",
+   "Market Value": "217248177.08",
+   "Shares Held": "632197",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Crowdstrike Holdings Inc",
+   "Ticker": "CRWD",
+   "Identifier": "22788C105",
+   "Weight": "6.26",
+   "Market Value": "210246489.97",
+   "Shares Held": "790133",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Palo Alto Networks Inc",
+   "Ticker": "PANW",
+   "Identifier": "697435105",
+   "Weight": "5.83",
+   "Market Value": "195832693.75",
+   "Shares Held": "494215",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Cisco Systems Inc",
+   "Ticker": "CSCO",
+   "Identifier": "17275R102",
+   "Weight": "5.75",
+   "Market Value": "193049962.6",
+   "Shares Held": "1781890",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Cloudflare Inc",
+   "Ticker": "NET",
+   "Identifier": "18915M107",
+   "Weight": "5.6",
+   "Market Value": "188073873",
+   "Shares Held": "535823",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Fortinet Inc",
+   "Ticker": "FTNT",
+   "Identifier": "34959E109",
+   "Weight": "5.12",
+   "Market Value": "172066611.84",
+   "Shares Held": "962772",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Okta Inc",
+   "Ticker": "OKTA",
+   "Identifier": "679295105",
+   "Weight": "5.05",
+   "Market Value": "169714674.47",
+   "Shares Held": "798169",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Rubrik Inc",
+   "Ticker": "RBRK",
+   "Identifier": "781154109",
+   "Weight": "4.85",
+   "Market Value": "163102436.4",
+   "Shares Held": "1413366",
+   "SEDOL": ""
+  },
+  {
+   "Name": "F5 Inc",
+   "Ticker": "FFIV",
+   "Identifier": "315616102",
+   "Weight": "4.42",
+   "Market Value": "148599080.32",
+   "Shares Held": "334924",
+   "SEDOL": ""
+  },
+  {
+   "Name": "General Dynamics Corp",
+   "Ticker": "GD",
+   "Identifier": "369550108",
+   "Weight": "4.32",
+   "Market Value": "145108175.44",
+   "Shares Held": "436127",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Zscaler Inc",
+   "Ticker": "ZS",
+   "Identifier": "98980G102",
+   "Weight": "4.3",
+   "Market Value": "144553611.12",
+   "Shares Held": "727204",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Northrop Grumman Corp",
+   "Ticker": "NOC",
+   "Identifier": "666807102",
+   "Weight": "4.22",
+   "Market Value": "141749452",
+   "Shares Held": "294086",
+   "SEDOL": ""
+  },
+  {
+   "Name": "SentinelOne Inc",
+   "Ticker": "S",
+   "Identifier": "81730H109",
+   "Weight": "3.96",
+   "Market Value": "133134714.08",
+   "Shares Held": "5396624",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Trend Micro Inc/Japan",
+   "Ticker": "4704 JP",
+   "Identifier": "6125286",
+   "Weight": "3.83",
+   "Market Value": "128659144.4",
+   "Shares Held": "3042323",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Netskope Inc",
+   "Ticker": "NTSK",
+   "Identifier": "64119N608",
+   "Weight": "3.75",
+   "Market Value": "126142415.7",
+   "Shares Held": "7066802",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Fastly Inc",
+   "Ticker": "FSLY",
+   "Identifier": "31188V100",
+   "Weight": "3.67",
+   "Market Value": "123240666.64",
+   "Shares Held": "4669976",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Varonis Systems Inc",
+   "Ticker": "VRNS",
+   "Identifier": "922280102",
+   "Weight": "3.63",
+   "Market Value": "122032716.65",
+   "Shares Held": "2571817",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Check Point Software Technologies Ltd",
+   "Ticker": "CHKP",
+   "Identifier": "M22465104",
+   "Weight": "3.54",
+   "Market Value": "118990315.27",
+   "Shares Held": "910199",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Qualys Inc",
+   "Ticker": "QLYS",
+   "Identifier": "74758T303",
+   "Weight": "3.45",
+   "Market Value": "115811310.13",
+   "Shares Held": "617891",
+   "SEDOL": ""
+  },
+  {
+   "Name": "A10 Networks Inc",
+   "Ticker": "ATEN",
+   "Identifier": "002121101",
+   "Weight": "3.21",
+   "Market Value": "107892319.2",
+   "Shares Held": "3909142",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Tenable Holdings Inc",
+   "Ticker": "TENB",
+   "Identifier": "88025T102",
+   "Weight": "3.09",
+   "Market Value": "103736121.91",
+   "Shares Held": "2872781",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Radware Ltd",
+   "Ticker": "RDWR",
+   "Identifier": "M81873107",
+   "Weight": "2.83",
+   "Market Value": "94998269.16",
+   "Shares Held": "3153993",
+   "SEDOL": ""
+  },
+  {
+   "Name": "GEN DIGITAL INC",
+   "Ticker": "GEN",
+   "Identifier": "668771108",
+   "Weight": "2.75",
+   "Market Value": "92540108.5",
+   "Shares Held": "4159106",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Invesco Government & Agency Portfolio 12/31/2031",
+   "Ticker": "AGPXX",
+   "Identifier": "825252885",
+   "Weight": "0.12",
+   "Market Value": "4002999.69",
+   "Shares Held": "4002999.69",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Cash & Other",
+   "Ticker": "CASH&OTHER",
+   "Identifier": "Cash&Other",
+   "Weight": "-0.03",
+   "Market Value": "-920502.72",
+   "Shares Held": "-920502.72",
+   "SEDOL": ""
+  }
+ ]
+}

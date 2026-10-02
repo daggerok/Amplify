@@ -1,0 +1,96 @@
+{
+ "ticker": "K-DIVO",
+ "name": "Samsung KODEX US Dividend Premium S&P Active",
+ "category": "International",
+ "categoryPath": "International",
+ "source": {
+  "fundPage": "https://amplifyetfs.com/K-DIVO/",
+  "catalog": "https://firestore.googleapis.com/v1/projects/amplify-etfs-data-feed/databases/(default)/documents/fund_category",
+  "holdingsDownload": "https://amplifyetfs.com/k-divo-holdings/",
+  "holdingsSource": "unavailable from Firestore or SEC N-PORT-P",
+  "historySource": "unavailable",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/K-DIVO",
+  "provider": "Amplify ETFs Firestore data feed (amplify-etfs-data-feed); SEC EDGAR N-PORT-P holdings fallback; Yahoo Finance market-history/dividend data"
+ },
+ "providerIds": {
+  "fundPage": "https://amplifyetfs.com/K-DIVO/",
+  "holdingsPage": "https://amplifyetfs.com/k-divo-holdings/"
+ },
+ "legalStructure": null,
+ "identifiers": {
+  "cusip": null,
+  "isin": null,
+  "sedol": null,
+  "indexTicker": null
+ },
+ "inception": {
+  "fundInceptionDate": null,
+  "shareClassInceptionDate": null,
+  "exchange": "KRX"
+ },
+ "expenseRatio": {
+  "display": "—",
+  "value": null,
+  "gross": null,
+  "net": null
+ },
+ "nav": {
+  "display": "—",
+  "value": null,
+  "asOfDate": "Sep 30 2026"
+ },
+ "marketPrice": {
+  "display": "—",
+  "value": null,
+  "asOfDate": "—"
+ },
+ "premiumDiscount": {
+  "display": "—",
+  "value": null
+ },
+ "aum": {
+  "display": "$1,245,698,000",
+  "value": 1245698000,
+  "asOfDate": "Sep 30 2026",
+  "source": "Amplify Firestore daily net assets"
+ },
+ "yields": {
+  "dividendYield": null,
+  "dividendYieldText": "—",
+  "dividendYieldKind": "indicated (latest distribution x payments per year / market price)",
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "not published",
+  "unsubsidizedSecYield": null
+ },
+ "returns": {
+  "monthEnd": null,
+  "quarterEnd": null,
+  "derivedFrom": "Yahoo adjusted market-price returns, not official NAV"
+ },
+ "distributions": {
+  "frequency": "—",
+  "paymentsPerYear": null,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": []
+ },
+ "holdings": {
+  "pages": [],
+  "pageSize": 250,
+  "totalRows": 0,
+  "asOfDate": null,
+  "asOf": "—",
+  "source": "unavailable from Firestore or SEC N-PORT-P",
+  "status": "unavailable"
+ },
+ "history": {
+  "pages": [],
+  "pageSize": 1000,
+  "totalRows": 0,
+  "asOf": "—",
+  "source": "unavailable"
+ }
+}

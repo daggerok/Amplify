@@ -1,0 +1,211 @@
+{
+ "ticker": "GAMR",
+ "name": "Amplify Video Game Leaders ETF",
+ "category": "Thematic",
+ "categoryPath": "Thematic",
+ "source": {
+  "fundPage": "https://amplifyetfs.com/GAMR/",
+  "catalog": "https://firestore.googleapis.com/v1/projects/amplify-etfs-data-feed/databases/(default)/documents/fund_category",
+  "holdingsDownload": "https://amplifyetfs.com/gamr-holdings/",
+  "holdingsSource": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
+  "historySource": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/GAMR",
+  "provider": "Amplify ETFs Firestore data feed (amplify-etfs-data-feed); SEC EDGAR N-PORT-P holdings fallback; Yahoo Finance market-history/dividend data"
+ },
+ "providerIds": {
+  "fundPage": "https://amplifyetfs.com/GAMR/",
+  "holdingsPage": "https://amplifyetfs.com/gamr-holdings/"
+ },
+ "legalStructure": "ETF",
+ "identifiers": {
+  "cusip": "032108615",
+  "isin": "US0321086151",
+  "sedol": "BMGC445",
+  "indexTicker": "VGAMET"
+ },
+ "inception": {
+  "fundInceptionDate": "2016-03-07",
+  "shareClassInceptionDate": "2016-03-08",
+  "exchange": "NYSE Arca"
+ },
+ "expenseRatio": {
+  "display": "0.59%",
+  "value": 0.59,
+  "gross": 0.59,
+  "net": 0.59
+ },
+ "nav": {
+  "display": "$100.26",
+  "value": 100.2563,
+  "asOfDate": "Oct 01 2026"
+ },
+ "marketPrice": {
+  "display": "$99.66",
+  "value": 99.661,
+  "asOfDate": "Oct 01 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.59%",
+  "value": -0.5938
+ },
+ "aum": {
+  "display": "$41,105,087",
+  "value": 41105086.97,
+  "asOfDate": "Oct 01 2026",
+  "source": "Amplify Firestore daily net assets"
+ },
+ "yields": {
+  "dividendYield": 0.47,
+  "dividendYieldText": "0.47%",
+  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields)",
+  "secYield": 0.38,
+  "secYieldText": "0.38%",
+  "secYieldKind": "30-day SEC yield published by Amplify (Firestore yields)",
+  "unsubsidizedSecYield": 0.38
+ },
+ "returns": {
+  "monthEnd": {
+   "asOfDate": "Sep 30 2026",
+   "ytd": 10.06,
+   "yr1": 3.36,
+   "yr3": 23.64,
+   "yr5": 4.38,
+   "yr10": 12.89,
+   "sinceInception": 15.12,
+   "mo1": 2.63,
+   "qtd": 8.39
+  },
+  "quarterEnd": {
+   "asOfDate": "Sep 30 2026",
+   "ytd": 10.06,
+   "yr1": 3.36,
+   "yr3": 23.64,
+   "yr5": 4.38,
+   "yr10": 12.89,
+   "sinceInception": 15.12,
+   "mo1": 2.63,
+   "qtd": null
+  },
+  "derivedFrom": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date"
+ },
+ "distributions": {
+  "frequency": "Quarterly",
+  "paymentsPerYear": 4,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": [
+   [
+    "12/28/2016",
+    "0.569"
+   ],
+   [
+    "06/20/2017",
+    "0.03"
+   ],
+   [
+    "09/19/2017",
+    "0.06"
+   ],
+   [
+    "12/26/2017",
+    "0.129"
+   ],
+   [
+    "06/19/2018",
+    "0.38"
+   ],
+   [
+    "09/25/2018",
+    "0.11"
+   ],
+   [
+    "12/24/2018",
+    "0.117"
+   ],
+   [
+    "03/26/2019",
+    "0.03"
+   ],
+   [
+    "06/28/2019",
+    "0.37"
+   ],
+   [
+    "09/20/2019",
+    "0.13"
+   ],
+   [
+    "12/30/2019",
+    "0.165"
+   ],
+   [
+    "06/15/2020",
+    "0.03"
+   ],
+   [
+    "09/15/2020",
+    "0.21"
+   ],
+   [
+    "12/14/2020",
+    "0.49"
+   ],
+   [
+    "03/23/2021",
+    "0.09"
+   ],
+   [
+    "09/21/2021",
+    "0.14"
+   ],
+   [
+    "12/28/2021",
+    "2.137"
+   ],
+   [
+    "12/27/2023",
+    "0.015"
+   ],
+   [
+    "03/26/2024",
+    "0.016"
+   ],
+   [
+    "09/27/2024",
+    "0.016"
+   ],
+   [
+    "12/30/2024",
+    "0.38"
+   ],
+   [
+    "12/30/2025",
+    "0.471"
+   ]
+  ]
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 25,
+  "asOfDate": "2026-10-02",
+  "asOf": "Oct 02 2026",
+  "source": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
+  "status": "available"
+ },
+ "history": {
+  "pages": [
+   "history/001.json",
+   "history/002.json",
+   "history/003.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 2656,
+  "asOf": "Oct 01 2026",
+  "source": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)"
+ }
+}

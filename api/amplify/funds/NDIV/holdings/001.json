@@ -1,0 +1,485 @@
+{
+ "ticker": "NDIV",
+ "page": 1,
+ "pageSize": 250,
+ "totalRows": 52,
+ "headers": [
+  "Name",
+  "Ticker",
+  "Identifier",
+  "Weight",
+  "Market Value",
+  "Shares Held",
+  "SEDOL"
+ ],
+ "rows": [
+  {
+   "Name": "Crescent Energy Co",
+   "Ticker": "CRGY",
+   "Identifier": "44952J104",
+   "Weight": "6.61",
+   "Market Value": "2020476.93",
+   "Shares Held": "152259",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Northern Oil & Gas Inc",
+   "Ticker": "NOG",
+   "Identifier": "665531307",
+   "Weight": "6",
+   "Market Value": "1833642.72",
+   "Shares Held": "77961",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Petroleo Brasileiro SA - Petrobras",
+   "Ticker": "PBR",
+   "Identifier": "71654V408",
+   "Weight": "5.74",
+   "Market Value": "1754032.9",
+   "Shares Held": "83605",
+   "SEDOL": ""
+  },
+  {
+   "Name": "BP PLC",
+   "Ticker": "BP",
+   "Identifier": "055622104",
+   "Weight": "5.36",
+   "Market Value": "1639825",
+   "Shares Held": "36850",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Sunococorp LLC",
+   "Ticker": "SUNC",
+   "Identifier": "86765Q106",
+   "Weight": "5.15",
+   "Market Value": "1573197.4",
+   "Shares Held": "20782",
+   "SEDOL": ""
+  },
+  {
+   "Name": "TotalEnergies SE",
+   "Ticker": "TTE",
+   "Identifier": "F92124100",
+   "Weight": "5.07",
+   "Market Value": "1549913.4",
+   "Shares Held": "18340",
+   "SEDOL": ""
+  },
+  {
+   "Name": "CVR Partners LP",
+   "Ticker": "UAN",
+   "Identifier": "126633205",
+   "Weight": "5.05",
+   "Market Value": "1543172.46",
+   "Shares Held": "12387",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Kinetik Holdings Inc",
+   "Ticker": "KNTK",
+   "Identifier": "02215L209",
+   "Weight": "4.98",
+   "Market Value": "1522240.42",
+   "Shares Held": "29842",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Noble Corp PLC",
+   "Ticker": "NE",
+   "Identifier": "G65431127",
+   "Weight": "4.93",
+   "Market Value": "1505883.4",
+   "Shares Held": "36095",
+   "SEDOL": ""
+  },
+  {
+   "Name": "FLEX LNG Ltd",
+   "Ticker": "FLNG",
+   "Identifier": "G35947202",
+   "Weight": "4.92",
+   "Market Value": "1502639.64",
+   "Shares Held": "47977",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Invesco Government & Agency Portfolio 12/31/2031",
+   "Ticker": "AGPXX",
+   "Identifier": "825252885",
+   "Weight": "4.87",
+   "Market Value": "1488973.5",
+   "Shares Held": "1488973.5",
+   "SEDOL": ""
+  },
+  {
+   "Name": "LyondellBasell Industries NV",
+   "Ticker": "LYB",
+   "Identifier": "N53745100",
+   "Weight": "4.83",
+   "Market Value": "1476394.56",
+   "Shares Held": "25552",
+   "SEDOL": ""
+  },
+  {
+   "Name": "ONEOK Inc",
+   "Ticker": "OKE",
+   "Identifier": "30609A109",
+   "Weight": "4.59",
+   "Market Value": "1404583.4",
+   "Shares Held": "16115",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Viper Energy Inc",
+   "Ticker": "VNOM",
+   "Identifier": "64361Q101",
+   "Weight": "4.55",
+   "Market Value": "1391598",
+   "Shares Held": "34200",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Eastman Chemical Co",
+   "Ticker": "EMN",
+   "Identifier": "277432100",
+   "Weight": "4.48",
+   "Market Value": "1369068.75",
+   "Shares Held": "21375",
+   "SEDOL": ""
+  },
+  {
+   "Name": "South Bow Corp",
+   "Ticker": "SOBO",
+   "Identifier": "83671M105",
+   "Weight": "4.36",
+   "Market Value": "1332089.52",
+   "Shares Held": "39752",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Enbridge Inc",
+   "Ticker": "ENB",
+   "Identifier": "29250N105",
+   "Weight": "3.99",
+   "Market Value": "1219954.82",
+   "Shares Held": "26366",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Kimbell Royalty Partners LP",
+   "Ticker": "KRP",
+   "Identifier": "49435R102",
+   "Weight": "1.18",
+   "Market Value": "359316.54",
+   "Shares Held": "24849",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Mach Natural Resources LP",
+   "Ticker": "MNR",
+   "Identifier": "55445L100",
+   "Weight": "1.07",
+   "Market Value": "327798.24",
+   "Shares Held": "31856",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Alliance Resource Partners LP",
+   "Ticker": "ARLP",
+   "Identifier": "01877R108",
+   "Weight": "1.06",
+   "Market Value": "325206.74",
+   "Shares Held": "13361",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Black Stone Minerals LP",
+   "Ticker": "BSM",
+   "Identifier": "09225M101",
+   "Weight": "0.98",
+   "Market Value": "299156.8",
+   "Shares Held": "20660",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Delek Logistics Partners LP",
+   "Ticker": "DKL",
+   "Identifier": "24664T103",
+   "Weight": "0.9",
+   "Market Value": "274910.09",
+   "Shares Held": "5047",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Western Midstream Partners LP",
+   "Ticker": "WES",
+   "Identifier": "958669103",
+   "Weight": "0.89",
+   "Market Value": "272848.24",
+   "Shares Held": "6148",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Hess Midstream LP",
+   "Ticker": "HESM",
+   "Identifier": "428103105",
+   "Weight": "0.86",
+   "Market Value": "262392.8",
+   "Shares Held": "6896",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Dorchester Minerals LP",
+   "Ticker": "DMLP",
+   "Identifier": "25820R105",
+   "Weight": "0.83",
+   "Market Value": "254768.8",
+   "Shares Held": "8908",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Plains All American Pipeline LP",
+   "Ticker": "PAA",
+   "Identifier": "726503105",
+   "Weight": "0.82",
+   "Market Value": "249300.3",
+   "Shares Held": "10519",
+   "SEDOL": ""
+  },
+  {
+   "Name": "USA Compression Partners LP",
+   "Ticker": "USAC",
+   "Identifier": "90290N109",
+   "Weight": "0.82",
+   "Market Value": "250476.24",
+   "Shares Held": "9912",
+   "SEDOL": ""
+  },
+  {
+   "Name": "MPLX LP",
+   "Ticker": "MPLX",
+   "Identifier": "55336V100",
+   "Weight": "0.81",
+   "Market Value": "246305.85",
+   "Shares Held": "4371",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Energy Transfer LP",
+   "Ticker": "ET",
+   "Identifier": "29273V100",
+   "Weight": "0.76",
+   "Market Value": "231933.9",
+   "Shares Held": "11539",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Sunoco LP",
+   "Ticker": "SUN",
+   "Identifier": "86765K109",
+   "Weight": "0.67",
+   "Market Value": "205432.24",
+   "Shares Held": "2756",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Global Partners LP/MA",
+   "Ticker": "GLP",
+   "Identifier": "37946R109",
+   "Weight": "0.66",
+   "Market Value": "200637.36",
+   "Shares Held": "4312",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Enterprise Products Partners LP",
+   "Ticker": "EPD",
+   "Identifier": "293792107",
+   "Weight": "0.62",
+   "Market Value": "189300.69",
+   "Shares Held": "5307",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Cash & Other",
+   "Ticker": "CASH&OTHER",
+   "Identifier": "Cash&Other",
+   "Weight": "0.52",
+   "Market Value": "157849.07",
+   "Shares Held": "157849.07",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Cheniere Energy Partners LP",
+   "Ticker": "CQP",
+   "Identifier": "16411Q101",
+   "Weight": "0.51",
+   "Market Value": "155855",
+   "Shares Held": "2555",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Genesis Energy LP",
+   "Ticker": "GEL",
+   "Identifier": "371927104",
+   "Weight": "0.5",
+   "Market Value": "153120.24",
+   "Shares Held": "11193",
+   "SEDOL": ""
+  },
+  {
+   "Name": "AU US 10/16/26 C90",
+   "Ticker": "AU 261016C00090000",
+   "Identifier": "AU 261016C00090000",
+   "Weight": "0.35",
+   "Market Value": "105875",
+   "Shares Held": "175",
+   "SEDOL": ""
+  },
+  {
+   "Name": "ENB US 10/16/26 C50",
+   "Ticker": "ENB 261016C00050000",
+   "Identifier": "ENB 261016C00050000",
+   "Weight": "0",
+   "Market Value": "-315",
+   "Shares Held": "-126",
+   "SEDOL": ""
+  },
+  {
+   "Name": "EPD US 10/16/26 C40",
+   "Ticker": "EPD 261016C00040000",
+   "Identifier": "EPD 261016C00040000",
+   "Weight": "0",
+   "Market Value": "-175.5",
+   "Shares Held": "-27",
+   "SEDOL": ""
+  },
+  {
+   "Name": "ET US 10/16/26 C22",
+   "Ticker": "ET 261016C00022000",
+   "Identifier": "ET 261016C00022000",
+   "Weight": "0",
+   "Market Value": "-87",
+   "Shares Held": "-58",
+   "SEDOL": ""
+  },
+  {
+   "Name": "FLNG US 10/16/26 C34",
+   "Ticker": "FLNG 261016C00034000",
+   "Identifier": "FLNG 261016C00034000",
+   "Weight": "0",
+   "Market Value": "-1215",
+   "Shares Held": "-243",
+   "SEDOL": ""
+  },
+  {
+   "Name": "LYB US 10/16/26 C67.5",
+   "Ticker": "LYB 261016C00067500",
+   "Identifier": "LYB 261016C00067500",
+   "Weight": "0",
+   "Market Value": "-1450",
+   "Shares Held": "-145",
+   "SEDOL": ""
+  },
+  {
+   "Name": "OKE US 10/16/26 C100",
+   "Ticker": "OKE 261016C00100000",
+   "Identifier": "OKE 261016C00100000",
+   "Weight": "0",
+   "Market Value": "-667.5",
+   "Shares Held": "-89",
+   "SEDOL": ""
+  },
+  {
+   "Name": "VNOM US 10/16/26 C45",
+   "Ticker": "VNOM 261016C00045000",
+   "Identifier": "VNOM 261016C00045000",
+   "Weight": "0",
+   "Market Value": "-880",
+   "Shares Held": "-176",
+   "SEDOL": ""
+  },
+  {
+   "Name": "WES US 10/16/26 C49",
+   "Ticker": "WES 261016C00049000",
+   "Identifier": "WES 261016C00049000",
+   "Weight": "0",
+   "Market Value": "-75",
+   "Shares Held": "-30",
+   "SEDOL": ""
+  },
+  {
+   "Name": "AU US 10/16/26 C110",
+   "Ticker": "AU 261016C00110000",
+   "Identifier": "AU 261016C00110000",
+   "Weight": "-0.01",
+   "Market Value": "-3430",
+   "Shares Held": "-98",
+   "SEDOL": ""
+  },
+  {
+   "Name": "BP US 10/16/26 C48",
+   "Ticker": "BP 261016C00048000",
+   "Identifier": "BP 261016C00048000",
+   "Weight": "-0.01",
+   "Market Value": "-3802.5",
+   "Shares Held": "-195",
+   "SEDOL": ""
+  },
+  {
+   "Name": "CRGY US 10/16/26 C16",
+   "Ticker": "CRGY 261016C00016000",
+   "Identifier": "CRGY 261016C00016000",
+   "Weight": "-0.01",
+   "Market Value": "-4430",
+   "Shares Held": "-886",
+   "SEDOL": ""
+  },
+  {
+   "Name": "EMN US 10/16/26 C70",
+   "Ticker": "EMN 261016C00070000",
+   "Identifier": "EMN 261016C00070000",
+   "Weight": "-0.01",
+   "Market Value": "-2240",
+   "Shares Held": "-112",
+   "SEDOL": ""
+  },
+  {
+   "Name": "NOG US 10/16/26 C27",
+   "Ticker": "NOG 261016C00027000",
+   "Identifier": "NOG 261016C00027000",
+   "Weight": "-0.02",
+   "Market Value": "-7420",
+   "Shares Held": "-424",
+   "SEDOL": ""
+  },
+  {
+   "Name": "UAN US 10/16/26 C145",
+   "Ticker": "UAN 261016C00145000",
+   "Identifier": "UAN 261016C00145000",
+   "Weight": "-0.03",
+   "Market Value": "-8207.5",
+   "Shares Held": "-67",
+   "SEDOL": ""
+  },
+  {
+   "Name": "PBR US 10/16/26 C23",
+   "Ticker": "PBR 261016C00023000",
+   "Identifier": "PBR 261016C00023000",
+   "Weight": "-0.05",
+   "Market Value": "-14880",
+   "Shares Held": "-480",
+   "SEDOL": ""
+  },
+  {
+   "Name": "AU 10/16/2026 90.01 P",
+   "Ticker": "2AU 261016P00090010",
+   "Identifier": "2AU 261016P00090010",
+   "Weight": "-0.1",
+   "Market Value": "-31267.25",
+   "Shares Held": "-175",
+   "SEDOL": ""
+  }
+ ]
+}

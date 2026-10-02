@@ -1,0 +1,35 @@
+{
+ "ticker": "SMAP",
+ "page": 1,
+ "pageSize": 250,
+ "totalRows": 2,
+ "headers": [
+  "Name",
+  "Ticker",
+  "Identifier",
+  "Weight",
+  "Market Value",
+  "Shares Held",
+  "SEDOL"
+ ],
+ "rows": [
+  {
+   "Name": "Invesco Government & Agency Portfolio 12/31/2031",
+   "Ticker": "AGPXX",
+   "Identifier": "825252885",
+   "Weight": "99.88",
+   "Market Value": "1323965.74",
+   "Shares Held": "1323965.74",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Cash & Other",
+   "Ticker": "CASH&OTHER",
+   "Identifier": "Cash&Other",
+   "Weight": "0.13",
+   "Market Value": "1716.67",
+   "Shares Held": "1716.67",
+   "SEDOL": ""
+  }
+ ]
+}
