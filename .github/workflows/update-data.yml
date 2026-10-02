@@ -5,6 +5,16 @@ on:
     - cron: '0 0 * * 0'
   workflow_dispatch:
     inputs:
+      max_fetches:
+        description: "0 means all selected funds; N fetches only the first N selected tickers; blank inherits scripts/update-data.config.json"
+        required: false
+        default: ""
+        type: string
+      request_sleep:
+        description: "Minimum seconds between request starts, shared by all workers; blank inherits scripts/update-data.config.json"
+        required: false
+        default: ""
+        type: string
       concurrency:
         description: "Parallel fund fetch workers; blank inherits scripts/update-data.config.json"
         required: false
@@ -22,6 +32,11 @@ on:
         type: string
       aum:
         description: "AUM min:max; bounds may be amounts or nano/micro/small/mid/large; blank inherits scripts/update-data.config.json"
+        required: false
+        default: ""
+        type: string
+      ter:
+        description: "Expense-ratio range in %: min:max, min:, :max, or :; blank inherits scripts/update-data.config.json"
         required: false
         default: ""
         type: string
@@ -85,6 +100,16 @@ on:
         required: false
         default: ""
         type: string
+      history_page_size:
+        description: "Page size of the daily-history document count query; blank inherits scripts/update-data.config.json"
+        required: false
+        default: ""
+        type: string
+      max_retries:
+        description: "Retries (at least 1) for network errors, HTTP 429 and 5xx; blank inherits scripts/update-data.config.json"
+        required: false
+        default: ""
+        type: string
       verbose:
         description: "Print per-fund retry and fallback notices (true or false); blank inherits scripts/update-data.config.json"
         required: false
@@ -106,9 +131,12 @@ concurrency:
 jobs:
   update-data:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - name: Checkout
         uses: actions/checkout@v7
+        with:
+          persist-credentials: false
       - name: Setup bun
         uses: oven-sh/setup-bun@v2
         with:
@@ -131,6 +159,7 @@ jobs:
               .filter(([key]) => key !== "advanced")
               .map(([key, value]) => [key.toUpperCase(), value]));
             const file = await Bun.file("scripts/update-data.config.json").json();
+            // Protected repository Actions variables: highest precedence, applied only when nonblank (never printed).
             const protectedVars = {};
             const controls = resolveControls(file, advanced, individual, protectedVars);
             await appendFile(process.env.GITHUB_ENV,
@@ -140,6 +169,8 @@ jobs:
         run: bun ./scripts/update-data.ts
       - name: Commit updated data
         if: ${{ !cancelled() }}
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         run: |
           git add api/data.json
           if git diff --cached --quiet -- api/data.json; then
@@ -149,4 +180,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "chore(data): Update Amplify ETF data"
-          git push
+          # Runtime-only auth; no token/header stored in URL, file or Git config.
+          git -c credential.helper= -c credential.helper='!f() { if test "$1" = get; then printf "username=x-access-token\npassword=%s\n" "$GITHUB_TOKEN"; fi; }; f' push
