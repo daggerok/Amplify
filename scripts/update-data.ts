@@ -97,6 +97,7 @@ function outputFundLine(index: number, total: number, ticker: string, status: st
 
 // Bun provides Node-compatible fs/promises and process globals for this script.
 /// <reference types="bun" />
+import { AsyncLocalStorage } from 'node:async_hooks';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 
 declare const process: { env: Record<string, string | undefined>; argv: string[]; exitCode?: number };
@@ -472,8 +473,8 @@ funds that do not publish the metric. Run without filters to rebuild the full
 active catalog.
 
   MAX_FETCHES=0              0 means all selected funds; N > 0 fetches only the first N selected tickers (alphabetical)
-  REQUEST_SLEEP=0            Minimum seconds between request starts, shared by all workers (retries included)
-  CONCURRENCY=6              Parallel fund fetch workers (legacy alias AMPLIFY_DATA_CONCURRENCY)
+  REQUEST_SLEEP=0            Minimum seconds between request starts of each worker lane (retries included)
+  CONCURRENCY=6              Funds fetched in parallel, one request in flight per worker (legacy alias AMPLIFY_DATA_CONCURRENCY)
   TICKERS="DIVO IDVO"        Only include these tickers (spaces, commas, semicolons)
   CATEGORY="Income,Thematic" Only include these fund categories (Thematic = Growth in the UI)
   AUM=":"                    Net-assets range min:max; bounds are USD amounts (300M, 2B)
@@ -611,7 +612,7 @@ async function main() {
   const holdingsByTicker: Record<string, JsonRecord> = {};
   const detailsByTicker: Record<string, JsonRecord> = {};
 
-  await promisePool(catalog, config.concurrency, async ({ ticker, category }) => {
+  await runFundPool(catalog, config.concurrency, async ({ ticker, category }) => {
     const warnings: string[] = [];
     let distributionsUnavailable = false;
     try {
@@ -844,15 +845,30 @@ async function fetchFirestoreList(pathParts: string[], query = ''): Promise<Deco
 // Request pacing and retries shared by every Firestore call (set from the resolved controls in main).
 export let httpSettings = { maxRetries: DEFAULT_MAX_RETRIES, requestSleepMs: DEFAULT_REQUEST_SLEEP * 1000, historyPageSize: DEFAULT_HISTORY_PAGE_SIZE };
 export function setHttpSettings(next: typeof httpSettings): void { httpSettings = next; }
-let nextRequestSlot = 0;
 
-// Global gate: request starts are at least REQUEST_SLEEP seconds apart across all workers.
-async function waitForRequestSlot(): Promise<void> {
-  if (httpSettings.requestSleepMs <= 0) return;
-  const now = Date.now();
-  const slot = Math.max(now, nextRequestSlot);
-  nextRequestSlot = slot + httpSettings.requestSleepMs;
-  if (slot > now) await new Promise(resolve => setTimeout(resolve, slot - now));
+// Per-worker request lanes: every fund worker owns one lane. A lane runs its requests one at a time
+// (so total in-flight requests never exceed CONCURRENCY, even though one fund needs ~9 collections)
+// and spaces its own request starts by REQUEST_SLEEP. N workers therefore give ~N times the throughput.
+// Direct Firestore requests only; there is no proxy in this updater, so no global gate is needed.
+export type RequestLane = { tail: Promise<unknown>; nextSlot: number };
+export const createRequestLane = (): RequestLane => ({ tail: Promise.resolve(), nextSlot: 0 });
+const laneStorage = new AsyncLocalStorage<RequestLane>();
+const defaultLane = createRequestLane(); // calls made outside a worker (catalog listing)
+
+function runInLane<T>(action: () => Promise<T>): Promise<T> {
+  const lane = laneStorage.getStore() ?? defaultLane;
+  const run = lane.tail.then(async () => {
+    const sleepMs = httpSettings.requestSleepMs;
+    if (sleepMs > 0) {
+      const now = Date.now();
+      const slot = Math.max(now, lane.nextSlot);
+      lane.nextSlot = slot + sleepMs;
+      if (slot > now) await new Promise(resolve => setTimeout(resolve, slot - now));
+    }
+    return action();
+  });
+  lane.tail = run.then(() => undefined, () => undefined);
+  return run;
 }
 
 class HttpStatusError extends Error {
@@ -865,15 +881,16 @@ const isTransient = (error: unknown): boolean =>
 export async function fetchJson(url: string): Promise<JsonRecord> {
   for (let attempt = 0; ; attempt++) {
     try {
-      await waitForRequestSlot();
-      const response = await fetch(url, { headers: { Accept: 'application/json' } });
-      const text = await response.text();
-      let json: JsonRecord = {};
-      if (text) json = JSON.parse(text);
-      if (!response.ok || json.error) {
-        throw new HttpStatusError(json.error?.message || `${response.status} ${response.statusText}`, response.status);
-      }
-      return json;
+      return await runInLane(async () => {
+        const response = await fetch(url, { headers: { Accept: 'application/json' } });
+        const text = await response.text();
+        let json: JsonRecord = {};
+        if (text) json = JSON.parse(text);
+        if (!response.ok || json.error) {
+          throw new HttpStatusError(json.error?.message || `${response.status} ${response.statusText}`, response.status);
+        }
+        return json;
+      });
     } catch (error) {
       if (attempt >= httpSettings.maxRetries || !isTransient(error)) throw error;
       outputNote(`retry ${attempt + 1}/${httpSettings.maxRetries} after ${error instanceof Error ? error.message : String(error)}: ${url}`);
@@ -1120,14 +1137,15 @@ export function classifyHolding({ symbol, name, cusip, raw }: JsonRecord): strin
   return flags;
 }
 
-async function promisePool<T>(items: T[], limit: number, worker: (item: T) => Promise<void>): Promise<void> {
+export async function runFundPool<T>(items: T[], limit: number, worker: (item: T) => Promise<void>): Promise<void> {
   const queue = [...items];
-  const workers = Array.from({ length: Math.min(limit, queue.length) }, async () => {
+  // Each worker gets its own request lane (see runInLane), so CONCURRENCY funds are in flight at once.
+  const workers = Array.from({ length: Math.min(limit, queue.length) }, () => laneStorage.run(createRequestLane(), async () => {
     while (queue.length) {
       const item = queue.shift();
       if (item) await worker(item);
     }
-  });
+  }));
   await Promise.all(workers);
 }
 

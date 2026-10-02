@@ -4,7 +4,7 @@ import { readFileSync, readdirSync } from 'node:fs';
 import {
   CONTROL_NAMES, classifyHolding, decodeDocument, deriveDistributionFrequency, fetchJson, fundFilterReasons,
   normalizePosition, parseAumRange, parsePercent, preserveUnchangedBlock, readConfig, resolveControls,
-  runtimeControls, selectCatalog, setHttpSettings,
+  runtimeControls, selectCatalog, setHttpSettings, runFundPool,
 } from './update-data';
 
 const read = (path: string) => readFileSync(new URL(`../${path}`, import.meta.url), 'utf8');
@@ -224,4 +224,26 @@ test('REQUEST_SLEEP spaces request starts across concurrent callers', async () =
   await Promise.all([fetchJson('https://x.test/1'), fetchJson('https://x.test/2'), fetchJson('https://x.test/3')]);
   starts.sort((a, b) => a - b);
   expect(starts[1] - starts[0]).toBeGreaterThanOrEqual(50); expect(starts[2] - starts[1]).toBeGreaterThanOrEqual(50);
+});
+
+test('CONCURRENCY bounds in-flight requests per worker lanes, with REQUEST_SLEEP pacing per lane', async () => {
+  const peaks: Record<number, number> = {};
+  for (const [concurrency, sleepMs] of [[1, 0], [1, 20], [3, 20], [3, 0]]) {
+    let inFlight = 0, peak = 0;
+    globalThis.fetch = (async () => {
+      peak = Math.max(peak, ++inFlight);
+      await new Promise(resolve => setTimeout(resolve, 15));
+      inFlight--;
+      return reply(200, {});
+    }) as any;
+    setHttpSettings({ maxRetries: 1, requestSleepMs: sleepMs, historyPageSize: 300 });
+    const started = Date.now();
+    // 6 funds, each issuing 3 parallel requests like the real per-fund Promise.all
+    await runFundPool([1, 2, 3, 4, 5, 6], concurrency, async n => {
+      await Promise.all([1, 2, 3].map(i => fetchJson(`https://x.test/${n}/${i}`)));
+    });
+    peaks[concurrency * 1000 + sleepMs] = peak;
+    expect(peak).toBe(concurrency);
+    if (sleepMs && concurrency === 3) expect(Date.now() - started).toBeLessThan(18 * sleepMs * 0.6 + 100);
+  }
 });
