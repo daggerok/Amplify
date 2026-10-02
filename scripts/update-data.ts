@@ -244,6 +244,15 @@ export function formatEdgarDate(iso: string): string {
   return `${MONTHS[Number(month) - 1] ?? month} ${day} ${year}`;
 }
 
+/** ISO `YYYY-MM-DD` from an ISO date or an `Mon DD YYYY` label; null when it is neither. */
+export function performanceAsOfDate(value: unknown): string | null {
+  const iso = isoDate(value);
+  if (iso) return iso;
+  const m = /^([A-Za-z]{3}) (\d{2}) (\d{4})$/.exec(String(value ?? '').trim());
+  const month = m ? MONTHS.findIndex(name => name.toLowerCase() === m[1].toLowerCase()) : -1;
+  return m && month >= 0 ? isoDate(`${m[3]}-${String(month + 1).padStart(2, '0')}-${m[2]}`) : null;
+}
+
 export function epochToIsoDate(epochSeconds: number): string {
   return new Date(epochSeconds * 1000).toISOString().slice(0, 10);
 }
@@ -1799,15 +1808,20 @@ export async function processFund(fund: CatalogFund, config: UpdaterConfig, prev
   // No fresh source must not null fields from the last successful publication.
   const previousMetrics = previousIndex.metrics ?? {};
   for (const key of Object.keys(metrics)) if (metrics[key] === null && previousMetrics[key] !== undefined) metrics[key] = previousMetrics[key];
+  const returnsBasis = hasOfficialReturns
+    ? 'official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date'
+    : 'Yahoo adjusted market-price returns, not official NAV';
+  // Mandatory contract fields, always last: the basis and the date the returns are as of (the month-end
+  // table date, or the last Yahoo close for Yahoo-derived returns), never the NAV date.
+  delete metrics.returnsBasis; delete metrics.performanceAsOf;
+  metrics.returnsBasis = returnsBasis;
+  metrics.performanceAsOf = performanceAsOfDate(month?.asOfDate);
   if (!metaDoc && !dailyDoc && !chart && !Object.keys(old).length) throw new Error(`${ticker}: no usable per-fund source`);
 
   const holdingsOut = await writePages(dir, ticker, 'holdings', holdings.headers, holdings.rows, config.holdingsPageSize);
   const oldHistoryHeaders = await readPreviousSheetHeaders(ticker, 'history');
   const historyOut = await writePages(dir, ticker, 'history', chart?.days.length ? HISTORY_HEADERS : oldHistoryHeaders.length ? oldHistoryHeaders : HISTORY_HEADERS, history, config.historyPageSize);
   const historySource = chart?.days.length ? 'Yahoo Finance daily market-price closes / adjusted closes (not official NAV)' : old.history?.source ?? 'unavailable';
-  const returnsBasis = hasOfficialReturns
-    ? 'official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date'
-    : 'Yahoo adjusted market-price returns, not official NAV';
   const exchange = cleanText(meta.PrimaryExchange) || cleanText(old.inception?.exchange) || chart?.exchangeName || '';
   const fundInception = isoDate(meta.InceptionDate || meta.LaunchDate) ?? old.inception?.fundInceptionDate ?? null;
   const categoryName = cleanText(category) || cleanText(old.category) || 'ETF';
