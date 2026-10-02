@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Amplify ETF holdings to watchlist from a static api/data.json feed." />
+  <meta name="description" content="Amplify ETF holdings to Watchlist from the static api/amplify JSON feed, generated from the Amplify ETFs public Firestore data feed (holdings, NAV and net assets, yields, month-end/quarter-end performance), with SEC EDGAR N-PORT-P as a holdings fallback and Yahoo Finance for daily prices, history and dividends." />
   <title>Amplify ETFs</title>
   <link rel="icon" type="image/x-icon" href="./favicon.ico">
 
-  <!-- Inter font (same as iShares app) -->
+  <!-- Inter font (same as Amplify / iShares apps) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Tailwind (CDN, no build step for local Parcel/Bun workflow) -->
+  <!-- Tailwind (CDN, no build step for local Bun workflow) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -21,10 +21,10 @@
     }
   </script>
 
-  <!-- Babel standalone: compile inline TypeScript in this single index.html, same no-build style as daggerok/youtube -->
+  <!-- Babel standalone: compile inline TypeScript in this single index.html, same no-build style as daggerok/Amplify -->
   <script src="https://unpkg.com/@babel/standalone@7.24.0/babel.min.js"></script>
 
-  <!-- Synchronous theme init (prevents flash, same strategy as iShares) -->
+  <!-- Synchronous theme init (prevents flash, same strategy as Amplify / iShares) -->
   <script>
     (function () {
       var dark = localStorage.getItem('amplify-theme') === 'dark';
@@ -37,7 +37,7 @@
     @keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
     .animate-fade-in{animation:fadeIn .3s ease-out}
 
-    /* Themed scrollbars (same slate palette as iShares) */
+    /* Themed scrollbars (same slate palette as Amplify / iShares) */
     .themed-scroll::-webkit-scrollbar{width:10px;height:10px}
     .themed-scroll::-webkit-scrollbar-track{background:transparent}
     .themed-scroll::-webkit-scrollbar-thumb{background-color:#cbd5e1;border-radius:8px;border:2px solid transparent;background-clip:padding-box}
@@ -51,22 +51,60 @@
     .selected-row{background:#eff6ff}
     .dark .selected-row{background:rgba(30,64,175,.22)}
 
-    /* Detail navigation expands into place after an ETF is selected. */
-    main.space-y-6 > #selected-tabs-panel{max-height:0;margin-top:0;overflow:hidden;opacity:0;transform:translateY(-10px);padding-top:0;padding-bottom:0;border-color:transparent;transition:max-height .32s ease,margin-top .32s ease,padding .32s ease,opacity .22s ease,transform .32s ease,border-color .22s ease}
-    main.space-y-6 > #selected-tabs-panel.is-visible{max-height:8rem;margin-top:1.5rem;padding-top:1rem;padding-bottom:1rem;opacity:1;transform:translateY(0);border-color:rgb(226 232 240)}
-    .dark main.space-y-6 > #selected-tabs-panel.is-visible{border-color:rgb(51 65 85)}
+    /* Drag-and-drop zone interaction states (same as daggerok/iShares) */
+    .dz-active {
+      border-color: #3b82f6;
+      background: #eff6ff;
+    }
+    .dark .dz-active {
+      background: #1e293b;
+    }
+    .dz-loaded {
+      border-color: rgba(16, 185, 129, 0.5);
+    }
+    .dz-loaded .dz-label {
+      color: #059669;
+    }
+    .dark .dz-loaded .dz-label {
+      color: #34d399;
+    }
+    .dz-error {
+      border-color: rgba(244, 63, 94, 0.6);
+    }
+    .dz-error .dz-label {
+      color: #e11d48;
+    }
+    .dark .dz-error .dz-label {
+      color: #fb7185;
+    }
 
-    @keyframes tableRefresh{from{opacity:.32;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
-    #table-body.table-content-enter{animation:tableRefresh .22s ease-out}
-    @media (prefers-reduced-motion:reduce){#table-body.table-content-enter{animation:none}main.space-y-6 > #selected-tabs-panel{transition:none}}
+    /*
+     * Scroll fix (also applied to daggerok/iShares): only the table scrolls.
+     * The JS layer sizes #table-scroll to the real viewport rest; overscroll
+     * containment stops wheel momentum from chaining to the document, which
+     * used to produce a small up/down page shift when the table was full.
+     */
+    #table-scroll{overscroll-behavior:contain}
 
-    /* Pinned (sticky) columns. The sticky positioning is applied directly to
-       the <th>/<td> elements via dedicated classes — never to a nested
-       wrapper — and only the catalog Use/Ticker columns and the Watchlist
-       Ticker column pin; every other table reuses the same <table> skeleton
-       with different columns, so no positional selectors are used.
-       Pinned cells carry opaque backgrounds for default/hover/selected in
-       both themes so scrolled columns cannot bleed through. */
+    /*
+     * Horizontal pinning for the catalog table: the Use checkbox and the
+     * Ticker stay visible while the remaining columns (including the row
+     * number) move horizontally. `position:sticky` is applied directly to the
+     * `th`/`td` — NOT to a nested wrapper. A sticky element can never move
+     * past the bounds of its own containing block, so a sticky *child* inside
+     * a plain `position:static` cell stops being visible the moment that
+     * cell's own (unscrolled) position scrolls past the viewport edge: the pin
+     * silently stops working exactly when it matters most. The same direct-cell
+     * rule pins the Watchlist Ticker column at the left edge.
+     *
+     * The colors are this repo's own Tailwind tokens, pre-blended to solid
+     * values: a sticky cell repaints on top of whatever column has scrolled
+     * behind it, so a translucent fill (this repo's `.selected-row` uses
+     * rgba(30,64,175,.22) in dark mode) would let that column's text show
+     * through. Base #172033 = slate-800/50 over slate-900, hover #1f2a3d =
+     * slate-700/30 over that, selected #19274e = rgba(30,64,175,.22) over
+     * that; light-mode #f8fafc / #eff6ff are already opaque.
+     */
     #table-scroll table{border-collapse:separate;border-spacing:0;isolation:isolate}
     #table-scroll tbody{position:relative;z-index:0}
     #table-scroll tbody tr{position:relative;z-index:0}
@@ -74,32 +112,42 @@
     #table-scroll thead .catalog-sticky-col{top:0;z-index:30;background:#f8fafc}
     #table-scroll tbody .catalog-sticky-col{z-index:20}
     #table-scroll .catalog-sticky-use{left:0;width:5rem;min-width:5rem}
-    #table-scroll .catalog-sticky-ticker{left:5rem;width:5rem;min-width:5rem;box-shadow:4px 0 6px -6px rgba(15,23,42,.7)}
-    #table-scroll .watchlist-sticky-ticker{position:sticky;left:0;width:10rem;min-width:10rem;max-width:10rem;overflow:hidden;text-overflow:ellipsis;background:#fff;background-clip:padding-box;box-shadow:4px 0 6px -6px rgba(15,23,42,.7)}
-    #table-scroll thead .watchlist-sticky-ticker{top:0;z-index:30;background:#f8fafc}
-    #table-scroll tbody .watchlist-sticky-ticker{z-index:20}
-    .dark #table-scroll thead .catalog-sticky-col,.dark #table-scroll thead .watchlist-sticky-ticker{background:#0f172a}
-    .dark #table-scroll .catalog-sticky-col{background:#172033}
-    .dark #table-scroll .watchlist-sticky-ticker{background:#172033}
-    #table-scroll tbody tr:hover .catalog-sticky-col{background:#f8fafc}
-    #table-scroll tbody tr:hover .watchlist-sticky-ticker{background:#f8fafc}
+    #table-scroll .catalog-sticky-ticker{left:5rem;width:6rem;min-width:6rem;box-shadow:4px 0 6px -6px rgba(15,23,42,.7)}
+    /*
+     * Watchlist Ticker: the first data column there holds an exchange ticker
+     * for equities but a CUSIP/ISIN (or, for a few private/crypto positions,
+     * a longer provider code) for bonds and cash, so the pin gets a fixed
+     * width with defensive truncation instead of a ticker-sized column.
+     */
+    #table-scroll .watchlist-sticky-col{position:sticky;background:#fff;background-clip:padding-box}
+    #table-scroll thead .watchlist-sticky-col{top:0;z-index:30;background:#f8fafc}
+    #table-scroll tbody .watchlist-sticky-col{z-index:20}
+    #table-scroll .watchlist-sticky-ticker{left:0;width:10rem;min-width:10rem;max-width:10rem;overflow:hidden;text-overflow:ellipsis;box-shadow:4px 0 6px -6px rgba(15,23,42,.7)}
+    .dark #table-scroll .catalog-sticky-col,.dark #table-scroll .watchlist-sticky-col{background:#172033}
+    .dark #table-scroll thead .catalog-sticky-col,.dark #table-scroll thead .watchlist-sticky-col{background:#0f172a}
+    #table-scroll tbody tr:hover .catalog-sticky-col,#table-scroll tbody tr:hover .watchlist-sticky-col{background:#f8fafc}
     #table-scroll tbody tr.selected-row .catalog-sticky-col{background:#eff6ff}
-    .dark #table-scroll tbody tr:hover .catalog-sticky-col{background:#1f2a3d}
-    .dark #table-scroll tbody tr:hover .watchlist-sticky-ticker{background:#1f2a3d}
+    .dark #table-scroll tbody tr:hover .catalog-sticky-col,.dark #table-scroll tbody tr:hover .watchlist-sticky-col{background:#1f2a3d}
     .dark #table-scroll tbody tr.selected-row .catalog-sticky-col{background:#19274e}
 
-    /* Blacklist panel: smooth expand/collapse. The panel stays in the DOM (the
-       `hidden` utility is gone from its markup); JS toggles `is-visible` and
-       keeps style.maxHeight in sync with scrollHeight (syncBlacklistPanelHeight),
-       so opening/closing animates and the panel also resizes smoothly while
-       chips are added/removed. Max-height, vertical padding and border color
-       use the slower ease; opacity and transform the faster one, per the
-       cross-repo animation pattern. Collapsed state neutralizes the parent
-       space-y margin so the closed panel takes no room (like `hidden` did). */
-    #blacklist-panel{max-height:0;overflow:hidden;opacity:0;transform:translateY(-6px);padding-top:0;padding-bottom:0;border-top-width:0;border-bottom-width:0;border-color:transparent;margin-top:-1.5rem;transition:max-height .32s ease,opacity .22s ease,transform .22s ease,padding-top .32s ease,padding-bottom .32s ease,border-color .22s ease,border-top-width .22s ease,border-bottom-width .22s ease,margin-top .32s ease}
-    #blacklist-panel.is-visible{opacity:1;transform:none;padding-top:1rem;padding-bottom:1rem;border-top-width:1px;border-bottom-width:1px;border-color:rgb(226 232 240);margin-top:0}
-    .dark #blacklist-panel.is-visible{border-color:rgb(51 65 85)}
-    @media (prefers-reduced-motion:reduce){#blacklist-panel{transition:none}}
+    /* Detail navigation expands into place after an ETF is selected. */
+    main.space-y-6 > #selected-tabs-panel{max-height:0;margin-top:0;overflow:hidden;opacity:0;transform:translateY(-10px);padding-top:0;padding-bottom:0;border-color:transparent;transition:max-height .32s ease,margin-top .32s ease,padding .32s ease,opacity .22s ease,transform .32s ease,border-color .22s ease}
+    main.space-y-6 > #selected-tabs-panel.is-visible{max-height:8rem;margin-top:1.5rem;padding-top:1rem;padding-bottom:1rem;opacity:1;transform:translateY(0);border-color:rgb(226 232 240)}
+    .dark main.space-y-6 > #selected-tabs-panel.is-visible{border-color:rgb(51 65 85)}
+
+    /*
+     * Blacklist manager: same smooth expand/collapse contract as the detail
+     * nav above. Its max-height is set inline by JS from scrollHeight, not by
+     * a fixed rem value, because the chip list (unlike the detail tabs) has no
+     * bounded height.
+     */
+    main.space-y-6 > #blacklist-panel{max-height:0;margin-top:0;overflow:hidden;opacity:0;transform:translateY(-10px);padding-top:0;padding-bottom:0;border-color:transparent;transition:max-height .32s ease,margin-top .32s ease,padding .32s ease,opacity .22s ease,transform .32s ease,border-color .22s ease}
+    main.space-y-6 > #blacklist-panel.is-visible{margin-top:1.5rem;padding-top:1rem;padding-bottom:1rem;opacity:1;transform:translateY(0);border-color:rgb(226 232 240)}
+    .dark main.space-y-6 > #blacklist-panel.is-visible{border-color:rgb(51 65 85)}
+
+    @keyframes tableRefresh{from{opacity:.32;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+    #table-body.table-content-enter{animation:tableRefresh .22s ease-out}
+    @media (prefers-reduced-motion:reduce){#table-body.table-content-enter{animation:none}main.space-y-6 > #selected-tabs-panel{transition:none}main.space-y-6 > #blacklist-panel{transition:none}}
   </style>
 <style id="catalog-summary-styles">
     #app-subtitle:empty { display: none; }
@@ -120,7 +168,7 @@
 <body class="min-h-screen font-sans bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300">
   <div class="min-h-screen flex flex-col animate-fade-in">
 
-    <!-- Header: intentionally mirrors daggerok/iShares look and feel -->
+    <!-- Header: intentionally mirrors daggerok/Amplify look and feel -->
     <header class="bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 px-4 sm:px-8 py-3 flex flex-wrap justify-between items-center gap-3 z-40 shadow-xs shrink-0">
       <div class="flex flex-1 flex-wrap items-center gap-x-3 gap-y-1.5 min-w-0">
         <div class="flex items-start gap-3 min-w-0">
@@ -130,7 +178,7 @@
           </svg>
           <h1 class="min-w-0 text-xl font-bold tracking-tight text-slate-900 dark:text-white leading-tight">Amplify ETFs</h1>
         </div>
-        <span id="app-subtitle" aria-live="polite" class="basis-full sm:basis-auto text-sm text-slate-500 dark:text-slate-400"></span>
+        <span id="app-subtitle" class="basis-full sm:basis-auto text-sm text-slate-500 dark:text-slate-400"></span>
       </div>
       <div class="flex items-center gap-3 shrink-0">
         <button type="button" aria-controls="app-summary" aria-expanded="false" aria-label="ETF catalog information" id="ticker-count" class="bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 text-sm font-semibold px-3.5 py-1.5 rounded-full border border-blue-200 dark:border-blue-500/30">
@@ -138,9 +186,8 @@
         </button>
         <span id="app-summary" role="region" aria-label="ETF catalog information" hidden>
           Search Amplify ETFs, select ETFs via the “Use” checkbox, then use the Watchlist tab. Data comes from
-          <a href="./api/data.json" target="_blank" rel="noopener noreferrer" class="font-semibold text-blue-600 dark:text-blue-400 hover:underline">api/data.json</a>
-          generated from
-          <a href="https://amplifyetfs.com/our-etfs/" target="_blank" rel="noopener noreferrer" class="font-semibold text-blue-600 dark:text-blue-400 hover:underline">Amplify ETFs</a>
+          <a href="./api/amplify/index.json" target="_blank" rel="noopener noreferrer" class="font-semibold text-blue-600 dark:text-blue-400 hover:underline">api/amplify/index.json</a> generated from
+          <a href="https://amplifyetfs.com/our-etfs/" target="_blank" rel="noopener noreferrer" class="font-semibold text-blue-600 dark:text-blue-400 hover:underline">Amplify ETFs public Firestore data feed</a> + SEC EDGAR N-PORT-P (holdings fallback only) + Yahoo Finance daily prices (history and dividends)
         </span>
         <button id="theme-toggle" class="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 transition text-base leading-none" title="Toggle Theme">🌙</button>
       </div>
@@ -148,46 +195,60 @@
 
     <main class="flex-1 w-full max-w-full p-4 sm:p-8 space-y-6">
 
-      <!-- Search, Tabs & Action Bar: same simple pattern as iShares -->
+      <!-- Search, Tabs & Action Bar -->
       <div class="flex flex-col lg:flex-row justify-between items-center gap-4 bg-white dark:bg-slate-800/80 p-4 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm backdrop-blur">
 
-        <!-- One full-text search input. It filters ETFs or selected watchlist rows case-insensitively. -->
-        <div class="relative w-full lg:w-96 shrink-0">
+        <!-- Search is view-scoped: each tab keeps its own query. The ✕ button
+             clears only the active tab's filter (same glyph as the Use-column blacklist). -->
+        <div class="relative flex items-center w-full lg:w-96 shrink-0">
           <input
             type="text"
             id="search-input"
             placeholder="Search ETFs, fund names, holdings, tickers, CUSIPs, ISINs..."
             disabled
-            class="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 pr-9 w-full focus:outline-none focus:border-blue-500 text-sm placeholder-slate-400 dark:placeholder-slate-500 disabled:opacity-50 disabled:cursor-not-allowed transition"
+            class="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-700 rounded-lg pl-4 pr-8 py-2 w-full focus:outline-none focus:border-blue-500 text-sm placeholder-slate-400 dark:placeholder-slate-500 disabled:opacity-50 disabled:cursor-not-allowed transition"
           />
           <button
-            id="search-clear-btn"
             type="button"
-            aria-label="Clear the search for the current tab"
-            title="Clear search"
-            class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-slate-200 dark:bg-slate-700 text-slate-500 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-600 text-xs leading-[20px] text-center transition"
+            id="search-clear-btn"
+            class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 w-5 h-5 flex items-center justify-center rounded-full text-slate-400 hover:text-slate-700 dark:text-slate-500 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition text-sm leading-none focus:outline-none"
+            title="Clear search filter"
+            aria-label="Clear search filter"
           >✕</button>
         </div>
 
-        <!-- ETF catalogue tabs stay with search and actions, as in the original layout. -->
-        <div id="tabs-bar" role="tablist" aria-label="ETF catalog tabs" class="hidden flex flex-wrap items-center justify-center gap-1.5 overflow-x-auto py-1 w-full max-w-full flex-1 themed-scroll"></div>
+        <!-- ETF catalogue tabs: All ETFs + Amplify categories. -->
+        <div id="tabs-bar" class="hidden flex flex-wrap items-center justify-center gap-1.5 overflow-x-auto py-1 w-full max-w-full flex-1 themed-scroll"></div>
 
-        <!-- Actions intentionally match iShares naming and placement -->
+        <!-- Actions intentionally match Amplify / iShares naming and placement -->
         <div class="flex flex-wrap items-center gap-2.5 w-full lg:w-auto justify-end shrink-0">
+
+          <!-- Integrated Drag & Drop Upload (same feature as daggerok/iShares, N-PORT flavor) -->
+          <div
+            id="dropzone"
+            class="flex items-center gap-2 border border-dashed border-slate-300 dark:border-slate-600 hover:border-blue-500 bg-slate-50 dark:bg-slate-900/60 transition-all rounded-lg px-3.5 py-2 cursor-pointer text-sm text-slate-600 dark:text-slate-300"
+            title="Upload SEC Form N-PORT-P primary_doc.xml (Amplify ETF holdings from EDGAR, used by the feed only when the Amplify data feed publishes no holdings for a fund). Parsed in your browser; uploads live for this session only."
+          >
+            <input type="file" id="file-input" accept=".xml" class="hidden" />
+            <svg class="w-4 h-4 text-blue-500 dark:text-blue-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+            </svg>
+            <span id="dropzone-text" class="dz-label font-medium">Upload / Drop N-PORT XML</span>
+          </div>
+
           <button id="copy-btn" disabled class="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 px-4 py-2 rounded-lg text-sm font-medium transition active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-slate-200 dark:hover:bg-slate-700 disabled:hover:bg-slate-100 dark:disabled:hover:bg-slate-800">Copy Tickers</button>
           <button id="export-csv-btn" disabled class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg text-sm font-medium transition active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-blue-600">Export .csv</button>
           <button id="export-txt-btn" disabled class="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-lg text-sm font-medium transition active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-emerald-600">Export .txt</button>
           <button id="reset-btn" disabled class="bg-rose-100 dark:bg-rose-900/40 text-rose-700 dark:text-rose-300 border border-rose-200 dark:border-rose-700/50 px-3 py-2 rounded-lg text-sm font-medium transition active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-rose-200 dark:hover:bg-rose-800/60 disabled:hover:bg-rose-100 dark:disabled:hover:bg-rose-900/40">Clear</button>
-          <button id="blacklist-btn" aria-expanded="false" aria-controls="blacklist-panel" class="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 px-4 py-2 rounded-lg text-sm font-medium transition active:scale-95 hover:bg-slate-200 dark:hover:bg-slate-700" title="Manage the blacklist of ETFs hidden from All ETFs (kept in browser localStorage)">Blacklist</button>
+          <button id="blacklist-btn" class="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 px-4 py-2 rounded-lg text-sm font-medium transition active:scale-95 hover:bg-slate-200 dark:hover:bg-slate-700" title="Manage the blacklist of ETFs hidden from All ETFs (kept in browser localStorage)" aria-expanded="false">Blacklist</button>
         </div>
 
       </div>
 
-      <!-- Blacklist manager: blacklisted ETFs are hidden from All ETFs and stored in localStorage.
-           Always in the DOM — open/close animates via .blacklist-panel CSS + syncBlacklistPanelHeight(). -->
-      <div id="blacklist-panel" class="blacklist-panel bg-white dark:bg-slate-800/80 px-4 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm backdrop-blur">
+      <!-- Blacklist manager: blacklisted ETFs are hidden from All ETFs and stored in localStorage. -->
+      <div id="blacklist-panel" class="bg-white dark:bg-slate-800/80 px-4 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm backdrop-blur">
         <div class="flex flex-col sm:flex-row sm:items-center gap-2.5">
-          <input type="text" id="blacklist-input" placeholder="Add ETF tickers to blacklist (e.g. DIVO, IDVO)" class="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 w-full sm:w-80 focus:outline-none focus:border-blue-500 text-sm placeholder-slate-400 dark:placeholder-slate-500 transition" />
+          <input type="text" id="blacklist-input" placeholder="Add ETF tickers to blacklist (e.g. SPY, XLK)" class="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 w-full sm:w-80 focus:outline-none focus:border-blue-500 text-sm placeholder-slate-400 dark:placeholder-slate-500 transition" />
           <div class="flex flex-wrap items-center gap-2.5">
             <button id="blacklist-add-btn" class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg text-sm font-medium transition active:scale-95">Add</button>
             <button id="blacklist-clear-btn" class="bg-rose-100 dark:bg-rose-900/40 text-rose-700 dark:text-rose-300 border border-rose-200 dark:border-rose-700/50 px-3 py-2 rounded-lg text-sm font-medium transition active:scale-95 hover:bg-rose-200 dark:hover:bg-rose-800/60">Clear Blacklist</button>
@@ -197,2226 +258,36 @@
         <p id="blacklist-empty" class="text-xs text-slate-400 dark:text-slate-500 mt-3">The blacklist is empty. Blacklisted ETFs disappear from All ETFs (and from selection), and are kept in your browser localStorage.</p>
       </div>
 
-
       <!-- Selected ETF detail tabs appear immediately above the table. -->
       <nav id="selected-tabs-panel" class="bg-white dark:bg-slate-800/80 px-4 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm backdrop-blur" aria-label="Selected ETF detail views">
-        <div id="selected-tabs-bar" role="tablist" aria-label="Selected ETF detail tabs" class="flex flex-wrap items-center justify-center gap-1.5 overflow-x-auto py-1 w-full max-w-full themed-scroll"></div>
+        <div id="selected-tabs-bar" class="flex flex-wrap items-center justify-center gap-1.5 overflow-x-auto py-1 w-full max-w-full themed-scroll"></div>
       </nav>
 
       <!-- Data Table Container -->
       <div class="bg-white dark:bg-slate-800/50 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm backdrop-blur overflow-hidden">
-        <div id="table-scroll" class="max-h-[calc(100vh-245px)] overflow-x-auto overflow-y-auto themed-scroll">
-          <table class="w-full text-left border-collapse whitespace-nowrap">
+        <div id="table-scroll" class="overflow-x-auto overflow-y-auto themed-scroll">
+          <table class="w-full text-left whitespace-nowrap">
             <thead id="table-head" class="bg-slate-50 dark:bg-slate-900/95 text-slate-500 dark:text-slate-400 text-xs uppercase tracking-wider border-b border-slate-200 dark:border-slate-700 sticky top-0 z-20 backdrop-blur">
               <tr>
-                <th class="py-3.5 px-4 w-12 text-center" title="Row index in the current table view.">#</th>
-                <th class="py-3.5 px-4" title="Ticker Symbol — Unique exchange identifier for the Amplify ETF.">ETF</th>
-                <th class="py-3.5 px-4" title="Fund Name — Official legal name of the Amplify Exchange-Traded Fund (ETF).">Fund Name</th>
+                <th class="py-3.5 px-4 w-12 text-center" title="Row index">#</th>
+                <th class="py-3.5 px-4" title="Column 1">Column 1</th>
               </tr>
             </thead>
             <tbody id="table-body" class="divide-y divide-slate-100 dark:divide-slate-700/50 text-sm">
               <tr>
-                <td colspan="10" class="py-12 text-center text-slate-400 dark:text-slate-500">Loading Amplify ETF data from api/data.json…</td>
+                <td colspan="10" class="py-12 text-center text-slate-400 dark:text-slate-500">Loading Amplify ETF catalog…</td>
               </tr>
             </tbody>
           </table>
+          <div id="static-load-sentinel" class="hidden py-3 text-center text-xs text-slate-500 dark:text-slate-400 cursor-pointer" aria-live="polite">
+            <span id="static-load-status"></span>
+          </div>
         </div>
       </div>
-
     </main>
-
   </div>
 
-  <script type="text/babel" data-presets="typescript">
-type CategoryId = string;
-type FundDetailTab = 'overview' | 'holdings' | 'performance' | 'distributions' | 'yields' | 'allocations' | 'price';
-type ActiveTab = string;
-type SortDirection = 'asc' | 'desc';
-type TableRow = Record<string, unknown> & { searchIndex?: string };
-
-type Fund = {
-  ticker: string;
-  name: string;
-  category: string;
-  nav?: string;
-  navValue?: number | null;
-  netAssets?: string;
-  netAssetsValue?: number | null;
-  expenseRatio?: string;
-  holdingsAsOfDate?: string;
-  holdingsCount?: number;
-  rank?: number;
-  distributionYield?: string;
-  distributionYieldValue?: number | null;
-  secYield?: string;
-  secYieldValue?: number | null;
-  distributionFrequency?: string;
-  ytdReturn?: number | null;
-  tr1y?: number | null;
-  cagr3y?: number | null;
-  cagr5y?: number | null;
-  cagr10y?: number | null;
-  siAnn?: number | null;
-  tr3y?: number | null;
-  tr5y?: number | null;
-  tr10y?: number | null;
-  returnAsOf?: string;
-  inceptionDate?: string;
-  historyCount?: number | null;
-};
-
-type Holding = {
-  id?: string;
-  fundTicker: string;
-  fundName: string;
-  asOfDate?: string;
-  symbol: string;
-  rawSymbol?: string;
-  name: string;
-  cusip?: string;
-  weight?: number | null;
-  marketValue?: number | null;
-  shares?: number | null;
-  price?: number | null;
-  flags?: string[];
-};
-
-type FundHoldings = {
-  ticker: string;
-  fundName: string;
-  asOfDate?: string;
-  source?: string;
-  positions: Holding[];
-  error?: string;
-};
-
-type FundDetail = {
-  ticker: string;
-  fundName: string;
-  category: string;
-  metadata?: Record<string, unknown>;
-  daily?: Record<string, unknown> | null;
-  yields?: Record<string, unknown> | null;
-  distributions?: DistributionRow[];
-  distributionFrequency?: string;
-  performance?: {
-    monthly?: PerformanceDoc | null;
-    quarterly?: PerformanceDoc | null;
-  };
-  allocations?: AllocationDoc | null;
-};
-
-type DistributionRow = {
-  id?: string;
-  exDate?: string;
-  recordDate?: string;
-  payableDate?: string;
-  amount?: string | number;
-  currency?: string;
-  type?: string;
-  note?: string | null;
-  year?: number | null;
-};
-
-type PerformanceDoc = {
-  asOfDate?: string;
-  source?: string;
-  returns?: Array<{
-    ticker?: string;
-    label?: string;
-    type?: string;
-    returns?: Record<string, number | string | null>;
-  }>;
-};
-
-type AllocationDoc = {
-  asOfDate?: string;
-  allocations?: Array<{
-    dimensionID?: number | null;
-    dimensionName?: string;
-    dimvalues?: Array<{ label?: string; weight?: number | null; holdingCount?: number | null }>;
-  }>;
-};
-
-type DataApi = {
-  generatedAt?: string;
-  counts?: { funds?: number; holdings?: number; distributions?: number };
-  funds: Fund[];
-  holdings: Record<string, FundHoldings>;
-  details?: Record<string, FundDetail>;
-};
-
-type FundRow = Fund & { searchIndex: string };
-
-type WatchlistRow = {
-  symbol: string;
-  name: string;
-  names: string[];
-  cusips: string[];
-  identifier: string;
-  flags: string[];
-  fundTickers: string[];
-  fundCount: number;
-  weightSum: number;
-  maxWeight: number | null;
-  marketValueSum: number;
-  searchIndex: string;
-};
-
-type AppState = {
-  blacklist: Set<string>;
-  data: DataApi | null;
-  funds: FundRow[];
-  holdings: Record<string, FundHoldings>;
-  details: Record<string, FundDetail>;
-  selected: Set<string>;
-  activeFundTicker: string | null;
-  activeTab: ActiveTab;
-  tabFilters: Record<string, string>;
-  sortByTab: Record<string, { key: string; dir: SortDirection }>;
-  sortKey: string;
-  sortDir: SortDirection;
-};
-
-const DATA_API_URL = './api/data.json';
-const THEME_KEY = 'amplify-theme';
-
-// Hover explanations for table headers. Native `title` tooltips, same pattern as daggerok/iShares.
-const COLUMN_TOOLTIPS: Record<string, string> = {
-  '#': 'Row index in the current table view.',
-  'Use': 'Use / Multi-ETF Selection — Check this box to include this ETF\'s underlying holdings in the combined Watchlist tab. The header box selects only the rows currently rendered (current tab + search filter).',
-  'Ticker': 'Ticker Symbol — Unique exchange identifier for the Amplify ETF or underlying holding.',
-  'Fund Name': 'Fund Name — Official legal name of the Amplify Exchange-Traded Fund (ETF).',
-  'Name': 'Security Name — Full registered legal name of the company or underlying financial asset.',
-  'Type': 'Fund Type — Amplify product category: Income, Growth (Thematic), or Core.',
-  'NAV': 'NAV (Net Asset Value) — Per-share dollar value of the fund: (total assets − liabilities) ÷ shares outstanding.',
-  'Net Assets': 'Net Assets (AUM) — Assets Under Management: total market value of fund assets minus liabilities. AUM = Assets Under Management.',
-  'Expense': 'Expense Ratio — Annual management fee and operating expenses charged to shareholders, as a percent of fund assets.',
-  'Dividend Yield': 'Dividend Yield / Distribution Rate — Trailing distribution yield: recent cash distributions annualized, divided by current NAV. Amplify publishes this as Distribution Yield.',
-  'SEC Yield': '30-Day SEC Yield — Standardized yield required by the U.S. SEC, based on income earned over the last 30 days after expenses. Useful for comparing income funds.',
-  'Frequency': 'Distribution Frequency — How often the fund pays distributions, derived from the fund\'s distribution history (typical interval between ex-dates). Coded so plain string sort stays ordered: 00 = no distribution history yet, 01 = Monthly, 04 = Quarterly, 06 = Semi-annually, 12 = Annually, 99 = Irregular.',
-  'YTD Return': 'YTD Return (Year-To-Date Total Return) — Cumulative NAV total return from January 1 of the current calendar year through the latest month-end, including reinvested distributions.',
-  'YTD': 'YTD (Year-To-Date) — Cumulative total return from the start of the current calendar year.',
-  'TR 1Y': 'TR 1Y (1-Year Total Return) — NAV total return over the past 1 year (TR = Total Return), including price change and reinvested distributions. For a 1-year window this equals the annualized 1-year figure Amplify publishes.',
-  'TR 3Y': 'TR 3Y (3-Year Total Return) — Cumulative NAV total return over 3 years (TR = Total Return). Derived from Amplify\'s published 3-year annualized return: (1 + CAGR)^3 − 1.',
-  'TR 5Y': 'TR 5Y (5-Year Total Return) — Cumulative NAV total return over 5 years (TR = Total Return). Derived from Amplify\'s published 5-year annualized return: (1 + CAGR)^5 − 1.',
-  'TR 10Y': 'TR 10Y (10-Year Total Return) — Cumulative NAV total return over 10 years (TR = Total Return). Derived from Amplify\'s published 10-year annualized return: (1 + CAGR)^10 − 1.',
-  'CAGR 3Y': 'CAGR 3Y (3-Year Compound Annual Growth Rate) — Annualized NAV total return over 3 years (CAGR = Compound Annual Growth Rate). Amplify publishes 3YR as an annualized figure, not a 3-year cumulative total.',
-  'CAGR 5Y': 'CAGR 5Y (5-Year Compound Annual Growth Rate) — Annualized NAV total return over 5 years (CAGR = Compound Annual Growth Rate). Amplify publishes 5YR as an annualized figure.',
-  'CAGR 10Y': 'CAGR 10Y (10-Year Compound Annual Growth Rate) — Annualized NAV total return over 10 years (CAGR = Compound Annual Growth Rate). Amplify publishes 10YR as an annualized figure.',
-  'SI Ann.': 'SI Ann. (Since Inception Annualized) — Compound annual growth rate from the fund\'s inception date through the latest month-end. SI = Since Inception.',
-  'SI Cum.': 'SI Cum. (Since Inception Cumulative) — Total cumulative NAV return from inception through the latest month-end, including reinvested distributions. SI = Since Inception.',
-  'Return As Of': 'Return As Of Date — Month-end cutoff for the published YTD, TR, CAGR, and since-inception performance figures.',
-  'Inception': 'Inception Date — Official date the ETF began operations / first traded.',
-  'Inception Date': 'Inception Date — Official date the ETF began operations / first traded.',
-  'Holdings': 'Holdings Count — Number of individual positions currently in the ETF portfolio.',
-  'History': 'Historical Records — Number of daily NAV / market-price snapshots stored for this fund (same idea as iShares History).',
-  'As Of': 'As Of Date — Effective date of the holdings file used for this row (catalog) or of the metric shown (detail views).',
-  'ETFs': 'ETFs — Badges for every selected Amplify ETF that currently holds this security.',
-  '# ETFs': '# ETFs — Number of selected Amplify ETFs that currently hold this security.',
-  'Weight Sum': 'Weight Sum (%) — Combined allocation of this holding across all selected ETFs.',
-  'Max Weight': 'Max Weight (%) — Largest single-fund portfolio weight of this holding among the selected ETFs.',
-  'Market Value': 'Market Value ($) — Current dollar value of the position (or the sum across selected ETFs on Watchlist).',
-  'Weight': 'Portfolio Weight (%) — Percentage of the fund\'s net assets allocated to this position.',
-  'Shares': 'Shares / Quantity — Number of shares or units of the security held by the fund.',
-  'Flags': 'Flags — Classification tags for the holding (symbol, cash, option, treasury, derivative, and so on).',
-  'CUSIP': 'CUSIP — Committee on Uniform Security Identification Procedures 9-character U.S. security identifier.',
-  'ISIN': 'ISIN — International Securities Identification Number, a 12-character unique identifier.',
-  'SEDOL': 'SEDOL — Stock Exchange Daily Official List 7-character security identifier.',
-  'Identifier': 'Identifier — Security identifier (CUSIP in this feed) merged into the row; also the dedup key when no exchange ticker is published (bonds, and rows whose Ticker is a placeholder).',
-  'Section': 'Section — Grouping of the overview metric (Fund, Price, Yield, Holdings).',
-  'Metric': 'Metric — Name of the reported data point.',
-  'Value': 'Value — Reported figure for this metric.',
-  'Period': 'Period — Whether the performance row is month-end or quarter-end.',
-  '1M': '1M (1-Month Total Return) — Cumulative NAV return over the most recent calendar month.',
-  '3M': '3M (3-Month Total Return) — Cumulative NAV return over the most recent 3 months.',
-  '6M': '6M (6-Month Total Return) — Cumulative NAV return over the most recent 6 months.',
-  '1Y': '1Y (1-Year Total Return) — NAV total return over the past 1 year, including reinvested distributions.',
-  '3Y': '3Y (3-Year CAGR) — Annualized NAV total return over 3 years. CAGR = Compound Annual Growth Rate.',
-  '5Y': '5Y (5-Year CAGR) — Annualized NAV total return over 5 years. CAGR = Compound Annual Growth Rate.',
-  '10Y': '10Y (10-Year CAGR) — Annualized NAV total return over 10 years. CAGR = Compound Annual Growth Rate.',
-  'Allocation': 'Allocation Dimension — How holdings are grouped (GICS sector, country, market cap, theme).',
-  'Ex-Date': 'Ex-Dividend Date — On or after this date, a buyer of the ETF is not entitled to the next distribution.',
-  'Record Date': 'Record Date — Date the fund locks the shareholder list eligible for the distribution.',
-  'Payable Date': 'Payable Date — Date cash is paid to shareholders of record.',
-  'Amount': 'Distribution Amount ($) — Cash paid per share, in USD.',
-  'Year': 'Distribution Year — Calendar year of the distribution.',
-  'Note': 'Note — Extra comment on the distribution, if Amplify provided one.',
-  'Price': 'Price ($) — Market price per share of the holding, when available.',
-};
-
-const SELECTED_KEY = 'amplify-selected-etfs';
-const BLACKLIST_KEY = 'amplify-blacklisted-etfs';
-const ACTIVE_FUND_KEY = 'amplify-active-fund';
-const DEFAULT_SELECTED_TICKERS: string[] = []; // start clean: users choose the funds to compare
-const TAB_FILTERS_KEY = 'amplify-tab-filters';
-// Legacy single-blob search map (pre per-tab filters). Read once at boot for
-// migration, then removed from localStorage.
-const LEGACY_SEARCHES_KEY = 'amplify-searches';
-const TAB_SORTS_KEY = 'amplify-tab-sorts';
-// Large all-catalog Watchlists are rendered in scroll chunks so the DOM never
-// receives tens of thousands of rows at once. Copy/export always use the full
-// filtered result, not just the rendered chunk.
-const WATCHLIST_PAGE_SIZE = 500;
-let watchlistVisibleLimit = WATCHLIST_PAGE_SIZE;
-let watchlistScrollObserver: any = null;
-
-const DETAIL_TABS: Array<{ key: FundDetailTab; label: string }> = [
-  { key: 'overview', label: 'Overview' },
-  { key: 'holdings', label: 'Holdings' },
-  { key: 'performance', label: 'Performance' },
-  { key: 'allocations', label: 'Allocations' },
-  { key: 'distributions', label: 'Distributions' },
-  { key: 'yields', label: 'Yields' },
-  { key: 'price', label: 'Price' },
-];
-
-const state: AppState = {
-  blacklist: new Set(),
-  data: null,
-  funds: [],
-  holdings: {},
-  details: {},
-  selected: new Set(),
-  activeFundTicker: null,
-  activeTab: 'All',
-  tabFilters: {},
-  sortByTab: {},
-  sortKey: 'rank',
-  sortDir: 'asc',
-};
-
-const el = {
-  themeToggle: byId('theme-toggle'),
-  tickerCount: byId('ticker-count'),
-  subtitle: byId('app-subtitle'),
-  searchInput: byId('search-input'),
-  searchClearBtn: byId('search-clear-btn'),
-  tabsBar: byId('tabs-bar'),
-  selectedTabsPanel: byId('selected-tabs-panel'),
-  selectedTabsBar: byId('selected-tabs-bar'),
-  copyBtn: byId('copy-btn'),
-  exportCsvBtn: byId('export-csv-btn'),
-  exportTxtBtn: byId('export-txt-btn'),
-  resetBtn: byId('reset-btn'),
-  blacklistBtn: byId('blacklist-btn'),
-  blacklistPanel: byId('blacklist-panel'),
-  blacklistInput: byId('blacklist-input'),
-  blacklistAddBtn: byId('blacklist-add-btn'),
-  blacklistClearBtn: byId('blacklist-clear-btn'),
-  blacklistChips: byId('blacklist-chips'),
-  blacklistEmpty: byId('blacklist-empty'),
-  tableScroll: byId('table-scroll'),
-  tableHead: byId('table-head'),
-  tableBody: byId('table-body'),
-};
-
-init();
-
-function getHeaderTooltip(header: string): string {
-  if (!header) return '';
-  if (COLUMN_TOOLTIPS[header]) return COLUMN_TOOLTIPS[header];
-  const clean = String(header).trim();
-  const keys = Object.keys(COLUMN_TOOLTIPS);
-  for (let i = 0; i < keys.length; i++) {
-    const key = keys[i];
-    if (key.toLowerCase() === clean.toLowerCase()) return COLUMN_TOOLTIPS[key];
-  }
-  if (/^TR\s+\d+/i.test(clean)) return `${clean} = Total Return: cumulative return over the period, including price change and reinvested distributions.`;
-  if (/^CAGR\s+\d+/i.test(clean)) return `${clean} = Compound Annual Growth Rate: annualized geometric mean return over the period.`;
-  if (/weight/i.test(clean)) return `${clean}: Portfolio weight percentage allocation.`;
-  if (/yield/i.test(clean)) return `${clean}: Annualized payout or dividend yield.`;
-  if (/return/i.test(clean)) return `${clean}: Performance total return metric.`;
-  return `${clean} — column in the current table.`;
-}
-
-function indexHeader(): string {
-  return `<th class="py-3.5 px-4 w-12 text-center" title="${escapeHtml(getHeaderTooltip('#'))}">#</th>`;
-}
-
-function useHeader(): string {
-  // The header box manages only the rows currently rendered by the catalog
-  // table: current tab + active search filter (visibleFunds is already
-  // blacklist-excluded, getVisibleFunds applies tab + search). Checked is
-  // true iff *every* visible row is selected — computed with .every, because
-  // unrelated selections may exist outside the current scope.
-  const visible = getVisibleFunds();
-  const allSelected = visible.length > 0 && visible.every(fund => state.selected.has(fund.ticker));
-  return `<th class="catalog-sticky-col catalog-sticky-use py-3.5 px-4 w-20 text-center" title="${escapeHtml(getHeaderTooltip('Use'))}">
-    <div class="inline-flex items-center justify-center gap-1">
-      <input type="checkbox" id="select-all-checkbox" ${allSelected ? 'checked' : ''} class="w-4 h-4 accent-blue-600 cursor-pointer" title="Select / Deselect all visible ETFs (current tab + search filter)" />
-      <span>Use</span>
-    </div>
-  </th>`;
-}
-
-function init(): void {
-  restoreSelectedEtfs();
-  restoreBlacklist();
-  restoreTabFilters();
-  restoreTabSorts();
-  applyTheme(localStorage.getItem(THEME_KEY) === 'dark');
-  bindEvents();
-  // Reflect a restored per-tab query in the input and search-clear button
-  // before the feed finishes loading.
-  syncSearchInput();
-  void loadData();
-}
-
-function bindEvents(): void {
-  el.themeToggle.addEventListener('click', () => {
-    const dark = !document.documentElement.classList.contains('dark');
-    localStorage.setItem(THEME_KEY, dark ? 'dark' : 'light');
-    applyTheme(dark);
-  });
-
-  el.searchInput.addEventListener('input', () => {
-    setCurrentQuery(el.searchInput.value.trim());
-    if (state.activeTab === 'watchlist') resetWatchlistPaging();
-    render();
-  });
-
-  // ✕ inside the search box: clears only the active tab's query. Other tabs
-  // keep their remembered filters.
-  el.searchClearBtn.addEventListener('click', () => {
-    setCurrentQuery('');
-    render();
-    el.searchInput.focus();
-  });
-
-  // Auto-load the next Watchlist chunk when the user scrolls near the bottom.
-  el.tableScroll.addEventListener('scroll', () => {
-    if (state.activeTab !== 'watchlist') return;
-    const node: any = el.tableScroll;
-    const distanceToBottom = node.scrollHeight - node.scrollTop - node.clientHeight;
-    if (distanceToBottom < 600) loadMoreWatchlistRows();
-  });
-
-  el.copyBtn.addEventListener('click', copyTickers);
-  el.exportCsvBtn.addEventListener('click', exportCsv);
-  el.exportTxtBtn.addEventListener('click', exportTxt);
-  el.resetBtn.addEventListener('click', clearSelectionAndSearch);
-
-  el.blacklistBtn.addEventListener('click', () => {
-    // Smooth expand/collapse: the panel is always in the DOM; `is-visible`
-    // animates it open/closed via CSS and syncBlacklistPanelHeight() keeps
-    // the max-height matched to the content.
-    const expanded = el.blacklistPanel.classList.toggle('is-visible');
-    el.blacklistBtn.setAttribute('aria-expanded', String(expanded));
-    syncBlacklistPanelHeight();
-    renderBlacklistPanel();
-  });
-  el.blacklistAddBtn.addEventListener('click', submitBlacklistInput);
-  el.blacklistInput.addEventListener('keydown', (event: any) => {
-    if (event.key === 'Enter') submitBlacklistInput();
-  });
-  el.blacklistClearBtn.addEventListener('click', clearBlacklist);
-}
-
-async function loadData(): Promise<void> {
-  try {
-    setStatus('Loading Amplify ETF data from api/data.json…', 'info');
-    const response = await fetch(DATA_API_URL, { headers: { Accept: 'application/json' }, cache: 'no-cache' });
-    if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
-
-    const data: DataApi = await response.json();
-    const holdings = data.holdings || {};
-
-    state.data = data;
-    state.holdings = holdings;
-    state.details = data.details || {};
-    state.funds = (data.funds || [])
-      .map((fund, index) => normalizeFundRow(fund, holdings, data.details || {}, index))
-      .sort((a, b) => (a.rank ?? 9999) - (b.rank ?? 9999) || a.ticker.localeCompare(b.ticker));
-
-    // A restored selection must not contain blacklisted (hidden) ETFs.
-    state.blacklist = new Set([...state.blacklist].filter(ticker => state.funds.some(fund => fund.ticker === ticker)));
-    if (state.blacklist.size) {
-      const before = state.selected.size;
-      state.selected = new Set([...state.selected].filter(ticker => !state.blacklist.has(ticker)));
-      if (state.selected.size !== before) persistSelection();
-    }
-
-    if (state.activeFundTicker && !state.funds.some(fund => fund.ticker === state.activeFundTicker)) {
-      state.activeFundTicker = [...state.selected][0] || null;
-    }
-
-    el.searchInput.disabled = false;
-    ensureValidTab();
-    // After a full reload the catalog must come back with its remembered
-    // sort (or the default when never explicitly sorted).
-    applySortForTab(state.activeTab);
-    render();
-  } catch (error) {
-    const message = error instanceof Error ? error.message : String(error);
-    el.tickerCount.textContent = 'Error';
-    setStatus(`Unable to load api/data.json: ${message}. Run bun ./scripts/update-data.ts and serve with bunx parcel ./index.html.`, 'error');
-    el.tableBody.innerHTML = `<tr><td colspan="10" class="py-12 text-center text-rose-500 dark:text-rose-300">Unable to load api/data.json</td></tr>`;
-  }
-}
-
-function normalizeFundRow(fund: Fund, holdings: Record<string, FundHoldings>, details: Record<string, FundDetail>, index: number): FundRow {
-  const ticker = sanitizeTicker(fund.ticker);
-  const positions = holdings[ticker]?.positions || [];
-  const detail = details[ticker];
-  const catalogMetrics = getCatalogMetrics(detail);
-  const holdingsText = positions
-    .map(position => [position.symbol, position.name, position.cusip, position.flags?.join(' ')].filter(Boolean).join(' '))
-    .join(' ');
-
-  return {
-    ...fund,
-    ticker,
-    name: fund.name || ticker,
-    category: normalizeCategory(fund.category),
-    holdingsCount: numberOrNull(fund.holdingsCount) ?? positions.length,
-    rank: numberOrNull(fund.rank) ?? index + 1,
-    distributionYield: catalogMetrics.distributionYield,
-    distributionYieldValue: catalogMetrics.distributionYieldValue,
-    secYield: catalogMetrics.secYield,
-    secYieldValue: catalogMetrics.secYieldValue,
-    distributionFrequency: catalogMetrics.distributionFrequency,
-    ytdReturn: catalogMetrics.ytdReturn,
-    tr1y: catalogMetrics.tr1y,
-    cagr3y: catalogMetrics.cagr3y,
-    cagr5y: catalogMetrics.cagr5y,
-    cagr10y: catalogMetrics.cagr10y,
-    siAnn: catalogMetrics.siAnn,
-    tr3y: catalogMetrics.tr3y,
-    tr5y: catalogMetrics.tr5y,
-    tr10y: catalogMetrics.tr10y,
-    returnAsOf: catalogMetrics.returnAsOf,
-    inceptionDate: catalogMetrics.inceptionDate,
-    historyCount: numberOrNull(fund.historyCount),
-    searchIndex: normalizeSearchText([
-      ticker,
-      fund.name,
-      normalizeCategory(fund.category),
-      categoryLabel(normalizeCategory(fund.category)),
-      fund.nav,
-      fund.netAssets,
-      fund.expenseRatio,
-      catalogMetrics.distributionYield,
-      catalogMetrics.secYield,
-      catalogMetrics.inceptionDate,
-      catalogMetrics.returnAsOf,
-      fund.historyCount,
-      fund.holdingsAsOfDate,
-      holdingsText,
-    ].join(' ')),
-  };
-}
-
-function getCatalogMetrics(detail: FundDetail | undefined) {
-  const yields = (detail && detail.yields) || {};
-  const meta = (detail && detail.metadata) || {};
-  const monthly = detail && detail.performance ? detail.performance.monthly : null;
-  const navRows = (monthly && monthly.returns) || [];
-  let navRow: { type?: string; returns?: Record<string, number | string | null> } | null = null;
-  for (let i = 0; i < navRows.length; i++) {
-    if (String(navRows[i].type || '').toUpperCase() === 'NAV') {
-      navRow = navRows[i];
-      break;
-    }
-  }
-  const returns: Record<string, number | string | null> = (navRow && navRow.returns) || {};
-  return {
-    distributionYield: formatYieldDisplay(yields.Distribution_Yield),
-    distributionYieldValue: numberOrNull(yields.Distribution_Yield),
-    secYield: formatYieldDisplay(yields['30_Day_SECYield']),
-    secYieldValue: numberOrNull(yields['30_Day_SECYield']),
-    // Coded distribution cadence derived in scripts/update-data.ts from the
-    // per-event distribution history ("01 - Monthly", "04 - Quarterly", ...);
-    // the code prefix keeps plain string sort ordered most-to-least frequent.
-    distributionFrequency: String(detail?.distributionFrequency || ''),
-    ytdReturn: numberOrNull(returns.YTD),
-    tr1y: numberOrNull(returns['1Y']),
-    cagr3y: numberOrNull(returns['3Y']),
-    cagr5y: numberOrNull(returns['5Y']),
-    cagr10y: numberOrNull(returns['10Y']),
-    siAnn: numberOrNull(returns.SI_Ann),
-    tr3y: cumulativeFromCagr(numberOrNull(returns['3Y']), 3),
-    tr5y: cumulativeFromCagr(numberOrNull(returns['5Y']), 5),
-    tr10y: cumulativeFromCagr(numberOrNull(returns['10Y']), 10),
-    returnAsOf: String((monthly && monthly.asOfDate) || ''),
-    inceptionDate: String(meta.InceptionDate || meta.LaunchDate || ''),
-  };
-}
-
-function cumulativeFromCagr(annualized: number | null, years: number) {
-  if (annualized === null || annualized === undefined) return null;
-  return (Math.pow(1 + annualized / 100, years) - 1) * 100;
-}
-
-function formatYieldDisplay(value: unknown) {
-  if (value === null || value === undefined || value === '') return '—';
-  const text = String(value).trim();
-  if (text === '-' || text === '—') return '—';
-  if (text.includes('%')) return text;
-  const parsed = numberOrNull(text);
-  return parsed === null ? text : parsed.toFixed(2) + '%';
-}
-
-function render(): void {
-  if (!state.data) return;
-  ensureValidTab();
-  syncSearchInput();
-  renderTabs();
-
-  if (state.activeTab === 'watchlist') renderWatchlistTable();
-  else if (isDetailTab(state.activeTab)) renderDetailTable(detailTabKey(state.activeTab));
-  else renderFundsTable();
-
-  renderControls();
-  renderBlacklistPanel();
-  animateTableUpdate();
-}
-
-function animateTableUpdate(): void {
-  // Re-trigger a brief, non-blocking transition after a tab, search, or selection changes the rows.
-  el.tableBody.classList.remove('table-content-enter');
-  void el.tableBody.offsetWidth;
-  el.tableBody.classList.add('table-content-enter');
-}
-
-function ensureValidTab(): void {
-  if (!state.activeFundTicker && state.selected.size) state.activeFundTicker = [...state.selected][0] || null;
-  if (state.activeFundTicker && !state.selected.has(state.activeFundTicker)) state.activeFundTicker = [...state.selected][0] || null;
-
-  const tabIds = getAllTabIds();
-  if (!tabIds.includes(state.activeTab)) {
-    state.activeTab = tabIds.includes('All') ? 'All' : (tabIds[0] || 'All');
-    // Invalid-tab fallback must restore the remembered sort (or the tab
-    // default when never sorted) — never an unconditional default reset.
-    applySortForTab(state.activeTab);
-  }
-}
-
-function getTabs(): Array<{ id: ActiveTab; label: string; count: number }> {
-  const categories = uniqueCategories();
-  const tabs: Array<{ id: ActiveTab; label: string; count: number }> = [];
-
-  tabs.push({ id: 'All', label: 'All ETFs', count: visibleFunds().length });
-  categories.forEach(category => {
-    tabs.push({
-      id: category,
-      label: categoryLabel(category),
-      count: visibleFunds().filter(fund => fund.category === category).length,
-    });
-  });
-
-  return tabs;
-}
-
-function getSelectedTabs(): Array<{ id: ActiveTab; label: string; count: number }> {
-  const tabs: Array<{ id: ActiveTab; label: string; count: number }> = [];
-  const activeFund = getActiveFund();
-
-  if (activeFund) {
-    DETAIL_TABS.forEach(tab => {
-      tabs.push({
-        id: `detail:${tab.key}`,
-        label: tab.key === 'overview' ? `${activeFund.ticker} ${tab.label}` : tab.label,
-        count: getDetailCount(tab.key),
-      });
-    });
-  }
-
-  if (state.selected.size > 0) {
-    tabs.push({ id: 'watchlist', label: 'Watchlist', count: getDedupedWatchlistRows().length });
-  }
-
-  return tabs;
-}
-
-function getAllTabIds(): ActiveTab[] {
-  return [...getTabs(), ...getSelectedTabs()].map(tab => tab.id);
-}
-
-function uniqueCategories(): string[] {
-  const preferred = ['Income', 'Thematic', 'Core'];
-  const categories = [...new Set(state.funds.map(fund => fund.category).filter(Boolean))];
-  return categories.sort((a, b) => {
-    const ai = preferred.indexOf(a);
-    const bi = preferred.indexOf(b);
-    if (ai !== -1 || bi !== -1) return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi);
-    return categoryLabel(a).localeCompare(categoryLabel(b));
-  });
-}
-
-function renderTabs(): void {
-  renderTabButtons(el.tabsBar, getTabs());
-
-  const selectedTabs = getSelectedTabs();
-  // The panel above the table is reserved for detail and Watchlist tabs only.
-  el.selectedTabsPanel.classList.toggle('is-visible', selectedTabs.length > 0);
-  renderTabButtons(el.selectedTabsBar, selectedTabs);
-}
-
-function renderTabButtons(container: any, tabs: Array<{ id: ActiveTab; label: string; count: number }>): void {
-  container.classList.toggle('hidden', tabs.length <= 1);
-  // The pill box covers the whole catalog (it sits next to the "All ETFs (N)"
-  // count), so its checked state ignores the current tab and search filter:
-  // every non-blacklisted catalog ETF selected.
-  const nonBlacklisted = visibleFunds();
-  const allSelected = nonBlacklisted.length > 0 && nonBlacklisted.every(fund => state.selected.has(fund.ticker));
-  container.innerHTML = tabs.map(tab => {
-    const isActive = tab.id === state.activeTab;
-    const activeClasses = 'bg-blue-600 text-white font-medium border-blue-500 shadow-sm';
-    const inactiveClasses = 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200 dark:hover:bg-slate-700 border-slate-200 dark:border-slate-700';
-    if (tab.id === 'All') {
-      return `
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs transition border whitespace-nowrap ${isActive ? activeClasses : inactiveClasses}">
-          <input type="checkbox" id="select-all-toggle" ${allSelected ? 'checked' : ''} class="w-3.5 h-3.5 accent-blue-600 cursor-pointer" title="Select / Deselect all ETFs" aria-label="Select or deselect every ETF in the catalog" />
-          <button data-tab="All" role="tab" aria-selected="${isActive}" class="font-medium hover:underline focus:outline-none">
-            ${escapeHtml(tab.label)} (${tab.count})
-          </button>
-        </div>
-      `;
-    }
-    return `
-      <button
-        data-tab="${escapeHtml(tab.id)}"
-        role="tab"
-        aria-selected="${isActive}"
-        class="px-3.5 py-1.5 rounded-full text-xs transition border whitespace-nowrap ${isActive ? activeClasses : inactiveClasses}">
-        ${escapeHtml(tab.label)} (${tab.count})
-      </button>
-    `;
-  }).join('');
-
-  container.querySelectorAll('button[data-tab]').forEach((button: any) => {
-    button.addEventListener('click', () => {
-      state.activeTab = button.dataset.tab || 'All';
-      // Coming back to a tab (e.g. All ETFs after visiting Watchlist) must
-      // show the sort the user last chose there, not the tab default.
-      applySortForTab(state.activeTab);
-      if (state.activeTab === 'watchlist') resetWatchlistPaging();
-      syncSearchInput();
-      render();
-    });
-  });
-
-  const selectAllToggle = container.querySelector('#select-all-toggle');
-  if (selectAllToggle) {
-    selectAllToggle.addEventListener('change', (event: any) => {
-      event.stopPropagation();
-      // 'catalog': the pill manages every non-blacklisted catalog ETF from
-      // any tab/filter, and only toggles selection (it never navigates).
-      toggleSelectAll(Boolean(event.target.checked), 'catalog');
-    });
-    selectAllToggle.addEventListener('click', (event: any) => event.stopPropagation());
-  }
-}
-
-function renderFundsTable(): void {
-  const rows = sortRows(getVisibleFunds());
-  el.tableHead.innerHTML = `
-    <tr>
-      ${indexHeader()}
-      ${useHeader()}
-      ${sortHeader('Ticker', 'ticker', false, ' catalog-sticky-col catalog-sticky-ticker')}
-      ${sortHeader('Fund Name', 'name')}
-      ${sortHeader('Type', 'category')}
-      ${sortHeader('NAV', 'navValue', true)}
-      ${sortHeader('Net Assets', 'netAssetsValue', true)}
-      ${sortHeader('Expense', 'expenseRatio', true)}
-      ${sortHeader('Dividend Yield', 'distributionYieldValue', true)}
-      ${sortHeader('SEC Yield', 'secYieldValue', true)}
-      ${sortHeader('Frequency', 'distributionFrequency', false)}
-      ${sortHeader('YTD Return', 'ytdReturn', true)}
-      ${sortHeader('TR 1Y', 'tr1y', true)}
-      ${sortHeader('TR 3Y', 'tr3y', true)}
-      ${sortHeader('TR 5Y', 'tr5y', true)}
-      ${sortHeader('TR 10Y', 'tr10y', true)}
-      ${sortHeader('CAGR 3Y', 'cagr3y', true)}
-      ${sortHeader('CAGR 5Y', 'cagr5y', true)}
-      ${sortHeader('CAGR 10Y', 'cagr10y', true)}
-      ${sortHeader('SI Ann.', 'siAnn', true)}
-      ${sortHeader('Return As Of', 'returnAsOf')}
-      ${sortHeader('Inception', 'inceptionDate')}
-      ${sortHeader('Holdings', 'holdingsCount', true)}
-      ${sortHeader('History', 'historyCount', true)}
-      ${sortHeader('As Of', 'holdingsAsOfDate')}
-    </tr>
-  `;
-  bindSortHeaders();
-  bindSelectAllCheckbox();
-
-  if (!rows.length) {
-    el.tableBody.innerHTML = `<tr><td colspan="24" class="py-12 text-center text-slate-400 dark:text-slate-500">No ETFs match your search.</td></tr>`;
-  } else {
-    el.tableBody.innerHTML = rows.map((fund, index) => {
-      const selected = state.selected.has(fund.ticker);
-      return `
-        <tr data-ticker="${escapeHtml(fund.ticker)}" class="hover:bg-slate-50 dark:hover:bg-slate-700/30 transition border-b border-slate-100 dark:border-slate-700/30 ${selected ? 'selected-row' : ''}">
-          <td class="py-2.5 px-4 text-slate-400 dark:text-slate-500 text-xs text-center font-mono">${index + 1}</td>
-          <td class="catalog-sticky-col catalog-sticky-use py-2.5 px-4 text-center">
-            <div class="inline-flex items-center justify-center gap-1.5">
-              <input data-checkbox="${escapeHtml(fund.ticker)}" type="checkbox" ${selected ? 'checked' : ''} class="w-4 h-4 accent-blue-600 cursor-pointer" aria-label="Use ${escapeHtml(fund.ticker)}" />
-              <button data-blacklist="${escapeHtml(fund.ticker)}" class="w-4 h-4 rounded text-slate-300 dark:text-slate-600 hover:text-rose-500 dark:hover:text-rose-400 leading-none transition" title="Blacklist ${escapeHtml(fund.ticker)} — hide it from All ETFs">✕</button>
-            </div>
-          </td>
-          <td class="catalog-sticky-col catalog-sticky-ticker py-2.5 px-4">
-            <button data-open-fund="${escapeHtml(fund.ticker)}" class="font-mono font-semibold text-blue-600 dark:text-blue-400 hover:underline focus:outline-none focus:underline" title="Open ${escapeHtml(fund.ticker)} details">${escapeHtml(fund.ticker)}</button>
-          </td>
-          <td class="py-2.5 px-4 text-slate-700 dark:text-slate-300 font-medium">${escapeHtml(fund.name)}</td>
-          <td class="py-2.5 px-4 text-slate-600 dark:text-slate-300">${escapeHtml(categoryLabel(fund.category))}</td>
-          <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${escapeHtml(fund.nav || '—')}</td>
-          <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${escapeHtml(fund.netAssets || '—')}</td>
-          <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${escapeHtml(fund.expenseRatio || '—')}</td>
-          <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${escapeHtml(fund.distributionYield || '—')}</td>
-          <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${escapeHtml(fund.secYield || '—')}</td>
-          <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${escapeHtml(fund.distributionFrequency || '—')}</td>
-          <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatPercent(fund.ytdReturn)}</td>
-          <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatPercent(fund.tr1y)}</td>
-          <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatPercent(fund.tr3y)}</td>
-          <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatPercent(fund.tr5y)}</td>
-          <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatPercent(fund.tr10y)}</td>
-          <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatPercent(fund.cagr3y)}</td>
-          <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatPercent(fund.cagr5y)}</td>
-          <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatPercent(fund.cagr10y)}</td>
-          <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatPercent(fund.siAnn)}</td>
-          <td class="py-2.5 px-4 font-mono text-slate-600 dark:text-slate-400">${escapeHtml(fund.returnAsOf || '—')}</td>
-          <td class="py-2.5 px-4 font-mono text-slate-600 dark:text-slate-400">${escapeHtml(fund.inceptionDate || '—')}</td>
-          <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatInteger(fund.holdingsCount)}</td>
-          <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatInteger(fund.historyCount)}</td>
-          <td class="py-2.5 px-4 font-mono text-slate-600 dark:text-slate-400">${escapeHtml(fund.holdingsAsOfDate || '—')}</td>
-        </tr>
-      `;
-    }).join('');
-  }
-
-  el.tableBody.querySelectorAll('input[data-checkbox]').forEach((checkbox: any) => {
-    checkbox.addEventListener('change', (event: any) => {
-      event.stopPropagation();
-      const ticker = checkbox.dataset.checkbox || '';
-      toggleFund(ticker);
-    });
-    checkbox.addEventListener('click', (event: any) => event.stopPropagation());
-  });
-
-  el.tableBody.querySelectorAll('button[data-blacklist]').forEach((button: any) => {
-    button.addEventListener('click', (event: any) => {
-      event.stopPropagation();
-      blacklistTickers([button.dataset.blacklist || '']);
-    });
-  });
-
-  el.tableBody.querySelectorAll('button[data-open-fund]').forEach((button: any) => {
-    button.addEventListener('click', (event: any) => {
-      event.stopPropagation();
-      openFundDetails(button.dataset.openFund || '');
-    });
-  });
-
-  const selected = state.selected.size;
-  const queryText = currentQuery() ? ` matching “${currentQuery()}”` : '';
-  const activeText = state.activeFundTicker ? ` Active ETF detail tabs are for ${state.activeFundTicker}.` : '';
-  setStatus(`Showing ${rows.length} ETF${rows.length === 1 ? '' : 's'}${queryText}. Use the checkboxes in the “Use” column to select ETFs.${selected ? ` ${selected} selected.` : ' No ETFs selected yet.'}${activeText}`, selected ? 'success' : 'info');
-  el.tickerCount.textContent = `${rows.length} ETFs`;
-}
-
-function renderWatchlistTable(): void {
-  // The aggregation is computed over the full selected set; only the DOM
-  // rendering is chunked (WATCHLIST_PAGE_SIZE rows per scroll chunk).
-  // Copy/export always use the complete filtered result.
-  const allRows = sortRows(getVisibleWatchlistRows());
-  const rows = allRows.slice(0, watchlistVisibleLimit);
-  el.tableHead.innerHTML = `
-    <tr>
-      ${indexHeader()}
-      ${sortHeader('Ticker', 'symbol', false, ' watchlist-sticky-ticker')}
-      ${sortHeader('Name', 'name')}
-      ${sortHeader('ETFs', 'fundTickers')}
-      ${sortHeader('# ETFs', 'fundCount', true)}
-      ${sortHeader('Weight Sum', 'weightSum', true)}
-      ${sortHeader('Max Weight', 'maxWeight', true)}
-      ${sortHeader('Market Value', 'marketValueSum', true)}
-      ${sortHeader('Flags', 'flags')}
-      ${sortHeader('Identifier', 'identifier')}
-    </tr>
-  `;
-  bindSortHeaders();
-
-  let emptyMessage = '';
-  if (!state.selected.size) {
-    emptyMessage = 'No ETFs selected yet. Select ETFs in All ETFs to build the aggregated Watchlist.';
-  } else if (!allRows.length && currentQuery() && getDedupedWatchlistRows().length > 0) {
-    emptyMessage = 'No Watchlist holdings match your search.';
-  } else if (!allRows.length) {
-    emptyMessage = 'Holdings data is not available yet for the selected ETFs. Run the data refresh workflow (./scripts/update-data.ts) to regenerate api/data.json.';
-  }
-
-  if (emptyMessage) {
-    el.tableBody.innerHTML = `<tr><td colspan="10" class="py-12 text-center text-slate-400 dark:text-slate-500">${escapeHtml(emptyMessage)}</td></tr>`;
-  } else {
-    el.tableBody.innerHTML = rows.map((row, index) => `
-      <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/30 transition border-b border-slate-100 dark:border-slate-700/30">
-        <td class="py-2.5 px-4 text-slate-400 dark:text-slate-500 text-xs text-center font-mono">${index + 1}</td>
-        <td class="watchlist-sticky-ticker py-2.5 px-4 font-mono font-semibold text-blue-600 dark:text-blue-400" title="${escapeHtml(row.symbol)}">${escapeHtml(row.symbol)}</td>
-        <td class="py-2.5 px-4 text-slate-700 dark:text-slate-300 font-medium" title="${escapeHtml(row.name)}">${escapeHtml(row.name)}</td>
-        <td class="py-2.5 px-4 text-slate-700 dark:text-slate-300">
-          <div class="flex flex-wrap gap-1 max-w-md">
-            ${row.fundTickers.map((ticker: string) => `<button data-watchlist-fund="${escapeHtml(ticker)}" class="font-mono text-xs bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border border-blue-100 dark:border-blue-800 rounded-full px-2 py-0.5 hover:underline" title="Open ${escapeHtml(ticker)} details">${escapeHtml(ticker)}</button>`).join('')}
-          </div>
-        </td>
-        <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${row.fundCount}</td>
-        <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatPercent(row.weightSum)}</td>
-        <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatPercent(row.maxWeight)}</td>
-        <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatMoney(row.marketValueSum)}</td>
-        <td class="py-2.5 px-4 text-slate-600 dark:text-slate-400">${renderFlags(row.flags)}</td>
-        <td class="py-2.5 px-4 font-mono text-slate-600 dark:text-slate-400 text-xs">${escapeHtml(row.identifier || '—')}</td>
-      </tr>
-    `).join('');
-  }
-
-  el.tableBody.querySelectorAll('button[data-watchlist-fund]').forEach((button: any) => {
-    button.addEventListener('click', (event: any) => {
-      event.stopPropagation();
-      openFundDetails(button.dataset.watchlistFund || '');
-    });
-  });
-
-  renderWatchlistSentinel(allRows.length);
-
-  const queryText = currentQuery() ? ` matching “${currentQuery()}”` : '';
-  setStatus(`Watchlist built from ${state.selected.size} selected ETF${state.selected.size === 1 ? '' : 's'}: ${allRows.length} deduplicated holding${allRows.length === 1 ? '' : 's'}${queryText}.`, 'success');
-  el.tickerCount.textContent = `${allRows.length.toLocaleString('en-US')} holdings`;
-}
-
-/** Loads the next Watchlist chunk (bounded, idempotent — no duplicate work). */
-function loadMoreWatchlistRows(): void {
-  if (state.activeTab !== 'watchlist') return;
-  const total = getVisibleWatchlistRows().length;
-  if (watchlistVisibleLimit < total) {
-    watchlistVisibleLimit += WATCHLIST_PAGE_SIZE;
-    renderWatchlistTable();
-  }
-}
-
-/**
- * Renders the "Showing X of Y" sentinel below the Watchlist chunk. Copy and
- * export keep working on the complete filtered result regardless of how many
- * chunks are rendered.
- */
-function renderWatchlistSentinel(total: number): void {
-  const shown = Math.min(watchlistVisibleLimit, total);
-  const moreRows = shown < total;
-  if (moreRows) {
-    el.tableBody.insertAdjacentHTML('beforeend', `
-      <tr id="load-more-row" class="border-t border-slate-100 dark:border-slate-700/50">
-        <td colspan="10" class="py-3 text-center text-xs text-slate-500 dark:text-slate-400">
-          Showing ${shown.toLocaleString('en-US')} of ${total.toLocaleString('en-US')} holdings — scroll or click to load more…
-          <button id="load-more-rows" class="ml-2 rounded-full border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 px-3 py-1 text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700">Load more</button>
-        </td>
-      </tr>`);
-    const button = el.tableBody.querySelector('#load-more-rows');
-    button.addEventListener('click', () => loadMoreWatchlistRows());
-  }
-  if (watchlistScrollObserver) {
-    try { watchlistScrollObserver.disconnect(); } catch { /* ignore */ }
-    watchlistScrollObserver = null;
-  }
-  if (moreRows && typeof window.IntersectionObserver !== 'undefined') {
-    const sentinel = el.tableBody.querySelector('#load-more-row');
-    if (sentinel) {
-      try {
-        watchlistScrollObserver = new window.IntersectionObserver((entries: any[]) => {
-          if (entries.some(entry => entry.isIntersecting)) loadMoreWatchlistRows();
-        }, { root: el.tableScroll, rootMargin: '600px' });
-        watchlistScrollObserver.observe(sentinel);
-      } catch {
-        watchlistScrollObserver = null; // scroll listener still covers loading
-      }
-    }
-  }
-}
-
-function renderDetailTable(tab: FundDetailTab): void {
-  const activeFund = getActiveFund();
-  const detail = getActiveDetail();
-  if (!activeFund || !detail) {
-    renderEmptyDetail('Select an ETF row to see ETF details.');
-    return;
-  }
-
-  if (tab === 'overview') return renderOverviewTable(activeFund, detail);
-  if (tab === 'holdings') return renderSelectedFundHoldings(activeFund);
-  if (tab === 'performance') return renderPerformanceTable(activeFund, detail);
-  if (tab === 'allocations') return renderAllocationsTable(activeFund, detail);
-  if (tab === 'distributions') return renderDistributionsTable(activeFund, detail);
-  if (tab === 'yields') return renderYieldsTable(activeFund, detail);
-  renderPriceTable(activeFund, detail);
-}
-
-function renderOverviewTable(fund: FundRow, detail: FundDetail): void {
-  const rows = sortRows(filterRows(getOverviewRows(fund, detail)));
-  el.tableHead.innerHTML = `
-    <tr>
-      ${indexHeader()}
-      ${sortHeader('Section', 'section')}
-      ${sortHeader('Metric', 'metric')}
-      ${sortHeader('Value', 'value')}
-    </tr>
-  `;
-  bindSortHeaders();
-  renderSimpleRows(rows, ['section', 'metric', 'value'], detailEmptyMessage(fund, 'Overview', getOverviewRows(fund, detail).length));
-  setDetailStatus(fund, `Overview · ${rows.length} metrics`);
-  el.tickerCount.textContent = `${fund.ticker}`;
-}
-
-function renderSelectedFundHoldings(fund: FundRow): void {
-  const rows = sortRows(filterRows(getFundHoldingRows(fund.ticker)));
-  el.tableHead.innerHTML = `
-    <tr>
-      ${indexHeader()}
-      ${sortHeader('Ticker', 'symbol')}
-      ${sortHeader('Name', 'name')}
-      ${sortHeader('Weight', 'weight', true)}
-      ${sortHeader('Shares', 'shares', true)}
-      ${sortHeader('Market Value', 'marketValue', true)}
-      ${sortHeader('CUSIP', 'cusip')}
-      ${sortHeader('Flags', 'flags')}
-    </tr>
-  `;
-  bindSortHeaders();
-
-  if (!rows.length) {
-    el.tableBody.innerHTML = `<tr><td colspan="8" class="py-12 text-center text-slate-400 dark:text-slate-500">${escapeHtml(detailEmptyMessage(fund, 'Holdings', getFundHoldingRows(fund.ticker).length))}</td></tr>`;
-  } else {
-    el.tableBody.innerHTML = rows.map((row, index) => `
-      <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/30 transition border-b border-slate-100 dark:border-slate-700/30">
-        <td class="py-2.5 px-4 text-slate-400 dark:text-slate-500 text-xs text-center font-mono">${index + 1}</td>
-        <td class="py-2.5 px-4 font-mono font-semibold text-blue-600 dark:text-blue-400">${escapeHtml(row.symbol)}</td>
-        <td class="py-2.5 px-4 text-slate-700 dark:text-slate-300 font-medium">${escapeHtml(row.name)}</td>
-        <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatPercent(row.weight)}</td>
-        <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatNumber(row.shares)}</td>
-        <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatMoney(row.marketValue)}</td>
-        <td class="py-2.5 px-4 font-mono text-slate-600 dark:text-slate-400">${escapeHtml(row.cusip || '—')}</td>
-        <td class="py-2.5 px-4 text-slate-600 dark:text-slate-400">${renderFlags(stringArray(row.flags))}</td>
-      </tr>
-    `).join('');
-  }
-  setDetailStatus(fund, `Holdings as of ${state.holdings[fund.ticker]?.asOfDate || 'latest'} · ${rows.length} rows`);
-  el.tickerCount.textContent = `${rows.length} holdings`;
-}
-
-function renderPerformanceTable(fund: FundRow, detail: FundDetail): void {
-  const rows = sortRows(filterRows(getPerformanceRows(detail)));
-  const returnColumns = ['1M', '3M', '6M', 'YTD', '1Y', '3Y', '5Y', '10Y', 'SI_Cum', 'SI_Ann'];
-  el.tableHead.innerHTML = `
-    <tr>
-      ${indexHeader()}
-      ${sortHeader('Period', 'period')}
-      ${sortHeader('As Of', 'asOfDate')}
-      ${sortHeader('Type', 'type')}
-      ${sortHeader('Name', 'label')}
-      ${returnColumns.map(col => sortHeader(returnLabel(col), col, true)).join('')}
-    </tr>
-  `;
-  bindSortHeaders();
-
-  if (!rows.length) {
-    el.tableBody.innerHTML = `<tr><td colspan="15" class="py-12 text-center text-slate-400 dark:text-slate-500">${escapeHtml(detailEmptyMessage(fund, 'Performance', getPerformanceRows(detail).length))}</td></tr>`;
-  } else {
-    el.tableBody.innerHTML = rows.map((row, index) => `
-      <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/30 transition border-b border-slate-100 dark:border-slate-700/30">
-        <td class="py-2.5 px-4 text-slate-400 dark:text-slate-500 text-xs text-center font-mono">${index + 1}</td>
-        <td class="py-2.5 px-4 text-slate-700 dark:text-slate-300 font-medium">${escapeHtml(row.period)}</td>
-        <td class="py-2.5 px-4 font-mono text-slate-600 dark:text-slate-400">${escapeHtml(row.asOfDate)}</td>
-        <td class="py-2.5 px-4 font-mono text-blue-600 dark:text-blue-400 font-semibold">${escapeHtml(row.type)}</td>
-        <td class="py-2.5 px-4 text-slate-700 dark:text-slate-300 font-medium">${escapeHtml(row.label)}</td>
-        ${returnColumns.map(col => `<td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatPercent(row[col])}</td>`).join('')}
-      </tr>
-    `).join('');
-  }
-  setDetailStatus(fund, `Performance and total returns · ${rows.length} rows`);
-  el.tickerCount.textContent = `${rows.length} returns`;
-}
-
-function renderAllocationsTable(fund: FundRow, detail: FundDetail): void {
-  const rows = sortRows(filterRows(getAllocationRows(detail)));
-  el.tableHead.innerHTML = `
-    <tr>
-      ${indexHeader()}
-      ${sortHeader('Allocation', 'dimension')}
-      ${sortHeader('Value', 'label')}
-      ${sortHeader('Weight', 'weight', true)}
-      ${sortHeader('Holdings', 'holdingCount', true)}
-      ${sortHeader('As Of', 'asOfDate')}
-    </tr>
-  `;
-  bindSortHeaders();
-
-  if (!rows.length) {
-    el.tableBody.innerHTML = `<tr><td colspan="6" class="py-12 text-center text-slate-400 dark:text-slate-500">${escapeHtml(detailEmptyMessage(fund, 'Allocation', getAllocationRows(detail).length))}</td></tr>`;
-  } else {
-    el.tableBody.innerHTML = rows.map((row, index) => `
-      <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/30 transition border-b border-slate-100 dark:border-slate-700/30">
-        <td class="py-2.5 px-4 text-slate-400 dark:text-slate-500 text-xs text-center font-mono">${index + 1}</td>
-        <td class="py-2.5 px-4 text-slate-700 dark:text-slate-300 font-medium">${escapeHtml(row.dimension)}</td>
-        <td class="py-2.5 px-4 text-slate-700 dark:text-slate-300">${escapeHtml(row.label)}</td>
-        <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatAllocationPercent(row.weight)}</td>
-        <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatInteger(row.holdingCount)}</td>
-        <td class="py-2.5 px-4 font-mono text-slate-600 dark:text-slate-400">${escapeHtml(row.asOfDate)}</td>
-      </tr>
-    `).join('');
-  }
-  setDetailStatus(fund, `Allocations as of ${detail.allocations?.asOfDate || 'latest'} · ${rows.length} rows`);
-  el.tickerCount.textContent = `${rows.length} allocations`;
-}
-
-function renderDistributionsTable(fund: FundRow, detail: FundDetail): void {
-  const rows = sortRows(filterRows(getDistributionRows(detail)));
-  el.tableHead.innerHTML = `
-    <tr>
-      ${indexHeader()}
-      ${sortHeader('Ex-Date', 'exDate')}
-      ${sortHeader('Record Date', 'recordDate')}
-      ${sortHeader('Payable Date', 'payableDate')}
-      ${sortHeader('Amount', 'amountSort', true)}
-      ${sortHeader('Type', 'type')}
-      ${sortHeader('Year', 'year', true)}
-      ${sortHeader('Note', 'note')}
-    </tr>
-  `;
-  bindSortHeaders();
-
-  if (!rows.length) {
-    el.tableBody.innerHTML = `<tr><td colspan="8" class="py-12 text-center text-slate-400 dark:text-slate-500">${escapeHtml(detailEmptyMessage(fund, 'Distributions', getDistributionRows(detail).length))}</td></tr>`;
-  } else {
-    el.tableBody.innerHTML = rows.map((row, index) => `
-      <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/30 transition border-b border-slate-100 dark:border-slate-700/30">
-        <td class="py-2.5 px-4 text-slate-400 dark:text-slate-500 text-xs text-center font-mono">${index + 1}</td>
-        <td class="py-2.5 px-4 font-mono text-slate-700 dark:text-slate-300">${escapeHtml(row.exDate)}</td>
-        <td class="py-2.5 px-4 font-mono text-slate-700 dark:text-slate-300">${escapeHtml(row.recordDate)}</td>
-        <td class="py-2.5 px-4 font-mono text-slate-700 dark:text-slate-300">${escapeHtml(row.payableDate)}</td>
-        <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${formatDistributionAmount(row.amount)}</td>
-        <td class="py-2.5 px-4 text-slate-700 dark:text-slate-300">${escapeHtml(row.type || '—')}</td>
-        <td class="py-2.5 px-4 text-right font-mono text-slate-700 dark:text-slate-300">${escapeHtml(row.year || '—')}</td>
-        <td class="py-2.5 px-4 text-slate-600 dark:text-slate-400">${escapeHtml(row.note || '—')}</td>
-      </tr>
-    `).join('');
-  }
-  setDetailStatus(fund, `Distributions · ${rows.length} rows`);
-  el.tickerCount.textContent = `${rows.length} distributions`;
-}
-
-function renderYieldsTable(fund: FundRow, detail: FundDetail): void {
-  const rows = sortRows(filterRows(getYieldRows(detail)));
-  el.tableHead.innerHTML = `
-    <tr>
-      ${indexHeader()}
-      ${sortHeader('Metric', 'metric')}
-      ${sortHeader('Value', 'value')}
-      ${sortHeader('As Of', 'asOfDate')}
-    </tr>
-  `;
-  bindSortHeaders();
-  renderSimpleRows(rows, ['metric', 'value', 'asOfDate'], detailEmptyMessage(fund, 'Yield', getYieldRows(detail).length));
-  setDetailStatus(fund, `Yields as of ${detail.yields?.asOfDate || 'latest'} · ${rows.length} rows`);
-  el.tickerCount.textContent = `${rows.length} yields`;
-}
-
-function renderPriceTable(fund: FundRow, detail: FundDetail): void {
-  const rows = sortRows(filterRows(getPriceRows(detail)));
-  el.tableHead.innerHTML = `
-    <tr>
-      ${indexHeader()}
-      ${sortHeader('Metric', 'metric')}
-      ${sortHeader('Value', 'value')}
-      ${sortHeader('As Of', 'asOfDate')}
-    </tr>
-  `;
-  bindSortHeaders();
-  renderSimpleRows(rows, ['metric', 'value', 'asOfDate'], detailEmptyMessage(fund, 'Price', getPriceRows(detail).length));
-  setDetailStatus(fund, `NAV / market price as of ${detail.daily?.asOfDate || 'latest'} · ${rows.length} rows`);
-  el.tickerCount.textContent = `${rows.length} metrics`;
-}
-
-/**
- * Detail-table empty state. A search that matches nothing says so; a dataset
- * that genuinely has no rows gets the provider-specific explanation (the
- * Amplify feed is regenerated by the data refresh workflow) instead of a
- * misleading "no search matches".
- */
-function detailEmptyMessage(fund: FundRow, datasetLabel: string, totalRows: number): string {
-  if (currentQuery() && totalRows > 0) return `No ${datasetLabel.toLowerCase()} rows match your search.`;
-  return `${datasetLabel} data is not available yet for ${fund.ticker}. Run the data refresh workflow (./scripts/update-data.ts) to regenerate api/data.json.`;
-}
-
-function renderSimpleRows(rows: TableRow[], columns: string[], emptyText: string): void {
-  if (!rows.length) {
-    el.tableBody.innerHTML = `<tr><td colspan="${columns.length + 1}" class="py-12 text-center text-slate-400 dark:text-slate-500">${escapeHtml(emptyText)}</td></tr>`;
-    return;
-  }
-
-  el.tableBody.innerHTML = rows.map((row, index) => `
-    <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/30 transition border-b border-slate-100 dark:border-slate-700/30">
-      <td class="py-2.5 px-4 text-slate-400 dark:text-slate-500 text-xs text-center font-mono">${index + 1}</td>
-      ${columns.map((column, idx) => `<td class="py-2.5 px-4 ${idx === 0 ? 'font-medium text-slate-700 dark:text-slate-300' : 'text-slate-600 dark:text-slate-400'}">${escapeHtml(row[column] ?? '—')}</td>`).join('')}
-    </tr>
-  `).join('');
-}
-
-function renderEmptyDetail(message: string): void {
-  el.tableHead.innerHTML = `<tr><th class="py-3.5 px-4" title="${escapeHtml(getHeaderTooltip('Fund Name'))}">ETF details</th></tr>`;
-  el.tableBody.innerHTML = `<tr><td class="py-12 text-center text-slate-400 dark:text-slate-500">${escapeHtml(message)}</td></tr>`;
-  setStatus(message, 'info');
-}
-
-function renderHeaderSummary(subtitle: HTMLElement, tickers: Iterable<string>, activeTicker: string | null, activate: (ticker: string) => void): void {
-  const panel = document.getElementById('app-summary');
-  if (!panel) return;
-  // Move existing nodes: provenance links and their handlers remain intact.
-  panel.replaceChildren(...Array.from(subtitle.childNodes));
-  subtitle.replaceChildren();
-  const selected = [...tickers].sort();
-  if (!selected.length) return;
-  subtitle.append(document.createTextNode(`${selected.length} selected: `));
-  selected.forEach((ticker, index) => {
-    if (index) subtitle.append(document.createTextNode(', '));
-    const link = document.createElement('a');
-    link.href = '#';
-    link.dataset.headerFund = ticker;
-    link.title = `View ${ticker} details`;
-    link.className = `font-semibold ${ticker === activeTicker ? 'text-blue-700 dark:text-blue-300 underline' : 'text-blue-600 dark:text-blue-400 hover:underline'}`;
-    link.textContent = ticker;
-    link.addEventListener('click', event => { event.preventDefault(); activate(ticker); });
-    subtitle.append(link);
-  });
-}
-
-function renderControlsDetails(): void {
-  const hasData = Boolean(state.data);
-  const visibleRows = getCurrentVisibleRows();
-  const watchlistRows = getVisibleWatchlistRows();
-  const selected = state.selected.size;
-
-  el.copyBtn.disabled = watchlistRows.length === 0;
-  el.exportCsvBtn.disabled = !hasData || visibleRows.length === 0;
-  el.exportTxtBtn.disabled = !hasData || visibleRows.length === 0;
-  el.resetBtn.disabled = !hasData || (!selected && !currentQuery());
-
-  const generated = state.data?.generatedAt ? `data ${state.data.generatedAt.slice(0, 10)}` : '';
-  // Selected tickers are clickable badges: clicking one activates that fund
-  // and opens its detail view (Overview).
-  const selectedLinks = [...state.selected].sort()
-    .map(ticker => `<button data-selected-fund="${escapeHtml(ticker)}" class="font-mono font-semibold text-blue-600 dark:text-blue-400 hover:underline ${ticker === state.activeFundTicker ? 'underline' : ''}" title="Open ${escapeHtml(ticker)} details">${escapeHtml(ticker)}</button>`)
-    .join(', ');
-  const dataItem = `<span class="block sm:inline">·${generated ? ` ${generated}` : ''}. Data: <a href="./api/data.json" target="_blank" rel="noopener noreferrer" class="font-semibold text-blue-600 dark:text-blue-400 hover:underline">api/data.json</a></span>`;
-  const selectionItem = selected
-    ? `<span class="block sm:inline"><span class="hidden sm:inline"> · </span><span class="sm:hidden">· </span>${selected} selected: ${selectedLinks}</span>`
-    : '';
-  // On phones the data and selection summaries are separate list-like lines.
-  el.subtitle.innerHTML = `${dataItem}${selectionItem}`;
-  el.subtitle.querySelectorAll('button[data-selected-fund]').forEach((button: any) => {
-    button.addEventListener('click', (event: any) => {
-      event.stopPropagation();
-      openFundDetails(button.dataset.selectedFund || '');
-    });
-  });
-}
-
-function renderControls(): void {
-  renderControlsDetails();
-  renderHeaderSummary(el.subtitle, state.selected, state.activeFundTicker, openFundDetails);
-}
-
-
-// Per-tab filters: every tab (catalog category, Watchlist, detail view)
-// remembers its own search query, keyed by its tab id — replacing the old
-// single-blob `amplify-searches` map whose catalog scope was shared by every
-// category tab. Queries are written as the user types and restored whenever
-// the tab is (re)entered; syncSearchInput loads the entering tab's query.
-function currentQuery(): string {
-  return state.tabFilters[state.activeTab] || '';
-}
-
-function setCurrentQuery(value: string): void {
-  if (value) state.tabFilters[state.activeTab] = value;
-  else delete state.tabFilters[state.activeTab];
-  persistTabFilters();
-}
-
-function syncSearchInput(): void {
-  const query = currentQuery();
-  if (document.activeElement !== el.searchInput && el.searchInput.value !== query) {
-    el.searchInput.value = query;
-  }
-  el.searchInput.placeholder = isEtfCatalogTab(state.activeTab)
-    ? 'Search ETFs, fund names, holdings, tickers, CUSIPs...'
-    : `Search ${tabLabel(state.activeTab)}...`;
-  // The clear button appears only when the active tab actually has a query;
-  // it clears just this tab's query, never the other tabs' remembered ones.
-  el.searchClearBtn.classList.toggle('hidden', !query || el.searchInput.disabled);
-}
-
-function isEtfCatalogTab(tab: ActiveTab): boolean {
-  return tab === 'All' || state.funds.some(fund => fund.category === tab);
-}
-
-function tabLabel(tab: ActiveTab): string {
-  if (tab === 'watchlist') return 'Watchlist';
-  if (isDetailTab(tab)) {
-    const key = detailTabKey(tab);
-    const found = DETAIL_TABS.find(item => item.key === key);
-    return found ? found.label : 'ETF details';
-  }
-  return categoryLabel(tab);
-}
-
-function getVisibleFunds(): FundRow[] {
-  const query = normalizeSearchText(currentQuery());
-  return visibleFunds().filter(fund => {
-    const tabMatch = state.activeTab === 'All' || state.activeTab === fund.category;
-    const queryMatch = !query || fund.searchIndex.includes(query);
-    return tabMatch && queryMatch;
-  });
-}
-
-function getSelectedPositions(): Holding[] {
-  return [...state.selected]
-    .flatMap(ticker => state.holdings[ticker]?.positions || [])
-    .map(position => ({
-      ...position,
-      fundTicker: sanitizeTicker(position.fundTicker),
-      flags: position.flags?.length ? position.flags : ['symbol'],
-    }));
-}
-
-function getVisibleWatchlistRows(): WatchlistRow[] {
-  const query = normalizeSearchText(currentQuery());
-  return getDedupedWatchlistRows().filter(row => !query || row.searchIndex.includes(query));
-}
-
-/**
- * Placeholder / "missing" cell values. A literal `-`, `—`, `N/A` (any
- * casing) etc. must never be treated as a usable identifier, so a position
- * whose Ticker is a placeholder still falls back to its CUSIP / name instead
- * of being dropped.
- */
-const WATCHLIST_MISSING_VALUES = ['', '-', '—', 'n/a', 'na', 'null', 'none'];
-function usableWatchlistValue(value: unknown): string {
-  const text = String(value ?? '').trim();
-  return WATCHLIST_MISSING_VALUES.includes(text.toLowerCase()) ? '' : text;
-}
-
-/**
- * Watchlist identity for one position, using the provider's fallback order:
- * Ticker/Symbol -> CUSIP -> published security name. The Amplify feed
- * publishes symbol, rawSymbol, cusip and name per position (no ISIN/SEDOL/
- * FIGI), so the chain stops at the name for legitimate cash, futures, swaps
- * or derivatives that genuinely have no identifier.
- */
-function positionIdentity(position: Holding): string {
-  return usableWatchlistValue(position.symbol) || usableWatchlistValue(position.cusip) || usableWatchlistValue(position.name);
-}
-
-function getDedupedWatchlistRows(): WatchlistRow[] {
-  const map: Map<string, {
-    symbol: string;
-    names: Set<string>;
-    cusips: Set<string>;
-    flags: Set<string>;
-    funds: Set<string>;
-    weightSum: number;
-    maxWeight: number | null;
-    marketValueSum: number;
-  }> = new Map();
-
-  for (const position of getSelectedPositions()) {
-    // Every published position is retained — including cash, options,
-    // derivatives, treasuries and zero-weight rows. The only drop is a
-    // position with no usable ticker, identifier or name at all.
-    const identity = positionIdentity(position);
-    if (!identity) continue;
-    // Display and dedupe keys are uppercased (tickers/CUSIPs already are),
-    // so a name-keyed row keeps the same look as a ticker-keyed one.
-    const dedupeKey = identity.toUpperCase();
-
-    if (!map.has(dedupeKey)) {
-      map.set(dedupeKey, {
-        symbol: dedupeKey,
-        names: new Set(),
-        cusips: new Set(),
-        flags: new Set(),
-        funds: new Set(),
-        weightSum: 0,
-        maxWeight: null,
-        marketValueSum: 0,
-      });
-    }
-
-    const row = map.get(dedupeKey);
-    if (!row) continue;
-    row.names.add(usableWatchlistValue(position.name) || dedupeKey);
-    const cusip = usableWatchlistValue(position.cusip);
-    if (cusip) row.cusips.add(cusip);
-    (position.flags || []).forEach(flag => row.flags.add(flag));
-    row.funds.add(position.fundTicker);
-
-    if (Number.isFinite(position.weight)) {
-      const weight = Number(position.weight);
-      row.weightSum += weight;
-      row.maxWeight = row.maxWeight === null ? weight : Math.max(row.maxWeight, weight);
-    }
-    if (Number.isFinite(position.marketValue)) row.marketValueSum += Number(position.marketValue);
-  }
-
-  return [...map.values()].map(row => {
-    const names = [...row.names];
-    const fundTickers = [...row.funds].sort();
-    const flags = [...row.flags].sort();
-    const cusips = [...row.cusips].sort();
-    const name = names[0] || row.symbol;
-
-    return {
-      symbol: row.symbol,
-      name,
-      names,
-      cusips,
-      // The identifier is the first real identifier merged into the row
-      // (CUSIP in this feed); shown in the Identifier column.
-      identifier: cusips[0] || '',
-      flags,
-      fundTickers,
-      fundCount: fundTickers.length,
-      weightSum: row.weightSum,
-      maxWeight: row.maxWeight,
-      marketValueSum: row.marketValueSum,
-      searchIndex: normalizeSearchText([row.symbol, name, names.join(' '), cusips.join(' '), flags.join(' '), fundTickers.join(' ')].join(' ')),
-    };
-  });
-}
-
-function getOverviewRows(fund: FundRow, detail: FundDetail): TableRow[] {
-  const meta = detail.metadata || {};
-  const daily = detail.daily || {};
-  const yields = detail.yields || {};
-  return [
-    metricRow('Fund', 'Ticker', fund.ticker),
-    metricRow('Fund', 'Name', fund.name),
-    metricRow('Fund', 'Type', categoryLabel(fund.category)),
-    metricRow('Fund', 'Fund Page', `https://amplifyetfs.com/${fund.ticker}/`),
-    metricRow('Fund', 'Holdings Page', `https://amplifyetfs.com/${fund.ticker}-holdings/`),
-    metricRow('Fund Details', 'Launch Date', meta.LaunchDate || meta.AmplifyStartDate),
-    metricRow('Fund Details', 'Inception Date', meta.InceptionDate),
-    metricRow('Fund Details', 'Primary Exchange', meta.PrimaryExchange),
-    metricRow('Fund Details', 'CUSIP', meta.CUSIP || daily.CUSIP),
-    metricRow('Fund Details', 'ISIN', meta.ISIN),
-    metricRow('Fund Details', 'Asset Class Focus', meta.AssetClassFocus),
-    metricRow('Fund Details', 'Actively Managed', booleanLabel(meta.isActivelyManaged)),
-    metricRow('Price', 'NAV', fund.nav),
-    metricRow('Price', 'Market Price', formatMaybeMoney(daily.MarketPrice, 2)),
-    metricRow('Price', 'Net Assets', fund.netAssets),
-    metricRow('Price', 'Shares Outstanding', formatInteger(daily.SharesOutstanding)),
-    metricRow('Yield', 'Distribution Rate', yields.Distribution_Yield),
-    metricRow('Yield', '30-Day SEC Yield', yields['30_Day_SECYield']),
-    metricRow('Holdings', 'Holdings Count', formatInteger(fund.holdingsCount)),
-    metricRow('Holdings', 'Holdings As Of', fund.holdingsAsOfDate),
-  ].filter(row => row.value && row.value !== '—');
-}
-
-function metricRow(section: string, metric: string, value: unknown): TableRow {
-  const text = value === undefined || value === null || value === '' ? '—' : String(value);
-  return {
-    section,
-    metric,
-    value: text,
-    searchIndex: normalizeSearchText([section, metric, text].join(' ')),
-  };
-}
-
-function getFundHoldingRows(ticker: string): TableRow[] {
-  return (state.holdings[ticker]?.positions || []).map(position => ({
-    ...position,
-    weight: numberOrNull(position.weight),
-    shares: numberOrNull(position.shares),
-    marketValue: numberOrNull(position.marketValue),
-    flags: position.flags?.length ? position.flags : ['symbol'],
-    searchIndex: normalizeSearchText([position.symbol, position.name, position.cusip, position.flags?.join(' ')].join(' ')),
-  }));
-}
-
-function getPerformanceRows(detail: FundDetail): TableRow[] {
-  const docs: Array<{ period: string; doc?: PerformanceDoc | null }> = [
-    { period: 'Month End', doc: detail.performance?.monthly },
-    { period: 'Quarter End', doc: detail.performance?.quarterly },
-  ];
-  const rows: TableRow[] = [];
-
-  docs.forEach(({ period, doc }) => {
-    (doc?.returns || []).forEach(item => {
-      const returns = item.returns || {};
-      const row: TableRow = {
-        period,
-        asOfDate: doc?.asOfDate || '',
-        type: item.type || '',
-        ticker: item.ticker || '',
-        label: item.label || item.ticker || '',
-        searchIndex: normalizeSearchText([period, doc?.asOfDate, item.type, item.ticker, item.label].join(' ')),
-      };
-      Object.entries(returns).forEach(([key, value]) => { row[key] = numberOrNull(value) ?? value; });
-      rows.push(row);
-    });
-  });
-
-  return rows;
-}
-
-function getAllocationRows(detail: FundDetail): TableRow[] {
-  const asOfDate = detail.allocations?.asOfDate || '';
-  return (detail.allocations?.allocations || []).flatMap(allocation =>
-    (allocation.dimvalues || []).map(value => ({
-      dimension: cleanDimensionName(allocation.dimensionName || 'Allocation'),
-      label: value.label || '',
-      weight: numberOrNull(value.weight),
-      holdingCount: numberOrNull(value.holdingCount),
-      asOfDate,
-      searchIndex: normalizeSearchText([allocation.dimensionName, value.label, asOfDate].join(' ')),
-    }))
-  );
-}
-
-function getDistributionRows(detail: FundDetail): TableRow[] {
-  return (detail.distributions || []).map(distribution => ({
-    ...distribution,
-    amountSort: numberOrNull(distribution.amount) ?? -Infinity,
-    searchIndex: normalizeSearchText([distribution.exDate, distribution.recordDate, distribution.payableDate, distribution.amount, distribution.type, distribution.note, distribution.year].join(' ')),
-  }));
-}
-
-function getYieldRows(detail: FundDetail): TableRow[] {
-  const y = detail.yields || {};
-  const asOfDate = String(y.asOfDate || '');
-  return [
-    metricRow('Yields', 'Distribution Rate', y.Distribution_Yield),
-    metricRow('Yields', '30-Day SEC Yield', y['30_Day_SECYield']),
-    metricRow('Yields', '30-Day Unsubsidized SEC Yield', y['30_Day_UnsubSECYield']),
-    metricRow('Yields', 'CUSIP', y.CUSIP),
-    metricRow('Yields', 'Updated At', y.UpdatedAt),
-  ].filter(row => row.value && row.value !== '—').map(row => ({ ...row, asOfDate }));
-}
-
-function getPriceRows(detail: FundDetail): TableRow[] {
-  const d = detail.daily || {};
-  const asOfDate = String(d.asOfDate || '');
-  return [
-    metricRow('Price', 'Net Asset Value', formatMaybeMoney(d.NAV, 2)),
-    metricRow('Price', 'NAV Daily Change', formatMaybeMoney(d.NAVChangeDollars, 2)),
-    metricRow('Price', 'NAV % Daily Change', formatPercent(d.NAVChangePercentage)),
-    metricRow('Price', 'Market Price', formatMaybeMoney(d.MarketPrice, 2)),
-    metricRow('Price', 'Market Price Daily Change', formatMaybeMoney(d.MarketPriceChangeDollars, 2)),
-    metricRow('Price', 'Market Price % Daily Change', formatPercent(d.MarketPriceChangePercentage)),
-    metricRow('Premium / Discount', 'Premium / Discount', formatPercent(d.PremiumDiscount)),
-    metricRow('Trading', '30-Day Median Bid/Ask Spread', formatPercent(d.Median30DaySpread)),
-    metricRow('Fund', 'Net Assets', formatMaybeMoney(d.NetAssets, 0)),
-    metricRow('Fund', 'Shares Outstanding', formatInteger(d.SharesOutstanding)),
-    metricRow('Fund', 'CUSIP', d.CUSIP),
-  ].filter(row => row.value && row.value !== '—').map(row => ({ ...row, asOfDate }));
-}
-
-function filterRows(rows: any[]): any[] {
-  const query = normalizeSearchText(currentQuery());
-  return rows.filter(row => !query || normalizeSearchText(row.searchIndex || Object.values(row).join(' ')).includes(query));
-}
-
-function getCurrentVisibleRows(): any[] {
-  if (state.activeTab === 'watchlist') return getVisibleWatchlistRows();
-  if (!isDetailTab(state.activeTab)) return getVisibleFunds();
-  const fund = getActiveFund();
-  const detail = getActiveDetail();
-  if (!fund || !detail) return [];
-  const tab = detailTabKey(state.activeTab);
-  if (tab === 'overview') return filterRows(getOverviewRows(fund, detail));
-  if (tab === 'holdings') return filterRows(getFundHoldingRows(fund.ticker));
-  if (tab === 'performance') return filterRows(getPerformanceRows(detail));
-  if (tab === 'allocations') return filterRows(getAllocationRows(detail));
-  if (tab === 'distributions') return filterRows(getDistributionRows(detail));
-  if (tab === 'yields') return filterRows(getYieldRows(detail));
-  return filterRows(getPriceRows(detail));
-}
-
-function getDetailCount(tab: FundDetailTab): number {
-  const fund = getActiveFund();
-  const detail = getActiveDetail();
-  if (!fund || !detail) return 0;
-  if (tab === 'overview') return getOverviewRows(fund, detail).length;
-  if (tab === 'holdings') return state.holdings[fund.ticker]?.positions?.length || 0;
-  if (tab === 'performance') return getPerformanceRows(detail).length;
-  if (tab === 'allocations') return getAllocationRows(detail).length;
-  if (tab === 'distributions') return detail.distributions?.length || 0;
-  if (tab === 'yields') return getYieldRows(detail).length;
-  return getPriceRows(detail).length;
-}
-
-function bindSelectAllCheckbox(): void {
-  const checkbox = el.tableHead.querySelector('#select-all-checkbox');
-  if (!checkbox) return;
-  checkbox.addEventListener('change', (event: any) => {
-    event.stopPropagation();
-    // 'visible': the header box manages only the rows currently rendered
-    // (current tab + active search filter), never the hidden ones.
-    toggleSelectAll(Boolean(event.target.checked), 'visible');
-  });
-  checkbox.addEventListener('click', (event: any) => event.stopPropagation());
-}
-
-function resetWatchlistPaging(): void {
-  watchlistVisibleLimit = WATCHLIST_PAGE_SIZE;
-}
-
-/**
- * Toggles the selection in bulk. `scope`:
- *  - 'visible' (table-header Use checkbox) — only the rows currently rendered
- *    by the catalog table: current tab + active search filter + blacklist
- *    exclusion. Selecting with a filter active must not drag hidden ETFs into
- *    the selection, and unchecking must not drop selections made while a
- *    different filter was on.
- *  - 'catalog' (checkbox inside the All ETFs pill) — every non-blacklisted
- *    ETF in the entire catalog, from every tab/filter. It sits next to the
- *    "All ETFs (N)" count and represents the whole catalog; candidates come
- *    directly from all catalog funds minus the blacklist, never from a
- *    category-scoped helper.
- */
-function toggleSelectAll(selectAll: boolean, scope: 'visible' | 'catalog'): void {
-  const candidates = scope === 'visible' ? getVisibleFunds() : visibleFunds();
-  candidates.forEach(fund => {
-    if (selectAll) state.selected.add(fund.ticker);
-    else state.selected.delete(fund.ticker);
-  });
-  if (!state.selected.size) state.activeFundTicker = null;
-  else if (!state.activeFundTicker || !state.selected.has(state.activeFundTicker)) {
-    state.activeFundTicker = [...state.selected][0] || null;
-  }
-  resetWatchlistPaging();
-  persistSelection();
-  ensureValidTab();
-  render();
-}
-
-function toggleFund(ticker: string): void {
-  const cleanTicker = sanitizeTicker(ticker);
-  if (!cleanTicker) return;
-
-  if (state.selected.has(cleanTicker)) {
-    state.selected.delete(cleanTicker);
-    if (state.activeFundTicker === cleanTicker) state.activeFundTicker = [...state.selected][0] || null;
-  } else {
-    state.selected.add(cleanTicker);
-    state.activeFundTicker = cleanTicker;
-  }
-
-  resetWatchlistPaging();
-  persistSelection();
-  ensureValidTab();
-  render();
-}
-
-/**
- * Activates a fund and opens its detail view (Overview). Used by catalog
- * tickers, selected-ticker badges in the subtitle, and Watchlist ETF badges.
- * Selects the fund first if it is not selected yet.
- */
-function openFundDetails(ticker: string): void {
-  const cleanTicker = sanitizeTicker(ticker);
-  const known = state.funds.some(fund => fund.ticker === cleanTicker);
-  if (!cleanTicker || !known || state.blacklist.has(cleanTicker)) return;
-  if (!state.selected.has(cleanTicker)) state.selected.add(cleanTicker);
-  state.activeFundTicker = cleanTicker;
-  state.activeTab = 'detail:overview';
-  applySortForTab(state.activeTab);
-  resetWatchlistPaging();
-  persistSelection();
-  syncSearchInput();
-  render();
-}
-
-function clearSelectionAndSearch(): void {
-  state.selected.clear();
-  state.activeFundTicker = null;
-  state.tabFilters = {};
-  state.activeTab = 'All';
-  resetWatchlistPaging();
-  // Sort preferences survive Clear: a sort configured in the past is always
-  // kept (per tab, in browser localStorage) and reused. Clear resets only the
-  // selection and the searches — never the sort order or its memory.
-  applySortForTab('All');
-  el.searchInput.value = '';
-  localStorage.removeItem(SELECTED_KEY);
-  localStorage.removeItem(ACTIVE_FUND_KEY);
-  localStorage.removeItem(TAB_FILTERS_KEY);
-  render();
-}
-
-function copyTickers(): void {
-  const tickers = getVisibleWatchlistRows().map(row => row.symbol).sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
-  if (!tickers.length) return;
-  void copyText(tickers.join(', ')).then(() => {
-    const oldText = el.copyBtn.textContent;
-    el.copyBtn.textContent = 'Copied!';
-    setTimeout(() => { el.copyBtn.textContent = oldText || 'Copy Tickers'; }, 1000);
-  });
-}
-
-function exportCsv(): void {
-  if (state.activeTab === 'watchlist') {
-    // Exports use the complete filtered result, not just the rendered chunk.
-    const headers = ['Ticker', 'Name', 'ETFs', '# ETFs', 'Weight Sum (%)', 'Max Weight (%)', 'Market Value ($)', 'Flags', 'Identifier'];
-    const rows = getVisibleWatchlistRows().map(row => [
-      row.symbol,
-      row.name,
-      row.fundTickers.join('|'),
-      String(row.fundCount),
-      numberCell(row.weightSum),
-      numberCell(row.maxWeight),
-      numberCell(row.marketValueSum),
-      row.flags.join('|'),
-      row.identifier || '',
-    ]);
-    downloadText(toCsv([headers, ...rows]), exportFileName('watchlist', 'csv'), 'text/csv;charset=utf-8;');
-    return;
-  }
-
-  if (isDetailTab(state.activeTab)) {
-    const tab = detailTabKey(state.activeTab);
-    const rows = getCurrentVisibleRows();
-    const headers = Object.keys(rows[0] || {}).filter(key => key !== 'searchIndex');
-    downloadText(toCsv([headers, ...rows.map(row => headers.map(header => cellToString(row[header])))]), exportFileName(`${getActiveFund()?.ticker || 'ETF'}_${tab}`, 'csv'), 'text/csv;charset=utf-8;');
-    return;
-  }
-
-  const headers = ['Selected', 'Ticker', 'Fund Name', 'Type', 'NAV', 'Net Assets', 'Expense Ratio', 'Dividend Yield', 'SEC Yield', 'Frequency', 'YTD Return', 'TR 1Y', 'TR 3Y', 'TR 5Y', 'TR 10Y', 'CAGR 3Y', 'CAGR 5Y', 'CAGR 10Y', 'SI Ann.', 'Return As Of', 'Inception', 'Holdings', 'History', 'Holdings As Of'];
-  const rows = getVisibleFunds().map(fund => [
-    state.selected.has(fund.ticker) ? 'yes' : 'no',
-    fund.ticker,
-    fund.name,
-    categoryLabel(fund.category),
-    fund.nav || '',
-    fund.netAssets || '',
-    fund.expenseRatio || '',
-    fund.distributionYield || '',
-    fund.secYield || '',
-    fund.distributionFrequency || '',
-    numberCell(fund.ytdReturn),
-    numberCell(fund.tr1y),
-    numberCell(fund.tr3y),
-    numberCell(fund.tr5y),
-    numberCell(fund.tr10y),
-    numberCell(fund.cagr3y),
-    numberCell(fund.cagr5y),
-    numberCell(fund.cagr10y),
-    numberCell(fund.siAnn),
-    fund.returnAsOf || '',
-    fund.inceptionDate || '',
-    numberCell(fund.holdingsCount),
-    numberCell(fund.historyCount),
-    fund.holdingsAsOfDate || '',
-  ]);
-  downloadText(toCsv([headers, ...rows]), exportFileName('etfs', 'csv'), 'text/csv;charset=utf-8;');
-}
-
-function exportTxt(): void {
-  let values: string[];
-  if (state.activeTab === 'watchlist') {
-    values = getVisibleWatchlistRows().map(row => row.symbol).sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
-  } else if (isDetailTab(state.activeTab)) {
-    values = getCurrentVisibleRows().map(row => Object.entries(row)
-      .filter(([key]) => key !== 'searchIndex')
-      .map(([key, value]) => `${key}: ${cellToString(value)}`)
-      .join(' | '));
-  } else {
-    values = getVisibleFunds().map(fund => fund.ticker);
-  }
-  downloadText(values.join('\n'), exportFileName(state.activeTab === 'watchlist' ? 'watchlist' : isDetailTab(state.activeTab) ? detailTabKey(state.activeTab) : 'etfs', 'txt'), 'text/plain;charset=utf-8;');
-}
-
-function sortHeader(label: string, key: string, numeric = false, extraClass = ''): string {
-  const active = state.sortKey === key;
-  const arrow = active ? (state.sortDir === 'asc' ? ' ↑' : ' ↓') : '';
-  const align = numeric ? ' text-right' : '';
-  const ariaSort = active ? (state.sortDir === 'asc' ? ' aria-sort="ascending"' : ' aria-sort="descending"') : '';
-  const tooltip = getHeaderTooltip(label);
-  return `<th class="py-3.5 px-4${align}${extraClass}"${ariaSort} title="${escapeHtml(tooltip)}"><button data-sort="${escapeHtml(key)}" title="${escapeHtml(tooltip)}" class="uppercase tracking-wider hover:text-blue-600 dark:hover:text-blue-400">${escapeHtml(label)}${arrow}</button></th>`;
-}
-
-function bindSortHeaders(): void {
-  el.tableHead.querySelectorAll('button[data-sort]').forEach((button: any) => {
-    button.addEventListener('click', () => {
-      const key = button.dataset.sort || 'rank';
-      if (state.sortKey === key) state.sortDir = state.sortDir === 'asc' ? 'desc' : 'asc';
-      else {
-        state.sortKey = key;
-        state.sortDir = ['ticker', 'name', 'category', 'symbol', 'section', 'metric', 'period', 'label', 'exDate', 'distributionFrequency'].includes(key) ? 'asc' : 'desc';
-      }
-      // An explicit header click is the only way a sort gets remembered.
-      rememberSortForCurrentTab();
-      if (state.activeTab === 'watchlist') resetWatchlistPaging();
-      render();
-    });
-  });
-}
-
-function sortRows(rows: any[]): any[] {
-  const direction = state.sortDir === 'asc' ? 1 : -1;
-  const key = state.sortKey;
-  return [...rows].sort((a, b) => compareValues(sortValue(a, key), sortValue(b, key)) * direction);
-}
-
-function sortValue(row: Record<string, unknown>, key: string): unknown {
-  if (key === 'flags') return Array.isArray(row.flags) ? row.flags.join(',') : '';
-  return row[key];
-}
-
-function compareValues(a: unknown, b: unknown): number {
-  if (typeof a === 'number' || typeof b === 'number') {
-    const an = typeof a === 'number' && Number.isFinite(a) ? a : -Infinity;
-    const bn = typeof b === 'number' && Number.isFinite(b) ? b : -Infinity;
-    return an === bn ? 0 : an > bn ? 1 : -1;
-  }
-  return String(a ?? '').localeCompare(String(b ?? ''), undefined, { numeric: true, sensitivity: 'base' });
-}
-
-function restoreSelectedEtfs(): void {
-  try {
-    const saved = JSON.parse(localStorage.getItem(SELECTED_KEY) || '[]');
-    state.selected = new Set(saved.map(sanitizeTicker).filter(Boolean));
-    if (!state.selected.size && localStorage.getItem(SELECTED_KEY) === null) state.selected = new Set(DEFAULT_SELECTED_TICKERS);
-  } catch {
-    state.selected = new Set(DEFAULT_SELECTED_TICKERS);
-  }
-  const savedActive = sanitizeTicker(localStorage.getItem(ACTIVE_FUND_KEY) || '');
-  state.activeFundTicker = savedActive && state.selected.has(savedActive) ? savedActive : ([...state.selected][0] || null);
-}
-
-// Blacklist: ETFs hidden from All ETFs, persisted in browser localStorage.
-function restoreBlacklist(): void {
-  try {
-    const saved = JSON.parse(localStorage.getItem(BLACKLIST_KEY) || '[]');
-    state.blacklist = new Set((Array.isArray(saved) ? saved : []).map(sanitizeTicker).filter(Boolean));
-  } catch {
-    state.blacklist = new Set();
-  }
-}
-
-function persistBlacklist(): void {
-  localStorage.setItem(BLACKLIST_KEY, JSON.stringify([...state.blacklist].sort()));
-}
-
-function visibleFunds(): FundRow[] {
-  return state.funds.filter(fund => !state.blacklist.has(fund.ticker));
-}
-
-function submitBlacklistInput(): void {
-  const raw = el.blacklistInput.value || '';
-  const tickers = raw.split(/[\s,;]+/).map((ticker: string) => ticker.trim()).filter(Boolean);
-  el.blacklistInput.value = '';
-  if (!tickers.length) return;
-  blacklistTickers(tickers);
-}
-
-function blacklistTickers(tickers: string[]): void {
-  const known = new Set(state.funds.map(fund => fund.ticker));
-  const added: string[] = [];
-  for (const raw of tickers) {
-    const clean = sanitizeTicker(raw);
-    if (!clean || !known.has(clean)) continue;
-    if (!state.blacklist.has(clean)) {
-      state.blacklist.add(clean);
-      added.push(clean);
-    }
-    if (state.selected.has(clean)) {
-      state.selected.delete(clean);
-      if (state.activeFundTicker === clean) state.activeFundTicker = [...state.selected][0] || null;
-    }
-  }
-  if (!added.length) {
-    setStatus('No matching ETF tickers to blacklist.', 'error');
-    renderBlacklistPanel();
-    return;
-  }
-  resetWatchlistPaging();
-  persistBlacklist();
-  persistSelection();
-  ensureValidTab();
-  render();
-  renderBlacklistPanel();
-  setStatus(`Blacklisted ${added.join(', ')} — hidden from All ETFs.`, 'success');
-}
-
-function unblacklistTicker(ticker: string): void {
-  const clean = sanitizeTicker(ticker);
-  if (!clean || !state.blacklist.has(clean)) return;
-  state.blacklist.delete(clean);
-  resetWatchlistPaging();
-  persistBlacklist();
-  render();
-  renderBlacklistPanel();
-  setStatus(`Removed ${clean} from the blacklist.`, 'success');
-}
-
-function clearBlacklist(): void {
-  if (!state.blacklist.size) return;
-  state.blacklist.clear();
-  resetWatchlistPaging();
-  persistBlacklist();
-  render();
-  renderBlacklistPanel();
-  setStatus('Blacklist cleared.', 'success');
-}
-
-function renderBlacklistPanel(): void {
-  const tickers = [...state.blacklist].sort();
-  el.blacklistBtn.textContent = tickers.length ? `Blacklist (${tickers.length})` : 'Blacklist';
-  el.blacklistEmpty.classList.toggle('hidden', tickers.length > 0);
-  el.blacklistChips.innerHTML = tickers.map(ticker => `
-    <span class="inline-flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 rounded-full pl-3 pr-1.5 py-1 font-mono text-xs">
-      ${escapeHtml(ticker)}
-      <button data-unblacklist="${escapeHtml(ticker)}" class="w-4 h-4 rounded-full bg-slate-200 dark:bg-slate-700 hover:bg-rose-200 dark:hover:bg-rose-800/60 text-slate-600 dark:text-slate-300 hover:text-rose-700 dark:hover:text-rose-300 leading-none transition" title="Remove ${escapeHtml(ticker)} from the blacklist">✕</button>
-    </span>`).join('');
-  el.blacklistChips.querySelectorAll('button[data-unblacklist]').forEach((button: any) => {
-    button.addEventListener('click', (event: any) => {
-      event.stopPropagation();
-      unblacklistTicker(button.dataset.unblacklist || '');
-    });
-  });
-  // Keep the animated max-height matched to the (possibly changed) content so
-  // the panel resizes smoothly as chips are added/removed while it is open.
-  syncBlacklistPanelHeight();
-}
-
-function syncBlacklistPanelHeight(): void {
-  if (el.blacklistPanel.classList.contains('is-visible')) {
-    el.blacklistPanel.style.maxHeight = `${el.blacklistPanel.scrollHeight}px`;
-  } else {
-    el.blacklistPanel.style.maxHeight = '0px';
-  }
-}
-
-function persistSelection(): void {
-  localStorage.setItem(SELECTED_KEY, JSON.stringify([...state.selected]));
-  if (state.activeFundTicker) localStorage.setItem(ACTIVE_FUND_KEY, state.activeFundTicker);
-  else localStorage.removeItem(ACTIVE_FUND_KEY);
-}
-
-
-function legacySearchScopeToTabId(scope: string): string | null {
-  // Old scopes: 'etfs' (whole catalog), 'watchlist', '<TICKER>:detail:<tab>'.
-  if (scope === 'etfs') return 'All';
-  if (scope === 'watchlist') return 'watchlist';
-  const match = /:detail:([a-z]+)$/i.exec(scope);
-  return match ? `detail:${match[1]}` : null;
-}
-
-function restoreTabFilters(): void {
-  const restored: Record<string, string> = {};
-  try {
-    const saved = JSON.parse(localStorage.getItem(TAB_FILTERS_KEY) || '{}');
-    if (saved && typeof saved === 'object' && !Array.isArray(saved)) {
-      Object.keys(saved).forEach(tab => {
-        const value = saved[tab];
-        if (typeof value === 'string' && value) restored[tab] = value;
-      });
-    }
-  } catch {
-    // Malformed map: start clean below (migration still runs once).
-  }
-  // One-time migration from the legacy amplify-searches blob: only when no
-  // per-tab map exists yet. The legacy key is dropped afterwards so this
-  // never runs twice.
-  if (localStorage.getItem(TAB_FILTERS_KEY) === null) {
-    try {
-      const legacy = JSON.parse(localStorage.getItem(LEGACY_SEARCHES_KEY) || '{}');
-      if (legacy && typeof legacy === 'object' && !Array.isArray(legacy)) {
-        Object.keys(legacy).forEach(scope => {
-          const value = legacy[scope];
-          if (typeof value !== 'string' || !value) return;
-          const tabId = legacySearchScopeToTabId(scope);
-          if (tabId && !restored[tabId]) restored[tabId] = value;
-        });
-      }
-    } catch {
-      // Malformed legacy blob: ignore it.
-    }
-    localStorage.removeItem(LEGACY_SEARCHES_KEY);
-  }
-  state.tabFilters = restored;
-  // Normalize what we keep in storage so the next boot never sees garbage.
-  persistTabFilters();
-}
-
-function persistTabFilters(): void {
-  localStorage.setItem(TAB_FILTERS_KEY, JSON.stringify(state.tabFilters));
-}
-
-function applyTheme(dark: boolean): void {
-  document.documentElement.classList.toggle('dark', dark);
-  document.documentElement.style.backgroundColor = dark ? '#020617' : '#f8fafc';
-  el.themeToggle.textContent = dark ? '☀️' : '🌙';
-  el.themeToggle.title = dark ? 'Switch to light theme' : 'Switch to dark theme';
-}
-
-function setStatus(message: string, tone: 'info' | 'success' | 'error'): void {
-  console.debug(`[${tone}] ${message}`);
-}
-
-function setDetailStatus(fund: FundRow, message: string): void {
-  setStatus(`${fund.ticker} — ${fund.name}. ${message}. ETF page: https://amplifyetfs.com/${fund.ticker}/`, 'success');
-}
-
-function getActiveFund(): FundRow | null {
-  return state.activeFundTicker ? state.funds.find(fund => fund.ticker === state.activeFundTicker) || null : null;
-}
-
-function getActiveDetail(): FundDetail | null {
-  return state.activeFundTicker ? state.details[state.activeFundTicker] || null : null;
-}
-
-function isDetailTab(tab: ActiveTab | string): boolean {
-  return tab.startsWith('detail:');
-}
-
-function detailTabKey(tab: ActiveTab | string): any {
-  const key = tab.replace('detail:', '') || 'overview';
-  return DETAIL_TABS.some(item => item.key === key) ? key : 'overview';
-}
-
-function applyDefaultSortForTab(tab: ActiveTab): void {
-  if (tab === 'watchlist') {
-    state.sortKey = 'weightSum';
-    state.sortDir = 'desc';
-  } else if (isDetailTab(tab)) {
-    const key = detailTabKey(tab);
-    const defaults: any = {
-      overview: ['section', 'asc'],
-      holdings: ['weight', 'desc'],
-      performance: ['period', 'asc'],
-      allocations: ['weight', 'desc'],
-      distributions: ['exDate', 'desc'],
-      yields: ['metric', 'asc'],
-      price: ['metric', 'asc'],
-    };
-    [state.sortKey, state.sortDir] = defaults[key] || defaults.overview;
-  } else {
-    state.sortKey = 'rank';
-    state.sortDir = 'asc';
-  }
-}
-
-/**
- * Restores the sort the user last chose on this tab (recorded on every
- * column-header click, persisted in localStorage under TAB_SORTS_KEY) or
- * falls back to the tab default when the tab was never explicitly sorted.
- * No button or checkbox ever resets the sort — only this function (or an
- * explicit header click) does.
- */
-function applySortForTab(tab: ActiveTab): void {
-  const remembered = state.sortByTab[tab];
-  if (remembered) {
-    state.sortKey = remembered.key;
-    state.sortDir = remembered.dir;
-    return;
-  }
-  applyDefaultSortForTab(tab);
-}
-
-/** Records the current sort as this tab's remembered sort (header click only). */
-function rememberSortForCurrentTab(): void {
-  state.sortByTab[state.activeTab] = { key: state.sortKey, dir: state.sortDir };
-  persistTabSorts();
-}
-
-function persistTabSorts(): void {
-  localStorage.setItem(TAB_SORTS_KEY, JSON.stringify(state.sortByTab));
-}
-
-function restoreTabSorts(): void {
-  try {
-    const saved = JSON.parse(localStorage.getItem(TAB_SORTS_KEY) || '{}') || {};
-    const sorts: Record<string, { key: string; dir: SortDirection }> = {};
-    if (saved && typeof saved === 'object') {
-      Object.keys(saved).forEach(tab => {
-        const entry = saved[tab];
-        // Keep only well-formed entries. A stale key that no longer matches a
-        // column simply sorts a missing value (stable no-op) and cannot break
-        // rendering; malformed entries are dropped.
-        if (entry && typeof entry.key === 'string' && entry.key !== '' && (entry.dir === 'asc' || entry.dir === 'desc')) {
-          sorts[tab] = { key: entry.key, dir: entry.dir };
-        }
-      });
-    }
-    state.sortByTab = sorts;
-  } catch {
-    state.sortByTab = {};
-  }
-  // Normalize what we keep in storage so the next boot never sees garbage.
-  persistTabSorts();
-}
-
-function categoryLabel(category: string): string {
-  return category === 'Thematic' ? 'Growth' : category || 'Other';
-}
-
-function normalizeCategory(category?: string): string {
-  return (category || 'Other').trim() || 'Other';
-}
-
-function cleanDimensionName(value: string): string {
-  return value.replace(/^HoldingClassification\s*-\s*/i, '').replace(/GICS\s+/i, '').trim() || 'Allocation';
-}
-
-function booleanLabel(value: unknown): string {
-  if (value === true) return 'Yes';
-  if (value === false) return 'No';
-  return '—';
-}
-
-function returnLabel(key: string): string {
-  const labels: any = { SI_Cum: 'SI Cum.', SI_Ann: 'SI Ann.' };
-  return labels[key] || key;
-}
-
-function sanitizeTicker(value: unknown): string {
-  return String(value || '').trim().toUpperCase().replace(/[^A-Z0-9._-]/g, '');
-}
-
-function normalizeSearchText(value: unknown): string {
-  return String(value || '').toLowerCase().replace(/\s+/g, ' ').trim();
-}
-
-
-function stringArray(value: unknown): string[] {
-  return Array.isArray(value) ? value.map(item => String(item)) : [];
-}
-
-function numberOrNull(value: unknown): number | null {
-  if (value === null || value === undefined || value === '') return null;
-  const parsed = typeof value === 'number' ? value : Number(String(value).replace(/[$,%]/g, '').replace(/,/g, ''));
-  return Number.isFinite(parsed) ? parsed : null;
-}
-
-function numberCell(value: unknown): string | number {
-  const parsed = numberOrNull(value);
-  return parsed === null ? '' : parsed;
-}
-
-function formatInteger(value: unknown): string {
-  const parsed = numberOrNull(value);
-  return parsed === null ? '—' : parsed.toLocaleString('en-US', { maximumFractionDigits: 0 });
-}
-
-function formatNumber(value: unknown): string {
-  const parsed = numberOrNull(value);
-  return parsed === null ? '—' : parsed.toLocaleString('en-US', { maximumFractionDigits: 2 });
-}
-
-function formatPercent(value: unknown): string {
-  const parsed = numberOrNull(value);
-  return parsed === null ? '—' : `${parsed.toFixed(2)}%`;
-}
-
-function formatAllocationPercent(value: unknown): string {
-  const parsed = numberOrNull(value);
-  if (parsed === null) return '—';
-  const pct = Math.abs(parsed) <= 1 ? parsed * 100 : parsed;
-  return `${pct.toFixed(2)}%`;
-}
-
-function formatMoney(value: unknown): string {
-  const parsed = numberOrNull(value);
-  if (parsed === null) return '—';
-  return parsed.toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0, minimumFractionDigits: 0 });
-}
-
-function formatMaybeMoney(value: unknown, decimals: number): string {
-  const parsed = numberOrNull(value);
-  if (parsed === null) return '—';
-  return parsed.toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: decimals, minimumFractionDigits: decimals });
-}
-
-function formatDistributionAmount(value: unknown): string {
-  const parsed = numberOrNull(value);
-  if (parsed === null) return '—';
-  return parsed.toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 6, minimumFractionDigits: 2 });
-}
-
-function renderFlags(flags: string[]): string {
-  return `<div class="flex flex-wrap gap-1 max-w-sm">${flags.map(flag => {
-    const tone = flag === 'symbol' || flag === 'exchange-suffix'
-      ? 'bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 border-emerald-100 dark:border-emerald-800'
-      : 'bg-amber-50 dark:bg-amber-900/20 text-amber-700 dark:text-amber-300 border-amber-100 dark:border-amber-800';
-    return `<span class="text-xs border rounded-full px-2 py-0.5 ${tone}">${escapeHtml(flag)}</span>`;
-  }).join('')}</div>`;
-}
-
-function toCsv(rows: Array<Array<string | number>>): string {
-  return rows.map(row => row.map(csvEscape).join(',')).join('\r\n');
-}
-
-function csvEscape(value: string | number): string {
-  const s = String(value ?? '');
-  return /[",\r\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
-}
-
-function cellToString(value: unknown): string {
-  if (Array.isArray(value)) return value.join('|');
-  if (value && typeof value === 'object') return JSON.stringify(value);
-  return String(value ?? '');
-}
-
-function exportFileName(kind: string, extension: 'csv' | 'txt'): string {
-  const suffix = currentQuery() ? '_filtered' : '';
-  return `Amplify_${kind}_${new Date().toISOString().slice(0, 10)}${suffix}.${extension}`;
-}
-
-function downloadText(text: string, filename: string, mimeType: string): void {
-  const blob = new Blob([text], { type: mimeType });
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement('a');
-  link.href = url;
-  link.download = filename;
-  link.style.display = 'none';
-  document.body.appendChild(link);
-  link.click();
-  link.remove();
-  setTimeout(() => URL.revokeObjectURL(url), 250);
-}
-
-async function copyText(text: string): Promise<void> {
-  if (navigator.clipboard && window.isSecureContext) {
-    await navigator.clipboard.writeText(text);
-    return;
-  }
-
-  const textarea = document.createElement('textarea');
-  textarea.value = text;
-  textarea.style.position = 'fixed';
-  textarea.style.opacity = '0';
-  document.body.appendChild(textarea);
-  textarea.focus();
-  textarea.select();
-  document.execCommand('copy');
-  textarea.remove();
-}
-
-function escapeHtml(value: unknown): string {
-  return String(value ?? '').replace(/[&<>"']/g, char => ({
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    '"': '&quot;',
-    "'": '&#039;',
-  }[char] || char));
-}
-
-function byId(id: string): any {
-  const element = document.getElementById(id);
-  if (!element) throw new Error(`Missing element #${id}`);
-  return element;
-}
-  </script>
+  <script type="text/babel" data-presets="typescript" src="./app.tsx"></script>
 <script id="catalog-summary-behavior">
     (() => {
       const trigger = document.getElementById('ticker-count');
