@@ -1,16 +1,4 @@
 #!/usr/bin/env bun
-// Checked-in JSON is the runtime default; any nonblank environment value wins.
-import { readFileSync as readUpdaterConfig } from 'node:fs';
-try {
-  const updaterDefaults = JSON.parse(readUpdaterConfig(new URL('./update-data.config.json', import.meta.url), 'utf8')) as Record<string, unknown>;
-  for (const [key, value] of Object.entries(updaterDefaults)) {
-    const current = process.env[key];
-    if ((current === undefined || current.trim() === '') && value !== null && value !== undefined) process.env[key] = String(value);
-  }
-} catch (error) {
-  if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error;
-}
-
 /// <reference types="bun" />
 /// <reference types="node" />
 // Console presentation; no changes to provider requests or persisted data.
@@ -149,7 +137,7 @@ function stripUpdatedStamps(value: unknown): unknown {
   return value;
 }
 
-function preserveUnchangedBlock(previous: unknown, next: JsonRecord): JsonRecord {
+export function preserveUnchangedBlock(previous: unknown, next: JsonRecord): JsonRecord {
   if (!previous || typeof previous !== 'object' || Array.isArray(previous)) return next;
   const previousBlock = previous as JsonRecord;
   const onlyStampsChanged =
@@ -158,6 +146,9 @@ function preserveUnchangedBlock(previous: unknown, next: JsonRecord): JsonRecord
 }
 
 const CONCURRENCY_FALLBACK = 6;
+const DEFAULT_REQUEST_SLEEP = 0;
+const DEFAULT_HISTORY_PAGE_SIZE = 300;
+const DEFAULT_MAX_RETRIES = 2;
 type JsonRecord = Record<string, any>;
 
 // ---------------------------------------------------------------------------
@@ -174,10 +165,15 @@ type AumRange = Range & { maxExclusive?: boolean; source: string };
 type RangeMap = Partial<Record<ReturnPeriod, Range>>;
 
 type UpdaterConfig = {
+  maxFetches: number;
+  requestSleepSeconds: number;
   concurrency: number;
+  historyPageSize: number;
+  maxRetries: number;
   tickers: string[];
   categories: string[];
   aumRange?: AumRange;
+  terRange?: Range;
   dividendYieldRange?: Range;
   secYieldRange?: Range;
   performanceRanges: RangeMap;
@@ -193,12 +189,8 @@ const AUM_PRESET_BOUNDS = {
 } as const;
 type AumPreset = keyof typeof AUM_PRESET_BOUNDS;
 
-function envValue(env: Record<string, string | undefined>, name: string, aliases: string[] = []): string {
-  for (const key of [name, `AMPLIFY_${name}`, ...aliases]) {
-    const value = env[key];
-    if (value !== undefined && value.trim() !== '') return value.trim();
-  }
-  return '';
+function envValue(env: Record<string, string | undefined>, name: string): string {
+  return (env[name] ?? '').trim();
 }
 
 function parseDataNumber(value: unknown): number | null {
@@ -222,6 +214,13 @@ function parseInteger(value: string, name: string, fallback: number, minimum: nu
   if (!Number.isInteger(parsed) || parsed < minimum) {
     throw Error(`${name} must be an integer >= ${minimum}; received ${JSON.stringify(value)}`);
   }
+  return parsed;
+}
+
+function parseNonNegativeDecimal(value: string, name: string, fallback: number): number {
+  if (!value) return fallback;
+  const parsed = /^(?:\d+(?:\.\d*)?|\.\d+)$/.test(value) ? Number(value) : Number.NaN;
+  if (!Number.isFinite(parsed)) throw Error(`${name} must be a non-negative number of seconds; received ${JSON.stringify(value)}`);
   return parsed;
 }
 
@@ -255,7 +254,7 @@ function parseAum(value: string, name: string): number {
   return Number(match[1]) * multipliers[match[2] || ''];
 }
 
-function parseAumRange(value: string, name = 'AUM'): AumRange | undefined {
+export function parseAumRange(value: string, name = 'AUM'): AumRange | undefined {
   const input = value.trim();
   if (!input) return undefined;
   const parts = input.split(':');
@@ -292,9 +291,13 @@ function parseRanges(env: Record<string, string | undefined>, prefix: 'PERFORMAN
   return ranges;
 }
 
-function readConfig(env: Record<string, string | undefined> = process.env): UpdaterConfig {
+export function readConfig(env: Record<string, string | undefined>): UpdaterConfig {
   return {
-    concurrency: parseInteger(envValue(env, 'CONCURRENCY', ['AMPLIFY_DATA_CONCURRENCY']), 'CONCURRENCY', CONCURRENCY_FALLBACK, 1),
+    maxFetches: parseInteger(envValue(env, 'MAX_FETCHES'), 'MAX_FETCHES', 0, 0),
+    requestSleepSeconds: parseNonNegativeDecimal(envValue(env, 'REQUEST_SLEEP'), 'REQUEST_SLEEP', DEFAULT_REQUEST_SLEEP),
+    concurrency: parseInteger(envValue(env, 'CONCURRENCY'), 'CONCURRENCY', CONCURRENCY_FALLBACK, 1),
+    historyPageSize: parseInteger(envValue(env, 'HISTORY_PAGE_SIZE'), 'HISTORY_PAGE_SIZE', DEFAULT_HISTORY_PAGE_SIZE, 1),
+    maxRetries: parseInteger(envValue(env, 'MAX_RETRIES'), 'MAX_RETRIES', DEFAULT_MAX_RETRIES, 1),
     tickers: [
       ...new Set(
         envValue(env, 'TICKERS')
@@ -309,6 +312,7 @@ function readConfig(env: Record<string, string | undefined> = process.env): Upda
       .map(category => category.trim())
       .filter(Boolean),
     aumRange: parseAumRange(envValue(env, 'AUM'), 'AUM'),
+    terRange: parseRange(envValue(env, 'TER'), 'TER'),
     dividendYieldRange: parseRange(envValue(env, 'DIVIDEND_YIELD'), 'DIVIDEND_YIELD'),
     secYieldRange: parseRange(envValue(env, 'SEC_YIELD'), 'SEC_YIELD'),
     performanceRanges: parseRanges(env, 'PERFORMANCE'),
@@ -323,10 +327,15 @@ function rangeLabel(range?: Range): string {
 
 function configLines(config: UpdaterConfig): string[] {
   const lines = [
+    `MAX_FETCHES=${config.maxFetches}`,
+    `REQUEST_SLEEP=${config.requestSleepSeconds}`,
     `CONCURRENCY=${config.concurrency}`,
+    `HISTORY_PAGE_SIZE=${config.historyPageSize}`,
+    `MAX_RETRIES=${config.maxRetries}`,
     `TICKERS=${config.tickers.join(' ') || 'all'}`,
     `CATEGORY=${config.categories.join(',') || 'all'}`,
     `AUM=${config.aumRange?.source ?? ':'}`,
+    `TER=${rangeLabel(config.terRange)}`,
     `DIVIDEND_YIELD=${rangeLabel(config.dividendYieldRange)}`,
     `SEC_YIELD=${rangeLabel(config.secYieldRange)}`,
   ];
@@ -345,6 +354,7 @@ function cumulativeFromCagr(cagr: number, years: number): number {
 
 type FundMetrics = {
   netAssetsValue: number | null;
+  expenseRatioPercent: number | null;
   dividendYield: number | null;
   secYield: number | null;
   returns: JsonRecord;
@@ -368,11 +378,15 @@ function inAumRange(value: number, range: AumRange): boolean {
   return range.maxExclusive ? value < range.max : value <= range.max;
 }
 
-function fundFilterReasons(metrics: FundMetrics, config: UpdaterConfig): string[] {
+export function fundFilterReasons(metrics: FundMetrics, config: UpdaterConfig): string[] {
   const reasons: string[] = [];
   if (config.aumRange) {
     if (metrics.netAssetsValue === null) reasons.push('net assets unavailable');
     else if (!inAumRange(metrics.netAssetsValue, config.aumRange)) reasons.push(`AUM range (${config.aumRange.source})`);
+  }
+  if (config.terRange) {
+    if (metrics.expenseRatioPercent === null) reasons.push('expense ratio unavailable');
+    else if (!inRange(metrics.expenseRatioPercent, config.terRange)) reasons.push(`TER range (${rangeLabel(config.terRange)})`);
   }
   if (config.dividendYieldRange) {
     if (metrics.dividendYield === null) reasons.push('dividend yield unavailable');
@@ -406,7 +420,7 @@ function monthlyNavReturns(doc: DecodedDoc | null): JsonRecord {
   return (navRow && navRow.returns) || {};
 }
 
-function selectCatalog(catalog: CatalogFund[], config: UpdaterConfig): CatalogFund[] {
+export function selectCatalog(catalog: CatalogFund[], config: UpdaterConfig): CatalogFund[] {
   let selected = catalog;
   if (config.tickers.length) {
     const known = new Set(catalog.map(fund => fund.ticker));
@@ -419,6 +433,7 @@ function selectCatalog(catalog: CatalogFund[], config: UpdaterConfig): CatalogFu
     const wanted = new Set(config.categories.map(category => category.toLowerCase()));
     selected = selected.filter(fund => wanted.has(fund.category.toLowerCase()));
   }
+  if (config.maxFetches > 0) selected = [...selected].sort((a, b) => a.ticker.localeCompare(b.ticker)).slice(0, config.maxFetches);
   return selected;
 }
 
@@ -426,7 +441,9 @@ function hasFilters(config: UpdaterConfig): boolean {
   return Boolean(
     config.tickers.length ||
       config.categories.length ||
+      config.maxFetches > 0 ||
       config.aumRange ||
+      config.terRange ||
       config.dividendYieldRange ||
       config.secYieldRange ||
       Object.keys(config.performanceRanges).length ||
@@ -446,16 +463,22 @@ function printHelp(): void {
 Usage:
   ./scripts/update-data.ts [-h|--help]
 
-Configuration is read from environment variables (AMPLIFY_-prefixed aliases
-work too). All filters combine with AND logic and decide which funds are
-included in api/data.json; a configured filter also drops funds that do not
-publish the metric. Run without filters to rebuild the full active catalog.
+Defaults live in scripts/update-data.config.json; environment variables
+override them (AMPLIFY_-prefixed aliases win over plain names). In GitHub
+Actions the precedence is: file defaults < advanced JSON < nonblank inputs <
+protected Actions variable/env. All filters combine with AND logic and decide
+which funds are included in api/data.json; a configured filter also drops
+funds that do not publish the metric. Run without filters to rebuild the full
+active catalog.
 
-  CONCURRENCY=6              Parallel fund fetch workers (alias AMPLIFY_DATA_CONCURRENCY)
+  MAX_FETCHES=0              0 means all selected funds; N > 0 fetches only the first N selected tickers (alphabetical)
+  REQUEST_SLEEP=0            Minimum seconds between request starts, shared by all workers (retries included)
+  CONCURRENCY=6              Parallel fund fetch workers (legacy alias AMPLIFY_DATA_CONCURRENCY)
   TICKERS="DIVO IDVO"        Only include these tickers (spaces, commas, semicolons)
   CATEGORY="Income,Thematic" Only include these fund categories (Thematic = Growth in the UI)
   AUM=":"                    Net-assets range min:max; bounds are USD amounts (300M, 2B)
                              or nano/micro/small/mid/large presets; inclusive
+  TER=":"                    Expense-ratio range in %
   DIVIDEND_YIELD=":"         Trailing Distribution Yield range in %
   SEC_YIELD=":"              30-Day SEC Yield range in %
   PERFORMANCE_YTD=":"        YTD NAV return range in %
@@ -468,6 +491,9 @@ publish the metric. Run without filters to rebuild the full active catalog.
   TOTAL_RETURN_3Y=":"        3Y cumulative total return (TR 3Y) range in %
   TOTAL_RETURN_5Y=":"        5Y cumulative total return (TR 5Y) range in %
   TOTAL_RETURN_10Y=":"       10Y cumulative total return (TR 10Y) range in %
+  HISTORY_PAGE_SIZE=300      Page size of the daily-history document count query
+  MAX_RETRIES=2              Retries (>= 1) for network errors, HTTP 429 and 5xx
+  VERBOSE=false              Print per-fund retry and fallback notices (true/false)
 
 Ranges use strict inclusive min:max syntax ("15:", ":20", "5:20", "-5%:7.5",
 ":"); the colon is required.
@@ -476,7 +502,9 @@ Examples:
   TOTAL_RETURN_1Y="15:" ./scripts/update-data.ts
       api/data.json keeps only funds whose 1-year Total Return (TR 1Y) is at
       least 15%; funds below 15% are filtered out.
-  AUM="mid:" DIVIDEND_YIELD="4:" ./scripts/update-data.ts
+  MAX_FETCHES=3 REQUEST_SLEEP=0.5 ./scripts/update-data.ts
+      Smoke run over the first three selected tickers.
+  AUM="mid:" TER=":0.75" DIVIDEND_YIELD="4:" ./scripts/update-data.ts
       Only funds with >= $2B net assets and trailing yield >= 4%.
   TICKERS="DIVO" ./scripts/update-data.ts
       Single-fund api/data.json.`);
@@ -499,13 +527,69 @@ function emptyDoc(id = '', error?: unknown): DecodedDoc {
   return { id, fields: {}, error };
 }
 
+// File defaults and explicit overrides, same mechanism as the sibling updaters:
+// allowlisted scalar controls only, so GitHub Actions can resolve them without
+// interpolating user input into bash. Precedence: config file < advanced JSON <
+// nonblank inputs < environment (`AMPLIFY_<KEY>` alias wins over `<KEY>`;
+// `AMPLIFY_DATA_CONCURRENCY` is the legacy alias of CONCURRENCY).
+export const CONTROL_NAMES = [
+  'MAX_FETCHES', 'REQUEST_SLEEP', 'CONCURRENCY', 'TICKERS', 'CATEGORY', 'AUM', 'TER', 'DIVIDEND_YIELD', 'SEC_YIELD',
+  'HISTORY_PAGE_SIZE', 'MAX_RETRIES',
+  ...['PERFORMANCE', 'TOTAL_RETURN'].flatMap(prefix => RETURN_PERIODS.map(period => `${prefix}_${period}`)),
+  'VERBOSE',
+] as const;
+export type ControlName = (typeof CONTROL_NAMES)[number];
+export const CONFIG_FILE_URL = new URL('./update-data.config.json', import.meta.url);
+
+export function resolveControls(
+  file: unknown = {},
+  advanced: unknown = {},
+  inputs: unknown = {},
+  env: Record<string, string | undefined> = {},
+): Record<string, string> {
+  const result: Record<string, string> = {};
+  const known = new Set<string>(CONTROL_NAMES);
+  const apply = (value: unknown, skipEmpty = false): void => {
+    if (!value || typeof value !== 'object' || Array.isArray(value)) throw new Error('Configuration must be a JSON object');
+    for (const [key, raw] of Object.entries(value)) {
+      if (!known.has(key)) throw new Error(`Unknown updater control: ${key}`);
+      if (skipEmpty && (raw === '' || raw === undefined || raw === null)) continue;
+      if (!['string', 'number', 'boolean'].includes(typeof raw)) throw new Error(`${key}: expected string, number or boolean`);
+      const text = String(raw);
+      if (/[\r\n\0]/.test(text)) throw new Error(`${key}: multiline/control characters are not allowed`);
+      result[key] = text;
+    }
+  };
+  apply(file);
+  apply(advanced);
+  apply(inputs, true);
+  for (const key of CONTROL_NAMES) {
+    const legacy = key === 'CONCURRENCY' ? env.AMPLIFY_DATA_CONCURRENCY : undefined;
+    const value = env[`AMPLIFY_${key}`] ?? env[key] ?? legacy;
+    if (value !== undefined) apply({ [key]: value });
+  }
+  if (result.VERBOSE && !/^(0|1|true|false|yes|no|y|n|on|off)$/i.test(result.VERBOSE)) throw new Error('VERBOSE: expected boolean');
+  readConfig(result); // validate CONCURRENCY and every min:max filter before any request or write
+  return result;
+}
+
+export async function runtimeControls(env: Record<string, string | undefined> = process.env): Promise<Record<string, string>> {
+  let file: unknown = {};
+  try { file = JSON.parse(await readFile(CONFIG_FILE_URL, 'utf8')); }
+  catch (error) { if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error; }
+  return resolveControls(file, {}, {}, env);
+}
+
 async function main() {
   if (wantsHelp(process.argv.slice(2))) {
     printHelp();
     return;
   }
-  const config = readConfig();
+  const controls = await runtimeControls();
+  if (controls.VERBOSE !== undefined) process.env.VERBOSE = controls.VERBOSE;
+  const config = readConfig(controls);
   outputPrintConfig('Amplify', config);
+  httpSettings = { maxRetries: config.maxRetries, requestSleepMs: config.requestSleepSeconds * 1000, historyPageSize: config.historyPageSize };
 
   const existing = await readExistingPayload();
 
@@ -588,6 +672,7 @@ async function main() {
       const yields = normalizeAsOfDoc(yieldsDoc) || {};
       const metrics: FundMetrics = {
         netAssetsValue,
+        expenseRatioPercent: expenseRatioValue === null ? null : expenseRatioValue * 100,
         dividendYield: parsePercent(yields.Distribution_Yield),
         secYield: parsePercent(yields['30_Day_SECYield']),
         returns: monthlyNavReturns(monthlyPerformanceDoc),
@@ -721,7 +806,7 @@ async function countCollectionDocs(pathParts: string[]): Promise<number> {
   let total = 0;
   let pageToken = '';
   do {
-    const query = `pageSize=300&orderBy=__name__%20desc${pageToken ? `&pageToken=${encodeURIComponent(pageToken)}` : ''}`;
+    const query = `pageSize=${httpSettings.historyPageSize}&orderBy=__name__%20desc${pageToken ? `&pageToken=${encodeURIComponent(pageToken)}` : ''}`;
     const json = await fetchJson(`${FIRESTORE_BASE}/${pathParts.map(encodeURIComponent).join('/')}?${query}`);
     total += Array.isArray(json.documents) ? json.documents.length : 0;
     pageToken = json.nextPageToken || '';
@@ -756,19 +841,48 @@ async function fetchFirestoreList(pathParts: string[], query = ''): Promise<Deco
   return (json.documents || []).map(decodeDocument);
 }
 
-async function fetchJson(url: string): Promise<JsonRecord> {
-  const response = await fetch(url, { headers: { Accept: 'application/json' } });
-  const text = await response.text();
-  let json: JsonRecord = {};
-  if (text) json = JSON.parse(text);
-  if (!response.ok || json.error) {
-    const message = json.error?.message || `${response.status} ${response.statusText}`;
-    throw new Error(message);
-  }
-  return json;
+// Request pacing and retries shared by every Firestore call (set from the resolved controls in main).
+export let httpSettings = { maxRetries: DEFAULT_MAX_RETRIES, requestSleepMs: DEFAULT_REQUEST_SLEEP * 1000, historyPageSize: DEFAULT_HISTORY_PAGE_SIZE };
+export function setHttpSettings(next: typeof httpSettings): void { httpSettings = next; }
+let nextRequestSlot = 0;
+
+// Global gate: request starts are at least REQUEST_SLEEP seconds apart across all workers.
+async function waitForRequestSlot(): Promise<void> {
+  if (httpSettings.requestSleepMs <= 0) return;
+  const now = Date.now();
+  const slot = Math.max(now, nextRequestSlot);
+  nextRequestSlot = slot + httpSettings.requestSleepMs;
+  if (slot > now) await new Promise(resolve => setTimeout(resolve, slot - now));
 }
 
-function decodeDocument(doc: JsonRecord): DecodedDoc {
+class HttpStatusError extends Error {
+  constructor(message: string, readonly status: number) { super(message); }
+}
+
+const isTransient = (error: unknown): boolean =>
+  !(error instanceof HttpStatusError) || error.status === 429 || error.status >= 500;
+
+export async function fetchJson(url: string): Promise<JsonRecord> {
+  for (let attempt = 0; ; attempt++) {
+    try {
+      await waitForRequestSlot();
+      const response = await fetch(url, { headers: { Accept: 'application/json' } });
+      const text = await response.text();
+      let json: JsonRecord = {};
+      if (text) json = JSON.parse(text);
+      if (!response.ok || json.error) {
+        throw new HttpStatusError(json.error?.message || `${response.status} ${response.statusText}`, response.status);
+      }
+      return json;
+    } catch (error) {
+      if (attempt >= httpSettings.maxRetries || !isTransient(error)) throw error;
+      outputNote(`retry ${attempt + 1}/${httpSettings.maxRetries} after ${error instanceof Error ? error.message : String(error)}: ${url}`);
+      await new Promise(resolve => setTimeout(resolve, Math.min(250 * 2 ** attempt, 4000)));
+    }
+  }
+}
+
+export function decodeDocument(doc: JsonRecord): DecodedDoc {
   const id = doc.name ? doc.name.split('/').pop() : '';
   const fields: JsonRecord = {};
   sortedFieldEntries(doc.fields).forEach(([key, value]) => { fields[key] = decodeFirestoreValue(value); });
@@ -896,7 +1010,7 @@ function frequencyBucket(days: number): FrequencyBucket {
   return 'irregular';
 }
 
-function deriveDistributionFrequency(rows: JsonRecord[]): string {
+export function deriveDistributionFrequency(rows: JsonRecord[]): string {
   const dates = rows
     .map(distributionDateTs)
     .filter(ts => Number.isFinite(ts))
@@ -955,7 +1069,7 @@ function normalizeAllocationDimension(allocation: JsonRecord): JsonRecord | null
   };
 }
 
-function normalizePosition(raw: JsonRecord, ctx: JsonRecord): JsonRecord | null {
+export function normalizePosition(raw: JsonRecord, ctx: JsonRecord): JsonRecord | null {
   const rawSymbol = normalizeWhitespace(raw.StockTicker || raw.Ticker || raw.Symbol || raw.CUSIP || '');
   const symbol = rawSymbol.toUpperCase();
   const name = normalizeWhitespace(raw.SecurityName || raw.Name || raw.Description || symbol || 'Unknown holding');
@@ -984,7 +1098,7 @@ function normalizePosition(raw: JsonRecord, ctx: JsonRecord): JsonRecord | null 
   };
 }
 
-function classifyHolding({ symbol, name, cusip, raw }: JsonRecord): string[] {
+export function classifyHolding({ symbol, name, cusip, raw }: JsonRecord): string[] {
   const compact = symbol.replace(/\s+/g, '');
   const upperName = name.toUpperCase();
   const flags: string[] = [];
@@ -1036,7 +1150,7 @@ function finiteNumber(value: unknown): number | null {
   return Number.isFinite(parsed) ? parsed : null;
 }
 
-function parsePercent(value: unknown): number | null {
+export function parsePercent(value: unknown): number | null {
   if (value === null || value === undefined || value === '') return null;
   if (typeof value === 'number') return value > 0 && value < 1 ? value * 100 : value;
   const parsed = Number.parseFloat(String(value).replace('%', '').trim());
@@ -1067,7 +1181,9 @@ function normalizeWhitespace(value: unknown): string {
   return String(value || '').replace(/\s+/g, ' ').trim();
 }
 
-main().catch(error => {
-  console.error(error);
-  process.exitCode = 1;
-});
+if (import.meta.main) {
+  main().catch(error => {
+    console.error(error);
+    process.exitCode = 1;
+  });
+}
