@@ -49,8 +49,8 @@ The **Update Amplify ETF data** GitHub Actions workflow runs weekly and on deman
 | Control | Default | Meaning |
 | --- | --: | --- |
 | `MAX_FETCHES` | `0` | `0` means all selected funds; a positive value fetches only the first N selected tickers (alphabetical) |
-| `REQUEST_SLEEP` | `0` | Minimum seconds between request starts, shared by all workers, retries included |
-| `CONCURRENCY` | `6` | Parallel fund fetch workers (legacy alias `AMPLIFY_DATA_CONCURRENCY`) |
+| `REQUEST_SLEEP` | `0` | Minimum seconds between request starts of each worker lane (N workers give about N times the throughput), retries included |
+| `CONCURRENCY` | `6` | Funds fetched in parallel, one request in flight per worker, so peak in-flight requests equal CONCURRENCY (legacy alias `AMPLIFY_DATA_CONCURRENCY`) |
 | `TICKERS` | all | Space-, comma- or semicolon-separated ticker allowlist, e.g. `DIVO IDVO SILJ BLOK` |
 | `CATEGORY` | all | Fund categories to include, comma-separated (`Income`, `Thematic`, `Core`) |
 | `AUM` | `:` | Net Assets range `min:max`. Each bound may be a USD amount or `K`/`M`/`B`/`T`, or one of `nano`, `micro`, `small`, `mid`, `large` |
