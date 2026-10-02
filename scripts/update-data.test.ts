@@ -7,7 +7,7 @@ import { pathToFileURL } from 'node:url';
 import {
   CONTROL_NAMES, HOLDINGS_HEADERS, USAGE, buildMetrics, chartUrl, decodeDocument, epochToIsoDate, fetchJson, fundFilterReasons,
   holdingsRowFromFirestore, inferDistributionFrequency, installSystemCa, isCertError, mergeDividends, mergeHistory, officialReturns,
-  parseAumRange, parseChart, parseHistoryRange, parseNport, parsePercent, priceReturns, readConfig, resetSecCaches, resolveControls,
+  parseAumRange, parseChart, parseHistoryRange, parseNport, parsePercent, performanceAsOfDate, priceReturns, readConfig, resetSecCaches, resolveControls,
   resolveNportFiling, runFundPool, runUpdate, runtimeControls, selectCatalog, setApiRoot, setHttpSettings,
 } from './update-data';
 
@@ -206,6 +206,12 @@ test('metrics: official values win, Yahoo derived values fill gaps, TR is (1+CAG
   expect(inferDistributionFrequency(monthly)).toEqual({ frequency: 'Monthly', paymentsPerYear: 12 });
 });
 
+test('performanceAsOfDate turns report labels into ISO dates and never invents one', () => {
+  expect(performanceAsOfDate('Sep 30 2026')).toBe('2026-09-30');
+  expect(performanceAsOfDate('2026-10-01')).toBe('2026-10-01');
+  expect([performanceAsOfDate(null), performanceAsOfDate('—'), performanceAsOfDate('')]).toEqual([null, null, null]);
+});
+
 test('HISTORY_RANGE really narrows the Yahoo request with explicit period1/period2', () => {
   const now = Date.UTC(2026, 9, 2);
   const period1 = (range: string) => Number(new URL(chartUrl('DIVO', { historyRange: range }, now)).searchParams.get('period1'));
@@ -340,6 +346,11 @@ test('feed layout: index.json + funds/<TICKER>/meta.json + paginated holdings/hi
       distributions: { frequency: 'Unknown', exDate: epochToIsoDate(T0 + DAY).replace(/(\d+)-(\d+)-(\d+)/, '$2/$3/$1'), dividend: '0.2' },
     });
     expect(index.funds[0].metrics).toMatchObject({ ytd: 8.25, tr1y: 11.43, cagr3y: 16.38, tr3y: 57.63, cagr10y: null, tr10y: null, siAnn: 12.4, secYield: 1.4, dividendYield: 4.88 });
+    const keys = Object.keys(index.funds[0].metrics);
+    expect(keys.slice(-2)).toEqual(['returnsBasis', 'performanceAsOf']);
+    expect(index.funds[0].metrics.returnsBasis).toMatch(/official Amplify NAV/);
+    expect(index.funds[0].metrics.performanceAsOf).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    expect(index.funds[0].metrics.performanceAsOf).toBe(performanceAsOfDate(index.funds[0].returns.monthEnd.asOfDate));
     const meta = JSON.parse(files['funds/TEST/meta.json']);
     expect(meta.holdings).toMatchObject({ pages: ['holdings/001.json', 'holdings/002.json'], pageSize: 1, totalRows: 2, asOfDate: '2026-10-02', asOf: 'Oct 02 2026', status: 'available' });
     expect(meta.history).toMatchObject({ pages: ['history/001.json', 'history/002.json'], pageSize: 2, totalRows: 3, asOf: 'Sep 30 2026' });

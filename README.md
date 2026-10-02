@@ -37,7 +37,7 @@ The Firestore `distributions` and `history` collections answer `403 Missing or i
 
 ### Metrics and caveats
 
-- Each fund carries a derived `metrics` object in `index.json` that powers the catalog columns: `ytd`, `tr1y`, `cagr3y`/`cagr5y`/`cagr10y`, `tr3y`/`tr5y`/`tr10y` as `(1 + CAGR)^n - 1`, `siAnn`, `secYield` and `dividendYield`
+- Each fund carries a derived `metrics` object in `index.json` that powers the catalog columns: `ytd`, `tr1y`, `cagr3y`/`cagr5y`/`cagr10y`, `tr3y`/`tr5y`/`tr10y` as `(1 + CAGR)^n - 1`, `siAnn`, `secYield` and `dividendYield`, plus the mandatory `returnsBasis` (non-empty text, same as `returns.derivedFrom`: official NAV or Yahoo derived) and `performanceAsOf` (ISO date the returns are as of: the official table date, or the last Yahoo close for Yahoo-derived returns, never the NAV date; `null` only when unknown), both always last in the object
 - Returns are the official Amplify NAV month-end/quarter-end figures (YTD and 1Y are period returns, 3Y, 5Y, 10Y and since inception are annualized); only missing metrics are derived from Yahoo adjusted closes at the same reporting date and the `derivedFrom` label says which basis applies. A range-limited `HISTORY_RANGE` never produces a since-inception figure
 - The history series is Yahoo daily market price (close and adjusted close), not official NAV
 - `dividendYield` is the trailing distribution yield published by Amplify; when Amplify publishes none it is the indicated yield (latest distribution x payments per year / market price) from the Yahoo dividends. `secYield` is the published 30-day SEC yield
