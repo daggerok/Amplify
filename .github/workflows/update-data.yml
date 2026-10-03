@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       max_fetches:
-        description: "0 means all selected funds; N fetches only the first N selected tickers (alphabetical); blank inherits scripts/update-data.config.json"
+        description: "0 means all selected funds; N is a resumable batch of N funds that pass the filters; blank inherits scripts/update-data.config.json"
         required: false
         default: ""
         type: string
@@ -21,7 +21,7 @@ on:
         default: ""
         type: string
       tickers:
-        description: "Only refresh these tickers, separated by spaces, commas or semicolons; blank inherits scripts/update-data.config.json"
+        description: "Only refresh these tickers (unknown is an error), separated by spaces, commas or semicolons; blank inherits scripts/update-data.config.json"
         required: false
         default: ""
         type: string
@@ -36,12 +36,12 @@ on:
         default: ""
         type: string
       ter:
-        description: "Expense-ratio percent min:max; blank inherits scripts/update-data.config.json"
+        description: "Net expense-ratio percent min:max; blank inherits scripts/update-data.config.json"
         required: false
         default: ""
         type: string
       dividend_yield:
-        description: "Trailing distribution yield percent min:max (indicated yield from Yahoo dividends when unpublished); blank inherits scripts/update-data.config.json"
+        description: "Trailing distribution yield percent min:max (trailing 12 months from Yahoo dividends when unpublished); blank inherits scripts/update-data.config.json"
         required: false
         default: ""
         type: string
