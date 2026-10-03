@@ -21,7 +21,7 @@ bun install --frozen-lockfile
 
 Defaults for every control live in `scripts/update-data.config.json` (flat object, all values strings). Run `./scripts/update-data.ts -h` (or `--help`) to print every control with usage examples. Environment variables override the file (an explicitly set variable wins even when empty and clears the control), and an `AMPLIFY_` prefixed name wins over the plain one.
 
-The **Update Amplify ETF data** GitHub Actions workflow runs weekly and on demand. Precedence: file defaults < `advanced` JSON < nonblank inputs < protected Actions variable/env. A blank input inherits the file value, and `advanced` accepts any control from the table below as a JSON object of scalars. The workflow and the CLI share the same `resolveControls` function, and the output is always `api/amplify`: `index.json` (catalog, counts, per-fund metrics), `funds/<TICKER>/meta.json` and the paginated `funds/<TICKER>/holdings/NNN.json` and `funds/<TICKER>/history/NNN.json` pages, the same layout as every sibling feed. A fund that is not refreshed keeps its published files; a full unfiltered pass also drops funds Amplify no longer lists as active. All supplied filters use **AND** logic
+The **Update Amplify ETF data** GitHub Actions workflow runs weekly and on demand. Precedence: file defaults < `advanced` JSON < nonblank inputs < protected Actions variable/env. A blank input inherits the file value, and `advanced` accepts any control from the table below as a JSON object of scalars. The workflow and the CLI share the same `resolveControls` function, and the output is always `api/amplify`: `index.json` (catalog, counts, per-fund metrics), `funds/<TICKER>/meta.json` and the paginated `funds/<TICKER>/holdings/NNN.json` and `funds/<TICKER>/history/NNN.json` pages, the same layout as every sibling feed. A fund that is not refreshed keeps its published files; a full unfiltered pass also removes funds the provider no longer lists at all (see Metrics and caveats). All supplied filters use **AND** logic
 
 ### Data sources
 
@@ -31,48 +31,54 @@ The **Update Amplify ETF data** GitHub Actions workflow runs weekly and on deman
 | Fund facts, daily NAV, market price, net assets, premium/discount, yields, month-end/quarter-end NAV returns | Per-fund Firestore documents of the same project (`fund_metadata`, `daily`, `yields`, `performance_monthly`, `performance_quarterly`) |
 | Holdings per fund | The latest Firestore `holdings` document; SEC EDGAR Form N-PORT-P (resolved through the SEC fund ticker table, exact series match) when Firestore has none (`EDGAR_FALLBACK`); the previously published sheet as the last resort |
 | Daily history, dividends | Yahoo Finance chart prices, adjusted closes and dividend events (`SKIP_YAHOO`, `HISTORY_RANGE`) |
-| Previously published data | `api/amplify`, merged with fresh history and kept for any source that fails |
+| Previously published data | `api/amplify`, merged with fresh history; a fund whose source fails is kept exactly as published |
 
-The Firestore `distributions` and `history` collections answer `403 Missing or insufficient permissions` to the public key, so distributions come from Yahoo dividend events (the Firestore rows would win for the same ex-date if access ever opens) and the price history comes from Yahoo. International funds listed by Amplify (K-DIVO, K-QDVO, HK-BLOK) publish only net assets in Firestore and have no Yahoo or SEC data, so their holdings, history and returns stay empty.
+The Firestore `distributions` and `history` collections answer `403 Missing or insufficient permissions` to the public key, so distributions come from Yahoo dividend events (the Firestore rows would win for the same ex-date if access ever opens) and the price history comes from Yahoo. International partner funds listed by Amplify (K-DIVO, K-QDVO, HK-BLOK) publish only net assets in Firestore and have no Yahoo or SEC data, so their holdings, history, prices and returns stay empty; they carry `status: "aum-only"` and a Yahoo "symbol not found" is treated as an honest absence, not a failure.
 
 ### Metrics and caveats
 
 - Each fund carries a derived `metrics` object in `index.json` that powers the catalog columns: `ytd`, `tr1y`, `cagr3y`/`cagr5y`/`cagr10y`, `tr3y`/`tr5y`/`tr10y` as `(1 + CAGR)^n - 1`, `siAnn`, `secYield` and `dividendYield`, plus the mandatory `returnsBasis` (non-empty text, same as `returns.derivedFrom`: official NAV or Yahoo derived) and `performanceAsOf` (ISO date the returns are as of: the official table date, or the last Yahoo close for Yahoo-derived returns, never the NAV date; `null` only when unknown), both always last in the object
 - Returns are the official Amplify NAV month-end/quarter-end figures (YTD and 1Y are period returns, 3Y, 5Y, 10Y and since inception are annualized); only missing metrics are derived from Yahoo adjusted closes at the same reporting date and the `derivedFrom` label says which basis applies. A range-limited `HISTORY_RANGE` never produces a since-inception figure
 - The history series is Yahoo daily market price (close and adjusted close), not official NAV
-- `dividendYield` is the trailing distribution yield published by Amplify; when Amplify publishes none it is the indicated yield (latest distribution x payments per year / market price) from the Yahoo dividends. `secYield` is the published 30-day SEC yield
+- `dividendYield` is the trailing distribution yield published by Amplify (a published `0.00%` stays an official zero: AHBM, AWAY, BNAV, CNBS, ROBX, STBQ, TKNQ, XQBT and XWNG publish exactly that); when Amplify publishes none it is the trailing 12 months of Yahoo distributions over the market price, `null` with under 12 months of history. `secYield` is the published 30-day SEC yield
 - `PERFORMANCE_*` filters compare YTD and 1Y returns and the 3Y, 5Y and 10Y annualized (CAGR) values; `TOTAL_RETURN_*` filters compare YTD and 1Y as published and 3Y, 5Y and 10Y as `(1 + CAGR)^n - 1`
-- `AUM` compares against the latest daily net assets; the `nano`, `micro`, `small`, `mid` and `large` presets use upper bounds that are exclusive; `TER` compares the published expense ratio in %
+- `AUM` compares against the latest daily net assets; the `nano`, `micro`, `small`, `mid` and `large` presets use upper bounds that are exclusive; `TER` compares the published expense ratio in %. Amplify publishes a single figure: it is the net ratio (`terValue`, `expenseRatio.net`), and `terGrossValue` / `expenseRatio.gross` stay `null` because no gross figure is published
 - A configured filter skips funds that do not publish the metric: unavailable is never treated as 0, and no value is ever invented as zero (missing weights, market values and prices stay empty or `null`)
-- A failed source keeps the previously published value for that source only; a fund with no usable source at all fails the run
+- `siAnn` is `null` for a fund under one year old at the as-of date, and the percent figures are published as percent: nothing is rescaled (`0.5` means 0.5%)
+- **Fund-level consistency:** a fund is either fully updated or fully kept as published. If any source of a fund fails (Firestore document, Yahoo, SEC; HTTP errors and timeouts, not "document not found") the fund's files and index row stay byte-for-byte as published (`kept` in the run output), and a fund that was never published is not published half-way. The workflow commits after a partial run, which is safe because no fund is ever half-updated. An honest empty answer (missing document, empty collection, no performance table) is a `null`, never a reason to copy an old value, and the returns, `returnsBasis` and `performanceAsOf` always belong together
+- **Status:** each row and `meta.json` carry `status`: `active`, `pre-launch` (placeholder or future-dated daily document, e.g. CPU: NAV, price, net assets and a future inception date are not published, the expected date is kept as `inception.expectedInceptionDate`), `delisted` (`DelistDate` reached, e.g. SMAP: values are the last official ones) or `aum-only`
+- A SEC N-PORT filing replaces published holdings only when its report date is newer; SEC requests share one paced gate (at least 150 ms between starts) and a 403 or 429 from SEC is retried; every request has a 45 s timeout that also covers the body
+- **Exit code and deadline:** non-zero when any fund fails or when every examined fund was kept because a source failed. The run stops taking new funds after 25 minutes (workflow limit: 30) and still writes the index; the cursor does not move then
+- `NEW FUNDS: A, B` (tickers new in the active catalog) and `DROPPED FUNDS: A` are printed and appended to the Actions step summary
+- With no filters the full active catalog is refreshed. Funds the provider still lists but marks inactive or with category `Unknown` are not refreshed and not removed; only funds absent from `fund_category` are purged, at most max(3, 10% of the published funds) per run (a larger drop is refused and reported)
 - With no filters the full active catalog is rebuilt
 
 ### Update controls
 
 | Control | Default | Meaning |
 | --- | --: | --- |
-| `MAX_FETCHES` | `0` | `0` means all selected funds; a positive value fetches only the first N selected tickers (alphabetical) |
+| `MAX_FETCHES` | `0` | `0` means all selected funds and removes the cursor; a positive value is a resumable batch: N funds that pass the filters, in ticker order after the cursor (`api/amplify/update-state.json`), wrapping around; the cursor does not move when the batch has failures. A `TICKERS` run never reads, moves or deletes it |
 | `REQUEST_SLEEP` | `0` | Minimum seconds between request starts of each worker lane (N workers give about N times the throughput), retries included |
 | `CONCURRENCY` | `6` | Funds fetched in parallel, one request in flight per worker for Firestore, Yahoo and SEC alike, so peak in-flight requests equal CONCURRENCY (legacy alias `AMPLIFY_DATA_CONCURRENCY`) |
-| `TICKERS` | all | Space-, comma- or semicolon-separated ticker allowlist, e.g. `DIVO IDVO SILJ BLOK` |
+| `TICKERS` | all | Space-, comma- or semicolon-separated ticker allowlist, e.g. `DIVO IDVO SILJ BLOK`; a ticker that is not an active fund in the catalog is an error |
 | `CATEGORY` | all | Fund categories to include, comma-separated (`Income`, `Thematic`, `Core`, `International`) |
 | `AUM` | `:` | Net Assets range `min:max`. Each bound may be a USD amount or `K`/`M`/`B`/`T`, or one of `nano`, `micro`, `small`, `mid`, `large` |
-| `TER` | `:` | Expense-ratio range in % |
-| `DIVIDEND_YIELD` | `:` | Trailing distribution yield range in % |
+| `TER` | `:` | Net expense-ratio range in % (Amplify publishes a single ratio) |
+| `DIVIDEND_YIELD` | `:` | Trailing distribution yield range in %; funds without one are excluded |
 | `SEC_YIELD` | `:` | 30-day SEC yield range in % |
 | `HOLDINGS_PAGE_SIZE` | `250` | Holdings rows per JSON page |
 | `HISTORY_PAGE_SIZE` | `1000` | Daily history rows per JSON page (alias `HISTORICAL_PAGE_SIZE`) |
-| `MAX_RETRIES` | `2` | Retries (at least 1) for network errors, HTTP 429 and 5xx; other 4xx fail immediately |
+| `MAX_RETRIES` | `2` | Retries (at least 1) for network errors, timeouts, HTTP 429 and 5xx (SEC: also 403); other 4xx fail immediately |
 | `HISTORY_RANGE` | `max` | Yahoo daily history range: `max` or `Ny` (for example `5y`), sent as explicit `period1`/`period2`; merges with the previously published history |
 | `SEC_UA` | `daggerok ETF feed daggerok@gmail.com` | SEC EDGAR contact User-Agent, redacted in logs; the Actions variable `SEC_UA` overrides it when nonblank. Do not put credentials here |
 | `SKIP_YAHOO` | `false` | Skip Yahoo history and dividends; retain published data |
 | `EDGAR_FALLBACK` | `true` | SEC N-PORT-P holdings fallback for funds without Firestore holdings |
 | `PERFORMANCE_YTD` / `_1Y` / `_3Y` / `_5Y` / `_10Y` | `:` | Return range in % per period (3Y, 5Y and 10Y are annualized); the colon is required |
 | `TOTAL_RETURN_YTD` / `_1Y` / `_3Y` / `_5Y` / `_10Y` | `:` | Cumulative total-return range in % per period; the colon is required |
-| `VERBOSE` | `false` | Print per-fund retry and fallback notices |
+| `VERBOSE` | `false` | Print per-fund retry and fallback notices (`1`, `true`, `yes`, `y`, `on` enable it) |
 | `USE_SYSTEM_CA` | `auto` | TLS trust store: `auto` restarts the updater once with Bun's `--use-system-ca` when a request fails with an untrusted-certificate error; `true` always uses the system CA store; `false` never restarts. Not an individual workflow input: use `advanced`, the config file or the CLI environment. |
 
-`TICKERS` combines with the other filters using AND logic; it does not override them. A fund filtered out keeps its published files. `EDGAR_FALLBACK`, `SEC_UA` and `VERBOSE` are reached in the workflow through `advanced` (the workflow has 24 individual inputs plus `advanced`).
+`TICKERS` combines with the other filters using AND logic; it does not override them. A fund filtered out keeps its published files, so a filtered run never shrinks the feed. A blank (whitespace-only) workflow input inherits the file value. `EDGAR_FALLBACK`, `SEC_UA` and `VERBOSE` are reached in the workflow through `advanced` (the workflow has 24 individual inputs plus `advanced`).
 
 ### Examples
 
