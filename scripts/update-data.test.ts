@@ -913,9 +913,9 @@ test('stale pages are removed only after the new meta.json is written', async ()
   stubWorld(w);
   const { dir } = await runLogged({ TICKERS: 'AAA', HOLDINGS_PAGE_SIZE: '1' });
   try {
-    expect(readdirSync(join(dir, 'funds/AAA/holdings'))).toEqual(['001.json', '002.json']);
+    expect(readdirSync(join(dir, 'funds/AAA/holdings')).sort()).toEqual(['001.json', '002.json']);
     await runLogged({ TICKERS: 'AAA', HOLDINGS_PAGE_SIZE: '250' }, dir);
-    expect(readdirSync(join(dir, 'funds/AAA/holdings'))).toEqual(['001.json']);
+    expect(readdirSync(join(dir, 'funds/AAA/holdings')).sort()).toEqual(['001.json']);
     expect(readMeta(dir, 'AAA').holdings.pages).toEqual(['holdings/001.json']);
     expect(readdirSync(join(dir, 'funds/AAA')).filter(f => f.endsWith('.tmp'))).toEqual([]);
   } finally { rmSync(dir, { recursive: true, force: true }); }
