@@ -3,6 +3,7 @@
  "name": "Amplify Cash Flow High Income ETF",
  "category": "Income",
  "categoryPath": "Income",
+ "status": "active",
  "source": {
   "fundPage": "https://amplifyetfs.com/HCOW/",
   "catalog": "https://firestore.googleapis.com/v1/projects/amplify-etfs-data-feed/databases/(default)/documents/fund_category",
@@ -31,33 +32,33 @@
  "expenseRatio": {
   "display": "0.65%",
   "value": 0.65,
-  "gross": 0.65,
+  "gross": null,
   "net": 0.65
  },
  "nav": {
-  "display": "$23.69",
-  "value": 23.6864,
-  "asOfDate": "Oct 01 2026"
+  "display": "$23.70",
+  "value": 23.6971,
+  "asOfDate": "Oct 02 2026"
  },
  "marketPrice": {
-  "display": "$23.70",
-  "value": 23.6961,
-  "asOfDate": "Oct 01 2026"
+  "display": "$23.72",
+  "value": 23.7191,
+  "asOfDate": "Oct 02 2026"
  },
  "premiumDiscount": {
-  "display": "0.04%",
-  "value": 0.041
+  "display": "0.09%",
+  "value": 0.0928
  },
  "aum": {
-  "display": "$17,054,219",
-  "value": 17054219.38,
-  "asOfDate": "Oct 01 2026",
+  "display": "$17,061,936",
+  "value": 17061935.65,
+  "asOfDate": "Oct 02 2026",
   "source": "Amplify Firestore daily net assets"
  },
  "yields": {
   "dividendYield": 10.29,
   "dividendYieldText": "10.29%",
-  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields)",
+  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields; a published 0.00% is an official zero)",
   "secYield": 1.06,
   "secYieldText": "1.06%",
   "secYieldKind": "30-day SEC yield published by Amplify (Firestore yields)",
@@ -247,9 +248,9 @@
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 65,
-  "asOfDate": "2026-10-02",
-  "asOf": "Oct 02 2026",
+  "totalRows": 62,
+  "asOfDate": "2026-10-05",
+  "asOf": "Oct 05 2026",
   "source": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
   "status": "available"
  },
@@ -258,8 +259,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 761,
-  "asOf": "Oct 01 2026",
+  "totalRows": 762,
+  "asOf": "Oct 02 2026",
   "source": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)"
  }
 }

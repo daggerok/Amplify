@@ -3,6 +3,7 @@
  "name": "Amplify Digital Payments ETF",
  "category": "Thematic",
  "categoryPath": "Thematic",
+ "status": "active",
  "source": {
   "fundPage": "https://amplifyetfs.com/IPAY/",
   "catalog": "https://firestore.googleapis.com/v1/projects/amplify-etfs-data-feed/databases/(default)/documents/fund_category",
@@ -31,33 +32,33 @@
  "expenseRatio": {
   "display": "0.75%",
   "value": 0.75,
-  "gross": 0.75,
+  "gross": null,
   "net": 0.75
  },
  "nav": {
-  "display": "$46.50",
-  "value": 46.499,
-  "asOfDate": "Oct 01 2026"
+  "display": "$46.46",
+  "value": 46.4589,
+  "asOfDate": "Oct 02 2026"
  },
  "marketPrice": {
-  "display": "$46.51",
-  "value": 46.51,
-  "asOfDate": "Oct 01 2026"
+  "display": "$46.46",
+  "value": 46.46,
+  "asOfDate": "Oct 02 2026"
  },
  "premiumDiscount": {
-  "display": "0.02%",
-  "value": 0.0237
+  "display": "0.00%",
+  "value": 0.0024
  },
  "aum": {
-  "display": "$146,471,995",
-  "value": 146471994.95,
-  "asOfDate": "Oct 01 2026",
+  "display": "$146,345,395",
+  "value": 146345394.9,
+  "asOfDate": "Oct 02 2026",
   "source": "Amplify Firestore daily net assets"
  },
  "yields": {
   "dividendYield": 0.88,
   "dividendYieldText": "0.88%",
-  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields)",
+  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields; a published 0.00% is an official zero)",
   "secYield": 0.26,
   "secYieldText": "0.26%",
   "secYieldKind": "30-day SEC yield published by Amplify (Firestore yields)",
@@ -144,8 +145,8 @@
   ],
   "pageSize": 250,
   "totalRows": 43,
-  "asOfDate": "2026-10-02",
-  "asOf": "Oct 02 2026",
+  "asOfDate": "2026-10-05",
+  "asOf": "Oct 05 2026",
   "source": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
   "status": "available"
  },
@@ -156,8 +157,8 @@
    "history/003.json"
   ],
   "pageSize": 1000,
-  "totalRows": 2820,
-  "asOf": "Oct 01 2026",
+  "totalRows": 2821,
+  "asOf": "Oct 02 2026",
   "source": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)"
  }
 }

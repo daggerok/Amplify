@@ -3,6 +3,7 @@
  "name": "Amplify Video Game Leaders ETF",
  "category": "Thematic",
  "categoryPath": "Thematic",
+ "status": "active",
  "source": {
   "fundPage": "https://amplifyetfs.com/GAMR/",
   "catalog": "https://firestore.googleapis.com/v1/projects/amplify-etfs-data-feed/databases/(default)/documents/fund_category",
@@ -31,33 +32,33 @@
  "expenseRatio": {
   "display": "0.59%",
   "value": 0.59,
-  "gross": 0.59,
+  "gross": null,
   "net": 0.59
  },
  "nav": {
-  "display": "$100.26",
-  "value": 100.2563,
-  "asOfDate": "Oct 01 2026"
+  "display": "$100.32",
+  "value": 100.3213,
+  "asOfDate": "Oct 02 2026"
  },
  "marketPrice": {
-  "display": "$99.66",
-  "value": 99.661,
-  "asOfDate": "Oct 01 2026"
+  "display": "$100.09",
+  "value": 100.0899,
+  "asOfDate": "Oct 02 2026"
  },
  "premiumDiscount": {
-  "display": "-0.59%",
-  "value": -0.5938
+  "display": "-0.23%",
+  "value": -0.2307
  },
  "aum": {
-  "display": "$41,105,087",
-  "value": 41105086.97,
-  "asOfDate": "Oct 01 2026",
+  "display": "$41,131,726",
+  "value": 41131726.18,
+  "asOfDate": "Oct 02 2026",
   "source": "Amplify Firestore daily net assets"
  },
  "yields": {
   "dividendYield": 0.47,
   "dividendYieldText": "0.47%",
-  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields)",
+  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields; a published 0.00% is an official zero)",
   "secYield": 0.38,
   "secYieldText": "0.38%",
   "secYieldKind": "30-day SEC yield published by Amplify (Firestore yields)",
@@ -192,8 +193,8 @@
   ],
   "pageSize": 250,
   "totalRows": 25,
-  "asOfDate": "2026-10-02",
-  "asOf": "Oct 02 2026",
+  "asOfDate": "2026-10-05",
+  "asOf": "Oct 05 2026",
   "source": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
   "status": "available"
  },
@@ -204,8 +205,8 @@
    "history/003.json"
   ],
   "pageSize": 1000,
-  "totalRows": 2656,
-  "asOf": "Oct 01 2026",
+  "totalRows": 2657,
+  "asOf": "Oct 02 2026",
   "source": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)"
  }
 }

@@ -3,6 +3,7 @@
  "name": "Amplify BlackSwan ISWN ETF",
  "category": "Core",
  "categoryPath": "Core",
+ "status": "active",
  "source": {
   "fundPage": "https://amplifyetfs.com/ISWN/",
   "catalog": "https://firestore.googleapis.com/v1/projects/amplify-etfs-data-feed/databases/(default)/documents/fund_category",
@@ -31,33 +32,33 @@
  "expenseRatio": {
   "display": "0.49%",
   "value": 0.49,
-  "gross": 0.49,
+  "gross": null,
   "net": 0.49
  },
  "nav": {
-  "display": "$20.76",
-  "value": 20.7598,
-  "asOfDate": "Oct 01 2026"
+  "display": "$20.90",
+  "value": 20.9001,
+  "asOfDate": "Oct 02 2026"
  },
  "marketPrice": {
-  "display": "$20.76",
-  "value": 20.757,
-  "asOfDate": "Oct 01 2026"
+  "display": "$20.90",
+  "value": 20.8987,
+  "asOfDate": "Oct 02 2026"
  },
  "premiumDiscount": {
   "display": "-0.01%",
-  "value": -0.0135
+  "value": -0.0067
  },
  "aum": {
-  "display": "$34,253,621",
-  "value": 34253621.18,
-  "asOfDate": "Oct 01 2026",
+  "display": "$34,485,191",
+  "value": 34485191.04,
+  "asOfDate": "Oct 02 2026",
   "source": "Amplify Firestore daily net assets"
  },
  "yields": {
   "dividendYield": 3.28,
   "dividendYieldText": "3.28%",
-  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields)",
+  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields; a published 0.00% is an official zero)",
   "secYield": 3.91,
   "secYieldText": "3.91%",
   "secYieldKind": "30-day SEC yield published by Amplify (Firestore yields)",
@@ -196,8 +197,8 @@
   ],
   "pageSize": 250,
   "totalRows": 14,
-  "asOfDate": "2026-10-02",
-  "asOf": "Oct 02 2026",
+  "asOfDate": "2026-10-05",
+  "asOf": "Oct 05 2026",
   "source": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
   "status": "available"
  },
@@ -207,8 +208,8 @@
    "history/002.json"
   ],
   "pageSize": 1000,
-  "totalRows": 1428,
-  "asOf": "Oct 01 2026",
+  "totalRows": 1429,
+  "asOf": "Oct 02 2026",
   "source": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)"
  }
 }

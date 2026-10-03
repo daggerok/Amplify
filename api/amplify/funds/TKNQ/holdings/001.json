@@ -14,29 +14,11 @@
  ],
  "rows": [
   {
-   "Name": "Invesco Government & Agency Portfolio 12/31/2031",
-   "Ticker": "AGPXX",
-   "Identifier": "825252885",
-   "Weight": "18.02",
-   "Market Value": "233023.25",
-   "Shares Held": "233023.25",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Grayscale Chainlink Trust ETF",
-   "Ticker": "GLNK",
-   "Identifier": "38963V106",
-   "Weight": "7.49",
-   "Market Value": "96896",
-   "Shares Held": "7570",
-   "SEDOL": ""
-  },
-  {
    "Name": "Canary HBAR ETF",
    "Ticker": "HBR",
    "Identifier": "136945102",
-   "Weight": "7.44",
-   "Market Value": "96252.3",
+   "Weight": "7.32",
+   "Market Value": "93222.9",
    "Shares Held": "6885",
    "SEDOL": ""
   },
@@ -44,17 +26,26 @@
    "Name": "Bitwise Solana Staking ETF",
    "Ticker": "BSOL",
    "Identifier": "091948109",
-   "Weight": "7.15",
-   "Market Value": "92502.5",
+   "Weight": "7.25",
+   "Market Value": "92389",
    "Shares Held": "5675",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Grayscale Chainlink Trust ETF",
+   "Ticker": "GLNK",
+   "Identifier": "38963V106",
+   "Weight": "7.14",
+   "Market Value": "90991.4",
+   "Shares Held": "7570",
    "SEDOL": ""
   },
   {
    "Name": "iShares Ethereum Trust ETF",
    "Ticker": "ETHA",
    "Identifier": "46438R105",
-   "Weight": "6.75",
-   "Market Value": "87285.45",
+   "Weight": "6.76",
+   "Market Value": "86171.35",
    "Shares Held": "4285",
    "SEDOL": ""
   },
@@ -62,8 +53,8 @@
    "Name": "Bitwise XRP ETF",
    "Ticker": "XRP",
    "Identifier": "09174F107",
-   "Weight": "6.59",
-   "Market Value": "85191.6",
+   "Weight": "6.56",
+   "Market Value": "83515.2",
    "Shares Held": "5080",
    "SEDOL": ""
   },
@@ -71,8 +62,8 @@
    "Name": "Bitwise Hyperliquid ETF",
    "Ticker": "BHYP",
    "Identifier": "09175T106",
-   "Weight": "6.36",
-   "Market Value": "82284.3",
+   "Weight": "6.37",
+   "Market Value": "81185.4",
    "Shares Held": "1665",
    "SEDOL": ""
   },
@@ -80,8 +71,8 @@
    "Name": "VanEck Avalanche ETF",
    "Ticker": "VAVX",
    "Identifier": "92188R101",
-   "Weight": "1.94",
-   "Market Value": "25074.03",
+   "Weight": "1.9",
+   "Market Value": "24143.5",
    "Shares Held": "1090",
    "SEDOL": ""
   },
@@ -89,8 +80,8 @@
    "Name": "Securitize Corp",
    "Ticker": "SECZ",
    "Identifier": "81517B101",
-   "Weight": "1.72",
-   "Market Value": "22190.1",
+   "Weight": "1.65",
+   "Market Value": "20978.85",
    "Shares Held": "1615",
    "SEDOL": ""
   },
@@ -99,7 +90,7 @@
    "Ticker": "2318 HK",
    "Identifier": "B01FLR7",
    "Weight": "1.3",
-   "Market Value": "16806.11",
+   "Market Value": "16565.89",
    "Shares Held": "2500",
    "SEDOL": ""
   },
@@ -107,8 +98,8 @@
    "Name": "Blackrock Inc",
    "Ticker": "BLK",
    "Identifier": "09290D101",
-   "Weight": "1.23",
-   "Market Value": "15965.4",
+   "Weight": "1.25",
+   "Market Value": "15894.45",
    "Shares Held": "15",
    "SEDOL": ""
   },
@@ -116,26 +107,17 @@
    "Name": "Cloudflare Inc",
    "Ticker": "NET",
    "Identifier": "18915M107",
-   "Weight": "1.22",
-   "Market Value": "15795",
+   "Weight": "1.23",
+   "Market Value": "15708.15",
    "Shares Held": "45",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Gemini Space Station Inc",
-   "Ticker": "GEMI",
-   "Identifier": "36866J105",
-   "Weight": "1.2",
-   "Market Value": "15488.85",
-   "Shares Held": "3055",
    "SEDOL": ""
   },
   {
    "Name": "Microsoft Corp",
    "Ticker": "MSFT",
    "Identifier": "594918104",
-   "Weight": "1.19",
-   "Market Value": "15384",
+   "Weight": "1.22",
+   "Market Value": "15525.9",
    "Shares Held": "30",
    "SEDOL": ""
   },
@@ -143,36 +125,54 @@
    "Name": "Coinbase Global Inc",
    "Ticker": "COIN",
    "Identifier": "19260Q107",
-   "Weight": "1.17",
-   "Market Value": "15143.2",
+   "Weight": "1.15",
+   "Market Value": "14640",
    "Shares Held": "80",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Industrial & Commercial Bank of China Ltd",
-   "Ticker": "1398 HK",
-   "Identifier": "B1G1QD8",
-   "Weight": "1.14",
-   "Market Value": "14738.4",
-   "Shares Held": "15000",
    "SEDOL": ""
   },
   {
    "Name": "Deutsche Boerse AG",
    "Ticker": "DB1 GR",
    "Identifier": "7021963",
-   "Weight": "1.12",
-   "Market Value": "14533.46",
+   "Weight": "1.14",
+   "Market Value": "14582.11",
    "Shares Held": "45",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Gemini Space Station Inc",
+   "Ticker": "GEMI",
+   "Identifier": "36866J105",
+   "Weight": "1.12",
+   "Market Value": "14266.85",
+   "Shares Held": "3055",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Industrial & Commercial Bank of China Ltd",
+   "Ticker": "1398 HK",
+   "Identifier": "B1G1QD8",
+   "Weight": "1.12",
+   "Market Value": "14249.85",
+   "Shares Held": "15000",
    "SEDOL": ""
   },
   {
    "Name": "Tel Aviv Stock Exchange Ltd",
    "Ticker": "TASE IT",
    "Identifier": "BK5HCP4",
-   "Weight": "1.08",
-   "Market Value": "13987.91",
+   "Weight": "1.11",
+   "Market Value": "14132.91",
    "Shares Held": "310",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Alphabet Inc",
+   "Ticker": "GOOGL",
+   "Identifier": "02079K305",
+   "Weight": "1.08",
+   "Market Value": "13740",
+   "Shares Held": "40",
    "SEDOL": ""
   },
   {
@@ -180,26 +180,71 @@
    "Ticker": "TW",
    "Identifier": "892672106",
    "Weight": "1.08",
-   "Market Value": "13945.5",
+   "Market Value": "13799.7",
    "Shares Held": "135",
    "SEDOL": ""
   },
   {
-   "Name": "Alphabet Inc",
-   "Ticker": "GOOGL",
-   "Identifier": "02079K305",
-   "Weight": "1.05",
-   "Market Value": "13529.6",
-   "Shares Held": "40",
+   "Name": "WisdomTree Inc",
+   "Ticker": "WT",
+   "Identifier": "97717P104",
+   "Weight": "1.08",
+   "Market Value": "13774.7",
+   "Shares Held": "565",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Akamai Technologies Inc",
+   "Ticker": "AKAM",
+   "Identifier": "00971T101",
+   "Weight": "1.07",
+   "Market Value": "13615",
+   "Shares Held": "125",
    "SEDOL": ""
   },
   {
    "Name": "American Express Co",
    "Ticker": "AXP",
    "Identifier": "025816109",
-   "Weight": "1.05",
-   "Market Value": "13594.05",
+   "Weight": "1.07",
+   "Market Value": "13625.1",
    "Shares Held": "45",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Euronext NV",
+   "Ticker": "ENX FP",
+   "Identifier": "BNBNSG0",
+   "Weight": "1.07",
+   "Market Value": "13577.15",
+   "Shares Held": "75",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Intercontinental Exchange Inc",
+   "Ticker": "ICE",
+   "Identifier": "45866F104",
+   "Weight": "1.06",
+   "Market Value": "13513.5",
+   "Shares Held": "90",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Robinhood Markets Inc",
+   "Ticker": "HOOD",
+   "Identifier": "770700102",
+   "Weight": "1.06",
+   "Market Value": "13528.8",
+   "Shares Held": "120",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Toronto-Dominion Bank/The",
+   "Ticker": "TD",
+   "Identifier": "891160509",
+   "Weight": "1.06",
+   "Market Value": "13556.2",
+   "Shares Held": "115",
    "SEDOL": ""
   },
   {
@@ -207,62 +252,17 @@
    "Ticker": "BLSH",
    "Identifier": "G16910120",
    "Weight": "1.05",
-   "Market Value": "13568.1",
+   "Market Value": "13349.7",
    "Shares Held": "390",
    "SEDOL": ""
   },
   {
-   "Name": "Intercontinental Exchange Inc",
-   "Ticker": "ICE",
-   "Identifier": "45866F104",
-   "Weight": "1.05",
-   "Market Value": "13632.3",
-   "Shares Held": "90",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Toronto-Dominion Bank/The",
-   "Ticker": "TD",
-   "Identifier": "891160509",
-   "Weight": "1.05",
-   "Market Value": "13525.15",
-   "Shares Held": "115",
-   "SEDOL": ""
-  },
-  {
-   "Name": "WisdomTree Inc",
-   "Ticker": "WT",
-   "Identifier": "97717P104",
-   "Weight": "1.05",
-   "Market Value": "13576.95",
-   "Shares Held": "565",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Euronext NV",
-   "Ticker": "ENX FP",
-   "Identifier": "BNBNSG0",
+   "Name": "JPMORGAN CHASE & CO.",
+   "Ticker": "JPM",
+   "Identifier": "46625H100",
    "Weight": "1.04",
-   "Market Value": "13458.79",
-   "Shares Held": "75",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Monex Group Inc",
-   "Ticker": "8698 JP",
-   "Identifier": "B01S2L7",
-   "Weight": "1.04",
-   "Market Value": "13445.75",
-   "Shares Held": "3000",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Akamai Technologies Inc",
-   "Ticker": "AKAM",
-   "Identifier": "00971T101",
-   "Weight": "1.03",
-   "Market Value": "13366.25",
-   "Shares Held": "125",
+   "Market Value": "13295.2",
+   "Shares Held": "40",
    "SEDOL": ""
   },
   {
@@ -270,17 +270,17 @@
    "Ticker": "CME",
    "Identifier": "12572Q105",
    "Weight": "1.03",
-   "Market Value": "13255",
+   "Market Value": "13157",
    "Shares Held": "50",
    "SEDOL": ""
   },
   {
-   "Name": "JPMORGAN CHASE & CO.",
-   "Ticker": "JPM",
-   "Identifier": "46625H100",
+   "Name": "Monex Group Inc",
+   "Ticker": "8698 JP",
+   "Identifier": "B01S2L7",
    "Weight": "1.03",
-   "Market Value": "13327.2",
-   "Shares Held": "40",
+   "Market Value": "13090.22",
+   "Shares Held": "3000",
    "SEDOL": ""
   },
   {
@@ -288,61 +288,43 @@
    "Ticker": "NDAQ",
    "Identifier": "631103108",
    "Weight": "1.03",
-   "Market Value": "13292.15",
+   "Market Value": "13097.85",
    "Shares Held": "145",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Robinhood Markets Inc",
-   "Ticker": "HOOD",
-   "Identifier": "770700102",
-   "Weight": "1.03",
-   "Market Value": "13338",
-   "Shares Held": "120",
-   "SEDOL": ""
-  },
-  {
-   "Name": "London Stock Exchange Group PLC",
-   "Ticker": "LSEG LN",
-   "Identifier": "B0SWJX3",
-   "Weight": "1",
-   "Market Value": "12872.37",
-   "Shares Held": "120",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Invesco Ltd",
-   "Ticker": "IVZ",
-   "Identifier": "G491BT108",
-   "Weight": "0.99",
-   "Market Value": "12776.4",
-   "Shares Held": "420",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Capital One Financial Corp",
-   "Ticker": "COF",
-   "Identifier": "14040H105",
-   "Weight": "0.98",
-   "Market Value": "12641.2",
-   "Shares Held": "65",
    "SEDOL": ""
   },
   {
    "Name": "Citigroup Inc",
    "Ticker": "C",
    "Identifier": "172967424",
-   "Weight": "0.98",
-   "Market Value": "12700",
+   "Weight": "1.01",
+   "Market Value": "12850",
    "Shares Held": "100",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Invesco Ltd",
+   "Ticker": "IVZ",
+   "Identifier": "G491BT108",
+   "Weight": "1.01",
+   "Market Value": "12877.2",
+   "Shares Held": "420",
+   "SEDOL": ""
+  },
+  {
+   "Name": "London Stock Exchange Group PLC",
+   "Ticker": "LSEG LN",
+   "Identifier": "B0SWJX3",
+   "Weight": "1.01",
+   "Market Value": "12861.69",
+   "Shares Held": "120",
    "SEDOL": ""
   },
   {
    "Name": "Northern Trust Corp",
    "Ticker": "NTRS",
    "Identifier": "665859104",
-   "Weight": "0.98",
-   "Market Value": "12690",
+   "Weight": "1.01",
+   "Market Value": "12855",
    "Shares Held": "75",
    "SEDOL": ""
   },
@@ -350,8 +332,8 @@
    "Name": "Royal Bank of Canada",
    "Ticker": "RY",
    "Identifier": "780087102",
-   "Weight": "0.98",
-   "Market Value": "12698.4",
+   "Weight": "1",
+   "Market Value": "12718.55",
    "Shares Held": "65",
    "SEDOL": ""
   },
@@ -359,9 +341,72 @@
    "Name": "Block Inc",
    "Ticker": "XYZ",
    "Identifier": "852234103",
-   "Weight": "0.97",
-   "Market Value": "12586.8",
+   "Weight": "0.99",
+   "Market Value": "12636.1",
    "Shares Held": "170",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Capital One Financial Corp",
+   "Ticker": "COF",
+   "Identifier": "14040H105",
+   "Weight": "0.99",
+   "Market Value": "12656.8",
+   "Shares Held": "65",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Galaxy Digital Inc",
+   "Ticker": "GLXY",
+   "Identifier": "36317J209",
+   "Weight": "0.98",
+   "Market Value": "12452.4",
+   "Shares Held": "540",
+   "SEDOL": ""
+  },
+  {
+   "Name": "HSBC Holdings PLC",
+   "Ticker": "HSBC",
+   "Identifier": "404280406",
+   "Weight": "0.98",
+   "Market Value": "12498.2",
+   "Shares Held": "130",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Bank of New York Mellon Corp/The",
+   "Ticker": "BNY",
+   "Identifier": "064058100",
+   "Weight": "0.97",
+   "Market Value": "12359",
+   "Shares Held": "85",
+   "SEDOL": ""
+  },
+  {
+   "Name": "SoFi Technologies Inc",
+   "Ticker": "SOFI",
+   "Identifier": "83406F102",
+   "Weight": "0.97",
+   "Market Value": "12300.6",
+   "Shares Held": "780",
+   "SEDOL": ""
+  },
+  {
+   "Name": "State Street Corp",
+   "Ticker": "STT",
+   "Identifier": "857477103",
+   "Weight": "0.97",
+   "Market Value": "12317.2",
+   "Shares Held": "70",
+   "SEDOL": ""
+  },
+  {
+   "Name": "US Bancorp",
+   "Ticker": "USB",
+   "Identifier": "902973304",
+   "Weight": "0.97",
+   "Market Value": "12364.65",
+   "Shares Held": "215",
    "SEDOL": ""
   },
   {
@@ -369,7 +414,7 @@
    "Ticker": "BIDU",
    "Identifier": "056752108",
    "Weight": "0.96",
-   "Market Value": "12410.55",
+   "Market Value": "12226.4",
    "Shares Held": "145",
    "SEDOL": ""
   },
@@ -378,26 +423,8 @@
    "Ticker": "CRCL",
    "Identifier": "172573107",
    "Weight": "0.96",
-   "Market Value": "12436.5",
+   "Market Value": "12187.5",
    "Shares Held": "150",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Galaxy Digital Inc",
-   "Ticker": "GLXY",
-   "Identifier": "36317J209",
-   "Weight": "0.96",
-   "Market Value": "12430.8",
-   "Shares Held": "540",
-   "SEDOL": ""
-  },
-  {
-   "Name": "HSBC Holdings PLC",
-   "Ticker": "HSBC",
-   "Identifier": "404280406",
-   "Weight": "0.96",
-   "Market Value": "12456.6",
-   "Shares Held": "130",
    "SEDOL": ""
   },
   {
@@ -405,52 +432,16 @@
    "Ticker": "IBM",
    "Identifier": "459200101",
    "Weight": "0.96",
-   "Market Value": "12409.1",
+   "Market Value": "12245.2",
    "Shares Held": "55",
-   "SEDOL": ""
-  },
-  {
-   "Name": "SoFi Technologies Inc",
-   "Ticker": "SOFI",
-   "Identifier": "83406F102",
-   "Weight": "0.96",
-   "Market Value": "12355.2",
-   "Shares Held": "780",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Bank of New York Mellon Corp/The",
-   "Ticker": "BNY",
-   "Identifier": "064058100",
-   "Weight": "0.95",
-   "Market Value": "12233.2",
-   "Shares Held": "85",
-   "SEDOL": ""
-  },
-  {
-   "Name": "State Street Corp",
-   "Ticker": "STT",
-   "Identifier": "857477103",
-   "Weight": "0.95",
-   "Market Value": "12223.4",
-   "Shares Held": "70",
-   "SEDOL": ""
-  },
-  {
-   "Name": "US Bancorp",
-   "Ticker": "USB",
-   "Identifier": "902973304",
-   "Weight": "0.95",
-   "Market Value": "12332.4",
-   "Shares Held": "215",
    "SEDOL": ""
   },
   {
    "Name": "Flow Traders Ltd",
    "Ticker": "FLOW NA",
    "Identifier": "BQJXXT1",
-   "Weight": "0.94",
-   "Market Value": "12117.47",
+   "Weight": "0.95",
+   "Market Value": "12041.28",
    "Shares Held": "405",
    "SEDOL": ""
   },
@@ -458,8 +449,8 @@
    "Name": "NU Holdings Ltd/Cayman Islands",
    "Ticker": "NU",
    "Identifier": "G6683N103",
-   "Weight": "0.93",
-   "Market Value": "12027.45",
+   "Weight": "0.95",
+   "Market Value": "12154.15",
    "Shares Held": "905",
    "SEDOL": ""
   },
@@ -467,18 +458,9 @@
    "Name": "Wells Fargo & Co",
    "Ticker": "WFC",
    "Identifier": "949746101",
-   "Weight": "0.93",
-   "Market Value": "12037.5",
+   "Weight": "0.95",
+   "Market Value": "12067.5",
    "Shares Held": "150",
-   "SEDOL": ""
-  },
-  {
-   "Name": "CMC Markets PLC",
-   "Ticker": "CMCX LN",
-   "Identifier": "B14SKR3",
-   "Weight": "0.92",
-   "Market Value": "11865.33",
-   "Shares Held": "1365",
    "SEDOL": ""
   },
   {
@@ -486,7 +468,7 @@
    "Ticker": "HLNE",
    "Identifier": "407497106",
    "Weight": "0.92",
-   "Market Value": "11956.95",
+   "Market Value": "11750.4",
    "Shares Held": "135",
    "SEDOL": ""
   },
@@ -495,7 +477,7 @@
    "Ticker": "KKR",
    "Identifier": "48251W104",
    "Weight": "0.92",
-   "Market Value": "11861.2",
+   "Market Value": "11737.7",
    "Shares Held": "130",
    "SEDOL": ""
   },
@@ -504,7 +486,7 @@
    "Ticker": "SQN SW",
    "Identifier": "BN4KLB4",
    "Weight": "0.92",
-   "Market Value": "11960.28",
+   "Market Value": "11783.48",
    "Shares Held": "270",
    "SEDOL": ""
   },
@@ -512,9 +494,18 @@
    "Name": "Bank of America Corp",
    "Ticker": "BAC",
    "Identifier": "060505104",
-   "Weight": "0.89",
-   "Market Value": "11551.95",
+   "Weight": "0.91",
+   "Market Value": "11556.25",
    "Shares Held": "215",
+   "SEDOL": ""
+  },
+  {
+   "Name": "CMC Markets PLC",
+   "Ticker": "CMCX LN",
+   "Identifier": "B14SKR3",
+   "Weight": "0.9",
+   "Market Value": "11429.25",
+   "Shares Held": "1365",
    "SEDOL": ""
   },
   {
@@ -522,7 +513,7 @@
    "Ticker": "ETOR",
    "Identifier": "G32089107",
    "Weight": "0.88",
-   "Market Value": "11343.2",
+   "Market Value": "11184.8",
    "Shares Held": "440",
    "SEDOL": ""
   },
@@ -530,8 +521,8 @@
    "Name": "Partners Group Holding AG",
    "Ticker": "PGHN SW",
    "Identifier": "B119QG0",
-   "Weight": "0.83",
-   "Market Value": "10750.53",
+   "Weight": "0.85",
+   "Market Value": "10884.07",
    "Shares Held": "15",
    "SEDOL": ""
   },
@@ -540,7 +531,7 @@
    "Ticker": "DVLT",
    "Identifier": "86633R609",
    "Weight": "0.8",
-   "Market Value": "10300.33",
+   "Market Value": "10194.49",
    "Shares Held": "66155",
    "SEDOL": ""
   },
@@ -548,8 +539,8 @@
    "Name": "Figure Technology Solutions Inc",
    "Ticker": "FIGR",
    "Identifier": "349381103",
-   "Weight": "0.77",
-   "Market Value": "9989",
+   "Weight": "0.78",
+   "Market Value": "9985.5",
    "Shares Held": "350",
    "SEDOL": ""
   },
@@ -557,8 +548,8 @@
    "Name": "21Shares Canton Network ETF",
    "Ticker": "TCAN",
    "Identifier": "53656H678",
-   "Weight": "0.75",
-   "Market Value": "9639.14",
+   "Weight": "0.74",
+   "Market Value": "9435.81",
    "Shares Held": "470",
    "SEDOL": ""
   },
@@ -566,8 +557,8 @@
    "Name": "Singapore Exchange Ltd",
    "Ticker": "SGX SP",
    "Identifier": "6303866",
-   "Weight": "0.68",
-   "Market Value": "8825.48",
+   "Weight": "0.64",
+   "Market Value": "8212.69",
    "Shares Held": "500",
    "SEDOL": ""
   },
@@ -575,8 +566,8 @@
    "Name": "GMO Financial Holdings Inc",
    "Ticker": "7177 JP",
    "Identifier": "BVVQ8T8",
-   "Weight": "0.58",
-   "Market Value": "7474.09",
+   "Weight": "0.57",
+   "Market Value": "7293.48",
    "Shares Held": "1000",
    "SEDOL": ""
   },
@@ -585,7 +576,7 @@
    "Ticker": "863 HK",
    "Identifier": "BKPSJS9",
    "Weight": "0.5",
-   "Market Value": "6467.56",
+   "Market Value": "6409.73",
    "Shares Held": "5000",
    "SEDOL": ""
   },
@@ -593,18 +584,27 @@
    "Name": "Streamex Corp",
    "Ticker": "STEX",
    "Identifier": "09073N300",
-   "Weight": "0.4",
+   "Weight": "0.41",
    "Market Value": "5170.87",
    "Shares Held": "8445",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Invesco Government & Agency Portfolio 12/31/2031",
+   "Ticker": "AGPXX",
+   "Identifier": "825252885",
+   "Weight": "0.2",
+   "Market Value": "2535.68",
+   "Shares Held": "2535.68",
    "SEDOL": ""
   },
   {
    "Name": "Cash & Other",
    "Ticker": "CASH&OTHER",
    "Identifier": "Cash&Other",
-   "Weight": "-17.75",
-   "Market Value": "-229568.91",
-   "Shares Held": "-229568.91",
+   "Weight": "0.07",
+   "Market Value": "868.72",
+   "Shares Held": "868.72",
    "SEDOL": ""
   }
  ]

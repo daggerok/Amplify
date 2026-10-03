@@ -3,6 +3,7 @@
  "name": "Amplify Seymour Cannabis ETF",
  "category": "Thematic",
  "categoryPath": "Thematic",
+ "status": "active",
  "source": {
   "fundPage": "https://amplifyetfs.com/CNBS/",
   "catalog": "https://firestore.googleapis.com/v1/projects/amplify-etfs-data-feed/databases/(default)/documents/fund_category",
@@ -31,33 +32,33 @@
  "expenseRatio": {
   "display": "0.76%",
   "value": 0.76,
-  "gross": 0.76,
+  "gross": null,
   "net": 0.76
  },
  "nav": {
-  "display": "$26.27",
-  "value": 26.2731,
-  "asOfDate": "Oct 01 2026"
+  "display": "$25.91",
+  "value": 25.9137,
+  "asOfDate": "Oct 02 2026"
  },
  "marketPrice": {
-  "display": "$26.28",
-  "value": 26.2779,
-  "asOfDate": "Oct 01 2026"
+  "display": "$26.13",
+  "value": 26.1332,
+  "asOfDate": "Oct 02 2026"
  },
  "premiumDiscount": {
-  "display": "0.02%",
-  "value": 0.0183
+  "display": "0.85%",
+  "value": 0.847
  },
  "aum": {
-  "display": "$71,921,738",
-  "value": 71921738.49,
-  "asOfDate": "Oct 01 2026",
+  "display": "$70,937,980",
+  "value": 70937980.35,
+  "asOfDate": "Oct 02 2026",
   "source": "Amplify Firestore daily net assets"
  },
  "yields": {
   "dividendYield": 0,
   "dividendYieldText": "0.00%",
-  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields)",
+  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields; a published 0.00% is an official zero)",
   "secYield": 2.34,
   "secYieldText": "2.34%",
   "secYieldKind": "30-day SEC yield published by Amplify (Firestore yields)",
@@ -115,9 +116,9 @@
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 39,
-  "asOfDate": "2026-10-02",
-  "asOf": "Oct 02 2026",
+  "totalRows": 38,
+  "asOfDate": "2026-10-05",
+  "asOf": "Oct 05 2026",
   "source": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
   "status": "available"
  },
@@ -127,8 +128,8 @@
    "history/002.json"
   ],
   "pageSize": 1000,
-  "totalRows": 1809,
-  "asOf": "Oct 01 2026",
+  "totalRows": 1810,
+  "asOf": "Oct 02 2026",
   "source": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)"
  }
 }

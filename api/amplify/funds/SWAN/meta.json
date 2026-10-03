@@ -3,6 +3,7 @@
  "name": "Amplify BlackSwan Growth & Treasury Core ETF",
  "category": "Core",
  "categoryPath": "Core",
+ "status": "active",
  "source": {
   "fundPage": "https://amplifyetfs.com/SWAN/",
   "catalog": "https://firestore.googleapis.com/v1/projects/amplify-etfs-data-feed/databases/(default)/documents/fund_category",
@@ -31,33 +32,33 @@
  "expenseRatio": {
   "display": "0.49%",
   "value": 0.49,
-  "gross": 0.49,
+  "gross": null,
   "net": 0.49
  },
  "nav": {
-  "display": "$31.99",
-  "value": 31.9885,
-  "asOfDate": "Oct 01 2026"
+  "display": "$32.09",
+  "value": 32.0921,
+  "asOfDate": "Oct 02 2026"
  },
  "marketPrice": {
-  "display": "$31.96",
-  "value": 31.9628,
-  "asOfDate": "Oct 01 2026"
+  "display": "$32.05",
+  "value": 32.053,
+  "asOfDate": "Oct 02 2026"
  },
  "premiumDiscount": {
-  "display": "-0.08%",
-  "value": -0.0803
+  "display": "-0.12%",
+  "value": -0.1218
  },
  "aum": {
-  "display": "$150,985,777",
-  "value": 150985776.67,
-  "asOfDate": "Oct 01 2026",
+  "display": "$151,474,826",
+  "value": 151474826.24,
+  "asOfDate": "Oct 02 2026",
   "source": "Amplify Firestore daily net assets"
  },
  "yields": {
   "dividendYield": 3.39,
   "dividendYieldText": "3.39%",
-  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields)",
+  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields; a published 0.00% is an official zero)",
   "secYield": 3.94,
   "secYieldText": "3.94%",
   "secYieldKind": "30-day SEC yield published by Amplify (Firestore yields)",
@@ -231,9 +232,9 @@
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 14,
-  "asOfDate": "2026-10-02",
-  "asOf": "Oct 02 2026",
+  "totalRows": 13,
+  "asOfDate": "2026-10-05",
+  "asOf": "Oct 05 2026",
   "source": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
   "status": "available"
  },
@@ -243,8 +244,8 @@
    "history/002.json"
   ],
   "pageSize": 1000,
-  "totalRows": 1985,
-  "asOf": "Oct 01 2026",
+  "totalRows": 1986,
+  "asOf": "Oct 02 2026",
   "source": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)"
  }
 }

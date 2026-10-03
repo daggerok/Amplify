@@ -3,6 +3,7 @@
  "name": "Amplify Bitcoin Max Income Covered Call ETF",
  "category": "Income",
  "categoryPath": "Income",
+ "status": "active",
  "source": {
   "fundPage": "https://amplifyetfs.com/BAGY/",
   "catalog": "https://firestore.googleapis.com/v1/projects/amplify-etfs-data-feed/databases/(default)/documents/fund_category",
@@ -31,33 +32,33 @@
  "expenseRatio": {
   "display": "0.65%",
   "value": 0.65,
-  "gross": 0.65,
+  "gross": null,
   "net": 0.65
  },
  "nav": {
-  "display": "$23.59",
-  "value": 23.5898,
-  "asOfDate": "Oct 01 2026"
+  "display": "$23.49",
+  "value": 23.4943,
+  "asOfDate": "Oct 02 2026"
  },
  "marketPrice": {
-  "display": "$23.60",
-  "value": 23.5956,
-  "asOfDate": "Oct 01 2026"
+  "display": "$23.50",
+  "value": 23.5008,
+  "asOfDate": "Oct 02 2026"
  },
  "premiumDiscount": {
-  "display": "0.02%",
-  "value": 0.0246
+  "display": "0.03%",
+  "value": 0.0277
  },
  "aum": {
-  "display": "$10,615,424",
-  "value": 10615423.52,
-  "asOfDate": "Oct 01 2026",
+  "display": "$10,572,431",
+  "value": 10572431.04,
+  "asOfDate": "Oct 02 2026",
   "source": "Amplify Firestore daily net assets"
  },
  "yields": {
   "dividendYield": 33.02,
   "dividendYieldText": "33.02%",
-  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields)",
+  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields; a published 0.00% is an official zero)",
   "secYield": 1.93,
   "secYieldText": "1.93%",
   "secYieldKind": "30-day SEC yield published by Amplify (Firestore yields)",
@@ -172,8 +173,8 @@
   ],
   "pageSize": 250,
   "totalRows": 6,
-  "asOfDate": "2026-10-02",
-  "asOf": "Oct 02 2026",
+  "asOfDate": "2026-10-05",
+  "asOf": "Oct 05 2026",
   "source": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
   "status": "available"
  },
@@ -182,8 +183,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 357,
-  "asOf": "Oct 01 2026",
+  "totalRows": 358,
+  "asOf": "Oct 02 2026",
   "source": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)"
  }
 }

@@ -2,7 +2,7 @@
  "ticker": "SWAN",
  "page": 2,
  "pageSize": 1000,
- "totalRows": 1985,
+ "totalRows": 1986,
  "headers": [
   "Date",
   "Close",
@@ -5919,6 +5919,12 @@
    "Close": "31.959999",
    "Adj Close": "31.96",
    "Volume": "2900"
+  },
+  {
+   "Date": "Oct 02 2026",
+   "Close": "32.049999",
+   "Adj Close": "32.05",
+   "Volume": "7500"
   }
  ]
 }

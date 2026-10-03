@@ -3,6 +3,7 @@
  "name": "Breakwave Dry Bulk Shipping ETF",
  "category": "Thematic",
  "categoryPath": "Thematic",
+ "status": "active",
  "source": {
   "fundPage": "https://amplifyetfs.com/BDRY/",
   "catalog": "https://firestore.googleapis.com/v1/projects/amplify-etfs-data-feed/databases/(default)/documents/fund_category",
@@ -31,33 +32,33 @@
  "expenseRatio": {
   "display": "3.50%",
   "value": 3.5,
-  "gross": 3.5,
+  "gross": null,
   "net": 3.5
  },
  "nav": {
-  "display": "$14.57",
-  "value": 14.574,
-  "asOfDate": "Oct 01 2026"
+  "display": "$14.26",
+  "value": 14.2617,
+  "asOfDate": "Oct 02 2026"
  },
  "marketPrice": {
-  "display": "$14.52",
-  "value": 14.52,
-  "asOfDate": "Oct 01 2026"
+  "display": "$14.20",
+  "value": 14.2,
+  "asOfDate": "Oct 02 2026"
  },
  "premiumDiscount": {
-  "display": "-0.37%",
-  "value": -0.3705
+  "display": "-0.43%",
+  "value": -0.4326
  },
  "aum": {
-  "display": "$36,071,151",
-  "value": 36071150.86,
-  "asOfDate": "Oct 01 2026",
+  "display": "$33,872,147",
+  "value": 33872147.12,
+  "asOfDate": "Oct 02 2026",
   "source": "Amplify Firestore daily net assets"
  },
  "yields": {
   "dividendYield": null,
   "dividendYieldText": "—",
-  "dividendYieldKind": "indicated (latest distribution x payments per year / market price)",
+  "dividendYieldKind": "trailing 12 months (distributions with an ex-date in the last 12 months / market price; null with under 12 months of history)",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published",
@@ -103,8 +104,8 @@
   ],
   "pageSize": 250,
   "totalRows": 11,
-  "asOfDate": "2026-10-02",
-  "asOf": "Oct 02 2026",
+  "asOfDate": "2026-10-05",
+  "asOf": "Oct 05 2026",
   "source": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
   "status": "available"
  },
@@ -115,8 +116,8 @@
    "history/003.json"
   ],
   "pageSize": 1000,
-  "totalRows": 2144,
-  "asOf": "Oct 01 2026",
+  "totalRows": 2145,
+  "asOf": "Oct 02 2026",
   "source": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)"
  }
 }

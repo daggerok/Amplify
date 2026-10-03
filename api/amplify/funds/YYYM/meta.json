@@ -3,6 +3,7 @@
  "name": "Amplify Municipal CEF High Income ETF",
  "category": "Income",
  "categoryPath": "Income",
+ "status": "active",
  "source": {
   "fundPage": "https://amplifyetfs.com/YYYM/",
   "catalog": "https://firestore.googleapis.com/v1/projects/amplify-etfs-data-feed/databases/(default)/documents/fund_category",
@@ -31,33 +32,33 @@
  "expenseRatio": {
   "display": "2.78%",
   "value": 2.78,
-  "gross": 2.78,
+  "gross": null,
   "net": 2.78
  },
  "nav": {
-  "display": "$17.27",
-  "value": 17.2718,
-  "asOfDate": "Oct 01 2026"
+  "display": "$17.38",
+  "value": 17.3847,
+  "asOfDate": "Oct 02 2026"
  },
  "marketPrice": {
-  "display": "$17.25",
-  "value": 17.2466,
-  "asOfDate": "Oct 01 2026"
+  "display": "$17.37",
+  "value": 17.3712,
+  "asOfDate": "Oct 02 2026"
  },
  "premiumDiscount": {
-  "display": "-0.15%",
-  "value": -0.1459
+  "display": "-0.08%",
+  "value": -0.0777
  },
  "aum": {
-  "display": "$1,554,462",
-  "value": 1554461.55,
-  "asOfDate": "Oct 01 2026",
+  "display": "$1,564,624",
+  "value": 1564623.99,
+  "asOfDate": "Oct 02 2026",
   "source": "Amplify Firestore daily net assets"
  },
  "yields": {
   "dividendYield": 7.17,
   "dividendYieldText": "7.17%",
-  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields)",
+  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields; a published 0.00% is an official zero)",
   "secYield": 7.93,
   "secYieldText": "7.93%",
   "secYieldKind": "30-day SEC yield published by Amplify (Firestore yields)",
@@ -128,8 +129,8 @@
   ],
   "pageSize": 250,
   "totalRows": 32,
-  "asOfDate": "2026-10-02",
-  "asOf": "Oct 02 2026",
+  "asOfDate": "2026-10-05",
+  "asOf": "Oct 05 2026",
   "source": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
   "status": "available"
  },
@@ -138,8 +139,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 143,
-  "asOf": "Oct 01 2026",
+  "totalRows": 144,
+  "asOf": "Oct 02 2026",
   "source": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)"
  }
 }

@@ -3,6 +3,7 @@
  "name": "Amplify CWP International Enhanced Dividend Income ETF",
  "category": "Income",
  "categoryPath": "Income",
+ "status": "active",
  "source": {
   "fundPage": "https://amplifyetfs.com/IDVO/",
   "catalog": "https://firestore.googleapis.com/v1/projects/amplify-etfs-data-feed/databases/(default)/documents/fund_category",
@@ -31,33 +32,33 @@
  "expenseRatio": {
   "display": "0.65%",
   "value": 0.65,
-  "gross": 0.65,
+  "gross": null,
   "net": 0.65
  },
  "nav": {
-  "display": "$41.14",
-  "value": 41.1392,
-  "asOfDate": "Oct 01 2026"
+  "display": "$41.64",
+  "value": 41.6417,
+  "asOfDate": "Oct 02 2026"
  },
  "marketPrice": {
-  "display": "$41.12",
-  "value": 41.12,
-  "asOfDate": "Oct 01 2026"
+  "display": "$41.62",
+  "value": 41.62,
+  "asOfDate": "Oct 02 2026"
  },
  "premiumDiscount": {
   "display": "-0.05%",
-  "value": -0.0467
+  "value": -0.0521
  },
  "aum": {
-  "display": "$1,417,245,795",
-  "value": 1417245794.64,
-  "asOfDate": "Oct 01 2026",
+  "display": "$1,436,638,780",
+  "value": 1436638779.79,
+  "asOfDate": "Oct 02 2026",
   "source": "Amplify Firestore daily net assets"
  },
  "yields": {
   "dividendYield": 6.14,
   "dividendYieldText": "6.14%",
-  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields)",
+  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields; a published 0.00% is an official zero)",
   "secYield": 1.4,
   "secYieldText": "1.40%",
   "secYieldKind": "30-day SEC yield published by Amplify (Firestore yields)",
@@ -299,9 +300,9 @@
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 61,
-  "asOfDate": "2026-10-02",
-  "asOf": "Oct 02 2026",
+  "totalRows": 62,
+  "asOfDate": "2026-10-05",
+  "asOf": "Oct 05 2026",
   "source": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
   "status": "available"
  },
@@ -311,8 +312,8 @@
    "history/002.json"
   ],
   "pageSize": 1000,
-  "totalRows": 1020,
-  "asOf": "Oct 01 2026",
+  "totalRows": 1021,
+  "asOf": "Oct 02 2026",
   "source": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)"
  }
 }

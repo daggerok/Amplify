@@ -3,6 +3,7 @@
  "name": "Amplify Weight Loss Drug & Treatment ETF",
  "category": "Thematic",
  "categoryPath": "Thematic",
+ "status": "active",
  "source": {
   "fundPage": "https://amplifyetfs.com/THNR/",
   "catalog": "https://firestore.googleapis.com/v1/projects/amplify-etfs-data-feed/databases/(default)/documents/fund_category",
@@ -31,33 +32,33 @@
  "expenseRatio": {
   "display": "0.59%",
   "value": 0.59,
-  "gross": 0.59,
+  "gross": null,
   "net": 0.59
  },
  "nav": {
-  "display": "$24.69",
-  "value": 24.6897,
-  "asOfDate": "Oct 01 2026"
+  "display": "$24.51",
+  "value": 24.5107,
+  "asOfDate": "Oct 02 2026"
  },
  "marketPrice": {
-  "display": "$24.69",
-  "value": 24.6943,
-  "asOfDate": "Oct 01 2026"
+  "display": "$24.56",
+  "value": 24.5594,
+  "asOfDate": "Oct 02 2026"
  },
  "premiumDiscount": {
-  "display": "0.02%",
-  "value": 0.0186
+  "display": "0.20%",
+  "value": 0.1987
  },
  "aum": {
-  "display": "$5,678,628",
-  "value": 5678628.17,
-  "asOfDate": "Oct 01 2026",
+  "display": "$5,637,463",
+  "value": 5637463.2,
+  "asOfDate": "Oct 02 2026",
   "source": "Amplify Firestore daily net assets"
  },
  "yields": {
   "dividendYield": 1.64,
   "dividendYieldText": "1.64%",
-  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields)",
+  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields; a published 0.00% is an official zero)",
   "secYield": 0.98,
   "secYieldText": "0.98%",
   "secYieldKind": "30-day SEC yield published by Amplify (Firestore yields)",
@@ -112,8 +113,8 @@
   ],
   "pageSize": 250,
   "totalRows": 22,
-  "asOfDate": "2026-10-02",
-  "asOf": "Oct 02 2026",
+  "asOfDate": "2026-10-05",
+  "asOf": "Oct 05 2026",
   "source": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
   "status": "available"
  },
@@ -122,8 +123,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 593,
-  "asOf": "Oct 01 2026",
+  "totalRows": 594,
+  "asOf": "Oct 02 2026",
   "source": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)"
  }
 }

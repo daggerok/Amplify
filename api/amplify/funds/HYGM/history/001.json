@@ -2,7 +2,7 @@
  "ticker": "HYGM",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 114,
+ "totalRows": 115,
  "headers": [
   "Date",
   "Close",
@@ -693,6 +693,12 @@
    "Close": "23.700001",
    "Adj Close": "23.7",
    "Volume": "200"
+  },
+  {
+   "Date": "Oct 02 2026",
+   "Close": "23.67",
+   "Adj Close": "23.67",
+   "Volume": "1000"
   }
  ]
 }

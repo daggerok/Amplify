@@ -3,6 +3,7 @@
  "name": "Amplify Energy & Natural Resources Covered Call ETF",
  "category": "Income",
  "categoryPath": "Income",
+ "status": "active",
  "source": {
   "fundPage": "https://amplifyetfs.com/NDIV/",
   "catalog": "https://firestore.googleapis.com/v1/projects/amplify-etfs-data-feed/databases/(default)/documents/fund_category",
@@ -31,33 +32,33 @@
  "expenseRatio": {
   "display": "0.59%",
   "value": 0.59,
-  "gross": 0.59,
+  "gross": null,
   "net": 0.59
  },
  "nav": {
-  "display": "$33.05",
-  "value": 33.0498,
-  "asOfDate": "Oct 01 2026"
+  "display": "$33.27",
+  "value": 33.2672,
+  "asOfDate": "Oct 02 2026"
  },
  "marketPrice": {
-  "display": "$33.11",
-  "value": 33.1062,
-  "asOfDate": "Oct 01 2026"
+  "display": "$33.33",
+  "value": 33.3341,
+  "asOfDate": "Oct 02 2026"
  },
  "premiumDiscount": {
-  "display": "0.17%",
-  "value": 0.1707
+  "display": "0.20%",
+  "value": 0.2011
  },
  "aum": {
-  "display": "$30,571,026",
-  "value": 30571026.02,
-  "asOfDate": "Oct 01 2026",
+  "display": "$30,772,169",
+  "value": 30772168.68,
+  "asOfDate": "Oct 02 2026",
   "source": "Amplify Firestore daily net assets"
  },
  "yields": {
   "dividendYield": 11.31,
   "dividendYieldText": "11.31%",
-  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields)",
+  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields; a published 0.00% is an official zero)",
   "secYield": 5.65,
   "secYieldText": "5.65%",
   "secYieldKind": "30-day SEC yield published by Amplify (Firestore yields)",
@@ -292,8 +293,8 @@
   ],
   "pageSize": 250,
   "totalRows": 52,
-  "asOfDate": "2026-10-02",
-  "asOf": "Oct 02 2026",
+  "asOfDate": "2026-10-05",
+  "asOf": "Oct 05 2026",
   "source": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
   "status": "available"
  },
@@ -303,8 +304,8 @@
    "history/002.json"
   ],
   "pageSize": 1000,
-  "totalRows": 1030,
-  "asOf": "Oct 01 2026",
+  "totalRows": 1031,
+  "asOf": "Oct 02 2026",
   "source": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)"
  }
 }

@@ -3,6 +3,7 @@
  "name": "Amplify Solana 3% Monthly Option Income ETF",
  "category": "Income",
  "categoryPath": "Income",
+ "status": "active",
  "source": {
   "fundPage": "https://amplifyetfs.com/SOLM/",
   "catalog": "https://firestore.googleapis.com/v1/projects/amplify-etfs-data-feed/databases/(default)/documents/fund_category",
@@ -31,33 +32,33 @@
  "expenseRatio": {
   "display": "0.75%",
   "value": 0.75,
-  "gross": 0.75,
+  "gross": null,
   "net": 0.75
  },
  "nav": {
-  "display": "$10.54",
-  "value": 10.541,
-  "asOfDate": "Oct 01 2026"
+  "display": "$10.58",
+  "value": 10.5751,
+  "asOfDate": "Oct 02 2026"
  },
  "marketPrice": {
-  "display": "$10.55",
-  "value": 10.5526,
-  "asOfDate": "Oct 01 2026"
+  "display": "$10.58",
+  "value": 10.5767,
+  "asOfDate": "Oct 02 2026"
  },
  "premiumDiscount": {
-  "display": "0.11%",
-  "value": 0.11
+  "display": "0.02%",
+  "value": 0.0151
  },
  "aum": {
-  "display": "$2,213,620",
-  "value": 2213620.42,
-  "asOfDate": "Oct 01 2026",
+  "display": "$2,220,768",
+  "value": 2220768.32,
+  "asOfDate": "Oct 02 2026",
   "source": "Amplify Firestore daily net assets"
  },
  "yields": {
   "dividendYield": 38.35,
   "dividendYieldText": "38.35%",
-  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields)",
+  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields; a published 0.00% is an official zero)",
   "secYield": 2.14,
   "secYieldText": "2.14%",
   "secYieldKind": "30-day SEC yield published by Amplify (Firestore yields)",
@@ -148,8 +149,8 @@
   ],
   "pageSize": 250,
   "totalRows": 10,
-  "asOfDate": "2026-10-02",
-  "asOf": "Oct 02 2026",
+  "asOfDate": "2026-10-05",
+  "asOf": "Oct 05 2026",
   "source": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
   "status": "available"
  },
@@ -158,8 +159,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 228,
-  "asOf": "Oct 01 2026",
+  "totalRows": 229,
+  "asOf": "Oct 02 2026",
   "source": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)"
  }
 }

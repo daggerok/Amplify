@@ -3,6 +3,7 @@
  "name": "Amplify Small-Mid Cap Equity ETF",
  "category": "Core",
  "categoryPath": "Core",
+ "status": "delisted",
  "source": {
   "fundPage": "https://amplifyetfs.com/SMAP/",
   "catalog": "https://firestore.googleapis.com/v1/projects/amplify-etfs-data-feed/databases/(default)/documents/fund_category",
@@ -26,12 +27,13 @@
  "inception": {
   "fundInceptionDate": "2024-10-22",
   "shareClassInceptionDate": "2024-10-23",
-  "exchange": "NYSE Arca"
+  "exchange": "NYSE Arca",
+  "delistDate": "2026-06-04"
  },
  "expenseRatio": {
   "display": "0.60%",
   "value": 0.6,
-  "gross": 0.6,
+  "gross": null,
   "net": 0.6
  },
  "nav": {
@@ -57,7 +59,7 @@
  "yields": {
   "dividendYield": 0.4,
   "dividendYieldText": "0.40%",
-  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields)",
+  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields; a published 0.00% is an official zero)",
   "secYield": 0.59,
   "secYieldText": "0.59%",
   "secYieldKind": "30-day SEC yield published by Amplify (Firestore yields)",

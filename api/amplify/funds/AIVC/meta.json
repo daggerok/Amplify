@@ -3,6 +3,7 @@
  "name": "Amplify Bloomberg AI Equal Weight ETF",
  "category": "Thematic",
  "categoryPath": "Thematic",
+ "status": "active",
  "source": {
   "fundPage": "https://amplifyetfs.com/AIVC/",
   "catalog": "https://firestore.googleapis.com/v1/projects/amplify-etfs-data-feed/databases/(default)/documents/fund_category",
@@ -31,33 +32,33 @@
  "expenseRatio": {
   "display": "0.59%",
   "value": 0.59,
-  "gross": 0.59,
+  "gross": null,
   "net": 0.59
  },
  "nav": {
-  "display": "$117.53",
-  "value": 117.5333,
-  "asOfDate": "Oct 01 2026"
+  "display": "$118.85",
+  "value": 118.8503,
+  "asOfDate": "Oct 02 2026"
  },
  "marketPrice": {
-  "display": "$117.32",
-  "value": 117.3179,
-  "asOfDate": "Oct 01 2026"
+  "display": "$119.13",
+  "value": 119.1253,
+  "asOfDate": "Oct 02 2026"
  },
  "premiumDiscount": {
-  "display": "-0.18%",
-  "value": -0.1833
+  "display": "0.23%",
+  "value": 0.2314
  },
  "aum": {
-  "display": "$141,039,951",
-  "value": 141039950.82,
-  "asOfDate": "Oct 01 2026",
+  "display": "$142,620,369",
+  "value": 142620369.36,
+  "asOfDate": "Oct 02 2026",
   "source": "Amplify Firestore daily net assets"
  },
  "yields": {
   "dividendYield": 0.1,
   "dividendYieldText": "0.10%",
-  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields)",
+  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields; a published 0.00% is an official zero)",
   "secYield": -0.03,
   "secYieldText": "-0.03%",
   "secYieldKind": "30-day SEC yield published by Amplify (Firestore yields)",
@@ -172,8 +173,8 @@
   ],
   "pageSize": 250,
   "totalRows": 50,
-  "asOfDate": "2026-10-02",
-  "asOf": "Oct 02 2026",
+  "asOfDate": "2026-10-05",
+  "asOf": "Oct 05 2026",
   "source": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
   "status": "available"
  },
@@ -184,8 +185,8 @@
    "history/003.json"
   ],
   "pageSize": 1000,
-  "totalRows": 2657,
-  "asOf": "Oct 01 2026",
+  "totalRows": 2658,
+  "asOf": "Oct 02 2026",
   "source": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)"
  }
 }

@@ -2,7 +2,7 @@
  "ticker": "TLTP",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 482,
+ "totalRows": 483,
  "headers": [
   "Date",
   "Close",
@@ -2901,6 +2901,12 @@
    "Close": "18.832001",
    "Adj Close": "18.83",
    "Volume": "42900"
+  },
+  {
+   "Date": "Oct 02 2026",
+   "Close": "18.771999",
+   "Adj Close": "18.77",
+   "Volume": "23400"
   }
  ]
 }

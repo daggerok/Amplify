@@ -3,6 +3,7 @@
  "name": "Amplify Top 10 Semiconductors ETF",
  "category": "Thematic",
  "categoryPath": "Thematic",
+ "status": "pre-launch",
  "source": {
   "fundPage": "https://amplifyetfs.com/CPU/",
   "catalog": "https://firestore.googleapis.com/v1/projects/amplify-etfs-data-feed/databases/(default)/documents/fund_category",
@@ -24,40 +25,41 @@
   "indexTicker": "B10SEMT"
  },
  "inception": {
-  "fundInceptionDate": "2026-10-06",
-  "shareClassInceptionDate": "2026-10-07",
-  "exchange": "NYSE Arca"
+  "fundInceptionDate": null,
+  "shareClassInceptionDate": null,
+  "exchange": "NYSE Arca",
+  "expectedInceptionDate": "2026-10-06"
  },
  "expenseRatio": {
   "display": "0.49%",
   "value": 0.49,
-  "gross": 0.49,
+  "gross": null,
   "net": 0.49
  },
  "nav": {
-  "display": "$25.00",
-  "value": 25,
-  "asOfDate": "Oct 05 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "—"
  },
  "marketPrice": {
-  "display": "$25.00",
-  "value": 25,
-  "asOfDate": "Oct 05 2026"
+  "display": "—",
+  "value": null,
+  "asOfDate": "—"
  },
  "premiumDiscount": {
-  "display": "0.00%",
-  "value": 0
+  "display": "—",
+  "value": null
  },
  "aum": {
-  "display": "$25",
-  "value": 25,
-  "asOfDate": "Oct 05 2026",
-  "source": "Amplify Firestore daily net assets"
+  "display": "—",
+  "value": null,
+  "asOfDate": "—",
+  "source": "unavailable"
  },
  "yields": {
   "dividendYield": null,
   "dividendYieldText": "—",
-  "dividendYieldKind": "indicated (latest distribution x payments per year / market price)",
+  "dividendYieldKind": "trailing 12 months (distributions with an ex-date in the last 12 months / market price; null with under 12 months of history)",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published",

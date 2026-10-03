@@ -3,6 +3,7 @@
  "name": "Breakwave Tanker Shipping ETF",
  "category": "Thematic",
  "categoryPath": "Thematic",
+ "status": "active",
  "source": {
   "fundPage": "https://amplifyetfs.com/BWET/",
   "catalog": "https://firestore.googleapis.com/v1/projects/amplify-etfs-data-feed/databases/(default)/documents/fund_category",
@@ -31,33 +32,33 @@
  "expenseRatio": {
   "display": "3.50%",
   "value": 3.5,
-  "gross": 3.5,
+  "gross": null,
   "net": 3.5
  },
  "nav": {
-  "display": "$809.58",
-  "value": 809.5823,
-  "asOfDate": "Oct 01 2026"
+  "display": "$840.46",
+  "value": 840.4641,
+  "asOfDate": "Oct 02 2026"
  },
  "marketPrice": {
-  "display": "$826.13",
-  "value": 826.13,
-  "asOfDate": "Oct 01 2026"
+  "display": "$873.00",
+  "value": 873,
+  "asOfDate": "Oct 02 2026"
  },
  "premiumDiscount": {
-  "display": "2.04%",
-  "value": 2.044
+  "display": "3.87%",
+  "value": 3.8712
  },
  "aum": {
-  "display": "$194,380,722",
-  "value": 194380722.01,
-  "asOfDate": "Oct 01 2026",
+  "display": "$201,795,425",
+  "value": 201795425.32,
+  "asOfDate": "Oct 02 2026",
   "source": "Amplify Firestore daily net assets"
  },
  "yields": {
   "dividendYield": null,
   "dividendYieldText": "—",
-  "dividendYieldKind": "indicated (latest distribution x payments per year / market price)",
+  "dividendYieldKind": "trailing 12 months (distributions with an ex-date in the last 12 months / market price; null with under 12 months of history)",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published",
@@ -102,9 +103,9 @@
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 8,
-  "asOfDate": "2026-10-02",
-  "asOf": "Oct 02 2026",
+  "totalRows": 11,
+  "asOfDate": "2026-10-05",
+  "asOf": "Oct 05 2026",
   "source": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
   "status": "available"
  },
@@ -113,8 +114,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 857,
-  "asOf": "Oct 01 2026",
+  "totalRows": 858,
+  "asOf": "Oct 02 2026",
   "source": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)"
  }
 }

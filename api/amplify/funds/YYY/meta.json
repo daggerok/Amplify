@@ -3,6 +3,7 @@
  "name": "Amplify CEF High Income ETF",
  "category": "Income",
  "categoryPath": "Income",
+ "status": "active",
  "source": {
   "fundPage": "https://amplifyetfs.com/YYY/",
   "catalog": "https://firestore.googleapis.com/v1/projects/amplify-etfs-data-feed/databases/(default)/documents/fund_category",
@@ -31,33 +32,33 @@
  "expenseRatio": {
   "display": "3.23%",
   "value": 3.23,
-  "gross": 3.23,
+  "gross": null,
   "net": 3.23
  },
  "nav": {
-  "display": "$10.35",
-  "value": 10.3454,
-  "asOfDate": "Oct 01 2026"
+  "display": "$10.38",
+  "value": 10.3779,
+  "asOfDate": "Oct 02 2026"
  },
  "marketPrice": {
-  "display": "$10.34",
-  "value": 10.34,
-  "asOfDate": "Oct 01 2026"
+  "display": "$10.35",
+  "value": 10.35,
+  "asOfDate": "Oct 02 2026"
  },
  "premiumDiscount": {
-  "display": "-0.05%",
-  "value": -0.0522
+  "display": "-0.27%",
+  "value": -0.2688
  },
  "aum": {
-  "display": "$656,931,213",
-  "value": 656931212.86,
-  "asOfDate": "Oct 01 2026",
+  "display": "$657,961,159",
+  "value": 657961158.8,
+  "asOfDate": "Oct 02 2026",
   "source": "Amplify Firestore daily net assets"
  },
  "yields": {
   "dividendYield": 13.87,
   "dividendYieldText": "13.87%",
-  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields)",
+  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields; a published 0.00% is an official zero)",
   "secYield": 13.59,
   "secYieldText": "13.59%",
   "secYieldKind": "30-day SEC yield published by Amplify (Firestore yields)",
@@ -752,8 +753,8 @@
   ],
   "pageSize": 250,
   "totalRows": 62,
-  "asOfDate": "2026-10-02",
-  "asOf": "Oct 02 2026",
+  "asOfDate": "2026-10-05",
+  "asOf": "Oct 05 2026",
   "source": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
   "status": "available"
  },
@@ -765,8 +766,8 @@
    "history/004.json"
   ],
   "pageSize": 1000,
-  "totalRows": 3597,
-  "asOf": "Oct 01 2026",
+  "totalRows": 3598,
+  "asOf": "Oct 02 2026",
   "source": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)"
  }
 }

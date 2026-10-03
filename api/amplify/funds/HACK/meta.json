@@ -3,6 +3,7 @@
  "name": "Amplify Cybersecurity ETF",
  "category": "Thematic",
  "categoryPath": "Thematic",
+ "status": "active",
  "source": {
   "fundPage": "https://amplifyetfs.com/HACK/",
   "catalog": "https://firestore.googleapis.com/v1/projects/amplify-etfs-data-feed/databases/(default)/documents/fund_category",
@@ -31,33 +32,33 @@
  "expenseRatio": {
   "display": "0.60%",
   "value": 0.6,
-  "gross": 0.6,
+  "gross": null,
   "net": 0.6
  },
  "nav": {
-  "display": "$121.73",
-  "value": 121.7308,
-  "asOfDate": "Oct 01 2026"
+  "display": "$122.91",
+  "value": 122.9051,
+  "asOfDate": "Oct 02 2026"
  },
  "marketPrice": {
-  "display": "$121.77",
-  "value": 121.77,
-  "asOfDate": "Oct 01 2026"
+  "display": "$123.08",
+  "value": 123.08,
+  "asOfDate": "Oct 02 2026"
  },
  "premiumDiscount": {
-  "display": "0.03%",
-  "value": 0.0322
+  "display": "0.14%",
+  "value": 0.1423
  },
  "aum": {
-  "display": "$3,347,596,152",
-  "value": 3347596152.4,
-  "asOfDate": "Oct 01 2026",
+  "display": "$3,392,180,252",
+  "value": 3392180251.84,
+  "asOfDate": "Oct 02 2026",
   "source": "Amplify Firestore daily net assets"
  },
  "yields": {
   "dividendYield": 0.05,
   "dividendYieldText": "0.05%",
-  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields)",
+  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields; a published 0.00% is an official zero)",
   "secYield": -0.1,
   "secYieldText": "-0.10%",
   "secYieldKind": "30-day SEC yield published by Amplify (Firestore yields)",
@@ -200,8 +201,8 @@
   ],
   "pageSize": 250,
   "totalRows": 25,
-  "asOfDate": "2026-10-02",
-  "asOf": "Oct 02 2026",
+  "asOfDate": "2026-10-05",
+  "asOf": "Oct 05 2026",
   "source": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
   "status": "available"
  },
@@ -212,8 +213,8 @@
    "history/003.json"
   ],
   "pageSize": 1000,
-  "totalRows": 2988,
-  "asOf": "Oct 01 2026",
+  "totalRows": 2989,
+  "asOf": "Oct 02 2026",
   "source": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)"
  }
 }

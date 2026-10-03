@@ -3,6 +3,7 @@
  "name": "Samsung KODEX US Growth Covered Call Active",
  "category": "International",
  "categoryPath": "International",
+ "status": "aum-only",
  "source": {
   "fundPage": "https://amplifyetfs.com/K-QDVO/",
   "catalog": "https://firestore.googleapis.com/v1/projects/amplify-etfs-data-feed/databases/(default)/documents/fund_category",
@@ -57,7 +58,7 @@
  "yields": {
   "dividendYield": null,
   "dividendYieldText": "—",
-  "dividendYieldKind": "indicated (latest distribution x payments per year / market price)",
+  "dividendYieldKind": "trailing 12 months (distributions with an ex-date in the last 12 months / market price; null with under 12 months of history)",
   "secYield": null,
   "secYieldText": "—",
   "secYieldKind": "not published",

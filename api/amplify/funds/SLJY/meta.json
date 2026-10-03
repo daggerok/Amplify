@@ -3,6 +3,7 @@
  "name": "Amplify SILJ Junior Silver Miners Covered Call ETF",
  "category": "Income",
  "categoryPath": "Income",
+ "status": "active",
  "source": {
   "fundPage": "https://amplifyetfs.com/SLJY/",
   "catalog": "https://firestore.googleapis.com/v1/projects/amplify-etfs-data-feed/databases/(default)/documents/fund_category",
@@ -31,33 +32,33 @@
  "expenseRatio": {
   "display": "0.76%",
   "value": 0.76,
-  "gross": 0.76,
+  "gross": null,
   "net": 0.76
  },
  "nav": {
-  "display": "$27.47",
-  "value": 27.4736,
-  "asOfDate": "Oct 01 2026"
+  "display": "$27.55",
+  "value": 27.5491,
+  "asOfDate": "Oct 02 2026"
  },
  "marketPrice": {
-  "display": "$27.45",
-  "value": 27.4516,
-  "asOfDate": "Oct 01 2026"
+  "display": "$27.46",
+  "value": 27.46,
+  "asOfDate": "Oct 02 2026"
  },
  "premiumDiscount": {
-  "display": "-0.08%",
-  "value": -0.0801
+  "display": "-0.32%",
+  "value": -0.3234
  },
  "aum": {
-  "display": "$72,118,214",
-  "value": 72118213.53,
-  "asOfDate": "Oct 01 2026",
+  "display": "$73,004,987",
+  "value": 73004987.35,
+  "asOfDate": "Oct 02 2026",
   "source": "Amplify Firestore daily net assets"
  },
  "yields": {
   "dividendYield": 23.78,
   "dividendYieldText": "23.78%",
-  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields)",
+  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields; a published 0.00% is an official zero)",
   "secYield": 0.69,
   "secYieldText": "0.69%",
   "secYieldKind": "30-day SEC yield published by Amplify (Firestore yields)",
@@ -156,8 +157,8 @@
   ],
   "pageSize": 250,
   "totalRows": 68,
-  "asOfDate": "2026-10-02",
-  "asOf": "Oct 02 2026",
+  "asOfDate": "2026-10-05",
+  "asOf": "Oct 05 2026",
   "source": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
   "status": "available"
  },
@@ -166,8 +167,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 282,
-  "asOf": "Oct 01 2026",
+  "totalRows": 283,
+  "asOf": "Oct 02 2026",
   "source": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)"
  }
 }

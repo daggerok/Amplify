@@ -2,7 +2,7 @@
  "ticker": "XQBT",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 31,
+ "totalRows": 32,
  "headers": [
   "Date",
   "Close",
@@ -195,6 +195,12 @@
    "Close": "24.299999",
    "Adj Close": "24.3",
    "Volume": "2500"
+  },
+  {
+   "Date": "Oct 02 2026",
+   "Close": "24.360001",
+   "Adj Close": "24.36",
+   "Volume": "2000"
   }
  ]
 }

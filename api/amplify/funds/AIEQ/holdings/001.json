@@ -17,8 +17,8 @@
    "Name": "Broadcom Inc",
    "Ticker": "AVGO",
    "Identifier": "11135F101",
-   "Weight": "9.13",
-   "Market Value": "10296485.32",
+   "Weight": "9.36",
+   "Market Value": "10641059.82",
    "Shares Held": "29963",
    "SEDOL": ""
   },
@@ -26,8 +26,8 @@
    "Name": "Netflix Inc",
    "Ticker": "NFLX",
    "Identifier": "64110L106",
-   "Weight": "4.25",
-   "Market Value": "4789735.05",
+   "Weight": "4.16",
+   "Market Value": "4733966.58",
    "Shares Held": "70593",
    "SEDOL": ""
   },
@@ -35,8 +35,8 @@
    "Name": "NVIDIA Corp",
    "Ticker": "NVDA",
    "Identifier": "67066G104",
-   "Weight": "3.99",
-   "Market Value": "4498307.1",
+   "Weight": "4.01",
+   "Market Value": "4558515.75",
    "Shares Held": "19485",
    "SEDOL": ""
   },
@@ -44,35 +44,35 @@
    "Name": "GE Vernova Inc",
    "Ticker": "GEV",
    "Identifier": "36828A101",
-   "Weight": "3.8",
-   "Market Value": "4281583.2",
+   "Weight": "3.77",
+   "Market Value": "4287003.2",
    "Shares Held": "4336",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Berkshire Hathaway Inc",
-   "Ticker": "BRK/B",
-   "Identifier": "084670702",
-   "Weight": "3.66",
-   "Market Value": "4132628.5",
-   "Shares Held": "8257",
    "SEDOL": ""
   },
   {
    "Name": "Tyson Foods Inc",
    "Ticker": "TSN",
    "Identifier": "902494103",
-   "Weight": "3.65",
-   "Market Value": "4113153.59",
+   "Weight": "3.72",
+   "Market Value": "4228879.33",
    "Shares Held": "81497",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Berkshire Hathaway Inc",
+   "Ticker": "BRK/B",
+   "Identifier": "084670702",
+   "Weight": "3.65",
+   "Market Value": "4150381.05",
+   "Shares Held": "8257",
    "SEDOL": ""
   },
   {
    "Name": "Mastercard Inc",
    "Ticker": "MA",
    "Identifier": "57636Q104",
-   "Weight": "3.63",
-   "Market Value": "4098600",
+   "Weight": "3.62",
+   "Market Value": "4115441.52",
    "Shares Held": "7452",
    "SEDOL": ""
   },
@@ -80,8 +80,8 @@
    "Name": "Uber Technologies Inc",
    "Ticker": "UBER",
    "Identifier": "90353T100",
-   "Weight": "3.61",
-   "Market Value": "4075786.72",
+   "Weight": "3.6",
+   "Market Value": "4089596.84",
    "Shares Held": "60044",
    "SEDOL": ""
   },
@@ -89,8 +89,8 @@
    "Name": "Alphabet Inc",
    "Ticker": "GOOG",
    "Identifier": "02079K107",
-   "Weight": "2.76",
-   "Market Value": "3108820.26",
+   "Weight": "2.78",
+   "Market Value": "3159128.7",
    "Shares Held": "9282",
    "SEDOL": ""
   },
@@ -99,7 +99,7 @@
    "Ticker": "OKE",
    "Identifier": "30609A109",
    "Weight": "2.59",
-   "Market Value": "2925438.24",
+   "Market Value": "2949604.32",
    "Shares Held": "33564",
    "SEDOL": ""
   },
@@ -107,8 +107,8 @@
    "Name": "Snap-on Inc",
    "Ticker": "SNA",
    "Identifier": "833034101",
-   "Weight": "2.51",
-   "Market Value": "2829605.4",
+   "Weight": "2.5",
+   "Market Value": "2838685.5",
    "Shares Held": "7695",
    "SEDOL": ""
   },
@@ -116,8 +116,8 @@
    "Name": "Raymond James Financial Inc",
    "Ticker": "RJF",
    "Identifier": "754730109",
-   "Weight": "2.4",
-   "Market Value": "2708091.76",
+   "Weight": "2.36",
+   "Market Value": "2681817.71",
    "Shares Held": "16951",
    "SEDOL": ""
   },
@@ -125,8 +125,8 @@
    "Name": "Microsoft Corp",
    "Ticker": "MSFT",
    "Identifier": "594918104",
-   "Weight": "2.18",
-   "Market Value": "2463491.2",
+   "Weight": "2.19",
+   "Market Value": "2486214.12",
    "Shares Held": "4804",
    "SEDOL": ""
   },
@@ -134,63 +134,72 @@
    "Name": "Fastenal Co",
    "Ticker": "FAST",
    "Identifier": "311900104",
-   "Weight": "2.09",
-   "Market Value": "2360474.55",
+   "Weight": "2.1",
+   "Market Value": "2385148.5",
    "Shares Held": "46998",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Carrier Global Corp",
-   "Ticker": "CARR",
-   "Identifier": "14448C104",
-   "Weight": "1.98",
-   "Market Value": "2236244.34",
-   "Shares Held": "40497",
-   "SEDOL": ""
-  },
-  {
-   "Name": "AppLovin Corp",
-   "Ticker": "APP",
-   "Identifier": "03831W108",
-   "Weight": "1.97",
-   "Market Value": "2218410.66",
-   "Shares Held": "7886",
    "SEDOL": ""
   },
   {
    "Name": "Freeport-McMoRan Inc",
    "Ticker": "FCX",
    "Identifier": "35671D857",
-   "Weight": "1.97",
-   "Market Value": "2218276.32",
+   "Weight": "2.03",
+   "Market Value": "2306648.76",
    "Shares Held": "32019",
    "SEDOL": ""
   },
   {
-   "Name": "Hilton Worldwide Holdings Inc",
-   "Ticker": "HLT",
-   "Identifier": "43300A203",
-   "Weight": "1.94",
-   "Market Value": "2190099.92",
-   "Shares Held": "6943",
+   "Name": "Carrier Global Corp",
+   "Ticker": "CARR",
+   "Identifier": "14448C104",
+   "Weight": "1.96",
+   "Market Value": "2232194.64",
+   "Shares Held": "40497",
    "SEDOL": ""
   },
   {
    "Name": "F5 Inc",
    "Ticker": "FFIV",
    "Identifier": "315616102",
-   "Weight": "1.93",
-   "Market Value": "2171813.6",
+   "Weight": "1.95",
+   "Market Value": "2222525.8",
    "Shares Held": "4895",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Hilton Worldwide Holdings Inc",
+   "Ticker": "HLT",
+   "Identifier": "43300A203",
+   "Weight": "1.95",
+   "Market Value": "2217316.48",
+   "Shares Held": "6943",
    "SEDOL": ""
   },
   {
    "Name": "Carvana Co",
    "Ticker": "CVNA",
    "Identifier": "146869102",
-   "Weight": "1.92",
-   "Market Value": "2168386.88",
+   "Weight": "1.93",
+   "Market Value": "2193496.69",
    "Shares Held": "34397",
+   "SEDOL": ""
+  },
+  {
+   "Name": "AppLovin Corp",
+   "Ticker": "APP",
+   "Identifier": "03831W108",
+   "Weight": "1.86",
+   "Market Value": "2115182.92",
+   "Shares Held": "7886",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Alphabet Inc",
+   "Ticker": "GOOGL",
+   "Identifier": "02079K305",
+   "Weight": "1.5",
+   "Market Value": "1707538.5",
+   "Shares Held": "4971",
    "SEDOL": ""
   },
   {
@@ -198,24 +207,15 @@
    "Ticker": "TMUS",
    "Identifier": "872590104",
    "Weight": "1.5",
-   "Market Value": "1688137.74",
+   "Market Value": "1708074.32",
    "Shares Held": "10438",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Alphabet Inc",
-   "Ticker": "GOOGL",
-   "Identifier": "02079K305",
-   "Weight": "1.49",
-   "Market Value": "1681391.04",
-   "Shares Held": "4971",
    "SEDOL": ""
   },
   {
    "Name": "Bio-Techne Corp",
    "Ticker": "TECH",
    "Identifier": "09073M104",
-   "Weight": "1.41",
+   "Weight": "1.4",
    "Market Value": "1587370",
    "Shares Held": "21925",
    "SEDOL": ""
@@ -224,8 +224,8 @@
    "Name": "West Pharmaceutical Services Inc",
    "Ticker": "WST",
    "Identifier": "955306105",
-   "Weight": "1.41",
-   "Market Value": "1588888.53",
+   "Weight": "1.4",
+   "Market Value": "1588757.94",
    "Shares Held": "4353",
    "SEDOL": ""
   },
@@ -233,8 +233,8 @@
    "Name": "Apollo Global Management Inc",
    "Ticker": "APO",
    "Identifier": "03769M106",
-   "Weight": "1.4",
-   "Market Value": "1583723.34",
+   "Weight": "1.39",
+   "Market Value": "1579291.02",
    "Shares Held": "13851",
    "SEDOL": ""
   },
@@ -242,18 +242,9 @@
    "Name": "Howmet Aerospace Inc",
    "Ticker": "HWM",
    "Identifier": "443201108",
-   "Weight": "1.35",
-   "Market Value": "1521467.56",
+   "Weight": "1.36",
+   "Market Value": "1540720.74",
    "Shares Held": "6662",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Micron Technology Inc",
-   "Ticker": "MU",
-   "Identifier": "595112103",
-   "Weight": "1.29",
-   "Market Value": "1457333.92",
-   "Shares Held": "1328",
    "SEDOL": ""
   },
   {
@@ -261,16 +252,25 @@
    "Ticker": "AMZN",
    "Identifier": "023135106",
    "Weight": "1.27",
-   "Market Value": "1428811.88",
+   "Market Value": "1447749.12",
    "Shares Held": "5756",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Micron Technology Inc",
+   "Ticker": "MU",
+   "Identifier": "595112103",
+   "Weight": "1.26",
+   "Market Value": "1427453.92",
+   "Shares Held": "1328",
    "SEDOL": ""
   },
   {
    "Name": "Apple Inc",
    "Ticker": "AAPL",
    "Identifier": "037833100",
-   "Weight": "1.24",
-   "Market Value": "1403529.68",
+   "Weight": "1.25",
+   "Market Value": "1417848.81",
    "Shares Held": "4249",
    "SEDOL": ""
   },
@@ -278,8 +278,8 @@
    "Name": "Advanced Micro Devices Inc",
    "Ticker": "AMD",
    "Identifier": "007903107",
-   "Weight": "1.19",
-   "Market Value": "1347217.24",
+   "Weight": "1.22",
+   "Market Value": "1386995.08",
    "Shares Held": "2188",
    "SEDOL": ""
   },
@@ -288,7 +288,7 @@
    "Ticker": "VRSN",
    "Identifier": "92343E102",
    "Weight": "1.18",
-   "Market Value": "1332937.4",
+   "Market Value": "1339534.72",
    "Shares Held": "4646",
    "SEDOL": ""
   },
@@ -296,8 +296,8 @@
    "Name": "Diamondback Energy Inc",
    "Ticker": "FANG",
    "Identifier": "25278X109",
-   "Weight": "1.09",
-   "Market Value": "1226406.61",
+   "Weight": "1.07",
+   "Market Value": "1221117.81",
    "Shares Held": "6611",
    "SEDOL": ""
   },
@@ -305,8 +305,8 @@
    "Name": "Welltower Inc",
    "Ticker": "WELL",
    "Identifier": "95040Q104",
-   "Weight": "1.03",
-   "Market Value": "1158755.64",
+   "Weight": "1.02",
+   "Market Value": "1162687.26",
    "Shares Held": "5106",
    "SEDOL": ""
   },
@@ -315,7 +315,7 @@
    "Ticker": "META",
    "Identifier": "30303M102",
    "Weight": "0.99",
-   "Market Value": "1120109.99",
+   "Market Value": "1123427.44",
    "Shares Held": "1543",
    "SEDOL": ""
   },
@@ -323,8 +323,8 @@
    "Name": "Erie Indemnity Co",
    "Ticker": "ERIE",
    "Identifier": "29530P102",
-   "Weight": "0.97",
-   "Market Value": "1097445.51",
+   "Weight": "0.95",
+   "Market Value": "1085179.48",
    "Shares Held": "4941",
    "SEDOL": ""
   },
@@ -332,8 +332,8 @@
    "Name": "Mid-America Apartment Communities Inc",
    "Ticker": "MAA",
    "Identifier": "59522J103",
-   "Weight": "0.96",
-   "Market Value": "1077096.9",
+   "Weight": "0.94",
+   "Market Value": "1066823.85",
    "Shares Held": "9255",
    "SEDOL": ""
   },
@@ -341,8 +341,8 @@
    "Name": "Hershey Co/The",
    "Ticker": "HSY",
    "Identifier": "427866108",
-   "Weight": "0.87",
-   "Market Value": "977624.1",
+   "Weight": "0.86",
+   "Market Value": "983086.03",
    "Shares Held": "6137",
    "SEDOL": ""
   },
@@ -350,8 +350,8 @@
    "Name": "Old Dominion Freight Line Inc",
    "Ticker": "ODFL",
    "Identifier": "679580100",
-   "Weight": "0.78",
-   "Market Value": "881951.2",
+   "Weight": "0.79",
+   "Market Value": "893736.96",
    "Shares Held": "4952",
    "SEDOL": ""
   },
@@ -360,7 +360,7 @@
    "Ticker": "A",
    "Identifier": "00846U101",
    "Weight": "0.75",
-   "Market Value": "846067.68",
+   "Market Value": "851651.28",
    "Shares Held": "5076",
    "SEDOL": ""
   },
@@ -369,7 +369,7 @@
    "Ticker": "TRGP",
    "Identifier": "87612G101",
    "Weight": "0.74",
-   "Market Value": "832902.42",
+   "Market Value": "840148.68",
    "Shares Held": "2982",
    "SEDOL": ""
   },
@@ -377,8 +377,8 @@
    "Name": "Chipotle Mexican Grill Inc",
    "Ticker": "CMG",
    "Identifier": "169656105",
-   "Weight": "0.72",
-   "Market Value": "810617.92",
+   "Weight": "0.71",
+   "Market Value": "811621.16",
    "Shares Held": "25081",
    "SEDOL": ""
   },
@@ -387,7 +387,7 @@
    "Ticker": "MTB",
    "Identifier": "55261F104",
    "Weight": "0.7",
-   "Market Value": "785502.9",
+   "Market Value": "791971.96",
    "Shares Held": "3614",
    "SEDOL": ""
   },
@@ -396,34 +396,34 @@
    "Ticker": "EQIX",
    "Identifier": "29444U700",
    "Weight": "0.65",
-   "Market Value": "727865.27",
+   "Market Value": "737492.68",
    "Shares Held": "719",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Norwegian Cruise Line Holdings Ltd",
-   "Ticker": "NCLH",
-   "Identifier": "G66721104",
-   "Weight": "0.61",
-   "Market Value": "692003.52",
-   "Shares Held": "47268",
    "SEDOL": ""
   },
   {
    "Name": "Super Micro Computer Inc",
    "Ticker": "SMCI",
    "Identifier": "86800U302",
-   "Weight": "0.61",
-   "Market Value": "692769.92",
+   "Weight": "0.64",
+   "Market Value": "722020.94",
    "Shares Held": "16526",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Norwegian Cruise Line Holdings Ltd",
+   "Ticker": "NCLH",
+   "Identifier": "G66721104",
+   "Weight": "0.63",
+   "Market Value": "715637.52",
+   "Shares Held": "47268",
    "SEDOL": ""
   },
   {
    "Name": "Cboe Global Markets Inc",
    "Ticker": "CBOE",
    "Identifier": "12503M108",
-   "Weight": "0.59",
-   "Market Value": "669968.23",
+   "Weight": "0.58",
+   "Market Value": "655635.42",
    "Shares Held": "2417",
    "SEDOL": ""
   },
@@ -431,18 +431,9 @@
    "Name": "Linde PLC",
    "Ticker": "LIN",
    "Identifier": "G54950103",
-   "Weight": "0.56",
-   "Market Value": "637043.65",
+   "Weight": "0.57",
+   "Market Value": "650654.36",
    "Shares Held": "1357",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Vertex Pharmaceuticals Inc",
-   "Ticker": "VRTX",
-   "Identifier": "92532F100",
-   "Weight": "0.56",
-   "Market Value": "633425",
-   "Shares Held": "1250",
    "SEDOL": ""
   },
   {
@@ -450,35 +441,44 @@
    "Ticker": "MRVL",
    "Identifier": "573874104",
    "Weight": "0.55",
-   "Market Value": "615243.6",
+   "Market Value": "624905.55",
    "Shares Held": "2295",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Vertex Pharmaceuticals Inc",
+   "Ticker": "VRTX",
+   "Identifier": "92532F100",
+   "Weight": "0.55",
+   "Market Value": "630912.5",
+   "Shares Held": "1250",
    "SEDOL": ""
   },
   {
    "Name": "Gilead Sciences Inc",
    "Ticker": "GILD",
    "Identifier": "375558103",
-   "Weight": "0.53",
-   "Market Value": "598850",
+   "Weight": "0.52",
+   "Market Value": "587644.4",
    "Shares Held": "4060",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Palantir Technologies Inc",
-   "Ticker": "PLTR",
-   "Identifier": "69608A108",
-   "Weight": "0.51",
-   "Market Value": "573920.8",
-   "Shares Held": "3020",
    "SEDOL": ""
   },
   {
    "Name": "Live Nation Entertainment Inc",
    "Ticker": "LYV",
    "Identifier": "538034109",
-   "Weight": "0.5",
-   "Market Value": "569459.05",
+   "Weight": "0.51",
+   "Market Value": "576012.01",
    "Shares Held": "3413",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Palantir Technologies Inc",
+   "Ticker": "PLTR",
+   "Identifier": "69608A108",
+   "Weight": "0.5",
+   "Market Value": "570025",
+   "Shares Held": "3020",
    "SEDOL": ""
   },
   {
@@ -486,7 +486,7 @@
    "Ticker": "PYPL",
    "Identifier": "70450Y103",
    "Weight": "0.47",
-   "Market Value": "534314.2",
+   "Market Value": "531696",
    "Shares Held": "10070",
    "SEDOL": ""
   },
@@ -494,18 +494,9 @@
    "Name": "EOG Resources Inc",
    "Ticker": "EOG",
    "Identifier": "26875P101",
-   "Weight": "0.4",
-   "Market Value": "446963.53",
+   "Weight": "0.39",
+   "Market Value": "447184.94",
    "Shares Held": "3163",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Invesco Government & Agency Portfolio 12/31/2031",
-   "Ticker": "AGPXX",
-   "Identifier": "825252885",
-   "Weight": "0.33",
-   "Market Value": "372123.7",
-   "Shares Held": "372123.7",
    "SEDOL": ""
   },
   {
@@ -513,7 +504,7 @@
    "Ticker": "CRWD",
    "Identifier": "22788C105",
    "Weight": "0.32",
-   "Market Value": "356560.6",
+   "Market Value": "361853.6",
    "Shares Held": "1340",
    "SEDOL": ""
   },
@@ -522,16 +513,25 @@
    "Ticker": "DVA",
    "Identifier": "23918K108",
    "Weight": "0.3",
-   "Market Value": "335946.75",
+   "Market Value": "340404.45",
    "Shares Held": "1905",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Invesco Government & Agency Portfolio 12/31/2031",
+   "Ticker": "AGPXX",
+   "Identifier": "825252885",
+   "Weight": "0.28",
+   "Market Value": "316331.55",
+   "Shares Held": "316331.55",
    "SEDOL": ""
   },
   {
    "Name": "Ventas Inc",
    "Ticker": "VTR",
    "Identifier": "92276F100",
-   "Weight": "0.29",
-   "Market Value": "322193.04",
+   "Weight": "0.28",
+   "Market Value": "323270.48",
    "Shares Held": "3848",
    "SEDOL": ""
   },
@@ -540,7 +540,7 @@
    "Ticker": "MNST",
    "Identifier": "61174X109",
    "Weight": "0.24",
-   "Market Value": "273151.48",
+   "Market Value": "278337.08",
    "Shares Held": "6482",
    "SEDOL": ""
   },
@@ -549,7 +549,7 @@
    "Ticker": "EME",
    "Identifier": "29084Q100",
    "Weight": "0.21",
-   "Market Value": "234554.15",
+   "Market Value": "239916.05",
    "Shares Held": "305",
    "SEDOL": ""
   },
@@ -557,8 +557,8 @@
    "Name": "Akamai Technologies Inc",
    "Ticker": "AKAM",
    "Identifier": "00971T101",
-   "Weight": "0.17",
-   "Market Value": "196002.69",
+   "Weight": "0.18",
+   "Market Value": "199650.36",
    "Shares Held": "1833",
    "SEDOL": ""
   },
@@ -567,7 +567,7 @@
    "Ticker": "COHR",
    "Identifier": "19247G107",
    "Weight": "0.17",
-   "Market Value": "187045.34",
+   "Market Value": "197505.44",
    "Shares Held": "586",
    "SEDOL": ""
   },
@@ -576,7 +576,7 @@
    "Ticker": "CASY",
    "Identifier": "147528103",
    "Weight": "0.16",
-   "Market Value": "179655",
+   "Market Value": "179150.4",
    "Shares Held": "290",
    "SEDOL": ""
   },
@@ -585,7 +585,7 @@
    "Ticker": "FTNT",
    "Identifier": "34959E109",
    "Weight": "0.1",
-   "Market Value": "117240.32",
+   "Market Value": "118703.2",
    "Shares Held": "656",
    "SEDOL": ""
   },
@@ -594,7 +594,7 @@
    "Ticker": "CAH",
    "Identifier": "14149Y108",
    "Weight": "0.09",
-   "Market Value": "106761.76",
+   "Market Value": "105931.2",
    "Shares Held": "464",
    "SEDOL": ""
   },
@@ -603,7 +603,7 @@
    "Ticker": "LITE",
    "Identifier": "55024U109",
    "Weight": "0.08",
-   "Market Value": "85753.96",
+   "Market Value": "89004.44",
    "Shares Held": "82",
    "SEDOL": ""
   },
@@ -612,7 +612,7 @@
    "Ticker": "DRI",
    "Identifier": "237194105",
    "Weight": "0.07",
-   "Market Value": "74818.39",
+   "Market Value": "75925.07",
    "Shares Held": "379",
    "SEDOL": ""
   },
@@ -621,7 +621,7 @@
    "Ticker": "AMAT",
    "Identifier": "038222105",
    "Weight": "0.06",
-   "Market Value": "67750.4",
+   "Market Value": "69125.12",
    "Shares Held": "128",
    "SEDOL": ""
   },
@@ -630,7 +630,7 @@
    "Ticker": "PSX",
    "Identifier": "718546104",
    "Weight": "0.06",
-   "Market Value": "63150.97",
+   "Market Value": "63234.62",
    "Shares Held": "239",
    "SEDOL": ""
   },
@@ -639,7 +639,7 @@
    "Ticker": "WBD",
    "Identifier": "934423104",
    "Weight": "0.06",
-   "Market Value": "62828.5",
+   "Market Value": "62808.2",
    "Shares Held": "2030",
    "SEDOL": ""
   },
@@ -648,7 +648,7 @@
    "Ticker": "ABBV",
    "Identifier": "00287Y109",
    "Weight": "0.05",
-   "Market Value": "55884.95",
+   "Market Value": "56506.3",
    "Shares Held": "215",
    "SEDOL": ""
   },
@@ -657,7 +657,7 @@
    "Ticker": "APD",
    "Identifier": "009158106",
    "Weight": "0.05",
-   "Market Value": "54939.33",
+   "Market Value": "55791.57",
    "Shares Held": "201",
    "SEDOL": ""
   },
@@ -666,7 +666,7 @@
    "Ticker": "LNT",
    "Identifier": "018802108",
    "Weight": "0.05",
-   "Market Value": "54408.34",
+   "Market Value": "54937.82",
    "Shares Held": "854",
    "SEDOL": ""
   },
@@ -675,7 +675,7 @@
    "Ticker": "MO",
    "Identifier": "02209S103",
    "Weight": "0.05",
-   "Market Value": "56371.9",
+   "Market Value": "56708.7",
    "Shares Held": "842",
    "SEDOL": ""
   },
@@ -684,7 +684,7 @@
    "Ticker": "AWK",
    "Identifier": "030420103",
    "Weight": "0.05",
-   "Market Value": "55363.38",
+   "Market Value": "56398.25",
    "Shares Held": "433",
    "SEDOL": ""
   },
@@ -693,7 +693,7 @@
    "Ticker": "ACGL",
    "Identifier": "G0450A105",
    "Weight": "0.05",
-   "Market Value": "56933.04",
+   "Market Value": "56534.4",
    "Shares Held": "604",
    "SEDOL": ""
   },
@@ -711,7 +711,7 @@
    "Ticker": "AZO",
    "Identifier": "053332102",
    "Weight": "0.05",
-   "Market Value": "56380.6",
+   "Market Value": "55840.6",
    "Shares Held": "20",
    "SEDOL": ""
   },
@@ -720,7 +720,7 @@
    "Ticker": "BSX",
    "Identifier": "101137107",
    "Weight": "0.05",
-   "Market Value": "56112.54",
+   "Market Value": "55294.8",
    "Shares Held": "1298",
    "SEDOL": ""
   },
@@ -729,7 +729,7 @@
    "Ticker": "BRO",
    "Identifier": "115236101",
    "Weight": "0.05",
-   "Market Value": "57507.87",
+   "Market Value": "55776.21",
    "Shares Held": "931",
    "SEDOL": ""
   },
@@ -738,7 +738,7 @@
    "Ticker": "COR",
    "Identifier": "03073E105",
    "Weight": "0.05",
-   "Market Value": "56689.74",
+   "Market Value": "56556.15",
    "Shares Held": "183",
    "SEDOL": ""
   },
@@ -747,7 +747,7 @@
    "Ticker": "CNP",
    "Identifier": "15189T107",
    "Weight": "0.05",
-   "Market Value": "54475.44",
+   "Market Value": "55324.56",
    "Shares Held": "1464",
    "SEDOL": ""
   },
@@ -756,7 +756,7 @@
    "Ticker": "CVX",
    "Identifier": "166764100",
    "Weight": "0.05",
-   "Market Value": "58609.3",
+   "Market Value": "58493.27",
    "Shares Held": "283",
    "SEDOL": ""
   },
@@ -765,7 +765,7 @@
    "Ticker": "CB",
    "Identifier": "H1467J104",
    "Weight": "0.05",
-   "Market Value": "57314.9",
+   "Market Value": "57243.97",
    "Shares Held": "173",
    "SEDOL": ""
   },
@@ -774,7 +774,7 @@
    "Ticker": "CHD",
    "Identifier": "171340102",
    "Weight": "0.05",
-   "Market Value": "54677.91",
+   "Market Value": "54794.11",
    "Shares Held": "581",
    "SEDOL": ""
   },
@@ -783,7 +783,7 @@
    "Ticker": "CTAS",
    "Identifier": "172908105",
    "Weight": "0.05",
-   "Market Value": "56528.4",
+   "Market Value": "55782.78",
    "Shares Held": "289",
    "SEDOL": ""
   },
@@ -792,7 +792,7 @@
    "Ticker": "CME",
    "Identifier": "12572Q105",
    "Weight": "0.05",
-   "Market Value": "53815.3",
+   "Market Value": "53417.42",
    "Shares Held": "203",
    "SEDOL": ""
   },
@@ -801,7 +801,7 @@
    "Ticker": "CMS",
    "Identifier": "125896100",
    "Weight": "0.05",
-   "Market Value": "54284.92",
+   "Market Value": "54370.22",
    "Shares Held": "853",
    "SEDOL": ""
   },
@@ -810,7 +810,7 @@
    "Ticker": "KO",
    "Identifier": "191216100",
    "Weight": "0.05",
-   "Market Value": "56051.1",
+   "Market Value": "55758.15",
    "Shares Held": "651",
    "SEDOL": ""
   },
@@ -819,7 +819,7 @@
    "Ticker": "CL",
    "Identifier": "194162103",
    "Weight": "0.05",
-   "Market Value": "54690.91",
+   "Market Value": "54516.22",
    "Shares Held": "647",
    "SEDOL": ""
   },
@@ -828,7 +828,7 @@
    "Ticker": "ED",
    "Identifier": "209115104",
    "Weight": "0.05",
-   "Market Value": "56407.5",
+   "Market Value": "56347.55",
    "Shares Held": "545",
    "SEDOL": ""
   },
@@ -837,7 +837,7 @@
    "Ticker": "COST",
    "Identifier": "22160K105",
    "Weight": "0.05",
-   "Market Value": "58556.16",
+   "Market Value": "58921.6",
    "Shares Held": "64",
    "SEDOL": ""
   },
@@ -846,7 +846,7 @@
    "Ticker": "DAL",
    "Identifier": "247361702",
    "Weight": "0.05",
-   "Market Value": "56956.01",
+   "Market Value": "56928.93",
    "Shares Held": "677",
    "SEDOL": ""
   },
@@ -855,7 +855,7 @@
    "Ticker": "DLR",
    "Identifier": "253868103",
    "Weight": "0.05",
-   "Market Value": "56829.78",
+   "Market Value": "57493.1",
    "Shares Held": "322",
    "SEDOL": ""
   },
@@ -864,7 +864,7 @@
    "Ticker": "D",
    "Identifier": "25746U109",
    "Weight": "0.05",
-   "Market Value": "53651.08",
+   "Market Value": "54136.73",
    "Shares Held": "883",
    "SEDOL": ""
   },
@@ -873,7 +873,7 @@
    "Ticker": "DTE",
    "Identifier": "233331107",
    "Weight": "0.05",
-   "Market Value": "52882.83",
+   "Market Value": "53389.05",
    "Shares Held": "429",
    "SEDOL": ""
   },
@@ -882,7 +882,7 @@
    "Ticker": "EW",
    "Identifier": "28176E108",
    "Weight": "0.05",
-   "Market Value": "54606.79",
+   "Market Value": "54581.15",
    "Shares Held": "641",
    "SEDOL": ""
   },
@@ -891,7 +891,7 @@
    "Ticker": "LLY",
    "Identifier": "532457108",
    "Weight": "0.05",
-   "Market Value": "59792.2",
+   "Market Value": "59428.2",
    "Shares Held": "52",
    "SEDOL": ""
   },
@@ -900,7 +900,7 @@
    "Ticker": "EVRG",
    "Identifier": "30034W106",
    "Weight": "0.05",
-   "Market Value": "56650.01",
+   "Market Value": "56923.23",
    "Shares Held": "719",
    "SEDOL": ""
   },
@@ -909,7 +909,7 @@
    "Ticker": "FDS",
    "Identifier": "303075105",
    "Weight": "0.05",
-   "Market Value": "58853.32",
+   "Market Value": "56392",
    "Shares Held": "212",
    "SEDOL": ""
   },
@@ -918,17 +918,8 @@
    "Ticker": "FRT",
    "Identifier": "313745101",
    "Weight": "0.05",
-   "Market Value": "56283.63",
+   "Market Value": "55585.49",
    "Shares Held": "521",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Ford Motor Co",
-   "Ticker": "F",
-   "Identifier": "345370860",
-   "Weight": "0.05",
-   "Market Value": "50895.96",
-   "Shares Held": "4148",
    "SEDOL": ""
   },
   {
@@ -936,7 +927,7 @@
    "Ticker": "FTV",
    "Identifier": "34959J108",
    "Weight": "0.05",
-   "Market Value": "57291.84",
+   "Market Value": "58964.22",
    "Shares Held": "1026",
    "SEDOL": ""
   },
@@ -945,7 +936,7 @@
    "Ticker": "FOX",
    "Identifier": "35137L204",
    "Weight": "0.05",
-   "Market Value": "52887.96",
+   "Market Value": "53822.07",
    "Shares Held": "963",
    "SEDOL": ""
   },
@@ -954,7 +945,7 @@
    "Ticker": "FOXA",
    "Identifier": "35137L105",
    "Weight": "0.05",
-   "Market Value": "52700.8",
+   "Market Value": "53560.8",
    "Shares Held": "860",
    "SEDOL": ""
   },
@@ -963,7 +954,7 @@
    "Ticker": "HAL",
    "Identifier": "406216101",
    "Weight": "0.05",
-   "Market Value": "56714.52",
+   "Market Value": "56661.15",
    "Shares Held": "1779",
    "SEDOL": ""
   },
@@ -972,17 +963,8 @@
    "Ticker": "HAS",
    "Identifier": "418056107",
    "Weight": "0.05",
-   "Market Value": "55877.58",
+   "Market Value": "55604.34",
    "Shares Held": "621",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Home Depot Inc/The",
-   "Ticker": "HD",
-   "Identifier": "437076102",
-   "Weight": "0.05",
-   "Market Value": "50842.8",
-   "Shares Held": "180",
    "SEDOL": ""
   },
   {
@@ -990,7 +972,7 @@
    "Ticker": "HRL",
    "Identifier": "440452100",
    "Weight": "0.05",
-   "Market Value": "53552.68",
+   "Market Value": "54330.75",
    "Shares Held": "2683",
    "SEDOL": ""
   },
@@ -999,7 +981,7 @@
    "Ticker": "IR",
    "Identifier": "45687V106",
    "Weight": "0.05",
-   "Market Value": "56362.25",
+   "Market Value": "56976.43",
    "Shares Held": "749",
    "SEDOL": ""
   },
@@ -1008,7 +990,7 @@
    "Ticker": "INTC",
    "Identifier": "458140100",
    "Weight": "0.05",
-   "Market Value": "57000",
+   "Market Value": "56681.75",
    "Shares Held": "475",
    "SEDOL": ""
   },
@@ -1017,7 +999,7 @@
    "Ticker": "JNJ",
    "Identifier": "478160104",
    "Weight": "0.05",
-   "Market Value": "56646.54",
+   "Market Value": "56070.57",
    "Shares Held": "219",
    "SEDOL": ""
   },
@@ -1026,7 +1008,7 @@
    "Ticker": "KMI",
    "Identifier": "49456B101",
    "Weight": "0.05",
-   "Market Value": "55015.06",
+   "Market Value": "55988.14",
    "Shares Held": "1802",
    "SEDOL": ""
   },
@@ -1035,7 +1017,7 @@
    "Ticker": "KR",
    "Identifier": "501044101",
    "Weight": "0.05",
-   "Market Value": "60015.32",
+   "Market Value": "59561.27",
    "Shares Held": "1009",
    "SEDOL": ""
   },
@@ -1044,7 +1026,7 @@
    "Ticker": "LVS",
    "Identifier": "517834107",
    "Weight": "0.05",
-   "Market Value": "54704.79",
+   "Market Value": "54018.93",
    "Shares Held": "1491",
    "SEDOL": ""
   },
@@ -1053,7 +1035,7 @@
    "Ticker": "LMT",
    "Identifier": "539830109",
    "Weight": "0.05",
-   "Market Value": "52572",
+   "Market Value": "52562.64",
    "Shares Held": "104",
    "SEDOL": ""
   },
@@ -1062,7 +1044,7 @@
    "Ticker": "LYB",
    "Identifier": "N53745100",
    "Weight": "0.05",
-   "Market Value": "51944.22",
+   "Market Value": "52663.42",
    "Shares Held": "899",
    "SEDOL": ""
   },
@@ -1071,7 +1053,7 @@
    "Ticker": "MAR",
    "Identifier": "571903202",
    "Weight": "0.05",
-   "Market Value": "61378.67",
+   "Market Value": "62100.08",
    "Shares Held": "173",
    "SEDOL": ""
   },
@@ -1080,17 +1062,8 @@
    "Ticker": "MRSH",
    "Identifier": "571748102",
    "Weight": "0.05",
-   "Market Value": "57054.2",
+   "Market Value": "56459.92",
    "Shares Held": "332",
-   "SEDOL": ""
-  },
-  {
-   "Name": "McDonald's Corp",
-   "Ticker": "MCD",
-   "Identifier": "580135101",
-   "Weight": "0.05",
-   "Market Value": "51002.6",
-   "Shares Held": "220",
    "SEDOL": ""
   },
   {
@@ -1098,7 +1071,7 @@
    "Ticker": "MRK",
    "Identifier": "58933Y105",
    "Weight": "0.05",
-   "Market Value": "56517.33",
+   "Market Value": "56709.9",
    "Shares Held": "393",
    "SEDOL": ""
   },
@@ -1107,7 +1080,7 @@
    "Ticker": "MPWR",
    "Identifier": "609839105",
    "Weight": "0.05",
-   "Market Value": "57160.74",
+   "Market Value": "60468.66",
    "Shares Held": "42",
    "SEDOL": ""
   },
@@ -1116,7 +1089,7 @@
    "Ticker": "MS",
    "Identifier": "617446448",
    "Weight": "0.05",
-   "Market Value": "51702.75",
+   "Market Value": "52335.25",
    "Shares Held": "275",
    "SEDOL": ""
   },
@@ -1125,7 +1098,7 @@
    "Ticker": "MSCI",
    "Identifier": "55354G100",
    "Weight": "0.05",
-   "Market Value": "55629.78",
+   "Market Value": "54666.9",
    "Shares Held": "102",
    "SEDOL": ""
   },
@@ -1134,7 +1107,7 @@
    "Ticker": "NSC",
    "Identifier": "655844108",
    "Weight": "0.05",
-   "Market Value": "53364.72",
+   "Market Value": "54599.68",
    "Shares Held": "172",
    "SEDOL": ""
   },
@@ -1143,7 +1116,7 @@
    "Ticker": "NOC",
    "Identifier": "666807102",
    "Weight": "0.05",
-   "Market Value": "56394",
+   "Market Value": "55926",
    "Shares Held": "117",
    "SEDOL": ""
   },
@@ -1152,7 +1125,7 @@
    "Ticker": "NVR",
    "Identifier": "62944T105",
    "Weight": "0.05",
-   "Market Value": "55137.42",
+   "Market Value": "53944.65",
    "Shares Held": "9",
    "SEDOL": ""
   },
@@ -1161,7 +1134,7 @@
    "Ticker": "ORLY",
    "Identifier": "67103H107",
    "Weight": "0.05",
-   "Market Value": "56459.92",
+   "Market Value": "56373.6",
    "Shares Held": "664",
    "SEDOL": ""
   },
@@ -1170,7 +1143,7 @@
    "Ticker": "ORCL",
    "Identifier": "68389X105",
    "Weight": "0.05",
-   "Market Value": "56746.77",
+   "Market Value": "58485.3",
    "Shares Held": "411",
    "SEDOL": ""
   },
@@ -1179,7 +1152,7 @@
    "Ticker": "OTIS",
    "Identifier": "68902V107",
    "Weight": "0.05",
-   "Market Value": "56484.48",
+   "Market Value": "56107.8",
    "Shares Held": "876",
    "SEDOL": ""
   },
@@ -1188,7 +1161,7 @@
    "Ticker": "PANW",
    "Identifier": "697435105",
    "Weight": "0.05",
-   "Market Value": "55871.25",
+   "Market Value": "56856.84",
    "Shares Held": "141",
    "SEDOL": ""
   },
@@ -1197,7 +1170,7 @@
    "Ticker": "PEP",
    "Identifier": "713448108",
    "Weight": "0.05",
-   "Market Value": "52124",
+   "Market Value": "52244.35",
    "Shares Held": "415",
    "SEDOL": ""
   },
@@ -1206,7 +1179,7 @@
    "Ticker": "QCOM",
    "Identifier": "747525103",
    "Weight": "0.05",
-   "Market Value": "55901.63",
+   "Market Value": "56755.09",
    "Shares Held": "307",
    "SEDOL": ""
   },
@@ -1215,7 +1188,7 @@
    "Ticker": "RSG",
    "Identifier": "760759100",
    "Weight": "0.05",
-   "Market Value": "54672.15",
+   "Market Value": "55533.4",
    "Shares Held": "265",
    "SEDOL": ""
   },
@@ -1224,7 +1197,7 @@
    "Ticker": "ROP",
    "Identifier": "776696106",
    "Weight": "0.05",
-   "Market Value": "58592.16",
+   "Market Value": "57399.84",
    "Shares Held": "162",
    "SEDOL": ""
   },
@@ -1233,7 +1206,7 @@
    "Ticker": "ROST",
    "Identifier": "778296103",
    "Weight": "0.05",
-   "Market Value": "56652.2",
+   "Market Value": "55306.68",
    "Shares Held": "242",
    "SEDOL": ""
   },
@@ -1242,7 +1215,7 @@
    "Ticker": "CRM",
    "Identifier": "79466L302",
    "Weight": "0.05",
-   "Market Value": "58462.43",
+   "Market Value": "57968.43",
    "Shares Held": "247",
    "SEDOL": ""
   },
@@ -1251,7 +1224,7 @@
    "Ticker": "SNDK",
    "Identifier": "80004C200",
    "Weight": "0.05",
-   "Market Value": "57206.08",
+   "Market Value": "55039.68",
    "Shares Held": "32",
    "SEDOL": ""
   },
@@ -1260,7 +1233,7 @@
    "Ticker": "STX",
    "Identifier": "G7997R103",
    "Weight": "0.05",
-   "Market Value": "58625.34",
+   "Market Value": "52637.38",
    "Shares Held": "62",
    "SEDOL": ""
   },
@@ -1269,7 +1242,7 @@
    "Ticker": "NOW",
    "Identifier": "81762P102",
    "Weight": "0.05",
-   "Market Value": "57996.96",
+   "Market Value": "56573.98",
    "Shares Held": "421",
    "SEDOL": ""
   },
@@ -1278,7 +1251,7 @@
    "Ticker": "SO",
    "Identifier": "842587107",
    "Weight": "0.05",
-   "Market Value": "55090.2",
+   "Market Value": "55255.2",
    "Shares Held": "660",
    "SEDOL": ""
   },
@@ -1287,7 +1260,7 @@
    "Ticker": "SBUX",
    "Identifier": "855244109",
    "Weight": "0.05",
-   "Market Value": "56453.6",
+   "Market Value": "56352.45",
    "Shares Held": "595",
    "SEDOL": ""
   },
@@ -1296,7 +1269,7 @@
    "Ticker": "STE",
    "Identifier": "G8473T100",
    "Weight": "0.05",
-   "Market Value": "56103.12",
+   "Market Value": "55888.72",
    "Shares Held": "268",
    "SEDOL": ""
   },
@@ -1305,7 +1278,7 @@
    "Ticker": "SYY",
    "Identifier": "871829107",
    "Weight": "0.05",
-   "Market Value": "55752.84",
+   "Market Value": "55947.78",
    "Shares Held": "722",
    "SEDOL": ""
   },
@@ -1314,7 +1287,7 @@
    "Ticker": "TJX",
    "Identifier": "872540109",
    "Weight": "0.05",
-   "Market Value": "57042.93",
+   "Market Value": "56654.36",
    "Shares Held": "427",
    "SEDOL": ""
   },
@@ -1323,7 +1296,7 @@
    "Ticker": "TDG",
    "Identifier": "893641100",
    "Weight": "0.05",
-   "Market Value": "57056.48",
+   "Market Value": "56699.76",
    "Shares Held": "52",
    "SEDOL": ""
   },
@@ -1332,7 +1305,7 @@
    "Ticker": "TRV",
    "Identifier": "89417E109",
    "Weight": "0.05",
-   "Market Value": "58224.04",
+   "Market Value": "58021.18",
    "Shares Held": "161",
    "SEDOL": ""
   },
@@ -1341,7 +1314,7 @@
    "Ticker": "TFC",
    "Identifier": "89832Q109",
    "Weight": "0.05",
-   "Market Value": "56693",
+   "Market Value": "56901.25",
    "Shares Held": "1225",
    "SEDOL": ""
   },
@@ -1350,7 +1323,7 @@
    "Ticker": "UDR",
    "Identifier": "902653104",
    "Weight": "0.05",
-   "Market Value": "56515.04",
+   "Market Value": "55827.06",
    "Shares Held": "1678",
    "SEDOL": ""
   },
@@ -1359,7 +1332,7 @@
    "Ticker": "UNP",
    "Identifier": "907818108",
    "Weight": "0.05",
-   "Market Value": "52577.06",
+   "Market Value": "53708.04",
    "Shares Held": "193",
    "SEDOL": ""
   },
@@ -1368,7 +1341,7 @@
    "Ticker": "URI",
    "Identifier": "911363109",
    "Weight": "0.05",
-   "Market Value": "57910.16",
+   "Market Value": "60538.24",
    "Shares Held": "56",
    "SEDOL": ""
   },
@@ -1377,7 +1350,7 @@
    "Ticker": "VLO",
    "Identifier": "91913Y100",
    "Weight": "0.05",
-   "Market Value": "58409.78",
+   "Market Value": "58100.9",
    "Shares Held": "143",
    "SEDOL": ""
   },
@@ -1386,7 +1359,7 @@
    "Ticker": "VEEV",
    "Identifier": "922475108",
    "Weight": "0.05",
-   "Market Value": "55822.14",
+   "Market Value": "54119.34",
    "Shares Held": "198",
    "SEDOL": ""
   },
@@ -1395,7 +1368,7 @@
    "Ticker": "VZ",
    "Identifier": "92343V104",
    "Weight": "0.05",
-   "Market Value": "53152.88",
+   "Market Value": "53083.52",
    "Shares Held": "1156",
    "SEDOL": ""
   },
@@ -1404,7 +1377,7 @@
    "Ticker": "VTRS",
    "Identifier": "92556V106",
    "Weight": "0.05",
-   "Market Value": "55191.06",
+   "Market Value": "55633.6",
    "Shares Held": "3161",
    "SEDOL": ""
   },
@@ -1422,7 +1395,7 @@
    "Ticker": "WEC",
    "Identifier": "92939U106",
    "Weight": "0.05",
-   "Market Value": "56867.07",
+   "Market Value": "56788.81",
    "Shares Held": "559",
    "SEDOL": ""
   },
@@ -1431,8 +1404,17 @@
    "Ticker": "EXE",
    "Identifier": "165167735",
    "Weight": "0.04",
-   "Market Value": "50630.44",
+   "Market Value": "50371.28",
    "Shares Held": "589",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Ford Motor Co",
+   "Ticker": "F",
+   "Identifier": "345370860",
+   "Weight": "0.04",
+   "Market Value": "50190.8",
+   "Shares Held": "4148",
    "SEDOL": ""
   },
   {
@@ -1440,8 +1422,17 @@
    "Ticker": "GIS",
    "Identifier": "370334104",
    "Weight": "0.04",
-   "Market Value": "44179.65",
+   "Market Value": "44653.95",
    "Shares Held": "1395",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Home Depot Inc/The",
+   "Ticker": "HD",
+   "Identifier": "437076102",
+   "Weight": "0.04",
+   "Market Value": "50913",
+   "Shares Held": "180",
    "SEDOL": ""
   },
   {
@@ -1449,17 +1440,35 @@
    "Ticker": "MKC",
    "Identifier": "579780206",
    "Weight": "0.04",
-   "Market Value": "47715.34",
+   "Market Value": "48288.27",
    "Shares Held": "1081",
    "SEDOL": ""
   },
   {
-   "Name": "Vylor spinco",
+   "Name": "McDonald's Corp",
+   "Ticker": "MCD",
+   "Identifier": "580135101",
+   "Weight": "0.04",
+   "Market Value": "51015.8",
+   "Shares Held": "220",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Vylor Inc",
    "Ticker": "VYLR",
    "Identifier": "92892R108",
    "Weight": "0.04",
-   "Market Value": "46894.62",
+   "Market Value": "46207.62",
    "Shares Held": "687",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Cash & Other",
+   "Ticker": "CASH&OTHER",
+   "Identifier": "Cash&Other",
+   "Weight": "0.01",
+   "Market Value": "14407.67",
+   "Shares Held": "14407.67",
    "SEDOL": ""
   },
   {
@@ -1467,7 +1476,7 @@
    "Ticker": "CTVA",
    "Identifier": "22052L104",
    "Weight": "0.01",
-   "Market Value": "8635.59",
+   "Market Value": "8189.04",
    "Shares Held": "687",
    "SEDOL": ""
   },
@@ -1478,15 +1487,6 @@
    "Weight": "0",
    "Market Value": "0",
    "Shares Held": "2621",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Cash & Other",
-   "Ticker": "CASH&OTHER",
-   "Identifier": "Cash&Other",
-   "Weight": "-0.04",
-   "Market Value": "-46445.37",
-   "Shares Held": "-46445.37",
    "SEDOL": ""
   }
  ]

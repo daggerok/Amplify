@@ -3,6 +3,7 @@
  "name": "Amplify Etho Climate Leadership U.S. ETF",
  "category": "Core",
  "categoryPath": "Core",
+ "status": "active",
  "source": {
   "fundPage": "https://amplifyetfs.com/ETHO/",
   "catalog": "https://firestore.googleapis.com/v1/projects/amplify-etfs-data-feed/databases/(default)/documents/fund_category",
@@ -31,33 +32,33 @@
  "expenseRatio": {
   "display": "0.45%",
   "value": 0.45,
-  "gross": 0.45,
+  "gross": null,
   "net": 0.45
  },
  "nav": {
-  "display": "$80.03",
-  "value": 80.0299,
-  "asOfDate": "Oct 01 2026"
+  "display": "$81.05",
+  "value": 81.0547,
+  "asOfDate": "Oct 02 2026"
  },
  "marketPrice": {
-  "display": "$80.06",
-  "value": 80.0595,
-  "asOfDate": "Oct 01 2026"
+  "display": "$81.05",
+  "value": 81.0504,
+  "asOfDate": "Oct 02 2026"
  },
  "premiumDiscount": {
-  "display": "0.04%",
-  "value": 0.037
+  "display": "-0.01%",
+  "value": -0.0053
  },
  "aum": {
-  "display": "$192,071,786",
-  "value": 192071785.96,
-  "asOfDate": "Oct 01 2026",
+  "display": "$194,531,343",
+  "value": 194531342.74,
+  "asOfDate": "Oct 02 2026",
   "source": "Amplify Firestore daily net assets"
  },
  "yields": {
   "dividendYield": 0.7,
   "dividendYieldText": "0.70%",
-  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields)",
+  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields; a published 0.00% is an official zero)",
   "secYield": 0.67,
   "secYieldText": "0.67%",
   "secYieldKind": "30-day SEC yield published by Amplify (Firestore yields)",
@@ -245,8 +246,8 @@
   ],
   "pageSize": 250,
   "totalRows": 287,
-  "asOfDate": "2026-10-02",
-  "asOf": "Oct 02 2026",
+  "asOfDate": "2026-10-05",
+  "asOf": "Oct 05 2026",
   "source": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
   "status": "available"
  },
@@ -257,8 +258,8 @@
    "history/003.json"
   ],
   "pageSize": 1000,
-  "totalRows": 2731,
-  "asOf": "Oct 01 2026",
+  "totalRows": 2732,
+  "asOf": "Oct 02 2026",
   "source": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)"
  }
 }

@@ -3,6 +3,7 @@
  "name": "Amplify Fairlead Tactical Bitcoin ETF",
  "category": "Thematic",
  "categoryPath": "Thematic",
+ "status": "active",
  "source": {
   "fundPage": "https://amplifyetfs.com/BNAV/",
   "catalog": "https://firestore.googleapis.com/v1/projects/amplify-etfs-data-feed/databases/(default)/documents/fund_category",
@@ -31,33 +32,33 @@
  "expenseRatio": {
   "display": "0.74%",
   "value": 0.74,
-  "gross": 0.74,
+  "gross": null,
   "net": 0.74
  },
  "nav": {
-  "display": "$32.51",
-  "value": 32.5103,
-  "asOfDate": "Oct 01 2026"
+  "display": "$32.40",
+  "value": 32.402,
+  "asOfDate": "Oct 02 2026"
  },
  "marketPrice": {
-  "display": "$32.53",
-  "value": 32.527,
-  "asOfDate": "Oct 01 2026"
+  "display": "$32.41",
+  "value": 32.4057,
+  "asOfDate": "Oct 02 2026"
  },
  "premiumDiscount": {
-  "display": "0.05%",
-  "value": 0.0514
+  "display": "0.01%",
+  "value": 0.0114
  },
  "aum": {
-  "display": "$3,901,241",
-  "value": 3901241.04,
-  "asOfDate": "Oct 01 2026",
+  "display": "$3,888,242",
+  "value": 3888241.84,
+  "asOfDate": "Oct 02 2026",
   "source": "Amplify Firestore daily net assets"
  },
  "yields": {
   "dividendYield": 0,
   "dividendYieldText": "0.00%",
-  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields)",
+  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields; a published 0.00% is an official zero)",
   "secYield": 2.29,
   "secYieldText": "2.29%",
   "secYieldKind": "30-day SEC yield published by Amplify (Firestore yields)",
@@ -103,8 +104,8 @@
   ],
   "pageSize": 250,
   "totalRows": 9,
-  "asOfDate": "2026-10-02",
-  "asOf": "Oct 02 2026",
+  "asOfDate": "2026-10-05",
+  "asOf": "Oct 05 2026",
   "source": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
   "status": "available"
  },
@@ -113,8 +114,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 46,
-  "asOf": "Oct 01 2026",
+  "totalRows": 47,
+  "asOf": "Oct 02 2026",
   "source": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)"
  }
 }

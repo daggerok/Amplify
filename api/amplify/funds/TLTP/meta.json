@@ -3,6 +3,7 @@
  "name": "Amplify TLT U.S. Treasury 12% Option Income ETF",
  "category": "Income",
  "categoryPath": "Income",
+ "status": "active",
  "source": {
   "fundPage": "https://amplifyetfs.com/TLTP/",
   "catalog": "https://firestore.googleapis.com/v1/projects/amplify-etfs-data-feed/databases/(default)/documents/fund_category",
@@ -31,33 +32,33 @@
  "expenseRatio": {
   "display": "0.39%",
   "value": 0.39,
-  "gross": 0.39,
+  "gross": null,
   "net": 0.39
  },
  "nav": {
-  "display": "$18.83",
-  "value": 18.8286,
-  "asOfDate": "Oct 01 2026"
+  "display": "$18.77",
+  "value": 18.7713,
+  "asOfDate": "Oct 02 2026"
  },
  "marketPrice": {
-  "display": "$18.83",
-  "value": 18.8324,
-  "asOfDate": "Oct 01 2026"
+  "display": "$18.77",
+  "value": 18.7719,
+  "asOfDate": "Oct 02 2026"
  },
  "premiumDiscount": {
-  "display": "0.02%",
-  "value": 0.0202
+  "display": "0.00%",
+  "value": 0.0032
  },
  "aum": {
-  "display": "$26,548,310",
-  "value": 26548310.24,
-  "asOfDate": "Oct 01 2026",
+  "display": "$26,467,489",
+  "value": 26467489.38,
+  "asOfDate": "Oct 02 2026",
   "source": "Amplify Firestore daily net assets"
  },
  "yields": {
   "dividendYield": 13.38,
   "dividendYieldText": "13.38%",
-  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields)",
+  "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields; a published 0.00% is an official zero)",
   "secYield": 4.93,
   "secYieldText": "4.93%",
   "secYieldKind": "30-day SEC yield published by Amplify (Firestore yields)",
@@ -196,8 +197,8 @@
   ],
   "pageSize": 250,
   "totalRows": 5,
-  "asOfDate": "2026-10-02",
-  "asOf": "Oct 02 2026",
+  "asOfDate": "2026-10-05",
+  "asOf": "Oct 05 2026",
   "source": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
   "status": "available"
  },
@@ -206,8 +207,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 482,
-  "asOf": "Oct 01 2026",
+  "totalRows": 483,
+  "asOf": "Oct 02 2026",
   "source": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)"
  }
 }

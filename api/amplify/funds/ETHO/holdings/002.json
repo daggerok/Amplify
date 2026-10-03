@@ -14,12 +14,12 @@
  ],
  "rows": [
   {
-   "Name": "Pool Corp",
-   "Ticker": "POOL",
-   "Identifier": "73278L105",
+   "Name": "Somnigroup International Inc",
+   "Ticker": "SGI",
+   "Identifier": "88023U101",
    "Weight": "0.24",
-   "Market Value": "452446.72",
-   "Shares Held": "2816",
+   "Market Value": "467191.83",
+   "Shares Held": "7539",
    "SEDOL": ""
   },
   {
@@ -27,26 +27,17 @@
    "Ticker": "SFM",
    "Identifier": "85208M102",
    "Weight": "0.24",
-   "Market Value": "465029.76",
+   "Market Value": "464957.64",
    "Shares Held": "7212",
    "SEDOL": ""
   },
   {
-   "Name": "Universal Display Corp",
-   "Ticker": "OLED",
-   "Identifier": "91347P105",
-   "Weight": "0.24",
-   "Market Value": "469602.52",
-   "Shares Held": "6068",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Globant SA",
-   "Ticker": "GLOB",
-   "Identifier": "L44385109",
+   "Name": "EVgo Inc",
+   "Ticker": "EVGO",
+   "Identifier": "30052F100",
    "Weight": "0.23",
-   "Market Value": "446089.74",
-   "Shares Held": "12063",
+   "Market Value": "446292",
+   "Shares Held": "323400",
    "SEDOL": ""
   },
   {
@@ -54,17 +45,17 @@
    "Ticker": "MWA",
    "Identifier": "624758108",
    "Weight": "0.23",
-   "Market Value": "441330.5",
+   "Market Value": "444614.82",
    "Shares Held": "20527",
    "SEDOL": ""
   },
   {
-   "Name": "Ormat Technologies Inc",
-   "Ticker": "ORA",
-   "Identifier": "686688102",
+   "Name": "NPK International Inc",
+   "Ticker": "NPKI",
+   "Identifier": "651718504",
    "Weight": "0.23",
-   "Market Value": "445879.18",
-   "Shares Held": "4973",
+   "Market Value": "452594.52",
+   "Shares Held": "38388",
    "SEDOL": ""
   },
   {
@@ -72,8 +63,17 @@
    "Ticker": "PEGA",
    "Identifier": "705573103",
    "Weight": "0.23",
-   "Market Value": "449965.67",
+   "Market Value": "443431.17",
    "Shares Held": "13069",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Pool Corp",
+   "Ticker": "POOL",
+   "Identifier": "73278L105",
+   "Weight": "0.23",
+   "Market Value": "454558.72",
+   "Shares Held": "2816",
    "SEDOL": ""
   },
   {
@@ -81,7 +81,7 @@
    "Ticker": "REZI",
    "Identifier": "76118Y104",
    "Weight": "0.23",
-   "Market Value": "436752.29",
+   "Market Value": "441078.95",
    "Shares Held": "24037",
    "SEDOL": ""
   },
@@ -90,17 +90,17 @@
    "Ticker": "CWEN",
    "Identifier": "18539C204",
    "Weight": "0.22",
-   "Market Value": "427687.78",
+   "Market Value": "430623.18",
    "Shares Held": "14677",
    "SEDOL": ""
   },
   {
-   "Name": "New York Times Co/The",
-   "Ticker": "NYT",
-   "Identifier": "650111107",
+   "Name": "Globant SA",
+   "Ticker": "GLOB",
+   "Identifier": "L44385109",
    "Weight": "0.22",
-   "Market Value": "423225.53",
-   "Shares Held": "6643",
+   "Market Value": "423411.3",
+   "Shares Held": "12063",
    "SEDOL": ""
   },
   {
@@ -108,35 +108,8 @@
    "Ticker": "TMUS",
    "Identifier": "872590104",
    "Weight": "0.22",
-   "Market Value": "429878.34",
+   "Market Value": "434955.12",
    "Shares Held": "2658",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Upwork Inc",
-   "Ticker": "UPWK",
-   "Identifier": "91688F104",
-   "Weight": "0.22",
-   "Market Value": "423271.68",
-   "Shares Held": "50752",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Calix Inc",
-   "Ticker": "CALX",
-   "Identifier": "13100M509",
-   "Weight": "0.21",
-   "Market Value": "399814.4",
-   "Shares Held": "11456",
-   "SEDOL": ""
-  },
-  {
-   "Name": "EVgo Inc",
-   "Ticker": "EVGO",
-   "Identifier": "30052F100",
-   "Weight": "0.21",
-   "Market Value": "407484",
-   "Shares Held": "323400",
    "SEDOL": ""
   },
   {
@@ -144,7 +117,7 @@
    "Ticker": "IBP",
    "Identifier": "45780R101",
    "Weight": "0.21",
-   "Market Value": "404670",
+   "Market Value": "405300",
    "Shares Held": "2100",
    "SEDOL": ""
   },
@@ -153,7 +126,7 @@
    "Ticker": "IPGP",
    "Identifier": "44980X109",
    "Weight": "0.21",
-   "Market Value": "406085.64",
+   "Market Value": "407978.7",
    "Shares Held": "4854",
    "SEDOL": ""
   },
@@ -162,7 +135,7 @@
    "Ticker": "LMAT",
    "Identifier": "525558201",
    "Weight": "0.21",
-   "Market Value": "409289.76",
+   "Market Value": "403011.84",
    "Shares Held": "5104",
    "SEDOL": ""
   },
@@ -171,8 +144,26 @@
    "Ticker": "MZTI",
    "Identifier": "513847103",
    "Weight": "0.21",
-   "Market Value": "403445.43",
+   "Market Value": "402797.91",
    "Shares Held": "4047",
+   "SEDOL": ""
+  },
+  {
+   "Name": "New York Times Co/The",
+   "Ticker": "NYT",
+   "Identifier": "650111107",
+   "Weight": "0.21",
+   "Market Value": "416516.1",
+   "Shares Held": "6643",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Upwork Inc",
+   "Ticker": "UPWK",
+   "Identifier": "91688F104",
+   "Weight": "0.21",
+   "Market Value": "408553.6",
+   "Shares Held": "50752",
    "SEDOL": ""
   },
   {
@@ -180,17 +171,17 @@
    "Ticker": "BLDR",
    "Identifier": "12008R107",
    "Weight": "0.2",
-   "Market Value": "393306.3",
+   "Market Value": "385762.5",
    "Shares Held": "6858",
    "SEDOL": ""
   },
   {
-   "Name": "CoStar Group Inc",
-   "Ticker": "CSGP",
-   "Identifier": "22160N109",
+   "Name": "Calix Inc",
+   "Ticker": "CALX",
+   "Identifier": "13100M509",
    "Weight": "0.2",
-   "Market Value": "382231.08",
-   "Shares Held": "13789",
+   "Market Value": "398783.36",
+   "Shares Held": "11456",
    "SEDOL": ""
   },
   {
@@ -198,7 +189,7 @@
    "Ticker": "LCII",
    "Identifier": "50189K103",
    "Weight": "0.2",
-   "Market Value": "382468.38",
+   "Market Value": "385728.98",
    "Shares Held": "4658",
    "SEDOL": ""
   },
@@ -207,7 +198,7 @@
    "Ticker": "NFLX",
    "Identifier": "64110L106",
    "Weight": "0.2",
-   "Market Value": "392512.25",
+   "Market Value": "387942.1",
    "Shares Held": "5785",
    "SEDOL": ""
   },
@@ -216,7 +207,7 @@
    "Ticker": "SMPL",
    "Identifier": "82900L102",
    "Weight": "0.2",
-   "Market Value": "382968.56",
+   "Market Value": "381030.46",
    "Shares Held": "38762",
    "SEDOL": ""
   },
@@ -225,17 +216,17 @@
    "Ticker": "WINA",
    "Identifier": "974250102",
    "Weight": "0.2",
-   "Market Value": "390196.38",
+   "Market Value": "387890.07",
    "Shares Held": "1303",
    "SEDOL": ""
   },
   {
-   "Name": "Zillow Group Inc",
-   "Ticker": "ZG",
-   "Identifier": "98954M101",
-   "Weight": "0.2",
-   "Market Value": "381773.58",
-   "Shares Held": "13438",
+   "Name": "CoStar Group Inc",
+   "Ticker": "CSGP",
+   "Identifier": "22160N109",
+   "Weight": "0.19",
+   "Market Value": "377542.82",
+   "Shares Held": "13789",
    "SEDOL": ""
   },
   {
@@ -243,7 +234,7 @@
    "Ticker": "INSM",
    "Identifier": "457669307",
    "Weight": "0.19",
-   "Market Value": "369314.59",
+   "Market Value": "377919.12",
    "Shares Held": "3401",
    "SEDOL": ""
   },
@@ -252,8 +243,17 @@
    "Ticker": "SITE",
    "Identifier": "82982L103",
    "Weight": "0.19",
-   "Market Value": "373895.13",
+   "Market Value": "374271.24",
    "Shares Held": "4179",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Zillow Group Inc",
+   "Ticker": "ZG",
+   "Identifier": "98954M101",
+   "Weight": "0.19",
+   "Market Value": "377540.61",
+   "Shares Held": "13438",
    "SEDOL": ""
   },
   {
@@ -261,7 +261,7 @@
    "Ticker": "FICO",
    "Identifier": "303250104",
    "Weight": "0.18",
-   "Market Value": "344110",
+   "Market Value": "343850",
    "Shares Held": "520",
    "SEDOL": ""
   },
@@ -270,7 +270,7 @@
    "Ticker": "PODD",
    "Identifier": "45784P101",
    "Weight": "0.18",
-   "Market Value": "346724.29",
+   "Market Value": "349110.19",
    "Shares Held": "2651",
    "SEDOL": ""
   },
@@ -279,7 +279,7 @@
    "Ticker": "NAGE",
    "Identifier": "171077407",
    "Weight": "0.18",
-   "Market Value": "338722.52",
+   "Market Value": "352625.31",
    "Shares Held": "126389",
    "SEDOL": ""
   },
@@ -288,7 +288,7 @@
    "Ticker": "QXO",
    "Identifier": "82846H405",
    "Weight": "0.18",
-   "Market Value": "345136.1",
+   "Market Value": "345422.52",
    "Shares Held": "28642",
    "SEDOL": ""
   },
@@ -297,7 +297,7 @@
    "Ticker": "IONS",
    "Identifier": "462222100",
    "Weight": "0.17",
-   "Market Value": "325908",
+   "Market Value": "322500.78",
    "Shares Held": "7407",
    "SEDOL": ""
   },
@@ -306,7 +306,7 @@
    "Ticker": "PATK",
    "Identifier": "703343103",
    "Weight": "0.17",
-   "Market Value": "334530.56",
+   "Market Value": "337546.16",
    "Shares Held": "5026",
    "SEDOL": ""
   },
@@ -315,7 +315,7 @@
    "Ticker": "PLNT",
    "Identifier": "72703H101",
    "Weight": "0.16",
-   "Market Value": "312954.3",
+   "Market Value": "317141.98",
    "Shares Held": "7478",
    "SEDOL": ""
   },
@@ -324,7 +324,7 @@
    "Ticker": "TTD",
    "Identifier": "88339J105",
    "Weight": "0.15",
-   "Market Value": "296619.4",
+   "Market Value": "292942.3",
    "Shares Held": "24514",
    "SEDOL": ""
   },
@@ -333,7 +333,7 @@
    "Ticker": "ADIG",
    "Identifier": "001026103",
    "Weight": "0.08",
-   "Market Value": "148317.02",
+   "Market Value": "147079.67",
    "Shares Held": "8249",
    "SEDOL": ""
   },
@@ -341,9 +341,9 @@
    "Name": "Cash & Other",
    "Ticker": "CASH&OTHER",
    "Identifier": "Cash&Other",
-   "Weight": "0.04",
-   "Market Value": "69304.96",
-   "Shares Held": "69304.96",
+   "Weight": "0.07",
+   "Market Value": "142027.15",
+   "Shares Held": "142027.15",
    "SEDOL": ""
   }
  ]

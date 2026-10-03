@@ -17,9 +17,18 @@
    "Name": "SK hynix Inc",
    "Ticker": "SKHY",
    "Identifier": "78392B206",
-   "Weight": "23.2",
-   "Market Value": "1840185",
+   "Weight": "23.26",
+   "Market Value": "1855686.3",
    "Shares Held": "9510",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Invesco Government & Agency Portfolio 12/31/2031",
+   "Ticker": "AGPXX",
+   "Identifier": "825252885",
+   "Weight": "18.7",
+   "Market Value": "1491504.63",
+   "Shares Held": "1491504.63",
    "SEDOL": ""
   },
   {
@@ -27,25 +36,16 @@
    "Ticker": "6771720-TRS-08/19/29-L-MX",
    "Identifier": "6771720-TRS-08/19/29-L-MX",
    "Weight": "17.81",
-   "Market Value": "1412258.42",
+   "Market Value": "1420625.81",
    "Shares Held": "6950",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Invesco Government & Agency Portfolio 12/31/2031",
-   "Ticker": "AGPXX",
-   "Identifier": "825252885",
-   "Weight": "16.96",
-   "Market Value": "1345328.92",
-   "Shares Held": "1345328.92",
    "SEDOL": ""
   },
   {
    "Name": "Kioxia Holdings Corp",
    "Ticker": "285A JP",
    "Identifier": "BMGYJ02",
-   "Weight": "11.32",
-   "Market Value": "897445.14",
+   "Weight": "11.39",
+   "Market Value": "908537.4",
    "Shares Held": "7430",
    "SEDOL": ""
   },
@@ -53,7 +53,7 @@
    "Name": "CXMT CORPORATION-SWAP-GOLD-L",
    "Ticker": "BTMTQT8-TRS-08/20/29-L-GS",
    "Identifier": "BTMTQT8-TRS-08/20/29-L-GS",
-   "Weight": "9.52",
+   "Weight": "9.47",
    "Market Value": "755002.83",
    "Shares Held": "92400",
    "SEDOL": ""
@@ -62,8 +62,8 @@
    "Name": "NANYA TECHNOLOGY CORPORATION-SWAP-GOLD-L",
    "Ticker": "6283601-TRS-08/20/29-L-GS",
    "Identifier": "6283601-TRS-08/20/29-L-GS",
-   "Weight": "5.54",
-   "Market Value": "439279",
+   "Weight": "5.58",
+   "Market Value": "445189.81",
    "Shares Held": "27000",
    "SEDOL": ""
   },
@@ -71,8 +71,8 @@
    "Name": "WINBOND ELECTRONICS CORPORATION-SWAP-GOLD-L",
    "Ticker": "6966515-TRS-08/20/29-L-GS",
    "Identifier": "6966515-TRS-08/20/29-L-GS",
-   "Weight": "5.41",
-   "Market Value": "428840.13",
+   "Weight": "5.35",
+   "Market Value": "426444.31",
    "Shares Held": "76000",
    "SEDOL": ""
   },
@@ -80,8 +80,8 @@
    "Name": "Tokyo Electron Ltd",
    "Ticker": "8035 JT",
    "Identifier": "6895675",
-   "Weight": "5.12",
-   "Market Value": "405729.46",
+   "Weight": "4.9",
+   "Market Value": "390977.92",
    "Shares Held": "5100",
    "SEDOL": ""
   },
@@ -90,7 +90,7 @@
    "Ticker": "6771720-TRS-08/20/29-L-GS",
    "Identifier": "6771720-TRS-08/20/29-L-GS",
    "Weight": "4.56",
-   "Market Value": "361700.72",
+   "Market Value": "363843.73",
    "Shares Held": "1780",
    "SEDOL": ""
   },
@@ -98,8 +98,8 @@
    "Name": "MACRONIX INTERNATIONAL CO., LTD.-SWAP-GOLD-L",
    "Ticker": "6574101-TRS-08/20/29-L-GS",
    "Identifier": "6574101-TRS-08/20/29-L-GS",
-   "Weight": "4.5",
-   "Market Value": "356551.72",
+   "Weight": "4.51",
+   "Market Value": "359487.16",
    "Shares Held": "94000",
    "SEDOL": ""
   },
@@ -107,8 +107,8 @@
    "Name": "Advantest Corp",
    "Ticker": "6857 JP",
    "Identifier": "6870490",
-   "Weight": "4.14",
-   "Market Value": "328222.35",
+   "Weight": "4.23",
+   "Market Value": "337753.98",
    "Shares Held": "1380",
    "SEDOL": ""
   },
@@ -116,8 +116,8 @@
    "Name": "POWERCHIP SEMICONDUCTOR MANUFACTURING CORP.-SWAP-GOLD-L",
    "Ticker": "BJBXT36-TRS-08/20/29-L-GS",
    "Identifier": "BJBXT36-TRS-08/20/29-L-GS",
-   "Weight": "4.09",
-   "Market Value": "324623.82",
+   "Weight": "4.18",
+   "Market Value": "333328.11",
    "Shares Held": "139000",
    "SEDOL": ""
   },
@@ -125,8 +125,8 @@
    "Name": "NANYA TECHNOLOGY CORPORATION-SWAP-MREX-L",
    "Ticker": "6283601-TRS-08/19/29-L-MX",
    "Identifier": "6283601-TRS-08/19/29-L-MX",
-   "Weight": "2.46",
-   "Market Value": "195235.11",
+   "Weight": "2.48",
+   "Market Value": "197862.14",
    "Shares Held": "12000",
    "SEDOL": ""
   },
@@ -134,8 +134,8 @@
    "Name": "WINBOND ELECTRONICS CORPORATION-SWAP-MREX-L",
    "Ticker": "6966515-TRS-08/19/29-L-MX",
    "Identifier": "6966515-TRS-08/19/29-L-MX",
-   "Weight": "1.14",
-   "Market Value": "90282.13",
+   "Weight": "1.13",
+   "Market Value": "89777.75",
    "Shares Held": "16000",
    "SEDOL": ""
   },
@@ -144,7 +144,7 @@
    "Ticker": "2337 TT",
    "Identifier": "6574101",
    "Weight": "0.77",
-   "Market Value": "60689.66",
+   "Market Value": "61189.3",
    "Shares Held": "16000",
    "SEDOL": ""
   },
@@ -153,7 +153,7 @@
    "Ticker": "2344 TT",
    "Identifier": "6966515",
    "Weight": "0.14",
-   "Market Value": "11285.27",
+   "Market Value": "11222.22",
    "Shares Held": "2000",
    "SEDOL": ""
   },
@@ -161,9 +161,9 @@
    "Name": "Cash & Other",
    "Ticker": "CASH&OTHER",
    "Identifier": "Cash&Other",
-   "Weight": "-16.72",
-   "Market Value": "-1325714.97",
-   "Shares Held": "-1325714.97",
+   "Weight": "-18.46",
+   "Market Value": "-1472390.68",
+   "Shares Held": "-1472390.68",
    "SEDOL": ""
   }
  ]
