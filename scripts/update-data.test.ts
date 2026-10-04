@@ -110,7 +110,7 @@ function snapshot(dir: string, base = dir): Record<string, string> {
 
 async function runInTemp(env: Record<string, string>, root?: string) {
   const dir = root ?? mkdtempSync(join(tmpdir(), 'amplify-feed-'));
-  setApiRoot(pathToFileURL(`${dir}/`));
+  setApiRoot(new URL(pathToFileURL(`${dir}/`).href));
   const log = console.log, warn = console.warn;
   console.log = () => {}; console.warn = () => {};
   try { await runUpdate({ USE_SYSTEM_CA: 'false', MAX_RETRIES: '1', CONCURRENCY: '2', ...env }); }
@@ -194,7 +194,7 @@ function stubWorld(w: World) {
 
 async function runLogged(env: Record<string, string>, root?: string, extra: { summary?: string } = {}) {
   const dir = root ?? mkdtempSync(join(tmpdir(), 'amplify-world-'));
-  setApiRoot(pathToFileURL(`${dir}/`));
+  setApiRoot(new URL(pathToFileURL(`${dir}/`).href));
   const lines: string[] = [];
   const log = console.log, warn = console.warn;
   console.log = (...a: any[]) => { lines.push(a.join(' ')); }; console.warn = (...a: any[]) => { lines.push(a.join(' ')); };
