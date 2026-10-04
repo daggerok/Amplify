@@ -58,6 +58,15 @@ The Firestore `distributions` and `history` collections answer `403 Missing or i
 - Returns are the official Amplify NAV month-end/quarter-end figures (YTD and 1Y are period returns, 3Y, 5Y, 10Y and since inception are annualized); only missing metrics are derived from Yahoo adjusted closes at the same reporting date and the `derivedFrom` label says which basis applies. A range-limited `HISTORY_RANGE` never produces a since-inception figure
 - The history series is Yahoo daily market price (close and adjusted close), not official NAV
 - `dividendYield` is the trailing distribution yield published by Amplify (a published `0.00%` stays an official zero: AHBM, AWAY, BNAV, CNBS, ROBX, STBQ, TKNQ, XQBT and XWNG publish exactly that); when Amplify publishes none it is the trailing 12 months of Yahoo distributions over the market price, `null` with under 12 months of history. `secYield` is the published 30-day SEC yield
+- `dividendYieldBasis` (in `metrics`, right after `dividendYieldText`) is a short code for the definition behind `dividendYield`, `null` exactly when `dividendYield` is `null`; the code always travels with the yield it describes, and rows retained from earlier runs get it from the published `yields.dividendYieldKind`:
+
+  | Code | Amplify meaning |
+  | --- | --- |
+  | `official-trailing-12m` | the trailing distribution yield published by Amplify (Firestore `yields`), including a published `0.00%` |
+  | `computed-trailing-12m` | trailing 12 months of Yahoo distributions over the market price (Amplify publishes none) |
+  | `indicated` | only for a retained row whose published kind text is not recognized; the updater itself does not estimate |
+  | `official-distribution-rate`, `official-other` | allowed by the shared standard, not used by Amplify |
+
 - `PERFORMANCE_*` filters compare YTD and 1Y returns and the 3Y, 5Y and 10Y annualized (CAGR) values; `TOTAL_RETURN_*` filters compare YTD and 1Y as published and 3Y, 5Y and 10Y as `(1 + CAGR)^n - 1`
 - `AUM` compares against the latest daily net assets; the `nano`, `micro`, `small`, `mid` and `large` presets use upper bounds that are exclusive; `TER` compares the published expense ratio in %. Amplify publishes a single figure: it is the net ratio (`terValue`, `expenseRatio.net`), and `terGrossValue` / `expenseRatio.gross` stay `null` because no gross figure is published
 - A configured filter skips funds that do not publish the metric: unavailable is never treated as 0, and no value is ever invented as zero (missing weights, market values and prices stay empty or `null`)
