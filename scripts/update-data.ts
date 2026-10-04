@@ -99,8 +99,6 @@ function outputFundLine(index: number, total: number, ticker: string, status: st
 import { AsyncLocalStorage } from 'node:async_hooks';
 import { appendFile, mkdir, readFile, readdir, rename, rm, writeFile } from 'node:fs/promises';
 
-declare const process: { env: Record<string, string | undefined>; argv: string[]; execArgv: string[]; execPath: string; exitCode?: number; exit(code?: number): never };
-
 type JsonRecord = Record<string, any>;
 
 const FIRESTORE_BASE = 'https://firestore.googleapis.com/v1/projects/amplify-etfs-data-feed/databases/(default)/documents';
