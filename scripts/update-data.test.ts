@@ -1,12 +1,12 @@
 /// <reference types="bun" />
 import { afterEach, beforeEach, describe, expect, test } from 'bun:test';
-import { mkdtempSync, readFileSync, readdirSync, rmSync } from 'node:fs';
+import { mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 
 import {
-  CONTROL_NAMES, HOLDINGS_HEADERS, buildMetrics, chartUrl, decodeDocument, epochToIsoDate, fetchJson, fundFilterReasons,
+  CONTROL_NAMES, HOLDINGS_HEADERS, buildMetrics, chartUrl, dividendYieldBasisFor, dividendYieldBasisFromKind, withDividendYieldBasis, decodeDocument, epochToIsoDate, fetchJson, fundFilterReasons,
   holdingsRowFromFirestore, inferDistributionFrequency, installSystemCa, isCertError, mergeDividends, mergeHistory, officialReturns,
   parseAumRange, parseChart, parseHistoryRange, parseNport, parsePercent, performanceAsOfDate, priceReturns, readConfig, resetSecCaches, resolveControls,
   resolveNportFiling, runFundPool, runUpdate, runtimeControls, selectCatalog, setApiRoot, setHttpSettings,
@@ -376,8 +376,13 @@ describe('parsing', () => {
 describe('metrics', () => {
   test('metrics: official values win, Yahoo derived values fill gaps, TR is (1+CAGR)^n - 1, missing stays null', () => {
     const none = priceReturns([]);
-    const m = buildMetrics({ ytd: 8.25, yr1: 11.43, yr3: 10, yr5: null, yr10: null, sinceInception: 12.4 }, { ...none, cagr5y: 7, ytd: 1 }, 1.4, null);
-    expect(m).toMatchObject({ ytd: 8.25, tr1y: 11.43, cagr3y: 10, tr3y: 33.1, cagr5y: 7, tr5y: 40.26, cagr10y: null, tr10y: null, siAnn: 12.4, secYield: 1.4, dividendYield: null, dividendYieldText: '—' });
+    const m = buildMetrics({ ytd: 8.25, yr1: 11.43, yr3: 10, yr5: null, yr10: null, sinceInception: 12.4 }, { ...none, cagr5y: 7, ytd: 1 }, 1.4, null, 'computed');
+    expect(m).toMatchObject({ ytd: 8.25, tr1y: 11.43, cagr3y: 10, tr3y: 33.1, cagr5y: 7, tr5y: 40.26, cagr10y: null, tr10y: null, siAnn: 12.4, secYield: 1.4, dividendYield: null, dividendYieldText: '—', dividendYieldBasis: null });
+    expect(buildMetrics(null, none, null, 4.2, 'official').dividendYieldBasis).toBe('official-trailing-12m');
+    expect(buildMetrics(null, none, null, 4.2, 'computed').dividendYieldBasis).toBe('computed-trailing-12m');
+    expect(buildMetrics(null, none, null, 0, 'official').dividendYieldBasis).toBe('official-trailing-12m'); // an official zero keeps its code
+    expect(dividendYieldBasisFor('official', null)).toBeNull();
+    expect(dividendYieldBasisFor('computed', null)).toBeNull();
     expect(inferDistributionFrequency([])).toEqual({ frequency: 'None', paymentsPerYear: null });
     const monthly = [1, 2, 3, 4].map(i => ({ epoch: Date.UTC(2026, i, 1) / 1000, amount: 0.2 }));
     expect(inferDistributionFrequency(monthly)).toEqual({ frequency: 'Monthly', paymentsPerYear: 12 });
@@ -416,6 +421,24 @@ describe('metrics', () => {
       expect(rowOf(dir, 'BBB').metrics.dividendYield).toBe(19.05); // 4 x 0.5 over the 10.5 price in the trailing 12 months
       expect(readMeta(dir, 'BBB').yields.dividendYieldKind).toMatch(/^trailing 12 months/);
       expect(rowOf(dir, 'CCC').metrics.dividendYield).toBeNull(); // under 12 months of history
+      expect(['AAA', 'BBB', 'CCC'].map(t => rowOf(dir, t).metrics.dividendYieldBasis)).toEqual(['official-trailing-12m', 'computed-trailing-12m', null]);
+      const keySet = (t: string) => Object.keys(rowOf(dir, t).metrics).join();
+      expect(keySet('BBB')).toBe(keySet('AAA'));
+      expect(keySet('CCC')).toBe(keySet('AAA'));
+      // Rows retained from before the code existed (or with a code that contradicts the yield) are rebuilt from the published kind text.
+      const index = readIndex(dir);
+      for (const f of index.funds) delete f.metrics.dividendYieldBasis;
+      index.funds.find((f: any) => f.ticker === 'CCC').metrics.dividendYieldBasis = 'official-trailing-12m';
+      writeFileSync(join(dir, 'index.json'), JSON.stringify(index));
+      expect(dividendYieldBasisFromKind('something new', 3)).toBe('indicated');
+      expect(dividendYieldBasisFromKind(undefined, null)).toBeNull();
+      const rebuilt = await withDividendYieldBasis(index.funds.find((f: any) => f.ticker === 'BBB'));
+      expect(rebuilt.metrics.dividendYieldBasis).toBe('computed-trailing-12m');
+      expect(Object.keys(rebuilt.metrics).slice(-2)).toEqual(['returnsBasis', 'performanceAsOf']);
+      const w2 = baseWorld(); w2.fund = w.fund; stubWorld(w2);
+      await runLogged({ TICKERS: 'AAA' }, dir);
+      expect(['AAA', 'BBB', 'CCC'].map(t => rowOf(dir, t).metrics.dividendYieldBasis)).toEqual(['official-trailing-12m', 'computed-trailing-12m', null]);
+      expect(keySet('BBB')).toBe(keySet('AAA'));
       expect(trailingYield([{ epoch: epochOf('2026-03-16'), amount: 1 }, { epoch: epochOf('2025-03-16'), amount: 5 }], 50, '2026-09-30', '2024-01-02')).toBe(2);
       expect(trailingYield([], 50, '2026-09-30', '2024-01-02')).toBeNull();
     } finally { rmSync(dir, { recursive: true, force: true }); }
@@ -449,7 +472,7 @@ describe('metrics', () => {
       expect(code).toBe(0);
       const cpu = rowOf(dir, 'CPU');
       expect(cpu).toMatchObject({ status: 'pre-launch', navValue: null, closePriceValue: null, aumValue: null, premiumDiscountValue: null, asOfDate: '—', inceptionDate: '—', terValue: 0.49 });
-      expect(cpu.metrics).toMatchObject({ ytd: null, tr1y: null, siAnn: null, dividendYield: null, secYield: null, performanceAsOf: null });
+      expect(cpu.metrics).toMatchObject({ ytd: null, tr1y: null, siAnn: null, dividendYield: null, dividendYieldBasis: null, secYield: null, performanceAsOf: null });
       expect(typeof cpu.metrics.returnsBasis).toBe('string');
       expect(readMeta(dir, 'CPU').inception).toMatchObject({ fundInceptionDate: null, expectedInceptionDate: '2026-10-06', shareClassInceptionDate: null });
       expect(JSON.stringify(readIndex(dir))).not.toMatch(/Oct 0[5-7] 2026|2026-10-0[5-7]T/);
@@ -509,7 +532,7 @@ describe('pipeline', () => {
         closePriceValue: 10.5, premiumDiscountValue: 0.96, asOfDate: 'Sep 30 2026', inceptionDate: 'Dec 13 2016', exchange: 'NYSE Arca', holdings: 2, history: 3,
         distributions: { frequency: 'Unknown', exDate: epochToIsoDate(T0 + DAY).replace(/(\d+)-(\d+)-(\d+)/, '$2/$3/$1'), dividend: '0.2' },
       });
-      expect(index.funds[0].metrics).toMatchObject({ ytd: 8.25, tr1y: 11.43, cagr3y: 16.38, tr3y: 57.63, cagr10y: null, tr10y: null, siAnn: 12.4, secYield: 1.4, dividendYield: 4.88 });
+      expect(index.funds[0].metrics).toMatchObject({ ytd: 8.25, tr1y: 11.43, cagr3y: 16.38, tr3y: 57.63, cagr10y: null, tr10y: null, siAnn: 12.4, secYield: 1.4, dividendYield: 4.88, dividendYieldBasis: 'official-trailing-12m' });
       const keys = Object.keys(index.funds[0].metrics);
       expect(keys.slice(-2)).toEqual(['returnsBasis', 'performanceAsOf']);
       expect(index.funds[0].metrics.returnsBasis).toMatch(/official Amplify NAV/);

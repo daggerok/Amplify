@@ -1695,7 +1695,30 @@ export function officialReturns(doc: DecodedDoc | null): JsonRecord | null {
   };
 }
 
-export function buildMetrics(month: JsonRecord | null, derived: PriceReturns, secYield: number | null, divYield: number | null): JsonRecord {
+// Which definition stands behind dividendYield. `official`: Amplify's published trailing distribution yield
+// (Firestore yields.Distribution_Yield); `computed`: trailing 12 months of Yahoo distributions / market price.
+export type YieldSource = 'official' | 'computed';
+export const DIVIDEND_YIELD_BASES = ['official-trailing-12m', 'official-distribution-rate', 'official-other', 'computed-trailing-12m', 'indicated'] as const;
+export type DividendYieldBasis = typeof DIVIDEND_YIELD_BASES[number];
+
+export function dividendYieldBasisFor(source: YieldSource, divYield: number | null): DividendYieldBasis | null {
+  if (divYield === null) return null;
+  switch (source) {
+    case 'official': return 'official-trailing-12m';
+    case 'computed': return 'computed-trailing-12m';
+  }
+}
+
+// Meta kind texts published so far (retained rows from before the code existed); anything else is an estimate.
+export function dividendYieldBasisFromKind(kind: unknown, divYield: number | null): DividendYieldBasis | null {
+  if (divYield === null) return null;
+  const text = typeof kind === 'string' ? kind : '';
+  if (text.startsWith('trailing distribution yield published by Amplify')) return 'official-trailing-12m';
+  if (text.startsWith('trailing 12 months')) return 'computed-trailing-12m';
+  return 'indicated';
+}
+
+export function buildMetrics(month: JsonRecord | null, derived: PriceReturns, secYield: number | null, divYield: number | null, yieldSource: YieldSource): JsonRecord {
   const ytd = month?.ytd ?? derived.ytd, tr1y = month?.yr1 ?? derived.yr1;
   const cagr3y = month?.yr3 ?? derived.cagr3y, cagr5y = month?.yr5 ?? derived.cagr5y, cagr10y = month?.yr10 ?? derived.cagr10y;
   return {
@@ -1703,6 +1726,7 @@ export function buildMetrics(month: JsonRecord | null, derived: PriceReturns, se
     tr3y: annualizedToTotal(cagr3y, 3), tr5y: annualizedToTotal(cagr5y, 5), tr10y: annualizedToTotal(cagr10y, 10),
     siAnn: month?.sinceInception ?? derived.siAnn,
     secYield, secYieldText: percent(secYield), dividendYield: divYield, dividendYieldText: percent(divYield),
+    dividendYieldBasis: dividendYieldBasisFor(yieldSource, divYield),
   };
 }
 
@@ -1864,7 +1888,7 @@ export async function processFund(fund: CatalogFund, config: UpdaterConfig, prev
   // A range-limited Yahoo download is not a since-inception return.
   if (!chart?.firstTradeDate || !days.length || Date.parse(`${days[0].date}T00:00:00Z`) / 1000 - chart.firstTradeDate > 7 * 86400) derived.siAnn = null;
   const hasOfficialReturns = Boolean(officialMonth);
-  const metrics = buildMetrics(month, derived, secYield, divYield);
+  const metrics = buildMetrics(month, derived, secYield, divYield, officialYield !== null ? 'official' : 'computed');
   const rawInception = isoDate(meta.InceptionDate || meta.LaunchDate);
   const futureInception = rawInception !== null && rawInception > today;
   const fundInception = futureInception ? null : rawInception;
@@ -1982,6 +2006,33 @@ export function setRunDeadlineMs(ms: number): void { runDeadlineMs = ms; }
 export const dropCap = (published: number): number => Math.max(3, Math.ceil(published * 0.1));
 const STATE_NAME = 'update-state.json';
 
+export async function withDividendYieldBasis(row: JsonRecord): Promise<JsonRecord> {
+  const metrics: JsonRecord = row.metrics ?? {};
+  const divYield = numberOrNull(metrics.dividendYield);
+  const current = metrics.dividendYieldBasis;
+  const valid = typeof current === 'string' && (DIVIDEND_YIELD_BASES as readonly string[]).includes(current);
+  let basis: DividendYieldBasis | null;
+  if (divYield === null) basis = null;
+  else if (valid) basis = current as DividendYieldBasis;
+  else {
+    const meta = await readJson(new URL(`funds/${row.ticker}/meta.json`, apiRoot));
+    basis = dividendYieldBasisFromKind(meta?.yields?.dividendYieldKind, divYield);
+  }
+  if (metrics.dividendYieldBasis === basis && 'dividendYieldBasis' in metrics) return row;
+  // Keep the key right after dividendYieldText and returnsBasis/performanceAsOf last.
+  const next: JsonRecord = {};
+  for (const [key, value] of Object.entries(metrics)) {
+    if (key === 'dividendYieldBasis') continue;
+    next[key] = value;
+    if (key === 'dividendYieldText') next.dividendYieldBasis = basis;
+  }
+  if (!('dividendYieldBasis' in next)) {
+    const { returnsBasis, performanceAsOf, ...rest } = next;
+    return { ...row, metrics: { ...rest, dividendYieldBasis: basis, ...(returnsBasis !== undefined ? { returnsBasis } : {}), ...(performanceAsOf !== undefined ? { performanceAsOf } : {}) } };
+  }
+  return { ...row, metrics: next };
+}
+
 export async function runUpdate(env: Record<string, string | undefined> = process.env): Promise<void> {
   const startedAt = Date.now();
   const controls = await runtimeControls(env);
@@ -2051,6 +2102,9 @@ export async function runUpdate(env: Record<string, string | undefined> = proces
   if (dropped.length) console.log(`DROPPED FUNDS: ${dropped.join(', ')}`);
   if (refusedDrops.length) console.log(`DROPPED FUNDS: refusing to remove ${refusedDrops.length} funds (cap ${dropCap(result.size)} per run): ${refusedDrops.join(', ')}`);
   if (!result.size) throw new Error('No publishable funds; not replacing the index');
+  // Retained and unselected rows may predate dividendYieldBasis: every row carries the key, and the code always
+  // describes the yield it sits next to (null yield -> null code; a missing or unknown code is read from meta.json).
+  for (const [ticker, row] of result) result.set(ticker, await withDividendYieldBasis(row));
   const funds = [...result.values()].sort((a, b) => a.ticker.localeCompare(b.ticker));
   const counts = { funds: funds.length, holdings: funds.reduce((sum, fund) => sum + (fund.holdings ?? 0), 0), history: funds.reduce((sum, fund) => sum + (fund.history ?? 0), 0) };
   const now = isoSeconds();
