@@ -1,6 +1,6 @@
 {
- "generatedAt": "2026-10-03T05:49:43Z",
- "catalogReadAt": "2026-10-03T05:49:43Z",
+ "generatedAt": "2026-10-04T03:26:46Z",
+ "catalogReadAt": "2026-10-04T03:26:46Z",
  "source": {
   "provider": "Amplify ETFs",
   "site": "https://amplifyetfs.com/our-etfs/",
@@ -80,6 +80,7 @@
     "secYieldText": "0.13%",
     "dividendYield": 0,
     "dividendYieldText": "0.00%",
+    "dividendYieldBasis": "official-trailing-12m",
     "returnsBasis": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date",
     "performanceAsOf": "2026-09-30"
    },
@@ -154,6 +155,7 @@
     "secYieldText": "0.27%",
     "dividendYield": 0.4,
     "dividendYieldText": "0.40%",
+    "dividendYieldBasis": "official-trailing-12m",
     "returnsBasis": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date",
     "performanceAsOf": "2026-09-30"
    },
@@ -228,6 +230,7 @@
     "secYieldText": "-0.03%",
     "dividendYield": 0.1,
     "dividendYieldText": "0.10%",
+    "dividendYieldBasis": "official-trailing-12m",
     "returnsBasis": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date",
     "performanceAsOf": "2026-09-30"
    },
@@ -302,6 +305,7 @@
     "secYieldText": "1.14%",
     "dividendYield": 0,
     "dividendYieldText": "0.00%",
+    "dividendYieldBasis": "official-trailing-12m",
     "returnsBasis": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date",
     "performanceAsOf": "2026-09-30"
    },
@@ -376,6 +380,7 @@
     "secYieldText": "1.93%",
     "dividendYield": 33.02,
     "dividendYieldText": "33.02%",
+    "dividendYieldBasis": "official-trailing-12m",
     "returnsBasis": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date",
     "performanceAsOf": "2026-09-30"
    },
@@ -450,6 +455,7 @@
     "secYieldText": "0.74%",
     "dividendYield": 1.77,
     "dividendYieldText": "1.77%",
+    "dividendYieldBasis": "official-trailing-12m",
     "returnsBasis": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date",
     "performanceAsOf": "2026-09-30"
    },
@@ -524,6 +530,7 @@
     "secYieldText": "—",
     "dividendYield": null,
     "dividendYieldText": "—",
+    "dividendYieldBasis": null,
     "returnsBasis": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date",
     "performanceAsOf": "2026-09-30"
    },
@@ -598,6 +605,7 @@
     "secYieldText": "1.12%",
     "dividendYield": 24.61,
     "dividendYieldText": "24.61%",
+    "dividendYieldBasis": "official-trailing-12m",
     "returnsBasis": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date",
     "performanceAsOf": "2026-09-30"
    },
@@ -672,6 +680,7 @@
     "secYieldText": "-0.03%",
     "dividendYield": 0.8,
     "dividendYieldText": "0.80%",
+    "dividendYieldBasis": "official-trailing-12m",
     "returnsBasis": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date",
     "performanceAsOf": "2026-09-30"
    },
@@ -746,6 +755,7 @@
     "secYieldText": "2.29%",
     "dividendYield": 0,
     "dividendYieldText": "0.00%",
+    "dividendYieldBasis": "official-trailing-12m",
     "returnsBasis": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date",
     "performanceAsOf": "2026-09-30"
    },
@@ -820,6 +830,7 @@
     "secYieldText": "—",
     "dividendYield": null,
     "dividendYieldText": "—",
+    "dividendYieldBasis": null,
     "returnsBasis": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date",
     "performanceAsOf": "2026-09-30"
    },
@@ -894,6 +905,7 @@
     "secYieldText": "2.34%",
     "dividendYield": 0,
     "dividendYieldText": "0.00%",
+    "dividendYieldBasis": "official-trailing-12m",
     "returnsBasis": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date",
     "performanceAsOf": "2026-09-30"
    },
@@ -968,6 +980,7 @@
     "secYieldText": "1.53%",
     "dividendYield": 1.4,
     "dividendYieldText": "1.40%",
+    "dividendYieldBasis": "official-trailing-12m",
     "returnsBasis": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date",
     "performanceAsOf": "2026-09-30"
    },
@@ -1022,6 +1035,7 @@
     "secYieldText": "—",
     "dividendYield": null,
     "dividendYieldText": "—",
+    "dividendYieldBasis": null,
     "returnsBasis": "Yahoo adjusted market-price returns, not official NAV",
     "performanceAsOf": null
    },
@@ -1096,6 +1110,7 @@
     "secYieldText": "1.40%",
     "dividendYield": 4.88,
     "dividendYieldText": "4.88%",
+    "dividendYieldBasis": "official-trailing-12m",
     "returnsBasis": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date",
     "performanceAsOf": "2026-09-30"
    },
@@ -1170,6 +1185,7 @@
     "secYieldText": "2.99%",
     "dividendYield": 4.76,
     "dividendYieldText": "4.76%",
+    "dividendYieldBasis": "official-trailing-12m",
     "returnsBasis": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date",
     "performanceAsOf": "2026-09-30"
    },
@@ -1244,6 +1260,7 @@
     "secYieldText": "0.68%",
     "dividendYield": 52.64,
     "dividendYieldText": "52.64%",
+    "dividendYieldBasis": "official-trailing-12m",
     "returnsBasis": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date",
     "performanceAsOf": "2026-09-30"
    },
@@ -1318,6 +1335,7 @@
     "secYieldText": "0.67%",
     "dividendYield": 0.7,
     "dividendYieldText": "0.70%",
+    "dividendYieldBasis": "official-trailing-12m",
     "returnsBasis": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date",
     "performanceAsOf": "2026-09-30"
    },
@@ -1392,6 +1410,7 @@
     "secYieldText": "0.84%",
     "dividendYield": 37.48,
     "dividendYieldText": "37.48%",
+    "dividendYieldBasis": "official-trailing-12m",
     "returnsBasis": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date",
     "performanceAsOf": "2026-09-30"
    },
@@ -1466,6 +1485,7 @@
     "secYieldText": "0.38%",
     "dividendYield": 0.47,
     "dividendYieldText": "0.47%",
+    "dividendYieldBasis": "official-trailing-12m",
     "returnsBasis": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date",
     "performanceAsOf": "2026-09-30"
    },
@@ -1540,6 +1560,7 @@
     "secYieldText": "-0.10%",
     "dividendYield": 0.05,
     "dividendYieldText": "0.05%",
+    "dividendYieldBasis": "official-trailing-12m",
     "returnsBasis": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date",
     "performanceAsOf": "2026-09-30"
    },
@@ -1614,6 +1635,7 @@
     "secYieldText": "-0.12%",
     "dividendYield": 14.77,
     "dividendYieldText": "14.77%",
+    "dividendYieldBasis": "official-trailing-12m",
     "returnsBasis": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date",
     "performanceAsOf": "2026-09-30"
    },
@@ -1688,6 +1710,7 @@
     "secYieldText": "1.06%",
     "dividendYield": 10.29,
     "dividendYieldText": "10.29%",
+    "dividendYieldBasis": "official-trailing-12m",
     "returnsBasis": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date",
     "performanceAsOf": "2026-09-30"
    },
@@ -1742,6 +1765,7 @@
     "secYieldText": "—",
     "dividendYield": null,
     "dividendYieldText": "—",
+    "dividendYieldBasis": null,
     "returnsBasis": "Yahoo adjusted market-price returns, not official NAV",
     "performanceAsOf": null
    },
@@ -1816,6 +1840,7 @@
     "secYieldText": "5.94%",
     "dividendYield": 10.16,
     "dividendYieldText": "10.16%",
+    "dividendYieldBasis": "official-trailing-12m",
     "returnsBasis": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date",
     "performanceAsOf": "2026-09-30"
    },
@@ -1890,6 +1915,7 @@
     "secYieldText": "0.20%",
     "dividendYield": 0.12,
     "dividendYieldText": "0.12%",
+    "dividendYieldBasis": "official-trailing-12m",
     "returnsBasis": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date",
     "performanceAsOf": "2026-09-30"
    },
@@ -1964,6 +1990,7 @@
     "secYieldText": "1.40%",
     "dividendYield": 6.14,
     "dividendYieldText": "6.14%",
+    "dividendYieldBasis": "official-trailing-12m",
     "returnsBasis": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date",
     "performanceAsOf": "2026-09-30"
    },
@@ -2038,6 +2065,7 @@
     "secYieldText": "0.26%",
     "dividendYield": 0.88,
     "dividendYieldText": "0.88%",
+    "dividendYieldBasis": "official-trailing-12m",
     "returnsBasis": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date",
     "performanceAsOf": "2026-09-30"
    },
@@ -2112,6 +2140,7 @@
     "secYieldText": "3.91%",
     "dividendYield": 3.28,
     "dividendYieldText": "3.28%",
+    "dividendYieldBasis": "official-trailing-12m",
     "returnsBasis": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date",
     "performanceAsOf": "2026-09-30"
    },
@@ -2186,6 +2215,7 @@
     "secYieldText": "-0.13%",
     "dividendYield": 0.79,
     "dividendYieldText": "0.79%",
+    "dividendYieldBasis": "official-trailing-12m",
     "returnsBasis": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date",
     "performanceAsOf": "2026-09-30"
    },
@@ -2240,6 +2270,7 @@
     "secYieldText": "—",
     "dividendYield": null,
     "dividendYieldText": "—",
+    "dividendYieldBasis": null,
     "returnsBasis": "Yahoo adjusted market-price returns, not official NAV",
     "performanceAsOf": null
    },
@@ -2294,6 +2325,7 @@
     "secYieldText": "—",
     "dividendYield": null,
     "dividendYieldText": "—",
+    "dividendYieldBasis": null,
     "returnsBasis": "Yahoo adjusted market-price returns, not official NAV",
     "performanceAsOf": null
    },
@@ -2368,6 +2400,7 @@
     "secYieldText": "4.59%",
     "dividendYield": 12.23,
     "dividendYieldText": "12.23%",
+    "dividendYieldBasis": "official-trailing-12m",
     "returnsBasis": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date",
     "performanceAsOf": "2026-09-30"
    },
@@ -2442,6 +2475,7 @@
     "secYieldText": "0.83%",
     "dividendYield": 2.39,
     "dividendYieldText": "2.39%",
+    "dividendYieldBasis": "official-trailing-12m",
     "returnsBasis": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date",
     "performanceAsOf": "2026-09-30"
    },
@@ -2516,6 +2550,7 @@
     "secYieldText": "5.65%",
     "dividendYield": 11.31,
     "dividendYieldText": "11.31%",
+    "dividendYieldBasis": "official-trailing-12m",
     "returnsBasis": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date",
     "performanceAsOf": "2026-09-30"
    },
@@ -2590,6 +2625,7 @@
     "secYieldText": "0.39%",
     "dividendYield": 11.19,
     "dividendYieldText": "11.19%",
+    "dividendYieldBasis": "official-trailing-12m",
     "returnsBasis": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date",
     "performanceAsOf": "2026-09-30"
    },
@@ -2664,6 +2700,7 @@
     "secYieldText": "0.98%",
     "dividendYield": 0,
     "dividendYieldText": "0.00%",
+    "dividendYieldBasis": "official-trailing-12m",
     "returnsBasis": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date",
     "performanceAsOf": "2026-09-30"
    },
@@ -2738,6 +2775,7 @@
     "secYieldText": "-0.23%",
     "dividendYield": 2.03,
     "dividendYieldText": "2.03%",
+    "dividendYieldBasis": "official-trailing-12m",
     "returnsBasis": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date",
     "performanceAsOf": "2026-09-30"
    },
@@ -2812,6 +2850,7 @@
     "secYieldText": "0.69%",
     "dividendYield": 23.78,
     "dividendYieldText": "23.78%",
+    "dividendYieldBasis": "official-trailing-12m",
     "returnsBasis": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date",
     "performanceAsOf": "2026-09-30"
    },
@@ -2886,6 +2925,7 @@
     "secYieldText": "0.59%",
     "dividendYield": 0.4,
     "dividendYieldText": "0.40%",
+    "dividendYieldBasis": "official-trailing-12m",
     "returnsBasis": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date",
     "performanceAsOf": "2026-05-31"
    },
@@ -2960,6 +3000,7 @@
     "secYieldText": "3.63%",
     "dividendYield": 3.71,
     "dividendYieldText": "3.71%",
+    "dividendYieldBasis": "official-trailing-12m",
     "returnsBasis": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date",
     "performanceAsOf": "2026-09-30"
    },
@@ -3034,6 +3075,7 @@
     "secYieldText": "2.14%",
     "dividendYield": 38.35,
     "dividendYieldText": "38.35%",
+    "dividendYieldBasis": "official-trailing-12m",
     "returnsBasis": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date",
     "performanceAsOf": "2026-09-30"
    },
@@ -3108,6 +3150,7 @@
     "secYieldText": "-0.12%",
     "dividendYield": 0,
     "dividendYieldText": "0.00%",
+    "dividendYieldBasis": "official-trailing-12m",
     "returnsBasis": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date",
     "performanceAsOf": "2026-09-30"
    },
@@ -3182,6 +3225,7 @@
     "secYieldText": "3.94%",
     "dividendYield": 3.39,
     "dividendYieldText": "3.39%",
+    "dividendYieldBasis": "official-trailing-12m",
     "returnsBasis": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date",
     "performanceAsOf": "2026-09-30"
    },
@@ -3256,6 +3300,7 @@
     "secYieldText": "0.98%",
     "dividendYield": 1.64,
     "dividendYieldText": "1.64%",
+    "dividendYieldBasis": "official-trailing-12m",
     "returnsBasis": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date",
     "performanceAsOf": "2026-09-30"
    },
@@ -3330,6 +3375,7 @@
     "secYieldText": "0.49%",
     "dividendYield": 0,
     "dividendYieldText": "0.00%",
+    "dividendYieldBasis": "official-trailing-12m",
     "returnsBasis": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date",
     "performanceAsOf": "2026-09-30"
    },
@@ -3404,6 +3450,7 @@
     "secYieldText": "4.93%",
     "dividendYield": 13.38,
     "dividendYieldText": "13.38%",
+    "dividendYieldBasis": "official-trailing-12m",
     "returnsBasis": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date",
     "performanceAsOf": "2026-09-30"
    },
@@ -3478,6 +3525,7 @@
     "secYieldText": "2.77%",
     "dividendYield": 1.38,
     "dividendYieldText": "1.38%",
+    "dividendYieldBasis": "official-trailing-12m",
     "returnsBasis": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date",
     "performanceAsOf": "2026-09-30"
    },
@@ -3552,6 +3600,7 @@
     "secYieldText": "0.45%",
     "dividendYield": 0,
     "dividendYieldText": "0.00%",
+    "dividendYieldBasis": "official-trailing-12m",
     "returnsBasis": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date",
     "performanceAsOf": "2026-09-30"
    },
@@ -3626,6 +3675,7 @@
     "secYieldText": "1.17%",
     "dividendYield": 39.38,
     "dividendYieldText": "39.38%",
+    "dividendYieldBasis": "official-trailing-12m",
     "returnsBasis": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date",
     "performanceAsOf": "2026-09-30"
    },
@@ -3700,6 +3750,7 @@
     "secYieldText": "0.33%",
     "dividendYield": 0,
     "dividendYieldText": "0.00%",
+    "dividendYieldBasis": "official-trailing-12m",
     "returnsBasis": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date",
     "performanceAsOf": "2026-09-30"
    },
@@ -3774,6 +3825,7 @@
     "secYieldText": "13.59%",
     "dividendYield": 13.87,
     "dividendYieldText": "13.87%",
+    "dividendYieldBasis": "official-trailing-12m",
     "returnsBasis": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date",
     "performanceAsOf": "2026-09-30"
    },
@@ -3848,6 +3900,7 @@
     "secYieldText": "7.93%",
     "dividendYield": 7.17,
     "dividendYieldText": "7.17%",
+    "dividendYieldBasis": "official-trailing-12m",
     "returnsBasis": "official Amplify NAV month-end/quarter-end total returns (Firestore performance feed); missing metrics derived from Yahoo adjusted closes at the same reporting date",
     "performanceAsOf": "2026-09-30"
    },
