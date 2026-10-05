@@ -1,14 +1,17 @@
 # Amplify
 
-One of the app's features lets you select Amplify ETFs in the Watchlist and aggregate their holdings to see how often each ticker appears across the selected funds. Repeated holdings make overlapping exposure visible: the more selected funds include a ticker, the greater its potential influence on the portfolio; gains in that holding may help, while declines may hurt, and actual impact also depends on each fund's position size.  Another feature makes it faster and easier to find funds with stronger growth over different periods, higher dividend yields or distributions, greater Total Return (price performance plus dividends), and other key performance metrics. A single-file client-side tool that reads the generated `./api/amplify` static feed (Amplify's public Firestore data feed for the catalog, holdings, NAV, yields and official performance, with SEC EDGAR N-PORT-P as a holdings fallback and Yahoo Finance daily prices/history/dividends) into a searchable ETF/category catalog with per-fund tabs, watchlist aggregation, ticker copy and CSV/TXT export - the same look, feel, columns and business logic as the sibling applications.
+One of the app's features lets you select Amplify ETFs in the Watchlist and aggregate their holdings to see how often each ticker appears across the selected funds. Repeated holdings make overlapping exposure visible: the more selected funds include a ticker, the greater its potential influence on the portfolio; gains in that holding may help, while declines may hurt, and actual impact also depends on each fund's position size.  Another feature makes it faster and easier to find funds with stronger growth over different periods, higher dividend yields or distributions, greater Total Return (price performance plus dividends), and other key performance metrics. A client-side tool that reads the generated `./api/amplify` static feed (Amplify's public Firestore data feed for the catalog, holdings, NAV, yields and official performance, with SEC EDGAR N-PORT-P as a holdings fallback and Yahoo Finance daily prices/history/dividends) into a searchable ETF/category catalog with per-fund tabs, watchlist aggregation, ticker copy and CSV/TXT export - the same look, feel, columns and business logic as the sibling applications.
 
 ## Using Bun
 
 ```bash
 bunx degit daggerok/Amplify#main ./12345 && cd $_
-bunx serve . -p 1234
-open http://0:1234
+bun install
+bun run serve
+open http://localhost:1234
 ```
+
+`bun run serve` starts the Parcel dev server (it copies `api/` to `dist/api` first), `bun run build` writes the production site to `dist/` and `bun run build-github-pages` does the same with the `/Amplify/` public URL used by the Pages workflow.
 
 The published application is available at <https://daggerok.github.io/Amplify/>.
 
@@ -120,7 +123,7 @@ TOTAL_RETURN_1Y="15:" ./scripts/update-data.ts
 
 ## TypeScript and verification
 
-The browser app is intentionally build-free: `index.html` carries the markup, styles and bootstrap, and `app.tsx` is TypeScript compiled in the browser with Babel standalone - no build step, no bundler, no `tsconfig.json` needed. Bun runs TypeScript out of the box.
+The browser app lives in `src/`: `src/index.html` carries the markup, `src/main.tsx` is the TypeScript application and `src/index.css` is Tailwind CSS v4 with the component styles. Parcel bundles them into `dist/` (no `tsconfig.json` needed, Bun runs the updater TypeScript out of the box), and GitHub Pages is deployed by `.github/workflows/github-pages.yml`.
 
 Verification before every publish:
 
