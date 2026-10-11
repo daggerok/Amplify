@@ -2,7 +2,7 @@
  "ticker": "CNBS",
  "page": 1,
  "pageSize": 250,
- "totalRows": 38,
+ "totalRows": 39,
  "headers": [
   "Name",
   "Ticker",
@@ -17,8 +17,8 @@
    "Name": "United States Treasury Bill 11/03/2026",
    "Ticker": "912797VP9",
    "Identifier": "912797VP9",
-   "Weight": "37.71",
-   "Market Value": "26747327.26",
+   "Weight": "39.19",
+   "Market Value": "26770092.56",
    "Shares Held": "26831000",
    "SEDOL": ""
   },
@@ -26,8 +26,8 @@
    "Name": "United States Treasury Bill 12/10/2026",
    "Ticker": "912797VG9",
    "Identifier": "912797VG9",
-   "Weight": "25.29",
-   "Market Value": "17939540.56",
+   "Weight": "26.28",
+   "Market Value": "17954895.36",
    "Shares Held": "18070000",
    "SEDOL": ""
   },
@@ -35,8 +35,8 @@
    "Name": "Curaleaf Holdings Inc",
    "Ticker": "CURA CN",
    "Identifier": "BXM7BL7",
-   "Weight": "16.65",
-   "Market Value": "11813128.69",
+   "Weight": "16.18",
+   "Market Value": "11055627.79",
    "Shares Held": "1184845.999999",
    "SEDOL": ""
   },
@@ -44,8 +44,8 @@
    "Name": "Trulieve Cannabis Corp",
    "Ticker": "TRLV",
    "Identifier": "89790E106",
-   "Weight": "14.4",
-   "Market Value": "10212493.76",
+   "Weight": "14.88",
+   "Market Value": "10164860.86",
    "Shares Held": "952658",
    "SEDOL": ""
   },
@@ -53,8 +53,8 @@
    "Name": "GREEN THUMB INDS INC SWAP NBC-L",
    "Ticker": "39342L108 TRS 031528",
    "Identifier": "39342L108 TRS 031528",
-   "Weight": "13.42",
-   "Market Value": "9520045.89",
+   "Weight": "13.96",
+   "Market Value": "9534448.38",
    "Shares Held": "1440249",
    "SEDOL": ""
   },
@@ -62,8 +62,8 @@
    "Name": "TRULIEVE CANNABIS CORP SWAP NBC-L",
    "Ticker": "89790E106 TRS 031528",
    "Identifier": "89790E106 TRS 031528",
-   "Weight": "11.34",
-   "Market Value": "8042776.48",
+   "Weight": "11.72",
+   "Market Value": "8005263.53",
    "Shares Held": "750259",
    "SEDOL": ""
   },
@@ -71,8 +71,8 @@
    "Name": "VERANO HLDGS CORP SWAP NBC-L",
    "Ticker": "92339H200 TRS 031528",
    "Identifier": "92339H200 TRS 031528",
-   "Weight": "7.12",
-   "Market Value": "5048984.58",
+   "Weight": "7.35",
+   "Market Value": "5020188.09",
    "Shares Held": "959883",
    "SEDOL": ""
   },
@@ -80,8 +80,8 @@
    "Name": "CRESCO LABS INC SWAP NBC-L",
    "Ticker": "22587M106 TRS 031528",
    "Identifier": "22587M106 TRS 031528",
-   "Weight": "5.94",
-   "Market Value": "4215462.98",
+   "Weight": "5.93",
+   "Market Value": "4051224.17",
    "Shares Held": "6292675",
    "SEDOL": ""
   },
@@ -89,35 +89,35 @@
    "Name": "CURALEAF HLDGS SWAP NBC-L",
    "Ticker": "23126M300 TRS 031528",
    "Identifier": "23126M300 TRS 031528",
-   "Weight": "5.04",
-   "Market Value": "3577691.65",
+   "Weight": "4.94",
+   "Market Value": "3376334.13",
    "Shares Held": "359567",
-   "SEDOL": ""
-  },
-  {
-   "Name": "GLASS HOUSE BRANDS INC SWAP NBC-L",
-   "Ticker": "377130406 TRS 031528",
-   "Identifier": "377130406 TRS 031528",
-   "Weight": "4.74",
-   "Market Value": "3362279.13",
-   "Shares Held": "612437",
    "SEDOL": ""
   },
   {
    "Name": "TERRASCEND CORP SWAP NBC-L",
    "Ticker": "88105E108 TRS 031528",
    "Identifier": "88105E108 TRS 031528",
-   "Weight": "3.94",
-   "Market Value": "2792569.6",
+   "Weight": "3.9",
+   "Market Value": "2667496.98",
    "Shares Held": "5391061",
+   "SEDOL": ""
+  },
+  {
+   "Name": "GLASS HOUSE BRANDS INC SWAP NBC-L",
+   "Ticker": "377130406 TRS 031528",
+   "Identifier": "377130406 TRS 031528",
+   "Weight": "3.82",
+   "Market Value": "2608981.62",
+   "Shares Held": "612437",
    "SEDOL": ""
   },
   {
    "Name": "Innovative Industrial Properties Inc",
    "Ticker": "IIPR",
    "Identifier": "45781V101",
-   "Weight": "2.71",
-   "Market Value": "1924761.48",
+   "Weight": "2.89",
+   "Market Value": "1974671.17",
    "Shares Held": "38099",
    "SEDOL": ""
   },
@@ -125,8 +125,8 @@
    "Name": "TRULIEVE CANNABIS SWAP_R",
    "Ticker": "89790E106 TRS 082727",
    "Identifier": "89790E106 TRS 082727",
-   "Weight": "2.34",
-   "Market Value": "1658201.76",
+   "Weight": "2.42",
+   "Market Value": "1650467.61",
    "Shares Held": "154683",
    "SEDOL": ""
   },
@@ -134,8 +134,8 @@
    "Name": "JUSHI HLDGS INC SWAP NBC-L",
    "Ticker": "48214U104 TRS 031528",
    "Identifier": "48214U104 TRS 031528",
-   "Weight": "2.09",
-   "Market Value": "1483792.08",
+   "Weight": "2.01",
+   "Market Value": "1374069.56",
    "Shares Held": "2603144",
    "SEDOL": ""
   },
@@ -143,35 +143,35 @@
    "Name": "United States Treasury Bill 11/05/2026",
    "Ticker": "912797UM7",
    "Identifier": "912797UM7",
-   "Weight": "1.66",
-   "Market Value": "1176073.95",
+   "Weight": "1.72",
+   "Market Value": "1177073.78",
    "Shares Held": "1180000",
-   "SEDOL": ""
-  },
-  {
-   "Name": "ASCEND WELLNESS HOLDINGS SWAP NBC-L",
-   "Ticker": "04351N106 TRS 031528",
-   "Identifier": "04351N106 TRS 031528",
-   "Weight": "1.62",
-   "Market Value": "1152470.24",
-   "Shares Held": "2077646",
    "SEDOL": ""
   },
   {
    "Name": "VIREO GROWTH INC SWAP NBC-L",
    "Ticker": "92767B204 TRS 031528",
    "Identifier": "92767B204 TRS 031528",
-   "Weight": "1.49",
-   "Market Value": "1056398.33",
+   "Weight": "1.53",
+   "Market Value": "1044153.46",
    "Shares Held": "111317",
+   "SEDOL": ""
+  },
+  {
+   "Name": "ASCEND WELLNESS HOLDINGS SWAP NBC-L",
+   "Ticker": "04351N106 TRS 031528",
+   "Identifier": "04351N106 TRS 031528",
+   "Weight": "1.32",
+   "Market Value": "901490.6",
+   "Shares Held": "2077646",
    "SEDOL": ""
   },
   {
    "Name": "GrowGeneration Corp",
    "Ticker": "GRWG",
    "Identifier": "39986L109",
-   "Weight": "1.19",
-   "Market Value": "844331.87",
+   "Weight": "1.18",
+   "Market Value": "806686.5",
    "Shares Held": "537791",
    "SEDOL": ""
   },
@@ -179,45 +179,54 @@
    "Name": "GREEN THUMB INDUSTRIES SWAP_R",
    "Ticker": "39342L108 TRS 082727",
    "Identifier": "39342L108 TRS 082727",
-   "Weight": "0.93",
-   "Market Value": "657721.44",
+   "Weight": "0.96",
+   "Market Value": "658716.48",
    "Shares Held": "99504",
-   "SEDOL": ""
-  },
-  {
-   "Name": "WM TECHNOLOGY, INC.-SWAP-NBCB-L",
-   "Ticker": "92971A109 TRS 031528",
-   "Identifier": "92971A109 TRS 031528",
-   "Weight": "0.72",
-   "Market Value": "508473",
-   "Shares Held": "1412425",
    "SEDOL": ""
   },
   {
    "Name": "PLANET 13 HLDGS INC SWAP NBC-L",
    "Ticker": "72707C108 TRS 031528",
    "Identifier": "72707C108 TRS 031528",
-   "Weight": "0.66",
+   "Weight": "0.69",
    "Market Value": "469124.26",
    "Shares Held": "4118738",
-   "SEDOL": ""
-  },
-  {
-   "Name": "MARIMED INC SWAP NBC-L",
-   "Ticker": "56782V107 TRS 031528",
-   "Identifier": "56782V107 TRS 031528",
-   "Weight": "0.65",
-   "Market Value": "459116.34",
-   "Shares Held": "6653860",
    "SEDOL": ""
   },
   {
    "Name": "United States Treasury Bill 11/27/2026",
    "Ticker": "912797SU2",
    "Identifier": "912797SU2",
-   "Weight": "0.64",
-   "Market Value": "457328.36",
+   "Weight": "0.67",
+   "Market Value": "457717.97",
    "Shares Held": "460000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "WM TECHNOLOGY, INC.-SWAP-NBCB-L",
+   "Ticker": "92971A109 TRS 031528",
+   "Identifier": "92971A109 TRS 031528",
+   "Weight": "0.67",
+   "Market Value": "459038.13",
+   "Shares Held": "1412425",
+   "SEDOL": ""
+  },
+  {
+   "Name": "MARIMED INC SWAP NBC-L",
+   "Ticker": "56782V107 TRS 031528",
+   "Identifier": "56782V107 TRS 031528",
+   "Weight": "0.62",
+   "Market Value": "421522.03",
+   "Shares Held": "6653860",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Cronos Group Inc",
+   "Ticker": "CRON",
+   "Identifier": "22717L101",
+   "Weight": "0.59",
+   "Market Value": "401863.68",
+   "Shares Held": "124416",
    "SEDOL": ""
   },
   {
@@ -225,25 +234,16 @@
    "Ticker": "22587M106 TRS 082727",
    "Identifier": "22587M106 TRS 082727",
    "Weight": "0.57",
-   "Market Value": "405885.04",
+   "Market Value": "390071.34",
    "Shares Held": "605889",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Cronos Group Inc",
-   "Ticker": "CRON",
-   "Identifier": "22717L101",
-   "Weight": "0.57",
-   "Market Value": "401241.6",
-   "Shares Held": "124416",
    "SEDOL": ""
   },
   {
    "Name": "Chicago Atlantic Real Estate Finance Inc",
    "Ticker": "REFI",
    "Identifier": "167239102",
-   "Weight": "0.46",
-   "Market Value": "323640.26",
+   "Weight": "0.44",
+   "Market Value": "303050.82",
    "Shares Held": "32171",
    "SEDOL": ""
   },
@@ -252,7 +252,7 @@
    "Ticker": "LIEN",
    "Identifier": "828174102",
    "Weight": "0.39",
-   "Market Value": "275158",
+   "Market Value": "268496.28",
    "Shares Held": "28964",
    "SEDOL": ""
   },
@@ -260,8 +260,8 @@
    "Name": "RYTHM Inc",
    "Ticker": "RYM",
    "Identifier": "00853E404",
-   "Weight": "0.33",
-   "Market Value": "233075.1",
+   "Weight": "0.34",
+   "Market Value": "231763.68",
    "Shares Held": "11922",
    "SEDOL": ""
   },
@@ -269,8 +269,8 @@
    "Name": "SNDL Inc",
    "Ticker": "SNDL",
    "Identifier": "83307B101",
-   "Weight": "0.26",
-   "Market Value": "187383.84",
+   "Weight": "0.27",
+   "Market Value": "184361.52",
    "Shares Held": "151116",
    "SEDOL": ""
   },
@@ -279,7 +279,7 @@
    "Ticker": "OGI",
    "Identifier": "68617J100",
    "Weight": "0.16",
-   "Market Value": "111201.99",
+   "Market Value": "111925.37",
    "Shares Held": "116674",
    "SEDOL": ""
   },
@@ -287,8 +287,8 @@
    "Name": "VERANO HLDGS CORP SWAP NOMURA",
    "Ticker": "92339H200 TRS 082727",
    "Identifier": "92339H200 TRS 082727",
-   "Weight": "0.14",
-   "Market Value": "101696.84",
+   "Weight": "0.15",
+   "Market Value": "101116.82",
    "Shares Held": "19334",
    "SEDOL": ""
   },
@@ -297,7 +297,7 @@
    "Ticker": "92767B204 TRS 082727",
    "Identifier": "92767B204 TRS 082727",
    "Weight": "0.06",
-   "Market Value": "44034.87",
+   "Market Value": "43524.45",
    "Shares Held": "4640.133333",
    "SEDOL": ""
   },
@@ -306,8 +306,17 @@
    "Ticker": "CWEB CN",
    "Identifier": "BGHY2B1",
    "Weight": "0.04",
-   "Market Value": "28815.48",
+   "Market Value": "28791.24",
    "Shares Held": "108077",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Invesco Government & Agency Portfolio 12/31/2031",
+   "Ticker": "AGPXX",
+   "Identifier": "825252885",
+   "Weight": "0.01",
+   "Market Value": "8557.41",
+   "Shares Held": "8557.41",
    "SEDOL": ""
   },
   {
@@ -324,7 +333,7 @@
    "Ticker": "CLVR",
    "Identifier": "186760203",
    "Weight": "0",
-   "Market Value": "0",
+   "Market Value": "42.71",
    "Shares Held": "4271",
    "SEDOL": ""
   },
@@ -342,7 +351,7 @@
    "Ticker": "HYFM",
    "Identifier": "44888K407",
    "Weight": "0",
-   "Market Value": "2763.49",
+   "Market Value": "2253.72",
    "Shares Held": "2683",
    "SEDOL": ""
   },
@@ -350,9 +359,9 @@
    "Name": "Cash & Other",
    "Ticker": "CASH&OTHER",
    "Identifier": "Cash&Other",
-   "Weight": "-65.28",
-   "Market Value": "-46305835.51",
-   "Shares Held": "-46305835.51",
+   "Weight": "-67.89",
+   "Market Value": "-46375159.16",
+   "Shares Held": "-46375159.16",
    "SEDOL": ""
   }
  ]

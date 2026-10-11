@@ -2,7 +2,7 @@
  "ticker": "BNAV",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 47,
+ "totalRows": 52,
  "headers": [
   "Date",
   "Close",
@@ -291,6 +291,36 @@
    "Close": "32.41",
    "Adj Close": "32.41",
    "Volume": "1400"
+  },
+  {
+   "Date": "Oct 05 2026",
+   "Close": "32.799999",
+   "Adj Close": "32.8",
+   "Volume": "1700"
+  },
+  {
+   "Date": "Oct 06 2026",
+   "Close": "32.759998",
+   "Adj Close": "32.76",
+   "Volume": "300"
+  },
+  {
+   "Date": "Oct 07 2026",
+   "Close": "32.18",
+   "Adj Close": "32.18",
+   "Volume": "500"
+  },
+  {
+   "Date": "Oct 08 2026",
+   "Close": "31.690001",
+   "Adj Close": "31.69",
+   "Volume": "4900"
+  },
+  {
+   "Date": "Oct 09 2026",
+   "Close": "31.82",
+   "Adj Close": "31.82",
+   "Volume": "2600"
   }
  ]
 }

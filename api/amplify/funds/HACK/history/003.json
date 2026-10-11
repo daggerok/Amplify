@@ -2,7 +2,7 @@
  "ticker": "HACK",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2989,
+ "totalRows": 2994,
  "headers": [
   "Date",
   "Close",
@@ -5943,6 +5943,36 @@
    "Close": "123.080002",
    "Adj Close": "123.08",
    "Volume": "429200"
+  },
+  {
+   "Date": "Oct 05 2026",
+   "Close": "124.980003",
+   "Adj Close": "124.98",
+   "Volume": "297900"
+  },
+  {
+   "Date": "Oct 06 2026",
+   "Close": "127.660004",
+   "Adj Close": "127.66",
+   "Volume": "541300"
+  },
+  {
+   "Date": "Oct 07 2026",
+   "Close": "125.809998",
+   "Adj Close": "125.81",
+   "Volume": "234100"
+  },
+  {
+   "Date": "Oct 08 2026",
+   "Close": "125.349998",
+   "Adj Close": "125.35",
+   "Volume": "341400"
+  },
+  {
+   "Date": "Oct 09 2026",
+   "Close": "130.759995",
+   "Adj Close": "130.76",
+   "Volume": "458400"
   }
  ]
 }

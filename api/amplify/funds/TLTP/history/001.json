@@ -2,7 +2,7 @@
  "ticker": "TLTP",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 483,
+ "totalRows": 488,
  "headers": [
   "Date",
   "Close",
@@ -2907,6 +2907,36 @@
    "Close": "18.771999",
    "Adj Close": "18.77",
    "Volume": "23400"
+  },
+  {
+   "Date": "Oct 05 2026",
+   "Close": "18.705",
+   "Adj Close": "18.7",
+   "Volume": "17200"
+  },
+  {
+   "Date": "Oct 06 2026",
+   "Close": "18.77",
+   "Adj Close": "18.77",
+   "Volume": "18600"
+  },
+  {
+   "Date": "Oct 07 2026",
+   "Close": "18.700001",
+   "Adj Close": "18.7",
+   "Volume": "10800"
+  },
+  {
+   "Date": "Oct 08 2026",
+   "Close": "18.874001",
+   "Adj Close": "18.87",
+   "Volume": "8000"
+  },
+  {
+   "Date": "Oct 09 2026",
+   "Close": "18.893999",
+   "Adj Close": "18.89",
+   "Volume": "54800"
   }
  ]
 }

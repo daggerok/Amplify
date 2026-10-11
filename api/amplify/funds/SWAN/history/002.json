@@ -2,7 +2,7 @@
  "ticker": "SWAN",
  "page": 2,
  "pageSize": 1000,
- "totalRows": 1986,
+ "totalRows": 1991,
  "headers": [
   "Date",
   "Close",
@@ -5925,6 +5925,36 @@
    "Close": "32.049999",
    "Adj Close": "32.05",
    "Volume": "7500"
+  },
+  {
+   "Date": "Oct 05 2026",
+   "Close": "32.189999",
+   "Adj Close": "32.19",
+   "Volume": "4100"
+  },
+  {
+   "Date": "Oct 06 2026",
+   "Close": "32.400002",
+   "Adj Close": "32.4",
+   "Volume": "5500"
+  },
+  {
+   "Date": "Oct 07 2026",
+   "Close": "32.34",
+   "Adj Close": "32.34",
+   "Volume": "6000"
+  },
+  {
+   "Date": "Oct 08 2026",
+   "Close": "32.290001",
+   "Adj Close": "32.29",
+   "Volume": "6800"
+  },
+  {
+   "Date": "Oct 09 2026",
+   "Close": "32.41",
+   "Adj Close": "32.41",
+   "Volume": "2500"
   }
  ]
 }

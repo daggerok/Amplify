@@ -3,13 +3,13 @@
  "name": "Amplify Top 10 Semiconductors ETF",
  "category": "Thematic",
  "categoryPath": "Thematic",
- "status": "pre-launch",
+ "status": "active",
  "source": {
   "fundPage": "https://amplifyetfs.com/CPU/",
   "catalog": "https://firestore.googleapis.com/v1/projects/amplify-etfs-data-feed/databases/(default)/documents/fund_category",
   "holdingsDownload": "https://amplifyetfs.com/cpu-holdings/",
-  "holdingsSource": "unavailable from Firestore or SEC N-PORT-P",
-  "historySource": "unavailable",
+  "holdingsSource": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
+  "historySource": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)",
   "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/CPU",
   "provider": "Amplify ETFs Firestore data feed (amplify-etfs-data-feed); SEC EDGAR N-PORT-P holdings fallback; Yahoo Finance market-history/dividend data"
  },
@@ -25,10 +25,9 @@
   "indexTicker": "B10SEMT"
  },
  "inception": {
-  "fundInceptionDate": null,
-  "shareClassInceptionDate": null,
-  "exchange": "NYSE Arca",
-  "expectedInceptionDate": "2026-10-06"
+  "fundInceptionDate": "2026-10-06",
+  "shareClassInceptionDate": "2026-10-07",
+  "exchange": "NYSE Arca"
  },
  "expenseRatio": {
   "display": "0.49%",
@@ -37,24 +36,24 @@
   "net": 0.49
  },
  "nav": {
-  "display": "—",
-  "value": null,
-  "asOfDate": "—"
+  "display": "$23.93",
+  "value": 23.9301,
+  "asOfDate": "Oct 09 2026"
  },
  "marketPrice": {
-  "display": "—",
-  "value": null,
-  "asOfDate": "—"
+  "display": "$23.83",
+  "value": 23.8327,
+  "asOfDate": "Oct 09 2026"
  },
  "premiumDiscount": {
-  "display": "—",
-  "value": null
+  "display": "-0.41%",
+  "value": -0.407
  },
  "aum": {
-  "display": "—",
-  "value": null,
-  "asOfDate": "—",
-  "source": "unavailable"
+  "display": "$478,602",
+  "value": 478601.53,
+  "asOfDate": "Oct 09 2026",
+  "source": "Amplify Firestore daily net assets"
  },
  "yields": {
   "dividendYield": null,
@@ -66,7 +65,17 @@
   "unsubsidizedSecYield": null
  },
  "returns": {
-  "monthEnd": null,
+  "monthEnd": {
+   "asOfDate": "Oct 09 2026",
+   "mo1": null,
+   "qtd": null,
+   "ytd": null,
+   "yr1": null,
+   "yr3": null,
+   "yr5": null,
+   "yr10": null,
+   "sinceInception": null
+  },
   "quarterEnd": null,
   "derivedFrom": "Yahoo adjusted market-price returns, not official NAV"
  },
@@ -80,19 +89,23 @@
   "rows": []
  },
  "holdings": {
-  "pages": [],
+  "pages": [
+   "holdings/001.json"
+  ],
   "pageSize": 250,
-  "totalRows": 0,
-  "asOfDate": null,
-  "asOf": "—",
-  "source": "unavailable from Firestore or SEC N-PORT-P",
-  "status": "unavailable"
+  "totalRows": 21,
+  "asOfDate": "2026-10-12",
+  "asOf": "Oct 12 2026",
+  "source": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
+  "status": "available"
  },
  "history": {
-  "pages": [],
+  "pages": [
+   "history/001.json"
+  ],
   "pageSize": 1000,
-  "totalRows": 0,
-  "asOf": "—",
-  "source": "unavailable"
+  "totalRows": 3,
+  "asOf": "Oct 09 2026",
+  "source": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)"
  }
 }

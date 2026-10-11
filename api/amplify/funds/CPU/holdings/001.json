@@ -1,0 +1,206 @@
+{
+ "ticker": "CPU",
+ "page": 1,
+ "pageSize": 250,
+ "totalRows": 21,
+ "headers": [
+  "Name",
+  "Ticker",
+  "Identifier",
+  "Weight",
+  "Market Value",
+  "Shares Held",
+  "SEDOL"
+ ],
+ "rows": [
+  {
+   "Name": "Unimicron Technology Corp",
+   "Ticker": "3037 TT",
+   "Identifier": "6137720",
+   "Weight": "16.62",
+   "Market Value": "79547.77",
+   "Shares Held": "2000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Invesco Government & Agency Portfolio 12/31/2031",
+   "Ticker": "AGPXX",
+   "Identifier": "825252885",
+   "Weight": "13.77",
+   "Market Value": "65901.38",
+   "Shares Held": "65901.38",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Nan Ya Printed Circuit Board Corp",
+   "Ticker": "8046 TT",
+   "Identifier": "B118753",
+   "Weight": "9.65",
+   "Market Value": "46194.08",
+   "Shares Held": "1000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "MediaTek Inc",
+   "Ticker": "2454 TT",
+   "Identifier": "6372480",
+   "Weight": "9.21",
+   "Market Value": "44064.45",
+   "Shares Held": "300",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Kinsus Interconnect Technology Corp",
+   "Ticker": "3189 TT",
+   "Identifier": "6687872",
+   "Weight": "7.03",
+   "Market Value": "33666.87",
+   "Shares Held": "1000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "AIXTRON SE",
+   "Ticker": "AIXA GR",
+   "Identifier": "5468346",
+   "Weight": "5.83",
+   "Market Value": "27894.13",
+   "Shares Held": "684",
+   "SEDOL": ""
+  },
+  {
+   "Name": "MARVELL TECHNOLOGY INC",
+   "Ticker": "MRVL",
+   "Identifier": "573874104",
+   "Weight": "4.72",
+   "Market Value": "22572.96",
+   "Shares Held": "82",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Sandisk Corp",
+   "Ticker": "SNDK",
+   "Identifier": "80004C200",
+   "Weight": "4.63",
+   "Market Value": "22145.48",
+   "Shares Held": "14",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Intel Corp",
+   "Ticker": "INTC",
+   "Identifier": "458140100",
+   "Weight": "4.38",
+   "Market Value": "20940",
+   "Shares Held": "200",
+   "SEDOL": ""
+  },
+  {
+   "Name": "SK hynix Inc",
+   "Ticker": "SKHY",
+   "Identifier": "78392B206",
+   "Weight": "4.31",
+   "Market Value": "20621.66",
+   "Shares Held": "122",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Micron Technology Inc",
+   "Ticker": "MU",
+   "Identifier": "595112103",
+   "Weight": "4.3",
+   "Market Value": "20580",
+   "Shares Held": "20",
+   "SEDOL": ""
+  },
+  {
+   "Name": "MARVELL TECHNOLOGY, INC.-SWAP-GOLD-L",
+   "Ticker": "573874104-TRS-11/08/27-L-GS",
+   "Identifier": "573874104-TRS-11/08/27-L-GS",
+   "Weight": "3.68",
+   "Market Value": "17617.92",
+   "Shares Held": "64",
+   "SEDOL": ""
+  },
+  {
+   "Name": "MARVELL TECHNOLOGY, INC.-SWAP-NBCB-L",
+   "Ticker": "573874104-TRS-11/08/27-L-NBC",
+   "Identifier": "573874104-TRS-11/08/27-L-NBC",
+   "Weight": "3.68",
+   "Market Value": "17617.92",
+   "Shares Held": "64",
+   "SEDOL": ""
+  },
+  {
+   "Name": "MICRON TECHNOLOGY, INC.-SWAP-GOLD-L",
+   "Ticker": "595112103-TRS-11/08/27-L-GS",
+   "Identifier": "595112103-TRS-11/08/27-L-GS",
+   "Weight": "3.44",
+   "Market Value": "16464",
+   "Shares Held": "16",
+   "SEDOL": ""
+  },
+  {
+   "Name": "MICRON TECHNOLOGY, INC.-SWAP-NBCB-L",
+   "Ticker": "595112103-TRS-11/08/27-L-NBC",
+   "Identifier": "595112103-TRS-11/08/27-L-NBC",
+   "Weight": "3.44",
+   "Market Value": "16464",
+   "Shares Held": "16",
+   "SEDOL": ""
+  },
+  {
+   "Name": "NAN YA PRINTED CIRCUIT BOARD CORPORATION-SWAP-GOLD-L",
+   "Ticker": "B118753-TRS-11/08/27-L-GS",
+   "Identifier": "B118753-TRS-11/08/27-L-GS",
+   "Weight": "2.9",
+   "Market Value": "13858.22",
+   "Shares Held": "300",
+   "SEDOL": ""
+  },
+  {
+   "Name": "INTEL CORPORATION-SWAP-GOLD-L",
+   "Ticker": "458140100-TRS-11/08/27-L-GS",
+   "Identifier": "458140100-TRS-11/08/27-L-GS",
+   "Weight": "2.41",
+   "Market Value": "11517",
+   "Shares Held": "110",
+   "SEDOL": ""
+  },
+  {
+   "Name": "INTEL CORPORATION-SWAP-NBCB-L",
+   "Ticker": "458140100-TRS-11/08/27-L-NBC",
+   "Identifier": "458140100-TRS-11/08/27-L-NBC",
+   "Weight": "2.41",
+   "Market Value": "11517",
+   "Shares Held": "110",
+   "SEDOL": ""
+  },
+  {
+   "Name": "SANDISK CORPORATION-SWAP-NBCB-L",
+   "Ticker": "80004C200-TRS-11/08/27-L-NBC",
+   "Identifier": "80004C200-TRS-11/08/27-L-NBC",
+   "Weight": "2.31",
+   "Market Value": "11072.74",
+   "Shares Held": "7",
+   "SEDOL": ""
+  },
+  {
+   "Name": "SK HYNIX INC.-SWAP-NBCB-L",
+   "Ticker": "78392B206-TRS-11/08/27-L-NBC",
+   "Identifier": "78392B206-TRS-11/08/27-L-NBC",
+   "Weight": "2.12",
+   "Market Value": "10141.8",
+   "Shares Held": "60",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Cash & Other",
+   "Ticker": "CASH&OTHER",
+   "Identifier": "Cash&Other",
+   "Weight": "-10.83",
+   "Market Value": "-51815.19",
+   "Shares Held": "-51815.19",
+   "SEDOL": ""
+  }
+ ]
+}

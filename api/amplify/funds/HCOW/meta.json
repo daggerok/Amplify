@@ -1,6 +1,6 @@
 {
  "ticker": "HCOW",
- "name": "Amplify Cash Flow High Income ETF",
+ "name": "Amplify COWS Covered Call ETF",
  "category": "Income",
  "categoryPath": "Income",
  "status": "active",
@@ -36,23 +36,23 @@
   "net": 0.65
  },
  "nav": {
-  "display": "$23.70",
-  "value": 23.6971,
-  "asOfDate": "Oct 02 2026"
+  "display": "$24.23",
+  "value": 24.2348,
+  "asOfDate": "Oct 09 2026"
  },
  "marketPrice": {
-  "display": "$23.72",
-  "value": 23.7191,
-  "asOfDate": "Oct 02 2026"
+  "display": "$24.27",
+  "value": 24.2653,
+  "asOfDate": "Oct 09 2026"
  },
  "premiumDiscount": {
-  "display": "0.09%",
-  "value": 0.0928
+  "display": "0.13%",
+  "value": 0.1259
  },
  "aum": {
-  "display": "$17,061,936",
-  "value": 17061935.65,
-  "asOfDate": "Oct 02 2026",
+  "display": "$16,721,986",
+  "value": 16721985.7,
+  "asOfDate": "Oct 09 2026",
   "source": "Amplify Firestore daily net assets"
  },
  "yields": {
@@ -248,9 +248,9 @@
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 62,
-  "asOfDate": "2026-10-05",
-  "asOf": "Oct 05 2026",
+  "totalRows": 79,
+  "asOfDate": "2026-10-12",
+  "asOf": "Oct 12 2026",
   "source": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
   "status": "available"
  },
@@ -259,8 +259,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 762,
-  "asOf": "Oct 02 2026",
+  "totalRows": 767,
+  "asOf": "Oct 09 2026",
   "source": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)"
  }
 }

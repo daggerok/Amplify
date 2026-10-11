@@ -2,7 +2,7 @@
  "ticker": "ROBX",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 32,
+ "totalRows": 37,
  "headers": [
   "Date",
   "Close",
@@ -201,6 +201,36 @@
    "Close": "24.48",
    "Adj Close": "24.48",
    "Volume": "1300"
+  },
+  {
+   "Date": "Oct 05 2026",
+   "Close": "24.58",
+   "Adj Close": "24.58",
+   "Volume": "1100"
+  },
+  {
+   "Date": "Oct 06 2026",
+   "Close": "24.549999",
+   "Adj Close": "24.55",
+   "Volume": "900"
+  },
+  {
+   "Date": "Oct 07 2026",
+   "Close": "24.07",
+   "Adj Close": "24.07",
+   "Volume": "500"
+  },
+  {
+   "Date": "Oct 08 2026",
+   "Close": "23.02",
+   "Adj Close": "23.02",
+   "Volume": "1900"
+  },
+  {
+   "Date": "Oct 09 2026",
+   "Close": "23.74",
+   "Adj Close": "23.74",
+   "Volume": "100"
   }
  ]
 }
