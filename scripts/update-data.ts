@@ -2186,7 +2186,8 @@ export async function runUpdate(env: Record<string, string | undefined> = proces
     if (limit) { if (lastExamined) await writeIfChanged(stateFile, { cursor: lastExamined.ticker }); }
     else await rm(stateFile, { force: true });
   }
-  console.log(indexWritten ? `Wrote ${indexFile().pathname}` : 'Fetched data is unchanged; keeping api/amplify/index.json untouched.');
+  // VERBOSE only: nothing but fund lines may appear between [ filter ] and [ done ]
+  outputNote(indexWritten ? `[ index    ] wrote ${indexFile().pathname}` : '[ index    ] fetched data is unchanged; keeping api/amplify/index.json untouched');
   console.log(output.summary(startedAt));
   console.log(outputCounts(counts.funds, counts.holdings, counts.history));
   if (env.GITHUB_STEP_SUMMARY) {
