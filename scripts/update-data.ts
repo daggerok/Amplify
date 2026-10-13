@@ -2046,11 +2046,14 @@ export async function processFund(fund: CatalogFund, config: UpdaterConfig, prev
 type RawCatalog = { all: Set<string>; active: CatalogFund[] };
 async function loadCatalog(): Promise<RawCatalog> {
   const docs = await fetchFirestoreListAll(['fund_category'], 200);
+  // Non-US listings (Samsung partner funds on HKEX and KRX, flagged isInternational, without an amplifyetfs.com fund
+  // page or US market data) are not Amplify US ETFs: they stay out of the catalog, so a full run drops their old rows.
   const parsed = docs.map(doc => ({
     ticker: sanitizeTicker(doc.fields.ticker || doc.id),
     category: doc.fields.category || 'Unknown',
     active: doc.fields.isActive !== false,
-  })).filter(fund => fund.ticker);
+    international: doc.fields.isInternational === true,
+  })).filter(fund => fund.ticker && !fund.international);
   return {
     // Every ticker the provider still lists, active or not: only tickers absent from this set may ever be purged.
     all: new Set(parsed.map(fund => fund.ticker)),
