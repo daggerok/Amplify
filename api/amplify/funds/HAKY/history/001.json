@@ -2,7 +2,7 @@
  "ticker": "HAKY",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 182,
+ "totalRows": 183,
  "headers": [
   "Date",
   "Close",
@@ -1101,6 +1101,12 @@
    "Close": "33.895",
    "Adj Close": "33.9",
    "Volume": "24100"
+  },
+  {
+   "Date": "Oct 12 2026",
+   "Close": "33.144001",
+   "Adj Close": "33.14",
+   "Volume": "23500"
   }
  ]
 }

@@ -17,8 +17,8 @@
    "Name": "abrdn Total Dynamic Dividend Fund",
    "Ticker": "AOD",
    "Identifier": "00326L100",
-   "Weight": "3.62",
-   "Market Value": "23806753.95",
+   "Weight": "3.64",
+   "Market Value": "23924028.6",
    "Shares Held": "2345493",
    "SEDOL": ""
   },
@@ -26,8 +26,8 @@
    "Name": "BlackRock ESG Capital Allocation Term Trust",
    "Ticker": "ECAT",
    "Identifier": "09262F100",
-   "Weight": "3.4",
-   "Market Value": "22352939.37",
+   "Weight": "3.35",
+   "Market Value": "22004910.59",
    "Shares Held": "1581949",
    "SEDOL": ""
   },
@@ -35,8 +35,8 @@
    "Name": "Nuveen Floating Rate Income Fund/Closed-end Fund",
    "Ticker": "JFR",
    "Identifier": "67072T108",
-   "Weight": "3.37",
-   "Market Value": "22185911.3",
+   "Weight": "3.33",
+   "Market Value": "21857009.65",
    "Shares Held": "2990015",
    "SEDOL": ""
   },
@@ -44,8 +44,8 @@
    "Name": "Tortoise Energy Infrastructure Corp",
    "Ticker": "TYG",
    "Identifier": "89147L886",
-   "Weight": "3.19",
-   "Market Value": "20990020.48",
+   "Weight": "3.23",
+   "Market Value": "21207781.32",
    "Shares Held": "531124",
    "SEDOL": ""
   },
@@ -53,8 +53,8 @@
    "Name": "Guggenheim Strategic Opportunities Fund",
    "Ticker": "GOF",
    "Identifier": "40167F101",
-   "Weight": "3.17",
-   "Market Value": "20827841.97",
+   "Weight": "3.21",
+   "Market Value": "21063717.87",
    "Shares Held": "2358759",
    "SEDOL": ""
   },
@@ -62,8 +62,8 @@
    "Name": "PIMCO High Income Fund",
    "Ticker": "PHK",
    "Identifier": "722014107",
-   "Weight": "3.08",
-   "Market Value": "20236453.12",
+   "Weight": "3.07",
+   "Market Value": "20148891.54",
    "Shares Held": "4864532",
    "SEDOL": ""
   },
@@ -71,8 +71,8 @@
    "Name": "Nuveen Credit Strategies Income Fund",
    "Ticker": "JQC",
    "Identifier": "67073D102",
-   "Weight": "2.73",
-   "Market Value": "17980303.8",
+   "Weight": "2.71",
+   "Market Value": "17786967.2",
    "Shares Held": "3866732",
    "SEDOL": ""
   },
@@ -80,9 +80,18 @@
    "Name": "PIMCO Access Income Fund",
    "Ticker": "PAXS",
    "Identifier": "72203T100",
-   "Weight": "2.5",
-   "Market Value": "16416979.92",
+   "Weight": "2.48",
+   "Market Value": "16282143.76",
    "Shares Held": "1232506",
+   "SEDOL": ""
+  },
+  {
+   "Name": "abrdn Global Infrastructure Income Fund",
+   "Ticker": "ASGI",
+   "Identifier": "00326W106",
+   "Weight": "2.47",
+   "Market Value": "16227559.44",
+   "Shares Held": "834751",
    "SEDOL": ""
   },
   {
@@ -90,25 +99,16 @@
    "Ticker": "PFN",
    "Identifier": "72201J104",
    "Weight": "2.45",
-   "Market Value": "16103900",
+   "Market Value": "16073495.84",
    "Shares Held": "2576624",
-   "SEDOL": ""
-  },
-  {
-   "Name": "abrdn Global Infrastructure Income Fund",
-   "Ticker": "ASGI",
-   "Identifier": "00326W106",
-   "Weight": "2.44",
-   "Market Value": "16060609.24",
-   "Shares Held": "834751",
    "SEDOL": ""
   },
   {
    "Name": "Western Asset Diversified Income Fund",
    "Ticker": "WDI",
    "Identifier": "95790K109",
-   "Weight": "2.42",
-   "Market Value": "15901805.28",
+   "Weight": "2.41",
+   "Market Value": "15833906.88",
    "Shares Held": "1357968",
    "SEDOL": ""
   },
@@ -116,8 +116,8 @@
    "Name": "CBRE Global Real Estate Income Fund",
    "Ticker": "IGR",
    "Identifier": "12504G878",
-   "Weight": "2.27",
-   "Market Value": "14923446.7",
+   "Weight": "2.28",
+   "Market Value": "14949859.88",
    "Shares Held": "1320659",
    "SEDOL": ""
   },
@@ -125,18 +125,9 @@
    "Name": "Aberdeen Asia-Pacific Income Fund Inc",
    "Ticker": "FAX",
    "Identifier": "003009867",
-   "Weight": "2.24",
-   "Market Value": "14702623.65",
+   "Weight": "2.23",
+   "Market Value": "14679775.75",
    "Shares Held": "1142395",
-   "SEDOL": ""
-  },
-  {
-   "Name": "abrdn Life Sciences Investors",
-   "Ticker": "HQL",
-   "Identifier": "87911K100",
-   "Weight": "2.2",
-   "Market Value": "14437344.9",
-   "Shares Held": "795446",
    "SEDOL": ""
   },
   {
@@ -144,25 +135,43 @@
    "Ticker": "ACP",
    "Identifier": "003057106",
    "Weight": "2.18",
-   "Market Value": "14310322.24",
+   "Market Value": "14343144.08",
    "Shares Held": "3282184",
+   "SEDOL": ""
+  },
+  {
+   "Name": "abrdn Life Sciences Investors",
+   "Ticker": "HQL",
+   "Identifier": "87911K100",
+   "Weight": "2.18",
+   "Market Value": "14318028",
+   "Shares Held": "795446",
    "SEDOL": ""
   },
   {
    "Name": "Aberdeen India Fund Inc",
    "Ticker": "IFN",
    "Identifier": "454089103",
-   "Weight": "1.76",
-   "Market Value": "11603592",
+   "Weight": "1.77",
+   "Market Value": "11625906.6",
    "Shares Held": "1115730",
+   "SEDOL": ""
+  },
+  {
+   "Name": "NXG NextGen Infrastructure Income Fund",
+   "Ticker": "NXG",
+   "Identifier": "231647207",
+   "Weight": "1.67",
+   "Market Value": "10982457.2",
+   "Shares Held": "192001",
    "SEDOL": ""
   },
   {
    "Name": "BlackRock Health Sciences Term Trust",
    "Ticker": "BMEZ",
    "Identifier": "09260E105",
-   "Weight": "1.65",
-   "Market Value": "10825655.12",
+   "Weight": "1.64",
+   "Market Value": "10760124.52",
    "Shares Held": "655306",
    "SEDOL": ""
   },
@@ -170,26 +179,17 @@
    "Name": "KKR Income Opportunities Fund",
    "Ticker": "KIO",
    "Identifier": "48249T106",
-   "Weight": "1.65",
-   "Market Value": "10871408.34",
+   "Weight": "1.64",
+   "Market Value": "10764195.24",
    "Shares Held": "1072131",
-   "SEDOL": ""
-  },
-  {
-   "Name": "NXG NextGen Infrastructure Income Fund",
-   "Ticker": "NXG",
-   "Identifier": "231647207",
-   "Weight": "1.65",
-   "Market Value": "10869176.61",
-   "Shares Held": "192001",
    "SEDOL": ""
   },
   {
    "Name": "Nuveen NASDAQ 100 Dynamic Overwrite Fund",
    "Ticker": "QQQX",
    "Identifier": "670699107",
-   "Weight": "1.54",
-   "Market Value": "10111014.3",
+   "Weight": "1.56",
+   "Market Value": "10221552.72",
    "Shares Held": "325113",
    "SEDOL": ""
   },
@@ -198,17 +198,8 @@
    "Ticker": "JRI",
    "Identifier": "67074Y105",
    "Weight": "1.53",
-   "Market Value": "10056194.82",
+   "Market Value": "10075133.04",
    "Shares Held": "946911",
-   "SEDOL": ""
-  },
-  {
-   "Name": "abrdn Healthcare Investors",
-   "Ticker": "HQH",
-   "Identifier": "87911J103",
-   "Weight": "1.49",
-   "Market Value": "9769287.4",
-   "Shares Held": "490180",
    "SEDOL": ""
   },
   {
@@ -216,8 +207,17 @@
    "Ticker": "SPXX",
    "Identifier": "6706EW100",
    "Weight": "1.48",
-   "Market Value": "9734534.98",
+   "Market Value": "9703696.96",
    "Shares Held": "513967",
+   "SEDOL": ""
+  },
+  {
+   "Name": "abrdn Healthcare Investors",
+   "Ticker": "HQH",
+   "Identifier": "87911J103",
+   "Weight": "1.47",
+   "Market Value": "9666349.6",
+   "Shares Held": "490180",
    "SEDOL": ""
   },
   {
@@ -225,8 +225,17 @@
    "Ticker": "DSU",
    "Identifier": "09255R202",
    "Weight": "1.47",
-   "Market Value": "9657460.86",
+   "Market Value": "9624797.52",
    "Shares Held": "1088778",
+   "SEDOL": ""
+  },
+  {
+   "Name": "ClearBridge Energy Midstream Opportunity Fund Inc",
+   "Ticker": "EMO",
+   "Identifier": "18469P209",
+   "Weight": "1.46",
+   "Market Value": "9619743",
+   "Shares Held": "186900",
    "SEDOL": ""
   },
   {
@@ -234,61 +243,61 @@
    "Ticker": "FRA",
    "Identifier": "09255X100",
    "Weight": "1.45",
-   "Market Value": "9538202.31",
+   "Market Value": "9501124.75",
    "Shares Held": "926939",
-   "SEDOL": ""
-  },
-  {
-   "Name": "ClearBridge Energy Midstream Opportunity Fund Inc",
-   "Ticker": "EMO",
-   "Identifier": "18469P209",
-   "Weight": "1.45",
-   "Market Value": "9567411",
-   "Shares Held": "186900",
    "SEDOL": ""
   },
   {
    "Name": "Liberty All-Star Equity Fund",
    "Ticker": "USA",
    "Identifier": "530158104",
-   "Weight": "1.45",
-   "Market Value": "9505459.84",
+   "Weight": "1.44",
+   "Market Value": "9473346.8",
    "Shares Held": "1605652",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Gabelli Equity Trust Inc/The",
-   "Ticker": "GAB",
-   "Identifier": "362397101",
-   "Weight": "1.42",
-   "Market Value": "9321909.14",
-   "Shares Held": "1789234",
    "SEDOL": ""
   },
   {
    "Name": "General American Investors Co Inc",
    "Ticker": "GAM",
    "Identifier": "368802104",
-   "Weight": "1.42",
-   "Market Value": "9367484.31",
+   "Weight": "1.43",
+   "Market Value": "9396436.51",
    "Shares Held": "144761",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Gabelli Equity Trust Inc/The",
+   "Ticker": "GAB",
+   "Identifier": "362397101",
+   "Weight": "1.41",
+   "Market Value": "9232447.44",
+   "Shares Held": "1789234",
    "SEDOL": ""
   },
   {
    "Name": "DoubleLine Yield Opportunities Fund",
    "Ticker": "DLY",
    "Identifier": "25862D105",
-   "Weight": "1.39",
+   "Weight": "1.4",
    "Market Value": "9169123.68",
    "Shares Held": "692532",
+   "SEDOL": ""
+  },
+  {
+   "Name": "BlackRock Core Bond Trust",
+   "Ticker": "BHK",
+   "Identifier": "09249E101",
+   "Weight": "1.37",
+   "Market Value": "8968373.46",
+   "Shares Held": "1091043",
    "SEDOL": ""
   },
   {
    "Name": "BlackRock Corporate High Yield Fund Inc",
    "Ticker": "HYT",
    "Identifier": "09255P107",
-   "Weight": "1.37",
-   "Market Value": "9037559.31",
+   "Weight": "1.36",
+   "Market Value": "8934989.28",
    "Shares Held": "1139667",
    "SEDOL": ""
   },
@@ -296,8 +305,8 @@
    "Name": "BlackRock Credit Allocation Income Trust",
    "Ticker": "BTZ",
    "Identifier": "092508100",
-   "Weight": "1.37",
-   "Market Value": "9014378.72",
+   "Weight": "1.36",
+   "Market Value": "8947534.81",
    "Shares Held": "954913",
    "SEDOL": ""
   },
@@ -305,8 +314,8 @@
    "Name": "DoubleLine Income Solutions Fund",
    "Ticker": "DSL",
    "Identifier": "258622109",
-   "Weight": "1.37",
-   "Market Value": "8996159.26",
+   "Weight": "1.36",
+   "Market Value": "8959847.82",
    "Shares Held": "907786",
    "SEDOL": ""
   },
@@ -314,27 +323,9 @@
    "Name": "Morgan Stanley Emerging Markets Domestic Debt Fund Inc",
    "Ticker": "EDD",
    "Identifier": "617477104",
-   "Weight": "1.37",
-   "Market Value": "9003806.04",
+   "Weight": "1.36",
+   "Market Value": "8953222.86",
    "Shares Held": "1686106",
-   "SEDOL": ""
-  },
-  {
-   "Name": "BlackRock Core Bond Trust",
-   "Ticker": "BHK",
-   "Identifier": "09249E101",
-   "Weight": "1.36",
-   "Market Value": "8957463.03",
-   "Shares Held": "1091043",
-   "SEDOL": ""
-  },
-  {
-   "Name": "PIMCO Income Strategy Fund",
-   "Ticker": "PFL",
-   "Identifier": "72201H108",
-   "Weight": "1.36",
-   "Market Value": "8961351.34",
-   "Shares Held": "1291261",
    "SEDOL": ""
   },
   {
@@ -342,8 +333,17 @@
    "Ticker": "BIT",
    "Identifier": "09258A107",
    "Weight": "1.35",
-   "Market Value": "8897958.02",
+   "Market Value": "8874272.24",
    "Shares Held": "789526",
+   "SEDOL": ""
+  },
+  {
+   "Name": "PIMCO Income Strategy Fund",
+   "Ticker": "PFL",
+   "Identifier": "72201H108",
+   "Weight": "1.34",
+   "Market Value": "8830417.47",
+   "Shares Held": "1291261",
    "SEDOL": ""
   },
   {
@@ -351,34 +351,34 @@
    "Ticker": "EVV",
    "Identifier": "27828H105",
    "Weight": "1.33",
-   "Market Value": "8744329.52",
+   "Market Value": "8723608.36",
    "Shares Held": "1036058",
-   "SEDOL": ""
-  },
-  {
-   "Name": "First Trust High Yield Opportunities 2027 Term Fund",
-   "Ticker": "FTHY",
-   "Identifier": "33741Q107",
-   "Weight": "1.32",
-   "Market Value": "8652653.88",
-   "Shares Held": "674934",
    "SEDOL": ""
   },
   {
    "Name": "NYLIM CBRE Global Infrastructure Megatrends Term Fund",
    "Ticker": "MEGI",
    "Identifier": "56064Q107",
-   "Weight": "1.32",
-   "Market Value": "8674366.25",
+   "Weight": "1.33",
+   "Market Value": "8756378.44",
    "Shares Held": "630863",
+   "SEDOL": ""
+  },
+  {
+   "Name": "First Trust High Yield Opportunities 2027 Term Fund",
+   "Ticker": "FTHY",
+   "Identifier": "33741Q107",
+   "Weight": "1.31",
+   "Market Value": "8632405.86",
+   "Shares Held": "674934",
    "SEDOL": ""
   },
   {
    "Name": "Western Asset Emerging Markets Debt Fund Inc",
    "Ticker": "EMD",
    "Identifier": "95766A101",
-   "Weight": "1.32",
-   "Market Value": "8653793.96",
+   "Weight": "1.31",
+   "Market Value": "8588727.84",
    "Shares Held": "929516",
    "SEDOL": ""
   },
@@ -387,7 +387,7 @@
    "Ticker": "RA",
    "Identifier": "112830104",
    "Weight": "1.3",
-   "Market Value": "8575200.9",
+   "Market Value": "8552908.35",
    "Shares Held": "743085",
    "SEDOL": ""
   },
@@ -396,17 +396,8 @@
    "Ticker": "AVK",
    "Identifier": "00764C109",
    "Weight": "1.29",
-   "Market Value": "8464959.9",
+   "Market Value": "8479492.02",
    "Shares Held": "726606",
-   "SEDOL": ""
-  },
-  {
-   "Name": "BlackRock Limited Duration Income Trust",
-   "Ticker": "BLW",
-   "Identifier": "09249W101",
-   "Weight": "1.29",
-   "Market Value": "8504519.85",
-   "Shares Held": "717681",
    "SEDOL": ""
   },
   {
@@ -414,8 +405,26 @@
    "Ticker": "NMAI",
    "Identifier": "670750108",
    "Weight": "1.29",
-   "Market Value": "8514412.15",
+   "Market Value": "8477526.61",
    "Shares Held": "614759",
+   "SEDOL": ""
+  },
+  {
+   "Name": "BlackRock Limited Duration Income Trust",
+   "Ticker": "BLW",
+   "Identifier": "09249W101",
+   "Weight": "1.28",
+   "Market Value": "8425574.94",
+   "Shares Held": "717681",
+   "SEDOL": ""
+  },
+  {
+   "Name": "abrdn Global Premier Properties Fund",
+   "Ticker": "AWP",
+   "Identifier": "00302L207",
+   "Weight": "1.25",
+   "Market Value": "8211227.49",
+   "Shares Held": "807397",
    "SEDOL": ""
   },
   {
@@ -423,7 +432,7 @@
    "Ticker": "BRW",
    "Identifier": "78518H202",
    "Weight": "1.25",
-   "Market Value": "8236571.1",
+   "Market Value": "8180729.94",
    "Shares Held": "1396029",
    "SEDOL": ""
   },
@@ -432,17 +441,8 @@
    "Ticker": "HIX",
    "Identifier": "95766J102",
    "Weight": "1.25",
-   "Market Value": "8246458.5",
+   "Market Value": "8222897.19",
    "Shares Held": "2356131",
-   "SEDOL": ""
-  },
-  {
-   "Name": "abrdn Global Premier Properties Fund",
-   "Ticker": "AWP",
-   "Identifier": "00302L207",
-   "Weight": "1.24",
-   "Market Value": "8187005.58",
-   "Shares Held": "807397",
    "SEDOL": ""
   },
   {
@@ -450,17 +450,8 @@
    "Ticker": "GHY",
    "Identifier": "69346J106",
    "Weight": "1.24",
-   "Market Value": "8184234.69",
+   "Market Value": "8124221.97",
    "Shares Held": "750159",
-   "SEDOL": ""
-  },
-  {
-   "Name": "BlackRock Floating Rate Income Trust",
-   "Ticker": "BGT",
-   "Identifier": "091941104",
-   "Weight": "1.23",
-   "Market Value": "8098330.68",
-   "Shares Held": "780186",
    "SEDOL": ""
   },
   {
@@ -468,16 +459,25 @@
    "Ticker": "VVR",
    "Identifier": "46131H107",
    "Weight": "1.23",
-   "Market Value": "8080117.76",
+   "Market Value": "8108369.92",
    "Shares Held": "2825216",
+   "SEDOL": ""
+  },
+  {
+   "Name": "BlackRock Floating Rate Income Trust",
+   "Ticker": "BGT",
+   "Identifier": "091941104",
+   "Weight": "1.22",
+   "Market Value": "8043717.66",
+   "Shares Held": "780186",
    "SEDOL": ""
   },
   {
    "Name": "RiverNorth Opportunities Fund Inc",
    "Ticker": "RIV",
    "Identifier": "76881Y109",
-   "Weight": "1.12",
-   "Market Value": "7339041",
+   "Weight": "1.11",
+   "Market Value": "7288920.72",
    "Shares Held": "716004",
    "SEDOL": ""
   },
@@ -486,7 +486,7 @@
    "Ticker": "SRV",
    "Identifier": "231631300",
    "Weight": "1.1",
-   "Market Value": "7215655.14",
+   "Market Value": "7204302.12",
    "Shares Held": "162186",
    "SEDOL": ""
   },
@@ -494,18 +494,9 @@
    "Name": "Calamos Long/Short Equity & Dynamic Income Trust",
    "Ticker": "CPZ",
    "Identifier": "12812C106",
-   "Weight": "0.99",
-   "Market Value": "6491411.04",
+   "Weight": "1",
+   "Market Value": "6563309.58",
    "Shares Held": "513561",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Bluerock Private Real Estate Fund",
-   "Ticker": "BPRE",
-   "Identifier": "09631P102",
-   "Weight": "0.9",
-   "Market Value": "5890996.56",
-   "Shares Held": "450382",
    "SEDOL": ""
   },
   {
@@ -513,16 +504,25 @@
    "Ticker": "HIO",
    "Identifier": "95766K109",
    "Weight": "0.9",
-   "Market Value": "5921996.16",
+   "Market Value": "5903886.08",
    "Shares Held": "1811008",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Bluerock Private Real Estate Fund",
+   "Ticker": "BPRE",
+   "Identifier": "09631P102",
+   "Weight": "0.89",
+   "Market Value": "5841454.54",
+   "Shares Held": "450382",
    "SEDOL": ""
   },
   {
    "Name": "Franklin Ltd Duration Income Trust",
    "Ticker": "FTF",
    "Identifier": "35472T101",
-   "Weight": "0.86",
-   "Market Value": "5675896.68",
+   "Weight": "0.87",
+   "Market Value": "5686466.32",
    "Shares Held": "1056964",
    "SEDOL": ""
   },
@@ -531,7 +531,7 @@
    "Ticker": "NPCT",
    "Identifier": "67080D103",
    "Weight": "0.77",
-   "Market Value": "5092535.4",
+   "Market Value": "5086914.5",
    "Shares Held": "562090",
    "SEDOL": ""
   },
@@ -549,7 +549,7 @@
    "Ticker": "DHY",
    "Identifier": "22544F202",
    "Weight": "0.68",
-   "Market Value": "4494590.52",
+   "Market Value": "4491822.92",
    "Shares Held": "276760.5",
    "SEDOL": ""
   },
@@ -566,9 +566,9 @@
    "Name": "Cash & Other",
    "Ticker": "CASH&OTHER",
    "Identifier": "Cash&Other",
-   "Weight": "0.11",
-   "Market Value": "703139.24",
-   "Shares Held": "703139.24",
+   "Weight": "0.21",
+   "Market Value": "1399758.09",
+   "Shares Held": "1399758.09",
    "SEDOL": ""
   }
  ]

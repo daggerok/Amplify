@@ -2,7 +2,7 @@
  "ticker": "LQDM",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 120,
+ "totalRows": 121,
  "headers": [
   "Date",
   "Close",
@@ -729,6 +729,12 @@
    "Close": "22.92",
    "Adj Close": "22.92",
    "Volume": "32000"
+  },
+  {
+   "Date": "Oct 12 2026",
+   "Close": "22.939899",
+   "Adj Close": "22.94",
+   "Volume": "2674"
   }
  ]
 }

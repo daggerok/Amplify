@@ -17,7 +17,7 @@
    "Name": "Invesco Government & Agency Portfolio 12/31/2031",
    "Ticker": "AGPXX",
    "Identifier": "825252885",
-   "Weight": "18.29",
+   "Weight": "18.98",
    "Market Value": "209286.58",
    "Shares Held": "209286.58",
    "SEDOL": ""
@@ -26,8 +26,8 @@
    "Name": "Filtronic PLC",
    "Ticker": "FTC LN",
    "Identifier": "0336299",
-   "Weight": "17.2",
-   "Market Value": "196791.71",
+   "Weight": "16.25",
+   "Market Value": "179144.55",
    "Shares Held": "46300",
    "SEDOL": ""
   },
@@ -35,8 +35,8 @@
    "Name": "Huber + Suhner AG",
    "Ticker": "HUBN SW",
    "Identifier": "7132832",
-   "Weight": "9.65",
-   "Market Value": "110416.97",
+   "Weight": "9.99",
+   "Market Value": "110135.97",
    "Shares Held": "520",
    "SEDOL": ""
   },
@@ -44,8 +44,8 @@
    "Name": "ASTROSCALE HOLDING NPV-SWAP-GOLD-L",
    "Ticker": "BSMRM19-TRS-08/20/29-L-GS",
    "Identifier": "BSMRM19-TRS-08/20/29-L-GS",
-   "Weight": "8.26",
-   "Market Value": "94448.55",
+   "Weight": "8.55",
+   "Market Value": "94216.38",
    "Shares Held": "12700",
    "SEDOL": ""
   },
@@ -53,8 +53,8 @@
    "Name": "Space Exploration Technologies Corp",
    "Ticker": "SPCX",
    "Identifier": "84615Q103",
-   "Weight": "8.03",
-   "Market Value": "91852.05",
+   "Weight": "8.38",
+   "Market Value": "92332.3",
    "Shares Held": "565",
    "SEDOL": ""
   },
@@ -62,8 +62,8 @@
    "Name": "Astronics Corp",
    "Ticker": "ATRO",
    "Identifier": "046433108",
-   "Weight": "7.77",
-   "Market Value": "88944.7",
+   "Weight": "7.95",
+   "Market Value": "87656.65",
    "Shares Held": "1385",
    "SEDOL": ""
   },
@@ -71,18 +71,9 @@
    "Name": "Spire Global Inc",
    "Ticker": "SPIR",
    "Identifier": "848560306",
-   "Weight": "5.57",
-   "Market Value": "63674",
-   "Shares Held": "6200",
-   "SEDOL": ""
-  },
-  {
-   "Name": "VIASAT, INC.-SWAP-NBCB-L",
-   "Ticker": "92552V100-TRS-11/30/29-L-NBC",
-   "Identifier": "92552V100-TRS-11/30/29-L-NBC",
    "Weight": "5.43",
-   "Market Value": "62144.63",
-   "Shares Held": "863",
+   "Market Value": "59892",
+   "Shares Held": "6200",
    "SEDOL": ""
   },
   {
@@ -90,16 +81,25 @@
    "Ticker": "75776W103-TRS-11/30/29-L-NBC",
    "Identifier": "75776W103-TRS-11/30/29-L-NBC",
    "Weight": "5.31",
-   "Market Value": "60794.68",
+   "Market Value": "58510.12",
    "Shares Held": "6346",
+   "SEDOL": ""
+  },
+  {
+   "Name": "VIASAT, INC.-SWAP-NBCB-L",
+   "Ticker": "92552V100-TRS-11/30/29-L-NBC",
+   "Identifier": "92552V100-TRS-11/30/29-L-NBC",
+   "Weight": "5.3",
+   "Market Value": "58390.58",
+   "Shares Held": "863",
    "SEDOL": ""
   },
   {
    "Name": "Astroscale Holdings Inc",
    "Ticker": "186A JP",
    "Identifier": "BSMRM19",
-   "Weight": "4.34",
-   "Market Value": "49678.45",
+   "Weight": "4.5",
+   "Market Value": "49556.33",
    "Shares Held": "6680",
    "SEDOL": ""
   },
@@ -107,8 +107,8 @@
    "Name": "MDA SPACE LTD.-SWAP-GOLD-L",
    "Ticker": "55293N109-TRS-08/20/29-L-GS",
    "Identifier": "55293N109-TRS-08/20/29-L-GS",
-   "Weight": "4.08",
-   "Market Value": "46644.55",
+   "Weight": "4.13",
+   "Market Value": "45484.65",
    "Shares Held": "1657",
    "SEDOL": ""
   },
@@ -116,8 +116,8 @@
    "Name": "Viasat Inc",
    "Ticker": "VSAT",
    "Identifier": "92552V100",
-   "Weight": "3.84",
-   "Market Value": "43926.1",
+   "Weight": "3.74",
+   "Market Value": "41272.6",
    "Shares Held": "610",
    "SEDOL": ""
   },
@@ -126,7 +126,7 @@
    "Ticker": "RKLB",
    "Identifier": "773121108",
    "Weight": "3.34",
-   "Market Value": "38197.6",
+   "Market Value": "36797.6",
    "Shares Held": "560",
    "SEDOL": ""
   },
@@ -134,8 +134,8 @@
    "Name": "MDA Space Ltd",
    "Ticker": "MDA",
    "Identifier": "55293N109",
-   "Weight": "3.16",
-   "Market Value": "36172.75",
+   "Weight": "3.2",
+   "Market Value": "35273.25",
    "Shares Held": "1285",
    "SEDOL": ""
   },
@@ -144,7 +144,7 @@
    "Ticker": "RDW",
    "Identifier": "75776W103",
    "Weight": "3.06",
-   "Market Value": "35062.8",
+   "Market Value": "33745.2",
    "Shares Held": "3660",
    "SEDOL": ""
   },
@@ -152,8 +152,8 @@
    "Name": "VIASAT, INC.-SWAP-MREX-L",
    "Ticker": "92552V100-TRS-08/19/29-L-MX",
    "Identifier": "92552V100-TRS-08/19/29-L-MX",
-   "Weight": "2.59",
-   "Market Value": "29668.12",
+   "Weight": "2.53",
+   "Market Value": "27875.92",
    "Shares Held": "412",
    "SEDOL": ""
   },
@@ -161,8 +161,8 @@
    "Name": "ROCKET LAB CORPORATION-SWAP-GOLD-L",
    "Ticker": "773121108-TRS-08/20/29-L-GS",
    "Identifier": "773121108-TRS-08/20/29-L-GS",
-   "Weight": "2.33",
-   "Market Value": "26601.9",
+   "Weight": "2.32",
+   "Market Value": "25626.9",
    "Shares Held": "390",
    "SEDOL": ""
   },
@@ -170,8 +170,8 @@
    "Name": "ROCKET LAB CORPORATION-SWAP-NBCB-L",
    "Ticker": "773121108-TRS-11/30/29-L-NBC",
    "Identifier": "773121108-TRS-11/30/29-L-NBC",
-   "Weight": "2.33",
-   "Market Value": "26601.9",
+   "Weight": "2.32",
+   "Market Value": "25626.9",
    "Shares Held": "390",
    "SEDOL": ""
   },
@@ -179,8 +179,8 @@
    "Name": "MDA SPACE LTD.-SWAP-NBCB-L",
    "Ticker": "55293N109-TRS-11/30/29-L-NBC",
    "Identifier": "55293N109-TRS-11/30/29-L-NBC",
-   "Weight": "1.74",
-   "Market Value": "19930.2",
+   "Weight": "1.76",
+   "Market Value": "19434.6",
    "Shares Held": "708",
    "SEDOL": ""
   },
@@ -189,7 +189,7 @@
    "Ticker": "75776W103-TRS-08/20/29-L-GS",
    "Identifier": "75776W103-TRS-08/20/29-L-GS",
    "Weight": "0.7",
-   "Market Value": "8008.88",
+   "Market Value": "7707.92",
    "Shares Held": "836",
    "SEDOL": ""
   },
@@ -198,7 +198,7 @@
    "Ticker": "75776W103-TRS-08/19/29-L-MX",
    "Identifier": "75776W103-TRS-08/19/29-L-MX",
    "Weight": "0.67",
-   "Market Value": "7644.84",
+   "Market Value": "7357.56",
    "Shares Held": "798",
    "SEDOL": ""
   },
@@ -206,8 +206,8 @@
    "Name": "VIASAT, INC.-SWAP-GOLD-L",
    "Ticker": "92552V100-TRS-08/20/29-L-GS",
    "Identifier": "92552V100-TRS-08/20/29-L-GS",
-   "Weight": "0.62",
-   "Market Value": "7056.98",
+   "Weight": "0.6",
+   "Market Value": "6630.68",
    "Shares Held": "98",
    "SEDOL": ""
   },
@@ -215,9 +215,9 @@
    "Name": "Cash & Other",
    "Ticker": "CASH&OTHER",
    "Identifier": "Cash&Other",
-   "Weight": "-18.31",
-   "Market Value": "-209495.69",
-   "Shares Held": "-209495.69",
+   "Weight": "-19.01",
+   "Market Value": "-209546.4",
+   "Shares Held": "-209546.4",
    "SEDOL": ""
   }
  ]

@@ -2,7 +2,7 @@
  "ticker": "BLOK",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2189,
+ "totalRows": 2190,
  "headers": [
   "Date",
   "Close",
@@ -1143,6 +1143,12 @@
    "Close": "59.560001",
    "Adj Close": "59.56",
    "Volume": "93300"
+  },
+  {
+   "Date": "Oct 12 2026",
+   "Close": "59.02",
+   "Adj Close": "59.02",
+   "Volume": "155000"
   }
  ]
 }
