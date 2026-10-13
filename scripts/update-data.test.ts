@@ -391,6 +391,21 @@ describe('metrics', () => {
     expect([performanceAsOfDate(null), performanceAsOfDate('—'), performanceAsOfDate('')]).toEqual([null, null, null]);
   });
 
+  test('the index write note is VERBOSE only: a rerun prints only fund lines between [ filter ] and [ done ]', async () => {
+    stubWorld(baseWorld());
+    const { dir } = await runLogged({});
+    try {
+      stubWorld(baseWorld());
+      const { lines } = await runLogged({}, dir);
+      const between = lines.slice(lines.findIndex(line => line.startsWith('[ filter   ]')) + 1, lines.findIndex(line => line.startsWith('[ done     ]')));
+      expect(between.length).toBeGreaterThan(0);
+      expect(between.filter(line => !/^\[\s*\d+\/\d+\s*\]/.test(line))).toEqual([]);
+      stubWorld(baseWorld());
+      const verbose = await runLogged({ VERBOSE: 'true' }, dir);
+      expect(verbose.lines).toContain('[ index    ] fetched data is unchanged; keeping api/amplify/index.json untouched');
+    } finally { rmSync(dir, { recursive: true, force: true }); }
+  });
+
   test('an official table that is absent now is not replaced by the old one under a new date; returns and performanceAsOf move together', async () => {
     const w = baseWorld();
     stubWorld(w);

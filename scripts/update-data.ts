@@ -1,12 +1,16 @@
 #!/usr/bin/env bun
 /// <reference types="bun" />
 /// <reference types="node" />
+import { readFile as outputReadFile, readdir as outputReadDir } from 'node:fs/promises';
+import { createHash as outputCreateHash } from 'node:crypto';
+import { join as outputJoin } from 'node:path';
+import { fileURLToPath as outputFileURLToPath } from 'node:url';
 // Console presentation; no changes to provider requests or persisted data.
 /** Presentation only: no requests, writes, filtering, or changes to updater state. */
 
 const outputClean = (value: unknown): string => String(value ?? 'null').replace(/[\r\n\t]+/g, ' ');
 /** Presentation only: per-fund retry and fallback notices are printed when VERBOSE is enabled. */
-const outputVerbose = (): boolean => /^(1|true|yes|y|on)$/i.test((globalThis as any).process?.env?.VERBOSE ?? '');
+const outputVerbose = (): boolean => /^(1|true|yes|on)$/i.test((globalThis as any).process?.env?.VERBOSE ?? '');
 function outputNote(message: string): void { if (outputVerbose()) console.warn(message); }
 /** Names are the canonical environment knobs, not internal parser properties. */
 function outputConfigEntries(config: Record<string, any>): [string, string][] {
@@ -17,10 +21,12 @@ function outputConfigEntries(config: Record<string, any>): [string, string][] {
     performanceRanges: 'PERFORMANCE', totalReturnRanges: 'TOTAL_RETURN',
     skipVanEck: 'SKIP_VANECK', skipProShares: 'SKIP_PROSHARES',
     skipWisdomTree: 'SKIP_WISDOMTREE', skipGoldmanSachs: 'SKIP_GOLDMANSACHS',
+    skipGlobalX: 'SKIP_GLOBALX', skipNorthernTrust: 'SKIP_NORTHERNTRUST',
   };
-  const range = (v: any): string => v?.source ?? `${Number.isFinite(v?.min) ? v.min : ''}:${Number.isFinite(v?.max) ? v.max : ''}`;
+  const range = (v: any): string => typeof v === 'string' ? v : v?.source ?? `${Number.isFinite(v?.min) ? v.min : ''}:${Number.isFinite(v?.max) ? v.max : ''}`;
   for (const [key, value] of Object.entries(config)) {
-    const name = aliases[key] ?? key.replace(/([a-z0-9])([A-Z])/g, '$1_$2').toUpperCase();
+    if (['proxyGapMs', 'fetchTimeoutMs', 'retryDelayMs'].includes(key)) continue;
+    const name = aliases[key] ?? (/^[A-Z0-9_]+$/.test(key) ? key : key.replace(/([a-z0-9])([A-Z])/g, '$1_$2').toUpperCase());
     if (name === 'PERFORMANCE' || name === 'TOTAL_RETURN') {
       for (const period of ['YTD', '1Y', '3Y', '5Y', '10Y']) values.set(`${name}_${period}`, range(value?.[period]));
     } else if (['AUM', 'TER', 'DIVIDEND_YIELD', 'SEC_YIELD'].includes(name)) {
@@ -35,13 +41,18 @@ function outputConfigEntries(config: Record<string, any>): [string, string][] {
     return (ai < 0 ? first.length : ai) - (bi < 0 ? first.length : bi) || a.localeCompare(b);
   });
 }
+function outputConfigValue(key: string, value: string): string {
+  if (/TOKEN|PASSWORD|SECRET|COOKIE|SEC_UA/i.test(key)) return '<redacted>';
+  if (key === 'TICKERS' && ['', 'null', 'undefined'].includes(value)) return 'all';
+  return outputClean(value);
+}
 function outputPrintConfig(brand: string, config: Record<string, any>): void {
   const entries: [string, string][] = [...outputConfigEntries(config), ['VERBOSE', String(outputVerbose())]];
-  console.log(`[ config   ] ${brand} updater:\n${entries.map(([key, value]) => `              ${key}=${/TOKEN|PASSWORD|SECRET|COOKIE|^SEC_UA$/i.test(key) ? '<redacted>' : outputClean(value)}`).join('\n')}`);
+  console.log(`[ config   ] ${brand} updater:\n${entries.map(([key, value]) => `              ${key}=${outputConfigValue(key, value)}`).join('\n')}`);
 }
 function outputHasOutputFilters(config: Record<string, any>): boolean {
   return outputConfigEntries(config).some(([name, value]) =>
-    /^(TICKERS|CATEGORY|AUM|TER|DIVIDEND_YIELD|SEC_YIELD|PERFORMANCE_|TOTAL_RETURN_)/.test(name) &&
+    /^(CATEGORY|AUM|TER|DIVIDEND_YIELD|SEC_YIELD|PERFORMANCE_|TOTAL_RETURN_)/.test(name) &&
     !['', ':', 'null', 'all'].includes(value));
 }
 function outputPrintFilter(selected: number, total: number, deferred = false): void {
@@ -53,20 +64,49 @@ function outputStable(value: any): any {
   return value;
 }
 function outputContentKey(value: unknown): string { return JSON.stringify(outputStable(value)) ?? 'null'; }
+async function outputInspectFund(root: URL | string, ticker: string): Promise<{ digest: string; meta: any }> {
+  const dir = outputJoin(root instanceof URL ? outputFileURLToPath(root) : root, 'funds', ticker);
+  const hash = outputCreateHash('sha256');
+  async function visit(path: string): Promise<void> {
+    const entries = await outputReadDir(path, { withFileTypes: true }).catch(() => []);
+    for (const entry of entries.sort((a, b) => a.name.localeCompare(b.name))) {
+      if (entry.isDirectory()) await visit(outputJoin(path, entry.name));
+      else if (entry.name.endsWith('.json')) {
+        const text = await outputReadFile(outputJoin(path, entry.name), 'utf8').catch(() => '');
+        hash.update(outputJoin(path.slice(dir.length), entry.name));
+        try { hash.update(outputContentKey(JSON.parse(text))); } catch { hash.update(text); }
+      }
+    }
+  }
+  await visit(dir);
+  const meta = await outputReadFile(outputJoin(dir, 'meta.json'), 'utf8').then(JSON.parse).catch(() => ({}));
+  return { digest: hash.digest('hex'), meta };
+}
 const outputCount = (value: any): unknown => typeof value === 'number' ? value : Array.isArray(value) ? value.length : value?.totalRows ?? value?.rows?.length ?? null;
 const outputScalar = (value: any): any => value && typeof value === 'object' ? value.display ?? value.value ?? null : value;
+const outputUnits: Record<string, number> = { K: 1e3, M: 1e6, B: 1e9, T: 1e12, THOUSAND: 1e3, MILLION: 1e6, BILLION: 1e9, TRILLION: 1e12 };
 function outputMoney(value: any): string {
-  const raw = outputScalar(value);
+  const raw = value && typeof value === 'object' && typeof value.value === 'number' && Number.isFinite(value.value) ? value.value : outputScalar(value);
   if (raw === null || raw === undefined || raw === '—' || raw === '--') return 'null';
   const text = String(raw).replace(/[$,\s]/g, '');
-  const match = text.match(/^([+-]?[\d.]+)([KMBT])?$/i);
+  const match = text.match(/^([+-]?[\d.]+)(K|M|B|T|Thousand|Million|Billion|Trillion)?$/i);
   if (!match) return outputClean(raw);
-  const number = Number(match[1]) * ({ K: 1e3, M: 1e6, B: 1e9, T: 1e12 }[match[2]?.toUpperCase() as 'K' | 'M' | 'B' | 'T'] ?? 1);
+  const number = Number(match[1]) * (outputUnits[match[2]?.toUpperCase() ?? ''] ?? 1);
   if (!Number.isFinite(number)) return 'null';
   for (const [unit, scale] of [['T', 1e12], ['B', 1e9], ['M', 1e6], ['K', 1e3]] as const) {
     if (Math.abs(number) >= scale) return `$${(number / scale).toFixed(1)}${unit}`;
   }
   return `$${number.toFixed(2)}`;
+}
+/** Yields: rounded to 2 decimals without trailing zeros; placeholders are omitted like null. */
+function outputPercent(value: any): unknown {
+  const raw = outputScalar(value);
+  if (raw === null || raw === undefined) return null;
+  if (typeof raw === 'number') return Number.isFinite(raw) ? Number(raw.toFixed(2)) : null;
+  const text = String(raw).trim().replace(/%$/, '').trim();
+  if (['', '-', '—', '--', 'n/a'].includes(text.toLowerCase())) return null;
+  const number = Number(text.replace(/,/g, ''));
+  return Number.isFinite(number) ? Number(number.toFixed(2)) : outputClean(raw);
 }
 function outputFundLine(index: number, total: number, ticker: string, status: string, data: any = {}, reason?: unknown): string {
   const width = Math.max(2, String(total).length);
@@ -87,11 +127,34 @@ function outputFundLine(index: number, total: number, ticker: string, status: st
     field('divs', outputCount(data.worksheets?.Distributions ?? data.distributions)),
     field('netAssets', outputMoney(data.netAssets ?? data.aum)),
     field('total', outputMoney(data.totalFundNetAssets ?? data.totalNetAssets)),
-    field('div', outputScalar(data.trailingYield ?? data.yields?.effectiveYield ?? data.yields?.dividendYield ?? data.dividendYield ?? metrics.dividendYield)),
-    field('sec', outputScalar(data.secYield ?? data.yields?.secYield ?? metrics.secYield)),
+    field('div', outputPercent(data.trailingYield ?? data.yields?.effectiveYield ?? data.yields?.dividendYield ?? data.dividendYield ?? metrics.dividendYield)),
+    field('sec', outputPercent(data.secYield ?? data.yields?.secYield ?? metrics.secYield)),
     field('wp', data.workplaceRaw),
   ].filter(part => part !== '').join(' ');
   return `[ ${String(index).padStart(width)}/${String(total).padEnd(width)}  ] ${outputClean(ticker).padEnd(5)} ${status.padEnd(9)}${detail ? ` ${detail}` : ''}${reason ? ` reason=${outputClean(reason)}` : ''}`;
+}
+function outputCreateReporter(root: URL | string, total: number) {
+  let completed = 0;
+  const tally = new Map<string, number>();
+  return {
+    before: (ticker: string) => outputInspectFund(root, ticker),
+    async result(ticker: string, before: { digest: string }, status?: string, reason?: unknown, extra: any = {}) {
+      const after = await outputInspectFund(root, ticker);
+      const final = status ?? (before.digest === after.digest ? 'unchanged' : 'updated');
+      tally.set(final, (tally.get(final) ?? 0) + 1);
+      console.log(outputFundLine(++completed, total, ticker, final, { ...after.meta, ...extra }, reason));
+    },
+    /** First [ done ] line: the statuses of every fund line this reporter printed. */
+    summary(startedAt: number): string {
+      const order = ['updated', 'unchanged', 'kept', 'skipped', 'failed'];
+      const statuses = [...order, ...[...tally.keys()].filter(status => !order.includes(status))];
+      return `[ done     ] ${completed} fund${completed === 1 ? '' : 's'}: ${statuses.map(status => `${tally.get(status) ?? 0} ${status}`).join(', ')} in ${((Date.now() - startedAt) / 1000).toFixed(1)}s`;
+    },
+  };
+}
+/** Second [ done ] line: published totals. */
+function outputCounts(funds: number, holdings: number, history: number): string {
+  return `[ done     ] counts: ${funds.toLocaleString('en-US')} funds / ${holdings.toLocaleString('en-US')} holdings rows / ${history.toLocaleString('en-US')} history rows`;
 }
 
 
@@ -1469,7 +1532,7 @@ const submissionsCache=new Map<string,Promise<JsonRecord>>();
 export function resetSecCaches():void { fundTickerPromise=null; companyTickerPromise=null; submissionsCache.clear(); }
 async function loadFundTickerMap(config:UpdaterConfig):Promise<Map<string,SecSeriesRef>> {
   return fundTickerPromise??=fetchJson(SEC_FUND_TICKERS_URL,'[ edgar    ] ticker table',secHeaders(config),config).then(parseFundTickerMap).catch(e=>{
-    console.warn(`[ edgar    ] ticker table unavailable: ${errorMessage(e)} - retaining published data when needed`);return new Map();
+    outputNote(`[ edgar    ] ticker table unavailable: ${errorMessage(e)} - retaining published data when needed`);return new Map();
   });
 }
 async function loadCompanyTickerMap(config:UpdaterConfig):Promise<Map<string,string>> {
@@ -1985,11 +2048,14 @@ export async function processFund(fund: CatalogFund, config: UpdaterConfig, prev
 type RawCatalog = { all: Set<string>; active: CatalogFund[] };
 async function loadCatalog(): Promise<RawCatalog> {
   const docs = await fetchFirestoreListAll(['fund_category'], 200);
+  // Non-US listings (Samsung partner funds on HKEX and KRX, flagged isInternational, without an amplifyetfs.com fund
+  // page or US market data) are not Amplify US ETFs: they stay out of the catalog, so a full run drops their old rows.
   const parsed = docs.map(doc => ({
     ticker: sanitizeTicker(doc.fields.ticker || doc.id),
     category: doc.fields.category || 'Unknown',
     active: doc.fields.isActive !== false,
-  })).filter(fund => fund.ticker);
+    international: doc.fields.isInternational === true,
+  })).filter(fund => fund.ticker && !fund.international);
   return {
     // Every ticker the provider still lists, active or not: only tickers absent from this set may ever be purged.
     all: new Set(parsed.map(fund => fund.ticker)),
@@ -2034,7 +2100,8 @@ export async function withDividendYieldBasis(row: JsonRecord): Promise<JsonRecor
 export async function runUpdate(env: Record<string, string | undefined> = process.env): Promise<void> {
   const startedAt = Date.now();
   const controls = await runtimeControls(env);
-  if (controls.VERBOSE !== undefined) process.env.VERBOSE = controls.VERBOSE;
+  // Normalized so the shared outputVerbose (1/true/yes/on) agrees with this repo's wider boolean syntax (y, n, off).
+  if (controls.VERBOSE !== undefined) process.env.VERBOSE = String(parseBooleanControl(controls.VERBOSE.trim(), 'VERBOSE', false));
   installSystemCa((controls.USE_SYSTEM_CA ?? 'auto').toLowerCase());
   const config = readConfig(controls);
   outputPrintConfig('Amplify', config);
@@ -2044,6 +2111,7 @@ export async function runUpdate(env: Record<string, string | undefined> = proces
   const oldFunds = new Map<string, JsonRecord>((previous?.funds ?? []).map((fund: JsonRecord) => [fund.ticker, fund]));
   const { all: rawTickers, active: activeCatalog } = await loadCatalog();
   if (!activeCatalog.length) throw new Error('Firestore returned no active funds; refusing an empty feed');
+  console.log(`[ catalog  ] ${activeCatalog.length} Amplify ETFs (Firestore fund_category)`);
   const stateFile = new URL(STATE_NAME, apiRoot);
   const state = await readJson(stateFile);
   const order = selectCatalog(activeCatalog, config, state?.cursor ?? null);
@@ -2055,7 +2123,8 @@ export async function runUpdate(env: Record<string, string | undefined> = proces
   const total = limit && !outputHasOutputFilters({ ...config, maxFetches: 0 }) ? Math.min(limit, order.length) : order.length;
   const result = new Map(oldFunds);
   const deadlineAt = startedAt + runDeadlineMs;
-  let completed = 0, processed = 0, skipped = 0, kept = 0, failures = 0, examined = 0, truncated = false, position = 0;
+  const output = outputCreateReporter(apiRoot, total);
+  let processed = 0, skipped = 0, kept = 0, failures = 0, examined = 0, truncated = false, position = 0;
   let lastExamined: CatalogFund | null = null;
   // A bounded batch counts funds that pass the filters: keep taking funds in cursor order until MAX_FETCHES of them were updated.
   while (position < order.length && !truncated && (!limit || processed < limit)) {
@@ -2064,16 +2133,16 @@ export async function runUpdate(env: Record<string, string | undefined> = proces
     let done = 0;
     await runFundPool(chunk, config.concurrency, async fund => {
       if (Date.now() > deadlineAt) { truncated = true; return; }
-      const index = ++completed;
+      const before = await output.before(fund.ticker);
       try {
         const outcome = await processFund(fund, config, oldFunds.get(fund.ticker) ?? {});
         if (outcome.kept) kept++;
         else if (outcome.row) { result.set(fund.ticker, outcome.row); processed++; } else skipped++;
-        console.log(outputFundLine(index, total, fund.ticker, outcome.kept ? 'kept' : outcome.row ? (outcome.changed ? 'updated' : 'unchanged') : 'skipped', outcome.detail,
-          [outcome.reason, ...(outcome.warnings.length ? [`partial refresh: ${outcome.warnings.join('; ')}`] : [])].filter(Boolean).join('; ') || undefined));
+        await output.result(fund.ticker, before, outcome.kept ? 'kept' : outcome.row ? (outcome.changed ? 'updated' : 'unchanged') : 'skipped',
+          [outcome.reason, ...(outcome.warnings.length ? [`partial refresh: ${outcome.warnings.join('; ')}`] : [])].filter(Boolean).join('; ') || undefined, outcome.detail);
       } catch (error) {
         failures++;
-        console.log(outputFundLine(index, total, fund.ticker, 'failed', {}, errorMessage(error)));
+        await output.result(fund.ticker, before, 'failed', errorMessage(error));
       }
       done++;
     });
@@ -2117,9 +2186,10 @@ export async function runUpdate(env: Record<string, string | undefined> = proces
     if (limit) { if (lastExamined) await writeIfChanged(stateFile, { cursor: lastExamined.ticker }); }
     else await rm(stateFile, { force: true });
   }
-  console.log(indexWritten ? `Wrote ${indexFile().pathname}` : 'Fetched data is unchanged; keeping api/amplify/index.json untouched.');
-  console.log(`[ done     ] ${processed} funds processed, ${skipped} skipped, ${kept} kept as published, ${failures} failures`);
-  console.log(`[ done     ] counts: ${counts.funds} funds / ${counts.holdings} holdings rows / ${counts.history} history rows`);
+  // VERBOSE only: nothing but fund lines may appear between [ filter ] and [ done ]
+  outputNote(indexWritten ? `[ index    ] wrote ${indexFile().pathname}` : '[ index    ] fetched data is unchanged; keeping api/amplify/index.json untouched');
+  console.log(output.summary(startedAt));
+  console.log(outputCounts(counts.funds, counts.holdings, counts.history));
   if (env.GITHUB_STEP_SUMMARY) {
     await appendFile(env.GITHUB_STEP_SUMMARY,
       `### Amplify update\n\n${processed} processed; ${skipped} skipped; ${kept} kept as published; ${failures} failed.\n${counts.funds} funds / ${counts.holdings} holdings / ${counts.history} history rows.\n` +
