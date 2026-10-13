@@ -7,7 +7,7 @@ import { pathToFileURL } from 'node:url';
 
 import {
   CONTROL_NAMES, HOLDINGS_HEADERS, buildMetrics, chartUrl, dividendYieldBasisFor, dividendYieldBasisFromKind, withDividendYieldBasis, decodeDocument, epochToIsoDate, fetchJson, fundFilterReasons,
-  holdingsRowFromFirestore, inferDistributionFrequency, installSystemCa, isCertError, mergeDividends, mergeHistory, officialReturns,
+  ADJ_CLOSE_NOISE, holdingsRowFromFirestore, inferDistributionFrequency, installSystemCa, isCertError, mergeDividends, mergeHistory, officialReturns,
   parseAumRange, parseChart, parseHistoryRange, parseNport, parsePercent, performanceAsOfDate, priceReturns, readConfig, resetSecCaches, resolveControls,
   resolveNportFiling, runFundPool, runUpdate, runtimeControls, selectCatalog, setApiRoot, setHttpSettings,
   dropCap, fetchText, isNotFound, setClock, setFetchTimeoutMs, setRunDeadlineMs, setSecInterval, trailingYield,
@@ -350,13 +350,18 @@ describe('parsing', () => {
       indicators: { quote: [{ close: [10, null, 10.5], volume: [100, 0, 300] }], adjclose: [{ adjclose: [9.9, null, 10.4] }] },
       events: { dividends: { a: { date: 1790640000, amount: 0.2 }, b: { date: 1790726400, amount: 0 } } } }] } };
     const chart = parseChart(payload);
-    expect(chart.days).toEqual([{ date: '2026-09-28', close: 10, adjClose: 9.9, volume: 100 }, { date: '2026-09-30', close: 10.5, adjClose: 10.4, volume: 300 }]);
+    expect(chart.days).toEqual([{ date: '2026-09-28', close: 10, adjClose: 9.9, volume: 100, adjCloseRaw: 9.9 }, { date: '2026-09-30', close: 10.5, adjClose: 10.4, volume: 300, adjCloseRaw: 10.4 }]);
     expect(chart.dividends).toEqual([{ epoch: 1790640000, amount: 0.2 }]);
     expect(() => parseChart({ chart: { result: null } })).toThrow();
     const previous = [{ Date: 'Sep 28 2026', Close: '10', 'Adj Close': '9.89', Volume: '100' }, { Date: 'Sep 01 2026', Close: '9', 'Adj Close': '8.9', Volume: '5' }];
     const merged = mergeHistory(previous, chart.days);
     expect(merged.map(r => r.Date)).toEqual(['Sep 01 2026', 'Sep 28 2026', 'Sep 30 2026']);
-    expect(merged[1]['Adj Close']).toBe('9.89'); // sub-two-cent Yahoo jitter keeps the published cent
+    expect(merged[1]['Adj Close']).toBe('9.9'); // a whole cent away from the published 9.89 is a real change, not float noise
+    const noisy = (adjCloseRaw: number) => [{ date: '2024-11-12', close: 33.928001, adjClose: Math.round(adjCloseRaw * 100) / 100, volume: 4000, adjCloseRaw }];
+    const published = [{ Date: 'Nov 12 2024', Close: '33.928001', 'Adj Close': '31.54', Volume: '3900' }];
+    expect(mergeHistory(published, noisy(31.545001))[0]).toEqual({ ...published[0], Volume: '4000' }); // float noise on a cent boundary keeps the published cent
+    expect(mergeHistory(published, noisy(31.5452))[0]['Adj Close']).toBe('31.55');
+    expect(ADJ_CLOSE_NOISE).toBe(1e-4);
     expect(mergeHistory([{ Date: 'Sep 28 2026', Close: '10', 'Adj Close': '9', Volume: '1' }], chart.days)[0]['Adj Close']).toBe('9.9');
     expect(mergeDividends({ distributions: { rows: [['09/30/2026', '0.1'], ['08/31/2026', '0.3']] } }, chart, [{ epoch: 1790640000, amount: 0.25 }]))
       .toEqual([{ epoch: Date.parse('2026-08-31') / 1000, amount: 0.3 }, { epoch: 1790640000, amount: 0.25 }, { epoch: Date.parse('2026-09-30') / 1000, amount: 0.1 }]);
@@ -741,6 +746,37 @@ describe('pipeline', () => {
       const late = await runLogged({}, dir);
       expect(late.code).toBe(0);
       expect(snapshot(dir)).toEqual(snap);
+    } finally { rmSync(dir, { recursive: true, force: true }); }
+  });
+
+  test('two runs on the same source data write zero changes even when Yahoo adjusted closes jitter across a cent boundary', async () => {
+    // Yahoo float32 noise seen live: AAM SPDV 2024-11-12 came back as 31.544998 and 31.545001 a minute apart
+    const jittered = (tail: number[]) => {
+      stubWorld(baseWorld());
+      const world = globalThis.fetch;
+      globalThis.fetch = (async (input: any, init?: any) => {
+        const response = await world(input, init);
+        if (!String(input).includes('query1.finance.yahoo.com')) return response;
+        const payload = await response.json();
+        const close: number[] = payload.chart.result[0].indicators.quote[0].close;
+        payload.chart.result[0].indicators.adjclose = [{ adjclose: close.map((value, i) => (i >= close.length - tail.length ? tail[i - close.length + tail.length] : value)) }];
+        return json(200, payload);
+      }) as any;
+    };
+    jittered([23.915001, 24.984999, 25.995001]);
+    const { dir } = await runLogged({ TICKERS: 'AAA' });
+    try {
+      const first = snapshot(dir);
+      jittered([23.914998, 24.985002, 25.994999]);
+      await runLogged({ TICKERS: 'AAA' }, dir);
+      expect(snapshot(dir)).toEqual(first);
+      // a real change beyond the noise is still written
+      jittered([23.9, 24.97, 25.98]);
+      await runLogged({ TICKERS: 'AAA' }, dir);
+      expect(snapshot(dir)).not.toEqual(first);
+      const pages = readMeta(dir, 'AAA').history.pages as string[];
+      const rows = pages.flatMap(page => JSON.parse(readFileSync(join(dir, 'funds/AAA', page), 'utf8')).rows);
+      expect(rows.slice(-3).map((row: any) => row['Adj Close'])).toEqual(['23.9', '24.97', '25.98']);
     } finally { rmSync(dir, { recursive: true, force: true }); }
   });
 

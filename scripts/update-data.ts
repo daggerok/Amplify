@@ -1345,7 +1345,8 @@ export function pickEftsCik(payload: JsonRecord, fundName: string): string | nul
   return null;
 }
 
-export type ChartDay = { date: string; close: number; adjClose: number; volume: number };
+// adjCloseRaw: Yahoo's unrounded value, only used to tell float noise from a real change (never persisted).
+export type ChartDay = { date: string; close: number; adjClose: number; volume: number; adjCloseRaw?: number };
 
 export type ParsedChart = {
   exchangeName: string;
@@ -1383,6 +1384,7 @@ export function parseChart(payload: JsonRecord): ParsedChart {
       // meaningful precision for a price and absorbs that jitter.
       adjClose: round(adjClose, 2),
       volume: typeof volumes[i] === 'number' ? (volumes[i] as number) : 0,
+      adjCloseRaw: adjClose,
     });
   }
   const events = ((result.events || {}) as JsonRecord).dividends as Record<string, JsonRecord> | undefined;
@@ -1683,6 +1685,10 @@ function distributionRows(dividends: Dividend[]): string[][] {
 
 type Dividend = { epoch: number; amount: number };
 
+// Yahoo's adjusted close is float32 and its last digits move with the request's period2, so a value
+// sitting on a cent boundary (31.544998 vs 31.545001) flips between runs. Within that noise the
+// published cent is kept: a rerun with the same source data changes nothing.
+export const ADJ_CLOSE_NOISE = 1e-4;
 export function mergeHistory(previous: JsonRecord[], fresh: ChartDay[]): JsonRecord[] {
   const byDate = new Map<string, JsonRecord>();
   // Dates are text ("Jun 30 2026"): read them as calendar dates, never through the local-time Date parser.
@@ -1690,15 +1696,11 @@ export function mergeHistory(previous: JsonRecord[], fresh: ChartDay[]): JsonRec
     const key = performanceAsOfDate(row.Date);
     if (key) byDate.set(key, row);
   }
-  for (const row of historyRows(fresh)) {
-    const key = performanceAsOfDate(row.Date)!, published = byDate.get(key);
-    // Yahoo recomputes adjusted closes on every request. A value that sits on a .xx5 rounding
-    // boundary flips the published cent back and forth between otherwise identical requests,
-    // and the feed would churn on every run. A published row therefore keeps its cent while
-    // the fresh value moves by less than two cents; a genuine restatement or dividend
-    // adjustment is larger and replaces the row normally.
-    const freshAdj = numberOrNull(row['Adj Close']), publishedAdj = published ? numberOrNull(published['Adj Close']) : null;
-    if (freshAdj !== null && publishedAdj !== null && Math.abs(freshAdj - publishedAdj) < 0.02) row['Adj Close'] = published!['Adj Close'];
+  for (const day of fresh) {
+    const [row] = historyRows([day]), key = performanceAsOfDate(row.Date)!, published = byDate.get(key);
+    // Close and Volume update as usual; a real adjusted-close change beyond the noise is written.
+    const publishedAdj = published ? numberOrNull(published['Adj Close']) : null, raw = day.adjCloseRaw ?? day.adjClose;
+    if (publishedAdj !== null && row['Adj Close'] !== published!['Adj Close'] && Math.abs(raw - publishedAdj) <= 0.005 + ADJ_CLOSE_NOISE) row['Adj Close'] = published!['Adj Close'];
     byDate.set(key, row);
   }
   return [...byDate].sort(([a], [b]) => a.localeCompare(b)).map(([, row]) => row);
