@@ -2,7 +2,7 @@
  "ticker": "ISWN",
  "page": 2,
  "pageSize": 1000,
- "totalRows": 1435,
+ "totalRows": 1439,
  "headers": [
   "Date",
   "Close",
@@ -2619,6 +2619,30 @@
    "Close": "20.782",
    "Adj Close": "20.78",
    "Volume": "1800"
+  },
+  {
+   "Date": "Oct 13 2026",
+   "Close": "20.872",
+   "Adj Close": "20.87",
+   "Volume": "200"
+  },
+  {
+   "Date": "Oct 14 2026",
+   "Close": "20.791",
+   "Adj Close": "20.79",
+   "Volume": "600"
+  },
+  {
+   "Date": "Oct 15 2026",
+   "Close": "21.028999",
+   "Adj Close": "21.03",
+   "Volume": "900"
+  },
+  {
+   "Date": "Oct 16 2026",
+   "Close": "21.035999",
+   "Adj Close": "21.04",
+   "Volume": "2000"
   }
  ]
 }

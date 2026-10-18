@@ -2,7 +2,7 @@
  "ticker": "IDVO",
  "page": 2,
  "pageSize": 1000,
- "totalRows": 1027,
+ "totalRows": 1031,
  "headers": [
   "Date",
   "Close",
@@ -171,6 +171,30 @@
    "Close": "41.57",
    "Adj Close": "41.57",
    "Volume": "146800"
+  },
+  {
+   "Date": "Oct 13 2026",
+   "Close": "41.619999",
+   "Adj Close": "41.62",
+   "Volume": "172600"
+  },
+  {
+   "Date": "Oct 14 2026",
+   "Close": "40.959999",
+   "Adj Close": "40.96",
+   "Volume": "205100"
+  },
+  {
+   "Date": "Oct 15 2026",
+   "Close": "41.040001",
+   "Adj Close": "41.04",
+   "Volume": "220200"
+  },
+  {
+   "Date": "Oct 16 2026",
+   "Close": "41.040001",
+   "Adj Close": "41.04",
+   "Volume": "186800"
   }
  ]
 }

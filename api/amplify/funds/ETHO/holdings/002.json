@@ -14,56 +14,11 @@
  ],
  "rows": [
   {
-   "Name": "Clearway Energy Inc",
-   "Ticker": "CWEN",
-   "Identifier": "18539C204",
-   "Weight": "0.23",
-   "Market Value": "446767.88",
-   "Shares Held": "14677",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Globant SA",
-   "Ticker": "GLOB",
-   "Identifier": "L44385109",
-   "Weight": "0.23",
-   "Market Value": "452205.59",
-   "Shares Held": "12413",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Invesco Government & Agency Portfolio 12/31/2031",
-   "Ticker": "AGPXX",
-   "Identifier": "825252885",
-   "Weight": "0.23",
-   "Market Value": "435979.86",
-   "Shares Held": "435979.86",
-   "SEDOL": ""
-  },
-  {
-   "Name": "LeMaitre Vascular Inc",
-   "Ticker": "LMAT",
-   "Identifier": "525558201",
-   "Weight": "0.23",
-   "Market Value": "443900.14",
-   "Shares Held": "5354",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Mueller Water Products Inc",
-   "Ticker": "MWA",
-   "Identifier": "624758108",
-   "Weight": "0.23",
-   "Market Value": "448925.49",
-   "Shares Held": "20527",
-   "SEDOL": ""
-  },
-  {
    "Name": "New York Times Co/The",
    "Ticker": "NYT",
    "Identifier": "650111107",
-   "Weight": "0.23",
-   "Market Value": "438969.44",
+   "Weight": "0.24",
+   "Market Value": "450262.54",
    "Shares Held": "6643",
    "SEDOL": ""
   },
@@ -71,36 +26,117 @@
    "Name": "Newmark Group Inc",
    "Ticker": "NMRK",
    "Identifier": "65158N102",
-   "Weight": "0.23",
-   "Market Value": "444206.38",
+   "Weight": "0.24",
+   "Market Value": "448746.82",
    "Shares Held": "37837",
    "SEDOL": ""
   },
   {
-   "Name": "NPK International Inc",
-   "Ticker": "NPKI",
-   "Identifier": "651718504",
-   "Weight": "0.23",
-   "Market Value": "441482.08",
-   "Shares Held": "39208",
+   "Name": "Ormat Technologies Inc",
+   "Ticker": "ORA",
+   "Identifier": "686688102",
+   "Weight": "0.24",
+   "Market Value": "453962.73",
+   "Shares Held": "5083",
    "SEDOL": ""
   },
   {
-   "Name": "Pool Corp",
-   "Ticker": "POOL",
-   "Identifier": "73278L105",
+   "Name": "Pathward Financial Inc",
+   "Ticker": "CASH",
+   "Identifier": "59100U108",
+   "Weight": "0.24",
+   "Market Value": "462303.27",
+   "Shares Held": "6339",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Pegasystems Inc",
+   "Ticker": "PEGA",
+   "Identifier": "705573103",
+   "Weight": "0.24",
+   "Market Value": "451403.26",
+   "Shares Held": "13069",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Simply Good Foods Co/The",
+   "Ticker": "SMPL",
+   "Identifier": "82900L102",
+   "Weight": "0.24",
+   "Market Value": "450531.78",
+   "Shares Held": "40262",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Upwork Inc",
+   "Ticker": "UPWK",
+   "Identifier": "91688F104",
+   "Weight": "0.24",
+   "Market Value": "448914.36",
+   "Shares Held": "53252",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Clearway Energy Inc",
+   "Ticker": "CWEN",
+   "Identifier": "18539C204",
    "Weight": "0.23",
-   "Market Value": "446927.36",
-   "Shares Held": "2816",
+   "Market Value": "439282.61",
+   "Shares Held": "14677",
    "SEDOL": ""
   },
   {
    "Name": "Fair Isaac Corp",
    "Ticker": "FICO",
    "Identifier": "303250104",
-   "Weight": "0.22",
-   "Market Value": "421800",
+   "Weight": "0.23",
+   "Market Value": "439578.3",
    "Shares Held": "570",
+   "SEDOL": ""
+  },
+  {
+   "Name": "LeMaitre Vascular Inc",
+   "Ticker": "LMAT",
+   "Identifier": "525558201",
+   "Weight": "0.23",
+   "Market Value": "432710.28",
+   "Shares Held": "5354",
+   "SEDOL": ""
+  },
+  {
+   "Name": "LightPath Technologies Inc",
+   "Ticker": "LPTH",
+   "Identifier": "532257805",
+   "Weight": "0.23",
+   "Market Value": "431740.58",
+   "Shares Held": "56363",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Winnebago Industries Inc",
+   "Ticker": "WGO",
+   "Identifier": "974637100",
+   "Weight": "0.23",
+   "Market Value": "437664",
+   "Shares Held": "18236",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Zillow Group Inc",
+   "Ticker": "ZG",
+   "Identifier": "98954M101",
+   "Weight": "0.23",
+   "Market Value": "428403.44",
+   "Shares Held": "13438",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Calix Inc",
+   "Ticker": "CALX",
+   "Identifier": "13100M509",
+   "Weight": "0.22",
+   "Market Value": "418144",
+   "Shares Held": "11456",
    "SEDOL": ""
   },
   {
@@ -108,8 +144,17 @@
    "Ticker": "IBP",
    "Identifier": "45780R101",
    "Weight": "0.22",
-   "Market Value": "417240",
+   "Market Value": "417982.5",
    "Shares Held": "2250",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Marzetti Company/The",
+   "Ticker": "MZTI",
+   "Identifier": "513847103",
+   "Weight": "0.22",
+   "Market Value": "422790.09",
+   "Shares Held": "4047",
    "SEDOL": ""
   },
   {
@@ -117,71 +162,71 @@
    "Ticker": "NFLX",
    "Identifier": "64110L106",
    "Weight": "0.22",
-   "Market Value": "417234.49",
+   "Market Value": "416761.77",
    "Shares Held": "5909",
    "SEDOL": ""
   },
   {
-   "Name": "Simply Good Foods Co/The",
-   "Ticker": "SMPL",
-   "Identifier": "82900L102",
+   "Name": "NPK International Inc",
+   "Ticker": "NPKI",
+   "Identifier": "651718504",
    "Weight": "0.22",
-   "Market Value": "419932.66",
-   "Shares Held": "40262",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Winnebago Industries Inc",
-   "Ticker": "WGO",
-   "Identifier": "974637100",
-   "Weight": "0.22",
-   "Market Value": "423257.56",
-   "Shares Held": "18236",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Calix Inc",
-   "Ticker": "CALX",
-   "Identifier": "13100M509",
-   "Weight": "0.21",
-   "Market Value": "413332.48",
-   "Shares Held": "11456",
-   "SEDOL": ""
-  },
-  {
-   "Name": "CoStar Group Inc",
-   "Ticker": "CSGP",
-   "Identifier": "22160N109",
-   "Weight": "0.21",
-   "Market Value": "413000.19",
-   "Shares Held": "14139",
-   "SEDOL": ""
-  },
-  {
-   "Name": "IPG Photonics Corp",
-   "Ticker": "IPGP",
-   "Identifier": "44980X109",
-   "Weight": "0.21",
-   "Market Value": "395764.2",
-   "Shares Held": "5204",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Marzetti Company/The",
-   "Ticker": "MZTI",
-   "Identifier": "513847103",
-   "Weight": "0.21",
-   "Market Value": "409637.34",
-   "Shares Held": "4047",
+   "Market Value": "422270.16",
+   "Shares Held": "39208",
    "SEDOL": ""
   },
   {
    "Name": "T-Mobile US Inc",
    "Ticker": "TMUS",
    "Identifier": "872590104",
-   "Weight": "0.21",
-   "Market Value": "403670.46",
+   "Weight": "0.22",
+   "Market Value": "422887.8",
    "Shares Held": "2658",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Winmark Corp",
+   "Ticker": "WINA",
+   "Identifier": "974250102",
+   "Weight": "0.22",
+   "Market Value": "410223.49",
+   "Shares Held": "1303",
+   "SEDOL": ""
+  },
+  {
+   "Name": "LCI Industries",
+   "Ticker": "LCII",
+   "Identifier": "50189K103",
+   "Weight": "0.21",
+   "Market Value": "390759.62",
+   "Shares Held": "4658",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Planet Fitness Inc",
+   "Ticker": "PLNT",
+   "Identifier": "72703H101",
+   "Weight": "0.21",
+   "Market Value": "388926.96",
+   "Shares Held": "7638",
+   "SEDOL": ""
+  },
+  {
+   "Name": "SiteOne Landscape Supply Inc",
+   "Ticker": "SITE",
+   "Identifier": "82982L103",
+   "Weight": "0.21",
+   "Market Value": "396336.36",
+   "Shares Held": "4179",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Builders FirstSource Inc",
+   "Ticker": "BLDR",
+   "Identifier": "12008R107",
+   "Weight": "0.2",
+   "Market Value": "374789.7",
+   "Shares Held": "6858",
    "SEDOL": ""
   },
   {
@@ -189,35 +234,17 @@
    "Ticker": "PODD",
    "Identifier": "45784P101",
    "Weight": "0.2",
-   "Market Value": "378465.67",
+   "Market Value": "381957.7",
    "Shares Held": "2707",
    "SEDOL": ""
   },
   {
-   "Name": "Winmark Corp",
-   "Ticker": "WINA",
-   "Identifier": "974250102",
+   "Name": "IPG Photonics Corp",
+   "Ticker": "IPGP",
+   "Identifier": "44980X109",
    "Weight": "0.2",
-   "Market Value": "380410.85",
-   "Shares Held": "1303",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Zillow Group Inc",
-   "Ticker": "ZG",
-   "Identifier": "98954M101",
-   "Weight": "0.2",
-   "Market Value": "385536.22",
-   "Shares Held": "13438",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Builders FirstSource Inc",
-   "Ticker": "BLDR",
-   "Identifier": "12008R107",
-   "Weight": "0.19",
-   "Market Value": "357576.12",
-   "Shares Held": "6858",
+   "Market Value": "369536.04",
+   "Shares Held": "5204",
    "SEDOL": ""
   },
   {
@@ -225,7 +252,7 @@
    "Ticker": "EVGO",
    "Identifier": "30052F100",
    "Weight": "0.19",
-   "Market Value": "366641.88",
+   "Market Value": "353429.56",
    "Shares Held": "330308",
    "SEDOL": ""
   },
@@ -234,35 +261,17 @@
    "Ticker": "INSM",
    "Identifier": "457669307",
    "Weight": "0.19",
-   "Market Value": "369698.56",
+   "Market Value": "361108.77",
    "Shares Held": "3751",
    "SEDOL": ""
   },
   {
-   "Name": "LCI Industries",
-   "Ticker": "LCII",
-   "Identifier": "50189K103",
+   "Name": "Patrick Industries Inc",
+   "Ticker": "PATK",
+   "Identifier": "703343103",
    "Weight": "0.19",
-   "Market Value": "368634.12",
-   "Shares Held": "4658",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Planet Fitness Inc",
-   "Ticker": "PLNT",
-   "Identifier": "72703H101",
-   "Weight": "0.19",
-   "Market Value": "365783.82",
-   "Shares Held": "7638",
-   "SEDOL": ""
-  },
-  {
-   "Name": "SiteOne Landscape Supply Inc",
-   "Ticker": "SITE",
-   "Identifier": "82982L103",
-   "Weight": "0.19",
-   "Market Value": "367710.21",
-   "Shares Held": "4179",
+   "Market Value": "350678.16",
+   "Shares Held": "5154",
    "SEDOL": ""
   },
   {
@@ -270,7 +279,7 @@
    "Ticker": "IONS",
    "Identifier": "462222100",
    "Weight": "0.18",
-   "Market Value": "347482.19",
+   "Market Value": "341673.58",
    "Shares Held": "7957",
    "SEDOL": ""
   },
@@ -278,26 +287,17 @@
    "Name": "Niagen Bioscience Inc",
    "Ticker": "NAGE",
    "Identifier": "171077407",
-   "Weight": "0.18",
-   "Market Value": "338817.64",
-   "Shares Held": "128828",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Patrick Industries Inc",
-   "Ticker": "PATK",
-   "Identifier": "703343103",
    "Weight": "0.17",
-   "Market Value": "330886.8",
-   "Shares Held": "5154",
+   "Market Value": "320781.72",
+   "Shares Held": "128828",
    "SEDOL": ""
   },
   {
    "Name": "QXO Inc",
    "Ticker": "QXO",
    "Identifier": "82846H405",
-   "Weight": "0.16",
-   "Market Value": "311273.2",
+   "Weight": "0.17",
+   "Market Value": "317709.3",
    "Shares Held": "29255",
    "SEDOL": ""
   },
@@ -306,7 +306,7 @@
    "Ticker": "REZI",
    "Identifier": "76118Y104",
    "Weight": "0.16",
-   "Market Value": "307438.81",
+   "Market Value": "304296.02",
    "Shares Held": "18487",
    "SEDOL": ""
   },
@@ -314,8 +314,8 @@
    "Name": "Trade Desk Inc/The",
    "Ticker": "TTD",
    "Identifier": "88339J105",
-   "Weight": "0.15",
-   "Market Value": "292697.16",
+   "Weight": "0.16",
+   "Market Value": "299806.22",
    "Shares Held": "24514",
    "SEDOL": ""
   },
@@ -324,7 +324,7 @@
    "Ticker": "ADIG",
    "Identifier": "001026103",
    "Weight": "0.07",
-   "Market Value": "139820.55",
+   "Market Value": "127694.52",
    "Shares Held": "8249",
    "SEDOL": ""
   },
@@ -332,9 +332,9 @@
    "Name": "Cash & Other",
    "Ticker": "CASH&OTHER",
    "Identifier": "Cash&Other",
-   "Weight": "0.05",
-   "Market Value": "99279.48",
-   "Shares Held": "99279.48",
+   "Weight": "0.01",
+   "Market Value": "22486.66",
+   "Shares Held": "22486.66",
    "SEDOL": ""
   }
  ]

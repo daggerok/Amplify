@@ -2,7 +2,7 @@
  "ticker": "STBQ",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 201,
+ "totalRows": 205,
  "headers": [
   "Date",
   "Close",
@@ -1215,6 +1215,30 @@
    "Close": "22.862",
    "Adj Close": "22.86",
    "Volume": "500"
+  },
+  {
+   "Date": "Oct 13 2026",
+   "Close": "22.775999",
+   "Adj Close": "22.78",
+   "Volume": "1300"
+  },
+  {
+   "Date": "Oct 14 2026",
+   "Close": "21.931999",
+   "Adj Close": "21.93",
+   "Volume": "600"
+  },
+  {
+   "Date": "Oct 15 2026",
+   "Close": "22.548",
+   "Adj Close": "22.55",
+   "Volume": "700"
+  },
+  {
+   "Date": "Oct 16 2026",
+   "Close": "21.778999",
+   "Adj Close": "21.78",
+   "Volume": "2300"
   }
  ]
 }

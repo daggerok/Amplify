@@ -2,7 +2,7 @@
  "ticker": "LQDM",
  "page": 1,
  "pageSize": 250,
- "totalRows": 4,
+ "totalRows": 3,
  "headers": [
   "Name",
   "Ticker",
@@ -17,36 +17,27 @@
    "Name": "iShares iBoxx USD Investment Grade Corporate Bond ETF",
    "Ticker": "LQD",
    "Identifier": "464287242",
-   "Weight": "100.18",
-   "Market Value": "4137051.4",
-   "Shares Held": "40330",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Invesco Government & Agency Portfolio 12/31/2031",
-   "Ticker": "AGPXX",
-   "Identifier": "825252885",
-   "Weight": "0.03",
-   "Market Value": "1074.33",
-   "Shares Held": "1074.33",
+   "Weight": "100.14",
+   "Market Value": "4161333",
+   "Shares Held": "40245",
    "SEDOL": ""
   },
   {
    "Name": "Cash & Other",
    "Ticker": "CASH&OTHER",
    "Identifier": "Cash&Other",
-   "Weight": "-0.04",
-   "Market Value": "-1704.4",
-   "Shares Held": "-1704.4",
+   "Weight": "-0.01",
+   "Market Value": "-507.18",
+   "Shares Held": "-507.18",
    "SEDOL": ""
   },
   {
-   "Name": "LQD 10/16/2026 102.41 C",
-   "Ticker": "4LQD 261016C00102410",
-   "Identifier": "4LQD 261016C00102410",
-   "Weight": "-0.17",
-   "Market Value": "-6924.4",
-   "Shares Held": "-140",
+   "Name": "LQD 10/23/2026 103.4 C",
+   "Ticker": "4LQD 261023C00103400",
+   "Identifier": "4LQD 261023C00103400",
+   "Weight": "-0.14",
+   "Market Value": "-5628",
+   "Shares Held": "-134",
    "SEDOL": ""
   }
  ]

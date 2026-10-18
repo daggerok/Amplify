@@ -2,7 +2,7 @@
  "ticker": "AWAY",
  "page": 2,
  "pageSize": 1000,
- "totalRows": 1674,
+ "totalRows": 1678,
  "headers": [
   "Date",
   "Close",
@@ -4053,6 +4053,30 @@
    "Close": "16.799",
    "Adj Close": "16.8",
    "Volume": "1600"
+  },
+  {
+   "Date": "Oct 13 2026",
+   "Close": "16.879999",
+   "Adj Close": "16.88",
+   "Volume": "2400"
+  },
+  {
+   "Date": "Oct 14 2026",
+   "Close": "16.712999",
+   "Adj Close": "16.71",
+   "Volume": "3400"
+  },
+  {
+   "Date": "Oct 15 2026",
+   "Close": "17.110001",
+   "Adj Close": "17.11",
+   "Volume": "11500"
+  },
+  {
+   "Date": "Oct 16 2026",
+   "Close": "17.125999",
+   "Adj Close": "17.13",
+   "Volume": "9600"
   }
  ]
 }

@@ -17,17 +17,17 @@
    "Name": "Invesco Government & Agency Portfolio 12/31/2031",
    "Ticker": "AGPXX",
    "Identifier": "825252885",
-   "Weight": "16.66",
-   "Market Value": "194341.75",
-   "Shares Held": "194341.75",
+   "Weight": "18.17",
+   "Market Value": "187341.75",
+   "Shares Held": "187341.75",
    "SEDOL": ""
   },
   {
    "Name": "Harmonic Drive Systems Inc",
    "Ticker": "6324 JP",
    "Identifier": "6108179",
-   "Weight": "10.46",
-   "Market Value": "121926.19",
+   "Weight": "10.22",
+   "Market Value": "105310.29",
    "Shares Held": "3110",
    "SEDOL": ""
   },
@@ -35,8 +35,8 @@
    "Name": "Panasonic Holdings Corp",
    "Ticker": "6752 JP",
    "Identifier": "6572707",
-   "Weight": "10.03",
-   "Market Value": "116987.61",
+   "Weight": "10.13",
+   "Market Value": "104438.05",
    "Shares Held": "4170",
    "SEDOL": ""
   },
@@ -44,8 +44,8 @@
    "Name": "Fuji Corp/Aichi",
    "Ticker": "6134 JP",
    "Identifier": "6356592",
-   "Weight": "9.96",
-   "Market Value": "116180.77",
+   "Weight": "9.41",
+   "Market Value": "96958.99",
    "Shares Held": "2185",
    "SEDOL": ""
   },
@@ -53,8 +53,8 @@
    "Name": "Daihen Corp",
    "Ticker": "6622 JP",
    "Identifier": "6661843",
-   "Weight": "8.28",
-   "Market Value": "96596.39",
+   "Weight": "8.3",
+   "Market Value": "85605.24",
    "Shares Held": "5100",
    "SEDOL": ""
   },
@@ -62,8 +62,8 @@
    "Name": "CKD Corp",
    "Ticker": "6407 JP",
    "Identifier": "6160050",
-   "Weight": "8.18",
-   "Market Value": "95356.91",
+   "Weight": "8.01",
+   "Market Value": "82615.59",
    "Shares Held": "2595",
    "SEDOL": ""
   },
@@ -71,53 +71,53 @@
    "Name": "SUPCON TECHNOLOGY CO.,LTD-SWAP-GOLD-L",
    "Ticker": "BQ3RXP5-TRS-09/19/27-L-GS",
    "Identifier": "BQ3RXP5-TRS-09/19/27-L-GS",
-   "Weight": "6.68",
-   "Market Value": "77929",
+   "Weight": "6.79",
+   "Market Value": "70013.83",
    "Shares Held": "6900",
-   "SEDOL": ""
-  },
-  {
-   "Name": "SUPCON TECHNOLOGY CO.,LTD-SWAP-MREX-L",
-   "Ticker": "BQ3RXP5-TRS-09/19/27-L-MX",
-   "Identifier": "BQ3RXP5-TRS-09/19/27-L-MX",
-   "Weight": "4.65",
-   "Market Value": "54211.48",
-   "Shares Held": "4800",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Cognex Corp",
-   "Ticker": "CGNX",
-   "Identifier": "192422103",
-   "Weight": "4.53",
-   "Market Value": "52856.1",
-   "Shares Held": "855",
    "SEDOL": ""
   },
   {
    "Name": "LEADER HARMONIOUS DRIVE SYSTEMS CO., LTD.-SWAP-GOLD-L",
    "Ticker": "BMGJQ17-TRS-09/19/27-L-GS",
    "Identifier": "BMGJQ17-TRS-09/19/27-L-GS",
-   "Weight": "4.52",
-   "Market Value": "52716.76",
+   "Weight": "4.81",
+   "Market Value": "49568.18",
    "Shares Held": "1400",
+   "SEDOL": ""
+  },
+  {
+   "Name": "SUPCON TECHNOLOGY CO.,LTD-SWAP-MREX-L",
+   "Ticker": "BQ3RXP5-TRS-09/19/27-L-MX",
+   "Identifier": "BQ3RXP5-TRS-09/19/27-L-MX",
+   "Weight": "4.72",
+   "Market Value": "48705.28",
+   "Shares Held": "4800",
    "SEDOL": ""
   },
   {
    "Name": "THK Co Ltd",
    "Ticker": "6481 JP",
    "Identifier": "6869131",
-   "Weight": "4.37",
-   "Market Value": "50963.1",
+   "Weight": "4.62",
+   "Market Value": "47629.51",
    "Shares Held": "1205",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Cognex Corp",
+   "Ticker": "CGNX",
+   "Identifier": "192422103",
+   "Weight": "4.48",
+   "Market Value": "46161.45",
+   "Shares Held": "855",
    "SEDOL": ""
   },
   {
    "Name": "Teradyne Inc",
    "Ticker": "TER",
    "Identifier": "880770102",
-   "Weight": "4.28",
-   "Market Value": "49900.5",
+   "Weight": "4.1",
+   "Market Value": "42250",
    "Shares Held": "130",
    "SEDOL": ""
   },
@@ -125,8 +125,8 @@
    "Name": "COGNEX CORPORATION-SWAP-GOLD-L",
    "Ticker": "192422103-TRS-09/19/27-L-GS",
    "Identifier": "192422103-TRS-09/19/27-L-GS",
-   "Weight": "3.63",
-   "Market Value": "42346.7",
+   "Weight": "3.59",
+   "Market Value": "36983.15",
    "Shares Held": "685",
    "SEDOL": ""
   },
@@ -134,17 +134,26 @@
    "Name": "COGNEX CORPORATION-SWAP-MREX-L",
    "Ticker": "192422103-TRS-09/19/27-L-MX",
    "Identifier": "192422103-TRS-09/19/27-L-MX",
-   "Weight": "3.63",
-   "Market Value": "42346.7",
+   "Weight": "3.59",
+   "Market Value": "36983.15",
    "Shares Held": "685",
+   "SEDOL": ""
+  },
+  {
+   "Name": "LEADER HARMONIOUS DRIVE SYSTEMS CO., LTD.-SWAP-MREX-L",
+   "Ticker": "BMGJQ17-TRS-09/19/27-L-MX",
+   "Identifier": "BMGJQ17-TRS-09/19/27-L-MX",
+   "Weight": "3.43",
+   "Market Value": "35405.84",
+   "Shares Held": "1000",
    "SEDOL": ""
   },
   {
    "Name": "TERADYNE, INC.-SWAP-GOLD-L",
    "Ticker": "880770102-TRS-09/19/27-L-GS",
    "Identifier": "880770102-TRS-09/19/27-L-GS",
-   "Weight": "3.29",
-   "Market Value": "38385",
+   "Weight": "3.15",
+   "Market Value": "32500",
    "Shares Held": "100",
    "SEDOL": ""
   },
@@ -152,26 +161,17 @@
    "Name": "TERADYNE, INC.-SWAP-MREX-L",
    "Ticker": "880770102-TRS-09/19/27-L-MX",
    "Identifier": "880770102-TRS-09/19/27-L-MX",
-   "Weight": "3.29",
-   "Market Value": "38385",
+   "Weight": "3.15",
+   "Market Value": "32500",
    "Shares Held": "100",
-   "SEDOL": ""
-  },
-  {
-   "Name": "LEADER HARMONIOUS DRIVE SYSTEMS CO., LTD.-SWAP-MREX-L",
-   "Ticker": "BMGJQ17-TRS-09/19/27-L-MX",
-   "Identifier": "BMGJQ17-TRS-09/19/27-L-MX",
-   "Weight": "3.23",
-   "Market Value": "37654.83",
-   "Shares Held": "1000",
    "SEDOL": ""
   },
   {
    "Name": "THK CO., LTD.-SWAP-GOLD-L",
    "Ticker": "6869131-TRS-09/19/27-L-GS",
    "Identifier": "6869131-TRS-09/19/27-L-GS",
-   "Weight": "2.9",
-   "Market Value": "33834.42",
+   "Weight": "3.07",
+   "Market Value": "31621.25",
    "Shares Held": "800",
    "SEDOL": ""
   },
@@ -179,8 +179,8 @@
    "Name": "THK CO., LTD.-SWAP-MREX-L",
    "Ticker": "6869131-TRS-09/19/27-L-MX",
    "Identifier": "6869131-TRS-09/19/27-L-MX",
-   "Weight": "2.18",
-   "Market Value": "25375.82",
+   "Weight": "2.3",
+   "Market Value": "23715.94",
    "Shares Held": "600",
    "SEDOL": ""
   },
@@ -188,9 +188,9 @@
    "Name": "Cash & Other",
    "Ticker": "CASH&OTHER",
    "Identifier": "Cash&Other",
-   "Weight": "-14.77",
-   "Market Value": "-172202.44",
-   "Shares Held": "-172202.44",
+   "Weight": "-16.06",
+   "Market Value": "-165553.72",
+   "Shares Held": "-165553.72",
    "SEDOL": ""
   }
  ]

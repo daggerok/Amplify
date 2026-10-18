@@ -2,7 +2,7 @@
  "ticker": "QDVO",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 536,
+ "totalRows": 540,
  "headers": [
   "Date",
   "Close",
@@ -3225,6 +3225,30 @@
    "Close": "30.299999",
    "Adj Close": "30.3",
    "Volume": "247800"
+  },
+  {
+   "Date": "Oct 13 2026",
+   "Close": "30.309999",
+   "Adj Close": "30.31",
+   "Volume": "312100"
+  },
+  {
+   "Date": "Oct 14 2026",
+   "Close": "29.870001",
+   "Adj Close": "29.87",
+   "Volume": "194500"
+  },
+  {
+   "Date": "Oct 15 2026",
+   "Close": "29.780001",
+   "Adj Close": "29.78",
+   "Volume": "337800"
+  },
+  {
+   "Date": "Oct 16 2026",
+   "Close": "29.280001",
+   "Adj Close": "29.28",
+   "Volume": "723700"
   }
  ]
 }

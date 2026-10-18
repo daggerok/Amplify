@@ -2,7 +2,7 @@
  "ticker": "IBUY",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2635,
+ "totalRows": 2639,
  "headers": [
   "Date",
   "Close",
@@ -3819,6 +3819,30 @@
    "Close": "68.910004",
    "Adj Close": "68.91",
    "Volume": "1600"
+  },
+  {
+   "Date": "Oct 13 2026",
+   "Close": "69.234001",
+   "Adj Close": "69.23",
+   "Volume": "2400"
+  },
+  {
+   "Date": "Oct 14 2026",
+   "Close": "68.684998",
+   "Adj Close": "68.68",
+   "Volume": "1200"
+  },
+  {
+   "Date": "Oct 15 2026",
+   "Close": "71.456001",
+   "Adj Close": "71.46",
+   "Volume": "3700"
+  },
+  {
+   "Date": "Oct 16 2026",
+   "Close": "70.413002",
+   "Adj Close": "70.41",
+   "Volume": "3600"
   }
  ]
 }

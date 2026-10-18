@@ -2,7 +2,7 @@
  "ticker": "XQBT",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 38,
+ "totalRows": 42,
  "headers": [
   "Date",
   "Close",
@@ -237,6 +237,30 @@
    "Close": "22.709999",
    "Adj Close": "22.71",
    "Volume": "12100"
+  },
+  {
+   "Date": "Oct 13 2026",
+   "Close": "22.23",
+   "Adj Close": "22.23",
+   "Volume": "700"
+  },
+  {
+   "Date": "Oct 14 2026",
+   "Close": "21.17",
+   "Adj Close": "21.17",
+   "Volume": "1700"
+  },
+  {
+   "Date": "Oct 15 2026",
+   "Close": "21.6",
+   "Adj Close": "21.6",
+   "Volume": "100"
+  },
+  {
+   "Date": "Oct 16 2026",
+   "Close": "20.74",
+   "Adj Close": "20.74",
+   "Volume": "600"
   }
  ]
 }

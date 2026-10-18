@@ -14,75 +14,75 @@
  ],
  "rows": [
   {
-   "Name": "Advanced Micro Devices Inc",
-   "Ticker": "AMD",
-   "Identifier": "007903107",
-   "Weight": "11.2",
-   "Market Value": "4646956.8",
-   "Shares Held": "7820",
-   "SEDOL": ""
-  },
-  {
    "Name": "Meta Platforms Inc",
    "Ticker": "META",
    "Identifier": "30303M102",
-   "Weight": "10.94",
-   "Market Value": "4540228.56",
-   "Shares Held": "6111",
+   "Weight": "10.66",
+   "Market Value": "4228995.65",
+   "Shares Held": "5962",
    "SEDOL": ""
   },
   {
    "Name": "Microsoft Corp",
    "Ticker": "MSFT",
    "Identifier": "594918104",
-   "Weight": "10.43",
-   "Market Value": "4327035.4",
-   "Shares Held": "7996",
+   "Weight": "10.41",
+   "Market Value": "4127119.05",
+   "Shares Held": "7801",
    "SEDOL": ""
   },
   {
-   "Name": "NVIDIA Corp",
-   "Ticker": "NVDA",
-   "Identifier": "67066G104",
-   "Weight": "9.83",
-   "Market Value": "4081681.2",
-   "Shares Held": "18035",
+   "Name": "Advanced Micro Devices Inc",
+   "Ticker": "AMD",
+   "Identifier": "007903107",
+   "Weight": "10.17",
+   "Market Value": "4034362.5",
+   "Shares Held": "7630",
    "SEDOL": ""
   },
   {
    "Name": "Tencent Holdings Ltd",
    "Ticker": "700 HK",
    "Identifier": "BMMV2K8",
+   "Weight": "9.53",
+   "Market Value": "3778242.08",
+   "Shares Held": "70970",
+   "SEDOL": ""
+  },
+  {
+   "Name": "NVIDIA Corp",
+   "Ticker": "NVDA",
+   "Identifier": "67066G104",
    "Weight": "9.5",
-   "Market Value": "3943049.78",
-   "Shares Held": "72670",
+   "Market Value": "3767831.48",
+   "Shares Held": "17596",
    "SEDOL": ""
   },
   {
    "Name": "NETEASE INC",
    "Ticker": "NTES",
    "Identifier": "64110W102",
-   "Weight": "5.15",
-   "Market Value": "2135481.48",
-   "Shares Held": "17028",
+   "Weight": "5.28",
+   "Market Value": "2094234.78",
+   "Shares Held": "16613",
    "SEDOL": ""
   },
   {
    "Name": "Sony Group Corp",
    "Ticker": "6758 JP",
    "Identifier": "6821506",
-   "Weight": "4.82",
-   "Market Value": "2001992.5",
-   "Shares Held": "83300",
+   "Weight": "5.14",
+   "Market Value": "2038033.94",
+   "Shares Held": "81300",
    "SEDOL": ""
   },
   {
    "Name": "Nintendo Co Ltd",
    "Ticker": "7974 JT",
    "Identifier": "6639550",
-   "Weight": "4.69",
-   "Market Value": "1947042.6",
-   "Shares Held": "37931",
+   "Weight": "5.01",
+   "Market Value": "1988133.03",
+   "Shares Held": "37031",
    "SEDOL": ""
   },
   {
@@ -90,125 +90,125 @@
    "Ticker": "SE",
    "Identifier": "81141R100",
    "Weight": "4.22",
-   "Market Value": "1753165.8",
-   "Shares Held": "18285",
+   "Market Value": "1672856.8",
+   "Shares Held": "17840",
    "SEDOL": ""
   },
   {
    "Name": "AppLovin Corp",
    "Ticker": "APP",
    "Identifier": "03831W108",
-   "Weight": "4.08",
-   "Market Value": "1695375.33",
-   "Shares Held": "6259",
-   "SEDOL": ""
-  },
-  {
-   "Name": "International Games System Co Ltd",
-   "Ticker": "3293 TT",
-   "Identifier": "6744807",
-   "Weight": "2.64",
-   "Market Value": "1096989.13",
-   "Shares Held": "44000",
+   "Weight": "4.1",
+   "Market Value": "1625255.91",
+   "Shares Held": "6107",
    "SEDOL": ""
   },
   {
    "Name": "Konami Group Corp",
    "Ticker": "9766 JP",
    "Identifier": "6496681",
-   "Weight": "2.64",
-   "Market Value": "1094555.97",
-   "Shares Held": "7513",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Unity Software Inc",
-   "Ticker": "U",
-   "Identifier": "91332U101",
-   "Weight": "2.63",
-   "Market Value": "1092498.72",
-   "Shares Held": "23404",
-   "SEDOL": ""
-  },
-  {
-   "Name": "ROBLOX Corp",
-   "Ticker": "RBLX",
-   "Identifier": "771049103",
-   "Weight": "2.62",
-   "Market Value": "1087636.46",
-   "Shares Held": "21937",
+   "Weight": "2.94",
+   "Market Value": "1166187.46",
+   "Shares Held": "7413",
    "SEDOL": ""
   },
   {
    "Name": "Bandai Namco Holdings Inc",
    "Ticker": "7832 JP",
    "Identifier": "B0JDQD4",
-   "Weight": "2.57",
-   "Market Value": "1064822.52",
-   "Shares Held": "28970",
+   "Weight": "2.84",
+   "Market Value": "1127363.14",
+   "Shares Held": "28270",
+   "SEDOL": ""
+  },
+  {
+   "Name": "ROBLOX Corp",
+   "Ticker": "RBLX",
+   "Identifier": "771049103",
+   "Weight": "2.67",
+   "Market Value": "1060469.1",
+   "Shares Held": "21402",
+   "SEDOL": ""
+  },
+  {
+   "Name": "International Games System Co Ltd",
+   "Ticker": "3293 TT",
+   "Identifier": "6744807",
+   "Weight": "2.66",
+   "Market Value": "1055222.87",
+   "Shares Held": "43000",
    "SEDOL": ""
   },
   {
    "Name": "Capcom Co Ltd",
    "Ticker": "9697 JP",
    "Identifier": "6173694",
-   "Weight": "2.4",
-   "Market Value": "996553.14",
-   "Shares Held": "36000",
+   "Weight": "2.57",
+   "Market Value": "1021029.57",
+   "Shares Held": "35200",
    "SEDOL": ""
   },
   {
    "Name": "Aristocrat Leisure Ltd",
    "Ticker": "ALL AU",
    "Identifier": "6253983",
-   "Weight": "2.36",
-   "Market Value": "978023.84",
-   "Shares Held": "22981",
+   "Weight": "2.48",
+   "Market Value": "984278.68",
+   "Shares Held": "22421",
    "SEDOL": ""
   },
   {
    "Name": "Asustek Computer Inc",
    "Ticker": "2357 TT",
    "Identifier": "6051046",
-   "Weight": "2.28",
-   "Market Value": "947430.98",
+   "Weight": "2.4",
+   "Market Value": "951166.81",
    "Shares Held": "31000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Unity Software Inc",
+   "Ticker": "U",
+   "Identifier": "91332U101",
+   "Weight": "2.33",
+   "Market Value": "922493.6",
+   "Shares Held": "22834",
    "SEDOL": ""
   },
   {
    "Name": "Take-Two Interactive Software Inc",
    "Ticker": "TTWO",
    "Identifier": "874054109",
-   "Weight": "2.28",
-   "Market Value": "947207.52",
-   "Shares Held": "4536",
+   "Weight": "2.29",
+   "Market Value": "908569.28",
+   "Shares Held": "4426",
    "SEDOL": ""
   },
   {
    "Name": "Nexon Co Ltd",
    "Ticker": "3659 JP",
    "Identifier": "B63QM77",
-   "Weight": "1.94",
-   "Market Value": "806525.1",
-   "Shares Held": "48500",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Invesco Government & Agency Portfolio 12/31/2031",
-   "Ticker": "AGPXX",
-   "Identifier": "825252885",
-   "Weight": "0.42",
-   "Market Value": "176104.79",
-   "Shares Held": "176104.79",
+   "Weight": "2.13",
+   "Market Value": "843823.85",
+   "Shares Held": "47400",
    "SEDOL": ""
   },
   {
    "Name": "Cash & Other",
    "Ticker": "CASH&OTHER",
    "Identifier": "Cash&Other",
-   "Weight": "0.35",
-   "Market Value": "145111.86",
-   "Shares Held": "145111.86",
+   "Weight": "0.36",
+   "Market Value": "142049.42",
+   "Shares Held": "142049.42",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Invesco Government & Agency Portfolio 12/31/2031",
+   "Ticker": "AGPXX",
+   "Identifier": "825252885",
+   "Weight": "0.3",
+   "Market Value": "118043.74",
+   "Shares Held": "118043.74",
    "SEDOL": ""
   },
   {
@@ -216,8 +216,8 @@
    "Ticker": "JPY",
    "Identifier": "CASHJPY",
    "Weight": "0",
-   "Market Value": "-1329.85",
-   "Shares Held": "-211040",
+   "Market Value": "528.51",
+   "Shares Held": "83467",
    "SEDOL": ""
   },
   {
@@ -225,8 +225,8 @@
    "Ticker": "TWD",
    "Identifier": "CASHTWD",
    "Weight": "0",
-   "Market Value": "-0.03",
-   "Shares Held": "-1",
+   "Market Value": "-0.05",
+   "Shares Held": "-1.5",
    "SEDOL": ""
   },
   {

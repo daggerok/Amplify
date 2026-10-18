@@ -2,7 +2,7 @@
  "ticker": "BAGY",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 364,
+ "totalRows": 368,
  "headers": [
   "Date",
   "Close",
@@ -2193,6 +2193,30 @@
    "Close": "23.066",
    "Adj Close": "23.07",
    "Volume": "2800"
+  },
+  {
+   "Date": "Oct 13 2026",
+   "Close": "23.247",
+   "Adj Close": "23.25",
+   "Volume": "3600"
+  },
+  {
+   "Date": "Oct 14 2026",
+   "Close": "22.792999",
+   "Adj Close": "22.79",
+   "Volume": "3000"
+  },
+  {
+   "Date": "Oct 15 2026",
+   "Close": "22.985001",
+   "Adj Close": "22.99",
+   "Volume": "7100"
+  },
+  {
+   "Date": "Oct 16 2026",
+   "Close": "22.753",
+   "Adj Close": "22.75",
+   "Volume": "3200"
   }
  ]
 }

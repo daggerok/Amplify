@@ -2,7 +2,7 @@
  "ticker": "DIVO",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2468,
+ "totalRows": 2472,
  "headers": [
   "Date",
   "Close",
@@ -2817,6 +2817,30 @@
    "Close": "47.580002",
    "Adj Close": "47.58",
    "Volume": "463100"
+  },
+  {
+   "Date": "Oct 13 2026",
+   "Close": "47.529999",
+   "Adj Close": "47.53",
+   "Volume": "680000"
+  },
+  {
+   "Date": "Oct 14 2026",
+   "Close": "47.549999",
+   "Adj Close": "47.55",
+   "Volume": "732800"
+  },
+  {
+   "Date": "Oct 15 2026",
+   "Close": "47.810001",
+   "Adj Close": "47.81",
+   "Volume": "1006600"
+  },
+  {
+   "Date": "Oct 16 2026",
+   "Close": "47.810001",
+   "Adj Close": "47.81",
+   "Volume": "934200"
   }
  ]
 }

@@ -2,7 +2,7 @@
  "ticker": "CPU",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 4,
+ "totalRows": 8,
  "headers": [
   "Date",
   "Close",
@@ -33,6 +33,30 @@
    "Close": "23.15",
    "Adj Close": "23.15",
    "Volume": "3800"
+  },
+  {
+   "Date": "Oct 13 2026",
+   "Close": "22.85",
+   "Adj Close": "22.85",
+   "Volume": "1000"
+  },
+  {
+   "Date": "Oct 14 2026",
+   "Close": "21.91",
+   "Adj Close": "21.91",
+   "Volume": "2900"
+  },
+  {
+   "Date": "Oct 15 2026",
+   "Close": "21.219999",
+   "Adj Close": "21.22",
+   "Volume": "500"
+  },
+  {
+   "Date": "Oct 16 2026",
+   "Close": "20.459999",
+   "Adj Close": "20.46",
+   "Volume": "1300"
   }
  ]
 }

@@ -2,7 +2,7 @@
  "ticker": "BATT",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2099,
+ "totalRows": 2103,
  "headers": [
   "Date",
   "Close",
@@ -603,6 +603,30 @@
    "Close": "14.45",
    "Adj Close": "14.45",
    "Volume": "28100"
+  },
+  {
+   "Date": "Oct 13 2026",
+   "Close": "14.26",
+   "Adj Close": "14.26",
+   "Volume": "25600"
+  },
+  {
+   "Date": "Oct 14 2026",
+   "Close": "13.88",
+   "Adj Close": "13.88",
+   "Volume": "53100"
+  },
+  {
+   "Date": "Oct 15 2026",
+   "Close": "13.76",
+   "Adj Close": "13.76",
+   "Volume": "57400"
+  },
+  {
+   "Date": "Oct 16 2026",
+   "Close": "13.46",
+   "Adj Close": "13.46",
+   "Volume": "25300"
   }
  ]
 }

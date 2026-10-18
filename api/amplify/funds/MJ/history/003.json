@@ -2,7 +2,7 @@
  "ticker": "MJ",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2729,
+ "totalRows": 2733,
  "headers": [
   "Date",
   "Close",
@@ -4383,6 +4383,30 @@
    "Close": "23.040001",
    "Adj Close": "23.04",
    "Volume": "13300"
+  },
+  {
+   "Date": "Oct 13 2026",
+   "Close": "22.732",
+   "Adj Close": "22.73",
+   "Volume": "13800"
+  },
+  {
+   "Date": "Oct 14 2026",
+   "Close": "22.27",
+   "Adj Close": "22.27",
+   "Volume": "9700"
+  },
+  {
+   "Date": "Oct 15 2026",
+   "Close": "22.5",
+   "Adj Close": "22.5",
+   "Volume": "13100"
+  },
+  {
+   "Date": "Oct 16 2026",
+   "Close": "21.959999",
+   "Adj Close": "21.96",
+   "Volume": "14800"
   }
  ]
 }

@@ -2,7 +2,7 @@
  "ticker": "XRPM",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 225,
+ "totalRows": 229,
  "headers": [
   "Date",
   "Close",
@@ -1359,6 +1359,30 @@
    "Close": "8.59",
    "Adj Close": "8.59",
    "Volume": "17900"
+  },
+  {
+   "Date": "Oct 13 2026",
+   "Close": "8.62",
+   "Adj Close": "8.62",
+   "Volume": "13800"
+  },
+  {
+   "Date": "Oct 14 2026",
+   "Close": "8.23",
+   "Adj Close": "8.23",
+   "Volume": "24500"
+  },
+  {
+   "Date": "Oct 15 2026",
+   "Close": "8.34",
+   "Adj Close": "8.34",
+   "Volume": "24600"
+  },
+  {
+   "Date": "Oct 16 2026",
+   "Close": "8.058",
+   "Adj Close": "8.06",
+   "Volume": "12400"
   }
  ]
 }

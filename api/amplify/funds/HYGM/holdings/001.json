@@ -17,36 +17,36 @@
    "Name": "iShares iBoxx USD High Yield Corporate Bond ETF",
    "Ticker": "HYG",
    "Identifier": "464288513",
-   "Weight": "99.99",
-   "Market Value": "713386.7",
-   "Shares Held": "9230",
+   "Weight": "100.07",
+   "Market Value": "710724.42",
+   "Shares Held": "9247",
    "SEDOL": ""
   },
   {
    "Name": "Invesco Government & Agency Portfolio 12/31/2031",
    "Ticker": "AGPXX",
    "Identifier": "825252885",
-   "Weight": "0.15",
-   "Market Value": "1046.1",
-   "Shares Held": "1046.1",
+   "Weight": "0.13",
+   "Market Value": "912.68",
+   "Shares Held": "912.68",
+   "SEDOL": ""
+  },
+  {
+   "Name": "HYG 10/23/2026 76.86 C",
+   "Ticker": "4HYG 261023C00076860",
+   "Identifier": "4HYG 261023C00076860",
+   "Weight": "-0.1",
+   "Market Value": "-700",
+   "Shares Held": "-25",
    "SEDOL": ""
   },
   {
    "Name": "Cash & Other",
    "Ticker": "CASH&OTHER",
    "Identifier": "Cash&Other",
-   "Weight": "-0.03",
-   "Market Value": "-207.84",
-   "Shares Held": "-207.84",
-   "SEDOL": ""
-  },
-  {
-   "Name": "HYG 10/16/2026 77.23 C",
-   "Ticker": "4HYG 261016C00077230",
-   "Identifier": "4HYG 261016C00077230",
-   "Weight": "-0.1",
-   "Market Value": "-746.7",
-   "Shares Held": "-30",
+   "Weight": "-0.11",
+   "Market Value": "-757.91",
+   "Shares Held": "-757.91",
    "SEDOL": ""
   }
  ]
