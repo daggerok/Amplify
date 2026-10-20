@@ -14,55 +14,55 @@
  ],
  "rows": [
   {
-   "Name": "Grayscale Chainlink Trust ETF",
-   "Ticker": "GLNK",
-   "Identifier": "38963V106",
-   "Weight": "6.53",
-   "Market Value": "141831.6",
-   "Shares Held": "13060",
-   "SEDOL": ""
-  },
-  {
    "Name": "Bitwise Solana Staking ETF",
    "Ticker": "BSOL",
    "Identifier": "091948109",
-   "Weight": "6.44",
-   "Market Value": "139801.2",
+   "Weight": "6.57",
+   "Market Value": "140584.4",
    "Shares Held": "9790",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Grayscale Chainlink Trust ETF",
+   "Ticker": "GLNK",
+   "Identifier": "38963V106",
+   "Weight": "6.4",
+   "Market Value": "136999.4",
+   "Shares Held": "13060",
    "SEDOL": ""
   },
   {
    "Name": "iShares Ethereum Trust ETF",
    "Ticker": "ETHA",
    "Identifier": "46438R204",
-   "Weight": "6.19",
-   "Market Value": "134458.02",
+   "Weight": "6.24",
+   "Market Value": "133471.35",
    "Shares Held": "2466.667",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Stablecoinx Inc",
-   "Ticker": "USDE",
-   "Identifier": "85238K100",
-   "Weight": "5.86",
-   "Market Value": "127234.8",
-   "Shares Held": "11880",
    "SEDOL": ""
   },
   {
    "Name": "Bitwise XRP ETF",
    "Ticker": "XRP",
    "Identifier": "09174F107",
-   "Weight": "5.84",
-   "Market Value": "126958.8",
+   "Weight": "5.96",
+   "Market Value": "127485.6",
    "Shares Held": "8780",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Stablecoinx Inc",
+   "Ticker": "USDE",
+   "Identifier": "85238K100",
+   "Weight": "5.67",
+   "Market Value": "121294.8",
+   "Shares Held": "11880",
    "SEDOL": ""
   },
   {
    "Name": "Marqeta Inc",
    "Ticker": "MQ",
    "Identifier": "57142B203",
-   "Weight": "4.66",
+   "Weight": "4.73",
    "Market Value": "101112.9",
    "Shares Held": "5410",
    "SEDOL": ""
@@ -71,8 +71,8 @@
    "Name": "Visa Inc",
    "Ticker": "V",
    "Identifier": "92826C839",
-   "Weight": "4.45",
-   "Market Value": "96626.4",
+   "Weight": "4.52",
+   "Market Value": "96700.8",
    "Shares Held": "240",
    "SEDOL": ""
   },
@@ -80,8 +80,8 @@
    "Name": "PayPal Holdings Inc",
    "Ticker": "PYPL",
    "Identifier": "70450Y103",
-   "Weight": "4.28",
-   "Market Value": "92988",
+   "Weight": "4.33",
+   "Market Value": "92676.4",
    "Shares Held": "1640",
    "SEDOL": ""
   },
@@ -90,61 +90,61 @@
    "Ticker": "FLYW",
    "Identifier": "302492103",
    "Weight": "4.12",
-   "Market Value": "89579.5",
+   "Market Value": "88124.5",
    "Shares Held": "4850",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Mastercard Inc",
-   "Ticker": "MA",
-   "Identifier": "57636Q104",
-   "Weight": "3.98",
-   "Market Value": "86438.8",
-   "Shares Held": "140",
    "SEDOL": ""
   },
   {
    "Name": "Dlocal Ltd/Uruguay",
    "Ticker": "DLO",
    "Identifier": "G29018101",
-   "Weight": "3.96",
-   "Market Value": "85966.2",
+   "Weight": "4.03",
+   "Market Value": "86317.8",
    "Shares Held": "5860",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Mastercard Inc",
+   "Ticker": "MA",
+   "Identifier": "57636Q104",
+   "Weight": "4.03",
+   "Market Value": "86296",
+   "Shares Held": "140",
    "SEDOL": ""
   },
   {
    "Name": "Block Inc",
    "Ticker": "XYZ",
    "Identifier": "852234103",
-   "Weight": "3.91",
-   "Market Value": "84900.1",
+   "Weight": "3.95",
+   "Market Value": "84475",
    "Shares Held": "1090",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Coinbase Global Inc",
-   "Ticker": "COIN",
-   "Identifier": "19260Q107",
-   "Weight": "3.91",
-   "Market Value": "84848.4",
-   "Shares Held": "490",
    "SEDOL": ""
   },
   {
    "Name": "Shift4 Payments Inc",
    "Ticker": "FOUR",
    "Identifier": "82452J109",
-   "Weight": "3.78",
-   "Market Value": "82014.4",
+   "Weight": "3.87",
+   "Market Value": "82721.6",
    "Shares Held": "2080",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Coinbase Global Inc",
+   "Ticker": "COIN",
+   "Identifier": "19260Q107",
+   "Weight": "3.86",
+   "Market Value": "82540.5",
+   "Shares Held": "490",
    "SEDOL": ""
   },
   {
    "Name": "GPGI Inc",
    "Ticker": "GPGI",
    "Identifier": "20459V105",
-   "Weight": "3.69",
-   "Market Value": "80182.1",
+   "Weight": "3.73",
+   "Market Value": "79924.9",
    "Shares Held": "6430",
    "SEDOL": ""
   },
@@ -152,8 +152,8 @@
    "Name": "Circle Internet Group Inc",
    "Ticker": "CRCL",
    "Identifier": "172573107",
-   "Weight": "3.48",
-   "Market Value": "75642.4",
+   "Weight": "3.5",
+   "Market Value": "74860.4",
    "Shares Held": "920",
    "SEDOL": ""
   },
@@ -161,8 +161,8 @@
    "Name": "SoFi Technologies Inc",
    "Ticker": "SOFI",
    "Identifier": "83406F102",
-   "Weight": "3.32",
-   "Market Value": "72168",
+   "Weight": "3.31",
+   "Market Value": "70928",
    "Shares Held": "4960",
    "SEDOL": ""
   },
@@ -170,8 +170,8 @@
    "Name": "Etoro Group Ltd",
    "Ticker": "ETOR",
    "Identifier": "G32089107",
-   "Weight": "3.16",
-   "Market Value": "68535.9",
+   "Weight": "3.17",
+   "Market Value": "67777.2",
    "Shares Held": "2810",
    "SEDOL": ""
   },
@@ -180,7 +180,7 @@
    "Ticker": "OPRA",
    "Identifier": "68373M107",
    "Weight": "2.87",
-   "Market Value": "62257.2",
+   "Market Value": "61352.4",
    "Shares Held": "3480",
    "SEDOL": ""
   },
@@ -188,27 +188,9 @@
    "Name": "Figure Technology Solutions Inc",
    "Ticker": "FIGR",
    "Identifier": "349381103",
-   "Weight": "2.81",
-   "Market Value": "61042.5",
-   "Shares Held": "2250",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Gemini Space Station Inc",
-   "Ticker": "GEMI",
-   "Identifier": "36866J105",
-   "Weight": "2.77",
-   "Market Value": "60154.5",
-   "Shares Held": "16850",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Bitgo Holdings Inc",
-   "Ticker": "BTGO",
-   "Identifier": "091947101",
    "Weight": "2.7",
-   "Market Value": "58564.8",
-   "Shares Held": "9960",
+   "Market Value": "57825",
+   "Shares Held": "2250",
    "SEDOL": ""
   },
   {
@@ -216,16 +198,34 @@
    "Ticker": "BKKT",
    "Identifier": "05759B305",
    "Weight": "2.68",
-   "Market Value": "58191.9",
+   "Market Value": "57255",
    "Shares Held": "10410",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Bitgo Holdings Inc",
+   "Ticker": "BTGO",
+   "Identifier": "091947101",
+   "Weight": "2.61",
+   "Market Value": "55875.6",
+   "Shares Held": "9960",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Gemini Space Station Inc",
+   "Ticker": "GEMI",
+   "Identifier": "36866J105",
+   "Weight": "2.53",
+   "Market Value": "54172.75",
+   "Shares Held": "16850",
    "SEDOL": ""
   },
   {
    "Name": "Galaxy Digital Inc",
    "Ticker": "GLXY",
    "Identifier": "36317J209",
-   "Weight": "2.55",
-   "Market Value": "55360.2",
+   "Weight": "2.52",
+   "Market Value": "53919.6",
    "Shares Held": "3430",
    "SEDOL": ""
   },
@@ -233,8 +233,8 @@
    "Name": "21Shares Canton Network ETF",
    "Ticker": "TCAN",
    "Identifier": "53656H678",
-   "Weight": "0.68",
-   "Market Value": "14728.21",
+   "Weight": "0.69",
+   "Market Value": "14812.95",
    "Shares Held": "850",
    "SEDOL": ""
   },
@@ -242,8 +242,8 @@
    "Name": "OSL Group Ltd",
    "Ticker": "863 HK",
    "Identifier": "BKPSJS9",
-   "Weight": "0.61",
-   "Market Value": "13188.24",
+   "Weight": "0.62",
+   "Market Value": "13187.74",
    "Shares Held": "10000",
    "SEDOL": ""
   },
@@ -251,7 +251,7 @@
    "Name": "Invesco Government & Agency Portfolio 12/31/2031",
    "Ticker": "AGPXX",
    "Identifier": "825252885",
-   "Weight": "0.6",
+   "Weight": "0.61",
    "Market Value": "13111.11",
    "Shares Held": "13111.11",
    "SEDOL": ""
@@ -261,7 +261,7 @@
    "Ticker": "EXOD",
    "Identifier": "30209R106",
    "Weight": "0.19",
-   "Market Value": "4071.6",
+   "Market Value": "3985.8",
    "Shares Held": "780",
    "SEDOL": ""
   },
@@ -269,9 +269,9 @@
    "Name": "Cash & Other",
    "Ticker": "CASH&OTHER",
    "Identifier": "Cash&Other",
-   "Weight": "0.01",
-   "Market Value": "113.94",
-   "Shares Held": "113.94",
+   "Weight": "0",
+   "Market Value": "75.66",
+   "Shares Held": "75.66",
    "SEDOL": ""
   }
  ]

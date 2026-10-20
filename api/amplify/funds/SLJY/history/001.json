@@ -2,7 +2,7 @@
  "ticker": "SLJY",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 293,
+ "totalRows": 294,
  "headers": [
   "Date",
   "Close",
@@ -1767,6 +1767,12 @@
    "Close": "26.42",
    "Adj Close": "26.42",
    "Volume": "32500"
+  },
+  {
+   "Date": "Oct 19 2026",
+   "Close": "26.27",
+   "Adj Close": "26.27",
+   "Volume": "28400"
   }
  ]
 }

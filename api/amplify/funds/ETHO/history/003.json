@@ -2,7 +2,7 @@
  "ticker": "ETHO",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2742,
+ "totalRows": 2743,
  "headers": [
   "Date",
   "Close",
@@ -4461,6 +4461,12 @@
    "Close": "78.749001",
    "Adj Close": "78.75",
    "Volume": "5500"
+  },
+  {
+   "Date": "Oct 19 2026",
+   "Close": "79.207001",
+   "Adj Close": "79.21",
+   "Volume": "4700"
   }
  ]
 }

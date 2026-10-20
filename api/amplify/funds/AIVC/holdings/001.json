@@ -17,8 +17,8 @@
    "Name": "Atlassian Corp",
    "Ticker": "TEAM",
    "Identifier": "049468101",
-   "Weight": "2.77",
-   "Market Value": "3499688.8",
+   "Weight": "2.82",
+   "Market Value": "3616390",
    "Shares Held": "16840",
    "SEDOL": ""
   },
@@ -26,135 +26,126 @@
    "Name": "Gitlab Inc",
    "Ticker": "GTLB",
    "Identifier": "37637K108",
-   "Weight": "2.65",
-   "Market Value": "3353425.6",
+   "Weight": "2.64",
+   "Market Value": "3387112.4",
    "Shares Held": "63560",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Alibaba Group Holding Ltd",
-   "Ticker": "9988 HK",
-   "Identifier": "BK6YZP5",
-   "Weight": "2.61",
-   "Market Value": "3298146",
-   "Shares Held": "237900",
    "SEDOL": ""
   },
   {
    "Name": "International Business Machines Corp",
    "Ticker": "IBM",
    "Identifier": "459200101",
-   "Weight": "2.61",
-   "Market Value": "3299173.68",
+   "Weight": "2.62",
+   "Market Value": "3359574.68",
    "Shares Held": "14212",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Apple Inc",
-   "Ticker": "AAPL",
-   "Identifier": "037833100",
-   "Weight": "2.58",
-   "Market Value": "3256687.72",
-   "Shares Held": "9482",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Microsoft Corp",
-   "Ticker": "MSFT",
-   "Identifier": "594918104",
-   "Weight": "2.56",
-   "Market Value": "3234611.7",
-   "Shares Held": "6114",
    "SEDOL": ""
   },
   {
    "Name": "Amazon.com Inc",
    "Ticker": "AMZN",
    "Identifier": "023135106",
-   "Weight": "2.49",
-   "Market Value": "3145000",
+   "Weight": "2.58",
+   "Market Value": "3301621",
    "Shares Held": "12580",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Alibaba Group Holding Ltd",
+   "Ticker": "9988 HK",
+   "Identifier": "BK6YZP5",
+   "Weight": "2.57",
+   "Market Value": "3298019.93",
+   "Shares Held": "237900",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Microsoft Corp",
+   "Ticker": "MSFT",
+   "Identifier": "594918104",
+   "Weight": "2.55",
+   "Market Value": "3261941.28",
+   "Shares Held": "6114",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Apple Inc",
+   "Ticker": "AAPL",
+   "Identifier": "037833100",
+   "Weight": "2.54",
+   "Market Value": "3251757.08",
+   "Shares Held": "9482",
    "SEDOL": ""
   },
   {
    "Name": "Alphabet Inc",
    "Ticker": "GOOGL",
    "Identifier": "02079K305",
-   "Weight": "2.48",
-   "Market Value": "3137515.08",
+   "Weight": "2.47",
+   "Market Value": "3170586.16",
    "Shares Held": "9212",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Cisco Systems Inc",
-   "Ticker": "CSCO",
-   "Identifier": "17275R102",
-   "Weight": "2.4",
-   "Market Value": "3028290.61",
-   "Shares Held": "28199",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Hon Hai Precision Industry Co Ltd",
-   "Ticker": "2317 TT",
-   "Identifier": "6438564",
-   "Weight": "2.39",
-   "Market Value": "3020249.41",
-   "Shares Held": "401000",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Taiwan Semiconductor Manufacturing Co Ltd",
-   "Ticker": "2330 TT",
-   "Identifier": "6889106",
-   "Weight": "2.37",
-   "Market Value": "2988023.21",
-   "Shares Held": "40000",
    "SEDOL": ""
   },
   {
    "Name": "MongoDB Inc",
    "Ticker": "MDB",
    "Identifier": "60937P106",
-   "Weight": "2.36",
-   "Market Value": "2984118.8",
+   "Weight": "2.41",
+   "Market Value": "3082419.6",
    "Shares Held": "8840",
    "SEDOL": ""
   },
   {
-   "Name": "QUALCOMM Inc",
-   "Ticker": "QCOM",
-   "Identifier": "747525103",
-   "Weight": "2.33",
-   "Market Value": "2945834.76",
-   "Shares Held": "17116",
+   "Name": "Cisco Systems Inc",
+   "Ticker": "CSCO",
+   "Identifier": "17275R102",
+   "Weight": "2.34",
+   "Market Value": "3003193.5",
+   "Shares Held": "28199",
    "SEDOL": ""
   },
   {
    "Name": "Broadcom Inc",
    "Ticker": "AVGO",
    "Identifier": "11135F101",
-   "Weight": "2.32",
-   "Market Value": "2929162.5",
+   "Weight": "2.33",
+   "Market Value": "2981196.9",
    "Shares Held": "8910",
    "SEDOL": ""
   },
   {
-   "Name": "Synopsys Inc",
-   "Ticker": "SNPS",
-   "Identifier": "871607107",
+   "Name": "Datadog Inc",
+   "Ticker": "DDOG",
+   "Identifier": "23804L103",
    "Weight": "2.32",
-   "Market Value": "2936455.17",
-   "Shares Held": "6459",
+   "Market Value": "2971749.04",
+   "Shares Held": "11414",
    "SEDOL": ""
   },
   {
-   "Name": "ASE Technology Holding Co Ltd",
-   "Ticker": "3711 TT",
-   "Identifier": "BFXZDY1",
-   "Weight": "2.31",
-   "Market Value": "2920453.14",
-   "Shares Held": "141000",
+   "Name": "QUALCOMM Inc",
+   "Ticker": "QCOM",
+   "Identifier": "747525103",
+   "Weight": "2.32",
+   "Market Value": "2970139.48",
+   "Shares Held": "17116",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Taiwan Semiconductor Manufacturing Co Ltd",
+   "Ticker": "2330 TT",
+   "Identifier": "6889106",
+   "Weight": "2.32",
+   "Market Value": "2974206.14",
+   "Shares Held": "40000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Hon Hai Precision Industry Co Ltd",
+   "Ticker": "2317 TT",
+   "Identifier": "6438564",
+   "Weight": "2.3",
+   "Market Value": "2950839.57",
+   "Shares Held": "401000",
    "SEDOL": ""
   },
   {
@@ -162,8 +153,17 @@
    "Ticker": "SPCX",
    "Identifier": "84615Q103",
    "Weight": "2.3",
-   "Market Value": "2906581.12",
+   "Market Value": "2944995.84",
    "Shares Held": "19904",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Cadence Design Systems Inc",
+   "Ticker": "CDNS",
+   "Identifier": "127387108",
+   "Weight": "2.29",
+   "Market Value": "2934695.16",
+   "Shares Held": "9006",
    "SEDOL": ""
   },
   {
@@ -171,17 +171,35 @@
    "Ticker": "NVDA",
    "Identifier": "67066G104",
    "Weight": "2.29",
-   "Market Value": "2896108.25",
+   "Market Value": "2936142.25",
    "Shares Held": "13525",
    "SEDOL": ""
   },
   {
-   "Name": "Cadence Design Systems Inc",
-   "Ticker": "CDNS",
-   "Identifier": "127387108",
+   "Name": "Synopsys Inc",
+   "Ticker": "SNPS",
+   "Identifier": "871607107",
+   "Weight": "2.29",
+   "Market Value": "2936132.22",
+   "Shares Held": "6459",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Snowflake Inc",
+   "Ticker": "SNOW",
+   "Identifier": "833445109",
    "Weight": "2.28",
-   "Market Value": "2877507.06",
-   "Shares Held": "9006",
+   "Market Value": "2925817.3",
+   "Shares Held": "9278",
+   "SEDOL": ""
+  },
+  {
+   "Name": "ASE Technology Holding Co Ltd",
+   "Ticker": "3711 TT",
+   "Identifier": "BFXZDY1",
+   "Weight": "2.26",
+   "Market Value": "2902616.26",
+   "Shares Held": "141000",
    "SEDOL": ""
   },
   {
@@ -189,7 +207,7 @@
    "Ticker": "NTAP",
    "Identifier": "64110D104",
    "Weight": "2.26",
-   "Market Value": "2849735.4",
+   "Market Value": "2899654.71",
    "Shares Held": "13983",
    "SEDOL": ""
   },
@@ -197,53 +215,35 @@
    "Name": "Oracle Corp",
    "Ticker": "ORCL",
    "Identifier": "68389X105",
-   "Weight": "2.26",
-   "Market Value": "2851194.05",
-   "Shares Held": "22235",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Snowflake Inc",
-   "Ticker": "SNOW",
-   "Identifier": "833445109",
    "Weight": "2.25",
-   "Market Value": "2846861.52",
-   "Shares Held": "9278",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Advantest Corp",
-   "Ticker": "6857 JP",
-   "Identifier": "6870490",
-   "Weight": "2.23",
-   "Market Value": "2820471.09",
-   "Shares Held": "12900",
+   "Market Value": "2881433.65",
+   "Shares Held": "22235",
    "SEDOL": ""
   },
   {
    "Name": "ASML Holding NV",
    "Ticker": "ASML NA",
    "Identifier": "B929F46",
-   "Weight": "2.23",
-   "Market Value": "2822579.87",
+   "Weight": "2.22",
+   "Market Value": "2849363.99",
    "Shares Held": "1698",
    "SEDOL": ""
   },
   {
-   "Name": "Datadog Inc",
-   "Ticker": "DDOG",
-   "Identifier": "23804L103",
-   "Weight": "2.23",
-   "Market Value": "2820513.54",
-   "Shares Held": "11414",
+   "Name": "Advantest Corp",
+   "Ticker": "6857 JP",
+   "Identifier": "6870490",
+   "Weight": "2.19",
+   "Market Value": "2804790.31",
+   "Shares Held": "12900",
    "SEDOL": ""
   },
   {
    "Name": "Arista Networks Inc",
    "Ticker": "ANET",
    "Identifier": "040413205",
-   "Weight": "2.14",
-   "Market Value": "2700714.8",
+   "Weight": "2.18",
+   "Market Value": "2791817",
    "Shares Held": "15260",
    "SEDOL": ""
   },
@@ -251,62 +251,71 @@
    "Name": "Ciena Corp",
    "Ticker": "CIEN",
    "Identifier": "171779309",
-   "Weight": "2.13",
-   "Market Value": "2690122.05",
+   "Weight": "2.17",
+   "Market Value": "2782857",
    "Shares Held": "8085",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Monolithic Power Systems Inc",
-   "Ticker": "MPWR",
-   "Identifier": "609839105",
-   "Weight": "2.11",
-   "Market Value": "2661470.28",
-   "Shares Held": "2198",
    "SEDOL": ""
   },
   {
    "Name": "MARVELL TECHNOLOGY INC",
    "Ticker": "MRVL",
    "Identifier": "573874104",
-   "Weight": "2.1",
-   "Market Value": "2647612.43",
+   "Weight": "2.15",
+   "Market Value": "2755222.89",
    "Shares Held": "11621",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Monolithic Power Systems Inc",
+   "Ticker": "MPWR",
+   "Identifier": "609839105",
+   "Weight": "2.15",
+   "Market Value": "2755544.68",
+   "Shares Held": "2198",
    "SEDOL": ""
   },
   {
    "Name": "Advanced Micro Devices Inc",
    "Ticker": "AMD",
    "Identifier": "007903107",
-   "Weight": "2.09",
-   "Market Value": "2639520",
+   "Weight": "2.1",
+   "Market Value": "2685945.6",
    "Shares Held": "4992",
    "SEDOL": ""
   },
   {
-   "Name": "MediaTek Inc",
-   "Ticker": "2454 TT",
-   "Identifier": "6372480",
-   "Weight": "2.08",
-   "Market Value": "2623780.71",
-   "Shares Held": "20000",
+   "Name": "Western Digital Corp",
+   "Ticker": "WDC",
+   "Identifier": "958102105",
+   "Weight": "2.09",
+   "Market Value": "2683487.99",
+   "Shares Held": "7619",
    "SEDOL": ""
   },
   {
    "Name": "Micron Technology Inc",
    "Ticker": "MU",
    "Identifier": "595112103",
-   "Weight": "2.05",
-   "Market Value": "2587304.96",
+   "Weight": "2.08",
+   "Market Value": "2664025.6",
    "Shares Held": "2944",
+   "SEDOL": ""
+  },
+  {
+   "Name": "MediaTek Inc",
+   "Ticker": "2454 TT",
+   "Identifier": "6372480",
+   "Weight": "2.02",
+   "Market Value": "2583995.21",
+   "Shares Held": "20000",
    "SEDOL": ""
   },
   {
    "Name": "Lenovo Group Ltd",
    "Ticker": "992 HK",
    "Identifier": "6218089",
-   "Weight": "2.04",
-   "Market Value": "2581495.69",
+   "Weight": "2.01",
+   "Market Value": "2581397.01",
    "Shares Held": "722000",
    "SEDOL": ""
   },
@@ -314,18 +323,9 @@
    "Name": "Dell Technologies Inc",
    "Ticker": "DELL",
    "Identifier": "24703L202",
-   "Weight": "2.01",
-   "Market Value": "2541320.46",
-   "Shares Held": "5626",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Western Digital Corp",
-   "Ticker": "WDC",
-   "Identifier": "958102105",
    "Weight": "2",
-   "Market Value": "2529508",
-   "Shares Held": "7619",
+   "Market Value": "2558761.06",
+   "Shares Held": "5626",
    "SEDOL": ""
   },
   {
@@ -333,7 +333,7 @@
    "Ticker": "HPE",
    "Identifier": "42824C109",
    "Weight": "1.99",
-   "Market Value": "2515967.81",
+   "Market Value": "2549739.19",
    "Shares Held": "45637",
    "SEDOL": ""
   },
@@ -342,26 +342,35 @@
    "Ticker": "005930 KS",
    "Identifier": "6771720",
    "Weight": "1.97",
-   "Market Value": "2486208.88",
+   "Market Value": "2519209.41",
    "Shares Held": "15377",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Celestica Inc",
-   "Ticker": "CLS CN",
-   "Identifier": "BSCB6L9",
-   "Weight": "1.96",
-   "Market Value": "2478806.11",
-   "Shares Held": "8165",
    "SEDOL": ""
   },
   {
    "Name": "Credo Technology Group Holding Ltd",
    "Ticker": "CRDO",
    "Identifier": "G25457105",
-   "Weight": "1.94",
-   "Market Value": "2455898.4",
+   "Weight": "1.95",
+   "Market Value": "2500906.32",
    "Shares Held": "14472",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Celestica Inc",
+   "Ticker": "CLS CN",
+   "Identifier": "BSCB6L9",
+   "Weight": "1.92",
+   "Market Value": "2457815.37",
+   "Shares Held": "8165",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Seagate Technology Holdings PLC",
+   "Ticker": "STX",
+   "Identifier": "G7997R103",
+   "Weight": "1.92",
+   "Market Value": "2463499.68",
+   "Shares Held": "3728",
    "SEDOL": ""
   },
   {
@@ -369,34 +378,34 @@
    "Ticker": "LITE",
    "Identifier": "55024U109",
    "Weight": "1.9",
-   "Market Value": "2403163.08",
+   "Market Value": "2433431.16",
    "Shares Held": "2916",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Seagate Technology Holdings PLC",
-   "Ticker": "STX",
-   "Identifier": "G7997R103",
-   "Weight": "1.89",
-   "Market Value": "2382229.28",
-   "Shares Held": "3728",
    "SEDOL": ""
   },
   {
    "Name": "DigitalOcean Holdings Inc",
    "Ticker": "DOCN",
    "Identifier": "25402D102",
-   "Weight": "1.76",
-   "Market Value": "2229308.41",
+   "Weight": "1.77",
+   "Market Value": "2267257.93",
    "Shares Held": "22589",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Nebius Group NV",
+   "Ticker": "NBIS",
+   "Identifier": "N97284108",
+   "Weight": "1.73",
+   "Market Value": "2218567.68",
+   "Shares Held": "13032",
    "SEDOL": ""
   },
   {
    "Name": "SK hynix Inc",
    "Ticker": "000660 KS",
    "Identifier": "6450267",
-   "Weight": "1.75",
-   "Market Value": "2206447.84",
+   "Weight": "1.73",
+   "Market Value": "2218783.3",
    "Shares Held": "2312",
    "SEDOL": ""
   },
@@ -404,45 +413,27 @@
    "Name": "CoreWeave Inc",
    "Ticker": "CRWV",
    "Identifier": "21873S108",
-   "Weight": "1.72",
-   "Market Value": "2167373.95",
+   "Weight": "1.68",
+   "Market Value": "2157841.6",
    "Shares Held": "35305",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Nebius Group NV",
-   "Ticker": "NBIS",
-   "Identifier": "N97284108",
-   "Weight": "1.71",
-   "Market Value": "2156405.04",
-   "Shares Held": "13032",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Invesco Government & Agency Portfolio 12/31/2031",
-   "Ticker": "AGPXX",
-   "Identifier": "825252885",
-   "Weight": "0.44",
-   "Market Value": "555337.08",
-   "Shares Held": "555337.08",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Cash & Other",
-   "Ticker": "CASH&OTHER",
-   "Identifier": "Cash&Other",
-   "Weight": "0.3",
-   "Market Value": "383527.65",
-   "Shares Held": "383527.65",
    "SEDOL": ""
   },
   {
    "Name": "CHINESE YUAN",
    "Ticker": "CNY",
    "Identifier": "CASHCNY",
-   "Weight": "0",
-   "Market Value": "-0.02",
-   "Shares Held": "-0.15",
+   "Weight": "1.54",
+   "Market Value": "1978522.07",
+   "Shares Held": "13219989.83",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Invesco Government & Agency Portfolio 12/31/2031",
+   "Ticker": "AGPXX",
+   "Identifier": "825252885",
+   "Weight": "0.79",
+   "Market Value": "1009294.48",
+   "Shares Held": "1009294.48",
    "SEDOL": ""
   },
   {
@@ -461,6 +452,15 @@
    "Weight": "0",
    "Market Value": "0.22",
    "Shares Held": "7.25",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Cash & Other",
+   "Ticker": "CASH&OTHER",
+   "Identifier": "Cash&Other",
+   "Weight": "-1.6",
+   "Market Value": "-2054866.52",
+   "Shares Held": "-2054866.52",
    "SEDOL": ""
   }
  ]

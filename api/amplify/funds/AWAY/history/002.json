@@ -2,7 +2,7 @@
  "ticker": "AWAY",
  "page": 2,
  "pageSize": 1000,
- "totalRows": 1678,
+ "totalRows": 1679,
  "headers": [
   "Date",
   "Close",
@@ -4077,6 +4077,12 @@
    "Close": "17.125999",
    "Adj Close": "17.13",
    "Volume": "9600"
+  },
+  {
+   "Date": "Oct 19 2026",
+   "Close": "17.07",
+   "Adj Close": "17.07",
+   "Volume": "2800"
   }
  ]
 }

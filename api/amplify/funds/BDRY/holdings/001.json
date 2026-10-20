@@ -17,16 +17,16 @@
    "Name": "Cash & Other",
    "Ticker": "CASH&OTHER",
    "Identifier": "Cash&Other",
-   "Weight": "80.66",
-   "Market Value": "21605023.11",
-   "Shares Held": "21605023.11",
+   "Weight": "81.07",
+   "Market Value": "22222228.24",
+   "Shares Held": "22222228.24",
    "SEDOL": ""
   },
   {
    "Name": "Invesco Government & Agency Portfolio 12/31/2031",
    "Ticker": "AGPXX",
    "Identifier": "825252885",
-   "Weight": "19.34",
+   "Weight": "18.9",
    "Market Value": "5179505.63",
    "Shares Held": "5179505.63",
    "SEDOL": ""
@@ -35,8 +35,8 @@
    "Name": "Capesize 5TC FFA 180kt Timecharter Average M Dec 26",
    "Ticker": "C5TCM Z26 INDEX",
    "Identifier": "C5TCM Z26",
-   "Weight": "18.36",
-   "Market Value": "4917500",
+   "Weight": "18.71",
+   "Market Value": "5128480",
    "Shares Held": "140",
    "SEDOL": ""
   },
@@ -44,8 +44,8 @@
    "Name": "Capesize 5TC FFA 180kt Timecharter Average M Nov 26",
    "Ticker": "C5TCM X26 INDEX",
    "Identifier": "C5TCM X26",
-   "Weight": "17.34",
-   "Market Value": "4645060",
+   "Weight": "17.84",
+   "Market Value": "4889500",
    "Shares Held": "140",
    "SEDOL": ""
   },
@@ -53,8 +53,8 @@
    "Name": "Capesize 5TC FFA 180kt Timecharter Average M Oct 26",
    "Ticker": "C5TCM V26 INDEX",
    "Identifier": "C5TCM V26",
-   "Weight": "16.72",
-   "Market Value": "4480000",
+   "Weight": "16.83",
+   "Market Value": "4613560",
    "Shares Held": "140",
    "SEDOL": ""
   },
@@ -62,8 +62,8 @@
    "Name": "Panamax 5TC FFA 82kt Timecharter Average M Oct 26",
    "Ticker": "P5TCM V26 INDEX",
    "Identifier": "P5TCM V26",
-   "Weight": "15.67",
-   "Market Value": "4198600",
+   "Weight": "15.31",
+   "Market Value": "4196400",
    "Shares Held": "200",
    "SEDOL": ""
   },
@@ -71,8 +71,8 @@
    "Name": "Panamax 5TC FFA 82kt Timecharter Average M Nov 26",
    "Ticker": "P5TCM X26 INDEX",
    "Identifier": "P5TCM X26",
-   "Weight": "14.63",
-   "Market Value": "3917800",
+   "Weight": "14.3",
+   "Market Value": "3920000",
    "Shares Held": "200",
    "SEDOL": ""
   },
@@ -80,8 +80,8 @@
    "Name": "Panamax 5TC FFA 82kt Timecharter Average M Dec 26",
    "Ticker": "P5TCM Z26 INDEX",
    "Identifier": "P5TCM Z26",
-   "Weight": "14.48",
-   "Market Value": "3880000",
+   "Weight": "14.09",
+   "Market Value": "3861400",
    "Shares Held": "200",
    "SEDOL": ""
   },
@@ -89,8 +89,8 @@
    "Name": "Supramax 58 TC FFA 58kt Timecharter Average M Oct 26",
    "Ticker": "S58FM V26 INDEX",
    "Identifier": "S58FM V26",
-   "Weight": "4.35",
-   "Market Value": "1166000",
+   "Weight": "4.26",
+   "Market Value": "1167595",
    "Shares Held": "55",
    "SEDOL": ""
   },
@@ -98,8 +98,8 @@
    "Name": "Supramax 58 TC FFA 58kt Timecharter Average M Nov 26",
    "Ticker": "S58FM X26 INDEX",
    "Identifier": "S58FM X26",
-   "Weight": "4.13",
-   "Market Value": "1106875",
+   "Weight": "4.06",
+   "Market Value": "1111605",
    "Shares Held": "55",
    "SEDOL": ""
   },
@@ -107,8 +107,8 @@
    "Name": "Supramax 58 TC FFA 58kt Timecharter Average M Dec 26",
    "Ticker": "S58FM Z26 INDEX",
    "Identifier": "S58FM Z26",
-   "Weight": "4.07",
-   "Market Value": "1091365",
+   "Weight": "4",
+   "Market Value": "1096865",
    "Shares Held": "55",
    "SEDOL": ""
   },
@@ -116,35 +116,17 @@
    "Name": "Capesize 5TC 180kt Timecharter Average M Jan 27",
    "Ticker": "C5TCM F27 FISF INDEX",
    "Identifier": "C5TCM F27",
-   "Weight": "1.1",
-   "Market Value": "295640",
-   "Shares Held": "10",
+   "Weight": "1.69",
+   "Market Value": "463065",
+   "Shares Held": "15",
    "SEDOL": ""
   },
   {
    "Name": "Capesize 5TC 180kt Timecharter Average M Mar 27",
    "Ticker": "C5TCM H27 GFII INDEX",
    "Identifier": "C5TCM H27",
-   "Weight": "1.09",
-   "Market Value": "293140",
-   "Shares Held": "10",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Panamax 5TC FFA 82kt Timecharter Average M Jan 27",
-   "Ticker": "P5TCM F27 FISF INDEX",
-   "Identifier": "P5TCM F27",
-   "Weight": "0.94",
-   "Market Value": "251730",
-   "Shares Held": "15",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Panamax 5TC FFA 82kt Timecharter Average M Mar 27",
-   "Ticker": "P5TCM H27 GFII INDEX",
-   "Identifier": "P5TCM H27",
-   "Weight": "0.94",
-   "Market Value": "252000",
+   "Weight": "1.66",
+   "Market Value": "454395",
    "Shares Held": "15",
    "SEDOL": ""
   },
@@ -152,18 +134,36 @@
    "Name": "Capesize 5TC 180kt Timecharter Average M Feb 27",
    "Ticker": "C5TCM G27 GFII INDEX",
    "Identifier": "C5TCM G27",
-   "Weight": "0.93",
-   "Market Value": "250430",
-   "Shares Held": "10",
+   "Weight": "1.42",
+   "Market Value": "388500",
+   "Shares Held": "15",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Panamax 5TC FFA 82kt Timecharter Average M Jan 27",
+   "Ticker": "P5TCM F27 FISF INDEX",
+   "Identifier": "P5TCM F27",
+   "Weight": "1.24",
+   "Market Value": "339920",
+   "Shares Held": "20",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Panamax 5TC FFA 82kt Timecharter Average M Mar 27",
+   "Ticker": "P5TCM H27 GFII INDEX",
+   "Identifier": "P5TCM H27",
+   "Weight": "1.24",
+   "Market Value": "340780",
+   "Shares Held": "20",
    "SEDOL": ""
   },
   {
    "Name": "Panamax 5TC FFA 82kt Timecharter Average M Feb 27",
    "Ticker": "P5TCM G27 COMT INDEX",
    "Identifier": "P5TCM G27",
-   "Weight": "0.89",
-   "Market Value": "237915",
-   "Shares Held": "15",
+   "Weight": "1.17",
+   "Market Value": "321220",
+   "Shares Held": "20",
    "SEDOL": ""
   }
  ]

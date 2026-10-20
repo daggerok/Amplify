@@ -2,7 +2,7 @@
  "ticker": "COWS",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 777,
+ "totalRows": 778,
  "headers": [
   "Date",
   "Close",
@@ -4671,6 +4671,12 @@
    "Close": "38.335999",
    "Adj Close": "38.34",
    "Volume": "11100"
+  },
+  {
+   "Date": "Oct 19 2026",
+   "Close": "38.314999",
+   "Adj Close": "38.31",
+   "Volume": "4200"
   }
  ]
 }

@@ -17,8 +17,8 @@
    "Name": "iShares 20+ Year Treasury Bond ETF",
    "Ticker": "TLT",
    "Identifier": "464287432",
-   "Weight": "54.4",
-   "Market Value": "16753184.2",
+   "Weight": "54.28",
+   "Market Value": "16629706.64",
    "Shares Held": "209284",
    "SEDOL": ""
   },
@@ -27,35 +27,35 @@
    "Ticker": "912810UW6",
    "Identifier": "912810UW6",
    "Weight": "45.4",
-   "Market Value": "13983312.18",
+   "Market Value": "13910047.18",
    "Shares Held": "14653000",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Cash & Other",
-   "Ticker": "CASH&OTHER",
-   "Identifier": "Cash&Other",
-   "Weight": "0.29",
-   "Market Value": "90755.2",
-   "Shares Held": "90755.2",
    "SEDOL": ""
   },
   {
    "Name": "Invesco Government & Agency Portfolio 12/31/2031",
    "Ticker": "AGPXX",
    "Identifier": "825252885",
-   "Weight": "0.14",
-   "Market Value": "42463.75",
-   "Shares Held": "42463.75",
+   "Weight": "0.7",
+   "Market Value": "214391.75",
+   "Shares Held": "214391.75",
    "SEDOL": ""
   },
   {
    "Name": "TLT 10/23/2026 80 C",
    "Ticker": "2TLT 261023C00080000",
    "Identifier": "2TLT 261023C00080000",
-   "Weight": "-0.24",
-   "Market Value": "-72414",
+   "Weight": "-0.11",
+   "Market Value": "-34195.5",
    "Shares Held": "-1341",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Cash & Other",
+   "Ticker": "CASH&OTHER",
+   "Identifier": "Cash&Other",
+   "Weight": "-0.26",
+   "Market Value": "-79252.63",
+   "Shares Held": "-79252.63",
    "SEDOL": ""
   }
  ]

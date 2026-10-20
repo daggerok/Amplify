@@ -14,11 +14,20 @@
  ],
  "rows": [
   {
+   "Name": "Solaris Energy Infrastructure Inc",
+   "Ticker": "SEI",
+   "Identifier": "83418M103",
+   "Weight": "8.31",
+   "Market Value": "850474.08",
+   "Shares Held": "12933",
+   "SEDOL": ""
+  },
+  {
    "Name": "Williams Cos Inc/The",
    "Ticker": "WMB",
    "Identifier": "969457100",
-   "Weight": "8.36",
-   "Market Value": "857498.4",
+   "Weight": "8.28",
+   "Market Value": "846671.4",
    "Shares Held": "12030",
    "SEDOL": ""
   },
@@ -26,26 +35,17 @@
    "Name": "Kinder Morgan Inc",
    "Ticker": "KMI",
    "Identifier": "49456B101",
-   "Weight": "8",
-   "Market Value": "820800",
+   "Weight": "7.83",
+   "Market Value": "801360",
    "Shares Held": "24000",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Solaris Energy Infrastructure Inc",
-   "Ticker": "SEI",
-   "Identifier": "83418M103",
-   "Weight": "7.91",
-   "Market Value": "811416.42",
-   "Shares Held": "12933",
    "SEDOL": ""
   },
   {
    "Name": "Bloom Energy Corp",
    "Ticker": "BE",
    "Identifier": "093712107",
-   "Weight": "7.31",
-   "Market Value": "750240.9",
+   "Weight": "7.5",
+   "Market Value": "766885.8",
    "Shares Held": "3390",
    "SEDOL": ""
   },
@@ -53,8 +53,8 @@
    "Name": "MPLX LP",
    "Ticker": "MPLX",
    "Identifier": "55336V100",
-   "Weight": "5.83",
-   "Market Value": "598291.92",
+   "Weight": "5.85",
+   "Market Value": "598497.66",
    "Shares Held": "10287",
    "SEDOL": ""
   },
@@ -62,8 +62,8 @@
    "Name": "Targa Resources Corp",
    "Ticker": "TRGP",
    "Identifier": "87612G101",
-   "Weight": "4.83",
-   "Market Value": "495432",
+   "Weight": "4.81",
+   "Market Value": "491904",
    "Shares Held": "1680",
    "SEDOL": ""
   },
@@ -71,8 +71,8 @@
    "Name": "Plains GP Holdings LP",
    "Ticker": "PAGP",
    "Identifier": "72651A207",
-   "Weight": "4.68",
-   "Market Value": "480100.5",
+   "Weight": "4.67",
+   "Market Value": "477651.9",
    "Shares Held": "17490",
    "SEDOL": ""
   },
@@ -80,8 +80,8 @@
    "Name": "Energy Transfer LP",
    "Ticker": "ET",
    "Identifier": "29273V100",
-   "Weight": "4.66",
-   "Market Value": "478338.6",
+   "Weight": "4.64",
+   "Market Value": "474797.1",
    "Shares Held": "23610",
    "SEDOL": ""
   },
@@ -89,8 +89,8 @@
    "Name": "Enbridge Inc",
    "Ticker": "ENB",
    "Identifier": "29250N105",
-   "Weight": "4.39",
-   "Market Value": "450648.9",
+   "Weight": "4.32",
+   "Market Value": "441467.28",
    "Shares Held": "9369",
    "SEDOL": ""
   },
@@ -98,8 +98,8 @@
    "Name": "Western Midstream Partners LP",
    "Ticker": "WES",
    "Identifier": "958669103",
-   "Weight": "4.2",
-   "Market Value": "431029.2",
+   "Weight": "4.19",
+   "Market Value": "428517.6",
    "Shares Held": "9660",
    "SEDOL": ""
   },
@@ -107,8 +107,8 @@
    "Name": "TC Energy Corp",
    "Ticker": "TRP",
    "Identifier": "87807B107",
-   "Weight": "4.01",
-   "Market Value": "411188.4",
+   "Weight": "3.95",
+   "Market Value": "404195.4",
    "Shares Held": "6660",
    "SEDOL": ""
   },
@@ -116,8 +116,8 @@
    "Name": "Cheniere Energy Inc",
    "Ticker": "LNG",
    "Identifier": "16411R208",
-   "Weight": "3.89",
-   "Market Value": "399413.4",
+   "Weight": "3.87",
+   "Market Value": "395508",
    "Shares Held": "1380",
    "SEDOL": ""
   },
@@ -125,8 +125,8 @@
    "Name": "GE Vernova Inc",
    "Ticker": "GEV",
    "Identifier": "36828A101",
-   "Weight": "3.77",
-   "Market Value": "386904",
+   "Weight": "3.73",
+   "Market Value": "381544.8",
    "Shares Held": "420",
    "SEDOL": ""
   },
@@ -134,27 +134,27 @@
    "Name": "DT Midstream Inc",
    "Ticker": "DTM",
    "Identifier": "23345M107",
-   "Weight": "3.62",
-   "Market Value": "371010",
+   "Weight": "3.59",
+   "Market Value": "367440",
    "Shares Held": "3000",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Archrock Inc",
-   "Ticker": "AROC",
-   "Identifier": "03957W106",
-   "Weight": "3.13",
-   "Market Value": "321021.6",
-   "Shares Held": "10860",
    "SEDOL": ""
   },
   {
    "Name": "Venture Global Inc",
    "Ticker": "VG",
    "Identifier": "92333F101",
-   "Weight": "3.11",
-   "Market Value": "319017.6",
+   "Weight": "3.14",
+   "Market Value": "321274.8",
    "Shares Held": "25080",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Archrock Inc",
+   "Ticker": "AROC",
+   "Identifier": "03957W106",
+   "Weight": "3.12",
+   "Market Value": "319175.4",
+   "Shares Held": "10860",
    "SEDOL": ""
   },
   {
@@ -162,7 +162,7 @@
    "Ticker": "KGS",
    "Identifier": "50012A108",
    "Weight": "3.04",
-   "Market Value": "311586",
+   "Market Value": "311256",
    "Shares Held": "6600",
    "SEDOL": ""
   },
@@ -170,8 +170,8 @@
    "Name": "FLEX LNG Ltd",
    "Ticker": "FLNG",
    "Identifier": "G35947202",
-   "Weight": "2.32",
-   "Market Value": "237978.9",
+   "Weight": "2.29",
+   "Market Value": "234185.4",
    "Shares Held": "8430",
    "SEDOL": ""
   },
@@ -179,8 +179,8 @@
    "Name": "Golar LNG Ltd",
    "Ticker": "GLNG",
    "Identifier": "G9456A100",
-   "Weight": "2.09",
-   "Market Value": "214532.4",
+   "Weight": "2.08",
+   "Market Value": "212589",
    "Shares Held": "4740",
    "SEDOL": ""
   },
@@ -188,8 +188,8 @@
    "Name": "Worthington Enterprises Inc",
    "Ticker": "WOR",
    "Identifier": "981811102",
-   "Weight": "1.99",
-   "Market Value": "204283.2",
+   "Weight": "1.97",
+   "Market Value": "201389.4",
    "Shares Held": "3180",
    "SEDOL": ""
   },
@@ -197,8 +197,8 @@
    "Name": "PPL Corp",
    "Ticker": "PPL",
    "Identifier": "69351T106",
-   "Weight": "1.98",
-   "Market Value": "203634.3",
+   "Weight": "1.94",
+   "Market Value": "198654.9",
    "Shares Held": "5790",
    "SEDOL": ""
   },
@@ -206,8 +206,8 @@
    "Name": "Kinetik Holdings Inc",
    "Ticker": "KNTK",
    "Identifier": "02215L209",
-   "Weight": "1.94",
-   "Market Value": "199080",
+   "Weight": "1.92",
+   "Market Value": "196740",
    "Shares Held": "3600",
    "SEDOL": ""
   },
@@ -216,7 +216,7 @@
    "Ticker": "APD",
    "Identifier": "009158106",
    "Weight": "1.58",
-   "Market Value": "161778.6",
+   "Market Value": "161271",
    "Shares Held": "540",
    "SEDOL": ""
   },
@@ -233,8 +233,8 @@
    "Name": "Permian Resources Corp",
    "Ticker": "PR",
    "Identifier": "71424F105",
-   "Weight": "1.08",
-   "Market Value": "110655",
+   "Weight": "1.09",
+   "Market Value": "111600",
    "Shares Held": "4500",
    "SEDOL": ""
   },
@@ -243,7 +243,7 @@
    "Ticker": "OKE",
    "Identifier": "30609A109",
    "Weight": "0.87",
-   "Market Value": "89577.6",
+   "Market Value": "88723.2",
    "Shares Held": "960",
    "SEDOL": ""
   },
@@ -252,8 +252,8 @@
    "Ticker": "CASH&OTHER",
    "Identifier": "Cash&Other",
    "Weight": "0.02",
-   "Market Value": "1910.59",
-   "Shares Held": "1910.59",
+   "Market Value": "1760.55",
+   "Shares Held": "1760.55",
    "SEDOL": ""
   }
  ]

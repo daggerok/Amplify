@@ -17,8 +17,8 @@
    "Name": "Meta Platforms Inc",
    "Ticker": "META",
    "Identifier": "30303M102",
-   "Weight": "10.66",
-   "Market Value": "4228995.65",
+   "Weight": "10.61",
+   "Market Value": "4205833.28",
    "Shares Held": "5962",
    "SEDOL": ""
   },
@@ -26,8 +26,8 @@
    "Name": "Microsoft Corp",
    "Ticker": "MSFT",
    "Identifier": "594918104",
-   "Weight": "10.41",
-   "Market Value": "4127119.05",
+   "Weight": "10.5",
+   "Market Value": "4161989.52",
    "Shares Held": "7801",
    "SEDOL": ""
   },
@@ -35,9 +35,18 @@
    "Name": "Advanced Micro Devices Inc",
    "Ticker": "AMD",
    "Identifier": "007903107",
-   "Weight": "10.17",
-   "Market Value": "4034362.5",
+   "Weight": "10.36",
+   "Market Value": "4105321.5",
    "Shares Held": "7630",
+   "SEDOL": ""
+  },
+  {
+   "Name": "NVIDIA Corp",
+   "Ticker": "NVDA",
+   "Identifier": "67066G104",
+   "Weight": "9.64",
+   "Market Value": "3819915.64",
+   "Shares Held": "17596",
    "SEDOL": ""
   },
   {
@@ -45,25 +54,16 @@
    "Ticker": "700 HK",
    "Identifier": "BMMV2K8",
    "Weight": "9.53",
-   "Market Value": "3778242.08",
+   "Market Value": "3778097.65",
    "Shares Held": "70970",
-   "SEDOL": ""
-  },
-  {
-   "Name": "NVIDIA Corp",
-   "Ticker": "NVDA",
-   "Identifier": "67066G104",
-   "Weight": "9.5",
-   "Market Value": "3767831.48",
-   "Shares Held": "17596",
    "SEDOL": ""
   },
   {
    "Name": "NETEASE INC",
    "Ticker": "NTES",
    "Identifier": "64110W102",
-   "Weight": "5.28",
-   "Market Value": "2094234.78",
+   "Weight": "5.25",
+   "Market Value": "2080778.25",
    "Shares Held": "16613",
    "SEDOL": ""
   },
@@ -71,8 +71,8 @@
    "Name": "Sony Group Corp",
    "Ticker": "6758 JP",
    "Identifier": "6821506",
-   "Weight": "5.14",
-   "Market Value": "2038033.94",
+   "Weight": "5.13",
+   "Market Value": "2031922.75",
    "Shares Held": "81300",
    "SEDOL": ""
   },
@@ -80,35 +80,35 @@
    "Name": "Nintendo Co Ltd",
    "Ticker": "7974 JT",
    "Identifier": "6639550",
-   "Weight": "5.01",
-   "Market Value": "1988133.03",
+   "Weight": "5.04",
+   "Market Value": "1996161.26",
    "Shares Held": "37031",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Sea Ltd",
-   "Ticker": "SE",
-   "Identifier": "81141R100",
-   "Weight": "4.22",
-   "Market Value": "1672856.8",
-   "Shares Held": "17840",
    "SEDOL": ""
   },
   {
    "Name": "AppLovin Corp",
    "Ticker": "APP",
    "Identifier": "03831W108",
-   "Weight": "4.1",
-   "Market Value": "1625255.91",
+   "Weight": "4.15",
+   "Market Value": "1643515.84",
    "Shares Held": "6107",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Sea Ltd",
+   "Ticker": "SE",
+   "Identifier": "81141R100",
+   "Weight": "3.98",
+   "Market Value": "1578304.8",
+   "Shares Held": "17840",
    "SEDOL": ""
   },
   {
    "Name": "Konami Group Corp",
    "Ticker": "9766 JP",
    "Identifier": "6496681",
-   "Weight": "2.94",
-   "Market Value": "1166187.46",
+   "Weight": "2.93",
+   "Market Value": "1161929.09",
    "Shares Held": "7413",
    "SEDOL": ""
   },
@@ -116,8 +116,8 @@
    "Name": "Bandai Namco Holdings Inc",
    "Ticker": "7832 JP",
    "Identifier": "B0JDQD4",
-   "Weight": "2.84",
-   "Market Value": "1127363.14",
+   "Weight": "2.82",
+   "Market Value": "1118703.02",
    "Shares Held": "28270",
    "SEDOL": ""
   },
@@ -125,8 +125,8 @@
    "Name": "ROBLOX Corp",
    "Ticker": "RBLX",
    "Identifier": "771049103",
-   "Weight": "2.67",
-   "Market Value": "1060469.1",
+   "Weight": "2.74",
+   "Market Value": "1086151.5",
    "Shares Held": "21402",
    "SEDOL": ""
   },
@@ -134,8 +134,8 @@
    "Name": "International Games System Co Ltd",
    "Ticker": "3293 TT",
    "Identifier": "6744807",
-   "Weight": "2.66",
-   "Market Value": "1055222.87",
+   "Weight": "2.58",
+   "Market Value": "1022598.44",
    "Shares Held": "43000",
    "SEDOL": ""
   },
@@ -143,8 +143,8 @@
    "Name": "Capcom Co Ltd",
    "Ticker": "9697 JP",
    "Identifier": "6173694",
-   "Weight": "2.57",
-   "Market Value": "1021029.57",
+   "Weight": "2.55",
+   "Market Value": "1011712.58",
    "Shares Held": "35200",
    "SEDOL": ""
   },
@@ -153,26 +153,26 @@
    "Ticker": "ALL AU",
    "Identifier": "6253983",
    "Weight": "2.48",
-   "Market Value": "984278.68",
+   "Market Value": "982819.48",
    "Shares Held": "22421",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Asustek Computer Inc",
-   "Ticker": "2357 TT",
-   "Identifier": "6051046",
-   "Weight": "2.4",
-   "Market Value": "951166.81",
-   "Shares Held": "31000",
    "SEDOL": ""
   },
   {
    "Name": "Unity Software Inc",
    "Ticker": "U",
    "Identifier": "91332U101",
-   "Weight": "2.33",
-   "Market Value": "922493.6",
+   "Weight": "2.34",
+   "Market Value": "926603.72",
    "Shares Held": "22834",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Asustek Computer Inc",
+   "Ticker": "2357 TT",
+   "Identifier": "6051046",
+   "Weight": "2.33",
+   "Market Value": "923908.87",
+   "Shares Held": "31000",
    "SEDOL": ""
   },
   {
@@ -180,7 +180,7 @@
    "Ticker": "TTWO",
    "Identifier": "874054109",
    "Weight": "2.29",
-   "Market Value": "908569.28",
+   "Market Value": "906975.92",
    "Shares Held": "4426",
    "SEDOL": ""
   },
@@ -188,8 +188,8 @@
    "Name": "Nexon Co Ltd",
    "Ticker": "3659 JP",
    "Identifier": "B63QM77",
-   "Weight": "2.13",
-   "Market Value": "843823.85",
+   "Weight": "2.11",
+   "Market Value": "834649.25",
    "Shares Held": "47400",
    "SEDOL": ""
   },
@@ -198,8 +198,8 @@
    "Ticker": "CASH&OTHER",
    "Identifier": "Cash&Other",
    "Weight": "0.36",
-   "Market Value": "142049.42",
-   "Shares Held": "142049.42",
+   "Market Value": "140908.64",
+   "Shares Held": "140908.64",
    "SEDOL": ""
   },
   {
@@ -216,7 +216,7 @@
    "Ticker": "JPY",
    "Identifier": "CASHJPY",
    "Weight": "0",
-   "Market Value": "528.51",
+   "Market Value": "526.79",
    "Shares Held": "83467",
    "SEDOL": ""
   },

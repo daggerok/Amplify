@@ -17,8 +17,8 @@
    "Name": "Tesla Inc",
    "Ticker": "TSLA",
    "Identifier": "88160R101",
-   "Weight": "8.18",
-   "Market Value": "8521793.28",
+   "Weight": "8.44",
+   "Market Value": "8842273.44",
    "Shares Held": "24024",
    "SEDOL": ""
   },
@@ -26,8 +26,8 @@
    "Name": "BHP Group Ltd",
    "Ticker": "BHP AU",
    "Identifier": "6144690",
-   "Weight": "7.22",
-   "Market Value": "7517343.15",
+   "Weight": "7.27",
+   "Market Value": "7607174.11",
    "Shares Held": "180286",
    "SEDOL": ""
   },
@@ -35,8 +35,8 @@
    "Name": "Freeport-McMoRan Inc",
    "Ticker": "FCX",
    "Identifier": "35671D857",
-   "Weight": "6.65",
-   "Market Value": "6928131.12",
+   "Weight": "6.64",
+   "Market Value": "6949053",
    "Shares Held": "99628",
    "SEDOL": ""
   },
@@ -44,8 +44,8 @@
    "Name": "Contemporary Amperex Technology Co Ltd",
    "Ticker": "300750 C2",
    "Identifier": "BHQPSY7",
-   "Weight": "5.43",
-   "Market Value": "5656943.36",
+   "Weight": "5.21",
+   "Market Value": "5457210.63",
    "Shares Held": "136558",
    "SEDOL": ""
   },
@@ -53,8 +53,8 @@
    "Name": "BYD Co Ltd",
    "Ticker": "1211 HK",
    "Identifier": "6536651",
-   "Weight": "4.61",
-   "Market Value": "4806187.48",
+   "Weight": "4.59",
+   "Market Value": "4806003.77",
    "Shares Held": "511437",
    "SEDOL": ""
   },
@@ -62,9 +62,9 @@
    "Name": "Bloom Energy Corp",
    "Ticker": "BE",
    "Identifier": "093712107",
-   "Weight": "4.45",
-   "Market Value": "4631133.06",
-   "Shares Held": "20926",
+   "Weight": "4.54",
+   "Market Value": "4751977.32",
+   "Shares Held": "21006",
    "SEDOL": ""
   },
   {
@@ -72,16 +72,25 @@
    "Ticker": "GMEXICOB MM",
    "Identifier": "2643674",
    "Weight": "3.42",
-   "Market Value": "3560144.73",
-   "Shares Held": "269079.015464",
+   "Market Value": "3578309.25",
+   "Shares Held": "270812.015464",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Samsung SDI Co Ltd",
+   "Ticker": "006400 KS",
+   "Identifier": "6771645",
+   "Weight": "3.05",
+   "Market Value": "3191679.25",
+   "Shares Held": "7174",
    "SEDOL": ""
   },
   {
    "Name": "TDK Corp",
    "Ticker": "6762 JP",
    "Identifier": "6869302",
-   "Weight": "2.98",
-   "Market Value": "3101506.78",
+   "Weight": "2.92",
+   "Market Value": "3061745.81",
    "Shares Held": "166646",
    "SEDOL": ""
   },
@@ -89,26 +98,17 @@
    "Name": "Teck Resources Ltd",
    "Ticker": "TECK",
    "Identifier": "878742204",
-   "Weight": "2.75",
-   "Market Value": "2863506.06",
-   "Shares Held": "44313",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Samsung SDI Co Ltd",
-   "Ticker": "006400 KS",
-   "Identifier": "6771645",
-   "Weight": "2.74",
-   "Market Value": "2852699.1",
-   "Shares Held": "7174",
+   "Weight": "2.7",
+   "Market Value": "2824288.68",
+   "Shares Held": "44491",
    "SEDOL": ""
   },
   {
    "Name": "LG Energy Solution Ltd",
    "Ticker": "373220 KS",
    "Identifier": "BNSP8W5",
-   "Weight": "2.18",
-   "Market Value": "2267092.32",
+   "Weight": "2.32",
+   "Market Value": "2434250.93",
    "Shares Held": "7498",
    "SEDOL": ""
   },
@@ -116,8 +116,8 @@
    "Name": "Resonac Holdings Corp",
    "Ticker": "4004 JP",
    "Identifier": "6805469",
-   "Weight": "1.98",
-   "Market Value": "2059878.86",
+   "Weight": "2.03",
+   "Market Value": "2122955.82",
    "Shares Held": "21639",
    "SEDOL": ""
   },
@@ -126,17 +126,8 @@
    "Ticker": "FM CN",
    "Identifier": "2347608",
    "Weight": "1.91",
-   "Market Value": "1984586.41",
-   "Shares Held": "76279",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Sumitomo Metal Mining Co Ltd",
-   "Ticker": "5713 JP",
-   "Identifier": "6858849",
-   "Weight": "1.82",
-   "Market Value": "1898021.89",
-   "Shares Held": "34143",
+   "Market Value": "1995555.19",
+   "Shares Held": "76731",
    "SEDOL": ""
   },
   {
@@ -144,16 +135,25 @@
    "Ticker": "LUN CN",
    "Identifier": "2866857",
    "Weight": "1.81",
-   "Market Value": "1880532.79",
-   "Shares Held": "79783",
+   "Market Value": "1893294.29",
+   "Shares Held": "80256",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Sumitomo Metal Mining Co Ltd",
+   "Ticker": "5713 JP",
+   "Identifier": "6858849",
+   "Weight": "1.8",
+   "Market Value": "1886209.63",
+   "Shares Held": "34143",
    "SEDOL": ""
   },
   {
    "Name": "South32 Ltd",
    "Ticker": "S32 AU",
    "Identifier": "BWSW5D9",
-   "Weight": "1.8",
-   "Market Value": "1878712.03",
+   "Weight": "1.76",
+   "Market Value": "1838717.25",
    "Shares Held": "584178",
    "SEDOL": ""
   },
@@ -161,45 +161,36 @@
    "Name": "Antofagasta PLC",
    "Ticker": "ANTO LN",
    "Identifier": "0045614",
-   "Weight": "1.7",
-   "Market Value": "1773980.03",
+   "Weight": "1.67",
+   "Market Value": "1749821.2",
    "Shares Held": "39146",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Hudbay Minerals Inc",
-   "Ticker": "HBM",
-   "Identifier": "443628102",
-   "Weight": "1.54",
-   "Market Value": "1605923.8",
-   "Shares Held": "67990",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Albemarle Corp",
-   "Ticker": "ALB",
-   "Identifier": "012653101",
-   "Weight": "1.49",
-   "Market Value": "1551645.48",
-   "Shares Held": "16251",
    "SEDOL": ""
   },
   {
    "Name": "Ecopro BM Co Ltd",
    "Ticker": "247540 KS",
    "Identifier": "BJ321P7",
-   "Weight": "1.46",
-   "Market Value": "1518664.14",
+   "Weight": "1.57",
+   "Market Value": "1647820.99",
    "Shares Held": "18935",
    "SEDOL": ""
   },
   {
-   "Name": "Rivian Automotive Inc",
-   "Ticker": "RIVN",
-   "Identifier": "76954A103",
-   "Weight": "1.42",
-   "Market Value": "1478489.22",
-   "Shares Held": "119041",
+   "Name": "Hudbay Minerals Inc",
+   "Ticker": "HBM",
+   "Identifier": "443628102",
+   "Weight": "1.56",
+   "Market Value": "1632946.64",
+   "Shares Held": "68267",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Albemarle Corp",
+   "Ticker": "ALB",
+   "Identifier": "012653101",
+   "Weight": "1.47",
+   "Market Value": "1544146.24",
+   "Shares Held": "16316",
    "SEDOL": ""
   },
   {
@@ -207,8 +198,17 @@
    "Ticker": "SFR AU",
    "Identifier": "6739739",
    "Weight": "1.42",
-   "Market Value": "1475917.88",
+   "Market Value": "1485818.96",
    "Shares Held": "103399",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Rivian Automotive Inc",
+   "Ticker": "RIVN",
+   "Identifier": "76954A103",
+   "Weight": "1.41",
+   "Market Value": "1475012.54",
+   "Shares Held": "119531",
    "SEDOL": ""
   },
   {
@@ -216,16 +216,16 @@
    "Ticker": "SQM",
    "Identifier": "833635105",
    "Weight": "1.41",
-   "Market Value": "1472191",
-   "Shares Held": "24455",
+   "Market Value": "1476131.37",
+   "Shares Held": "24549",
    "SEDOL": ""
   },
   {
    "Name": "Jiangxi Copper Co Ltd",
    "Ticker": "600362 C1",
    "Identifier": "BP3R4R7",
-   "Weight": "1.4",
-   "Market Value": "1453114.98",
+   "Weight": "1.38",
+   "Market Value": "1441662.95",
    "Shares Held": "246427",
    "SEDOL": ""
   },
@@ -234,16 +234,16 @@
    "Ticker": "ENS",
    "Identifier": "29275Y102",
    "Weight": "1.29",
-   "Market Value": "1344867.12",
-   "Shares Held": "7971",
+   "Market Value": "1352907.15",
+   "Shares Held": "8003",
    "SEDOL": ""
   },
   {
    "Name": "Western Mining Co Ltd",
    "Ticker": "601168 C1",
    "Identifier": "BP3R7X4",
-   "Weight": "1.27",
-   "Market Value": "1325682.4",
+   "Weight": "1.25",
+   "Market Value": "1307289.22",
    "Shares Held": "269848",
    "SEDOL": ""
   },
@@ -252,7 +252,7 @@
    "Ticker": "2015 HK",
    "Identifier": "BMW5M00",
    "Weight": "1.24",
-   "Market Value": "1296567.94",
+   "Market Value": "1296518.38",
    "Shares Held": "227331",
    "SEDOL": ""
   },
@@ -261,16 +261,25 @@
    "Ticker": "603799 C1",
    "Identifier": "BFF5BV2",
    "Weight": "1.24",
-   "Market Value": "1286324.9",
+   "Market Value": "1300459.71",
    "Shares Held": "266708",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Capstone Copper Corp",
+   "Ticker": "CS CN",
+   "Identifier": "BMY5XY9",
+   "Weight": "1.18",
+   "Market Value": "1236280.9",
+   "Shares Held": "141951",
    "SEDOL": ""
   },
   {
    "Name": "Guangzhou Tinci Materials Technology Co Ltd",
    "Ticker": "002709 C2",
    "Identifier": "BD5LR63",
-   "Weight": "1.23",
-   "Market Value": "1276124.58",
+   "Weight": "1.18",
+   "Market Value": "1240629.63",
    "Shares Held": "297011",
    "SEDOL": ""
   },
@@ -278,35 +287,17 @@
    "Name": "MP Materials Corp",
    "Ticker": "MP",
    "Identifier": "553368101",
-   "Weight": "1.22",
-   "Market Value": "1272224.07",
-   "Shares Held": "31671",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Umicore SA",
-   "Ticker": "UMI BB",
-   "Identifier": "BF44466",
    "Weight": "1.18",
-   "Market Value": "1233757.45",
-   "Shares Held": "53442",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Capstone Copper Corp",
-   "Ticker": "CS CN",
-   "Identifier": "BMY5XY9",
-   "Weight": "1.17",
-   "Market Value": "1222444.4",
-   "Shares Held": "141110",
+   "Market Value": "1238454.2",
+   "Shares Held": "31796",
    "SEDOL": ""
   },
   {
    "Name": "Yutong Bus Co Ltd",
    "Ticker": "600066 C1",
    "Identifier": "BP3R5T6",
-   "Weight": "1.17",
-   "Market Value": "1215328.1",
+   "Weight": "1.18",
+   "Market Value": "1231911.8",
    "Shares Held": "283058",
    "SEDOL": ""
   },
@@ -314,27 +305,18 @@
    "Name": "MMG Ltd",
    "Ticker": "1208 HK",
    "Identifier": "6728793",
-   "Weight": "1.16",
-   "Market Value": "1203295.42",
+   "Weight": "1.15",
+   "Market Value": "1203249.42",
    "Shares Held": "1236849",
    "SEDOL": ""
   },
   {
-   "Name": "PLS Group Ltd",
-   "Ticker": "PLS AU",
-   "Identifier": "B2368L5",
-   "Weight": "1.09",
-   "Market Value": "1130968.87",
-   "Shares Held": "546387",
-   "SEDOL": ""
-  },
-  {
-   "Name": "NIO Inc",
-   "Ticker": "NIO",
-   "Identifier": "62914V106",
-   "Weight": "1.08",
-   "Market Value": "1127845.74",
-   "Shares Held": "328818",
+   "Name": "Umicore SA",
+   "Ticker": "UMI BB",
+   "Identifier": "BF44466",
+   "Weight": "1.11",
+   "Market Value": "1165325.34",
+   "Shares Held": "53442",
    "SEDOL": ""
   },
   {
@@ -342,7 +324,7 @@
    "Ticker": "1258 HK",
    "Identifier": "B890GY2",
    "Weight": "1.07",
-   "Market Value": "1118891.59",
+   "Market Value": "1118848.82",
    "Shares Held": "622321",
    "SEDOL": ""
   },
@@ -351,16 +333,34 @@
    "Ticker": "MIN AU",
    "Identifier": "B17ZL56",
    "Weight": "1.07",
-   "Market Value": "1118363.44",
+   "Market Value": "1120408.52",
    "Shares Held": "36044",
+   "SEDOL": ""
+  },
+  {
+   "Name": "NIO Inc",
+   "Ticker": "NIO",
+   "Identifier": "62914V106",
+   "Weight": "1.07",
+   "Market Value": "1119272.91",
+   "Shares Held": "330169",
+   "SEDOL": ""
+  },
+  {
+   "Name": "PLS Group Ltd",
+   "Ticker": "PLS AU",
+   "Identifier": "B2368L5",
+   "Weight": "1.06",
+   "Market Value": "1105838.14",
+   "Shares Held": "546387",
    "SEDOL": ""
   },
   {
    "Name": "Xiamen Tungsten Co Ltd",
    "Ticker": "600549 C1",
    "Identifier": "BP3R6F9",
-   "Weight": "1.03",
-   "Market Value": "1070622.69",
+   "Weight": "1.02",
+   "Market Value": "1065313.06",
    "Shares Held": "194432",
    "SEDOL": ""
   },
@@ -368,8 +368,8 @@
    "Name": "Zhejiang Leapmotor Technology Co Ltd",
    "Ticker": "9863 HK",
    "Identifier": "BJLVDM7",
-   "Weight": "1.01",
-   "Market Value": "1050675.2",
+   "Weight": "1",
+   "Market Value": "1050635.04",
    "Shares Held": "234383",
    "SEDOL": ""
   },
@@ -377,8 +377,8 @@
    "Name": "Tianqi Lithium Corp",
    "Ticker": "9696 HK",
    "Identifier": "BMZ3RS4",
-   "Weight": "1",
-   "Market Value": "1036712.25",
+   "Weight": "0.99",
+   "Market Value": "1036672.63",
    "Shares Held": "340419",
    "SEDOL": ""
   },
@@ -387,7 +387,7 @@
    "Ticker": "1585 HK",
    "Identifier": "BZ04KX9",
    "Weight": "0.98",
-   "Market Value": "1022614.95",
+   "Market Value": "1022575.86",
    "Shares Held": "845667",
    "SEDOL": ""
   },
@@ -395,8 +395,8 @@
    "Name": "Ganfeng Lithium Group Co Ltd",
    "Ticker": "1772 HK",
    "Identifier": "BZ9NS11",
-   "Weight": "0.97",
-   "Market Value": "1007300.64",
+   "Weight": "0.96",
+   "Market Value": "1007262.13",
    "Shares Held": "329933",
    "SEDOL": ""
   },
@@ -404,35 +404,35 @@
    "Name": "JL Mag Rare-Earth Co Ltd",
    "Ticker": "6680 HK",
    "Identifier": "BNXFSW0",
-   "Weight": "0.97",
-   "Market Value": "1010228.76",
-   "Shares Held": "560295",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Vinfast Auto Ltd",
-   "Ticker": "VFS",
-   "Identifier": "Y9390M103",
    "Weight": "0.96",
-   "Market Value": "1000908.48",
-   "Shares Held": "320804",
+   "Market Value": "1010190.14",
+   "Shares Held": "560295",
    "SEDOL": ""
   },
   {
    "Name": "IGO LTD",
    "Ticker": "IGO AU",
    "Identifier": "6439567",
-   "Weight": "0.92",
-   "Market Value": "958484.11",
+   "Weight": "0.9",
+   "Market Value": "940025.68",
    "Shares Held": "253660",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Vinfast Auto Ltd",
+   "Ticker": "VFS",
+   "Identifier": "Y9390M103",
+   "Weight": "0.9",
+   "Market Value": "939492.7",
+   "Shares Held": "323963",
    "SEDOL": ""
   },
   {
    "Name": "CNGR Advanced Material Co Ltd",
    "Ticker": "2579 HK",
    "Identifier": "BV9BWT3",
-   "Weight": "0.86",
-   "Market Value": "891767.26",
+   "Weight": "0.85",
+   "Market Value": "891733.17",
    "Shares Held": "369314",
    "SEDOL": ""
   },
@@ -441,17 +441,8 @@
    "Ticker": "NCKL IJ",
    "Identifier": "BP69061",
    "Weight": "0.8",
-   "Market Value": "830085.87",
+   "Market Value": "840715.29",
    "Shares Held": "21660429",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Merdeka Battery Materials Tbk PT",
-   "Ticker": "MBMA IJ",
-   "Identifier": "BMBR1M2",
-   "Weight": "0.77",
-   "Market Value": "796881.1",
-   "Shares Held": "38363220",
    "SEDOL": ""
   },
   {
@@ -459,26 +450,26 @@
    "Ticker": "6656 HK",
    "Identifier": "BT68VS5",
    "Weight": "0.76",
-   "Market Value": "792532.86",
+   "Market Value": "792502.56",
    "Shares Held": "29989",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Merdeka Battery Materials Tbk PT",
+   "Ticker": "MBMA IJ",
+   "Identifier": "BMBR1M2",
+   "Weight": "0.71",
+   "Market Value": "740249.55",
+   "Shares Held": "38363220",
    "SEDOL": ""
   },
   {
    "Name": "Invesco Government & Agency Portfolio 12/31/2031",
    "Ticker": "AGPXX",
    "Identifier": "825252885",
-   "Weight": "0.62",
+   "Weight": "0.61",
    "Market Value": "643362.1",
    "Shares Held": "643362.1",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Cash & Other",
-   "Ticker": "CASH&OTHER",
-   "Identifier": "Cash&Other",
-   "Weight": "0.08",
-   "Market Value": "87009.4",
-   "Shares Held": "87009.4",
    "SEDOL": ""
   },
   {
@@ -486,7 +477,7 @@
    "Ticker": "646A JP",
    "Identifier": "BXD1C71",
    "Weight": "0.03",
-   "Market Value": "27955.39",
+   "Market Value": "26660.86",
    "Shares Held": "22062",
    "SEDOL": ""
   },
@@ -495,7 +486,7 @@
    "Ticker": "CNY",
    "Identifier": "CASHCNY",
    "Weight": "0.01",
-   "Market Value": "13036.08",
+   "Market Value": "13045.83",
    "Shares Held": "87169",
    "SEDOL": ""
   },
@@ -506,6 +497,15 @@
    "Weight": "0",
    "Market Value": "0",
    "Shares Held": "182937",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Cash & Other",
+   "Ticker": "CASH&OTHER",
+   "Identifier": "Cash&Other",
+   "Weight": "-0.04",
+   "Market Value": "-45680.89",
+   "Shares Held": "-45680.89",
    "SEDOL": ""
   }
  ]

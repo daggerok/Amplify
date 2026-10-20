@@ -17,8 +17,8 @@
    "Name": "Broadcom Inc",
    "Ticker": "AVGO",
    "Identifier": "11135F101",
-   "Weight": "6.43",
-   "Market Value": "212728207.5",
+   "Weight": "6.49",
+   "Market Value": "216507166.38",
    "Shares Held": "647082",
    "SEDOL": ""
   },
@@ -26,8 +26,8 @@
    "Name": "Cisco Systems Inc",
    "Ticker": "CSCO",
    "Identifier": "17275R102",
-   "Weight": "5.92",
-   "Market Value": "195863681.06",
+   "Weight": "5.82",
+   "Market Value": "194240451",
    "Shares Held": "1823854",
    "SEDOL": ""
   },
@@ -35,8 +35,8 @@
    "Name": "Crowdstrike Holdings Inc",
    "Ticker": "CRWD",
    "Identifier": "22788C105",
-   "Weight": "5.56",
-   "Market Value": "183898479.04",
+   "Weight": "5.53",
+   "Market Value": "184472681.6",
    "Shares Held": "808736",
    "SEDOL": ""
   },
@@ -44,8 +44,8 @@
    "Name": "Palo Alto Networks Inc",
    "Ticker": "PANW",
    "Identifier": "697435105",
-   "Weight": "5.23",
-   "Market Value": "173000700",
+   "Weight": "5.26",
+   "Market Value": "175504657.5",
    "Shares Held": "505850",
    "SEDOL": ""
   },
@@ -53,8 +53,8 @@
    "Name": "Fortinet Inc",
    "Ticker": "FTNT",
    "Identifier": "34959E109",
-   "Weight": "5.04",
-   "Market Value": "166668143.72",
+   "Weight": "5.07",
+   "Market Value": "169003646",
    "Shares Held": "985444",
    "SEDOL": ""
   },
@@ -63,7 +63,7 @@
    "Ticker": "RBRK",
    "Identifier": "781154109",
    "Weight": "4.92",
-   "Market Value": "162617476.86",
+   "Market Value": "164064122.86",
    "Shares Held": "1446646",
    "SEDOL": ""
   },
@@ -71,44 +71,26 @@
    "Name": "Cloudflare Inc",
    "Ticker": "NET",
    "Identifier": "18915M107",
-   "Weight": "4.91",
-   "Market Value": "162500697.9",
+   "Weight": "4.89",
+   "Market Value": "163202692.14",
    "Shares Held": "548433",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Northrop Grumman Corp",
-   "Ticker": "NOC",
-   "Identifier": "666807102",
-   "Weight": "4.73",
-   "Market Value": "156478899.72",
-   "Shares Held": "301002",
    "SEDOL": ""
   },
   {
    "Name": "Zscaler Inc",
    "Ticker": "ZS",
    "Identifier": "98980G102",
-   "Weight": "4.67",
-   "Market Value": "154358118.5",
+   "Weight": "4.74",
+   "Market Value": "158191392.25",
    "Shares Held": "744325",
-   "SEDOL": ""
-  },
-  {
-   "Name": "General Dynamics Corp",
-   "Ticker": "GD",
-   "Identifier": "369550108",
-   "Weight": "4.65",
-   "Market Value": "153663239.31",
-   "Shares Held": "446397",
    "SEDOL": ""
   },
   {
    "Name": "Okta Inc",
    "Ticker": "OKTA",
    "Identifier": "679295105",
-   "Weight": "4.63",
-   "Market Value": "152982806.04",
+   "Weight": "4.65",
+   "Market Value": "155164073.22",
    "Shares Held": "816954",
    "SEDOL": ""
   },
@@ -116,27 +98,45 @@
    "Name": "F5 Inc",
    "Ticker": "FFIV",
    "Identifier": "315616102",
-   "Weight": "4.58",
-   "Market Value": "151528768.06",
+   "Weight": "4.63",
+   "Market Value": "154535141.6",
    "Shares Held": "342802",
    "SEDOL": ""
   },
   {
-   "Name": "Trend Micro Inc/Japan",
-   "Ticker": "4704 JP",
-   "Identifier": "6125286",
-   "Weight": "4.38",
-   "Market Value": "144837230.15",
-   "Shares Held": "3113823",
+   "Name": "Northrop Grumman Corp",
+   "Ticker": "NOC",
+   "Identifier": "666807102",
+   "Weight": "4.61",
+   "Market Value": "153706671.3",
+   "Shares Held": "301002",
+   "SEDOL": ""
+  },
+  {
+   "Name": "General Dynamics Corp",
+   "Ticker": "GD",
+   "Identifier": "369550108",
+   "Weight": "4.57",
+   "Market Value": "152413327.71",
+   "Shares Held": "446397",
    "SEDOL": ""
   },
   {
    "Name": "Netskope Inc",
    "Ticker": "NTSK",
    "Identifier": "64119N608",
-   "Weight": "4.16",
-   "Market Value": "137431332",
+   "Weight": "4.21",
+   "Market Value": "140469287.76",
    "Shares Held": "7233228",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Trend Micro Inc/Japan",
+   "Ticker": "4704 JP",
+   "Identifier": "6125286",
+   "Weight": "4.14",
+   "Market Value": "138293871.38",
+   "Shares Held": "3113823",
    "SEDOL": ""
   },
   {
@@ -144,7 +144,7 @@
    "Ticker": "CHKP",
    "Identifier": "M22465104",
    "Weight": "3.88",
-   "Market Value": "128442863.01",
+   "Market Value": "129430383.39",
    "Shares Held": "931623",
    "SEDOL": ""
   },
@@ -152,35 +152,35 @@
    "Name": "Varonis Systems Inc",
    "Ticker": "VRNS",
    "Identifier": "922280102",
-   "Weight": "3.88",
-   "Market Value": "128249748.48",
+   "Weight": "3.84",
+   "Market Value": "128197100.8",
    "Shares Held": "2632384",
-   "SEDOL": ""
-  },
-  {
-   "Name": "SentinelOne Inc",
-   "Ticker": "S",
-   "Identifier": "81730H109",
-   "Weight": "3.6",
-   "Market Value": "119201704.96",
-   "Shares Held": "5523712",
    "SEDOL": ""
   },
   {
    "Name": "Qualys Inc",
    "Ticker": "QLYS",
    "Identifier": "74758T303",
-   "Weight": "3.46",
-   "Market Value": "114502899.9",
+   "Weight": "3.6",
+   "Market Value": "120213815.04",
    "Shares Held": "632438",
+   "SEDOL": ""
+  },
+  {
+   "Name": "SentinelOne Inc",
+   "Ticker": "S",
+   "Identifier": "81730H109",
+   "Weight": "3.59",
+   "Market Value": "119919787.52",
+   "Shares Held": "5523712",
    "SEDOL": ""
   },
   {
    "Name": "Tenable Holdings Inc",
    "Ticker": "TENB",
    "Identifier": "88025T102",
-   "Weight": "3.31",
-   "Market Value": "109384107.6",
+   "Weight": "3.43",
+   "Market Value": "114471056.69",
    "Shares Held": "2940433",
    "SEDOL": ""
   },
@@ -188,8 +188,8 @@
    "Name": "Fastly Inc",
    "Ticker": "FSLY",
    "Identifier": "31188V100",
-   "Weight": "3.25",
-   "Market Value": "107405611.32",
+   "Weight": "3.29",
+   "Market Value": "109891188.44",
    "Shares Held": "4779956",
    "SEDOL": ""
   },
@@ -197,8 +197,8 @@
    "Name": "GEN DIGITAL INC",
    "Ticker": "GEN",
    "Identifier": "668771108",
-   "Weight": "3.11",
-   "Market Value": "102850279.68",
+   "Weight": "3.02",
+   "Market Value": "100636614.72",
    "Shares Held": "4257048",
    "SEDOL": ""
   },
@@ -207,7 +207,7 @@
    "Ticker": "ATEN",
    "Identifier": "002121101",
    "Weight": "2.96",
-   "Market Value": "97869229.7",
+   "Market Value": "98749492.6",
    "Shares Held": "4001195",
    "SEDOL": ""
   },
@@ -215,8 +215,8 @@
    "Name": "Radware Ltd",
    "Ticker": "RDWR",
    "Identifier": "M81873107",
-   "Weight": "2.65",
-   "Market Value": "87679595.92",
+   "Weight": "2.76",
+   "Market Value": "92166880.1",
    "Shares Held": "3228262",
    "SEDOL": ""
   },
@@ -234,8 +234,8 @@
    "Ticker": "CASH&OTHER",
    "Identifier": "Cash&Other",
    "Weight": "0.01",
-   "Market Value": "399054.5",
-   "Shares Held": "399054.5",
+   "Market Value": "344360.56",
+   "Shares Held": "344360.56",
    "SEDOL": ""
   }
  ]
