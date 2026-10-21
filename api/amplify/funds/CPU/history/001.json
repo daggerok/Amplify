@@ -2,7 +2,7 @@
  "ticker": "CPU",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 9,
+ "totalRows": 10,
  "headers": [
   "Date",
   "Close",
@@ -60,9 +60,15 @@
   },
   {
    "Date": "Oct 19 2026",
-   "Close": "21.1099",
+   "Close": "21.110001",
    "Adj Close": "21.11",
-   "Volume": "10482"
+   "Volume": "10500"
+  },
+  {
+   "Date": "Oct 20 2026",
+   "Close": "20.91",
+   "Adj Close": "20.91",
+   "Volume": "100"
   }
  ]
 }

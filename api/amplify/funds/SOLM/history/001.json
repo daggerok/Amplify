@@ -2,7 +2,7 @@
  "ticker": "SOLM",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 240,
+ "totalRows": 241,
  "headers": [
   "Date",
   "Close",
@@ -1446,9 +1446,15 @@
   },
   {
    "Date": "Oct 19 2026",
-   "Close": "9.0306",
+   "Close": "9.031",
    "Adj Close": "9.03",
-   "Volume": "5676"
+   "Volume": "5700"
+  },
+  {
+   "Date": "Oct 20 2026",
+   "Close": "9.303",
+   "Adj Close": "9.3",
+   "Volume": "4800"
   }
  ]
 }

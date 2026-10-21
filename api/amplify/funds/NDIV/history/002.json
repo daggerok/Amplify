@@ -2,7 +2,7 @@
  "ticker": "NDIV",
  "page": 2,
  "pageSize": 1000,
- "totalRows": 1042,
+ "totalRows": 1043,
  "headers": [
   "Date",
   "Close",
@@ -261,6 +261,12 @@
    "Close": "34.459",
    "Adj Close": "34.46",
    "Volume": "15600"
+  },
+  {
+   "Date": "Oct 20 2026",
+   "Close": "34.490002",
+   "Adj Close": "34.49",
+   "Volume": "11200"
   }
  ]
 }

@@ -2,7 +2,7 @@
  "ticker": "USNG",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 356,
+ "totalRows": 357,
  "headers": [
   "Date",
   "Close",
@@ -2145,6 +2145,12 @@
    "Close": "34.080002",
    "Adj Close": "34.08",
    "Volume": "3400"
+  },
+  {
+   "Date": "Oct 20 2026",
+   "Close": "33.970001",
+   "Adj Close": "33.97",
+   "Volume": "6000"
   }
  ]
 }

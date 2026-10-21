@@ -2,7 +2,7 @@
  "ticker": "SOFR",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 733,
+ "totalRows": 734,
  "headers": [
   "Date",
   "Close",
@@ -4407,6 +4407,12 @@
    "Close": "100.311996",
    "Adj Close": "100.31",
    "Volume": "2900"
+  },
+  {
+   "Date": "Oct 20 2026",
+   "Close": "100.324997",
+   "Adj Close": "100.32",
+   "Volume": "2200"
   }
  ]
 }

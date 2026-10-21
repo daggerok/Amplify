@@ -2,7 +2,7 @@
  "ticker": "HAKY",
  "page": 1,
  "pageSize": 250,
- "totalRows": 66,
+ "totalRows": 76,
  "headers": [
   "Name",
   "Ticker",
@@ -17,72 +17,72 @@
    "Name": "Crowdstrike Holdings Inc",
    "Ticker": "CRWD",
    "Identifier": "22788C105",
-   "Weight": "8.73",
-   "Market Value": "957107.6",
-   "Shares Held": "4196",
+   "Weight": "8.7",
+   "Market Value": "1033169.28",
+   "Shares Held": "4544",
    "SEDOL": ""
   },
   {
    "Name": "Palo Alto Networks Inc",
    "Ticker": "PANW",
    "Identifier": "697435105",
-   "Weight": "8.09",
-   "Market Value": "886804.2",
-   "Shares Held": "2556",
+   "Weight": "7.93",
+   "Market Value": "942235.32",
+   "Shares Held": "2769",
    "SEDOL": ""
   },
   {
    "Name": "Okta Inc",
    "Ticker": "OKTA",
    "Identifier": "679295105",
-   "Weight": "6.89",
-   "Market Value": "755921.4",
-   "Shares Held": "3980",
+   "Weight": "7.04",
+   "Market Value": "836226.2",
+   "Shares Held": "4310",
    "SEDOL": ""
   },
   {
    "Name": "Fortinet Inc",
    "Ticker": "FTNT",
    "Identifier": "34959E109",
-   "Weight": "6.55",
-   "Market Value": "718070.5",
-   "Shares Held": "4187",
+   "Weight": "6.53",
+   "Market Value": "775167.55",
+   "Shares Held": "4535",
    "SEDOL": ""
   },
   {
    "Name": "Rubrik Inc",
    "Ticker": "RBRK",
    "Identifier": "781154109",
-   "Weight": "5.72",
-   "Market Value": "626817.07",
-   "Shares Held": "5527",
+   "Weight": "5.78",
+   "Market Value": "685935.74",
+   "Shares Held": "5986",
    "SEDOL": ""
   },
   {
    "Name": "Cisco Systems Inc",
    "Ticker": "CSCO",
    "Identifier": "17275R102",
-   "Weight": "5.15",
-   "Market Value": "564876",
-   "Shares Held": "5304",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Cloudflare Inc",
-   "Ticker": "NET",
-   "Identifier": "18915M107",
-   "Weight": "5.03",
-   "Market Value": "551713.32",
-   "Shares Held": "1854",
+   "Weight": "5.16",
+   "Market Value": "613048.95",
+   "Shares Held": "5745",
    "SEDOL": ""
   },
   {
    "Name": "Qualys Inc",
    "Ticker": "QLYS",
    "Identifier": "74758T303",
-   "Weight": "4.96",
-   "Market Value": "544008.96",
-   "Shares Held": "2862",
+   "Weight": "4.97",
+   "Market Value": "590266.53",
+   "Shares Held": "3099",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Cloudflare Inc",
+   "Ticker": "NET",
+   "Identifier": "18915M107",
+   "Weight": "4.93",
+   "Market Value": "585421.83",
+   "Shares Held": "2007",
    "SEDOL": ""
   },
   {
@@ -90,17 +90,17 @@
    "Ticker": "AVGO",
    "Identifier": "11135F101",
    "Weight": "4.74",
-   "Market Value": "520287.45",
-   "Shares Held": "1555",
+   "Market Value": "563079.08",
+   "Shares Held": "1684",
    "SEDOL": ""
   },
   {
    "Name": "Tenable Holdings Inc",
    "Ticker": "TENB",
    "Identifier": "88025T102",
-   "Weight": "4.67",
-   "Market Value": "512435.59",
-   "Shares Held": "13163",
+   "Weight": "4.68",
+   "Market Value": "555776.84",
+   "Shares Held": "14258",
    "SEDOL": ""
   },
   {
@@ -108,71 +108,62 @@
    "Ticker": "VRNS",
    "Identifier": "922280102",
    "Weight": "4.65",
-   "Market Value": "509742.9",
-   "Shares Held": "10467",
+   "Market Value": "551885.16",
+   "Shares Held": "11337",
    "SEDOL": ""
   },
   {
    "Name": "F5 Inc",
    "Ticker": "FFIV",
    "Identifier": "315616102",
-   "Weight": "4.4",
-   "Market Value": "482806.8",
-   "Shares Held": "1071",
+   "Weight": "4.45",
+   "Market Value": "528870.18",
+   "Shares Held": "1158",
    "SEDOL": ""
   },
   {
    "Name": "SentinelOne Inc",
    "Ticker": "S",
    "Identifier": "81730H109",
-   "Weight": "4.08",
-   "Market Value": "447204.29",
-   "Shares Held": "20599",
+   "Weight": "4.13",
+   "Market Value": "490930",
+   "Shares Held": "22315",
    "SEDOL": ""
   },
   {
    "Name": "Zscaler Inc",
    "Ticker": "ZS",
    "Identifier": "98980G102",
-   "Weight": "4.06",
-   "Market Value": "445037.82",
-   "Shares Held": "2094",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Trend Micro Inc/Japan",
-   "Ticker": "TMICY",
-   "Identifier": "89486M206",
-   "Weight": "3.28",
-   "Market Value": "359996.88",
-   "Shares Held": "8088",
+   "Weight": "4.1",
+   "Market Value": "486508.68",
+   "Shares Held": "2268",
    "SEDOL": ""
   },
   {
    "Name": "General Dynamics Corp",
    "Ticker": "GD",
    "Identifier": "369550108",
-   "Weight": "3.14",
-   "Market Value": "344161.44",
-   "Shares Held": "1008",
+   "Weight": "3.17",
+   "Market Value": "376128.48",
+   "Shares Held": "1092",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Trend Micro Inc/Japan",
+   "Ticker": "TMICY",
+   "Identifier": "89486M206",
+   "Weight": "3.13",
+   "Market Value": "371774.4",
+   "Shares Held": "8760",
    "SEDOL": ""
   },
   {
    "Name": "GEN DIGITAL INC",
    "Ticker": "GEN",
    "Identifier": "668771108",
-   "Weight": "2.85",
-   "Market Value": "312473.52",
-   "Shares Held": "13218",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Fastly Inc",
-   "Ticker": "FSLY",
-   "Identifier": "31188V100",
-   "Weight": "2.71",
-   "Market Value": "296639.97",
-   "Shares Held": "12903",
+   "Weight": "2.9",
+   "Market Value": "344801.52",
+   "Shares Held": "14319",
    "SEDOL": ""
   },
   {
@@ -180,42 +171,51 @@
    "Ticker": "ATEN",
    "Identifier": "002121101",
    "Weight": "2.6",
-   "Market Value": "285251.44",
-   "Shares Held": "11558",
+   "Market Value": "308392.23",
+   "Shares Held": "12521",
    "SEDOL": ""
   },
   {
-   "Name": "Check Point Software Technologies Ltd",
-   "Ticker": "CHKP",
-   "Identifier": "M22465104",
-   "Weight": "2.52",
-   "Market Value": "276609.63",
-   "Shares Held": "1991",
+   "Name": "Fastly Inc",
+   "Ticker": "FSLY",
+   "Identifier": "31188V100",
+   "Weight": "2.6",
+   "Market Value": "308472.39",
+   "Shares Held": "13977",
    "SEDOL": ""
   },
   {
    "Name": "Radware Ltd",
    "Ticker": "RDWR",
    "Identifier": "M81873107",
-   "Weight": "2.51",
-   "Market Value": "275136.35",
-   "Shares Held": "9637",
+   "Weight": "2.58",
+   "Market Value": "306094.35",
+   "Shares Held": "10438",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Check Point Software Technologies Ltd",
+   "Ticker": "CHKP",
+   "Identifier": "M22465104",
+   "Weight": "2.56",
+   "Market Value": "303672.6",
+   "Shares Held": "2156",
    "SEDOL": ""
   },
   {
    "Name": "Northrop Grumman Corp",
    "Ticker": "NOC",
    "Identifier": "666807102",
-   "Weight": "2.36",
-   "Market Value": "258899.55",
-   "Shares Held": "507",
+   "Weight": "2.47",
+   "Market Value": "293166",
+   "Shares Held": "549",
    "SEDOL": ""
   },
   {
    "Name": "Invesco Government & Agency Portfolio 12/31/2031",
    "Ticker": "AGPXX",
    "Identifier": "825252885",
-   "Weight": "0.99",
+   "Weight": "0.91",
    "Market Value": "108434.02",
    "Shares Held": "108434.02",
    "SEDOL": ""
@@ -224,18 +224,54 @@
    "Name": "TENB US 11/20/26 C42",
    "Ticker": "TENB 261120C00042000",
    "Identifier": "TENB 261120C00042000",
-   "Weight": "0.33",
-   "Market Value": "36680",
-   "Shares Held": "131",
+   "Weight": "0.29",
+   "Market Value": "34080",
+   "Shares Held": "142",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Cash & Other",
+   "Ticker": "CASH&OTHER",
+   "Identifier": "Cash&Other",
+   "Weight": "0.18",
+   "Market Value": "20910.86",
+   "Shares Held": "20910.86",
+   "SEDOL": ""
+  },
+  {
+   "Name": "FFIV US 11/20/26 C480",
+   "Ticker": "FFIV 261120C00480000",
+   "Identifier": "FFIV 261120C00480000",
+   "Weight": "0.18",
+   "Market Value": "20900",
+   "Shares Held": "11",
    "SEDOL": ""
   },
   {
    "Name": "FTNT US 10/30/26 C185",
    "Ticker": "FTNT 261030C00185000",
    "Identifier": "FTNT 261030C00185000",
-   "Weight": "0.21",
-   "Market Value": "22652.5",
-   "Shares Held": "41",
+   "Weight": "0.18",
+   "Market Value": "21487.5",
+   "Shares Held": "45",
+   "SEDOL": ""
+  },
+  {
+   "Name": "OKTA US 10/30/26 C202.5",
+   "Ticker": "OKTA 261030C00202500",
+   "Identifier": "OKTA 261030C00202500",
+   "Weight": "0.17",
+   "Market Value": "20102.5",
+   "Shares Held": "43",
+   "SEDOL": ""
+  },
+  {
+   "Name": "RBRK US 10/30/26 C118",
+   "Ticker": "RBRK 261030C00118000",
+   "Identifier": "RBRK 261030C00118000",
+   "Weight": "0.17",
+   "Market Value": "19765",
+   "Shares Held": "59",
    "SEDOL": ""
   },
   {
@@ -243,43 +279,25 @@
    "Ticker": "QLYS 261120C00210000",
    "Identifier": "QLYS 261120C00210000",
    "Weight": "0.16",
-   "Market Value": "18060",
-   "Shares Held": "28",
-   "SEDOL": ""
-  },
-  {
-   "Name": "FFIV US 11/20/26 C480",
-   "Ticker": "FFIV 261120C00480000",
-   "Identifier": "FFIV 261120C00480000",
-   "Weight": "0.15",
-   "Market Value": "16950",
-   "Shares Held": "10",
-   "SEDOL": ""
-  },
-  {
-   "Name": "RBRK US 10/30/26 C118",
-   "Ticker": "RBRK 261030C00118000",
-   "Identifier": "RBRK 261030C00118000",
-   "Weight": "0.14",
-   "Market Value": "15400",
-   "Shares Held": "55",
-   "SEDOL": ""
-  },
-  {
-   "Name": "RDWR US 11/20/26 C32",
-   "Ticker": "RDWR 261120C00032000",
-   "Identifier": "RDWR 261120C00032000",
-   "Weight": "0.11",
-   "Market Value": "12285",
-   "Shares Held": "91",
+   "Market Value": "19500",
+   "Shares Held": "30",
    "SEDOL": ""
   },
   {
    "Name": "ZS US 10/30/26 C220",
    "Ticker": "ZS 261030C00220000",
    "Identifier": "ZS 261030C00220000",
-   "Weight": "0.1",
-   "Market Value": "11250",
+   "Weight": "0.11",
+   "Market Value": "12595",
+   "Shares Held": "22",
+   "SEDOL": ""
+  },
+  {
+   "Name": "NET US 10/30/26 C312.5",
+   "Ticker": "NET 261030C00312500",
+   "Identifier": "NET 261030C00312500",
+   "Weight": "0.09",
+   "Market Value": "10650",
    "Shares Held": "20",
    "SEDOL": ""
   },
@@ -287,9 +305,27 @@
    "Name": "CHKP US 11/20/26 C150",
    "Ticker": "CHKP 261120C00150000",
    "Identifier": "CHKP 261120C00150000",
+   "Weight": "0.08",
+   "Market Value": "9555",
+   "Shares Held": "21",
+   "SEDOL": ""
+  },
+  {
+   "Name": "RDWR US 11/20/26 C32",
+   "Ticker": "RDWR 261120C00032000",
+   "Identifier": "RDWR 261120C00032000",
    "Weight": "0.07",
-   "Market Value": "7885",
-   "Shares Held": "19",
+   "Market Value": "7920",
+   "Shares Held": "99",
+   "SEDOL": ""
+  },
+  {
+   "Name": "NOC US 11/20/26 C545",
+   "Ticker": "NOC 261120C00545000",
+   "Identifier": "NOC 261120C00545000",
+   "Weight": "0.06",
+   "Market Value": "6750",
+   "Shares Held": "5",
    "SEDOL": ""
   },
   {
@@ -297,44 +333,8 @@
    "Ticker": "GEN 261120C00028000",
    "Identifier": "GEN 261120C00028000",
    "Weight": "0.04",
-   "Market Value": "3960",
-   "Shares Held": "132",
-   "SEDOL": ""
-  },
-  {
-   "Name": "NOC US 11/20/26 C545",
-   "Ticker": "NOC 261120C00545000",
-   "Identifier": "NOC 261120C00545000",
-   "Weight": "0.04",
-   "Market Value": "4025",
-   "Shares Held": "5",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Cash & Other",
-   "Ticker": "CASH&OTHER",
-   "Identifier": "Cash&Other",
-   "Weight": "0.03",
-   "Market Value": "3201.03",
-   "Shares Held": "3201.03",
-   "SEDOL": ""
-  },
-  {
-   "Name": "FSLY US 10/23/26 C25",
-   "Ticker": "FSLY 261023C00025000",
-   "Identifier": "FSLY 261023C00025000",
-   "Weight": "0.03",
-   "Market Value": "3547.5",
-   "Shares Held": "129",
-   "SEDOL": ""
-  },
-  {
-   "Name": "CRWD US 10/30/26 C270",
-   "Ticker": "CRWD 261030C00270000",
-   "Identifier": "CRWD 261030C00270000",
-   "Weight": "0.02",
-   "Market Value": "1763",
-   "Shares Held": "41",
+   "Market Value": "5005",
+   "Shares Held": "143",
    "SEDOL": ""
   },
   {
@@ -342,8 +342,8 @@
    "Ticker": "CSCO 261030C00113000",
    "Identifier": "CSCO 261030C00113000",
    "Weight": "0.02",
-   "Market Value": "2676.5",
-   "Shares Held": "53",
+   "Market Value": "2622",
+   "Shares Held": "57",
    "SEDOL": ""
   },
   {
@@ -351,17 +351,8 @@
    "Ticker": "GD 261023C00345000",
    "Identifier": "GD 261023C00345000",
    "Weight": "0.02",
-   "Market Value": "1825",
+   "Market Value": "2450",
    "Shares Held": "10",
-   "SEDOL": ""
-  },
-  {
-   "Name": "PANW US 10/30/26 C397.5",
-   "Ticker": "PANW 261030C00397500",
-   "Identifier": "PANW 261030C00397500",
-   "Weight": "0.02",
-   "Market Value": "2150",
-   "Shares Held": "25",
    "SEDOL": ""
   },
   {
@@ -369,17 +360,53 @@
    "Ticker": "ATEN 261120C00035000",
    "Identifier": "ATEN 261120C00035000",
    "Weight": "0.01",
-   "Market Value": "1437.5",
-   "Shares Held": "115",
+   "Market Value": "937.5",
+   "Shares Held": "125",
    "SEDOL": ""
   },
   {
-   "Name": "NET US 10/23/26 C345",
-   "Ticker": "NET 261023C00345000",
-   "Identifier": "NET 261023C00345000",
+   "Name": "CRWD US 10/30/26 C242.5",
+   "Ticker": "CRWD 261030C00242500",
+   "Identifier": "CRWD 261030C00242500",
    "Weight": "0.01",
-   "Market Value": "585",
-   "Shares Held": "18",
+   "Market Value": "1146",
+   "Shares Held": "4",
+   "SEDOL": ""
+  },
+  {
+   "Name": "CRWD US 10/30/26 C270",
+   "Ticker": "CRWD 261030C00270000",
+   "Identifier": "CRWD 261030C00270000",
+   "Weight": "0.01",
+   "Market Value": "1025",
+   "Shares Held": "41",
+   "SEDOL": ""
+  },
+  {
+   "Name": "FSLY US 10/23/26 C25",
+   "Ticker": "FSLY 261023C00025000",
+   "Identifier": "FSLY 261023C00025000",
+   "Weight": "0.01",
+   "Market Value": "1290",
+   "Shares Held": "129",
+   "SEDOL": ""
+  },
+  {
+   "Name": "PANW US 10/30/26 C365",
+   "Ticker": "PANW 261030C00365000",
+   "Identifier": "PANW 261030C00365000",
+   "Weight": "0.01",
+   "Market Value": "830",
+   "Shares Held": "2",
+   "SEDOL": ""
+  },
+  {
+   "Name": "PANW US 10/30/26 C397.5",
+   "Ticker": "PANW 261030C00397500",
+   "Identifier": "PANW 261030C00397500",
+   "Weight": "0.01",
+   "Market Value": "1650",
+   "Shares Held": "25",
    "SEDOL": ""
   },
   {
@@ -387,8 +414,26 @@
    "Ticker": "S 261023C00024000",
    "Identifier": "S 261023C00024000",
    "Weight": "0.01",
-   "Market Value": "1537.5",
+   "Market Value": "1025",
    "Shares Held": "205",
+   "SEDOL": ""
+  },
+  {
+   "Name": "AVGO US 10/23/26 C342.5",
+   "Ticker": "AVGO 261023C00342500",
+   "Identifier": "AVGO 261023C00342500",
+   "Weight": "0",
+   "Market Value": "-245",
+   "Shares Held": "-1",
+   "SEDOL": ""
+  },
+  {
+   "Name": "AVGO US 10/23/26 C347.5",
+   "Ticker": "AVGO 261023C00347500",
+   "Identifier": "AVGO 261023C00347500",
+   "Weight": "0",
+   "Market Value": "138.5",
+   "Shares Held": "1",
    "SEDOL": ""
   },
   {
@@ -396,26 +441,26 @@
    "Ticker": "AVGO 261023C00360000",
    "Identifier": "AVGO 261023C00360000",
    "Weight": "0",
-   "Market Value": "472.5",
+   "Market Value": "337.5",
    "Shares Held": "15",
    "SEDOL": ""
   },
   {
-   "Name": "OKTA US 10/23/26 C240",
-   "Ticker": "OKTA 261023C00240000",
-   "Identifier": "OKTA 261023C00240000",
+   "Name": "FSLY US 10/23/26 C23",
+   "Ticker": "FSLY 261023C00023000",
+   "Identifier": "FSLY 261023C00023000",
    "Weight": "0",
-   "Market Value": "133",
-   "Shares Held": "38",
+   "Market Value": "-425",
+   "Shares Held": "-10",
    "SEDOL": ""
   },
   {
-   "Name": "RDWR US 11/20/26 C31",
-   "Ticker": "RDWR 261120C00031000",
-   "Identifier": "RDWR 261120C00031000",
+   "Name": "FSLY US 10/23/26 C23.5",
+   "Ticker": "FSLY 261023C00023500",
+   "Identifier": "FSLY 261023C00023500",
    "Weight": "0",
-   "Market Value": "-437.5",
-   "Shares Held": "-5",
+   "Market Value": "275",
+   "Shares Held": "10",
    "SEDOL": ""
   },
   {
@@ -423,8 +468,26 @@
    "Ticker": "RDWR 261120C00033000",
    "Identifier": "RDWR 261120C00033000",
    "Weight": "0",
-   "Market Value": "500",
+   "Market Value": "250",
    "Shares Held": "5",
+   "SEDOL": ""
+  },
+  {
+   "Name": "S US 10/23/26 C22.5",
+   "Ticker": "S 261023C00022500",
+   "Identifier": "S 261023C00022500",
+   "Weight": "0",
+   "Market Value": "-540",
+   "Shares Held": "-18",
+   "SEDOL": ""
+  },
+  {
+   "Name": "S US 10/23/26 C23",
+   "Ticker": "S 261023C00023000",
+   "Identifier": "S 261023C00023000",
+   "Weight": "0",
+   "Market Value": "225",
+   "Shares Held": "18",
    "SEDOL": ""
   },
   {
@@ -432,79 +495,79 @@
    "Ticker": "AVGO 261023C00355000",
    "Identifier": "AVGO 261023C00355000",
    "Weight": "-0.01",
-   "Market Value": "-952.5",
+   "Market Value": "-690",
    "Shares Held": "-15",
    "SEDOL": ""
   },
   {
-   "Name": "NET US 10/23/26 C340",
-   "Ticker": "NET 261023C00340000",
-   "Identifier": "NET 261023C00340000",
+   "Name": "CRWD US 10/30/26 C237.5",
+   "Ticker": "CRWD 261030C00237500",
+   "Identifier": "CRWD 261030C00237500",
    "Weight": "-0.01",
-   "Market Value": "-810",
-   "Shares Held": "-18",
-   "SEDOL": ""
-  },
-  {
-   "Name": "OKTA US 10/23/26 C235",
-   "Ticker": "OKTA 261023C00235000",
-   "Identifier": "OKTA 261023C00235000",
-   "Weight": "-0.01",
-   "Market Value": "-1235",
-   "Shares Held": "-38",
-   "SEDOL": ""
-  },
-  {
-   "Name": "S US 10/23/26 C23.5",
-   "Ticker": "S 261023C00023500",
-   "Identifier": "S 261023C00023500",
-   "Weight": "-0.01",
-   "Market Value": "-1537.5",
-   "Shares Held": "-205",
-   "SEDOL": ""
-  },
-  {
-   "Name": "ATEN US 11/20/26 C30",
-   "Ticker": "ATEN 261120C00030000",
-   "Identifier": "ATEN 261120C00030000",
-   "Weight": "-0.03",
-   "Market Value": "-3737.5",
-   "Shares Held": "-115",
-   "SEDOL": ""
-  },
-  {
-   "Name": "CRWD US 10/30/26 C262.5",
-   "Ticker": "CRWD 261030C00262500",
-   "Identifier": "CRWD 261030C00262500",
-   "Weight": "-0.03",
-   "Market Value": "-2849.5",
-   "Shares Held": "-41",
-   "SEDOL": ""
-  },
-  {
-   "Name": "GEN US 11/20/26 C26",
-   "Ticker": "GEN 261120C00026000",
-   "Identifier": "GEN 261120C00026000",
-   "Weight": "-0.04",
-   "Market Value": "-4290",
-   "Shares Held": "-132",
+   "Market Value": "-1740",
+   "Shares Held": "-4",
    "SEDOL": ""
   },
   {
    "Name": "FSLY US 10/23/26 C24.5",
    "Ticker": "FSLY 261023C00024500",
    "Identifier": "FSLY 261023C00024500",
-   "Weight": "-0.05",
-   "Market Value": "-5805",
+   "Weight": "-0.01",
+   "Market Value": "-1612.5",
    "Shares Held": "-129",
+   "SEDOL": ""
+  },
+  {
+   "Name": "PANW US 10/30/26 C357.5",
+   "Ticker": "PANW 261030C00357500",
+   "Identifier": "PANW 261030C00357500",
+   "Weight": "-0.01",
+   "Market Value": "-1375",
+   "Shares Held": "-2",
+   "SEDOL": ""
+  },
+  {
+   "Name": "RDWR US 11/20/26 C31",
+   "Ticker": "RDWR 261120C00031000",
+   "Identifier": "RDWR 261120C00031000",
+   "Weight": "-0.01",
+   "Market Value": "-812.5",
+   "Shares Held": "-5",
+   "SEDOL": ""
+  },
+  {
+   "Name": "ATEN US 11/20/26 C30",
+   "Ticker": "ATEN 261120C00030000",
+   "Identifier": "ATEN 261120C00030000",
+   "Weight": "-0.02",
+   "Market Value": "-2812.5",
+   "Shares Held": "-125",
+   "SEDOL": ""
+  },
+  {
+   "Name": "CRWD US 10/30/26 C262.5",
+   "Ticker": "CRWD 261030C00262500",
+   "Identifier": "CRWD 261030C00262500",
+   "Weight": "-0.02",
+   "Market Value": "-2316.5",
+   "Shares Held": "-41",
+   "SEDOL": ""
+  },
+  {
+   "Name": "S US 10/23/26 C23.5",
+   "Ticker": "S 261023C00023500",
+   "Identifier": "S 261023C00023500",
+   "Weight": "-0.02",
+   "Market Value": "-2562.5",
+   "Shares Held": "-205",
    "SEDOL": ""
   },
   {
    "Name": "PANW US 10/30/26 C387.5",
    "Ticker": "PANW 261030C00387500",
    "Identifier": "PANW 261030C00387500",
-   "Weight": "-0.05",
-   "Market Value": "-4962.5",
+   "Weight": "-0.03",
+   "Market Value": "-3037.5",
    "Shares Held": "-25",
    "SEDOL": ""
   },
@@ -512,18 +575,18 @@
    "Name": "CSCO US 10/30/26 C110",
    "Ticker": "CSCO 261030C00110000",
    "Identifier": "CSCO 261030C00110000",
-   "Weight": "-0.06",
-   "Market Value": "-6439.5",
-   "Shares Held": "-53",
+   "Weight": "-0.05",
+   "Market Value": "-6384",
+   "Shares Held": "-57",
    "SEDOL": ""
   },
   {
-   "Name": "NOC US 11/20/26 C525",
-   "Ticker": "NOC 261120C00525000",
-   "Identifier": "NOC 261120C00525000",
-   "Weight": "-0.06",
-   "Market Value": "-6700",
-   "Shares Held": "-5",
+   "Name": "GEN US 11/20/26 C26",
+   "Ticker": "GEN 261120C00026000",
+   "Identifier": "GEN 261120C00026000",
+   "Weight": "-0.05",
+   "Market Value": "-5720",
+   "Shares Held": "-143",
    "SEDOL": ""
   },
   {
@@ -531,25 +594,25 @@
    "Ticker": "GD 261023C00335000",
    "Identifier": "GD 261023C00335000",
    "Weight": "-0.08",
-   "Market Value": "-8800",
+   "Market Value": "-9550",
    "Shares Held": "-10",
    "SEDOL": ""
   },
   {
-   "Name": "CHKP US 11/20/26 C140",
-   "Ticker": "CHKP 261120C00140000",
-   "Identifier": "CHKP 261120C00140000",
-   "Weight": "-0.13",
-   "Market Value": "-14630",
-   "Shares Held": "-19",
+   "Name": "NOC US 11/20/26 C525",
+   "Ticker": "NOC 261120C00525000",
+   "Identifier": "NOC 261120C00525000",
+   "Weight": "-0.1",
+   "Market Value": "-11300",
+   "Shares Held": "-5",
    "SEDOL": ""
   },
   {
-   "Name": "ZS US 10/30/26 C215",
-   "Ticker": "ZS 261030C00215000",
-   "Identifier": "ZS 261030C00215000",
-   "Weight": "-0.13",
-   "Market Value": "-13850",
+   "Name": "NET US 10/30/26 C307.5",
+   "Ticker": "NET 261030C00307500",
+   "Identifier": "NET 261030C00307500",
+   "Weight": "-0.11",
+   "Market Value": "-13150",
    "Shares Held": "-20",
    "SEDOL": ""
   },
@@ -558,44 +621,71 @@
    "Ticker": "RDWR 261120C00030000",
    "Identifier": "RDWR 261120C00030000",
    "Weight": "-0.14",
-   "Market Value": "-15242.5",
-   "Shares Held": "-91",
+   "Market Value": "-17077.5",
+   "Shares Held": "-99",
+   "SEDOL": ""
+  },
+  {
+   "Name": "ZS US 10/30/26 C215",
+   "Ticker": "ZS 261030C00215000",
+   "Identifier": "ZS 261030C00215000",
+   "Weight": "-0.15",
+   "Market Value": "-17270",
+   "Shares Held": "-22",
+   "SEDOL": ""
+  },
+  {
+   "Name": "CHKP US 11/20/26 C140",
+   "Ticker": "CHKP 261120C00140000",
+   "Identifier": "CHKP 261120C00140000",
+   "Weight": "-0.16",
+   "Market Value": "-18690",
+   "Shares Held": "-21",
+   "SEDOL": ""
+  },
+  {
+   "Name": "OKTA US 10/30/26 C200",
+   "Ticker": "OKTA 261030C00200000",
+   "Identifier": "OKTA 261030C00200000",
+   "Weight": "-0.21",
+   "Market Value": "-24402.5",
+   "Shares Held": "-43",
    "SEDOL": ""
   },
   {
    "Name": "RBRK US 10/30/26 C115",
    "Ticker": "RBRK 261030C00115000",
    "Identifier": "RBRK 261030C00115000",
-   "Weight": "-0.22",
-   "Market Value": "-23925",
-   "Shares Held": "-55",
+   "Weight": "-0.23",
+   "Market Value": "-27140",
+   "Shares Held": "-59",
    "SEDOL": ""
   },
   {
    "Name": "FFIV US 11/20/26 C460",
    "Ticker": "FFIV 261120C00460000",
    "Identifier": "FFIV 261120C00460000",
-   "Weight": "-0.23",
-   "Market Value": "-25250",
-   "Shares Held": "-10",
+   "Weight": "-0.25",
+   "Market Value": "-30195",
+   "Shares Held": "-11",
    "SEDOL": ""
   },
   {
    "Name": "FTNT US 10/30/26 C180",
    "Ticker": "FTNT 261030C00180000",
    "Identifier": "FTNT 261030C00180000",
-   "Weight": "-0.26",
-   "Market Value": "-28700",
-   "Shares Held": "-41",
+   "Weight": "-0.25",
+   "Market Value": "-29475",
+   "Shares Held": "-45",
    "SEDOL": ""
   },
   {
    "Name": "QLYS US 11/20/26 C200",
    "Ticker": "QLYS 261120C00200000",
    "Identifier": "QLYS 261120C00200000",
-   "Weight": "-0.26",
-   "Market Value": "-28140",
-   "Shares Held": "-28",
+   "Weight": "-0.27",
+   "Market Value": "-32100",
+   "Shares Held": "-30",
    "SEDOL": ""
   },
   {
@@ -603,8 +693,8 @@
    "Ticker": "TENB 261120C00040000",
    "Identifier": "TENB 261120C00040000",
    "Weight": "-0.42",
-   "Market Value": "-45522.5",
-   "Shares Held": "-131",
+   "Market Value": "-49700",
+   "Shares Held": "-142",
    "SEDOL": ""
   }
  ]

@@ -2,7 +2,7 @@
  "ticker": "QDVO",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 541,
+ "totalRows": 542,
  "headers": [
   "Date",
   "Close",
@@ -3255,6 +3255,12 @@
    "Close": "29.559999",
    "Adj Close": "29.56",
    "Volume": "160500"
+  },
+  {
+   "Date": "Oct 20 2026",
+   "Close": "29.459999",
+   "Adj Close": "29.46",
+   "Volume": "193400"
   }
  ]
 }

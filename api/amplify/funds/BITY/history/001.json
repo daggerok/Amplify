@@ -2,7 +2,7 @@
  "ticker": "BITY",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 369,
+ "totalRows": 370,
  "headers": [
   "Date",
   "Close",
@@ -2223,6 +2223,12 @@
    "Close": "27.120001",
    "Adj Close": "27.12",
    "Volume": "4200"
+  },
+  {
+   "Date": "Oct 20 2026",
+   "Close": "27.382999",
+   "Adj Close": "27.38",
+   "Volume": "1200"
   }
  ]
 }

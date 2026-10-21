@@ -2,7 +2,7 @@
  "ticker": "MJ",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 2734,
+ "totalRows": 2735,
  "headers": [
   "Date",
   "Close",
@@ -3937,7 +3937,7 @@
   {
    "Date": "Jul 11 2018",
    "Close": "352.200012",
-   "Adj Close": "259.01",
+   "Adj Close": "259",
    "Volume": "5642"
   },
   {

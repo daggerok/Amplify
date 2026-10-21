@@ -18,17 +18,8 @@
    "Ticker": "CASH",
    "Identifier": "59100U108",
    "Weight": "0.24",
-   "Market Value": "457929.36",
+   "Market Value": "468610.58",
    "Shares Held": "6339",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Pegasystems Inc",
-   "Ticker": "PEGA",
-   "Identifier": "705573103",
-   "Weight": "0.24",
-   "Market Value": "457937.76",
-   "Shares Held": "13069",
    "SEDOL": ""
   },
   {
@@ -36,7 +27,7 @@
    "Ticker": "SFM",
    "Identifier": "85208M102",
    "Weight": "0.24",
-   "Market Value": "463443.12",
+   "Market Value": "466760.64",
    "Shares Held": "7212",
    "SEDOL": ""
   },
@@ -45,8 +36,17 @@
    "Ticker": "UPWK",
    "Identifier": "91688F104",
    "Weight": "0.24",
-   "Market Value": "453707.04",
+   "Market Value": "465955",
    "Shares Held": "53252",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Boot Barn Holdings Inc",
+   "Ticker": "BOOT",
+   "Identifier": "099406100",
+   "Weight": "0.23",
+   "Market Value": "450095.7",
+   "Shares Held": "3902",
    "SEDOL": ""
   },
   {
@@ -54,17 +54,8 @@
    "Ticker": "CWEN",
    "Identifier": "18539C204",
    "Weight": "0.23",
-   "Market Value": "433705.35",
+   "Market Value": "443832.48",
    "Shares Held": "14677",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Fair Isaac Corp",
-   "Ticker": "FICO",
-   "Identifier": "303250104",
-   "Weight": "0.23",
-   "Market Value": "445209.9",
-   "Shares Held": "570",
    "SEDOL": ""
   },
   {
@@ -72,8 +63,17 @@
    "Ticker": "LMAT",
    "Identifier": "525558201",
    "Weight": "0.23",
-   "Market Value": "440687.74",
+   "Market Value": "446523.6",
    "Shares Held": "5354",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Mueller Water Products Inc",
+   "Ticker": "MWA",
+   "Identifier": "624758108",
+   "Weight": "0.23",
+   "Market Value": "451388.73",
+   "Shares Held": "20527",
    "SEDOL": ""
   },
   {
@@ -81,17 +81,8 @@
    "Ticker": "NMRK",
    "Identifier": "65158N102",
    "Weight": "0.23",
-   "Market Value": "427368.92",
+   "Market Value": "440422.68",
    "Shares Held": "37837",
-   "SEDOL": ""
-  },
-  {
-   "Name": "NPK International Inc",
-   "Ticker": "NPKI",
-   "Identifier": "651718504",
-   "Weight": "0.23",
-   "Market Value": "429327.6",
-   "Shares Held": "39208",
    "SEDOL": ""
   },
   {
@@ -99,7 +90,7 @@
    "Ticker": "ORA",
    "Identifier": "686688102",
    "Weight": "0.23",
-   "Market Value": "440391.12",
+   "Market Value": "443796.73",
    "Shares Held": "5083",
    "SEDOL": ""
   },
@@ -108,7 +99,7 @@
    "Ticker": "SMPL",
    "Identifier": "82900L102",
    "Weight": "0.23",
-   "Market Value": "442882",
+   "Market Value": "442479.38",
    "Shares Held": "40262",
    "SEDOL": ""
   },
@@ -117,7 +108,7 @@
    "Ticker": "ZG",
    "Identifier": "98954M101",
    "Weight": "0.23",
-   "Market Value": "427597.16",
+   "Market Value": "447351.02",
    "Shares Held": "13438",
    "SEDOL": ""
   },
@@ -126,7 +117,7 @@
    "Ticker": "CALX",
    "Identifier": "13100M509",
    "Weight": "0.22",
-   "Market Value": "408291.84",
+   "Market Value": "413332.48",
    "Shares Held": "11456",
    "SEDOL": ""
   },
@@ -135,7 +126,7 @@
    "Ticker": "IBP",
    "Identifier": "45780R101",
    "Weight": "0.22",
-   "Market Value": "409590",
+   "Market Value": "426082.5",
    "Shares Held": "2250",
    "SEDOL": ""
   },
@@ -144,7 +135,7 @@
    "Ticker": "LPTH",
    "Identifier": "532257805",
    "Weight": "0.22",
-   "Market Value": "422722.5",
+   "Market Value": "424977.02",
    "Shares Held": "56363",
    "SEDOL": ""
   },
@@ -153,17 +144,17 @@
    "Ticker": "MZTI",
    "Identifier": "513847103",
    "Weight": "0.22",
-   "Market Value": "424368.42",
+   "Market Value": "429022.47",
    "Shares Held": "4047",
    "SEDOL": ""
   },
   {
-   "Name": "Netflix Inc",
-   "Ticker": "NFLX",
-   "Identifier": "64110L106",
+   "Name": "NPK International Inc",
+   "Ticker": "NPKI",
+   "Identifier": "651718504",
    "Weight": "0.22",
-   "Market Value": "412743.65",
-   "Shares Held": "5909",
+   "Market Value": "427759.28",
+   "Shares Held": "39208",
    "SEDOL": ""
   },
   {
@@ -171,7 +162,7 @@
    "Ticker": "TMUS",
    "Identifier": "872590104",
    "Weight": "0.22",
-   "Market Value": "414887.22",
+   "Market Value": "419299.5",
    "Shares Held": "2658",
    "SEDOL": ""
   },
@@ -180,8 +171,17 @@
    "Ticker": "WGO",
    "Identifier": "974637100",
    "Weight": "0.22",
-   "Market Value": "413410.12",
+   "Market Value": "422528.12",
    "Shares Held": "18236",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Netflix Inc",
+   "Ticker": "NFLX",
+   "Identifier": "64110L106",
+   "Weight": "0.21",
+   "Market Value": "405889.21",
+   "Shares Held": "5909",
    "SEDOL": ""
   },
   {
@@ -189,7 +189,7 @@
    "Ticker": "PLNT",
    "Identifier": "72703H101",
    "Weight": "0.21",
-   "Market Value": "403973.82",
+   "Market Value": "404508.48",
    "Shares Held": "7638",
    "SEDOL": ""
   },
@@ -198,7 +198,7 @@
    "Ticker": "SITE",
    "Identifier": "82982L103",
    "Weight": "0.21",
-   "Market Value": "393787.17",
+   "Market Value": "403607.82",
    "Shares Held": "4179",
    "SEDOL": ""
   },
@@ -207,7 +207,7 @@
    "Ticker": "WINA",
    "Identifier": "974250102",
    "Weight": "0.21",
-   "Market Value": "393649.33",
+   "Market Value": "397545.3",
    "Shares Held": "1303",
    "SEDOL": ""
   },
@@ -216,7 +216,7 @@
    "Ticker": "PODD",
    "Identifier": "45784P101",
    "Weight": "0.2",
-   "Market Value": "384285.72",
+   "Market Value": "386126.48",
    "Shares Held": "2707",
    "SEDOL": ""
   },
@@ -225,7 +225,7 @@
    "Ticker": "IPGP",
    "Identifier": "44980X109",
    "Weight": "0.2",
-   "Market Value": "377185.92",
+   "Market Value": "377237.96",
    "Shares Held": "5204",
    "SEDOL": ""
   },
@@ -234,7 +234,7 @@
    "Ticker": "LCII",
    "Identifier": "50189K103",
    "Weight": "0.2",
-   "Market Value": "381583.36",
+   "Market Value": "384052.1",
    "Shares Held": "4658",
    "SEDOL": ""
   },
@@ -243,8 +243,17 @@
    "Ticker": "BLDR",
    "Identifier": "12008R107",
    "Weight": "0.19",
-   "Market Value": "363131.1",
+   "Market Value": "369783.36",
    "Shares Held": "6858",
+   "SEDOL": ""
+  },
+  {
+   "Name": "EVgo Inc",
+   "Ticker": "EVGO",
+   "Identifier": "30052F100",
+   "Weight": "0.19",
+   "Market Value": "363338.8",
+   "Shares Held": "330308",
    "SEDOL": ""
   },
   {
@@ -252,7 +261,7 @@
    "Ticker": "INSM",
    "Identifier": "457669307",
    "Weight": "0.19",
-   "Market Value": "357432.79",
+   "Market Value": "358858.17",
    "Shares Held": "3751",
    "SEDOL": ""
   },
@@ -261,17 +270,8 @@
    "Ticker": "IONS",
    "Identifier": "462222100",
    "Weight": "0.19",
-   "Market Value": "353131.66",
+   "Market Value": "361247.8",
    "Shares Held": "7957",
-   "SEDOL": ""
-  },
-  {
-   "Name": "EVgo Inc",
-   "Ticker": "EVGO",
-   "Identifier": "30052F100",
-   "Weight": "0.18",
-   "Market Value": "350126.48",
-   "Shares Held": "330308",
    "SEDOL": ""
   },
   {
@@ -279,7 +279,7 @@
    "Ticker": "PATK",
    "Identifier": "703343103",
    "Weight": "0.18",
-   "Market Value": "342174.06",
+   "Market Value": "344596.44",
    "Shares Held": "5154",
    "SEDOL": ""
   },
@@ -288,7 +288,7 @@
    "Ticker": "NAGE",
    "Identifier": "171077407",
    "Weight": "0.17",
-   "Market Value": "322070",
+   "Market Value": "323358.28",
    "Shares Held": "128828",
    "SEDOL": ""
   },
@@ -297,7 +297,7 @@
    "Ticker": "QXO",
    "Identifier": "82846H405",
    "Weight": "0.16",
-   "Market Value": "296645.7",
+   "Market Value": "306007.3",
    "Shares Held": "29255",
    "SEDOL": ""
   },
@@ -306,7 +306,7 @@
    "Ticker": "REZI",
    "Identifier": "76118Y104",
    "Weight": "0.16",
-   "Market Value": "306884.2",
+   "Market Value": "315573.09",
    "Shares Held": "18487",
    "SEDOL": ""
   },
@@ -315,7 +315,7 @@
    "Ticker": "TTD",
    "Identifier": "88339J105",
    "Weight": "0.16",
-   "Market Value": "300541.64",
+   "Market Value": "310102.1",
    "Shares Held": "24514",
    "SEDOL": ""
   },
@@ -324,7 +324,7 @@
    "Ticker": "ADIG",
    "Identifier": "001026103",
    "Weight": "0.07",
-   "Market Value": "125549.78",
+   "Market Value": "131736.53",
    "Shares Held": "8249",
    "SEDOL": ""
   },
@@ -332,9 +332,9 @@
    "Name": "Cash & Other",
    "Ticker": "CASH&OTHER",
    "Identifier": "Cash&Other",
-   "Weight": "0.01",
-   "Market Value": "15750.94",
-   "Shares Held": "15750.94",
+   "Weight": "0",
+   "Market Value": "4868.65",
+   "Shares Held": "4868.65",
    "SEDOL": ""
   }
  ]

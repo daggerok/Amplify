@@ -2,7 +2,7 @@
  "ticker": "DRVR",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 72,
+ "totalRows": 73,
  "headers": [
   "Date",
   "Close",
@@ -440,7 +440,13 @@
    "Date": "Oct 19 2026",
    "Close": "25.26",
    "Adj Close": "25.26",
-   "Volume": "6213"
+   "Volume": "6200"
+  },
+  {
+   "Date": "Oct 20 2026",
+   "Close": "25.629999",
+   "Adj Close": "25.63",
+   "Volume": "3000"
   }
  ]
 }
