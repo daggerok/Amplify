@@ -10,7 +10,7 @@ import {
   ADJ_CLOSE_NOISE, holdingsRowFromFirestore, inferDistributionFrequency, installSystemCa, isCertError, mergeDividends, mergeHistory, officialReturns,
   parseAumRange, parseChart, parseHistoryRange, parseNport, parsePercent, performanceAsOfDate, priceReturns, readConfig, resetSecCaches, resolveControls,
   resolveNportFiling, runFundPool, runUpdate, runtimeControls, selectCatalog, setApiRoot, setHttpSettings,
-  dropCap, fetchText, isNotFound, setClock, setFetchTimeoutMs, setRunDeadlineMs, setSecInterval, trailingYield,
+  dropCap, fetchText, isNotFound, setClock, setFetchTimeoutMs, setRunDeadlineMs, setSecInterval, trailingYield, holdingsGuard,
 } from './update-data';
 
 const read = (path: string) => readFileSync(new URL(`../${path}`, import.meta.url), 'utf8');
@@ -75,7 +75,7 @@ function stubWeb(options: { yahoo?: boolean; holdings?: boolean; sec?: boolean }
         if (ticker !== 'TEST' || options.holdings === false) return json(200, {});
         return json(200, { documents: [fdoc('funds/TEST/holdings/2026-10-02', { asOfDate: '2026-10-02', source: 'XL_Holdings.csv', holdings: [
           { StockTicker: 'LOW', SecurityName: 'Low Inc', CUSIP: '222222222', Weightings: '1.5%', MarketValue: 150, Shares: 3 },
-          { StockTicker: 'TOP', SecurityName: 'Top Corp', CUSIP: '333333333', Weightings: '8.5%', MarketValue: 850, Shares: 7 },
+          { StockTicker: 'TOP', SecurityName: 'Top Corp', CUSIP: '333333333', Weightings: '98.5%', MarketValue: 850, Shares: 7 },
         ] })] });
       }
     }
@@ -170,7 +170,7 @@ function stubWorld(w: World) {
         if (t.holdings === false) return json(200, {});
         return json(200, { documents: [fdoc(`funds/${ticker}/holdings/${w.asOf}`, { asOfDate: w.asOf, source: 'XL.csv', holdings: [
           { StockTicker: 'LOW', SecurityName: 'Low Inc', CUSIP: '222222222', Weightings: '1.5%', MarketValue: 150, Shares: 3 },
-          { StockTicker: 'TOP', SecurityName: 'Top Corp', CUSIP: '333333333', Weightings: '8.5%', MarketValue: 850, Shares: 7 },
+          { StockTicker: 'TOP', SecurityName: 'Top Corp', CUSIP: '333333333', Weightings: '98.5%', MarketValue: 850, Shares: 7 },
         ] })] });
       }
     }
@@ -333,6 +333,21 @@ describe('parsing', () => {
     expect(holdingsRowFromFirestore({ SecurityName: 'Cash & Other', StockTicker: 'Cash&Other', Weightings: '-0.01%' })).toMatchObject({ Weight: '-0.01', 'Market Value': '', 'Shares Held': '' });
     expect(holdingsRowFromFirestore({ SecurityName: 'Tiny', Weightings: '0.5' })).toMatchObject({ Weight: '0.5' });
     expect(holdingsRowFromFirestore({})).toBeNull();
+  });
+
+  test('holdings guard: header-only, renamed weight column, broken weights, a bad weight sum and a halved sheet are rejected', () => {
+    const headers = ['Name', 'Ticker', 'Weight'];
+    const rows = [{ Name: 'A', Ticker: 'A', Weight: '60%' }, { Name: 'B', Ticker: 'B', Weight: '40%' }];
+    expect(holdingsGuard(headers, rows, 2)).toBeNull();
+    expect(holdingsGuard(headers, [['A', 'A', '60'], ['B', 'B', '40']], null)).toBeNull();
+    expect(holdingsGuard([], [], 0)).toBeNull(); // nothing published before: an empty sheet is honest
+    expect(holdingsGuard(headers, [], 505)).toContain('no holdings rows');
+    expect(holdingsGuard(['Name', 'Ticker', 'Wt'], rows, 2)).toContain('no weight column');
+    expect(holdingsGuard(headers, rows.map((row) => ({ ...row, Weight: '6\u200B0' })), 2)).toContain('numeric weight');
+    const allocation = [{ Name: 'Cash&Collateral', Ticker: '-', Weight: '100' }, { Name: 'Equities', Ticker: '-', Weight: '476' }];
+    expect(holdingsGuard(headers, allocation, 2)).toContain('outside 50..150');
+    expect(holdingsGuard(headers, allocation, 2, ['sum'])).toBeNull();
+    expect(holdingsGuard(headers, rows, 5)).toContain('less than half');
   });
 
   test('official NAV returns come from the NAV row, qtd is never taken from the trailing 3M figure', () => {
@@ -566,7 +581,7 @@ describe('pipeline', () => {
       expect(meta.returns.monthEnd).toMatchObject({ asOfDate: 'Sep 30 2026', ytd: 8.25, yr1: 11.43, yr3: 16.38, yr5: 11.55, yr10: null, mo1: -3.34 });
       const page = JSON.parse(files['funds/TEST/holdings/001.json']);
       expect(page).toMatchObject({ ticker: 'TEST', page: 1, pageSize: 1, totalRows: 2, headers: HOLDINGS_HEADERS });
-      expect(page.rows[0]).toMatchObject({ Name: 'Top Corp', Ticker: 'TOP', Weight: '8.5' }); // sorted by weight, not by Firestore order
+      expect(page.rows[0]).toMatchObject({ Name: 'Top Corp', Ticker: 'TOP', Weight: '98.5' }); // sorted by weight, not by Firestore order
       expect(JSON.parse(files['funds/TEST/history/001.json']).rows[0]).toEqual({ Date: 'Sep 28 2026', Close: '10', 'Adj Close': '9.9', Volume: '100' });
       // A second identical run changes no file at all, not even generatedAt.
       stubWeb();
@@ -666,6 +681,29 @@ describe('pipeline', () => {
       expect(rowOf(dir, 'AAA').metrics.secYield).toBeNull();
       expect(rowOf(dir, 'AAA').metrics.secYieldText).toBe('—');
       expect(rowOf(dir, 'BBB').metrics.secYield).toBe(1.4);
+    } finally { rmSync(dir, { recursive: true, force: true }); }
+  });
+
+  test('a renamed Firestore weight field fails the holdings guard: the fund stays exactly as published, the others update, exit 1', async () => {
+    const w = baseWorld();
+    stubWorld(w);
+    const first = await runLogged({});
+    const dir = first.dir;
+    try {
+      const before = snapshot(dir);
+      // the AAA holdings document renames Weightings while the NAV moved everywhere: every parsed weight is blank
+      w.nav = 11;
+      stubWorld(w);
+      const served = globalThis.fetch;
+      globalThis.fetch = (async (input: any, init?: any) => {
+        const res = await served(input, init);
+        return decodeURIComponent(String(input)).includes('funds/AAA/holdings') ? new Response((await res.text()).replace(/Weightings/g, 'PctOfNav'), { status: res.status, headers: res.headers }) : res;
+      }) as unknown as typeof fetch;
+      const second = await runLogged({}, dir);
+      expect(second.code).toBe(1);
+      expect(only(snapshot(dir), 'AAA')).toEqual(only(before, 'AAA'));
+      expect(rowOf(dir, 'AAA').navValue).toBe(10.4);
+      expect(rowOf(dir, 'BBB').navValue).toBe(11);
     } finally { rmSync(dir, { recursive: true, force: true }); }
   });
 
