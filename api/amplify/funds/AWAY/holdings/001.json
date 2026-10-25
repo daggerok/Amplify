@@ -17,8 +17,8 @@
    "Name": "Trainline PLC",
    "Ticker": "TRN LN",
    "Identifier": "BKDTK92",
-   "Weight": "5.23",
-   "Market Value": "1232613.61",
+   "Weight": "4.93",
+   "Market Value": "1138460.52",
    "Shares Held": "403473",
    "SEDOL": ""
   },
@@ -26,8 +26,8 @@
    "Name": "Expedia Group Inc",
    "Ticker": "EXPE",
    "Identifier": "30212P303",
-   "Weight": "5",
-   "Market Value": "1177174.64",
+   "Weight": "4.9",
+   "Market Value": "1131185.14",
    "Shares Held": "3914",
    "SEDOL": ""
   },
@@ -35,8 +35,8 @@
    "Name": "Airbnb Inc",
    "Ticker": "ABNB",
    "Identifier": "009066101",
-   "Weight": "4.81",
-   "Market Value": "1133300.7",
+   "Weight": "4.77",
+   "Market Value": "1101724.05",
    "Shares Held": "6405",
    "SEDOL": ""
   },
@@ -44,8 +44,8 @@
    "Name": "TravelSky Technology Ltd",
    "Ticker": "696 HK",
    "Identifier": "6321954",
-   "Weight": "4.71",
-   "Market Value": "1110472.99",
+   "Weight": "4.74",
+   "Market Value": "1093832.54",
    "Shares Held": "947821",
    "SEDOL": ""
   },
@@ -53,8 +53,8 @@
    "Name": "HBX Group International PLC",
    "Ticker": "HBX SM",
    "Identifier": "BNXJB67",
-   "Weight": "4.59",
-   "Market Value": "1080129.92",
+   "Weight": "4.66",
+   "Market Value": "1074764.59",
    "Shares Held": "122434",
    "SEDOL": ""
   },
@@ -62,8 +62,8 @@
    "Name": "TripAdvisor Inc",
    "Ticker": "TRIP",
    "Identifier": "896945201",
-   "Weight": "4.58",
-   "Market Value": "1079727.36",
+   "Weight": "4.63",
+   "Market Value": "1068373.76",
    "Shares Held": "113536",
    "SEDOL": ""
   },
@@ -71,8 +71,8 @@
    "Name": "Uber Technologies Inc",
    "Ticker": "UBER",
    "Identifier": "90353T100",
-   "Weight": "4.57",
-   "Market Value": "1076911.74",
+   "Weight": "4.51",
+   "Market Value": "1041920.7",
    "Shares Held": "15621",
    "SEDOL": ""
   },
@@ -80,80 +80,80 @@
    "Name": "Lyft Inc",
    "Ticker": "LYFT",
    "Identifier": "55087P104",
-   "Weight": "4.47",
-   "Market Value": "1052922.75",
+   "Weight": "4.48",
+   "Market Value": "1034000.66",
    "Shares Held": "61039",
-   "SEDOL": ""
-  },
-  {
-   "Name": "TRIP.COM GROUP",
-   "Ticker": "TCOM",
-   "Identifier": "89677Q107",
-   "Weight": "4.36",
-   "Market Value": "1026723.1",
-   "Shares Held": "25477",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Amadeus IT Group SA",
-   "Ticker": "AMS SM",
-   "Identifier": "B3MSM28",
-   "Weight": "4.29",
-   "Market Value": "1009818",
-   "Shares Held": "15854",
    "SEDOL": ""
   },
   {
    "Name": "Navan Inc",
    "Ticker": "NAVN",
    "Identifier": "639193101",
-   "Weight": "4.25",
-   "Market Value": "1000321.92",
+   "Weight": "4.45",
+   "Market Value": "1026205.44",
    "Shares Held": "38064",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Booking Holdings Inc",
-   "Ticker": "BKNG",
-   "Identifier": "09857L108",
-   "Weight": "4.23",
-   "Market Value": "996797.52",
-   "Shares Held": "6081",
-   "SEDOL": ""
-  },
-  {
-   "Name": "WebBeds Group Ltd",
-   "Ticker": "WEB AU",
-   "Identifier": "6015815",
-   "Weight": "4.21",
-   "Market Value": "991416.61",
-   "Shares Held": "405211",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Flight Centre Travel Group Ltd",
-   "Ticker": "FLT AU",
-   "Identifier": "6352147",
-   "Weight": "4.2",
-   "Market Value": "988766.75",
-   "Shares Held": "127408",
    "SEDOL": ""
   },
   {
    "Name": "SiteMinder Ltd",
    "Ticker": "SDR AU",
    "Identifier": "BLH35X6",
-   "Weight": "4.18",
-   "Market Value": "985104.74",
+   "Weight": "4.42",
+   "Market Value": "1021164.72",
    "Shares Held": "524322",
+   "SEDOL": ""
+  },
+  {
+   "Name": "TRIP.COM GROUP",
+   "Ticker": "TCOM",
+   "Identifier": "89677Q107",
+   "Weight": "4.39",
+   "Market Value": "1013475.06",
+   "Shares Held": "25477",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Flight Centre Travel Group Ltd",
+   "Ticker": "FLT AU",
+   "Identifier": "6352147",
+   "Weight": "4.37",
+   "Market Value": "1007783.33",
+   "Shares Held": "127408",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Amadeus IT Group SA",
+   "Ticker": "AMS SM",
+   "Identifier": "B3MSM28",
+   "Weight": "4.36",
+   "Market Value": "1005373.88",
+   "Shares Held": "15854",
+   "SEDOL": ""
+  },
+  {
+   "Name": "WebBeds Group Ltd",
+   "Ticker": "WEB AU",
+   "Identifier": "6015815",
+   "Weight": "4.28",
+   "Market Value": "988618.31",
+   "Shares Held": "405211",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Booking Holdings Inc",
+   "Ticker": "BKNG",
+   "Identifier": "09857L108",
+   "Weight": "4.11",
+   "Market Value": "947602.23",
+   "Shares Held": "6081",
    "SEDOL": ""
   },
   {
    "Name": "On the Beach Group PLC",
    "Ticker": "OTB LN",
    "Identifier": "BYM1K75",
-   "Weight": "4.17",
-   "Market Value": "982124.07",
+   "Weight": "4.11",
+   "Market Value": "947882.95",
    "Shares Held": "424547",
    "SEDOL": ""
   },
@@ -161,8 +161,8 @@
    "Name": "eDreams ODIGEO SA",
    "Ticker": "EDR SM",
    "Identifier": "BLG2YZ9",
-   "Weight": "4.09",
-   "Market Value": "963094.33",
+   "Weight": "4.07",
+   "Market Value": "939769.65",
    "Shares Held": "176400",
    "SEDOL": ""
   },
@@ -170,8 +170,8 @@
    "Name": "Tongcheng Travel Holdings Ltd",
    "Ticker": "780 HK",
    "Identifier": "BGM5R25",
-   "Weight": "4.04",
-   "Market Value": "950682.09",
+   "Weight": "4.07",
+   "Market Value": "938316.47",
    "Shares Held": "735088",
    "SEDOL": ""
   },
@@ -179,8 +179,8 @@
    "Name": "MakeMyTrip Ltd",
    "Ticker": "MMYT",
    "Identifier": "V5633W109",
-   "Weight": "3.6",
-   "Market Value": "847590.42",
+   "Weight": "3.37",
+   "Market Value": "777065.58",
    "Shares Held": "18462",
    "SEDOL": ""
   },
@@ -188,8 +188,8 @@
    "Name": "Sabre Corp",
    "Ticker": "SABR",
    "Identifier": "78573M104",
-   "Weight": "3.41",
-   "Market Value": "803860.41",
+   "Weight": "3.37",
+   "Market Value": "778259.76",
    "Shares Held": "512013",
    "SEDOL": ""
   },
@@ -197,18 +197,9 @@
    "Name": "Hana Tour Service Inc",
    "Ticker": "039130 KS",
    "Identifier": "6311632",
-   "Weight": "3.04",
-   "Market Value": "715595.38",
+   "Weight": "3.03",
+   "Market Value": "699942.92",
    "Shares Held": "33348",
-   "SEDOL": ""
-  },
-  {
-   "Name": "CVC Brasil Operadora e Agencia de Viagens SA",
-   "Ticker": "CVCB3 BZ",
-   "Identifier": "BGSH2S6",
-   "Weight": "2.4",
-   "Market Value": "564245.4",
-   "Shares Held": "1693564",
    "SEDOL": ""
   },
   {
@@ -216,16 +207,25 @@
    "Ticker": "TRVG",
    "Identifier": "89686D303",
    "Weight": "2.32",
-   "Market Value": "547006.28",
+   "Market Value": "534317.99",
    "Shares Held": "140981",
+   "SEDOL": ""
+  },
+  {
+   "Name": "CVC Brasil Operadora e Agencia de Viagens SA",
+   "Ticker": "CVCB3 BZ",
+   "Identifier": "BGSH2S6",
+   "Weight": "2.3",
+   "Market Value": "530555.7",
+   "Shares Held": "1693564",
    "SEDOL": ""
   },
   {
    "Name": "Hostelworld Group Plc",
    "Ticker": "HSW LN",
    "Identifier": "BYYN422",
-   "Weight": "1.77",
-   "Market Value": "415951",
+   "Weight": "1.84",
+   "Market Value": "425019.04",
    "Shares Held": "378906",
    "SEDOL": ""
   },
@@ -233,8 +233,8 @@
    "Name": "accesso Technology Group PLC",
    "Ticker": "ACSO LN",
    "Identifier": "0177142",
-   "Weight": "1.45",
-   "Market Value": "340980.36",
+   "Weight": "1.43",
+   "Market Value": "329136.97",
    "Shares Held": "80095",
    "SEDOL": ""
   },
@@ -242,8 +242,8 @@
    "Name": "Lastminute.com NV",
    "Ticker": "LMN SW",
    "Identifier": "BLLHQ53",
-   "Weight": "0.93",
-   "Market Value": "219895.22",
+   "Weight": "0.97",
+   "Market Value": "224999.39",
    "Shares Held": "19775",
    "SEDOL": ""
   },
@@ -251,8 +251,8 @@
    "Name": "Webjet Group Ltd",
    "Ticker": "WJL AU",
    "Identifier": "BSY5JG5",
-   "Weight": "0.82",
-   "Market Value": "193592.88",
+   "Weight": "0.84",
+   "Market Value": "194159.12",
    "Shares Held": "1042063",
    "SEDOL": ""
   },
@@ -270,7 +270,7 @@
    "Ticker": "AUD",
    "Identifier": "CASHAUD",
    "Weight": "0.09",
-   "Market Value": "21031.53",
+   "Market Value": "21093.04",
    "Shares Held": "30000",
    "SEDOL": ""
   },
@@ -278,9 +278,9 @@
    "Name": "Cash & Other",
    "Ticker": "CASH&OTHER",
    "Identifier": "Cash&Other",
-   "Weight": "-0.02",
-   "Market Value": "-4325.64",
-   "Shares Held": "-4325.64",
+   "Weight": "-0.03",
+   "Market Value": "-6668.24",
+   "Shares Held": "-6668.24",
    "SEDOL": ""
   }
  ]

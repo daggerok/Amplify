@@ -2,7 +2,7 @@
  "ticker": "AIVC",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2670,
+ "totalRows": 2673,
  "headers": [
   "Date",
   "Close",
@@ -4029,6 +4029,24 @@
    "Close": "106.785004",
    "Adj Close": "106.79",
    "Volume": "2100"
+  },
+  {
+   "Date": "Oct 21 2026",
+   "Close": "109.184998",
+   "Adj Close": "109.18",
+   "Volume": "6600"
+  },
+  {
+   "Date": "Oct 22 2026",
+   "Close": "102.875999",
+   "Adj Close": "102.88",
+   "Volume": "8200"
+  },
+  {
+   "Date": "Oct 23 2026",
+   "Close": "103.488998",
+   "Adj Close": "103.49",
+   "Volume": "13200"
   }
  ]
 }

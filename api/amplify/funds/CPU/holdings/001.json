@@ -17,17 +17,17 @@
    "Name": "Invesco Government & Agency Portfolio 12/31/2031",
    "Ticker": "AGPXX",
    "Identifier": "825252885",
-   "Weight": "21.35",
-   "Market Value": "264759.3",
-   "Shares Held": "264759.3",
+   "Weight": "23.51",
+   "Market Value": "281557.79",
+   "Shares Held": "281557.79",
    "SEDOL": ""
   },
   {
    "Name": "United Microelectronics Corp",
    "Ticker": "2303 TT",
    "Identifier": "6916628",
-   "Weight": "10.35",
-   "Market Value": "128341.75",
+   "Weight": "10.6",
+   "Market Value": "126985.34",
    "Shares Held": "33000",
    "SEDOL": ""
   },
@@ -35,35 +35,35 @@
    "Name": "Globalwafers Co Ltd",
    "Ticker": "6488 TT",
    "Identifier": "BS7JP33",
-   "Weight": "8.96",
-   "Market Value": "111137.65",
+   "Weight": "9.09",
+   "Market Value": "108904.15",
    "Shares Held": "4300",
-   "SEDOL": ""
-  },
-  {
-   "Name": "MediaTek Inc",
-   "Ticker": "2454 TT",
-   "Identifier": "6372480",
-   "Weight": "8.2",
-   "Market Value": "101668.96",
-   "Shares Held": "800",
    "SEDOL": ""
   },
   {
    "Name": "Kinsus Interconnect Technology Corp",
    "Ticker": "3189 TT",
    "Identifier": "6687872",
-   "Weight": "8.17",
-   "Market Value": "101286.17",
+   "Weight": "8.83",
+   "Market Value": "105813.45",
    "Shares Held": "3500",
+   "SEDOL": ""
+  },
+  {
+   "Name": "MediaTek Inc",
+   "Ticker": "2454 TT",
+   "Identifier": "6372480",
+   "Weight": "8.21",
+   "Market Value": "98362.67",
+   "Shares Held": "800",
    "SEDOL": ""
   },
   {
    "Name": "Kioxia Holdings Corp",
    "Ticker": "285A JP",
    "Identifier": "BMGYJ02",
-   "Weight": "6.02",
-   "Market Value": "74722.78",
+   "Weight": "6.11",
+   "Market Value": "73194.76",
    "Shares Held": "900",
    "SEDOL": ""
   },
@@ -71,8 +71,8 @@
    "Name": "MICRON TECHNOLOGY, INC.-SWAP-NBCB-L",
    "Ticker": "595112103-TRS-11/08/27-L-NBC",
    "Identifier": "595112103-TRS-11/08/27-L-NBC",
-   "Weight": "5.85",
-   "Market Value": "72581.67",
+   "Weight": "5.93",
+   "Market Value": "71081.55",
    "Shares Held": "81",
    "SEDOL": ""
   },
@@ -80,8 +80,8 @@
    "Name": "MARVELL TECHNOLOGY INC",
    "Ticker": "MRVL",
    "Identifier": "573874104",
-   "Weight": "4.77",
-   "Market Value": "59143.32",
+   "Weight": "4.69",
+   "Market Value": "56213.46",
    "Shares Held": "246",
    "SEDOL": ""
   },
@@ -89,36 +89,9 @@
    "Name": "MARVELL TECHNOLOGY, INC.-SWAP-NBCB-L",
    "Ticker": "573874104-TRS-11/08/27-L-NBC",
    "Identifier": "573874104-TRS-11/08/27-L-NBC",
-   "Weight": "4.73",
-   "Market Value": "58662.48",
+   "Weight": "4.65",
+   "Market Value": "55756.44",
    "Shares Held": "244",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Sandisk Corp",
-   "Ticker": "SNDK",
-   "Identifier": "80004C200",
-   "Weight": "4.62",
-   "Market Value": "57345.96",
-   "Shares Held": "42",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Astera Labs Inc",
-   "Ticker": "ALAB",
-   "Identifier": "04626A103",
-   "Weight": "4.55",
-   "Market Value": "56390.4",
-   "Shares Held": "198",
-   "SEDOL": ""
-  },
-  {
-   "Name": "SANDISK CORPORATION-SWAP-NBCB-L",
-   "Ticker": "80004C200-TRS-11/08/27-L-NBC",
-   "Identifier": "80004C200-TRS-11/08/27-L-NBC",
-   "Weight": "4.51",
-   "Market Value": "55980.58",
-   "Shares Held": "41",
    "SEDOL": ""
   },
   {
@@ -126,7 +99,7 @@
    "Ticker": "AMD",
    "Identifier": "007903107",
    "Weight": "4.4",
-   "Market Value": "54543.48",
+   "Market Value": "52712.58",
    "Shares Held": "102",
    "SEDOL": ""
   },
@@ -134,9 +107,36 @@
    "Name": "Micron Technology Inc",
    "Ticker": "MU",
    "Identifier": "595112103",
-   "Weight": "4.33",
-   "Market Value": "53764.2",
+   "Weight": "4.4",
+   "Market Value": "52653",
    "Shares Held": "60",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Sandisk Corp",
+   "Ticker": "SNDK",
+   "Identifier": "80004C200",
+   "Weight": "4.34",
+   "Market Value": "51997.26",
+   "Shares Held": "42",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Astera Labs Inc",
+   "Ticker": "ALAB",
+   "Identifier": "04626A103",
+   "Weight": "4.25",
+   "Market Value": "50917.68",
+   "Shares Held": "198",
+   "SEDOL": ""
+  },
+  {
+   "Name": "SANDISK CORPORATION-SWAP-NBCB-L",
+   "Ticker": "80004C200-TRS-11/08/27-L-NBC",
+   "Identifier": "80004C200-TRS-11/08/27-L-NBC",
+   "Weight": "4.24",
+   "Market Value": "50759.23",
+   "Shares Held": "41",
    "SEDOL": ""
   },
   {
@@ -144,7 +144,7 @@
    "Ticker": "007903107-TRS-11/30/27-L-GS",
    "Identifier": "007903107-TRS-11/30/27-L-GS",
    "Weight": "3.58",
-   "Market Value": "44383.42",
+   "Market Value": "42893.57",
    "Shares Held": "83",
    "SEDOL": ""
   },
@@ -153,7 +153,7 @@
    "Ticker": "007903107-TRS-11/30/27-L-NBC",
    "Identifier": "007903107-TRS-11/30/27-L-NBC",
    "Weight": "3.58",
-   "Market Value": "44383.42",
+   "Market Value": "42893.57",
    "Shares Held": "83",
    "SEDOL": ""
   },
@@ -161,8 +161,8 @@
    "Name": "MARVELL TECHNOLOGY, INC.-SWAP-GOLD-L",
    "Ticker": "573874104-TRS-11/08/27-L-GS",
    "Identifier": "573874104-TRS-11/08/27-L-GS",
-   "Weight": "2.79",
-   "Market Value": "34620.48",
+   "Weight": "2.75",
+   "Market Value": "32905.44",
    "Shares Held": "144",
    "SEDOL": ""
   },
@@ -170,8 +170,8 @@
    "Name": "KIOXIA HOLDINGS CORPORATION-SWAP-NBCB-L",
    "Ticker": "BMGYJ02-TRS-11/30/27-L-NBC",
    "Identifier": "BMGYJ02-TRS-11/30/27-L-NBC",
-   "Weight": "2.68",
-   "Market Value": "33210.12",
+   "Weight": "2.72",
+   "Market Value": "32531",
    "Shares Held": "400",
    "SEDOL": ""
   },
@@ -179,8 +179,8 @@
    "Name": "ASTERA LABS, INC.-SWAP-GOLD-L",
    "Ticker": "04626A103-TRS-11/30/27-L-GS",
    "Identifier": "04626A103-TRS-11/30/27-L-GS",
-   "Weight": "2.07",
-   "Market Value": "25632",
+   "Weight": "1.93",
+   "Market Value": "23144.4",
    "Shares Held": "90",
    "SEDOL": ""
   },
@@ -188,8 +188,8 @@
    "Name": "ASTERA LABS, INC.-SWAP-NBCB-L",
    "Ticker": "04626A103-TRS-11/30/27-L-NBC",
    "Identifier": "04626A103-TRS-11/30/27-L-NBC",
-   "Weight": "2.07",
-   "Market Value": "25632",
+   "Weight": "1.93",
+   "Market Value": "23144.4",
    "Shares Held": "90",
    "SEDOL": ""
   },
@@ -197,8 +197,8 @@
    "Name": "SANDISK CORPORATION-SWAP-GOLD-L",
    "Ticker": "80004C200-TRS-11/30/27-L-GS",
    "Identifier": "80004C200-TRS-11/30/27-L-GS",
-   "Weight": "1.98",
-   "Market Value": "24576.84",
+   "Weight": "1.86",
+   "Market Value": "22284.54",
    "Shares Held": "18",
    "SEDOL": ""
   },
@@ -206,8 +206,8 @@
    "Name": "MICRON TECHNOLOGY, INC.-SWAP-GOLD-L",
    "Ticker": "595112103-TRS-11/08/27-L-GS",
    "Identifier": "595112103-TRS-11/08/27-L-GS",
-   "Weight": "1.66",
-   "Market Value": "20609.61",
+   "Weight": "1.68",
+   "Market Value": "20183.65",
    "Shares Held": "23",
    "SEDOL": ""
   },
@@ -224,9 +224,9 @@
    "Name": "Cash & Other",
    "Ticker": "CASH&OTHER",
    "Identifier": "Cash&Other",
-   "Weight": "-21.17",
-   "Market Value": "-262624.86",
-   "Shares Held": "-262624.86",
+   "Weight": "-23.3",
+   "Market Value": "-279092.54",
+   "Shares Held": "-279092.54",
    "SEDOL": ""
   }
  ]

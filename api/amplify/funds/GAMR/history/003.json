@@ -2,7 +2,7 @@
  "ticker": "GAMR",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2669,
+ "totalRows": 2672,
  "headers": [
   "Date",
   "Close",
@@ -4023,6 +4023,24 @@
    "Close": "98.691002",
    "Adj Close": "98.69",
    "Volume": "500"
+  },
+  {
+   "Date": "Oct 21 2026",
+   "Close": "98.736",
+   "Adj Close": "98.74",
+   "Volume": "600"
+  },
+  {
+   "Date": "Oct 22 2026",
+   "Close": "96.283997",
+   "Adj Close": "96.28",
+   "Volume": "800"
+  },
+  {
+   "Date": "Oct 23 2026",
+   "Close": "95.584",
+   "Adj Close": "95.58",
+   "Volume": "900"
   }
  ]
 }

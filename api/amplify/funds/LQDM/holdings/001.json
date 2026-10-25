@@ -17,8 +17,8 @@
    "Name": "iShares iBoxx USD Investment Grade Corporate Bond ETF",
    "Ticker": "LQD",
    "Identifier": "464287242",
-   "Weight": "100.09",
-   "Market Value": "4154088.9",
+   "Weight": "100.16",
+   "Market Value": "4179443.25",
    "Shares Held": "40245",
    "SEDOL": ""
   },
@@ -26,27 +26,27 @@
    "Name": "Invesco Government & Agency Portfolio 12/31/2031",
    "Ticker": "AGPXX",
    "Identifier": "825252885",
-   "Weight": "0.34",
-   "Market Value": "14176.37",
-   "Shares Held": "14176.37",
-   "SEDOL": ""
-  },
-  {
-   "Name": "LQD 10/23/2026 103.4 C",
-   "Ticker": "4LQD 261023C00103400",
-   "Identifier": "4LQD 261023C00103400",
-   "Weight": "-0.07",
-   "Market Value": "-3023.04",
-   "Shares Held": "-134",
+   "Weight": "0.01",
+   "Market Value": "280.33",
+   "Shares Held": "280.33",
    "SEDOL": ""
   },
   {
    "Name": "Cash & Other",
    "Ticker": "CASH&OTHER",
    "Identifier": "Cash&Other",
-   "Weight": "-0.36",
-   "Market Value": "-14809.7",
-   "Shares Held": "-14809.7",
+   "Weight": "-0.04",
+   "Market Value": "-1556.28",
+   "Shares Held": "-1556.28",
+   "SEDOL": ""
+  },
+  {
+   "Name": "LQD 10/30/2026 103.85 C",
+   "Ticker": "4LQD 261030C00103850",
+   "Identifier": "4LQD 261030C00103850",
+   "Weight": "-0.14",
+   "Market Value": "-5760",
+   "Shares Held": "-120",
    "SEDOL": ""
   }
  ]

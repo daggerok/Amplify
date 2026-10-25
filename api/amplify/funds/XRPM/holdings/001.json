@@ -2,7 +2,7 @@
  "ticker": "XRPM",
  "page": 1,
  "pageSize": 250,
- "totalRows": 11,
+ "totalRows": 12,
  "headers": [
   "Name",
   "Ticker",
@@ -17,35 +17,35 @@
    "Name": "Canary XRP ETF",
    "Ticker": "XRPC",
    "Identifier": "13723M100",
-   "Weight": "28.57",
-   "Market Value": "2961024",
-   "Shares Held": "210300",
+   "Weight": "28.2",
+   "Market Value": "3278903.76",
+   "Shares Held": "237600",
    "SEDOL": ""
   },
   {
    "Name": "XRPC 12/18/2026 11.25 C",
    "Ticker": "2XRPC 261218C00011250",
    "Identifier": "2XRPC 261218C00011250",
-   "Weight": "26.39",
-   "Market Value": "2735212.48",
-   "Shares Held": "8008",
+   "Weight": "24.99",
+   "Market Value": "2905313.48",
+   "Shares Held": "9103",
    "SEDOL": ""
   },
   {
    "Name": "Invesco Government & Agency Portfolio 12/31/2031",
    "Ticker": "AGPXX",
    "Identifier": "825252885",
-   "Weight": "12.12",
-   "Market Value": "1256027.63",
-   "Shares Held": "1256027.63",
+   "Weight": "21.52",
+   "Market Value": "2501670.64",
+   "Shares Held": "2501670.64",
    "SEDOL": ""
   },
   {
    "Name": "United States Treasury Bill 11/05/2026",
    "Ticker": "912797UM7",
    "Identifier": "912797UM7",
-   "Weight": "9.63",
-   "Market Value": "998394.17",
+   "Weight": "8.59",
+   "Market Value": "998913.43",
    "Shares Held": "1000000",
    "SEDOL": ""
   },
@@ -53,8 +53,8 @@
    "Name": "United States Treasury Bill 11/24/2026",
    "Ticker": "912797VY0",
    "Identifier": "912797VY0",
-   "Weight": "9.61",
-   "Market Value": "996265.98",
+   "Weight": "8.57",
+   "Market Value": "996833.36",
    "Shares Held": "1000000",
    "SEDOL": ""
   },
@@ -62,8 +62,8 @@
    "Name": "United States Treasury Bill 11/19/2026",
    "Ticker": "912797UZ8",
    "Identifier": "912797UZ8",
-   "Weight": "7.21",
-   "Market Value": "747637.71",
+   "Weight": "6.43",
+   "Market Value": "748052.5",
    "Shares Held": "750000",
    "SEDOL": ""
   },
@@ -71,35 +71,44 @@
    "Name": "United States Treasury Bill 11/03/2026",
    "Ticker": "912797VP9",
    "Identifier": "912797VP9",
-   "Weight": "4.82",
-   "Market Value": "499303.06",
+   "Weight": "4.3",
+   "Market Value": "499570.45",
    "Shares Held": "500000",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Cash & Other",
-   "Ticker": "CASH&OTHER",
-   "Identifier": "Cash&Other",
-   "Weight": "4.51",
-   "Market Value": "467606.65",
-   "Shares Held": "467606.65",
    "SEDOL": ""
   },
   {
    "Name": "United States Treasury Bill 12/22/2026",
    "Ticker": "912797WG8",
    "Identifier": "912797WG8",
-   "Weight": "1.92",
-   "Market Value": "198630.73",
+   "Weight": "1.71",
+   "Market Value": "198734.92",
    "Shares Held": "200000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Cash & Other",
+   "Ticker": "CASH&OTHER",
+   "Identifier": "Cash&Other",
+   "Weight": "0.88",
+   "Market Value": "101838.79",
+   "Shares Held": "101838.79",
+   "SEDOL": ""
+  },
+  {
+   "Name": "XRPC 10/27/2026 15.49 C",
+   "Ticker": "2XRPC 261027C00015490",
+   "Identifier": "2XRPC 261027C00015490",
+   "Weight": "-0.06",
+   "Market Value": "-6405.75",
+   "Shares Held": "-1095",
    "SEDOL": ""
   },
   {
    "Name": "XRPC 10/27/2026 14.96 C",
    "Ticker": "2XRPC 261027C00014960",
    "Identifier": "2XRPC 261027C00014960",
-   "Weight": "-1.08",
-   "Market Value": "-112112",
+   "Weight": "-0.72",
+   "Market Value": "-83443.36",
    "Shares Held": "-8008",
    "SEDOL": ""
   },
@@ -107,9 +116,9 @@
    "Name": "XRPC 12/18/2026 11.25 P",
    "Ticker": "2XRPC 261218P00011250",
    "Identifier": "2XRPC 261218P00011250",
-   "Weight": "-3.93",
-   "Market Value": "-407687.28",
-   "Shares Held": "-8008",
+   "Weight": "-4.43",
+   "Market Value": "-514501.56",
+   "Shares Held": "-9103",
    "SEDOL": ""
   }
  ]

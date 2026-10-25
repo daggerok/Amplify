@@ -2,7 +2,7 @@
  "ticker": "AIEQ",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2263,
+ "totalRows": 2266,
  "headers": [
   "Date",
   "Close",
@@ -1587,6 +1587,24 @@
    "Close": "49.556",
    "Adj Close": "49.56",
    "Volume": "1800"
+  },
+  {
+   "Date": "Oct 21 2026",
+   "Close": "49.644001",
+   "Adj Close": "49.64",
+   "Volume": "2000"
+  },
+  {
+   "Date": "Oct 22 2026",
+   "Close": "49.092999",
+   "Adj Close": "49.09",
+   "Volume": "1200"
+  },
+  {
+   "Date": "Oct 23 2026",
+   "Close": "48.66",
+   "Adj Close": "48.66",
+   "Volume": "3800"
   }
  ]
 }

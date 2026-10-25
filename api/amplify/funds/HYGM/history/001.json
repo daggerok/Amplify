@@ -2,7 +2,7 @@
  "ticker": "HYGM",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 127,
+ "totalRows": 130,
  "headers": [
   "Date",
   "Close",
@@ -770,6 +770,24 @@
    "Date": "Oct 20 2026",
    "Close": "23.68",
    "Adj Close": "23.68",
+   "Volume": "100"
+  },
+  {
+   "Date": "Oct 21 2026",
+   "Close": "23.719999",
+   "Adj Close": "23.72",
+   "Volume": "100"
+  },
+  {
+   "Date": "Oct 22 2026",
+   "Close": "23.75",
+   "Adj Close": "23.75",
+   "Volume": "100"
+  },
+  {
+   "Date": "Oct 23 2026",
+   "Close": "23.74",
+   "Adj Close": "23.74",
    "Volume": "100"
   }
  ]

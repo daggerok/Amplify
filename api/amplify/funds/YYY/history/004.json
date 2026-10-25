@@ -2,7 +2,7 @@
  "ticker": "YYY",
  "page": 4,
  "pageSize": 1000,
- "totalRows": 3610,
+ "totalRows": 3613,
  "headers": [
   "Date",
   "Close",
@@ -3669,6 +3669,24 @@
    "Close": "10.3",
    "Adj Close": "10.3",
    "Volume": "374500"
+  },
+  {
+   "Date": "Oct 21 2026",
+   "Close": "10.32",
+   "Adj Close": "10.32",
+   "Volume": "605800"
+  },
+  {
+   "Date": "Oct 22 2026",
+   "Close": "10.27",
+   "Adj Close": "10.27",
+   "Volume": "515300"
+  },
+  {
+   "Date": "Oct 23 2026",
+   "Close": "10.2",
+   "Adj Close": "10.2",
+   "Volume": "464200"
   }
  ]
 }
