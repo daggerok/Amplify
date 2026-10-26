@@ -1,6 +1,6 @@
 {
- "generatedAt": "2026-10-25T01:55:07Z",
- "catalogReadAt": "2026-10-25T01:55:07Z",
+ "generatedAt": "2026-10-26T19:29:48Z",
+ "catalogReadAt": "2026-10-26T19:29:48Z",
  "source": {
   "provider": "Amplify ETFs",
   "site": "https://amplifyetfs.com/our-etfs/",
@@ -9,7 +9,7 @@
  "counts": {
   "funds": 50,
   "holdings": 2012,
-  "history": 58024
+  "history": 58025
  },
  "funds": [
   {
@@ -85,7 +85,7 @@
     "performanceAsOf": "2026-09-30"
    },
    "holdings": 21,
-   "history": 47
+   "history": 48
   },
   {
    "ticker": "AIEQ",
