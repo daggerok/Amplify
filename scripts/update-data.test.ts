@@ -11,6 +11,7 @@ import {
   parseAumRange, parseChart, parseHistoryRange, parseNport, parsePercent, performanceAsOfDate, priceReturns, readConfig, resetSecCaches, resolveControls,
   resolveNportFiling, runFundPool, runUpdate, runtimeControls, selectCatalog, setApiRoot, setHttpSettings,
   dropCap, fetchText, isNotFound, setClock, setFetchTimeoutMs, setRunDeadlineMs, setSecInterval, trailingYield, holdingsGuard,
+  CLOSED_FUNDS, closedFund,
 } from './update-data';
 
 const read = (path: string) => readFileSync(new URL(`../${path}`, import.meta.url), 'utf8');
@@ -258,7 +259,9 @@ describe('controls', () => {
     for (const value of ['auto', 'TRUE', 'False']) expect(resolveControls({}, {}, {}, { USE_SYSTEM_CA: value }).USE_SYSTEM_CA).toBe(value);
     for (const value of ['y', 'n', 'on', 'off']) expect(resolveControls({}, {}, {}, { VERBOSE: value }).VERBOSE).toBe(value);
   });
+});
 
+describe('controls 2', () => {
   test('controls drive the parsed config', () => {
     const c = readConfig(resolveControls({ TICKERS: 'divo, idvo', CATEGORY: 'Income', AUM: 'mid:', TER: ':0.75', TOTAL_RETURN_1Y: '15:', MAX_FETCHES: '3', REQUEST_SLEEP: '0.5', HOLDINGS_PAGE_SIZE: '40', HISTORY_PAGE_SIZE: '50', MAX_RETRIES: '1', HISTORY_RANGE: '5Y', SKIP_YAHOO: 'true', EDGAR_FALLBACK: 'off', SEC_UA: 'ops contact' }));
     expect(c.tickers).toEqual(['DIVO', 'IDVO']); expect(c.categories).toEqual(['Income']);
@@ -349,7 +352,9 @@ describe('parsing', () => {
     expect(holdingsGuard(headers, allocation, 2, ['sum'])).toBeNull();
     expect(holdingsGuard(headers, rows, 5)).toContain('less than half');
   });
+});
 
+describe('parsing 2', () => {
   test('official NAV returns come from the NAV row, qtd is never taken from the trailing 3M figure', () => {
     const doc = decodeDocument({ name: 'x/performance_monthly/2026-09-30', fields: { returns: { arrayValue: { values: [
       { mapValue: { fields: { type: { stringValue: 'INDEX' }, returns: { mapValue: { fields: { YTD: { doubleValue: 99 } } } } } } },
@@ -478,7 +483,9 @@ describe('metrics', () => {
       expect(trailingYield([], 50, '2026-09-30', '2024-01-02')).toBeNull();
     } finally { rmSync(dir, { recursive: true, force: true }); }
   });
+});
 
+describe('metrics 2', () => {
   test('siAnn needs a year of life; zero is never invented for missing values', async () => {
     const w = baseWorld();
     w.fund = { BBB: { meta: { InceptionDate: '2026-03-01' } }, CCC: { meta: { InceptionDate: '2016-12-13' } } };
@@ -683,7 +690,9 @@ describe('pipeline', () => {
       expect(rowOf(dir, 'BBB').metrics.secYield).toBe(1.4);
     } finally { rmSync(dir, { recursive: true, force: true }); }
   });
+});
 
+describe('pipeline 2', () => {
   test('a renamed Firestore weight field fails the holdings guard: the fund stays exactly as published, the others update, exit 1', async () => {
     const w = baseWorld();
     stubWorld(w);
@@ -701,10 +710,97 @@ describe('pipeline', () => {
       }) as unknown as typeof fetch;
       const second = await runLogged({}, dir);
       expect(second.code).toBe(1);
+      expect(second.lines.filter(line => /\] AAA +failed .*reason=holdings guard/.test(line))).toHaveLength(1);
+      expect(second.lines.find(line => line.startsWith('[ done'))).toContain(' 1 failed');
       expect(only(snapshot(dir), 'AAA')).toEqual(only(before, 'AAA'));
       expect(rowOf(dir, 'AAA').navValue).toBe(10.4);
       expect(rowOf(dir, 'BBB').navValue).toBe(11);
     } finally { rmSync(dir, { recursive: true, force: true }); }
+  });
+
+  test('a new fund whose holdings fail the guard is reported failed and still gets a catalog-only row (dataFile null, full metrics key set) and no files', async () => {
+    const w = baseWorld();
+    w.catalog = w.catalog.slice(0, 2);
+    stubWorld(w);
+    const { dir } = await runLogged({});
+    try {
+      // CCC joins the catalog with holdings whose weights add up to 160: the guard rejects them
+      w.catalog = baseWorld().catalog;
+      stubWorld(w);
+      const served = globalThis.fetch;
+      globalThis.fetch = (async (input: any, init?: any) => {
+        const res = await served(input, init);
+        return decodeURIComponent(String(input)).includes('funds/CCC/holdings') ? new Response((await res.text()).replace('98.5%', '158.5%'), { status: res.status, headers: res.headers }) : res;
+      }) as unknown as typeof fetch;
+      const summary = join(dir, 'summary.md');
+      const run = await runLogged({}, dir, { summary });
+      expect(run.code).toBe(1);
+      expect(run.lines.filter(line => /\] CCC +failed .*reason=holdings guard/.test(line))).toHaveLength(1);
+      expect(readFileSync(summary, 'utf8')).toContain('1 failed');
+      rmSync(summary);
+      const after = snapshot(dir);
+      expect(Object.keys(only(after, 'CCC'))).toEqual([]);
+      expect(readIndex(dir).funds.map((f: any) => f.ticker)).toEqual(['AAA', 'BBB', 'CCC']);
+      const row = rowOf(dir, 'CCC');
+      expect(row).toMatchObject({ dataFile: null, holdings: 0, history: 0, status: 'active', category: 'Thematic' });
+      expect(Object.keys(row)).toEqual(Object.keys(rowOf(dir, 'AAA')));
+      expect(Object.keys(row.metrics)).toEqual(Object.keys(rowOf(dir, 'AAA').metrics));
+      expect(row.metrics.returnsBasis).toBeTruthy();
+      expect([row.metrics.tr1y, row.metrics.dividendYield, row.metrics.dividendYieldBasis, row.metrics.performanceAsOf]).toEqual([null, null, null, null]);
+      // the same rejection again writes nothing
+      await runLogged({}, dir);
+      expect(snapshot(dir)).toEqual(after);
+    } finally { rmSync(dir, { recursive: true, force: true }); }
+  });
+
+  test('a closed fund is never fetched or reported failed: its files stay as published, its index row says closed, a rerun writes nothing', async () => {
+    const entry = { ticker: 'AAA', closed: '2026-10-01', source: 'https://www.sec.gov/Archives/edgar/data/1/notice.htm' };
+    expect(() => closedFund([{ ...entry, closed: 'soon' }], 'AAA')).toThrow('CLOSED_FUNDS');
+    expect(closedFund([entry], 'aaa')).toEqual(entry);
+    const w = baseWorld();
+    stubWorld(w);
+    const { dir } = await runLogged({});
+    const world = () => {
+      const calls = stubWorld(w);
+      const served = globalThis.fetch;
+      // the guard would reject these AAA holdings (every weight blank) if the fund were still processed
+      globalThis.fetch = (async (input: any, init?: any) => {
+        const res = await served(input, init);
+        return decodeURIComponent(String(input)).includes('funds/AAA/holdings') ? new Response((await res.text()).replace(/Weightings/g, 'PctOfNav'), { status: res.status, headers: res.headers }) : res;
+      }) as unknown as typeof fetch;
+      return calls;
+    };
+    CLOSED_FUNDS.push(entry);
+    try {
+      const first = snapshot(dir);
+      expect(rowOf(dir, 'AAA').status).toBe('active');
+      let calls = world();
+      const run = await runLogged({ TICKERS: 'AAA' }, dir);
+      expect(calls.filter(url => /\bAAA\b/i.test(decodeURIComponent(url)))).toEqual([]);
+      expect(run.code).toBe(0);
+      expect(run.lines.some(line => /^\[ closed {3}\] AAA: /.test(line))).toBe(true);
+      expect(run.lines.some(line => /failed/.test(line) && !/ 0 failed/.test(line))).toBe(false);
+      const closed = snapshot(dir);
+      for (const path of Object.keys(first)) if (path !== 'index.json') expect([path, closed[path]]).toEqual([path, first[path]]);
+      const rows = readIndex(dir).funds;
+      expect(rows.map((row: any) => row.ticker)).toEqual(['AAA', 'BBB', 'CCC']);
+      expect(rowOf(dir, 'AAA')).toMatchObject({ status: 'closed', closedDate: '2026-10-01', closedSource: entry.source, dataFile: './funds/AAA/meta.json' });
+      expect(rows.filter((row: any) => row.status === 'closed')).toHaveLength(1);
+      calls = world();
+      await runLogged({}, dir);
+      expect(snapshot(dir)).toEqual(closed);
+      // the provider stops listing the closed fund: a full run keeps its row and files, TICKERS still accepts it, nothing is written
+      w.catalog = w.catalog.filter(f => f.ticker !== 'AAA');
+      calls = world();
+      expect((await runLogged({}, dir)).code).toBe(0);
+      const gone = await runLogged({ TICKERS: 'AAA' }, dir);
+      expect([gone.error, gone.code]).toEqual([null, 0]);
+      expect(calls.filter(url => /\bAAA\b/i.test(decodeURIComponent(url)))).toEqual([]);
+      expect(snapshot(dir)).toEqual(closed);
+    } finally {
+      CLOSED_FUNDS.splice(CLOSED_FUNDS.indexOf(entry), 1);
+      rmSync(dir, { recursive: true, force: true });
+    }
   });
 
   test('a TICKERS run on a multi-fund index keeps every row and file and never touches the cursor; an unknown ticker is an error', async () => {
@@ -758,7 +854,9 @@ describe('pipeline', () => {
       expect(() => readFileSync(join(dir, 'update-state.json'))).toThrow(); // a full pass removes the cursor
     } finally { rmSync(dir, { recursive: true, force: true }); }
   });
+});
 
+describe('pipeline 3', () => {
   test('NEW FUNDS, ISO seconds stamp, rerun writes nothing, soft deadline keeps published data', async () => {
     const w = baseWorld();
     w.catalog = w.catalog.slice(0, 2);
@@ -930,7 +1028,9 @@ describe('network', () => {
       expect(peak).toBeGreaterThanOrEqual(Math.min(concurrency, 2));
     }
   });
+});
 
+describe('network 2', () => {
   test('REQUEST_SLEEP and the SEC gate space request starts (lower bounds only); a SEC 403 is retried, other 403s are not', async () => {
     const starts: number[] = [];
     globalThis.fetch = (async () => { starts.push(Date.now()); return reply(200, {}); }) as any;
