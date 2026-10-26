@@ -37,22 +37,22 @@
  },
  "nav": {
   "display": "$20.24",
-  "value": 20.2387,
-  "asOfDate": "Oct 23 2026"
+  "value": 20.2436,
+  "asOfDate": "Oct 26 2026"
  },
  "marketPrice": {
-  "display": "$19.98",
-  "value": 19.9785,
-  "asOfDate": "Oct 23 2026"
+  "display": "$20.46",
+  "value": 20.4558,
+  "asOfDate": "Oct 26 2026"
  },
  "premiumDiscount": {
-  "display": "-1.29%",
-  "value": -1.2857
+  "display": "1.05%",
+  "value": 1.0482
  },
  "aum": {
-  "display": "$6,071,611",
-  "value": 6071610.99,
-  "asOfDate": "Oct 23 2026",
+  "display": "$6,073,079",
+  "value": 6073079.02,
+  "asOfDate": "Oct 26 2026",
   "source": "Amplify Firestore daily net assets"
  },
  "yields": {
