@@ -718,7 +718,7 @@ describe('pipeline 2', () => {
     } finally { rmSync(dir, { recursive: true, force: true }); }
   });
 
-  test('a new fund whose holdings fail the guard is reported failed and still gets a catalog-only row (dataFile null, full metrics key set) and no files', async () => {
+  test('a new fund that fails (the holdings guard, no source answered, a failed source) gets a catalog-only row (dataFile null, full metrics key set) and no files; its first good refresh reads nothing from that row', async () => {
     const w = baseWorld();
     w.catalog = w.catalog.slice(0, 2);
     stubWorld(w);
@@ -750,6 +750,32 @@ describe('pipeline 2', () => {
       // the same rejection again writes nothing
       await runLogged({}, dir);
       expect(snapshot(dir)).toEqual(after);
+      // no source answers (Firestore has no CCC documents, Yahoo 404 or SKIP_YAHOO, no N-PORT), or Yahoo fails: failed every time,
+      // the catalog-only row is no published state to keep, nothing is written
+      w.fund.CCC = { meta: null, daily: null, yields: null, noPerf: true, holdings: false, yahoo: 404 };
+      stubWorld(w);
+      const silentEnvs: Array<Record<string, string>> = [{}, { SKIP_YAHOO: 'true', EDGAR_FALLBACK: 'false' }];
+      for (const env of silentEnvs) {
+        const silent = await runLogged(env, dir);
+        expect([silent.code, silent.lines.filter(line => /\] CCC +failed .*reason=.*no usable per-fund source/.test(line)).length]).toEqual([1, 1]);
+        expect(snapshot(dir)).toEqual(after);
+      }
+      w.fund = {};
+      w.fail = url => url.includes('/chart/CCC') ? 500 : 0;
+      stubWorld(w);
+      const down = await runLogged({}, dir);
+      expect([down.code, down.lines.filter(line => /\] CCC +failed .*reason=.*source failed: yahoo/.test(line)).length]).toEqual([1, 1]);
+      expect(snapshot(dir)).toEqual(after);
+      // the first good refresh reads nothing from the catalog-only row: the same files and rows as a publication from scratch
+      w.fail = () => 0;
+      stubWorld(w);
+      expect((await runLogged({}, dir)).code).toBe(0);
+      expect(rowOf(dir, 'CCC')).toMatchObject({ dataFile: './funds/CCC/meta.json', name: 'CCC Fund', asOfDate: 'Sep 30 2026', holdings: 2 });
+      const scratch = (await runLogged({})).dir;
+      try {
+        const published = (root: string) => ({ ...snapshot(root), 'index.json': readIndex(root).funds });
+        expect(published(dir)).toEqual(published(scratch));
+      } finally { rmSync(scratch, { recursive: true, force: true }); }
     } finally { rmSync(dir, { recursive: true, force: true }); }
   });
 
