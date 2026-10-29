@@ -2,7 +2,7 @@
  "ticker": "SOLM",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 244,
+ "totalRows": 248,
  "headers": [
   "Date",
   "Close",
@@ -1473,6 +1473,30 @@
    "Close": "9.023",
    "Adj Close": "9.02",
    "Volume": "7000"
+  },
+  {
+   "Date": "Oct 26 2026",
+   "Close": "8.655",
+   "Adj Close": "8.65",
+   "Volume": "2600"
+  },
+  {
+   "Date": "Oct 27 2026",
+   "Close": "8.748",
+   "Adj Close": "8.75",
+   "Volume": "6300"
+  },
+  {
+   "Date": "Oct 28 2026",
+   "Close": "8.96",
+   "Adj Close": "8.96",
+   "Volume": "4200"
+  },
+  {
+   "Date": "Oct 29 2026",
+   "Close": "8.4",
+   "Adj Close": "8.4",
+   "Volume": "3837"
   }
  ]
 }

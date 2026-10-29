@@ -2,7 +2,7 @@
  "ticker": "HCOW",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 777,
+ "totalRows": 781,
  "headers": [
   "Date",
   "Close",
@@ -4671,6 +4671,30 @@
    "Close": "25.431999",
    "Adj Close": "25.43",
    "Volume": "9100"
+  },
+  {
+   "Date": "Oct 26 2026",
+   "Close": "25.620001",
+   "Adj Close": "25.62",
+   "Volume": "8300"
+  },
+  {
+   "Date": "Oct 27 2026",
+   "Close": "25.542",
+   "Adj Close": "25.54",
+   "Volume": "4000"
+  },
+  {
+   "Date": "Oct 28 2026",
+   "Close": "25.555",
+   "Adj Close": "25.56",
+   "Volume": "5700"
+  },
+  {
+   "Date": "Oct 29 2026",
+   "Close": "25.485001",
+   "Adj Close": "25.49",
+   "Volume": "5167"
   }
  ]
 }

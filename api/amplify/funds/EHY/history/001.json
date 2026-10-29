@@ -2,7 +2,7 @@
  "ticker": "EHY",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 262,
+ "totalRows": 266,
  "headers": [
   "Date",
   "Close",
@@ -1581,6 +1581,30 @@
    "Close": "7.167",
    "Adj Close": "7.17",
    "Volume": "5000"
+  },
+  {
+   "Date": "Oct 26 2026",
+   "Close": "6.864",
+   "Adj Close": "6.86",
+   "Volume": "30100"
+  },
+  {
+   "Date": "Oct 27 2026",
+   "Close": "6.985",
+   "Adj Close": "6.99",
+   "Volume": "9400"
+  },
+  {
+   "Date": "Oct 28 2026",
+   "Close": "7.14",
+   "Adj Close": "7.14",
+   "Volume": "17500"
+  },
+  {
+   "Date": "Oct 29 2026",
+   "Close": "6.725",
+   "Adj Close": "6.72",
+   "Volume": "23893"
   }
  ]
 }

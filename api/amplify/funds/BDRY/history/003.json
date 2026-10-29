@@ -2,7 +2,7 @@
  "ticker": "BDRY",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2160,
+ "totalRows": 2164,
  "headers": [
   "Date",
   "Close",
@@ -969,6 +969,30 @@
    "Close": "12.61",
    "Adj Close": "12.61",
    "Volume": "72200"
+  },
+  {
+   "Date": "Oct 26 2026",
+   "Close": "12.32",
+   "Adj Close": "12.32",
+   "Volume": "37600"
+  },
+  {
+   "Date": "Oct 27 2026",
+   "Close": "12.57",
+   "Adj Close": "12.57",
+   "Volume": "11400"
+  },
+  {
+   "Date": "Oct 28 2026",
+   "Close": "12.54",
+   "Adj Close": "12.54",
+   "Volume": "24000"
+  },
+  {
+   "Date": "Oct 29 2026",
+   "Close": "12.5638",
+   "Adj Close": "12.56",
+   "Volume": "8541"
   }
  ]
 }

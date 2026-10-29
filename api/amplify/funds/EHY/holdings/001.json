@@ -2,7 +2,7 @@
  "ticker": "EHY",
  "page": 1,
  "pageSize": 250,
- "totalRows": 10,
+ "totalRows": 9,
  "headers": [
   "Name",
   "Ticker",
@@ -15,37 +15,37 @@
  "rows": [
   {
    "Name": "Cash & Other",
-   "Ticker": "CASH&OTHER",
+   "Ticker": "-",
    "Identifier": "Cash&Other",
-   "Weight": "46.26",
-   "Market Value": "2215355.48",
-   "Shares Held": "2215355.48",
-   "SEDOL": ""
-  },
-  {
-   "Name": "ETHA1 12/18/2026 15.75 C",
-   "Ticker": "4ETHA1261218C00015750",
-   "Identifier": "4ETHA1261218C00015750",
-   "Weight": "19.38",
-   "Market Value": "927917.64",
-   "Shares Held": "3132",
+   "Weight": "46.24",
+   "Market Value": "2105635.81",
+   "Shares Held": "2105635.81",
    "SEDOL": ""
   },
   {
    "Name": "Invesco Government & Agency Portfolio 12/31/2031",
    "Ticker": "AGPXX",
    "Identifier": "825252885",
-   "Weight": "17.93",
+   "Weight": "18.85",
    "Market Value": "858469.18",
    "Shares Held": "858469.18",
    "SEDOL": ""
   },
   {
+   "Name": "ETHA1 12/18/2026 15.75 C",
+   "Ticker": "4ETHA1261218C00015750",
+   "Identifier": "4ETHA1261218C00015750",
+   "Weight": "18.74",
+   "Market Value": "853219.44",
+   "Shares Held": "3132",
+   "SEDOL": ""
+  },
+  {
    "Name": "United States Treasury Bill 11/27/2026",
-   "Ticker": "912797SU2",
+   "Ticker": "-",
    "Identifier": "912797SU2",
-   "Weight": "17.69",
-   "Market Value": "847038.23",
+   "Weight": "18.61",
+   "Market Value": "847307.68",
    "Shares Held": "850000",
    "SEDOL": ""
   },
@@ -53,53 +53,44 @@
    "Name": "ETHA 12/18/2026 48.5 C",
    "Ticker": "4ETHA 261218C00048500",
    "Identifier": "4ETHA 261218C00048500",
-   "Weight": "2.03",
-   "Market Value": "96983.9",
+   "Weight": "1.94",
+   "Market Value": "88512.22",
    "Shares Held": "122",
    "SEDOL": ""
   },
   {
    "Name": "United States Treasury Bill 11/24/2026",
-   "Ticker": "912797VY0",
+   "Ticker": "-",
    "Identifier": "912797VY0",
-   "Weight": "1.04",
-   "Market Value": "49841.67",
+   "Weight": "1.09",
+   "Market Value": "49858.5",
    "Shares Held": "50000",
-   "SEDOL": ""
-  },
-  {
-   "Name": "ETHA 10/27/2026 59.25 C",
-   "Ticker": "4ETHA 261027C00059250",
-   "Identifier": "4ETHA 261027C00059250",
-   "Weight": "-0.02",
-   "Market Value": "-735.35",
-   "Shares Held": "-77",
-   "SEDOL": ""
-  },
-  {
-   "Name": "ETHA 10/27/2026 58.37 C",
-   "Ticker": "4ETHA 261027C00058370",
-   "Identifier": "4ETHA 261027C00058370",
-   "Weight": "-0.33",
-   "Market Value": "-15779.61",
-   "Shares Held": "-1089",
    "SEDOL": ""
   },
   {
    "Name": "ETHA 12/18/2026 48.5 P",
    "Ticker": "4ETHA 261218P00048500",
    "Identifier": "4ETHA 261218P00048500",
-   "Weight": "-0.48",
-   "Market Value": "-23209.28",
+   "Weight": "-0.51",
+   "Market Value": "-23356.9",
    "Shares Held": "-122",
+   "SEDOL": ""
+  },
+  {
+   "Name": "ETHA 11/03/2026 56.08 C",
+   "Ticker": "4ETHA 261103C00056080",
+   "Identifier": "4ETHA 261103C00056080",
+   "Weight": "-1.32",
+   "Market Value": "-60305.52",
+   "Shares Held": "-1166",
    "SEDOL": ""
   },
   {
    "Name": "ETHA1 12/18/2026 15.75 P",
    "Ticker": "4ETHA1261218P00015750",
    "Identifier": "4ETHA1261218P00015750",
-   "Weight": "-3.49",
-   "Market Value": "-166998.24",
+   "Weight": "-3.65",
+   "Market Value": "-166027.32",
    "Shares Held": "-3132",
    "SEDOL": ""
   }

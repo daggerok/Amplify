@@ -2,7 +2,7 @@
  "ticker": "SOFR",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 737,
+ "totalRows": 741,
  "headers": [
   "Date",
   "Close",
@@ -4431,6 +4431,30 @@
    "Close": "100.345001",
    "Adj Close": "100.35",
    "Volume": "3700"
+  },
+  {
+   "Date": "Oct 26 2026",
+   "Close": "100.410004",
+   "Adj Close": "100.41",
+   "Volume": "8300"
+  },
+  {
+   "Date": "Oct 27 2026",
+   "Close": "100.410004",
+   "Adj Close": "100.41",
+   "Volume": "2100"
+  },
+  {
+   "Date": "Oct 28 2026",
+   "Close": "100.419998",
+   "Adj Close": "100.42",
+   "Volume": "6600"
+  },
+  {
+   "Date": "Oct 29 2026",
+   "Close": "100.129997",
+   "Adj Close": "100.13",
+   "Volume": "2327"
   }
  ]
 }

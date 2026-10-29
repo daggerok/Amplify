@@ -2,7 +2,7 @@
  "ticker": "SLJY",
  "page": 1,
  "pageSize": 250,
- "totalRows": 93,
+ "totalRows": 88,
  "headers": [
   "Name",
   "Ticker",
@@ -17,8 +17,8 @@
    "Name": "Amplify Junior Silver Miners ETF",
    "Ticker": "SILJ",
    "Identifier": "032108649",
-   "Weight": "23.51",
-   "Market Value": "15672133.3",
+   "Weight": "24.17",
+   "Market Value": "16606368.46",
    "Shares Held": "676982",
    "SEDOL": ""
   },
@@ -26,35 +26,35 @@
    "Name": "Hecla Mining Co",
    "Ticker": "HL",
    "Identifier": "422704106",
-   "Weight": "6.37",
-   "Market Value": "4244734.15",
+   "Weight": "6.66",
+   "Market Value": "4572666.68",
    "Shares Held": "306479",
-   "SEDOL": ""
-  },
-  {
-   "Name": "United States Treasury Bill 12/10/2026",
-   "Ticker": "912797VG9",
-   "Identifier": "912797VG9",
-   "Weight": "6.22",
-   "Market Value": "4144461.34",
-   "Shares Held": "4165000",
    "SEDOL": ""
   },
   {
    "Name": "First Majestic Silver Corp",
    "Ticker": "AG",
    "Identifier": "32076V103",
-   "Weight": "6.04",
-   "Market Value": "4024943.16",
+   "Weight": "6.27",
+   "Market Value": "4305626.4",
    "Shares Held": "272508",
+   "SEDOL": ""
+  },
+  {
+   "Name": "United States Treasury Bill 12/10/2026",
+   "Ticker": "-",
+   "Identifier": "912797VG9",
+   "Weight": "6.03",
+   "Market Value": "4145905.89",
+   "Shares Held": "4165000",
    "SEDOL": ""
   },
   {
    "Name": "COEUR MINING INC.",
    "Ticker": "CDE",
    "Identifier": "192108504",
-   "Weight": "5.16",
-   "Market Value": "3438707.7",
+   "Weight": "5.37",
+   "Market Value": "3686703.72",
    "Shares Held": "255666",
    "SEDOL": ""
   },
@@ -62,8 +62,8 @@
    "Name": "Skeena Resources Ltd",
    "Ticker": "SKE",
    "Identifier": "83056P715",
-   "Weight": "4.92",
-   "Market Value": "3281422.2",
+   "Weight": "5.05",
+   "Market Value": "3472311.5",
    "Shares Held": "117110",
    "SEDOL": ""
   },
@@ -71,8 +71,8 @@
    "Name": "Franco-Nevada Corp",
    "Ticker": "FNV",
    "Identifier": "351858105",
-   "Weight": "4.15",
-   "Market Value": "2769018.75",
+   "Weight": "4.21",
+   "Market Value": "2890674",
    "Shares Held": "12105",
    "SEDOL": ""
   },
@@ -80,8 +80,8 @@
    "Name": "Wheaton Precious Metals Corp",
    "Ticker": "WPM",
    "Identifier": "962879102",
-   "Weight": "4.14",
-   "Market Value": "2759435.14",
+   "Weight": "4.21",
+   "Market Value": "2889086.82",
    "Shares Held": "22826",
    "SEDOL": ""
   },
@@ -89,26 +89,17 @@
    "Name": "Endeavour Silver Corp",
    "Ticker": "EXK",
    "Identifier": "29258Y103",
-   "Weight": "4.06",
-   "Market Value": "2706283.89",
+   "Weight": "4.2",
+   "Market Value": "2887427.39",
    "Shares Held": "362287",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Cash & Other",
-   "Ticker": "CASH&OTHER",
-   "Identifier": "Cash&Other",
-   "Weight": "3.96",
-   "Market Value": "2637877.65",
-   "Shares Held": "2637877.65",
    "SEDOL": ""
   },
   {
    "Name": "OR Royalties Inc",
    "Ticker": "OR",
    "Identifier": "68390D106",
-   "Weight": "3.85",
-   "Market Value": "2563614",
+   "Weight": "3.86",
+   "Market Value": "2653360",
    "Shares Held": "78040",
    "SEDOL": ""
   },
@@ -116,8 +107,8 @@
    "Name": "Pan American Silver Corp",
    "Ticker": "PAAS",
    "Identifier": "697900108",
-   "Weight": "3.65",
-   "Market Value": "2431082.5",
+   "Weight": "3.7",
+   "Market Value": "2540072.5",
    "Shares Held": "60550",
    "SEDOL": ""
   },
@@ -125,8 +116,8 @@
    "Name": "McEwen Inc",
    "Ticker": "MUX",
    "Identifier": "58039P305",
-   "Weight": "3.39",
-   "Market Value": "2258155.13",
+   "Weight": "3.52",
+   "Market Value": "2415593.15",
    "Shares Held": "154351",
    "SEDOL": ""
   },
@@ -134,44 +125,44 @@
    "Name": "Seabridge Gold Inc",
    "Ticker": "SA",
    "Identifier": "811927102",
-   "Weight": "2.93",
-   "Market Value": "1950682.4",
+   "Weight": "3.11",
+   "Market Value": "2134558.2",
    "Shares Held": "79946",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Cia de Minas Buenaventura SAA",
-   "Ticker": "BVN",
-   "Identifier": "204448104",
-   "Weight": "2.92",
-   "Market Value": "1943399.52",
-   "Shares Held": "69606",
    "SEDOL": ""
   },
   {
    "Name": "Perpetua Resources Corp",
    "Ticker": "PPTA",
    "Identifier": "714266103",
-   "Weight": "2.7",
-   "Market Value": "1801396.56",
+   "Weight": "2.96",
+   "Market Value": "2032597.7",
    "Shares Held": "109574",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Cia de Minas Buenaventura SAA",
+   "Ticker": "BVN",
+   "Identifier": "204448104",
+   "Weight": "2.9",
+   "Market Value": "1991427.66",
+   "Shares Held": "69606",
    "SEDOL": ""
   },
   {
    "Name": "Triple Flag Precious Metals Corp",
    "Ticker": "TFPM",
    "Identifier": "89679M104",
-   "Weight": "2.58",
-   "Market Value": "1722124.37",
+   "Weight": "2.59",
+   "Market Value": "1781775.37",
    "Shares Held": "59651",
    "SEDOL": ""
   },
   {
    "Name": "United States Treasury Bill 02/18/2027",
-   "Ticker": "912797TV9",
+   "Ticker": "-",
    "Identifier": "912797TV9",
-   "Weight": "2.33",
-   "Market Value": "1551568.09",
+   "Weight": "2.26",
+   "Market Value": "1552139.49",
    "Shares Held": "1572000",
    "SEDOL": ""
   },
@@ -179,26 +170,44 @@
    "Name": "SSR Mining Inc",
    "Ticker": "SSRM",
    "Identifier": "784730103",
-   "Weight": "2.16",
-   "Market Value": "1437049.68",
+   "Weight": "2.19",
+   "Market Value": "1502876.48",
    "Shares Held": "50636",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Cash & Other",
+   "Ticker": "-",
+   "Identifier": "Cash&Other",
+   "Weight": "2.12",
+   "Market Value": "1457788.95",
+   "Shares Held": "1457788.95",
    "SEDOL": ""
   },
   {
    "Name": "Royal Gold Inc",
    "Ticker": "RGLD",
    "Identifier": "780287108",
-   "Weight": "1.75",
-   "Market Value": "1168938.8",
+   "Weight": "1.81",
+   "Market Value": "1243623",
    "Shares Held": "5140",
    "SEDOL": ""
   },
   {
+   "Name": "Hycroft Mining Holding Corp",
+   "Ticker": "HYMC",
+   "Identifier": "44862P208",
+   "Weight": "1.61",
+   "Market Value": "1102644",
+   "Shares Held": "63225",
+   "SEDOL": ""
+  },
+  {
    "Name": "United States Treasury Bill 07/08/2027",
-   "Ticker": "912797VQ7",
+   "Ticker": "-",
    "Identifier": "912797VQ7",
-   "Weight": "1.58",
-   "Market Value": "1055148.75",
+   "Weight": "1.54",
+   "Market Value": "1055405.15",
    "Shares Held": "1087000",
    "SEDOL": ""
   },
@@ -206,53 +215,80 @@
    "Name": "Invesco Government & Agency Portfolio 12/31/2031",
    "Ticker": "AGPXX",
    "Identifier": "825252885",
-   "Weight": "1.52",
+   "Weight": "1.48",
    "Market Value": "1015796.24",
    "Shares Held": "1015796.24",
    "SEDOL": ""
   },
   {
-   "Name": "Hycroft Mining Holding Corp",
-   "Ticker": "HYMC",
-   "Identifier": "44862P208",
-   "Weight": "1.46",
-   "Market Value": "976194",
-   "Shares Held": "63225",
+   "Name": "United States Treasury Note/Bond 2.375% 05/15/2027",
+   "Ticker": "-",
+   "Identifier": "912828X88",
+   "Weight": "0.91",
+   "Market Value": "627278.45",
+   "Shares Held": "634000",
    "SEDOL": ""
   },
   {
-   "Name": "United States Treasury Note/Bond 2.375% 05/15/2027",
-   "Ticker": "912828X88",
-   "Identifier": "912828X88",
-   "Weight": "0.94",
-   "Market Value": "627227.19",
-   "Shares Held": "634000",
+   "Name": "SLV US 11/20/26 C50",
+   "Ticker": "SLV 261120C00050000",
+   "Identifier": "SLV 261120C00050000",
+   "Weight": "0.36",
+   "Market Value": "248788",
+   "Shares Held": "1681",
+   "SEDOL": ""
+  },
+  {
+   "Name": "CDE US 11/20/26 C15",
+   "Ticker": "CDE 261120C00015000",
+   "Identifier": "CDE 261120C00015000",
+   "Weight": "0.26",
+   "Market Value": "181975",
+   "Shares Held": "2510",
    "SEDOL": ""
   },
   {
    "Name": "SILJ US 11/20/26 C28",
    "Ticker": "SILJ 261120C00028000",
    "Identifier": "SILJ 261120C00028000",
-   "Weight": "0.2",
-   "Market Value": "133721.5",
+   "Weight": "0.21",
+   "Market Value": "143506",
    "Shares Held": "6523",
+   "SEDOL": ""
+  },
+  {
+   "Name": "SA US 11/20/26 C27",
+   "Ticker": "SA 261120C00027000",
+   "Identifier": "SA 261120C00027000",
+   "Weight": "0.16",
+   "Market Value": "107865",
+   "Shares Held": "799",
    "SEDOL": ""
   },
   {
    "Name": "AG US 12/18/26 C19",
    "Ticker": "AG 261218C00019000",
    "Identifier": "AG 261218C00019000",
-   "Weight": "0.13",
-   "Market Value": "87971",
+   "Weight": "0.15",
+   "Market Value": "101101",
    "Shares Held": "2626",
+   "SEDOL": ""
+  },
+  {
+   "Name": "MUX US 11/20/26 C19",
+   "Ticker": "MUX 261120C00019000",
+   "Identifier": "MUX 261120C00019000",
+   "Weight": "0.08",
+   "Market Value": "53025",
+   "Shares Held": "1515",
    "SEDOL": ""
   },
   {
    "Name": "SLV US 11/20/26 C56",
    "Ticker": "SLV 261120C00056000",
    "Identifier": "SLV 261120C00056000",
-   "Weight": "0.08",
-   "Market Value": "55607.5",
+   "Weight": "0.07",
+   "Market Value": "47052.5",
    "Shares Held": "1711",
    "SEDOL": ""
   },
@@ -260,27 +296,27 @@
    "Name": "HL US 11/20/26 C18",
    "Ticker": "HL 261120C00018000",
    "Identifier": "HL 261120C00018000",
-   "Weight": "0.04",
-   "Market Value": "28585.5",
+   "Weight": "0.06",
+   "Market Value": "39117",
    "Shares Held": "3009",
    "SEDOL": ""
   },
   {
-   "Name": "MUX US 11/20/26 C19",
-   "Ticker": "MUX 261120C00019000",
-   "Identifier": "MUX 261120C00019000",
+   "Name": "HYMC US 11/20/26 C20",
+   "Ticker": "HYMC 261120C00020000",
+   "Identifier": "HYMC 261120C00020000",
    "Weight": "0.04",
-   "Market Value": "26512.5",
-   "Shares Held": "1515",
+   "Market Value": "24800",
+   "Shares Held": "620",
    "SEDOL": ""
   },
   {
-   "Name": "SLV US 11/20/26 C60",
-   "Ticker": "SLV 261120C00060000",
-   "Identifier": "SLV 261120C00060000",
+   "Name": "RGLD US 11/20/26 C250",
+   "Ticker": "RGLD 261120C00250000",
+   "Identifier": "RGLD 261120C00250000",
    "Weight": "0.04",
-   "Market Value": "24374.5",
-   "Shares Held": "1681",
+   "Market Value": "28815",
+   "Shares Held": "51",
    "SEDOL": ""
   },
   {
@@ -288,26 +324,8 @@
    "Ticker": "PAAS 261120C00049000",
    "Identifier": "PAAS 261120C00049000",
    "Weight": "0.03",
-   "Market Value": "17820",
+   "Market Value": "22275",
    "Shares Held": "594",
-   "SEDOL": ""
-  },
-  {
-   "Name": "RGLD US 11/20/26 C250",
-   "Ticker": "RGLD 261120C00250000",
-   "Identifier": "RGLD 261120C00250000",
-   "Weight": "0.03",
-   "Market Value": "17340",
-   "Shares Held": "51",
-   "SEDOL": ""
-  },
-  {
-   "Name": "SSRM US 11/20/26 C35",
-   "Ticker": "SSRM 261120C00035000",
-   "Identifier": "SSRM 261120C00035000",
-   "Weight": "0.03",
-   "Market Value": "18262.5",
-   "Shares Held": "487",
    "SEDOL": ""
   },
   {
@@ -315,61 +333,16 @@
    "Ticker": "BVN 261120C00035000",
    "Identifier": "BVN 261120C00035000",
    "Weight": "0.02",
-   "Market Value": "13920",
+   "Market Value": "15660",
    "Shares Held": "696",
-   "SEDOL": ""
-  },
-  {
-   "Name": "CDE US 11/20/26 C22.5",
-   "Ticker": "CDE 261120C00022500",
-   "Identifier": "CDE 261120C00022500",
-   "Weight": "0.02",
-   "Market Value": "12550.01",
-   "Shares Held": "2510",
-   "SEDOL": ""
-  },
-  {
-   "Name": "HYMC US 11/20/26 C20",
-   "Ticker": "HYMC 261120C00020000",
-   "Identifier": "HYMC 261120C00020000",
-   "Weight": "0.02",
-   "Market Value": "10657.5",
-   "Shares Held": "609",
-   "SEDOL": ""
-  },
-  {
-   "Name": "TFPM US 11/20/26 C40",
-   "Ticker": "TFPM 261120C00040000",
-   "Identifier": "TFPM 261120C00040000",
-   "Weight": "0.02",
-   "Market Value": "14900",
-   "Shares Held": "596",
-   "SEDOL": ""
-  },
-  {
-   "Name": "WPM US 11/20/26 C150",
-   "Ticker": "WPM 261120C00150000",
-   "Identifier": "WPM 261120C00150000",
-   "Weight": "0.02",
-   "Market Value": "10640",
-   "Shares Held": "224",
-   "SEDOL": ""
-  },
-  {
-   "Name": "FNV US 11/20/26 C280",
-   "Ticker": "FNV 261120C00280000",
-   "Identifier": "FNV 261120C00280000",
-   "Weight": "0.01",
-   "Market Value": "8260",
-   "Shares Held": "118",
    "SEDOL": ""
   },
   {
    "Name": "OR US 11/20/26 C40",
    "Ticker": "OR 261120C00040000",
    "Identifier": "OR 261120C00040000",
-   "Weight": "0.01",
-   "Market Value": "9750",
+   "Weight": "0.02",
+   "Market Value": "15600",
    "Shares Held": "780",
    "SEDOL": ""
   },
@@ -377,18 +350,27 @@
    "Name": "PPTA US 11/20/26 C25",
    "Ticker": "PPTA 261120C00025000",
    "Identifier": "PPTA 261120C00025000",
-   "Weight": "0.01",
-   "Market Value": "5430.01",
+   "Weight": "0.02",
+   "Market Value": "10860.01",
    "Shares Held": "1086",
    "SEDOL": ""
   },
   {
-   "Name": "SA US 11/20/26 C32",
-   "Ticker": "SA 261120C00032000",
-   "Identifier": "SA 261120C00032000",
+   "Name": "SSRM US 11/20/26 C35",
+   "Ticker": "SSRM 261120C00035000",
+   "Identifier": "SSRM 261120C00035000",
+   "Weight": "0.02",
+   "Market Value": "17045",
+   "Shares Held": "487",
+   "SEDOL": ""
+  },
+  {
+   "Name": "FNV US 11/20/26 C280",
+   "Ticker": "FNV 261120C00280000",
+   "Identifier": "FNV 261120C00280000",
    "Weight": "0.01",
-   "Market Value": "7840",
-   "Shares Held": "784",
+   "Market Value": "6195",
+   "Shares Held": "118",
    "SEDOL": ""
   },
   {
@@ -396,17 +378,17 @@
    "Ticker": "SILJ 261120C00026000",
    "Identifier": "SILJ 261120C00026000",
    "Weight": "0.01",
-   "Market Value": "5166",
+   "Market Value": "8302.5",
    "Shares Held": "123",
    "SEDOL": ""
   },
   {
-   "Name": "AG US 11/20/26 C15.5",
-   "Ticker": "AG 261120C00015500",
-   "Identifier": "AG 261120C00015500",
-   "Weight": "0",
-   "Market Value": "-2975",
-   "Shares Held": "-50",
+   "Name": "WPM US 11/20/26 C150",
+   "Ticker": "WPM 261120C00150000",
+   "Identifier": "WPM 261120C00150000",
+   "Weight": "0.01",
+   "Market Value": "10080",
+   "Shares Held": "224",
    "SEDOL": ""
   },
   {
@@ -414,7 +396,7 @@
    "Ticker": "AG 261120C00016500",
    "Identifier": "AG 261120C00016500",
    "Weight": "0",
-   "Market Value": "1675",
+   "Market Value": "3425",
    "Shares Held": "50",
    "SEDOL": ""
   },
@@ -423,7 +405,7 @@
    "Ticker": "AG 261120C00019000",
    "Identifier": "AG 261120C00019000",
    "Weight": "0",
-   "Market Value": "-490",
+   "Market Value": "-710.5",
    "Shares Held": "-49",
    "SEDOL": ""
   },
@@ -432,17 +414,8 @@
    "Ticker": "AG 261120C00021000",
    "Identifier": "AG 261120C00021000",
    "Weight": "0",
-   "Market Value": "220.5",
+   "Market Value": "808.5",
    "Shares Held": "49",
-   "SEDOL": ""
-  },
-  {
-   "Name": "CDE US 11/20/26 C14.5",
-   "Ticker": "CDE 261120C00014500",
-   "Identifier": "CDE 261120C00014500",
-   "Weight": "0",
-   "Market Value": "-2760",
-   "Shares Held": "-46",
    "SEDOL": ""
   },
   {
@@ -450,7 +423,7 @@
    "Ticker": "CDE 261120C00015500",
    "Identifier": "CDE 261120C00015500",
    "Weight": "0",
-   "Market Value": "1495",
+   "Market Value": "2300",
    "Shares Held": "46",
    "SEDOL": ""
   },
@@ -468,7 +441,7 @@
    "Ticker": "EXK 261120C00009000",
    "Identifier": "EXK 261120C00009000",
    "Weight": "0",
-   "Market Value": "-1300",
+   "Market Value": "-1462.5",
    "Shares Held": "-65",
    "SEDOL": ""
   },
@@ -477,7 +450,7 @@
    "Ticker": "FNV 261120C00250000",
    "Identifier": "FNV 261120C00250000",
    "Weight": "0",
-   "Market Value": "-690",
+   "Market Value": "-1192.5",
    "Shares Held": "-3",
    "SEDOL": ""
   },
@@ -486,17 +459,8 @@
    "Ticker": "FNV 261120C00270000",
    "Identifier": "FNV 261120C00270000",
    "Weight": "0",
-   "Market Value": "337.5",
+   "Market Value": "555",
    "Shares Held": "3",
-   "SEDOL": ""
-  },
-  {
-   "Name": "HL US 11/20/26 C15",
-   "Ticker": "HL 261120C00015000",
-   "Identifier": "HL 261120C00015000",
-   "Weight": "0",
-   "Market Value": "-3025",
-   "Shares Held": "-55",
    "SEDOL": ""
   },
   {
@@ -504,7 +468,7 @@
    "Ticker": "HL 261120C00016000",
    "Identifier": "HL 261120C00016000",
    "Weight": "0",
-   "Market Value": "1457.5",
+   "Market Value": "2777.5",
    "Shares Held": "55",
    "SEDOL": ""
   },
@@ -513,7 +477,7 @@
    "Ticker": "HYMC 261120C00017000",
    "Identifier": "HYMC 261120C00017000",
    "Weight": "0",
-   "Market Value": "-960",
+   "Market Value": "-1770",
    "Shares Held": "-12",
    "SEDOL": ""
   },
@@ -522,26 +486,8 @@
    "Ticker": "HYMC 261120C00018000",
    "Identifier": "HYMC 261120C00018000",
    "Weight": "0",
-   "Market Value": "630",
+   "Market Value": "1260",
    "Shares Held": "12",
-   "SEDOL": ""
-  },
-  {
-   "Name": "HYMC US 11/20/26 C21",
-   "Ticker": "HYMC 261120C00021000",
-   "Identifier": "HYMC 261120C00021000",
-   "Weight": "0",
-   "Market Value": "-192.5",
-   "Shares Held": "-11",
-   "SEDOL": ""
-  },
-  {
-   "Name": "HYMC US 11/20/26 C22",
-   "Ticker": "HYMC 261120C00022000",
-   "Identifier": "HYMC 261120C00022000",
-   "Weight": "0",
-   "Market Value": "165",
-   "Shares Held": "11",
    "SEDOL": ""
   },
   {
@@ -549,7 +495,7 @@
    "Ticker": "MUX 261120C00016000",
    "Identifier": "MUX 261120C00016000",
    "Weight": "0",
-   "Market Value": "-1470",
+   "Market Value": "-1960",
    "Shares Held": "-28",
    "SEDOL": ""
   },
@@ -558,7 +504,7 @@
    "Ticker": "MUX 261120C00017000",
    "Identifier": "MUX 261120C00017000",
    "Weight": "0",
-   "Market Value": "1190",
+   "Market Value": "840",
    "Shares Held": "28",
    "SEDOL": ""
   },
@@ -567,7 +513,7 @@
    "Ticker": "PAAS 261120C00043000",
    "Identifier": "PAAS 261120C00043000",
    "Weight": "0",
-   "Market Value": "-1237.5",
+   "Market Value": "-1842.5",
    "Shares Held": "-11",
    "SEDOL": ""
   },
@@ -576,26 +522,8 @@
    "Ticker": "PAAS 261120C00045000",
    "Identifier": "PAAS 261120C00045000",
    "Weight": "0",
-   "Market Value": "715",
+   "Market Value": "962.5",
    "Shares Held": "11",
-   "SEDOL": ""
-  },
-  {
-   "Name": "SA US 11/20/26 C26",
-   "Ticker": "SA 261120C00026000",
-   "Identifier": "SA 261120C00026000",
-   "Weight": "0",
-   "Market Value": "-1200",
-   "Shares Held": "-15",
-   "SEDOL": ""
-  },
-  {
-   "Name": "SA US 11/20/26 C27",
-   "Ticker": "SA 261120C00027000",
-   "Identifier": "SA 261120C00027000",
-   "Weight": "0",
-   "Market Value": "862.5",
-   "Shares Held": "15",
    "SEDOL": ""
   },
   {
@@ -603,7 +531,7 @@
    "Ticker": "SILJ 261120C00030000",
    "Identifier": "SILJ 261120C00030000",
    "Weight": "0",
-   "Market Value": "-1353",
+   "Market Value": "-1968",
    "Shares Held": "-123",
    "SEDOL": ""
   },
@@ -612,7 +540,7 @@
    "Ticker": "SILJ 261120C00033000",
    "Identifier": "SILJ 261120C00033000",
    "Weight": "0",
-   "Market Value": "861",
+   "Market Value": "553.5",
    "Shares Held": "123",
    "SEDOL": ""
   },
@@ -621,7 +549,7 @@
    "Ticker": "SLV 261120C00052000",
    "Identifier": "SLV 261120C00052000",
    "Weight": "0",
-   "Market Value": "-2790",
+   "Market Value": "-2505",
    "Shares Held": "-30",
    "SEDOL": ""
   },
@@ -630,7 +558,7 @@
    "Ticker": "SLV 261120C00055000",
    "Identifier": "SLV 261120C00055000",
    "Weight": "0",
-   "Market Value": "1230",
+   "Market Value": "1050",
    "Shares Held": "30",
    "SEDOL": ""
   },
@@ -639,7 +567,7 @@
    "Ticker": "SSRM 261120C00036000",
    "Identifier": "SSRM 261120C00036000",
    "Weight": "0",
-   "Market Value": "-332.5",
+   "Market Value": "-522.5",
    "Shares Held": "-19",
    "SEDOL": ""
   },
@@ -653,11 +581,20 @@
    "SEDOL": ""
   },
   {
+   "Name": "TFPM US 11/20/26 C40",
+   "Ticker": "TFPM 261120C00040000",
+   "Identifier": "TFPM 261120C00040000",
+   "Weight": "0",
+   "Market Value": "2980",
+   "Shares Held": "596",
+   "SEDOL": ""
+  },
+  {
    "Name": "WPM US 11/20/26 C130",
    "Ticker": "WPM 261120C00130000",
    "Identifier": "WPM 261120C00130000",
    "Weight": "0",
-   "Market Value": "-1150",
+   "Market Value": "-1740",
    "Shares Held": "-4",
    "SEDOL": ""
   },
@@ -666,17 +603,26 @@
    "Ticker": "WPM 261120C00135000",
    "Identifier": "WPM 261120C00135000",
    "Weight": "0",
-   "Market Value": "710",
+   "Market Value": "1040",
    "Shares Held": "4",
    "SEDOL": ""
   },
   {
-   "Name": "SILJ US 11/20/26 C25",
-   "Ticker": "SILJ 261120C00025000",
-   "Identifier": "SILJ 261120C00025000",
+   "Name": "AG US 11/20/26 C15.5",
+   "Ticker": "AG 261120C00015500",
+   "Identifier": "AG 261120C00015500",
    "Weight": "-0.01",
-   "Market Value": "-7503",
-   "Shares Held": "-123",
+   "Market Value": "-5250",
+   "Shares Held": "-50",
+   "SEDOL": ""
+  },
+  {
+   "Name": "HL US 11/20/26 C15",
+   "Ticker": "HL 261120C00015000",
+   "Identifier": "HL 261120C00015000",
+   "Weight": "-0.01",
+   "Market Value": "-5472.5",
+   "Shares Held": "-55",
    "SEDOL": ""
   },
   {
@@ -684,62 +630,26 @@
    "Ticker": "TFPM 261120C00035000",
    "Identifier": "TFPM 261120C00035000",
    "Weight": "-0.01",
-   "Market Value": "-8940",
+   "Market Value": "-7450",
    "Shares Held": "-596",
    "SEDOL": ""
   },
   {
-   "Name": "CDE US 11/20/26 C20",
-   "Ticker": "CDE 261120C00020000",
-   "Identifier": "CDE 261120C00020000",
+   "Name": "SILJ US 11/20/26 C25",
+   "Ticker": "SILJ 261120C00025000",
+   "Identifier": "SILJ 261120C00025000",
    "Weight": "-0.02",
-   "Market Value": "-12550.01",
-   "Shares Held": "-2510",
+   "Market Value": "-12300",
+   "Shares Held": "-123",
    "SEDOL": ""
   },
   {
    "Name": "PPTA US 11/20/26 C22.5",
    "Ticker": "PPTA 261120C00022500",
    "Identifier": "PPTA 261120C00022500",
-   "Weight": "-0.02",
-   "Market Value": "-16290",
+   "Weight": "-0.03",
+   "Market Value": "-21720",
    "Shares Held": "-1086",
-   "SEDOL": ""
-  },
-  {
-   "Name": "SA US 11/20/26 C30",
-   "Ticker": "SA 261120C00030000",
-   "Identifier": "SA 261120C00030000",
-   "Weight": "-0.02",
-   "Market Value": "-15680",
-   "Shares Held": "-784",
-   "SEDOL": ""
-  },
-  {
-   "Name": "FNV US 11/20/26 C260",
-   "Ticker": "FNV 261120C00260000",
-   "Identifier": "FNV 261120C00260000",
-   "Weight": "-0.03",
-   "Market Value": "-17405",
-   "Shares Held": "-118",
-   "SEDOL": ""
-  },
-  {
-   "Name": "HYMC US 11/20/26 C19",
-   "Ticker": "HYMC 261120C00019000",
-   "Identifier": "HYMC 261120C00019000",
-   "Weight": "-0.03",
-   "Market Value": "-21315",
-   "Shares Held": "-609",
-   "SEDOL": ""
-  },
-  {
-   "Name": "BVN US 11/20/26 C33",
-   "Ticker": "BVN 261120C00033000",
-   "Identifier": "BVN 261120C00033000",
-   "Weight": "-0.04",
-   "Market Value": "-29580",
-   "Shares Held": "-696",
    "SEDOL": ""
   },
   {
@@ -752,12 +662,12 @@
    "SEDOL": ""
   },
   {
-   "Name": "RGLD US 11/20/26 C240",
-   "Ticker": "RGLD 261120C00240000",
-   "Identifier": "RGLD 261120C00240000",
+   "Name": "FNV US 11/20/26 C260",
+   "Ticker": "FNV 261120C00260000",
+   "Identifier": "FNV 261120C00260000",
    "Weight": "-0.04",
-   "Market Value": "-29580",
-   "Shares Held": "-51",
+   "Market Value": "-26845",
+   "Shares Held": "-118",
    "SEDOL": ""
   },
   {
@@ -765,16 +675,25 @@
    "Ticker": "SSRM 261120C00033000",
    "Identifier": "SSRM 261120C00033000",
    "Weight": "-0.04",
-   "Market Value": "-25567.5",
+   "Market Value": "-24350",
    "Shares Held": "-487",
+   "SEDOL": ""
+  },
+  {
+   "Name": "HYMC US 11/20/26 C19",
+   "Ticker": "HYMC 261120C00019000",
+   "Identifier": "HYMC 261120C00019000",
+   "Weight": "-0.05",
+   "Market Value": "-32550",
+   "Shares Held": "-620",
    "SEDOL": ""
   },
   {
    "Name": "WPM US 11/20/26 C140",
    "Ticker": "WPM 261120C00140000",
    "Identifier": "WPM 261120C00140000",
-   "Weight": "-0.04",
-   "Market Value": "-27440",
+   "Weight": "-0.05",
+   "Market Value": "-34160",
    "Shares Held": "-224",
    "SEDOL": ""
   },
@@ -782,8 +701,8 @@
    "Name": "MUX US 11/20/26 C18",
    "Ticker": "MUX 261120C00018000",
    "Identifier": "MUX 261120C00018000",
-   "Weight": "-0.05",
-   "Market Value": "-30300",
+   "Weight": "-0.07",
+   "Market Value": "-45450",
    "Shares Held": "-1515",
    "SEDOL": ""
   },
@@ -791,27 +710,18 @@
    "Name": "PAAS US 11/20/26 C46",
    "Ticker": "PAAS 261120C00046000",
    "Identifier": "PAAS 261120C00046000",
-   "Weight": "-0.05",
-   "Market Value": "-34155",
+   "Weight": "-0.07",
+   "Market Value": "-47520",
    "Shares Held": "-594",
    "SEDOL": ""
   },
   {
-   "Name": "HL US 11/20/26 C17",
-   "Ticker": "HL 261120C00017000",
-   "Identifier": "HL 261120C00017000",
-   "Weight": "-0.07",
-   "Market Value": "-48144",
-   "Shares Held": "-3009",
-   "SEDOL": ""
-  },
-  {
-   "Name": "SLV US 11/20/26 C57",
-   "Ticker": "SLV 261120C00057000",
-   "Identifier": "SLV 261120C00057000",
-   "Weight": "-0.07",
-   "Market Value": "-43706",
-   "Shares Held": "-1681",
+   "Name": "RGLD US 11/20/26 C240",
+   "Ticker": "RGLD 261120C00240000",
+   "Identifier": "RGLD 261120C00240000",
+   "Weight": "-0.08",
+   "Market Value": "-53295",
+   "Shares Held": "-51",
    "SEDOL": ""
   },
   {
@@ -819,34 +729,79 @@
    "Ticker": "OR 261120C00035000",
    "Identifier": "OR 261120C00035000",
    "Weight": "-0.09",
-   "Market Value": "-58500",
+   "Market Value": "-62400",
    "Shares Held": "-780",
+   "SEDOL": ""
+  },
+  {
+   "Name": "HL US 11/20/26 C17",
+   "Ticker": "HL 261120C00017000",
+   "Identifier": "HL 261120C00017000",
+   "Weight": "-0.11",
+   "Market Value": "-75225",
+   "Shares Held": "-3009",
+   "SEDOL": ""
+  },
+  {
+   "Name": "BVN US 11/20/26 C33",
+   "Ticker": "BVN 261120C00033000",
+   "Identifier": "BVN 261120C00033000",
+   "Weight": "-0.12",
+   "Market Value": "-80040",
+   "Shares Held": "-696",
+   "SEDOL": ""
+  },
+  {
+   "Name": "SA US 11/20/26 C26",
+   "Ticker": "SA 261120C00026000",
+   "Identifier": "SA 261120C00026000",
+   "Weight": "-0.22",
+   "Market Value": "-151810",
+   "Shares Held": "-799",
    "SEDOL": ""
   },
   {
    "Name": "AG US 12/18/26 C18",
    "Ticker": "AG 261218C00018000",
    "Identifier": "AG 261218C00018000",
-   "Weight": "-0.16",
-   "Market Value": "-108979",
+   "Weight": "-0.24",
+   "Market Value": "-166751",
    "Shares Held": "-2626",
+   "SEDOL": ""
+  },
+  {
+   "Name": "CDE US 11/20/26 C14.5",
+   "Ticker": "CDE 261120C00014500",
+   "Identifier": "CDE 261120C00014500",
+   "Weight": "-0.37",
+   "Market Value": "-255600",
+   "Shares Held": "-2556",
    "SEDOL": ""
   },
   {
    "Name": "SILJ US 11/20/26 C27",
    "Ticker": "SILJ 261120C00027000",
    "Identifier": "SILJ 261120C00027000",
-   "Weight": "-0.27",
-   "Market Value": "-182644",
+   "Weight": "-0.42",
+   "Market Value": "-290273.5",
    "Shares Held": "-6523",
+   "SEDOL": ""
+  },
+  {
+   "Name": "SLV US 11/20/26 C49",
+   "Ticker": "SLV 261120C00049000",
+   "Identifier": "SLV 261120C00049000",
+   "Weight": "-0.47",
+   "Market Value": "-323592.5",
+   "Shares Held": "-1681",
    "SEDOL": ""
   },
   {
    "Name": "SLV 11/20/2026 56.01 P",
    "Ticker": "2SLV 261120P00056010",
    "Identifier": "2SLV 261120P00056010",
-   "Weight": "-1.91",
-   "Market Value": "-1273103.77",
+   "Weight": "-1.76",
+   "Market Value": "-1208154.21",
    "Shares Held": "-1711",
    "SEDOL": ""
   }

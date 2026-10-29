@@ -14,47 +14,101 @@
  ],
  "rows": [
   {
+   "Name": "Range Resources Corp",
+   "Ticker": "RRC",
+   "Identifier": "75281A109",
+   "Weight": "3.73",
+   "Market Value": "1633260.64",
+   "Shares Held": "29228",
+   "SEDOL": ""
+  },
+  {
    "Name": "Hasbro Inc",
    "Ticker": "HAS",
    "Identifier": "418056107",
    "Weight": "3.71",
-   "Market Value": "1610337.28",
+   "Market Value": "1627340.16",
    "Shares Held": "13712",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Constellation Brands Inc",
-   "Ticker": "STZ",
-   "Identifier": "21036P108",
-   "Weight": "3.21",
-   "Market Value": "1391931.16",
-   "Shares Held": "10037",
    "SEDOL": ""
   },
   {
    "Name": "Roper Technologies Inc",
    "Ticker": "ROP",
    "Identifier": "776696106",
-   "Weight": "3.16",
-   "Market Value": "1369625.64",
+   "Weight": "3.14",
+   "Market Value": "1377503.16",
    "Shares Held": "3126",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Pentair PLC",
+   "Ticker": "PNR",
+   "Identifier": "G7S00T104",
+   "Weight": "3.11",
+   "Market Value": "1365223.33",
+   "Shares Held": "21209",
    "SEDOL": ""
   },
   {
    "Name": "ExxonMobil Holdings Corp",
    "Ticker": "XOM",
    "Identifier": "30233Q108",
-   "Weight": "3.14",
-   "Market Value": "1360883.88",
+   "Weight": "3.08",
+   "Market Value": "1352044.56",
    "Shares Held": "7428",
+   "SEDOL": ""
+  },
+  {
+   "Name": "TE Connectivity PLC",
+   "Ticker": "TEL",
+   "Identifier": "G87052109",
+   "Weight": "3.01",
+   "Market Value": "1318811.64",
+   "Shares Held": "5961",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Cheniere Energy Inc",
+   "Ticker": "LNG",
+   "Identifier": "16411R208",
+   "Weight": "3",
+   "Market Value": "1316441.17",
+   "Shares Held": "4421",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Chevron Corp",
+   "Ticker": "CVX",
+   "Identifier": "166764100",
+   "Weight": "2.98",
+   "Market Value": "1307815.2",
+   "Shares Held": "5706",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Constellation Brands Inc",
+   "Ticker": "STZ",
+   "Identifier": "21036P108",
+   "Weight": "2.97",
+   "Market Value": "1302802.6",
+   "Shares Held": "10037",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Avery Dennison Corp",
+   "Ticker": "AVY",
+   "Identifier": "053611109",
+   "Weight": "2.96",
+   "Market Value": "1298510.2",
+   "Shares Held": "7186",
    "SEDOL": ""
   },
   {
    "Name": "Zoetis Inc",
    "Ticker": "ZTS",
    "Identifier": "98978V103",
-   "Weight": "3.11",
-   "Market Value": "1348420.23",
+   "Weight": "2.95",
+   "Market Value": "1294669.8",
    "Shares Held": "16641",
    "SEDOL": ""
   },
@@ -62,72 +116,45 @@
    "Name": "Intuit Inc",
    "Ticker": "INTU",
    "Identifier": "461202103",
-   "Weight": "3.08",
-   "Market Value": "1334413.54",
+   "Weight": "2.91",
+   "Market Value": "1275346.34",
    "Shares Held": "3886",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Chevron Corp",
-   "Ticker": "CVX",
-   "Identifier": "166764100",
-   "Weight": "3.07",
-   "Market Value": "1330696.26",
-   "Shares Held": "5706",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Range Resources Corp",
-   "Ticker": "RRC",
-   "Identifier": "75281A109",
-   "Weight": "3.07",
-   "Market Value": "1330458.56",
-   "Shares Held": "29228",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Cheniere Energy Inc",
-   "Ticker": "LNG",
-   "Identifier": "16411R208",
-   "Weight": "3.04",
-   "Market Value": "1320420.07",
-   "Shares Held": "4421",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Avery Dennison Corp",
-   "Ticker": "AVY",
-   "Identifier": "053611109",
-   "Weight": "3.01",
-   "Market Value": "1306630.38",
-   "Shares Held": "7186",
    "SEDOL": ""
   },
   {
    "Name": "Crown Holdings Inc",
    "Ticker": "CCK",
    "Identifier": "228368106",
-   "Weight": "2.95",
-   "Market Value": "1279985.77",
+   "Weight": "2.89",
+   "Market Value": "1268636.25",
    "Shares Held": "10913",
+   "SEDOL": ""
+  },
+  {
+   "Name": "QUALCOMM Inc",
+   "Ticker": "QCOM",
+   "Identifier": "747525103",
+   "Weight": "2.89",
+   "Market Value": "1265420.52",
+   "Shares Held": "6916",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Steel Dynamics Inc",
+   "Ticker": "STLD",
+   "Identifier": "858119100",
+   "Weight": "2.89",
+   "Market Value": "1267199.31",
+   "Shares Held": "5069",
    "SEDOL": ""
   },
   {
    "Name": "Tetra Tech Inc",
    "Ticker": "TTEK",
    "Identifier": "88162G103",
-   "Weight": "2.93",
-   "Market Value": "1270447.9",
-   "Shares Held": "34355",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Carlisle Cos Inc",
-   "Ticker": "CSL",
-   "Identifier": "142339100",
    "Weight": "2.88",
-   "Market Value": "1247319.6",
-   "Shares Held": "3615",
+   "Market Value": "1263576.9",
+   "Shares Held": "34355",
    "SEDOL": ""
   },
   {
@@ -135,70 +162,43 @@
    "Ticker": "EQT",
    "Identifier": "26884L109",
    "Weight": "2.86",
-   "Market Value": "1242273.53",
+   "Market Value": "1255448.82",
    "Shares Held": "22331",
    "SEDOL": ""
   },
   {
-   "Name": "TE Connectivity PLC",
-   "Ticker": "TEL",
-   "Identifier": "G87052109",
-   "Weight": "2.86",
-   "Market Value": "1240186.05",
-   "Shares Held": "5961",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Steel Dynamics Inc",
-   "Ticker": "STLD",
-   "Identifier": "858119100",
-   "Weight": "2.82",
-   "Market Value": "1224315.57",
-   "Shares Held": "5069",
-   "SEDOL": ""
-  },
-  {
-   "Name": "QUALCOMM Inc",
-   "Ticker": "QCOM",
-   "Identifier": "747525103",
-   "Weight": "2.8",
-   "Market Value": "1216593.56",
-   "Shares Held": "6916",
-   "SEDOL": ""
-  },
-  {
-   "Name": "FedEx Corp",
-   "Ticker": "FDX",
-   "Identifier": "31428X106",
-   "Weight": "2.72",
-   "Market Value": "1178749.12",
-   "Shares Held": "3946",
+   "Name": "Carlisle Cos Inc",
+   "Ticker": "CSL",
+   "Identifier": "142339100",
+   "Weight": "2.85",
+   "Market Value": "1247934.15",
+   "Shares Held": "3615",
    "SEDOL": ""
   },
   {
    "Name": "Hewlett Packard Enterprise Co",
    "Ticker": "HPE",
    "Identifier": "42824C109",
-   "Weight": "2.71",
-   "Market Value": "1174163.28",
+   "Weight": "2.85",
+   "Market Value": "1249554.96",
    "Shares Held": "20712",
    "SEDOL": ""
   },
   {
-   "Name": "Pentair PLC",
-   "Ticker": "PNR",
-   "Identifier": "G7S00T104",
-   "Weight": "2.7",
-   "Market Value": "1172857.7",
-   "Shares Held": "21209",
+   "Name": "FedEx Corp",
+   "Ticker": "FDX",
+   "Identifier": "31428X106",
+   "Weight": "2.74",
+   "Market Value": "1201872.68",
+   "Shares Held": "3946",
    "SEDOL": ""
   },
   {
    "Name": "AECOM",
    "Ticker": "ACM",
    "Identifier": "00766T100",
-   "Weight": "2.66",
-   "Market Value": "1152697.44",
+   "Weight": "2.71",
+   "Market Value": "1186617.12",
    "Shares Held": "19056",
    "SEDOL": ""
   },
@@ -207,44 +207,35 @@
    "Ticker": "SLB",
    "Identifier": "806857108",
    "Weight": "2.62",
-   "Market Value": "1134635.04",
+   "Market Value": "1149390",
    "Shares Held": "21384",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Booking Holdings Inc",
-   "Ticker": "BKNG",
-   "Identifier": "09857L108",
-   "Weight": "2.53",
-   "Market Value": "1096108.22",
-   "Shares Held": "7034",
    "SEDOL": ""
   },
   {
    "Name": "Oshkosh Corp",
    "Ticker": "OSK",
    "Identifier": "688239201",
-   "Weight": "2.44",
-   "Market Value": "1056760.8",
+   "Weight": "2.53",
+   "Market Value": "1106750.32",
    "Shares Held": "8024",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Accenture PLC",
-   "Ticker": "ACN",
-   "Identifier": "G1151C101",
-   "Weight": "2.34",
-   "Market Value": "1014935.9",
-   "Shares Held": "4070",
    "SEDOL": ""
   },
   {
    "Name": "Allison Transmission Holdings Inc",
    "Ticker": "ALSN",
    "Identifier": "01973R101",
-   "Weight": "2.33",
-   "Market Value": "1012272.72",
+   "Weight": "2.37",
+   "Market Value": "1040645.3",
    "Shares Held": "9521",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Booking Holdings Inc",
+   "Ticker": "BKNG",
+   "Identifier": "09857L108",
+   "Weight": "2.37",
+   "Market Value": "1040609.96",
+   "Shares Held": "7034",
    "SEDOL": ""
   },
   {
@@ -252,16 +243,34 @@
    "Ticker": "TMUS",
    "Identifier": "872590104",
    "Weight": "2.32",
-   "Market Value": "1008048.66",
+   "Market Value": "1018642.32",
    "Shares Held": "6879",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Accenture PLC",
+   "Ticker": "ACN",
+   "Identifier": "G1151C101",
+   "Weight": "2.26",
+   "Market Value": "990638",
+   "Shares Held": "4070",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Booz Allen Hamilton Holding Corp",
+   "Ticker": "BAH",
+   "Identifier": "099502106",
+   "Weight": "1.89",
+   "Market Value": "827203.32",
+   "Shares Held": "9909",
    "SEDOL": ""
   },
   {
    "Name": "Cognizant Technology Solutions Corp",
    "Ticker": "CTSH",
    "Identifier": "192446102",
-   "Weight": "2",
-   "Market Value": "867148.22",
+   "Weight": "1.86",
+   "Market Value": "815763.48",
    "Shares Held": "12293",
    "SEDOL": ""
   },
@@ -269,107 +278,98 @@
    "Name": "FactSet Research Systems Inc",
    "Ticker": "FDS",
    "Identifier": "303075105",
-   "Weight": "1.96",
-   "Market Value": "849173.16",
+   "Weight": "1.83",
+   "Market Value": "801398.84",
    "Shares Held": "2563",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Automatic Data Processing Inc",
-   "Ticker": "ADP",
-   "Identifier": "053015103",
-   "Weight": "1.89",
-   "Market Value": "820319.52",
-   "Shares Held": "2697",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Marsh & McLennan Cos Inc",
-   "Ticker": "MRSH",
-   "Identifier": "571748102",
-   "Weight": "1.84",
-   "Market Value": "799004.08",
-   "Shares Held": "4046",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Arthur J Gallagher & Co",
-   "Ticker": "AJG",
-   "Identifier": "363576109",
-   "Weight": "1.81",
-   "Market Value": "785089.16",
-   "Shares Held": "2929",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Booz Allen Hamilton Holding Corp",
-   "Ticker": "BAH",
-   "Identifier": "099502106",
-   "Weight": "1.79",
-   "Market Value": "776072.88",
-   "Shares Held": "9909",
    "SEDOL": ""
   },
   {
    "Name": "Leidos Holdings Inc",
    "Ticker": "LDOS",
    "Identifier": "525327102",
-   "Weight": "1.75",
-   "Market Value": "759870.72",
+   "Weight": "1.78",
+   "Market Value": "779526.4",
    "Shares Held": "5584",
    "SEDOL": ""
   },
   {
-   "Name": "TransUnion",
-   "Ticker": "TRU",
-   "Identifier": "89400J107",
+   "Name": "Marsh & McLennan Cos Inc",
+   "Ticker": "MRSH",
+   "Identifier": "571748102",
+   "Weight": "1.78",
+   "Market Value": "778045.8",
+   "Shares Held": "4046",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Automatic Data Processing Inc",
+   "Ticker": "ADP",
+   "Identifier": "053015103",
+   "Weight": "1.76",
+   "Market Value": "769642.89",
+   "Shares Held": "2697",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Arthur J Gallagher & Co",
+   "Ticker": "AJG",
+   "Identifier": "363576109",
    "Weight": "1.74",
-   "Market Value": "756541.8",
-   "Shares Held": "9285",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Intercontinental Exchange Inc",
-   "Ticker": "ICE",
-   "Identifier": "45866F104",
-   "Weight": "1.71",
-   "Market Value": "743884.54",
-   "Shares Held": "4571",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Raymond James Financial Inc",
-   "Ticker": "RJF",
-   "Identifier": "754730109",
-   "Weight": "1.48",
-   "Market Value": "642942.9",
-   "Shares Held": "4077",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Bank of New York Mellon Corp/The",
-   "Ticker": "BNY",
-   "Identifier": "064058100",
-   "Weight": "1.47",
-   "Market Value": "636849.92",
-   "Shares Held": "4403",
+   "Market Value": "762770.18",
+   "Shares Held": "2929",
    "SEDOL": ""
   },
   {
    "Name": "Evercore Inc",
    "Ticker": "EVR",
    "Identifier": "29977A105",
-   "Weight": "1.44",
-   "Market Value": "625921.8",
+   "Weight": "1.66",
+   "Market Value": "726564.3",
    "Shares Held": "2485",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Intercontinental Exchange Inc",
+   "Ticker": "ICE",
+   "Identifier": "45866F104",
+   "Weight": "1.63",
+   "Market Value": "712893.16",
+   "Shares Held": "4571",
+   "SEDOL": ""
+  },
+  {
+   "Name": "TransUnion",
+   "Ticker": "TRU",
+   "Identifier": "89400J107",
+   "Weight": "1.57",
+   "Market Value": "689968.35",
+   "Shares Held": "9285",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Bank of New York Mellon Corp/The",
+   "Ticker": "BNY",
+   "Identifier": "064058100",
+   "Weight": "1.49",
+   "Market Value": "654241.77",
+   "Shares Held": "4403",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Raymond James Financial Inc",
+   "Ticker": "RJF",
+   "Identifier": "754730109",
+   "Weight": "1.46",
+   "Market Value": "641801.34",
+   "Shares Held": "4077",
    "SEDOL": ""
   },
   {
    "Name": "Apollo Global Management Inc",
    "Ticker": "APO",
    "Identifier": "03769M106",
-   "Weight": "1.42",
-   "Market Value": "616390.29",
+   "Weight": "1.41",
+   "Market Value": "619777.35",
    "Shares Held": "5463",
    "SEDOL": ""
   },
@@ -384,11 +384,11 @@
   },
   {
    "Name": "Cash & Other",
-   "Ticker": "CASH&OTHER",
+   "Ticker": "-",
    "Identifier": "Cash&Other",
-   "Weight": "0.05",
-   "Market Value": "20926.81",
-   "Shares Held": "20926.81",
+   "Weight": "-0.07",
+   "Market Value": "-28836.98",
+   "Shares Held": "-28836.98",
    "SEDOL": ""
   }
  ]
