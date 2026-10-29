@@ -902,6 +902,9 @@ describe('pipeline 2', () => {
     try {
       expect(readIndex(dir).funds).toHaveLength(3);
       expect(new Set(readIndex(dir).funds.map((f: any) => Object.keys(f.metrics).join())).size).toBe(1); // same metrics key set on every row
+      // the 52-week keys are in every row, computed from its history pages (range-52w block)
+      const RANGE_KEYS = ['week52Low', 'week52High', 'range52w', 'range52wClose', 'range52wAsOf', 'range52wSince', 'range52wBasis'];
+      for (const f of readIndex(dir).funds) expect(Object.keys(f.metrics)).toEqual(expect.arrayContaining(RANGE_KEYS));
       for (const f of readIndex(dir).funds) expect(f.dataFile).toBe(`./funds/${f.ticker}/meta.json`);
       await runLogged({ MAX_FETCHES: '2' }, dir);
       const cursor = readFileSync(join(dir, 'update-state.json'), 'utf8');
