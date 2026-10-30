@@ -1746,10 +1746,12 @@ export async function processFund(fund: CatalogFund, config: UpdaterConfig, prev
   if (!config.skipYahoo) {
     try {
       const fetched = parseChart(await fetchJson(chartUrl(ticker, config), `[ chart    ] ${ticker}`, yahooHeaders(), config));
-      // A HISTORY_RANGE window never shrinks the published history: the older published days are joined and rescaled to the
-      // fresh adjusted closes (shared windowed-chart block); a window that does not join them keeps the fund as published.
-      chart = config.historyRange === 'max' ? fetched : mergeWindowedChart(fetched, await readPreviousSheet(ticker, 'history'), Array.isArray(old.distributions?.rows) ? old.distributions.rows : []);
-      if (!chart) throw new Error(`chart window does not join the published history (${config.historyRange})`);
+      // A fresh chart never shrinks the published history: the older published days are joined and rescaled to the
+      // fresh adjusted closes (shared windowed-chart block); a chart that does not join them keeps the fund as published.
+      // This covers a HISTORY_RANGE window and a truncated `max` answer (2026-10-29: Yahoo returned 2 bars for Franklin DVAL
+      // and USFI). A full `max` answer starts at inception: nothing published is older, so it comes back unchanged
+      chart = mergeWindowedChart(fetched, await readPreviousSheet(ticker, 'history'), Array.isArray(old.distributions?.rows) ? old.distributions.rows : []);
+      if (!chart) throw new Error(`chart does not join the published history (${config.historyRange}, ${fetched.days.length} days)`);
     }
     catch (error) {
       if (isNotFound(error) || /empty result/.test(errorMessage(error))) outputNote(`[ fallback ] ${ticker} Yahoo: ${errorMessage(error)}`);
