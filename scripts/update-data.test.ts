@@ -1088,8 +1088,24 @@ describe('pipeline 4', () => {
       // the closes did not join (doubled): no answer to merge, the fund is kept exactly as published
       windowed(300, 1, 2);
       const broken = await runLogged({ TICKERS: 'AAA', HISTORY_RANGE: '1y' }, dir);
-      expect(broken.lines.some((line) => /\] AAA +kept .*chart window does not join/.test(line))).toBe(true);
+      expect(broken.lines.some((line) => /\] AAA +kept .*chart does not join/.test(line))).toBe(true);
       expect(snapshot(dir)).toEqual(first);
+      // a truncated default-range (`max`) answer never shrinks the history either (Yahoo served 2 bars for Franklin DVAL and USFI on 2026-10-29):
+      // one that joins the published days keeps them all, one that does not join keeps the fund as published
+      windowed(2, 1, 1);
+      await runLogged({ TICKERS: 'AAA' }, dir);
+      expect(snapshot(dir)).toEqual(first);
+      windowed(1, 1, 1);
+      const served = globalThis.fetch;
+      globalThis.fetch = (async (input: any, init?: any) => {
+        const response = await served(input, init);
+        if (!String(input).includes('query1.finance.yahoo.com')) return response;
+        const payload = await response.json();
+        payload.chart.result[0].timestamp = [Math.floor(Date.UTC(2031, 0, 2) / 1000)];
+        return json(200, payload);
+      }) as unknown as typeof fetch;
+      await runLogged({ TICKERS: 'AAA' }, dir);
+      expect(readMeta(dir, 'AAA').history.totalRows).toBe(totalRows);
       // Yahoo re-adjusted the whole series after a distribution: the older published rows follow the window, none is lost
       expect(firstRow(dir)).toEqual({ Date: 'Jan 02 2024', Close: '10', 'Adj Close': '10', Volume: '100' });
       windowed(300, 0.98, 1);
