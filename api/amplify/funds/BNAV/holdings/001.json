@@ -2,7 +2,7 @@
  "ticker": "BNAV",
  "page": 1,
  "pageSize": 250,
- "totalRows": 6,
+ "totalRows": 5,
  "headers": [
   "Name",
   "Ticker",
@@ -17,7 +17,7 @@
    "Name": "Invesco Government & Agency Portfolio 12/31/2031",
    "Ticker": "AGPXX",
    "Identifier": "825252885",
-   "Weight": "60.69",
+   "Weight": "63.34",
    "Market Value": "1919174.6",
    "Shares Held": "1919174.6",
    "SEDOL": ""
@@ -26,8 +26,8 @@
    "Name": "United States Treasury Bill 11/12/2026",
    "Ticker": "-",
    "Identifier": "912797UY1",
-   "Weight": "22.1",
-   "Market Value": "698947.32",
+   "Weight": "23.08",
+   "Market Value": "699246.53",
    "Shares Held": "700000",
    "SEDOL": ""
   },
@@ -35,35 +35,26 @@
    "Name": "Cash & Other",
    "Ticker": "-",
    "Identifier": "Cash&Other",
-   "Weight": "15.12",
-   "Market Value": "478131.72",
-   "Shares Held": "478131.72",
+   "Weight": "12.68",
+   "Market Value": "384183.3",
+   "Shares Held": "384183.3",
    "SEDOL": ""
   },
   {
-   "Name": "MBTX 12/18/2026 192.21 C",
-   "Ticker": "4MBTX 261218C00192210",
-   "Identifier": "4MBTX 261218C00192210",
-   "Weight": "4.13",
-   "Market Value": "130701.84",
+   "Name": "MBTX 01/15/2027 180.61 C",
+   "Ticker": "4MBTX 270115C00180610",
+   "Identifier": "4MBTX 270115C00180610",
+   "Weight": "5.67",
+   "Market Value": "171912",
    "Shares Held": "116",
    "SEDOL": ""
   },
   {
-   "Name": "United States Treasury Bill 10/29/2026",
-   "Ticker": "-",
-   "Identifier": "912797SK4",
-   "Weight": "1.58",
-   "Market Value": "50000",
-   "Shares Held": "50000",
-   "SEDOL": ""
-  },
-  {
-   "Name": "MBTX 12/18/2026 192.21 P",
-   "Ticker": "4MBTX 261218P00192210",
-   "Identifier": "4MBTX 261218P00192210",
-   "Weight": "-3.63",
-   "Market Value": "-114806.36",
+   "Name": "MBTX 01/15/2027 180.61 P",
+   "Ticker": "4MBTX 270115P00180610",
+   "Identifier": "4MBTX 270115P00180610",
+   "Weight": "-4.25",
+   "Market Value": "-128876",
    "Shares Held": "-116",
    "SEDOL": ""
   }

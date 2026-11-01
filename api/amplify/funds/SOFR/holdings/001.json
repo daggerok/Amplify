@@ -2,7 +2,7 @@
  "ticker": "SOFR",
  "page": 1,
  "pageSize": 250,
- "totalRows": 7,
+ "totalRows": 8,
  "headers": [
   "Name",
   "Ticker",
@@ -14,47 +14,56 @@
  ],
  "rows": [
   {
-   "Name": "SOF REPO 10/29/26 3.94% 10/29/2026",
-   "Ticker": "SOF102926",
-   "Identifier": "SOF102926",
-   "Weight": "32.46",
+   "Name": "SOF REPO 11/05/26 3.99% 11/05/2026",
+   "Ticker": "SOF110526",
+   "Identifier": "SOF110526",
+   "Weight": "32.38",
    "Market Value": "150000000",
    "Shares Held": "150000000",
    "SEDOL": ""
   },
   {
-   "Name": "SOF REPO 10/29/26 3.97% 10/29/2026",
-   "Ticker": "SOF1029263",
-   "Identifier": "SOF1029263",
-   "Weight": "28.9",
-   "Market Value": "133580000",
-   "Shares Held": "133580000",
+   "Name": "SOF REPO 11/02/2026 3.98% 11/02/2026",
+   "Ticker": "SOF1102263",
+   "Identifier": "SOF1102263",
+   "Weight": "28.55",
+   "Market Value": "132250000",
+   "Shares Held": "132250000",
    "SEDOL": ""
   },
   {
-   "Name": "SOF REPO 10/29/26 3.96% 10/29/2026",
-   "Ticker": "SOF1029261",
-   "Identifier": "SOF1029261",
-   "Weight": "17.31",
-   "Market Value": "79999350",
-   "Shares Held": "79999350",
+   "Name": "SOF REPO 11/02/2026 3.98% 11/02/2026",
+   "Ticker": "SOF110226",
+   "Identifier": "SOF110226",
+   "Weight": "17.27",
+   "Market Value": "79998745",
+   "Shares Held": "79998745",
    "SEDOL": ""
   },
   {
-   "Name": "SOF REPO 10/29/26 3.96% 10/29/2026",
-   "Ticker": "SOF1029262",
-   "Identifier": "SOF1029262",
-   "Weight": "15.15",
-   "Market Value": "69999271.05",
-   "Shares Held": "69999271.05",
+   "Name": "SOF REPO 11/02/2026 3.98% 11/02/2026",
+   "Ticker": "SOF1102262",
+   "Identifier": "SOF1102262",
+   "Weight": "15.11",
+   "Market Value": "69999514.78",
+   "Shares Held": "69999514.78",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Brookfield Corporate Treasury Ltd 11/30/2026",
+   "Ticker": "11271GLW1",
+   "Identifier": "11271GLW1",
+   "Weight": "6.48",
+   "Market Value": "30000000",
+   "Shares Held": "30000000",
    "SEDOL": ""
   },
   {
    "Name": "Brookfield Corporate Treasury Ltd 11/02/2026",
    "Ticker": "11271GL27",
    "Identifier": "11271GL27",
-   "Weight": "6.49",
-   "Market Value": "29986000",
+   "Weight": "6.47",
+   "Market Value": "29996500",
    "Shares Held": "30000000",
    "SEDOL": ""
   },
@@ -63,17 +72,17 @@
    "Ticker": "AGPXX",
    "Identifier": "825252885",
    "Weight": "0",
-   "Market Value": "5665.41",
-   "Shares Held": "5665.41",
+   "Market Value": "10529.6",
+   "Shares Held": "10529.6",
    "SEDOL": ""
   },
   {
    "Name": "Cash & Other",
    "Ticker": "-",
    "Identifier": "Cash&Other",
-   "Weight": "-0.31",
-   "Market Value": "-1430074.65",
-   "Shares Held": "-1430074.65",
+   "Weight": "-6.23",
+   "Market Value": "-28872314.24",
+   "Shares Held": "-28872314.24",
    "SEDOL": ""
   }
  ]
