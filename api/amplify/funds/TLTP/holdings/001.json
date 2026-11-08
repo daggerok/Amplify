@@ -17,45 +17,45 @@
    "Name": "iShares 20+ Year Treasury Bond ETF",
    "Ticker": "TLT",
    "Identifier": "464287432",
-   "Weight": "54.9",
-   "Market Value": "17062593.64",
-   "Shares Held": "209284",
+   "Weight": "55.25",
+   "Market Value": "18405130.24",
+   "Shares Held": "224672",
    "SEDOL": ""
   },
   {
    "Name": "United States Treasury Note/Bond 5.125% 08/15/2056",
    "Ticker": "-",
    "Identifier": "912810UW6",
-   "Weight": "44.38",
-   "Market Value": "13794075.48",
-   "Shares Held": "14183000",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Invesco Government & Agency Portfolio 12/31/2031",
-   "Ticker": "AGPXX",
-   "Identifier": "825252885",
-   "Weight": "1.11",
-   "Market Value": "344647.32",
-   "Shares Held": "344647.32",
+   "Weight": "44.33",
+   "Market Value": "14768007.19",
+   "Shares Held": "15073000",
    "SEDOL": ""
   },
   {
    "Name": "Cash & Other",
    "Ticker": "-",
    "Identifier": "Cash&Other",
-   "Weight": "-0.17",
-   "Market Value": "-52250.13",
-   "Shares Held": "-52250.13",
+   "Weight": "0.42",
+   "Market Value": "138896.25",
+   "Shares Held": "138896.25",
    "SEDOL": ""
   },
   {
-   "Name": "TLT 11/06/2026 82 C",
-   "Ticker": "2TLT 261106C00082000",
-   "Identifier": "2TLT 261106C00082000",
-   "Weight": "-0.23",
-   "Market Value": "-71060",
-   "Shares Held": "-2090",
+   "Name": "Invesco Government & Agency Portfolio 12/31/2031",
+   "Ticker": "AGPXX",
+   "Identifier": "825252885",
+   "Weight": "0.21",
+   "Market Value": "70329.41",
+   "Shares Held": "70329.41",
+   "SEDOL": ""
+  },
+  {
+   "Name": "TLT 11/13/2026 82.5 C",
+   "Ticker": "2TLT 261113C00082500",
+   "Identifier": "2TLT 261113C00082500",
+   "Weight": "-0.21",
+   "Market Value": "-71360",
+   "Shares Held": "-2230",
    "SEDOL": ""
   }
  ]

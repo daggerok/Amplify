@@ -36,45 +36,45 @@
   "net": 0.54
  },
  "nav": {
-  "display": "$23.04",
-  "value": 23.0436,
-  "asOfDate": "Oct 30 2026"
+  "display": "$23.19",
+  "value": 23.1894,
+  "asOfDate": "Nov 06 2026"
  },
  "marketPrice": {
-  "display": "$23.04",
-  "value": 23.04,
-  "asOfDate": "Oct 30 2026"
+  "display": "$23.20",
+  "value": 23.2002,
+  "asOfDate": "Nov 06 2026"
  },
  "premiumDiscount": {
-  "display": "-0.02%",
-  "value": -0.0156
+  "display": "0.05%",
+  "value": 0.0466
  },
  "aum": {
-  "display": "$4,147,854",
-  "value": 4147853.66,
-  "asOfDate": "Oct 30 2026",
+  "display": "$4,637,879",
+  "value": 4637879.3,
+  "asOfDate": "Nov 06 2026",
   "source": "Amplify Firestore daily net assets"
  },
  "yields": {
-  "dividendYield": 12.23,
-  "dividendYieldText": "12.23%",
+  "dividendYield": 12.12,
+  "dividendYieldText": "12.12%",
   "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields; a published 0.00% is an official zero)",
-  "secYield": 4.59,
-  "secYieldText": "4.59%",
+  "secYield": 4.55,
+  "secYieldText": "4.55%",
   "secYieldKind": "30-day SEC yield published by Amplify (Firestore yields)",
-  "unsubsidizedSecYield": 4.59
+  "unsubsidizedSecYield": 4.55
  },
  "returns": {
   "monthEnd": {
-   "asOfDate": "Sep 30 2026",
+   "asOfDate": "Oct 31 2026",
    "ytd": null,
    "yr1": null,
    "yr3": null,
    "yr5": null,
    "yr10": null,
    "sinceInception": null,
-   "mo1": -2.95,
-   "qtd": -4.09
+   "mo1": 2.23,
+   "qtd": 1.9
   },
   "quarterEnd": {
    "asOfDate": "Sep 30 2026",
@@ -129,8 +129,8 @@
   ],
   "pageSize": 250,
   "totalRows": 4,
-  "asOfDate": "2026-11-02",
-  "asOf": "Nov 02 2026",
+  "asOfDate": "2026-11-09",
+  "asOf": "Nov 09 2026",
   "source": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
   "status": "available"
  },
@@ -139,8 +139,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 135,
-  "asOf": "Oct 30 2026",
+  "totalRows": 140,
+  "asOf": "Nov 06 2026",
   "source": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)"
  }
 }

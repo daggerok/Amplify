@@ -2,7 +2,7 @@
  "ticker": "ETHO",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2752,
+ "totalRows": 2757,
  "headers": [
   "Date",
   "Close",
@@ -4521,6 +4521,36 @@
    "Close": "79.934998",
    "Adj Close": "79.93",
    "Volume": "5500"
+  },
+  {
+   "Date": "Nov 02 2026",
+   "Close": "80.380997",
+   "Adj Close": "80.38",
+   "Volume": "4000"
+  },
+  {
+   "Date": "Nov 03 2026",
+   "Close": "80.505997",
+   "Adj Close": "80.51",
+   "Volume": "10100"
+  },
+  {
+   "Date": "Nov 04 2026",
+   "Close": "81.549004",
+   "Adj Close": "81.55",
+   "Volume": "2400"
+  },
+  {
+   "Date": "Nov 05 2026",
+   "Close": "77.839996",
+   "Adj Close": "77.84",
+   "Volume": "8300"
+  },
+  {
+   "Date": "Nov 06 2026",
+   "Close": "77.727997",
+   "Adj Close": "77.73",
+   "Volume": "10700"
   }
  ]
 }

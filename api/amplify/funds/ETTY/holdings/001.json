@@ -2,7 +2,7 @@
  "ticker": "ETTY",
  "page": 1,
  "pageSize": 250,
- "totalRows": 7,
+ "totalRows": 6,
  "headers": [
   "Name",
   "Ticker",
@@ -17,8 +17,8 @@
    "Name": "United States Treasury Bill 11/17/2026",
    "Ticker": "-",
    "Identifier": "912797VX2",
-   "Weight": "39.36",
-   "Market Value": "998384.37",
+   "Weight": "44.13",
+   "Market Value": "999153.33",
    "Shares Held": "1000000",
    "SEDOL": ""
   },
@@ -26,54 +26,45 @@
    "Name": "iShares Ethereum Trust ETF",
    "Ticker": "ETHA",
    "Identifier": "46438R204",
-   "Weight": "26.74",
-   "Market Value": "678149",
-   "Shares Held": "13450",
+   "Weight": "24.34",
+   "Market Value": "551113.5",
+   "Shares Held": "10950",
    "SEDOL": ""
   },
   {
    "Name": "Cash & Other",
    "Ticker": "-",
    "Identifier": "Cash&Other",
-   "Weight": "23.48",
-   "Market Value": "595480.62",
-   "Shares Held": "595480.62",
+   "Weight": "23.72",
+   "Market Value": "537080.42",
+   "Shares Held": "537080.42",
    "SEDOL": ""
   },
   {
    "Name": "ETHA1 12/18/2026 15.75 C",
    "Ticker": "4ETHA1261218C00015750",
    "Identifier": "4ETHA1261218C00015750",
-   "Weight": "12.1",
-   "Market Value": "306972.55",
-   "Shares Held": "1555",
+   "Weight": "12.81",
+   "Market Value": "289943.61",
+   "Shares Held": "1441",
    "SEDOL": ""
   },
   {
-   "Name": "Invesco Government & Agency Portfolio 12/31/2031",
-   "Ticker": "AGPXX",
-   "Identifier": "825252885",
-   "Weight": "3.59",
-   "Market Value": "91109.68",
-   "Shares Held": "91109.68",
-   "SEDOL": ""
-  },
-  {
-   "Name": "ETHA 11/03/2026 56.08 C",
-   "Ticker": "4ETHA 261103C00056080",
-   "Identifier": "4ETHA 261103C00056080",
-   "Weight": "-0.25",
-   "Market Value": "-6423.2",
-   "Shares Held": "-518",
+   "Name": "ETHA 11/10/2026 54.63 C",
+   "Ticker": "4ETHA 261110C00054630",
+   "Identifier": "4ETHA 261110C00054630",
+   "Weight": "-0.26",
+   "Market Value": "-5894.4",
+   "Shares Held": "-480",
    "SEDOL": ""
   },
   {
    "Name": "ETHA1 12/18/2026 15.75 P",
    "Ticker": "4ETHA1261218P00015750",
    "Identifier": "4ETHA1261218P00015750",
-   "Weight": "-5.03",
-   "Market Value": "-127510",
-   "Shares Held": "-1555",
+   "Weight": "-4.74",
+   "Market Value": "-107296.86",
+   "Shares Held": "-1441",
    "SEDOL": ""
   }
  ]

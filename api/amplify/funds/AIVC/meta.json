@@ -36,28 +36,28 @@
   "net": 0.59
  },
  "nav": {
-  "display": "$102.03",
-  "value": 102.0286,
-  "asOfDate": "Oct 30 2026"
+  "display": "$89.82",
+  "value": 89.8233,
+  "asOfDate": "Nov 06 2026"
  },
  "marketPrice": {
-  "display": "$101.41",
-  "value": 101.4077,
-  "asOfDate": "Oct 30 2026"
+  "display": "$89.76",
+  "value": 89.7598,
+  "asOfDate": "Nov 06 2026"
  },
  "premiumDiscount": {
-  "display": "-0.61%",
-  "value": -0.6086
+  "display": "-0.07%",
+  "value": -0.0707
  },
  "aum": {
-  "display": "$122,434,352",
-  "value": 122434351.82,
-  "asOfDate": "Oct 30 2026",
+  "display": "$107,788,013",
+  "value": 107788012.81,
+  "asOfDate": "Nov 06 2026",
   "source": "Amplify Firestore daily net assets"
  },
  "yields": {
-  "dividendYield": 0.1,
-  "dividendYieldText": "0.10%",
+  "dividendYield": 0.11,
+  "dividendYieldText": "0.11%",
   "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields; a published 0.00% is an official zero)",
   "secYield": -0.03,
   "secYieldText": "-0.03%",
@@ -66,15 +66,15 @@
  },
  "returns": {
   "monthEnd": {
-   "asOfDate": "Sep 30 2026",
-   "ytd": 69.56,
-   "yr1": 81.51,
-   "yr3": 48.55,
-   "yr5": 17.49,
-   "yr10": 16.17,
-   "sinceInception": 16,
-   "mo1": 2.95,
-   "qtd": 3.34
+   "asOfDate": "Oct 31 2026",
+   "ytd": 50.4,
+   "yr1": 41.54,
+   "yr3": 45.5,
+   "yr5": 13.64,
+   "yr10": 15.37,
+   "sinceInception": 14.57,
+   "mo1": -11.3,
+   "qtd": -13.56
   },
   "quarterEnd": {
    "asOfDate": "Sep 30 2026",
@@ -173,8 +173,8 @@
   ],
   "pageSize": 250,
   "totalRows": 50,
-  "asOfDate": "2026-11-02",
-  "asOf": "Nov 02 2026",
+  "asOfDate": "2026-11-09",
+  "asOf": "Nov 09 2026",
   "source": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
   "status": "available"
  },
@@ -185,8 +185,8 @@
    "history/003.json"
   ],
   "pageSize": 1000,
-  "totalRows": 2678,
-  "asOf": "Oct 30 2026",
+  "totalRows": 2683,
+  "asOf": "Nov 06 2026",
   "source": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)"
  }
 }

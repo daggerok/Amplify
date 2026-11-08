@@ -17,8 +17,8 @@
    "Name": "United States Treasury Note/Bond 1.375% 11/15/2031",
    "Ticker": "-",
    "Identifier": "91282CDJ7",
-   "Weight": "8.87",
-   "Market Value": "3103716.83",
+   "Weight": "8.97",
+   "Market Value": "3115903.91",
    "Shares Held": "3649000",
    "SEDOL": ""
   },
@@ -26,8 +26,8 @@
    "Name": "United States Treasury Note/Bond 2.875% 05/15/2032",
    "Ticker": "-",
    "Identifier": "91282CEP2",
-   "Weight": "8.79",
-   "Market Value": "3078845",
+   "Weight": "8.91",
+   "Market Value": "3091880.87",
    "Shares Held": "3388000",
    "SEDOL": ""
   },
@@ -35,8 +35,8 @@
    "Name": "United States Treasury Note/Bond 3.375% 05/15/2033",
    "Ticker": "-",
    "Identifier": "91282CHC8",
-   "Weight": "8.76",
-   "Market Value": "3067987.44",
+   "Weight": "8.88",
+   "Market Value": "3082113.62",
    "Shares Held": "3333000",
    "SEDOL": ""
   },
@@ -44,8 +44,8 @@
    "Name": "United States Treasury Note/Bond 4% 11/15/2035",
    "Ticker": "-",
    "Identifier": "91282CPJ4",
-   "Weight": "8.74",
-   "Market Value": "3061178.81",
+   "Weight": "8.87",
+   "Market Value": "3078715.91",
    "Shares Held": "3277000",
    "SEDOL": ""
   },
@@ -53,8 +53,8 @@
    "Name": "United States Treasury Note/Bond 4.375% 05/15/2036",
    "Ticker": "-",
    "Identifier": "91282CQQ7",
-   "Weight": "8.73",
-   "Market Value": "3055287.28",
+   "Weight": "8.85",
+   "Market Value": "3072218.22",
    "Shares Held": "3187000",
    "SEDOL": ""
   },
@@ -62,8 +62,8 @@
    "Name": "United States Treasury Note/Bond 4.375% 05/15/2034",
    "Ticker": "-",
    "Identifier": "91282CKQ3",
-   "Weight": "8.72",
-   "Market Value": "3052984.19",
+   "Weight": "8.84",
+   "Market Value": "3068094.94",
    "Shares Held": "3145000",
    "SEDOL": ""
   },
@@ -71,35 +71,35 @@
    "Name": "United States Treasury Note/Bond 4.125% 11/15/2032",
    "Ticker": "-",
    "Identifier": "91282CFV8",
-   "Weight": "8.56",
-   "Market Value": "2998386.91",
+   "Weight": "8.67",
+   "Market Value": "3010819.05",
    "Shares Held": "3105000",
-   "SEDOL": ""
-  },
-  {
-   "Name": "United States Treasury Note/Bond 4.5% 11/15/2033",
-   "Ticker": "-",
-   "Identifier": "91282CJJ1",
-   "Weight": "8.54",
-   "Market Value": "2990373.75",
-   "Shares Held": "3048000",
    "SEDOL": ""
   },
   {
    "Name": "United States Treasury Note/Bond 4.25% 11/15/2034",
    "Ticker": "-",
    "Identifier": "91282CLW9",
-   "Weight": "8.53",
-   "Market Value": "2987007.19",
+   "Weight": "8.65",
+   "Market Value": "3002577.19",
    "Shares Held": "3114000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "United States Treasury Note/Bond 4.5% 11/15/2033",
+   "Ticker": "-",
+   "Identifier": "91282CJJ1",
+   "Weight": "8.65",
+   "Market Value": "3003589.7",
+   "Shares Held": "3048000",
    "SEDOL": ""
   },
   {
    "Name": "United States Treasury Note/Bond 4.25% 05/15/2035",
    "Ticker": "-",
    "Identifier": "91282CNC1",
-   "Weight": "8.52",
-   "Market Value": "2983705.14",
+   "Weight": "8.64",
+   "Market Value": "2999924.93",
    "Shares Held": "3122000",
    "SEDOL": ""
   },
@@ -107,8 +107,8 @@
    "Name": "EFA 12/18/2026 88.01 C",
    "Ticker": "2EFA 261218C00088010",
    "Identifier": "2EFA 261218C00088010",
-   "Weight": "7.1",
-   "Market Value": "2486883.96",
+   "Weight": "6.18",
+   "Market Value": "2144461.4",
    "Shares Held": "1543",
    "SEDOL": ""
   },
@@ -116,8 +116,8 @@
    "Name": "EFA 06/17/2027 98.01 C",
    "Ticker": "2EFA 270617C00098010",
    "Identifier": "2EFA 270617C00098010",
-   "Weight": "4.34",
-   "Market Value": "1521072.54",
+   "Weight": "4.04",
+   "Market Value": "1404001.17",
    "Shares Held": "1677",
    "SEDOL": ""
   },
@@ -125,18 +125,18 @@
    "Name": "Cash & Other",
    "Ticker": "-",
    "Identifier": "Cash&Other",
-   "Weight": "1.55",
-   "Market Value": "541926.67",
-   "Shares Held": "541926.67",
+   "Weight": "1.67",
+   "Market Value": "578786.73",
+   "Shares Held": "578786.73",
    "SEDOL": ""
   },
   {
    "Name": "Invesco Government & Agency Portfolio 12/31/2031",
    "Ticker": "AGPXX",
    "Identifier": "825252885",
-   "Weight": "0.24",
-   "Market Value": "82348.54",
-   "Shares Held": "82348.54",
+   "Weight": "0.2",
+   "Market Value": "68350.24",
+   "Shares Held": "68350.24",
    "SEDOL": ""
   }
  ]

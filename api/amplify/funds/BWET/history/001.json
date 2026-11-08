@@ -2,7 +2,7 @@
  "ticker": "BWET",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 878,
+ "totalRows": 883,
  "headers": [
   "Date",
   "Close",
@@ -5277,6 +5277,36 @@
    "Close": "968.919983",
    "Adj Close": "968.92",
    "Volume": "60100"
+  },
+  {
+   "Date": "Nov 02 2026",
+   "Close": "912.599976",
+   "Adj Close": "912.6",
+   "Volume": "84300"
+  },
+  {
+   "Date": "Nov 03 2026",
+   "Close": "835",
+   "Adj Close": "835",
+   "Volume": "61500"
+  },
+  {
+   "Date": "Nov 04 2026",
+   "Close": "691.601013",
+   "Adj Close": "691.6",
+   "Volume": "159500"
+  },
+  {
+   "Date": "Nov 05 2026",
+   "Close": "669.890015",
+   "Adj Close": "669.89",
+   "Volume": "82600"
+  },
+  {
+   "Date": "Nov 06 2026",
+   "Close": "676.5",
+   "Adj Close": "676.5",
+   "Volume": "40100"
   }
  ]
 }

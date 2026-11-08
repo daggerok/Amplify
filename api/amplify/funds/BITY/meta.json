@@ -36,45 +36,45 @@
   "net": 0.65
  },
  "nav": {
-  "display": "$24.23",
-  "value": 24.2345,
-  "asOfDate": "Oct 30 2026"
+  "display": "$24.50",
+  "value": 24.4987,
+  "asOfDate": "Nov 06 2026"
  },
  "marketPrice": {
-  "display": "$24.78",
-  "value": 24.78,
-  "asOfDate": "Oct 30 2026"
+  "display": "$24.51",
+  "value": 24.514,
+  "asOfDate": "Nov 06 2026"
  },
  "premiumDiscount": {
-  "display": "2.25%",
-  "value": 2.2509
+  "display": "0.06%",
+  "value": 0.0625
  },
  "aum": {
-  "display": "$11,632,565",
-  "value": 11632565.21,
-  "asOfDate": "Oct 30 2026",
+  "display": "$11,759,367",
+  "value": 11759366.76,
+  "asOfDate": "Nov 06 2026",
   "source": "Amplify Firestore daily net assets"
  },
  "yields": {
-  "dividendYield": 24.61,
-  "dividendYieldText": "24.61%",
+  "dividendYield": 26.51,
+  "dividendYieldText": "26.51%",
   "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields; a published 0.00% is an official zero)",
-  "secYield": 1.12,
-  "secYieldText": "1.12%",
+  "secYield": 1.41,
+  "secYieldText": "1.41%",
   "secYieldKind": "30-day SEC yield published by Amplify (Firestore yields)",
-  "unsubsidizedSecYield": 1.12
+  "unsubsidizedSecYield": 1.41
  },
  "returns": {
   "monthEnd": {
-   "asOfDate": "Sep 30 2026",
-   "ytd": -14.65,
-   "yr1": -36.16,
+   "asOfDate": "Oct 31 2026",
+   "ytd": -23.74,
+   "yr1": -38.43,
    "yr3": null,
    "yr5": null,
    "yr10": null,
-   "sinceInception": -15.48,
-   "mo1": 0.82,
-   "qtd": 20.32
+   "sinceInception": -20.81,
+   "mo1": -10.65,
+   "qtd": -9.89
   },
   "quarterEnd": {
    "asOfDate": "Sep 30 2026",
@@ -176,9 +176,9 @@
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 7,
-  "asOfDate": "2026-11-02",
-  "asOf": "Nov 02 2026",
+  "totalRows": 6,
+  "asOfDate": "2026-11-09",
+  "asOf": "Nov 09 2026",
   "source": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
   "status": "available"
  },
@@ -187,8 +187,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 378,
-  "asOf": "Oct 30 2026",
+  "totalRows": 383,
+  "asOf": "Nov 06 2026",
   "source": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)"
  }
 }

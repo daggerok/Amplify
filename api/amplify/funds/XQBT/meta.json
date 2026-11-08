@@ -36,45 +36,45 @@
   "net": 0.49
  },
  "nav": {
-  "display": "$20.00",
-  "value": 19.9972,
-  "asOfDate": "Oct 30 2026"
+  "display": "$19.91",
+  "value": 19.9071,
+  "asOfDate": "Nov 06 2026"
  },
  "marketPrice": {
-  "display": "$19.98",
-  "value": 19.9837,
-  "asOfDate": "Oct 30 2026"
+  "display": "$19.93",
+  "value": 19.9303,
+  "asOfDate": "Nov 06 2026"
  },
  "premiumDiscount": {
-  "display": "-0.07%",
-  "value": -0.0675
+  "display": "0.12%",
+  "value": 0.1165
  },
  "aum": {
-  "display": "$1,599,780",
-  "value": 1599779.84,
-  "asOfDate": "Oct 30 2026",
+  "display": "$1,592,565",
+  "value": 1592565.47,
+  "asOfDate": "Nov 06 2026",
   "source": "Amplify Firestore daily net assets"
  },
  "yields": {
   "dividendYield": 0,
   "dividendYieldText": "0.00%",
   "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields; a published 0.00% is an official zero)",
-  "secYield": 0.45,
-  "secYieldText": "0.45%",
+  "secYield": 0.4,
+  "secYieldText": "0.40%",
   "secYieldKind": "30-day SEC yield published by Amplify (Firestore yields)",
-  "unsubsidizedSecYield": 0.45
+  "unsubsidizedSecYield": 0.4
  },
  "returns": {
   "monthEnd": {
-   "asOfDate": "Sep 30 2026",
+   "asOfDate": "Oct 31 2026",
    "ytd": null,
    "yr1": null,
    "yr3": null,
    "yr5": null,
    "yr10": null,
    "sinceInception": null,
-   "mo1": 2.86,
-   "qtd": null
+   "mo1": -17.53,
+   "qtd": -17.78
   },
   "quarterEnd": {
    "asOfDate": "Sep 30 2026",
@@ -104,8 +104,8 @@
   ],
   "pageSize": 250,
   "totalRows": 20,
-  "asOfDate": "2026-11-02",
-  "asOf": "Nov 02 2026",
+  "asOfDate": "2026-11-09",
+  "asOf": "Nov 09 2026",
   "source": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
   "status": "available"
  },
@@ -114,8 +114,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 52,
-  "asOf": "Oct 30 2026",
+  "totalRows": 57,
+  "asOf": "Nov 06 2026",
   "source": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)"
  }
 }

@@ -2,7 +2,7 @@
  "ticker": "YYYM",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 164,
+ "totalRows": 169,
  "headers": [
   "Date",
   "Close",
@@ -993,6 +993,36 @@
    "Close": "18.120001",
    "Adj Close": "18.12",
    "Volume": "100"
+  },
+  {
+   "Date": "Nov 02 2026",
+   "Close": "18.02",
+   "Adj Close": "18.02",
+   "Volume": "1200"
+  },
+  {
+   "Date": "Nov 03 2026",
+   "Close": "18",
+   "Adj Close": "18",
+   "Volume": "1600"
+  },
+  {
+   "Date": "Nov 04 2026",
+   "Close": "18.190001",
+   "Adj Close": "18.19",
+   "Volume": "400"
+  },
+  {
+   "Date": "Nov 05 2026",
+   "Close": "18.030001",
+   "Adj Close": "18.03",
+   "Volume": "100"
+  },
+  {
+   "Date": "Nov 06 2026",
+   "Close": "18.33",
+   "Adj Close": "18.33",
+   "Volume": "200"
   }
  ]
 }

@@ -36,45 +36,45 @@
   "net": 0.69
  },
  "nav": {
-  "display": "$22.91",
-  "value": 22.91,
-  "asOfDate": "Oct 30 2026"
+  "display": "$22.30",
+  "value": 22.2959,
+  "asOfDate": "Nov 06 2026"
  },
  "marketPrice": {
-  "display": "$23.02",
-  "value": 23.0221,
-  "asOfDate": "Oct 30 2026"
+  "display": "$22.42",
+  "value": 22.417,
+  "asOfDate": "Nov 06 2026"
  },
  "premiumDiscount": {
-  "display": "0.49%",
-  "value": 0.4893
+  "display": "0.54%",
+  "value": 0.5431
  },
  "aum": {
-  "display": "$1,145,498",
-  "value": 1145497.59,
-  "asOfDate": "Oct 30 2026",
+  "display": "$1,114,795",
+  "value": 1114795.12,
+  "asOfDate": "Nov 06 2026",
   "source": "Amplify Firestore daily net assets"
  },
  "yields": {
   "dividendYield": 0,
   "dividendYieldText": "0.00%",
   "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields; a published 0.00% is an official zero)",
-  "secYield": 0.49,
-  "secYieldText": "0.49%",
+  "secYield": 0.43,
+  "secYieldText": "0.43%",
   "secYieldKind": "30-day SEC yield published by Amplify (Firestore yields)",
-  "unsubsidizedSecYield": 0.49
+  "unsubsidizedSecYield": 0.43
  },
  "returns": {
   "monthEnd": {
-   "asOfDate": "Sep 30 2026",
-   "ytd": 3.95,
+   "asOfDate": "Oct 31 2026",
+   "ytd": -8.22,
    "yr1": null,
    "yr3": null,
    "yr5": null,
    "yr10": null,
    "sinceInception": null,
-   "mo1": 2.01,
-   "qtd": 18.29
+   "mo1": -11.71,
+   "qtd": -11.36
   },
   "quarterEnd": {
    "asOfDate": "Sep 30 2026",
@@ -104,8 +104,8 @@
   ],
   "pageSize": 250,
   "totalRows": 66,
-  "asOfDate": "2026-11-02",
-  "asOf": "Nov 02 2026",
+  "asOfDate": "2026-11-09",
+  "asOf": "Nov 09 2026",
   "source": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
   "status": "available"
  },
@@ -114,8 +114,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 215,
-  "asOf": "Oct 30 2026",
+  "totalRows": 220,
+  "asOf": "Nov 06 2026",
   "source": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)"
  }
 }

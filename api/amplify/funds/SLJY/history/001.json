@@ -2,7 +2,7 @@
  "ticker": "SLJY",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 303,
+ "totalRows": 308,
  "headers": [
   "Date",
   "Close",
@@ -1827,6 +1827,36 @@
    "Close": "23.049999",
    "Adj Close": "23.05",
    "Volume": "82400"
+  },
+  {
+   "Date": "Nov 02 2026",
+   "Close": "23.32",
+   "Adj Close": "23.32",
+   "Volume": "41600"
+  },
+  {
+   "Date": "Nov 03 2026",
+   "Close": "22.98",
+   "Adj Close": "22.98",
+   "Volume": "45700"
+  },
+  {
+   "Date": "Nov 04 2026",
+   "Close": "24.639999",
+   "Adj Close": "24.64",
+   "Volume": "58400"
+  },
+  {
+   "Date": "Nov 05 2026",
+   "Close": "24.51",
+   "Adj Close": "24.51",
+   "Volume": "32700"
+  },
+  {
+   "Date": "Nov 06 2026",
+   "Close": "25.201",
+   "Adj Close": "25.2",
+   "Volume": "19600"
   }
  ]
 }

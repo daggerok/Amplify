@@ -36,28 +36,28 @@
   "net": 0.75
  },
  "nav": {
-  "display": "$49.12",
-  "value": 49.1169,
-  "asOfDate": "Oct 30 2026"
+  "display": "$50.54",
+  "value": 50.5357,
+  "asOfDate": "Nov 06 2026"
  },
  "marketPrice": {
-  "display": "$49.09",
-  "value": 49.09,
-  "asOfDate": "Oct 30 2026"
+  "display": "$50.39",
+  "value": 50.39,
+  "asOfDate": "Nov 06 2026"
  },
  "premiumDiscount": {
-  "display": "-0.05%",
-  "value": -0.0548
+  "display": "-0.29%",
+  "value": -0.2883
  },
  "aum": {
-  "display": "$147,350,623",
-  "value": 147350623.32,
-  "asOfDate": "Oct 30 2026",
+  "display": "$151,607,045",
+  "value": 151607044.59,
+  "asOfDate": "Nov 06 2026",
   "source": "Amplify Firestore daily net assets"
  },
  "yields": {
-  "dividendYield": 0.88,
-  "dividendYieldText": "0.88%",
+  "dividendYield": 0.84,
+  "dividendYieldText": "0.84%",
   "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields; a published 0.00% is an official zero)",
   "secYield": 0.26,
   "secYieldText": "0.26%",
@@ -66,15 +66,15 @@
  },
  "returns": {
   "monthEnd": {
-   "asOfDate": "Sep 30 2026",
-   "ytd": -10.65,
-   "yr1": -18.13,
-   "yr3": 6.4,
-   "yr5": -6.97,
-   "yr10": 6.68,
-   "sinceInception": 5.96,
-   "mo1": -9.47,
-   "qtd": -2.59
+   "asOfDate": "Oct 31 2026",
+   "ytd": -5.59,
+   "yr1": -8.94,
+   "yr3": 11.55,
+   "yr5": -5.18,
+   "yr10": 7.35,
+   "sinceInception": 6.43,
+   "mo1": 5.66,
+   "qtd": 5.55
   },
   "quarterEnd": {
    "asOfDate": "Sep 30 2026",
@@ -145,8 +145,8 @@
   ],
   "pageSize": 250,
   "totalRows": 43,
-  "asOfDate": "2026-11-02",
-  "asOf": "Nov 02 2026",
+  "asOfDate": "2026-11-09",
+  "asOf": "Nov 09 2026",
   "source": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
   "status": "available"
  },
@@ -157,8 +157,8 @@
    "history/003.json"
   ],
   "pageSize": 1000,
-  "totalRows": 2841,
-  "asOf": "Oct 30 2026",
+  "totalRows": 2846,
+  "asOf": "Nov 06 2026",
   "source": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)"
  }
 }

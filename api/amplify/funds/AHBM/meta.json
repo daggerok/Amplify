@@ -36,45 +36,45 @@
   "net": 0.59
  },
  "nav": {
-  "display": "$21.15",
-  "value": 21.1518,
-  "asOfDate": "Oct 30 2026"
+  "display": "$17.08",
+  "value": 17.0829,
+  "asOfDate": "Nov 06 2026"
  },
  "marketPrice": {
-  "display": "$20.65",
-  "value": 20.651,
-  "asOfDate": "Oct 30 2026"
+  "display": "$17.26",
+  "value": 17.2582,
+  "asOfDate": "Nov 06 2026"
  },
  "premiumDiscount": {
-  "display": "-2.37%",
-  "value": -2.3676
+  "display": "1.03%",
+  "value": 1.0262
  },
  "aum": {
-  "display": "$6,557,071",
-  "value": 6557070.55,
-  "asOfDate": "Oct 30 2026",
+  "display": "$5,295,712",
+  "value": 5295712.44,
+  "asOfDate": "Nov 06 2026",
   "source": "Amplify Firestore daily net assets"
  },
  "yields": {
   "dividendYield": 0,
   "dividendYieldText": "0.00%",
   "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields; a published 0.00% is an official zero)",
-  "secYield": 0.13,
-  "secYieldText": "0.13%",
+  "secYield": 0.2,
+  "secYieldText": "0.20%",
   "secYieldKind": "30-day SEC yield published by Amplify (Firestore yields)",
-  "unsubsidizedSecYield": 0.13
+  "unsubsidizedSecYield": 0.2
  },
  "returns": {
   "monthEnd": {
-   "asOfDate": "Sep 30 2026",
+   "asOfDate": "Oct 31 2026",
    "ytd": null,
    "yr1": null,
    "yr3": null,
    "yr5": null,
    "yr10": null,
    "sinceInception": null,
-   "mo1": 3.93,
-   "qtd": null
+   "mo1": -17.73,
+   "qtd": -21.75
   },
   "quarterEnd": {
    "asOfDate": "Sep 30 2026",
@@ -103,9 +103,9 @@
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 22,
-  "asOfDate": "2026-11-02",
-  "asOf": "Nov 02 2026",
+  "totalRows": 21,
+  "asOfDate": "2026-11-09",
+  "asOf": "Nov 09 2026",
   "source": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
   "status": "available"
  },
@@ -114,8 +114,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 52,
-  "asOf": "Oct 30 2026",
+  "totalRows": 57,
+  "asOf": "Nov 06 2026",
   "source": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)"
  }
 }

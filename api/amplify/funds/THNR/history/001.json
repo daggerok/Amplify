@@ -2,7 +2,7 @@
  "ticker": "THNR",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 614,
+ "totalRows": 619,
  "headers": [
   "Date",
   "Close",
@@ -3693,6 +3693,36 @@
    "Close": "25.945999",
    "Adj Close": "25.95",
    "Volume": "1100"
+  },
+  {
+   "Date": "Nov 02 2026",
+   "Close": "25.922001",
+   "Adj Close": "25.92",
+   "Volume": "200"
+  },
+  {
+   "Date": "Nov 03 2026",
+   "Close": "25.646",
+   "Adj Close": "25.65",
+   "Volume": "200"
+  },
+  {
+   "Date": "Nov 04 2026",
+   "Close": "26.464001",
+   "Adj Close": "26.46",
+   "Volume": "3200"
+  },
+  {
+   "Date": "Nov 05 2026",
+   "Close": "25.742001",
+   "Adj Close": "25.74",
+   "Volume": "400"
+  },
+  {
+   "Date": "Nov 06 2026",
+   "Close": "25.915001",
+   "Adj Close": "25.92",
+   "Volume": "1500"
   }
  ]
 }

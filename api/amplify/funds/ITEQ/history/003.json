@@ -2,7 +2,7 @@
  "ticker": "ITEQ",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2764,
+ "totalRows": 2769,
  "headers": [
   "Date",
   "Close",
@@ -4593,6 +4593,36 @@
    "Close": "58.917",
    "Adj Close": "58.92",
    "Volume": "900"
+  },
+  {
+   "Date": "Nov 02 2026",
+   "Close": "57.268002",
+   "Adj Close": "57.27",
+   "Volume": "1100"
+  },
+  {
+   "Date": "Nov 03 2026",
+   "Close": "57.518002",
+   "Adj Close": "57.52",
+   "Volume": "2700"
+  },
+  {
+   "Date": "Nov 04 2026",
+   "Close": "56.43",
+   "Adj Close": "56.43",
+   "Volume": "4900"
+  },
+  {
+   "Date": "Nov 05 2026",
+   "Close": "52.619999",
+   "Adj Close": "52.62",
+   "Volume": "12700"
+  },
+  {
+   "Date": "Nov 06 2026",
+   "Close": "54.262001",
+   "Adj Close": "54.26",
+   "Volume": "4000"
   }
  ]
 }

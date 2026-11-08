@@ -36,45 +36,45 @@
   "net": 2.78
  },
  "nav": {
-  "display": "$18.13",
-  "value": 18.1331,
-  "asOfDate": "Oct 30 2026"
+  "display": "$18.34",
+  "value": 18.3363,
+  "asOfDate": "Nov 06 2026"
  },
  "marketPrice": {
-  "display": "$18.12",
-  "value": 18.1172,
-  "asOfDate": "Oct 30 2026"
+  "display": "$18.33",
+  "value": 18.3298,
+  "asOfDate": "Nov 06 2026"
  },
  "premiumDiscount": {
-  "display": "-0.09%",
-  "value": -0.0877
+  "display": "-0.04%",
+  "value": -0.0354
  },
  "aum": {
-  "display": "$1,631,981",
-  "value": 1631981.44,
-  "asOfDate": "Oct 30 2026",
+  "display": "$1,650,268",
+  "value": 1650267.86,
+  "asOfDate": "Nov 06 2026",
   "source": "Amplify Firestore daily net assets"
  },
  "yields": {
-  "dividendYield": 7.17,
-  "dividendYieldText": "7.17%",
+  "dividendYield": 6.95,
+  "dividendYieldText": "6.95%",
   "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields; a published 0.00% is an official zero)",
-  "secYield": 7.93,
-  "secYieldText": "7.93%",
+  "secYield": 7.22,
+  "secYieldText": "7.22%",
   "secYieldKind": "30-day SEC yield published by Amplify (Firestore yields)",
-  "unsubsidizedSecYield": 7.93
+  "unsubsidizedSecYield": 7.22
  },
  "returns": {
   "monthEnd": {
-   "asOfDate": "Sep 30 2026",
+   "asOfDate": "Oct 31 2026",
    "ytd": null,
    "yr1": null,
    "yr3": null,
    "yr5": null,
    "yr10": null,
    "sinceInception": null,
-   "mo1": -10.87,
-   "qtd": -13.32
+   "mo1": 6.13,
+   "qtd": 5.66
   },
   "quarterEnd": {
    "asOfDate": "Sep 30 2026",
@@ -133,8 +133,8 @@
   ],
   "pageSize": 250,
   "totalRows": 32,
-  "asOfDate": "2026-11-02",
-  "asOf": "Nov 02 2026",
+  "asOfDate": "2026-11-09",
+  "asOf": "Nov 09 2026",
   "source": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
   "status": "available"
  },
@@ -143,8 +143,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 164,
-  "asOf": "Oct 30 2026",
+  "totalRows": 169,
+  "asOf": "Nov 06 2026",
   "source": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)"
  }
 }

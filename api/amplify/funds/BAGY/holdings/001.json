@@ -2,7 +2,7 @@
  "ticker": "BAGY",
  "page": 1,
  "pageSize": 250,
- "totalRows": 6,
+ "totalRows": 5,
  "headers": [
   "Name",
   "Ticker",
@@ -17,44 +17,35 @@
    "Name": "Invesco Government & Agency Portfolio 12/31/2031",
    "Ticker": "AGPXX",
    "Identifier": "825252885",
-   "Weight": "52.26",
-   "Market Value": "4732072.32",
-   "Shares Held": "4732072.32",
-   "SEDOL": ""
-  },
-  {
-   "Name": "United States Treasury Bill 11/05/2026",
-   "Ticker": "-",
-   "Identifier": "912797UM7",
-   "Weight": "22.08",
-   "Market Value": "1999353.92",
-   "Shares Held": "2000000",
+   "Weight": "76.41",
+   "Market Value": "7059836",
+   "Shares Held": "7059836",
    "SEDOL": ""
   },
   {
    "Name": "Cash & Other",
    "Ticker": "-",
    "Identifier": "Cash&Other",
-   "Weight": "19.97",
-   "Market Value": "1808728.17",
-   "Shares Held": "1808728.17",
+   "Weight": "16.78",
+   "Market Value": "1550090.09",
+   "Shares Held": "1550090.09",
    "SEDOL": ""
   },
   {
    "Name": "MBTX 12/18/2026 169.25 C",
    "Ticker": "4MBTX 261218C00169250",
    "Identifier": "4MBTX 261218C00169250",
-   "Weight": "12.75",
-   "Market Value": "1154368.75",
+   "Weight": "10.58",
+   "Market Value": "977962.5",
    "Shares Held": "625",
    "SEDOL": ""
   },
   {
-   "Name": "MBTX 11/03/2026 199.28 C",
-   "Ticker": "4MBTX 261103C00199280",
-   "Identifier": "4MBTX 261103C00199280",
-   "Weight": "-3.11",
-   "Market Value": "-281893.75",
+   "Name": "MBTX 11/10/2026 192.04 C",
+   "Ticker": "4MBTX 261110C00192040",
+   "Identifier": "4MBTX 261110C00192040",
+   "Weight": "-0.16",
+   "Market Value": "-15237.5",
    "Shares Held": "-625",
    "SEDOL": ""
   },
@@ -62,8 +53,8 @@
    "Name": "MBTX 12/18/2026 169.25 P",
    "Ticker": "4MBTX 261218P00169250",
    "Identifier": "4MBTX 261218P00169250",
-   "Weight": "-3.94",
-   "Market Value": "-356825",
+   "Weight": "-3.6",
+   "Market Value": "-332312.5",
    "Shares Held": "-625",
    "SEDOL": ""
   }

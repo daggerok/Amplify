@@ -36,45 +36,45 @@
   "net": 0.39
  },
  "nav": {
-  "display": "$26.27",
-  "value": 26.27,
-  "asOfDate": "Oct 30 2026"
+  "display": "$26.52",
+  "value": 26.5194,
+  "asOfDate": "Nov 06 2026"
  },
  "marketPrice": {
-  "display": "$26.26",
-  "value": 26.26,
-  "asOfDate": "Oct 30 2026"
+  "display": "$26.53",
+  "value": 26.529,
+  "asOfDate": "Nov 06 2026"
  },
  "premiumDiscount": {
-  "display": "-0.04%",
-  "value": -0.0381
+  "display": "0.04%",
+  "value": 0.0362
  },
  "aum": {
-  "display": "$1,050,799",
-  "value": 1050799.21,
-  "asOfDate": "Oct 30 2026",
+  "display": "$795,583",
+  "value": 795583.43,
+  "asOfDate": "Nov 06 2026",
   "source": "Amplify Firestore daily net assets"
  },
  "yields": {
-  "dividendYield": 4.76,
-  "dividendYieldText": "4.76%",
+  "dividendYield": 2.35,
+  "dividendYieldText": "2.35%",
   "dividendYieldKind": "trailing distribution yield published by Amplify (Firestore yields; a published 0.00% is an official zero)",
-  "secYield": 2.99,
-  "secYieldText": "2.99%",
+  "secYield": 2.68,
+  "secYieldText": "2.68%",
   "secYieldKind": "30-day SEC yield published by Amplify (Firestore yields)",
-  "unsubsidizedSecYield": 2.99
+  "unsubsidizedSecYield": 2.68
  },
  "returns": {
   "monthEnd": {
-   "asOfDate": "Sep 30 2026",
+   "asOfDate": "Oct 31 2026",
    "ytd": null,
    "yr1": null,
    "yr3": null,
    "yr5": null,
    "yr10": null,
    "sinceInception": null,
-   "mo1": -6.59,
-   "qtd": null
+   "mo1": 10.62,
+   "qtd": 9.28
   },
   "quarterEnd": {
    "asOfDate": "Sep 30 2026",
@@ -120,9 +120,9 @@
    "holdings/001.json"
   ],
   "pageSize": 250,
-  "totalRows": 49,
-  "asOfDate": "2026-11-02",
-  "asOf": "Nov 02 2026",
+  "totalRows": 50,
+  "asOfDate": "2026-11-09",
+  "asOf": "Nov 09 2026",
   "source": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
   "status": "available"
  },
@@ -131,8 +131,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 81,
-  "asOf": "Oct 30 2026",
+  "totalRows": 86,
+  "asOf": "Nov 06 2026",
   "source": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)"
  }
 }
