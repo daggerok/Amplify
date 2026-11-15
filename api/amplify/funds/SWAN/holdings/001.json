@@ -17,17 +17,26 @@
    "Name": "United States Treasury Note/Bond 1.375% 11/15/2031",
    "Ticker": "-",
    "Identifier": "91282CDJ7",
-   "Weight": "9",
-   "Market Value": "13345700.78",
+   "Weight": "8.85",
+   "Market Value": "13148506.72",
    "Shares Held": "15629000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "United States Treasury Note/Bond 2.875% 05/15/2032",
+   "Ticker": "-",
+   "Identifier": "91282CEP2",
+   "Weight": "8.77",
+   "Market Value": "13037985.39",
+   "Shares Held": "14515000",
    "SEDOL": ""
   },
   {
    "Name": "United States Treasury Note/Bond 4% 11/15/2035",
    "Ticker": "-",
    "Identifier": "91282CPJ4",
-   "Weight": "8.95",
-   "Market Value": "13278782.61",
+   "Weight": "8.74",
+   "Market Value": "12989201.26",
    "Shares Held": "14134000",
    "SEDOL": ""
   },
@@ -35,26 +44,17 @@
    "Name": "United States Treasury Note/Bond 4.375% 05/15/2036",
    "Ticker": "-",
    "Identifier": "91282CQQ7",
-   "Weight": "8.94",
-   "Market Value": "13256713.19",
+   "Weight": "8.73",
+   "Market Value": "12966631.81",
    "Shares Held": "13752000",
-   "SEDOL": ""
-  },
-  {
-   "Name": "United States Treasury Note/Bond 2.875% 05/15/2032",
-   "Ticker": "-",
-   "Identifier": "91282CEP2",
-   "Weight": "8.93",
-   "Market Value": "13246355.03",
-   "Shares Held": "14515000",
    "SEDOL": ""
   },
   {
    "Name": "United States Treasury Note/Bond 3.375% 05/15/2033",
    "Ticker": "-",
    "Identifier": "91282CHC8",
-   "Weight": "8.9",
-   "Market Value": "13195848.01",
+   "Weight": "8.72",
+   "Market Value": "12960616.05",
    "Shares Held": "14270000",
    "SEDOL": ""
   },
@@ -62,35 +62,35 @@
    "Name": "United States Treasury Note/Bond 4.125% 11/15/2032",
    "Ticker": "-",
    "Identifier": "91282CFV8",
-   "Weight": "8.88",
-   "Market Value": "13169060.7",
+   "Weight": "8.72",
+   "Market Value": "12950756.72",
    "Shares Held": "13581000",
-   "SEDOL": ""
-  },
-  {
-   "Name": "United States Treasury Note/Bond 4.375% 05/15/2034",
-   "Ticker": "-",
-   "Identifier": "91282CKQ3",
-   "Weight": "8.86",
-   "Market Value": "13136714.29",
-   "Shares Held": "13466000",
    "SEDOL": ""
   },
   {
    "Name": "United States Treasury Note/Bond 4.5% 11/15/2033",
    "Ticker": "-",
    "Identifier": "91282CJJ1",
-   "Weight": "8.86",
-   "Market Value": "13135777.77",
+   "Weight": "8.68",
+   "Market Value": "12895994",
    "Shares Held": "13330000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "United States Treasury Note/Bond 4.375% 05/15/2034",
+   "Ticker": "-",
+   "Identifier": "91282CKQ3",
+   "Weight": "8.67",
+   "Market Value": "12883963.66",
+   "Shares Held": "13466000",
    "SEDOL": ""
   },
   {
    "Name": "United States Treasury Note/Bond 4.25% 11/15/2034",
    "Ticker": "-",
    "Identifier": "91282CLW9",
-   "Weight": "8.85",
-   "Market Value": "13126874.06",
+   "Weight": "8.66",
+   "Market Value": "12862836.93",
    "Shares Held": "13614000",
    "SEDOL": ""
   },
@@ -98,8 +98,8 @@
    "Name": "United States Treasury Note/Bond 4.25% 05/15/2035",
    "Ticker": "-",
    "Identifier": "91282CNC1",
-   "Weight": "8.84",
-   "Market Value": "13117224.6",
+   "Weight": "8.64",
+   "Market Value": "12844471.21",
    "Shares Held": "13651000",
    "SEDOL": ""
   },
@@ -107,8 +107,8 @@
    "Name": "SPY 12/18/2026 645.01 C",
    "Ticker": "2SPY 261218C00645010",
    "Identifier": "2SPY 261218C00645010",
-   "Weight": "5.39",
-   "Market Value": "7992600",
+   "Weight": "6.39",
+   "Market Value": "9490731.6",
    "Shares Held": "840",
    "SEDOL": ""
   },
@@ -116,8 +116,8 @@
    "Name": "SPY 06/17/2027 720.01 C",
    "Ticker": "2SPY 270617C00720010",
    "Identifier": "2SPY 270617C00720010",
-   "Weight": "3.78",
-   "Market Value": "5599841",
+   "Weight": "4.54",
+   "Market Value": "6752049.59",
    "Shares Held": "923",
    "SEDOL": ""
   },
@@ -125,18 +125,18 @@
    "Name": "Cash & Other",
    "Ticker": "-",
    "Identifier": "Cash&Other",
-   "Weight": "1.64",
-   "Market Value": "2436278.03",
-   "Shares Held": "2436278.03",
+   "Weight": "1.75",
+   "Market Value": "2593393",
+   "Shares Held": "2593393",
    "SEDOL": ""
   },
   {
    "Name": "Invesco Government & Agency Portfolio 12/31/2031",
    "Ticker": "AGPXX",
    "Identifier": "825252885",
-   "Weight": "0.21",
-   "Market Value": "306502.04",
-   "Shares Held": "306502.04",
+   "Weight": "0.16",
+   "Market Value": "234392.5",
+   "Shares Held": "234392.5",
    "SEDOL": ""
   }
  ]

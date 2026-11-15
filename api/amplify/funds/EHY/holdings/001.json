@@ -17,17 +17,17 @@
    "Name": "Cash & Other",
    "Ticker": "-",
    "Identifier": "Cash&Other",
-   "Weight": "52.36",
-   "Market Value": "2331187.4",
-   "Shares Held": "2331187.4",
+   "Weight": "65.45",
+   "Market Value": "2379799.51",
+   "Shares Held": "2379799.51",
    "SEDOL": ""
   },
   {
    "Name": "United States Treasury Bill 11/27/2026",
    "Ticker": "-",
    "Identifier": "912797SU2",
-   "Weight": "19.06",
-   "Market Value": "848368",
+   "Weight": "23.35",
+   "Market Value": "848998.77",
    "Shares Held": "850000",
    "SEDOL": ""
   },
@@ -35,7 +35,7 @@
    "Name": "Invesco Government & Agency Portfolio 12/31/2031",
    "Ticker": "AGPXX",
    "Identifier": "825252885",
-   "Weight": "18.16",
+   "Weight": "22.23",
    "Market Value": "808388.35",
    "Shares Held": "808388.35",
    "SEDOL": ""
@@ -44,35 +44,35 @@
    "Name": "ETHA1 12/18/2026 15.75 C",
    "Ticker": "4ETHA1261218C00015750",
    "Identifier": "4ETHA1261218C00015750",
-   "Weight": "14.15",
-   "Market Value": "630189.72",
+   "Weight": "4.79",
+   "Market Value": "174327.12",
    "Shares Held": "3132",
-   "SEDOL": ""
-  },
-  {
-   "Name": "ETHA 12/18/2026 48.5 C",
-   "Ticker": "4ETHA 261218C00048500",
-   "Identifier": "4ETHA 261218C00048500",
-   "Weight": "1.64",
-   "Market Value": "73105.92",
-   "Shares Held": "152",
    "SEDOL": ""
   },
   {
    "Name": "United States Treasury Bill 11/24/2026",
    "Ticker": "-",
    "Identifier": "912797VY0",
-   "Weight": "1.12",
-   "Market Value": "49920",
+   "Weight": "1.37",
+   "Market Value": "49957.2",
    "Shares Held": "50000",
    "SEDOL": ""
   },
   {
-   "Name": "ETHA 11/10/2026 54.63 C",
-   "Ticker": "4ETHA 261110C00054630",
-   "Identifier": "4ETHA 261110C00054630",
-   "Weight": "-0.33",
-   "Market Value": "-14686.88",
+   "Name": "ETHA 12/18/2026 48.5 C",
+   "Ticker": "4ETHA 261218C00048500",
+   "Identifier": "4ETHA 261218C00048500",
+   "Weight": "0.55",
+   "Market Value": "20111.12",
+   "Shares Held": "152",
+   "SEDOL": ""
+  },
+  {
+   "Name": "ETHA 11/17/2026 49.28 C",
+   "Ticker": "4ETHA 261117C00049280",
+   "Identifier": "4ETHA 261117C00049280",
+   "Weight": "-2.07",
+   "Market Value": "-75252.32",
    "Shares Held": "-1196",
    "SEDOL": ""
   },
@@ -80,8 +80,8 @@
    "Name": "ETHA 12/18/2026 48.5 P",
    "Ticker": "4ETHA 261218P00048500",
    "Identifier": "4ETHA 261218P00048500",
-   "Weight": "-0.92",
-   "Market Value": "-41114.48",
+   "Weight": "-2.32",
+   "Market Value": "-84416.24",
    "Shares Held": "-152",
    "SEDOL": ""
   },
@@ -89,8 +89,8 @@
    "Name": "ETHA1 12/18/2026 15.75 P",
    "Ticker": "4ETHA1261218P00015750",
    "Identifier": "4ETHA1261218P00015750",
-   "Weight": "-5.24",
-   "Market Value": "-233208.72",
+   "Weight": "-13.37",
+   "Market Value": "-486086.4",
    "Shares Held": "-3132",
    "SEDOL": ""
   }

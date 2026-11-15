@@ -2,7 +2,7 @@
  "ticker": "ETTY",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 272,
+ "totalRows": 277,
  "headers": [
   "Date",
   "Close",
@@ -1641,6 +1641,36 @@
    "Close": "7.756",
    "Adj Close": "7.76",
    "Volume": "1200"
+  },
+  {
+   "Date": "Nov 09 2026",
+   "Close": "7.319",
+   "Adj Close": "7.32",
+   "Volume": "4000"
+  },
+  {
+   "Date": "Nov 10 2026",
+   "Close": "6.991",
+   "Adj Close": "6.99",
+   "Volume": "2500"
+  },
+  {
+   "Date": "Nov 11 2026",
+   "Close": "7.103",
+   "Adj Close": "7.1",
+   "Volume": "800"
+  },
+  {
+   "Date": "Nov 12 2026",
+   "Close": "6.845",
+   "Adj Close": "6.84",
+   "Volume": "8100"
+  },
+  {
+   "Date": "Nov 13 2026",
+   "Close": "6.551",
+   "Adj Close": "6.55",
+   "Volume": "2500"
   }
  ]
 }

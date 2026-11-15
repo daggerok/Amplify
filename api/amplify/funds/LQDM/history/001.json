@@ -2,7 +2,7 @@
  "ticker": "LQDM",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 140,
+ "totalRows": 145,
  "headers": [
   "Date",
   "Close",
@@ -849,6 +849,36 @@
    "Close": "23.200001",
    "Adj Close": "23.2",
    "Volume": "1200"
+  },
+  {
+   "Date": "Nov 09 2026",
+   "Close": "23.25",
+   "Adj Close": "23.25",
+   "Volume": "100"
+  },
+  {
+   "Date": "Nov 10 2026",
+   "Close": "23.08",
+   "Adj Close": "23.08",
+   "Volume": "3100"
+  },
+  {
+   "Date": "Nov 11 2026",
+   "Close": "23.1",
+   "Adj Close": "23.1",
+   "Volume": "100"
+  },
+  {
+   "Date": "Nov 12 2026",
+   "Close": "22.9",
+   "Adj Close": "22.9",
+   "Volume": "6600"
+  },
+  {
+   "Date": "Nov 13 2026",
+   "Close": "22.85",
+   "Adj Close": "22.85",
+   "Volume": "1400"
   }
  ]
 }

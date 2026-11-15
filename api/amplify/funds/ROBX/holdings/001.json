@@ -2,7 +2,7 @@
  "ticker": "ROBX",
  "page": 1,
  "pageSize": 250,
- "totalRows": 27,
+ "totalRows": 26,
  "headers": [
   "Name",
   "Ticker",
@@ -17,7 +17,7 @@
    "Name": "Invesco Government & Agency Portfolio 12/31/2031",
    "Ticker": "AGPXX",
    "Identifier": "825252885",
-   "Weight": "17.1",
+   "Weight": "15.96",
    "Market Value": "217834.01",
    "Shares Held": "217834.01",
    "SEDOL": ""
@@ -26,8 +26,8 @@
    "Name": "AutoStore Holdings Ltd",
    "Ticker": "AUTO NO",
    "Identifier": "BN49G27",
-   "Weight": "13.59",
-   "Market Value": "173150.62",
+   "Weight": "14.13",
+   "Market Value": "192905.73",
    "Shares Held": "115850",
    "SEDOL": ""
   },
@@ -35,8 +35,8 @@
    "Name": "Hiwin Technologies Corp",
    "Ticker": "2049 TT",
    "Identifier": "B1YMYT5",
-   "Weight": "10.34",
-   "Market Value": "131745.23",
+   "Weight": "10.99",
+   "Market Value": "150067.73",
    "Shares Held": "15700",
    "SEDOL": ""
   },
@@ -44,8 +44,8 @@
    "Name": "Ralliant Corp",
    "Ticker": "RAL",
    "Identifier": "750940108",
-   "Weight": "10.34",
-   "Market Value": "131705.28",
+   "Weight": "9.8",
+   "Market Value": "133748.58",
    "Shares Held": "1946",
    "SEDOL": ""
   },
@@ -53,8 +53,8 @@
    "Name": "LEADER HARMONIOUS DRIVE SYSTEMS CO., LTD.-SWAP-GOLD-L",
    "Ticker": "BMGJQ17-TRS-09/19/27-L-GS",
    "Identifier": "BMGJQ17-TRS-09/19/27-L-GS",
-   "Weight": "7.04",
-   "Market Value": "89737.13",
+   "Weight": "6.5",
+   "Market Value": "88713.99",
    "Shares Held": "2100",
    "SEDOL": ""
   },
@@ -62,8 +62,8 @@
    "Name": "Panasonic Holdings Corp",
    "Ticker": "6752 JP",
    "Identifier": "6572707",
-   "Weight": "6.61",
-   "Market Value": "84226.66",
+   "Weight": "6.5",
+   "Market Value": "88685.01",
    "Shares Held": "4438",
    "SEDOL": ""
   },
@@ -71,8 +71,8 @@
    "Name": "Fuji Corp/Aichi",
    "Ticker": "6134 JP",
    "Identifier": "6356592",
-   "Weight": "5.77",
-   "Market Value": "73553.33",
+   "Weight": "5.73",
+   "Market Value": "78277.03",
    "Shares Held": "2499",
    "SEDOL": ""
   },
@@ -80,8 +80,8 @@
    "Name": "HARMONIC DRIVE SYSTEMS INC.-SWAP-NBCB-L",
    "Ticker": "6108179-TRS-11/30/27-L-NBC",
    "Identifier": "6108179-TRS-11/30/27-L-NBC",
-   "Weight": "4.86",
-   "Market Value": "61891.54",
+   "Weight": "5.04",
+   "Market Value": "68732.98",
    "Shares Held": "2300",
    "SEDOL": ""
   },
@@ -89,17 +89,44 @@
    "Name": "Yamaha Motor Co Ltd",
    "Ticker": "7272 JP",
    "Identifier": "6985264",
-   "Weight": "4.79",
-   "Market Value": "61039.15",
+   "Weight": "4.73",
+   "Market Value": "64557.37",
    "Shares Held": "5800",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Hirata Corp",
+   "Ticker": "6258 JP",
+   "Identifier": "B1GZ9S6",
+   "Weight": "4.35",
+   "Market Value": "59392.31",
+   "Shares Held": "2920",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Harmonic Drive Systems Inc",
+   "Ticker": "6324 JP",
+   "Identifier": "6108179",
+   "Weight": "4.32",
+   "Market Value": "58990.83",
+   "Shares Held": "1974",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Seiko Epson Corp",
+   "Ticker": "6724 JP",
+   "Identifier": "6616508",
+   "Weight": "4.29",
+   "Market Value": "58575.46",
+   "Shares Held": "3280",
    "SEDOL": ""
   },
   {
    "Name": "Leader Harmonious Drive Systems Co Ltd",
    "Ticker": "688017 C1",
    "Identifier": "BMGJQ17",
-   "Weight": "4.36",
-   "Market Value": "55551.56",
+   "Weight": "4.02",
+   "Market Value": "54918.19",
    "Shares Held": "1300",
    "SEDOL": ""
   },
@@ -107,44 +134,17 @@
    "Name": "LEADER HARMONIOUS DRIVE SYSTEMS CO., LTD.-SWAP-MREX-L",
    "Ticker": "BMGJQ17-TRS-09/19/27-L-MX",
    "Identifier": "BMGJQ17-TRS-09/19/27-L-MX",
-   "Weight": "4.36",
-   "Market Value": "55551.56",
+   "Weight": "4.02",
+   "Market Value": "54918.19",
    "Shares Held": "1300",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Seiko Epson Corp",
-   "Ticker": "6724 JP",
-   "Identifier": "6616508",
-   "Weight": "4.32",
-   "Market Value": "54985.71",
-   "Shares Held": "3280",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Harmonic Drive Systems Inc",
-   "Ticker": "6324 JP",
-   "Identifier": "6108179",
-   "Weight": "4.17",
-   "Market Value": "53119.09",
-   "Shares Held": "1974",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Hirata Corp",
-   "Ticker": "6258 JP",
-   "Identifier": "B1GZ9S6",
-   "Weight": "4.03",
-   "Market Value": "51364.14",
-   "Shares Held": "2920",
    "SEDOL": ""
   },
   {
    "Name": "YAMAHA MOTOR CO., LTD.-SWAP-NBCB-L",
    "Ticker": "6985264-TRS-11/30/27-L-NBC",
    "Identifier": "6985264-TRS-11/30/27-L-NBC",
-   "Weight": "3.72",
-   "Market Value": "47357.96",
+   "Weight": "3.67",
+   "Market Value": "50087.62",
    "Shares Held": "4500",
    "SEDOL": ""
   },
@@ -152,8 +152,8 @@
    "Name": "SEIKO EPSON CORPORATION-SWAP-NBCB-L",
    "Ticker": "6616508-TRS-11/30/27-L-NBC",
    "Identifier": "6616508-TRS-11/30/27-L-NBC",
-   "Weight": "2.63",
-   "Market Value": "33527.87",
+   "Weight": "2.62",
+   "Market Value": "35716.74",
    "Shares Held": "2000",
    "SEDOL": ""
   },
@@ -161,8 +161,8 @@
    "Name": "HIRATA CORPORATION-SWAP-NBCB-L",
    "Ticker": "B1GZ9S6-TRS-11/30/27-L-NBC",
    "Identifier": "B1GZ9S6-TRS-11/30/27-L-NBC",
-   "Weight": "2.21",
-   "Market Value": "28144.74",
+   "Weight": "2.38",
+   "Market Value": "32543.73",
    "Shares Held": "1600",
    "SEDOL": ""
   },
@@ -170,8 +170,8 @@
    "Name": "YAMAHA MOTOR CO., LTD.-SWAP-MREX-L",
    "Ticker": "6985264-TRS-11/30/27-L-MX",
    "Identifier": "6985264-TRS-11/30/27-L-MX",
-   "Weight": "1.16",
-   "Market Value": "14733.59",
+   "Weight": "1.14",
+   "Market Value": "15582.81",
    "Shares Held": "1400",
    "SEDOL": ""
   },
@@ -180,7 +180,7 @@
    "Ticker": "6616508-TRS-11/30/27-L-GS",
    "Identifier": "6616508-TRS-11/30/27-L-GS",
    "Weight": "0.92",
-   "Market Value": "11734.76",
+   "Market Value": "12500.86",
    "Shares Held": "700",
    "SEDOL": ""
   },
@@ -188,8 +188,8 @@
    "Name": "HARMONIC DRIVE SYSTEMS INC.-SWAP-MREX-L",
    "Ticker": "6108179-TRS-11/30/27-L-MX",
    "Identifier": "6108179-TRS-11/30/27-L-MX",
-   "Weight": "0.84",
-   "Market Value": "10763.75",
+   "Weight": "0.88",
+   "Market Value": "11953.56",
    "Shares Held": "400",
    "SEDOL": ""
   },
@@ -197,17 +197,8 @@
    "Name": "HIRATA CORPORATION-SWAP-GOLD-L",
    "Ticker": "B1GZ9S6-TRS-11/30/27-L-GS",
    "Identifier": "B1GZ9S6-TRS-11/30/27-L-GS",
-   "Weight": "0.69",
-   "Market Value": "8795.23",
-   "Shares Held": "500",
-   "SEDOL": ""
-  },
-  {
-   "Name": "SEIKO EPSON CORPORATION-SWAP-MREX-L",
-   "Ticker": "6616508-TRS-11/30/27-L-MX",
-   "Identifier": "6616508-TRS-11/30/27-L-MX",
-   "Weight": "0.66",
-   "Market Value": "8381.97",
+   "Weight": "0.75",
+   "Market Value": "10169.92",
    "Shares Held": "500",
    "SEDOL": ""
   },
@@ -215,17 +206,26 @@
    "Name": "HARMONIC DRIVE SYSTEMS INC.-SWAP-GOLD-L",
    "Ticker": "6108179-TRS-12/31/27-L-GS",
    "Identifier": "6108179-TRS-12/31/27-L-GS",
-   "Weight": "0.63",
-   "Market Value": "8072.81",
+   "Weight": "0.66",
+   "Market Value": "8965.17",
    "Shares Held": "300",
+   "SEDOL": ""
+  },
+  {
+   "Name": "SEIKO EPSON CORPORATION-SWAP-MREX-L",
+   "Ticker": "6616508-TRS-11/30/27-L-MX",
+   "Identifier": "6616508-TRS-11/30/27-L-MX",
+   "Weight": "0.65",
+   "Market Value": "8929.19",
+   "Shares Held": "500",
    "SEDOL": ""
   },
   {
    "Name": "HIRATA CORPORATION-SWAP-MREX-L",
    "Ticker": "B1GZ9S6-TRS-11/30/27-L-MX",
    "Identifier": "B1GZ9S6-TRS-11/30/27-L-MX",
-   "Weight": "0.55",
-   "Market Value": "7036.18",
+   "Weight": "0.6",
+   "Market Value": "8135.93",
    "Shares Held": "400",
    "SEDOL": ""
   },
@@ -234,26 +234,17 @@
    "Ticker": "6985264-TRS-12/31/27-L-GS",
    "Identifier": "6985264-TRS-12/31/27-L-GS",
    "Weight": "0.41",
-   "Market Value": "5262",
+   "Market Value": "5565.29",
    "Shares Held": "500",
-   "SEDOL": ""
-  },
-  {
-   "Name": "NEW TAIWAN DOLLAR",
-   "Ticker": "-",
-   "Identifier": "CASHTWD",
-   "Weight": "0",
-   "Market Value": "0",
-   "Shares Held": "-0.1",
    "SEDOL": ""
   },
   {
    "Name": "Cash & Other",
    "Ticker": "-",
    "Identifier": "Cash&Other",
-   "Weight": "-16.1",
-   "Market Value": "-205154.79",
-   "Shares Held": "-205154.79",
+   "Weight": "-15.06",
+   "Market Value": "-205519.55",
+   "Shares Held": "-205519.55",
    "SEDOL": ""
   }
  ]

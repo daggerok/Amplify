@@ -2,7 +2,7 @@
  "ticker": "IPAY",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2846,
+ "totalRows": 2851,
  "headers": [
   "Date",
   "Close",
@@ -5085,6 +5085,36 @@
    "Close": "50.389999",
    "Adj Close": "50.39",
    "Volume": "8900"
+  },
+  {
+   "Date": "Nov 09 2026",
+   "Close": "50.860001",
+   "Adj Close": "50.86",
+   "Volume": "17300"
+  },
+  {
+   "Date": "Nov 10 2026",
+   "Close": "50.639999",
+   "Adj Close": "50.64",
+   "Volume": "45100"
+  },
+  {
+   "Date": "Nov 11 2026",
+   "Close": "50.82",
+   "Adj Close": "50.82",
+   "Volume": "15600"
+  },
+  {
+   "Date": "Nov 12 2026",
+   "Close": "49.459999",
+   "Adj Close": "49.46",
+   "Volume": "54000"
+  },
+  {
+   "Date": "Nov 13 2026",
+   "Close": "50.376999",
+   "Adj Close": "50.38",
+   "Volume": "20900"
   }
  ]
 }

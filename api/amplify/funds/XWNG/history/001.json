@@ -2,7 +2,7 @@
  "ticker": "XWNG",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 57,
+ "totalRows": 62,
  "headers": [
   "Date",
   "Close",
@@ -350,6 +350,36 @@
    "Date": "Nov 06 2026",
    "Close": "18.629999",
    "Adj Close": "18.63",
+   "Volume": "100"
+  },
+  {
+   "Date": "Nov 09 2026",
+   "Close": "20.379999",
+   "Adj Close": "20.38",
+   "Volume": "100"
+  },
+  {
+   "Date": "Nov 10 2026",
+   "Close": "20.610001",
+   "Adj Close": "20.61",
+   "Volume": "100"
+  },
+  {
+   "Date": "Nov 11 2026",
+   "Close": "20.639999",
+   "Adj Close": "20.64",
+   "Volume": "100"
+  },
+  {
+   "Date": "Nov 12 2026",
+   "Close": "19.91",
+   "Adj Close": "19.91",
+   "Volume": "600"
+  },
+  {
+   "Date": "Nov 13 2026",
+   "Close": "19.27",
+   "Adj Close": "19.27",
    "Volume": "100"
   }
  ]

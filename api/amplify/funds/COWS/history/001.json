@@ -2,7 +2,7 @@
  "ticker": "COWS",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 792,
+ "totalRows": 797,
  "headers": [
   "Date",
   "Close",
@@ -4761,6 +4761,36 @@
    "Close": "40.262001",
    "Adj Close": "40.26",
    "Volume": "2300"
+  },
+  {
+   "Date": "Nov 09 2026",
+   "Close": "41.075001",
+   "Adj Close": "41.08",
+   "Volume": "10500"
+  },
+  {
+   "Date": "Nov 10 2026",
+   "Close": "41.348999",
+   "Adj Close": "41.35",
+   "Volume": "4200"
+  },
+  {
+   "Date": "Nov 11 2026",
+   "Close": "41.529999",
+   "Adj Close": "41.53",
+   "Volume": "9700"
+  },
+  {
+   "Date": "Nov 12 2026",
+   "Close": "41.398998",
+   "Adj Close": "41.4",
+   "Volume": "98300"
+  },
+  {
+   "Date": "Nov 13 2026",
+   "Close": "41.416",
+   "Adj Close": "41.42",
+   "Volume": "11500"
   }
  ]
 }

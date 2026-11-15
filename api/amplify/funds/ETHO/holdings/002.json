@@ -14,21 +14,12 @@
  ],
  "rows": [
   {
-   "Name": "Power Integrations Inc",
-   "Ticker": "POWI",
-   "Identifier": "739276103",
+   "Name": "Ormat Technologies Inc",
+   "Ticker": "ORA",
+   "Identifier": "686688102",
    "Weight": "0.24",
-   "Market Value": "458158.8",
-   "Shares Held": "11380",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Safehold Inc",
-   "Ticker": "SAFE",
-   "Identifier": "78646V107",
-   "Weight": "0.24",
-   "Market Value": "461003.88",
-   "Shares Held": "43532",
+   "Market Value": "469254.6",
+   "Shares Held": "5188",
    "SEDOL": ""
   },
   {
@@ -36,17 +27,26 @@
    "Ticker": "TMUS",
    "Identifier": "872590104",
    "Weight": "0.24",
-   "Market Value": "451359.86",
+   "Market Value": "473480.7",
    "Shares Held": "2786",
    "SEDOL": ""
   },
   {
-   "Name": "Builders FirstSource Inc",
-   "Ticker": "BLDR",
-   "Identifier": "12008R107",
+   "Name": "Burlington Stores Inc",
+   "Ticker": "BURL",
+   "Identifier": "122017106",
    "Weight": "0.23",
-   "Market Value": "437780",
-   "Shares Held": "7000",
+   "Market Value": "448805.28",
+   "Shares Held": "1848",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Consolidated Water Co Ltd",
+   "Ticker": "CWCO",
+   "Identifier": "G23773107",
+   "Weight": "0.23",
+   "Market Value": "440904.3",
+   "Shares Held": "17707",
    "SEDOL": ""
   },
   {
@@ -54,53 +54,26 @@
    "Ticker": "CSGP",
    "Identifier": "22160N109",
    "Weight": "0.23",
-   "Market Value": "440928.15",
+   "Market Value": "446845.68",
    "Shares Held": "14433",
    "SEDOL": ""
   },
   {
-   "Name": "Enphase Energy Inc",
-   "Ticker": "ENPH",
-   "Identifier": "29355A107",
+   "Name": "Gibraltar Industries Inc",
+   "Ticker": "ROCK",
+   "Identifier": "374689107",
    "Weight": "0.23",
-   "Market Value": "434432.83",
-   "Shares Held": "15262",
+   "Market Value": "442078.1",
+   "Shares Held": "14566",
    "SEDOL": ""
   },
   {
-   "Name": "Insmed Inc",
-   "Ticker": "INSM",
-   "Identifier": "457669307",
+   "Name": "Oatly Group AB",
+   "Ticker": "OTLY",
+   "Identifier": "67421J207",
    "Weight": "0.23",
-   "Market Value": "438056.75",
-   "Shares Held": "3829",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Invesco Government & Agency Portfolio 12/31/2031",
-   "Ticker": "AGPXX",
-   "Identifier": "825252885",
-   "Weight": "0.23",
-   "Market Value": "445126.68",
-   "Shares Held": "445126.68",
-   "SEDOL": ""
-  },
-  {
-   "Name": "LeMaitre Vascular Inc",
-   "Ticker": "LMAT",
-   "Identifier": "525558201",
-   "Weight": "0.23",
-   "Market Value": "442063.85",
-   "Shares Held": "5465",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Marzetti Company/The",
-   "Ticker": "MZTI",
-   "Identifier": "513847103",
-   "Weight": "0.23",
-   "Market Value": "446372.22",
-   "Shares Held": "4254",
+   "Market Value": "438121.36",
+   "Shares Held": "57196",
    "SEDOL": ""
   },
   {
@@ -108,7 +81,7 @@
    "Ticker": "PEGA",
    "Identifier": "705573103",
    "Weight": "0.23",
-   "Market Value": "443491.2",
+   "Market Value": "443901.84",
    "Shares Held": "13688",
    "SEDOL": ""
   },
@@ -117,17 +90,44 @@
    "Ticker": "VCYT",
    "Identifier": "92337F107",
    "Weight": "0.23",
-   "Market Value": "438504",
+   "Market Value": "441589.5",
    "Shares Held": "18150",
    "SEDOL": ""
   },
   {
-   "Name": "Comfort Systems USA Inc",
-   "Ticker": "FIX",
-   "Identifier": "199908104",
+   "Name": "Builders FirstSource Inc",
+   "Ticker": "BLDR",
+   "Identifier": "12008R107",
    "Weight": "0.22",
-   "Market Value": "425315",
-   "Shares Held": "418",
+   "Market Value": "424760",
+   "Shares Held": "7000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Fair Isaac Corp",
+   "Ticker": "FICO",
+   "Identifier": "303250104",
+   "Weight": "0.22",
+   "Market Value": "418430.39",
+   "Shares Held": "581",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Insulet Corp",
+   "Ticker": "PODD",
+   "Identifier": "45784P101",
+   "Weight": "0.22",
+   "Market Value": "421302.24",
+   "Shares Held": "2763",
+   "SEDOL": ""
+  },
+  {
+   "Name": "LeMaitre Vascular Inc",
+   "Ticker": "LMAT",
+   "Identifier": "525558201",
+   "Weight": "0.22",
+   "Market Value": "427854.85",
+   "Shares Held": "5465",
    "SEDOL": ""
   },
   {
@@ -135,17 +135,26 @@
    "Ticker": "PATK",
    "Identifier": "703343103",
    "Weight": "0.22",
-   "Market Value": "414514.19",
+   "Market Value": "424510.09",
    "Shares Held": "5261",
    "SEDOL": ""
   },
   {
-   "Name": "Teradyne Inc",
-   "Ticker": "TER",
-   "Identifier": "880770102",
+   "Name": "Safehold Inc",
+   "Ticker": "SAFE",
+   "Identifier": "78646V107",
    "Weight": "0.22",
-   "Market Value": "424646.39",
-   "Shares Held": "1946",
+   "Market Value": "429225.52",
+   "Shares Held": "43532",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Sterling Infrastructure Inc",
+   "Ticker": "STRL",
+   "Identifier": "859241101",
+   "Weight": "0.22",
+   "Market Value": "422503.55",
+   "Shares Held": "1445",
    "SEDOL": ""
   },
   {
@@ -153,7 +162,7 @@
    "Ticker": "XIFR",
    "Identifier": "65341B106",
    "Weight": "0.22",
-   "Market Value": "413799.6",
+   "Market Value": "429628",
    "Shares Held": "56530",
    "SEDOL": ""
   },
@@ -162,53 +171,71 @@
    "Ticker": "ZG",
    "Identifier": "98954M101",
    "Weight": "0.22",
-   "Market Value": "425981.16",
+   "Market Value": "422473.41",
    "Shares Held": "14031",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Fair Isaac Corp",
-   "Ticker": "FICO",
-   "Identifier": "303250104",
-   "Weight": "0.21",
-   "Market Value": "409343.55",
-   "Shares Held": "581",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Insulet Corp",
-   "Ticker": "PODD",
-   "Identifier": "45784P101",
-   "Weight": "0.21",
-   "Market Value": "404807.13",
-   "Shares Held": "2763",
-   "SEDOL": ""
-  },
-  {
-   "Name": "LightPath Technologies Inc",
-   "Ticker": "LPTH",
-   "Identifier": "532257805",
-   "Weight": "0.21",
-   "Market Value": "406211.22",
-   "Shares Held": "57537",
    "SEDOL": ""
   },
   {
    "Name": "Amdocs Ltd",
    "Ticker": "DOX",
    "Identifier": "G02602103",
-   "Weight": "0.2",
-   "Market Value": "388153.98",
+   "Weight": "0.21",
+   "Market Value": "413053.38",
    "Shares Held": "9222",
    "SEDOL": ""
   },
   {
-   "Name": "Netflix Inc",
-   "Ticker": "NFLX",
-   "Identifier": "64110L106",
+   "Name": "Enphase Energy Inc",
+   "Ticker": "ENPH",
+   "Identifier": "29355A107",
+   "Weight": "0.21",
+   "Market Value": "397880.34",
+   "Shares Held": "15262",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Newmark Group Inc",
+   "Ticker": "NMRK",
+   "Identifier": "65158N102",
+   "Weight": "0.21",
+   "Market Value": "410197.5",
+   "Shares Held": "38625",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Resideo Technologies Inc",
+   "Ticker": "REZI",
+   "Identifier": "76118Y104",
+   "Weight": "0.21",
+   "Market Value": "402351.04",
+   "Shares Held": "18872",
+   "SEDOL": ""
+  },
+  {
+   "Name": "LightPath Technologies Inc",
+   "Ticker": "LPTH",
+   "Identifier": "532257805",
    "Weight": "0.2",
-   "Market Value": "382489.12",
-   "Shares Held": "6032",
+   "Market Value": "393553.08",
+   "Shares Held": "57537",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Sprouts Farmers Market Inc",
+   "Ticker": "SFM",
+   "Identifier": "85208M102",
+   "Weight": "0.2",
+   "Market Value": "392035.03",
+   "Shares Held": "7529",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Trade Desk Inc/The",
+   "Ticker": "TTD",
+   "Identifier": "88339J105",
+   "Weight": "0.2",
+   "Market Value": "392376.32",
+   "Shares Held": "25024",
    "SEDOL": ""
   },
   {
@@ -216,61 +243,34 @@
    "Ticker": "CALX",
    "Identifier": "13100M509",
    "Weight": "0.19",
-   "Market Value": "357836.4",
+   "Market Value": "376195.98",
    "Shares Held": "11694",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Resideo Technologies Inc",
-   "Ticker": "REZI",
-   "Identifier": "76118Y104",
-   "Weight": "0.19",
-   "Market Value": "366116.8",
-   "Shares Held": "18872",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Sprouts Farmers Market Inc",
-   "Ticker": "SFM",
-   "Identifier": "85208M102",
-   "Weight": "0.19",
-   "Market Value": "369673.9",
-   "Shares Held": "7529",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Sterling Infrastructure Inc",
-   "Ticker": "STRL",
-   "Identifier": "859241101",
-   "Weight": "0.19",
-   "Market Value": "365324.9",
-   "Shares Held": "1445",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Winmark Corp",
-   "Ticker": "WINA",
-   "Identifier": "974250102",
-   "Weight": "0.19",
-   "Market Value": "352755.9",
-   "Shares Held": "1330",
    "SEDOL": ""
   },
   {
    "Name": "IPG Photonics Corp",
    "Ticker": "IPGP",
    "Identifier": "44980X109",
-   "Weight": "0.18",
-   "Market Value": "346926.72",
+   "Weight": "0.19",
+   "Market Value": "360047.36",
    "Shares Held": "5312",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Netflix Inc",
+   "Ticker": "NFLX",
+   "Identifier": "64110L106",
+   "Weight": "0.19",
+   "Market Value": "374888.8",
+   "Shares Held": "6032",
    "SEDOL": ""
   },
   {
    "Name": "NPK International Inc",
    "Ticker": "NPKI",
    "Identifier": "651718504",
-   "Weight": "0.18",
-   "Market Value": "345807.36",
+   "Weight": "0.19",
+   "Market Value": "361416.72",
    "Shares Held": "40024",
    "SEDOL": ""
   },
@@ -278,27 +278,18 @@
    "Name": "QXO Inc",
    "Ticker": "QXO",
    "Identifier": "82846H405",
-   "Weight": "0.18",
-   "Market Value": "345227.84",
+   "Weight": "0.19",
+   "Market Value": "376286.4",
    "Shares Held": "29864",
    "SEDOL": ""
   },
   {
-   "Name": "Ionis Pharmaceuticals Inc",
-   "Ticker": "IONS",
-   "Identifier": "462222100",
-   "Weight": "0.17",
-   "Market Value": "320169.24",
-   "Shares Held": "8122",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Trade Desk Inc/The",
-   "Ticker": "TTD",
-   "Identifier": "88339J105",
-   "Weight": "0.17",
-   "Market Value": "323560.32",
-   "Shares Held": "25024",
+   "Name": "Winmark Corp",
+   "Ticker": "WINA",
+   "Identifier": "974250102",
+   "Weight": "0.19",
+   "Market Value": "361321.1",
+   "Shares Held": "1330",
    "SEDOL": ""
   },
   {
@@ -306,26 +297,35 @@
    "Ticker": "NAGE",
    "Identifier": "171077407",
    "Weight": "0.14",
-   "Market Value": "272227.77",
+   "Market Value": "271570.22",
    "Shares Held": "131511",
    "SEDOL": ""
   },
   {
-   "Name": "ADI Global Distribution Inc",
-   "Ticker": "ADIG",
-   "Identifier": "001026103",
-   "Weight": "0.08",
-   "Market Value": "154254.4",
-   "Shares Held": "8420",
+   "Name": "Ionis Pharmaceuticals Inc",
+   "Ticker": "IONS",
+   "Identifier": "462222100",
+   "Weight": "0.12",
+   "Market Value": "236025.32",
+   "Shares Held": "8122",
    "SEDOL": ""
   },
   {
    "Name": "Cash & Other",
    "Ticker": "-",
    "Identifier": "Cash&Other",
-   "Weight": "0.03",
-   "Market Value": "52613.21",
-   "Shares Held": "52613.21",
+   "Weight": "0.06",
+   "Market Value": "123424.81",
+   "Shares Held": "123424.81",
+   "SEDOL": ""
+  },
+  {
+   "Name": "ADI Global Distribution Inc",
+   "Ticker": "ADIG",
+   "Identifier": "001026103",
+   "Weight": "0.04",
+   "Market Value": "84957.8",
+   "Shares Held": "8420",
    "SEDOL": ""
   }
  ]

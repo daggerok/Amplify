@@ -2,7 +2,7 @@
  "ticker": "DRVR",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 86,
+ "totalRows": 91,
  "headers": [
   "Date",
   "Close",
@@ -525,6 +525,36 @@
    "Close": "26.530001",
    "Adj Close": "26.53",
    "Volume": "100"
+  },
+  {
+   "Date": "Nov 09 2026",
+   "Close": "27.040001",
+   "Adj Close": "27.04",
+   "Volume": "300"
+  },
+  {
+   "Date": "Nov 10 2026",
+   "Close": "27.07",
+   "Adj Close": "27.07",
+   "Volume": "200"
+  },
+  {
+   "Date": "Nov 11 2026",
+   "Close": "27.129999",
+   "Adj Close": "27.13",
+   "Volume": "200"
+  },
+  {
+   "Date": "Nov 12 2026",
+   "Close": "26.940001",
+   "Adj Close": "26.94",
+   "Volume": "100"
+  },
+  {
+   "Date": "Nov 13 2026",
+   "Close": "27.09",
+   "Adj Close": "27.09",
+   "Volume": "300"
   }
  ]
 }

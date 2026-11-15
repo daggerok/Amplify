@@ -2,7 +2,7 @@
  "ticker": "AHBM",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 57,
+ "totalRows": 62,
  "headers": [
   "Date",
   "Close",
@@ -351,6 +351,36 @@
    "Close": "17.26",
    "Adj Close": "17.26",
    "Volume": "1200"
+  },
+  {
+   "Date": "Nov 09 2026",
+   "Close": "18.68",
+   "Adj Close": "18.68",
+   "Volume": "11500"
+  },
+  {
+   "Date": "Nov 10 2026",
+   "Close": "17.809999",
+   "Adj Close": "17.81",
+   "Volume": "3000"
+  },
+  {
+   "Date": "Nov 11 2026",
+   "Close": "19.290001",
+   "Adj Close": "19.29",
+   "Volume": "900"
+  },
+  {
+   "Date": "Nov 12 2026",
+   "Close": "18.530001",
+   "Adj Close": "18.53",
+   "Volume": "200"
+  },
+  {
+   "Date": "Nov 13 2026",
+   "Close": "17.98",
+   "Adj Close": "17.98",
+   "Volume": "700"
   }
  ]
 }

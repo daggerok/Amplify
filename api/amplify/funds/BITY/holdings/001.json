@@ -2,7 +2,7 @@
  "ticker": "BITY",
  "page": 1,
  "pageSize": 250,
- "totalRows": 6,
+ "totalRows": 8,
  "headers": [
   "Name",
   "Ticker",
@@ -17,54 +17,72 @@
    "Name": "Invesco Government & Agency Portfolio 12/31/2031",
    "Ticker": "AGPXX",
    "Identifier": "825252885",
-   "Weight": "55.5",
-   "Market Value": "6526280.8",
-   "Shares Held": "6526280.8",
+   "Weight": "58.72",
+   "Market Value": "5018179.77",
+   "Shares Held": "5018179.77",
    "SEDOL": ""
   },
   {
    "Name": "iShares Bitcoin Trust ETF",
    "Ticker": "IBIT",
    "Identifier": "46438F101",
-   "Weight": "27.26",
-   "Market Value": "3205751.68",
-   "Shares Held": "74761",
+   "Weight": "25.36",
+   "Market Value": "2167439.34",
+   "Shares Held": "55661",
    "SEDOL": ""
   },
   {
-   "Name": "Cash & Other",
+   "Name": "United States Treasury Bill 02/04/2027",
    "Ticker": "-",
-   "Identifier": "Cash&Other",
-   "Weight": "12.23",
-   "Market Value": "1438606.2",
-   "Shares Held": "1438606.2",
+   "Identifier": "912797VV6",
+   "Weight": "15.07",
+   "Market Value": "1288119.44",
+   "Shares Held": "1300000",
    "SEDOL": ""
   },
   {
    "Name": "MBTX 12/18/2026 169.25 C",
    "Ticker": "4MBTX 261218C00169250",
    "Identifier": "4MBTX 261218C00169250",
-   "Weight": "7.77",
-   "Market Value": "913808.16",
-   "Shares Held": "584",
+   "Weight": "3",
+   "Market Value": "256374.72",
+   "Shares Held": "504",
    "SEDOL": ""
   },
   {
-   "Name": "MBTX 11/10/2026 192.4 C",
-   "Ticker": "4MBTX 261110C00192400",
-   "Identifier": "4MBTX 261110C00192400",
+   "Name": "Cash & Other",
+   "Ticker": "-",
+   "Identifier": "Cash&Other",
+   "Weight": "2.92",
+   "Market Value": "249412.1",
+   "Shares Held": "249412.1",
+   "SEDOL": ""
+  },
+  {
+   "Name": "United States Treasury Bill 02/09/2027",
+   "Ticker": "-",
+   "Identifier": "912797WY9",
+   "Weight": "1.74",
+   "Market Value": "148539.53",
+   "Shares Held": "150000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "MBTX 11/17/2026 182.18 C",
+   "Ticker": "4MBTX 261117C00182180",
+   "Identifier": "4MBTX 261117C00182180",
    "Weight": "-0.12",
-   "Market Value": "-14080.24",
-   "Shares Held": "-584",
+   "Market Value": "-10614.24",
+   "Shares Held": "-504",
    "SEDOL": ""
   },
   {
    "Name": "MBTX 12/18/2026 169.25 P",
    "Ticker": "4MBTX 261218P00169250",
    "Identifier": "4MBTX 261218P00169250",
-   "Weight": "-2.64",
-   "Market Value": "-310512.8",
-   "Shares Held": "-584",
+   "Weight": "-6.69",
+   "Market Value": "-571520.88",
+   "Shares Held": "-504",
    "SEDOL": ""
   }
  ]

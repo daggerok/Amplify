@@ -2,7 +2,7 @@
  "ticker": "TKNQ",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 220,
+ "totalRows": 225,
  "headers": [
   "Date",
   "Close",
@@ -1329,6 +1329,36 @@
    "Close": "22.417",
    "Adj Close": "22.42",
    "Volume": "900"
+  },
+  {
+   "Date": "Nov 09 2026",
+   "Close": "22.414",
+   "Adj Close": "22.41",
+   "Volume": "300"
+  },
+  {
+   "Date": "Nov 10 2026",
+   "Close": "22.073",
+   "Adj Close": "22.07",
+   "Volume": "1000"
+  },
+  {
+   "Date": "Nov 11 2026",
+   "Close": "22.327999",
+   "Adj Close": "22.33",
+   "Volume": "100"
+  },
+  {
+   "Date": "Nov 12 2026",
+   "Close": "21.889",
+   "Adj Close": "21.89",
+   "Volume": "400"
+  },
+  {
+   "Date": "Nov 13 2026",
+   "Close": "21.781",
+   "Adj Close": "21.78",
+   "Volume": "2300"
   }
  ]
 }
