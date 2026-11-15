@@ -897,7 +897,7 @@ describe('pipeline 2', () => {
 
   test('a TICKERS run on a multi-fund index keeps every row and file and never touches the cursor; an unknown ticker is an error', async () => {
     const w = baseWorld();
-    stubWorld(w);
+    const firstCalls = stubWorld(w);
     const { dir } = await runLogged({});
     try {
       expect(readIndex(dir).funds).toHaveLength(3);
@@ -907,18 +907,25 @@ describe('pipeline 2', () => {
       for (const f of readIndex(dir).funds) expect(Object.keys(f.metrics)).toEqual(expect.arrayContaining(RANGE_KEYS));
       // the swing keys from the Close column of the same pages (shared swing block), in front of returnsBasis and performanceAsOf
       for (const f of readIndex(dir).funds) {
-        expect(Object.keys(f.metrics).slice(-11, -2)).toEqual(['pctFrom52wHigh', 'athPrice', 'athDate', 'athBasis', 'pctFromAth', 'volatility1y', 'sigmaFromMean60d', 'high60d', 'low60d']);
+        expect(Object.keys(f.metrics).slice(-17, -8)).toEqual(['pctFrom52wHigh', 'athPrice', 'athDate', 'athBasis', 'pctFromAth', 'volatility1y', 'sigmaFromMean60d', 'high60d', 'low60d']);
+        // the dividend keys from one Yahoo daily chart request per updated fund (shared dividends block)
+        expect(Object.keys(f.metrics).slice(-8, -2)).toEqual(['dividendRate', 'dividendGrowth', 'dividendGrowth3y', 'dividendGrowth5y', 'dividendStreak', 'dividendCut10y']);
         expect([typeof f.metrics.athPrice, f.metrics.athBasis]).toEqual(['number', expect.stringMatching(/^daily closes since \d{4}-\d{2}-\d{2}$/)]);
       }
+      // one dividend chart request (includePrePost=false) per updated fund; the dividend events of the mock give 4 x 0.5 in the last year
+      const dividendRequests = (urls: string[]) => urls.filter(url => /chart\/[^?]+\?period1=0&.*includePrePost=false/.test(url)).map(url => /chart\/([^?]+)/.exec(url)?.[1]).sort();
+      expect(dividendRequests(firstCalls)).toEqual(['AAA', 'BBB', 'CCC']);
+      expect(rowOf(dir, 'AAA').metrics.dividendRate).toBe(2);
       for (const f of readIndex(dir).funds) expect(f.dataFile).toBe(`./funds/${f.ticker}/meta.json`);
       await runLogged({ MAX_FETCHES: '2' }, dir);
       const cursor = readFileSync(join(dir, 'update-state.json'), 'utf8');
       expect(JSON.parse(cursor)).toEqual({ cursor: 'BBB' });
       const before = snapshot(dir);
       w.nav = 11;
-      stubWorld(w);
+      const aaaCalls = stubWorld(w);
       await runLogged({ TICKERS: 'AAA' }, dir);
       const after = snapshot(dir);
+      expect(dividendRequests(aaaCalls)).toEqual(['AAA']);
       expect(readIndex(dir).funds.map((f: any) => f.ticker)).toEqual(['AAA', 'BBB', 'CCC']);
       expect(only(after, 'BBB')).toEqual(only(before, 'BBB'));
       expect(only(after, 'CCC')).toEqual(only(before, 'CCC'));

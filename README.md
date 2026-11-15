@@ -80,6 +80,11 @@ The Firestore `distributions` and `history` collections answer `403 Missing or i
   - `volatility1y` - annualized volatility of the last 252 daily log returns, in percent (needs 253 closes)
   - `sigmaFromMean60d` - distance of the last close from the mean of the last 60 closes, in sample standard deviations
   - `high60d`, `low60d` - highest and lowest of the last 60 closes
+- Dividend metrics (shared `dividends` block, the formulas of the Stocks feed) from the Yahoo Finance dividend events of the daily chart since listing (split adjusted; the published distribution table is not), one request per fund the run updates; a failed or truncated chart keeps the published values; `null` (never `0`) when unknown:
+  - `dividendRate` - sum of the distributions with ex-dates in the last 12 months
+  - `dividendGrowth`, `dividendGrowth3y`, `dividendGrowth5y` - last complete calendar year against 1, 3, 5 years earlier (3 and 5 as a yearly rate), the listing year is never a base
+  - `dividendStreak` - complete calendar years in a row with a higher sum
+  - `dividendCut10y` - `true` when a year of the last 10 paid more than 20% less than its base year and the next year did not come back
 - `AUM` compares against the latest daily net assets; the `nano`, `micro`, `small`, `mid` and `large` presets use upper bounds that are exclusive; `TER` compares the published expense ratio in %. Amplify publishes a single figure: it is the net ratio (`terValue`, `expenseRatio.net`), and `terGrossValue` / `expenseRatio.gross` stay `null` because no gross figure is published
 - A configured filter skips funds that do not publish the metric: unavailable is never treated as 0, and no value is ever invented as zero (missing weights, market values and prices stay empty or `null`; in an N-PORT sheet a missing weight, market value or share count is an empty cell)
 - A fund younger than one year (calendar anniversary of its inception, inclusive) publishes no 1-year or since-inception return, and no 3, 5 or 10-year one before those anniversaries, official or derived; an unknown inception date keeps the values. The percent figures are published as percent: nothing is rescaled (`0.5` means 0.5%)
