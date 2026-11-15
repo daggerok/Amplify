@@ -1,5 +1,5 @@
 /// <reference types="bun" />
-import { afterEach, beforeEach, describe, expect, test } from 'bun:test';
+import { afterEach, beforeEach, describe, expect, setSystemTime, test } from 'bun:test';
 import { mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
@@ -32,12 +32,14 @@ beforeEach(() => {
   let tick = 0;
   setClock(() => Date.parse('2026-10-03T12:00:00Z') + 1000 * tick++);
 });
+const realSetTimeout = globalThis.setTimeout;
 afterEach(() => {
   globalThis.fetch = realFetch;
   for (const key of Object.keys(process.env)) delete process.env[key];
   Object.assign(process.env, savedEnv);
   process.exitCode = 0;
   setHttpSettings({ maxRetries: 2, requestSleepMs: 0 });
+  setSystemTime(); globalThis.setTimeout = realSetTimeout;
   setClock(() => Date.now()); setRunDeadlineMs(25 * 60_000); setFetchTimeoutMs(45_000); setSecInterval(150);
 });
 const reply = (status: number, body: unknown) => new Response(JSON.stringify(body), { status, statusText: String(status) });
@@ -1271,19 +1273,22 @@ describe('network', () => {
 });
 
 describe('network 2', () => {
-  test('REQUEST_SLEEP and the SEC gate space request starts (lower bounds only); a SEC 403 is retried, other 403s are not', async () => {
-    const starts: number[] = [];
-    globalThis.fetch = (async () => { starts.push(Date.now()); return reply(200, {}); }) as any;
+  test('REQUEST_SLEEP and the SEC gate space request starts (exact waits on a frozen clock); a SEC 403 is retried, other 403s are not', async () => {
+    // frozen clock: every reserved start slot is exact, so the waits do not depend on how busy the machine is (no ms thresholds)
+    setSystemTime(new Date('2026-10-01T00:00:00Z'));
+    const waits: number[] = [];
+    globalThis.setTimeout = ((fn: () => void, ms?: number) => { waits.push(ms ?? 0); return realSetTimeout(fn, ms); }) as typeof setTimeout;
+    let calls = 0;
+    globalThis.fetch = (async () => { calls++; return reply(200, {}); }) as any;
     setHttpSettings({ maxRetries: 1, requestSleepMs: 60 });
     await Promise.all([fetchJson('https://x.test/1'), fetchJson('https://x.test/2'), fetchJson('https://x.test/3')]);
-    starts.sort((a, b) => a - b);
-    expect(starts[1] - starts[0]).toBeGreaterThanOrEqual(50); expect(starts[2] - starts[1]).toBeGreaterThanOrEqual(50);
-    starts.length = 0;
+    expect([calls, waits]).toEqual([3, [60, 120]]); // one lane: starts at +0, +60, +120 ms
+    calls = 0; waits.length = 0;
     setSecInterval(70); setHttpSettings({ maxRetries: 2, requestSleepMs: 0 });
     await runFundPool([1, 2, 3], 3, async n => { await fetchJson(`https://data.sec.gov/submissions/${n}.json`); });
-    starts.sort((a, b) => a - b);
-    expect(starts[1] - starts[0]).toBeGreaterThanOrEqual(60); expect(starts[2] - starts[1]).toBeGreaterThanOrEqual(60);
-    let calls = 0;
+    expect([calls, waits.sort((a, b) => a - b)]).toEqual([3, [70, 140]]); // three workers, one SEC gate: +0, +70, +140 ms
+    globalThis.setTimeout = realSetTimeout; setSystemTime();
+    calls = 0;
     globalThis.fetch = (async () => (++calls === 1 ? reply(403, { error: { message: 'Undeclared Automated Tool' } }) : reply(200, { ok: 1 }))) as any;
     expect(await fetchJson('https://www.sec.gov/files/company_tickers.json')).toEqual({ ok: 1 });
     expect(calls).toBe(2);
