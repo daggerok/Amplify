@@ -909,15 +909,22 @@ describe('pipeline 2', () => {
       for (const f of readIndex(dir).funds) expect(Object.keys(f.metrics)).toEqual(expect.arrayContaining(RANGE_KEYS));
       // the swing keys from the Close column of the same pages (shared swing block), in front of returnsBasis and performanceAsOf
       for (const f of readIndex(dir).funds) {
-        expect(Object.keys(f.metrics).slice(-17, -8)).toEqual(['pctFrom52wHigh', 'athPrice', 'athDate', 'athBasis', 'pctFromAth', 'volatility1y', 'sigmaFromMean60d', 'high60d', 'low60d']);
+        expect(Object.keys(f.metrics).slice(-51, -42)).toEqual(['pctFrom52wHigh', 'athPrice', 'athDate', 'athBasis', 'pctFromAth', 'volatility1y', 'sigmaFromMean60d', 'high60d', 'low60d']);
         // the dividend keys from one Yahoo daily chart request per updated fund (shared dividends block)
-        expect(Object.keys(f.metrics).slice(-8, -2)).toEqual(['dividendRate', 'dividendGrowth', 'dividendGrowth3y', 'dividendGrowth5y', 'dividendStreak', 'dividendCut10y']);
+        expect(Object.keys(f.metrics).slice(-42, -34)).toEqual(['dividendRate', 'dividendGrowth', 'dividendGrowth3y', 'dividendGrowth5y', 'dividendStreak', 'dividendCut10y', 'paymentsPerYear', 'payFrequency']);
+        // the 32 keys of the benchmark block (SPY and QQQ), read from the same chart request, in front of returnsBasis and performanceAsOf
+        expect(Object.keys(f.metrics).slice(-34, -2)).toEqual(['perf1y', 'perf3y', 'perf5y', 'perf10y', 'perfSi', 'maxDrawdown1y', 'maxDrawdown3y', 'maxDrawdown5y', 'maxDrawdown10y',
+          'vsSpy1y', 'vsSpy3y', 'vsSpy5y', 'vsSpy10y', 'beta1ySpy', 'corr1ySpy', 'upCapture3ySpy', 'downCapture3ySpy', 'relStrength3mSpy', 'stressReturnSpy', 'stressBasisSpy',
+          'vsQqq1y', 'vsQqq3y', 'vsQqq5y', 'vsQqq10y', 'beta1yQqq', 'corr1yQqq', 'upCapture3yQqq', 'downCapture3yQqq', 'relStrength3mQqq', 'stressReturnQqq', 'stressBasisQqq', 'benchmarkAsOf']);
         expect([typeof f.metrics.athPrice, f.metrics.athBasis]).toEqual(['number', expect.stringMatching(/^daily closes since \d{4}-\d{2}-\d{2}$/)]);
       }
       // one dividend chart request (includePrePost=false) per updated fund; the dividend events of the mock give 4 x 0.5 in the last year
       const dividendRequests = (urls: string[]) => urls.filter(url => /chart\/[^?]+\?period1=0&.*includePrePost=false/.test(url)).map(url => /chart\/([^?]+)/.exec(url)?.[1]).sort();
-      expect(dividendRequests(firstCalls)).toEqual(['AAA', 'BBB', 'CCC']);
+      // the benchmark block adds exactly the SPY and the QQQ chart to the run, no request per fund
+      expect(dividendRequests(firstCalls)).toEqual(['AAA', 'BBB', 'CCC', 'QQQ', 'SPY']);
       expect(rowOf(dir, 'AAA').metrics.dividendRate).toBe(2);
+      // the mock gives the benchmarks the same bars as the fund (about 2.5 years, no events): 1y and since listing exist, 3y is null, the fund equals both benchmarks (vs 0, beta and correlation 1)
+      { const m = rowOf(dir, 'AAA').metrics; expect(['paymentsPerYear','payFrequency','perf1y','perf3y','perfSi','vsSpy1y','vsQqq1y','beta1ySpy','corr1yQqq','relStrength3mSpy','benchmarkAsOf'].map((k) => m[k])).toEqual([4, 'quarterly', 3.43, null, 10.02, 0, 0, 1, 1, 0, '2026-09-30']); }
       for (const f of readIndex(dir).funds) expect(f.dataFile).toBe(`./funds/${f.ticker}/meta.json`);
       await runLogged({ MAX_FETCHES: '2' }, dir);
       const cursor = readFileSync(join(dir, 'update-state.json'), 'utf8');
@@ -927,7 +934,7 @@ describe('pipeline 2', () => {
       const aaaCalls = stubWorld(w);
       await runLogged({ TICKERS: 'AAA' }, dir);
       const after = snapshot(dir);
-      expect(dividendRequests(aaaCalls)).toEqual(['AAA']);
+      expect(dividendRequests(aaaCalls)).toEqual(['AAA', 'QQQ', 'SPY']);
       expect(readIndex(dir).funds.map((f: any) => f.ticker)).toEqual(['AAA', 'BBB', 'CCC']);
       expect(only(after, 'BBB')).toEqual(only(before, 'BBB'));
       expect(only(after, 'CCC')).toEqual(only(before, 'CCC'));
@@ -1170,7 +1177,9 @@ describe('pipeline 5', () => {
       w.catalog = w.catalog.map((fund) => (fund.ticker === 'CCC' ? { ...fund, isActive: false } : fund));
       calls = stubWorld(w);
       const inactive = await runLogged({ TICKERS: 'CCC' }, dir);
-      expect([inactive.error, calls.filter((url) => !url.includes('fund_category'))]).toEqual([null, []]);
+      // no fund request; the benchmark block still reads its SPY and QQQ charts once per run
+      expect([inactive.error, calls.filter((url) => !url.includes('fund_category') && !/chart\/(SPY|QQQ)\?/.test(url))]).toEqual([null, []]);
+      expect(calls.filter((url) => /chart\/(SPY|QQQ)\?/.test(url))).toHaveLength(2);
       expect(only(snapshot(dir), 'CCC')).toEqual(only(before, 'CCC'));
       // a TICKERS run (no purge pass) drops the catalog-only row the live catalog does not list
       stubWorld(w);
