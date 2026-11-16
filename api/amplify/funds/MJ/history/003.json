@@ -2,7 +2,7 @@
  "ticker": "MJ",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2753,
+ "totalRows": 2754,
  "headers": [
   "Date",
   "Close",
@@ -4527,6 +4527,12 @@
    "Close": "21.35",
    "Adj Close": "21.35",
    "Volume": "16900"
+  },
+  {
+   "Date": "Nov 16 2026",
+   "Close": "20.809999",
+   "Adj Close": "20.81",
+   "Volume": "15661"
   }
  ]
 }

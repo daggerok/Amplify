@@ -2,7 +2,7 @@
  "ticker": "ITEQ",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2774,
+ "totalRows": 2775,
  "headers": [
   "Date",
   "Close",
@@ -4653,6 +4653,12 @@
    "Close": "55.152",
    "Adj Close": "55.15",
    "Volume": "1000"
+  },
+  {
+   "Date": "Nov 16 2026",
+   "Close": "54.150002",
+   "Adj Close": "54.15",
+   "Volume": "700"
   }
  ]
 }

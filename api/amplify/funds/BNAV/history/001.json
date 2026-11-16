@@ -2,7 +2,7 @@
  "ticker": "BNAV",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 77,
+ "totalRows": 78,
  "headers": [
   "Date",
   "Close",
@@ -471,6 +471,12 @@
    "Close": "28.129999",
    "Adj Close": "28.13",
    "Volume": "700"
+  },
+  {
+   "Date": "Nov 16 2026",
+   "Close": "26.909901",
+   "Adj Close": "26.91",
+   "Volume": "684"
   }
  ]
 }

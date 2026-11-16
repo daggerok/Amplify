@@ -2,7 +2,7 @@
  "ticker": "BATT",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2123,
+ "totalRows": 2124,
  "headers": [
   "Date",
   "Close",
@@ -747,6 +747,12 @@
    "Close": "12.33",
    "Adj Close": "12.33",
    "Volume": "28000"
+  },
+  {
+   "Date": "Nov 16 2026",
+   "Close": "11.97",
+   "Adj Close": "11.97",
+   "Volume": "10228"
   }
  ]
 }
