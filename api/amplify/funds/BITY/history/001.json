@@ -2,7 +2,7 @@
  "ticker": "BITY",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 389,
+ "totalRows": 391,
  "headers": [
   "Date",
   "Close",
@@ -2340,9 +2340,21 @@
   },
   {
    "Date": "Nov 16 2026",
-   "Close": "20.190001",
-   "Adj Close": "20.19",
-   "Volume": "1633"
+   "Close": "20.454",
+   "Adj Close": "20.45",
+   "Volume": "3900"
+  },
+  {
+   "Date": "Nov 17 2026",
+   "Close": "20",
+   "Adj Close": "20",
+   "Volume": "2300"
+  },
+  {
+   "Date": "Nov 18 2026",
+   "Close": "19.627001",
+   "Adj Close": "19.63",
+   "Volume": "7000"
   }
  ]
 }

@@ -1,0 +1,111 @@
+{
+ "ticker": "YO",
+ "name": "Amplify S&P 500 Buffered Autocallable Yield Opportunity ETF",
+ "category": "Income",
+ "categoryPath": "Income",
+ "status": "active",
+ "source": {
+  "fundPage": "https://amplifyetfs.com/YO/",
+  "catalog": "https://firestore.googleapis.com/v1/projects/amplify-etfs-data-feed/databases/(default)/documents/fund_category",
+  "holdingsDownload": "https://amplifyetfs.com/yo-holdings/",
+  "holdingsSource": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
+  "historySource": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)",
+  "yahooChart": "https://query1.finance.yahoo.com/v8/finance/chart/YO",
+  "provider": "Amplify ETFs Firestore data feed (amplify-etfs-data-feed); SEC EDGAR N-PORT-P holdings fallback; Yahoo Finance market-history/dividend data"
+ },
+ "providerIds": {
+  "fundPage": "https://amplifyetfs.com/YO/",
+  "holdingsPage": "https://amplifyetfs.com/yo-holdings/"
+ },
+ "legalStructure": "ETF",
+ "identifiers": {
+  "cusip": "032108193",
+  "isin": "US0321081939",
+  "sedol": null,
+  "indexTicker": "SPAC4VCT"
+ },
+ "inception": {
+  "fundInceptionDate": "2026-11-17",
+  "shareClassInceptionDate": "2026-11-18",
+  "exchange": "NYSE Arca"
+ },
+ "expenseRatio": {
+  "display": "0.74%",
+  "value": 0.74,
+  "gross": null,
+  "net": 0.74
+ },
+ "nav": {
+  "display": "$25.04",
+  "value": 25.0395,
+  "asOfDate": "Nov 18 2026"
+ },
+ "marketPrice": {
+  "display": "$24.98",
+  "value": 24.9779,
+  "asOfDate": "Nov 18 2026"
+ },
+ "premiumDiscount": {
+  "display": "-0.25%",
+  "value": -0.246
+ },
+ "aum": {
+  "display": "$751,184",
+  "value": 751184.46,
+  "asOfDate": "Nov 18 2026",
+  "source": "Amplify Firestore daily net assets"
+ },
+ "yields": {
+  "dividendYield": null,
+  "dividendYieldText": "—",
+  "dividendYieldKind": "trailing 12 months (distributions with an ex-date in the last 12 months / market price; null with under 12 months of history)",
+  "secYield": null,
+  "secYieldText": "—",
+  "secYieldKind": "not published",
+  "unsubsidizedSecYield": null
+ },
+ "returns": {
+  "monthEnd": {
+   "asOfDate": "Nov 18 2026",
+   "mo1": null,
+   "qtd": null,
+   "ytd": null,
+   "yr1": null,
+   "yr3": null,
+   "yr5": null,
+   "yr10": null,
+   "sinceInception": null
+  },
+  "quarterEnd": null,
+  "derivedFrom": "Yahoo adjusted market-price returns, not official NAV"
+ },
+ "distributions": {
+  "frequency": "—",
+  "paymentsPerYear": null,
+  "headers": [
+   "Ex-Date",
+   "Amount"
+  ],
+  "rows": []
+ },
+ "holdings": {
+  "pages": [
+   "holdings/001.json"
+  ],
+  "pageSize": 250,
+  "totalRows": 3,
+  "asOfDate": "2026-11-19",
+  "asOf": "Nov 19 2026",
+  "source": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
+  "status": "available"
+ },
+ "history": {
+  "pages": [
+   "history/001.json"
+  ],
+  "pageSize": 1000,
+  "totalRows": 1,
+  "asOf": "Nov 18 2026",
+  "source": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)"
+ }
+}

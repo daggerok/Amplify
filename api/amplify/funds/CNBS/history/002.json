@@ -2,7 +2,7 @@
  "ticker": "CNBS",
  "page": 2,
  "pageSize": 1000,
- "totalRows": 1841,
+ "totalRows": 1843,
  "headers": [
   "Date",
   "Close",
@@ -5052,9 +5052,21 @@
   },
   {
    "Date": "Nov 16 2026",
-   "Close": "21.66",
-   "Adj Close": "21.66",
-   "Volume": "4959"
+   "Close": "21.280001",
+   "Adj Close": "21.28",
+   "Volume": "7400"
+  },
+  {
+   "Date": "Nov 17 2026",
+   "Close": "20.931",
+   "Adj Close": "20.93",
+   "Volume": "6100"
+  },
+  {
+   "Date": "Nov 18 2026",
+   "Close": "20.735001",
+   "Adj Close": "20.74",
+   "Volume": "5300"
   }
  ]
 }

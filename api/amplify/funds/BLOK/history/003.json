@@ -2,7 +2,7 @@
  "ticker": "BLOK",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2215,
+ "totalRows": 2217,
  "headers": [
   "Date",
   "Close",
@@ -1296,9 +1296,21 @@
   },
   {
    "Date": "Nov 16 2026",
-   "Close": "48.27",
-   "Adj Close": "48.27",
-   "Volume": "82866"
+   "Close": "47.91",
+   "Adj Close": "47.91",
+   "Volume": "284200"
+  },
+  {
+   "Date": "Nov 17 2026",
+   "Close": "46.860001",
+   "Adj Close": "46.86",
+   "Volume": "285400"
+  },
+  {
+   "Date": "Nov 18 2026",
+   "Close": "47",
+   "Adj Close": "47",
+   "Volume": "146900"
   }
  ]
 }

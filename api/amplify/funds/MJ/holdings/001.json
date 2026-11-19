@@ -17,8 +17,8 @@
    "Name": "Amplify Seymour Cannabis ETF",
    "Ticker": "CNBS",
    "Identifier": "032108482",
-   "Weight": "47.52",
-   "Market Value": "43899482.06",
+   "Weight": "48.35",
+   "Market Value": "41952067.36",
    "Shares Held": "2023288",
    "SEDOL": ""
   },
@@ -26,35 +26,35 @@
    "Name": "Cronos Group Inc",
    "Ticker": "CRON",
    "Identifier": "22717L101",
-   "Weight": "12.75",
-   "Market Value": "11780810.86",
+   "Weight": "12.73",
+   "Market Value": "11048866.99",
    "Shares Held": "3485447",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Tilray Brands Inc",
-   "Ticker": "TLRY",
-   "Identifier": "88688T209",
-   "Weight": "7.43",
-   "Market Value": "6867080.37",
-   "Shares Held": "2825959",
    "SEDOL": ""
   },
   {
    "Name": "SNDL Inc",
    "Ticker": "SNDL",
    "Identifier": "83307B101",
-   "Weight": "7.41",
-   "Market Value": "6841574.5",
+   "Weight": "7.71",
+   "Market Value": "6691759",
    "Shares Held": "4993850",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Tilray Brands Inc",
+   "Ticker": "TLRY",
+   "Identifier": "88688T209",
+   "Weight": "7.33",
+   "Market Value": "6358407.75",
+   "Shares Held": "2825959",
    "SEDOL": ""
   },
   {
    "Name": "Aurora Cannabis Inc",
    "Ticker": "ACB",
    "Identifier": "05156X850",
-   "Weight": "6.88",
-   "Market Value": "6353907.04",
+   "Weight": "6.52",
+   "Market Value": "5659350.4",
    "Shares Held": "1286216",
    "SEDOL": ""
   },
@@ -62,8 +62,8 @@
    "Name": "Village Farms International Inc",
    "Ticker": "VFF",
    "Identifier": "92707Y108",
-   "Weight": "6",
-   "Market Value": "5540304.44",
+   "Weight": "5.73",
+   "Market Value": "4967958.94",
    "Shares Held": "2289382",
    "SEDOL": ""
   },
@@ -71,8 +71,8 @@
    "Name": "Canopy Growth Corp",
    "Ticker": "CGC",
    "Identifier": "138035704",
-   "Weight": "5.46",
-   "Market Value": "5041876.92",
+   "Weight": "5.19",
+   "Market Value": "4505526.15",
    "Shares Held": "8984100",
    "SEDOL": ""
   },
@@ -80,8 +80,8 @@
    "Name": "High Tide Inc",
    "Ticker": "HITI",
    "Identifier": "42981E401",
-   "Weight": "4.37",
-   "Market Value": "4040183.94",
+   "Weight": "4.47",
+   "Market Value": "3876613.74",
    "Shares Held": "1635702",
    "SEDOL": ""
   },
@@ -89,8 +89,8 @@
    "Name": "Organigram Global Inc",
    "Ticker": "OGI",
    "Identifier": "68617J100",
-   "Weight": "1.85",
-   "Market Value": "1710182.34",
+   "Weight": "1.61",
+   "Market Value": "1396463.16",
    "Shares Held": "2063942",
    "SEDOL": ""
   },
@@ -98,7 +98,7 @@
    "Name": "Invesco Government & Agency Portfolio 12/31/2031",
    "Ticker": "AGPXX",
    "Identifier": "825252885",
-   "Weight": "0.31",
+   "Weight": "0.33",
    "Market Value": "283796.3",
    "Shares Held": "283796.3",
    "SEDOL": ""
@@ -107,9 +107,9 @@
    "Name": "Cash & Other",
    "Ticker": "-",
    "Identifier": "Cash&Other",
-   "Weight": "0.02",
-   "Market Value": "17688.12",
-   "Shares Held": "17688.12",
+   "Weight": "0.03",
+   "Market Value": "29793.81",
+   "Shares Held": "29793.81",
    "SEDOL": ""
   }
  ]

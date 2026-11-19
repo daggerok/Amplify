@@ -36,23 +36,23 @@
   "net": 0.75
  },
  "nav": {
-  "display": "$17.50",
-  "value": 17.4964,
-  "asOfDate": "Nov 13 2026"
+  "display": "$17.08",
+  "value": 17.0833,
+  "asOfDate": "Nov 18 2026"
  },
  "marketPrice": {
-  "display": "$17.45",
-  "value": 17.445,
-  "asOfDate": "Nov 13 2026"
+  "display": "$17.05",
+  "value": 17.0512,
+  "asOfDate": "Nov 18 2026"
  },
  "premiumDiscount": {
-  "display": "-0.29%",
-  "value": -0.2938
+  "display": "-0.19%",
+  "value": -0.1879
  },
  "aum": {
-  "display": "$23,620,094",
-  "value": 23620093.86,
-  "asOfDate": "Nov 13 2026",
+  "display": "$23,062,409",
+  "value": 23062408.56,
+  "asOfDate": "Nov 18 2026",
   "source": "Amplify Firestore daily net assets"
  },
  "yields": {
@@ -117,8 +117,8 @@
   ],
   "pageSize": 250,
   "totalRows": 30,
-  "asOfDate": "2026-11-16",
-  "asOf": "Nov 16 2026",
+  "asOfDate": "2026-11-19",
+  "asOf": "Nov 19 2026",
   "source": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
   "status": "available"
  },
@@ -128,8 +128,8 @@
    "history/002.json"
   ],
   "pageSize": 1000,
-  "totalRows": 1699,
-  "asOf": "Nov 16 2026",
+  "totalRows": 1701,
+  "asOf": "Nov 18 2026",
   "source": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)"
  }
 }

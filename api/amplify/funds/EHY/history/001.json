@@ -2,7 +2,7 @@
  "ticker": "EHY",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 278,
+ "totalRows": 280,
  "headers": [
   "Date",
   "Close",
@@ -1676,7 +1676,19 @@
    "Date": "Nov 16 2026",
    "Close": "4.915",
    "Adj Close": "4.91",
-   "Volume": "22133"
+   "Volume": "25800"
+  },
+  {
+   "Date": "Nov 17 2026",
+   "Close": "4.825",
+   "Adj Close": "4.82",
+   "Volume": "7200"
+  },
+  {
+   "Date": "Nov 18 2026",
+   "Close": "4.68",
+   "Adj Close": "4.68",
+   "Volume": "38600"
   }
  ]
 }

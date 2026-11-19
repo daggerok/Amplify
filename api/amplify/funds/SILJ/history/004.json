@@ -2,7 +2,7 @@
  "ticker": "SILJ",
  "page": 4,
  "pageSize": 1000,
- "totalRows": 3512,
+ "totalRows": 3514,
  "headers": [
   "Date",
   "Close",
@@ -3078,9 +3078,21 @@
   },
   {
    "Date": "Nov 16 2026",
-   "Close": "22.120001",
-   "Adj Close": "22.12",
-   "Volume": "2330860"
+   "Close": "21.790001",
+   "Adj Close": "21.79",
+   "Volume": "8123500"
+  },
+  {
+   "Date": "Nov 17 2026",
+   "Close": "21.98",
+   "Adj Close": "21.98",
+   "Volume": "3713200"
+  },
+  {
+   "Date": "Nov 18 2026",
+   "Close": "20.860001",
+   "Adj Close": "20.86",
+   "Volume": "6336300"
   }
  ]
 }

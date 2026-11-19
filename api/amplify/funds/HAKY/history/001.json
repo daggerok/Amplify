@@ -2,7 +2,7 @@
  "ticker": "HAKY",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 208,
+ "totalRows": 210,
  "headers": [
   "Date",
   "Close",
@@ -1254,9 +1254,21 @@
   },
   {
    "Date": "Nov 16 2026",
-   "Close": "28.57",
-   "Adj Close": "28.57",
-   "Volume": "7588"
+   "Close": "28.665001",
+   "Adj Close": "28.67",
+   "Volume": "11400"
+  },
+  {
+   "Date": "Nov 17 2026",
+   "Close": "28.243",
+   "Adj Close": "28.24",
+   "Volume": "14900"
+  },
+  {
+   "Date": "Nov 18 2026",
+   "Close": "29.941999",
+   "Adj Close": "29.94",
+   "Volume": "31900"
   }
  ]
 }
