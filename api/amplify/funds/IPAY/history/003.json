@@ -2,7 +2,7 @@
  "ticker": "IPAY",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2854,
+ "totalRows": 2856,
  "headers": [
   "Date",
   "Close",
@@ -5133,6 +5133,18 @@
    "Close": "47.75",
    "Adj Close": "47.75",
    "Volume": "62300"
+  },
+  {
+   "Date": "Nov 19 2026",
+   "Close": "46.029999",
+   "Adj Close": "46.03",
+   "Volume": "225900"
+  },
+  {
+   "Date": "Nov 20 2026",
+   "Close": "45.439999",
+   "Adj Close": "45.44",
+   "Volume": "21385"
   }
  ]
 }

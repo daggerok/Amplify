@@ -2,7 +2,7 @@
  "ticker": "THNR",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 627,
+ "totalRows": 629,
  "headers": [
   "Date",
   "Close",
@@ -3771,6 +3771,18 @@
    "Close": "25.023001",
    "Adj Close": "25.02",
    "Volume": "600"
+  },
+  {
+   "Date": "Nov 19 2026",
+   "Close": "24.698999",
+   "Adj Close": "24.7",
+   "Volume": "200"
+  },
+  {
+   "Date": "Nov 20 2026",
+   "Close": "24.259399",
+   "Adj Close": "24.26",
+   "Volume": "3743"
   }
  ]
 }

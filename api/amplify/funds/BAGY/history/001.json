@@ -2,7 +2,7 @@
  "ticker": "BAGY",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 391,
+ "totalRows": 393,
  "headers": [
   "Date",
   "Close",
@@ -2355,6 +2355,18 @@
    "Close": "16.455999",
    "Adj Close": "16.46",
    "Volume": "10800"
+  },
+  {
+   "Date": "Nov 19 2026",
+   "Close": "16.344999",
+   "Adj Close": "16.34",
+   "Volume": "1500"
+  },
+  {
+   "Date": "Nov 20 2026",
+   "Close": "15.39",
+   "Adj Close": "15.39",
+   "Volume": "10002"
   }
  ]
 }

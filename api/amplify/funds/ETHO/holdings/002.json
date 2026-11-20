@@ -14,12 +14,12 @@
  ],
  "rows": [
   {
-   "Name": "Insmed Inc",
-   "Ticker": "INSM",
-   "Identifier": "457669307",
+   "Name": "Ormat Technologies Inc",
+   "Ticker": "ORA",
+   "Identifier": "686688102",
    "Weight": "0.24",
-   "Market Value": "458714.2",
-   "Shares Held": "3829",
+   "Market Value": "456232.72",
+   "Shares Held": "5188",
    "SEDOL": ""
   },
   {
@@ -27,7 +27,7 @@
    "Ticker": "TMUS",
    "Identifier": "872590104",
    "Weight": "0.24",
-   "Market Value": "456959.72",
+   "Market Value": "452808.58",
    "Shares Held": "2786",
    "SEDOL": ""
   },
@@ -36,7 +36,7 @@
    "Ticker": "TER",
    "Identifier": "880770102",
    "Weight": "0.24",
-   "Market Value": "457718.66",
+   "Market Value": "442578.78",
    "Shares Held": "1946",
    "SEDOL": ""
   },
@@ -45,7 +45,7 @@
    "Ticker": "VCYT",
    "Identifier": "92337F107",
    "Weight": "0.24",
-   "Market Value": "464095.5",
+   "Market Value": "454476",
    "Shares Held": "18150",
    "SEDOL": ""
   },
@@ -54,17 +54,8 @@
    "Ticker": "CWCO",
    "Identifier": "G23773107",
    "Weight": "0.23",
-   "Market Value": "439664.81",
+   "Market Value": "430988.38",
    "Shares Held": "17707",
-   "SEDOL": ""
-  },
-  {
-   "Name": "CoStar Group Inc",
-   "Ticker": "CSGP",
-   "Identifier": "22160N109",
-   "Weight": "0.23",
-   "Market Value": "431546.7",
-   "Shares Held": "14433",
    "SEDOL": ""
   },
   {
@@ -72,17 +63,26 @@
    "Ticker": "PATK",
    "Identifier": "703343103",
    "Weight": "0.23",
-   "Market Value": "433032.91",
+   "Market Value": "426930.15",
    "Shares Held": "5261",
    "SEDOL": ""
   },
   {
-   "Name": "Builders FirstSource Inc",
-   "Ticker": "BLDR",
-   "Identifier": "12008R107",
+   "Name": "CoStar Group Inc",
+   "Ticker": "CSGP",
+   "Identifier": "22160N109",
    "Weight": "0.22",
-   "Market Value": "411880",
-   "Shares Held": "7000",
+   "Market Value": "414227.1",
+   "Shares Held": "14433",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Gibraltar Industries Inc",
+   "Ticker": "ROCK",
+   "Identifier": "374689107",
+   "Weight": "0.22",
+   "Market Value": "415131",
+   "Shares Held": "14566",
    "SEDOL": ""
   },
   {
@@ -90,7 +90,7 @@
    "Ticker": "LMAT",
    "Identifier": "525558201",
    "Weight": "0.22",
-   "Market Value": "411678.45",
+   "Market Value": "409109.9",
    "Shares Held": "5465",
    "SEDOL": ""
   },
@@ -99,17 +99,8 @@
    "Ticker": "OTLY",
    "Identifier": "67421J207",
    "Weight": "0.22",
-   "Market Value": "418102.76",
+   "Market Value": "410095.32",
    "Shares Held": "57196",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Resideo Technologies Inc",
-   "Ticker": "REZI",
-   "Identifier": "76118Y104",
-   "Weight": "0.22",
-   "Market Value": "416316.32",
-   "Shares Held": "18872",
    "SEDOL": ""
   },
   {
@@ -117,8 +108,26 @@
    "Ticker": "SAFE",
    "Identifier": "78646V107",
    "Weight": "0.22",
-   "Market Value": "419213.16",
+   "Market Value": "408330.16",
    "Shares Held": "43532",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Builders FirstSource Inc",
+   "Ticker": "BLDR",
+   "Identifier": "12008R107",
+   "Weight": "0.21",
+   "Market Value": "388360",
+   "Shares Held": "7000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Calix Inc",
+   "Ticker": "CALX",
+   "Identifier": "13100M509",
+   "Weight": "0.21",
+   "Market Value": "391164.3",
+   "Shares Held": "11694",
    "SEDOL": ""
   },
   {
@@ -126,17 +135,8 @@
    "Ticker": "FICO",
    "Identifier": "303250104",
    "Weight": "0.21",
-   "Market Value": "393772.75",
+   "Market Value": "393708.84",
    "Shares Held": "581",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Gibraltar Industries Inc",
-   "Ticker": "ROCK",
-   "Identifier": "374689107",
-   "Weight": "0.21",
-   "Market Value": "409887.24",
-   "Shares Held": "14566",
    "SEDOL": ""
   },
   {
@@ -144,8 +144,17 @@
    "Ticker": "PEGA",
    "Identifier": "705573103",
    "Weight": "0.21",
-   "Market Value": "395035.68",
+   "Market Value": "384222.16",
    "Shares Held": "13688",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Resideo Technologies Inc",
+   "Ticker": "REZI",
+   "Identifier": "76118Y104",
+   "Weight": "0.21",
+   "Market Value": "399897.68",
+   "Shares Held": "18872",
    "SEDOL": ""
   },
   {
@@ -153,7 +162,7 @@
    "Ticker": "STRL",
    "Identifier": "859241101",
    "Weight": "0.21",
-   "Market Value": "399340.2",
+   "Market Value": "394846.25",
    "Shares Held": "1445",
    "SEDOL": ""
   },
@@ -162,7 +171,7 @@
    "Ticker": "XIFR",
    "Identifier": "65341B106",
    "Weight": "0.21",
-   "Market Value": "406450.7",
+   "Market Value": "389491.7",
    "Shares Held": "56530",
    "SEDOL": ""
   },
@@ -171,7 +180,7 @@
    "Ticker": "ZG",
    "Identifier": "98954M101",
    "Weight": "0.21",
-   "Market Value": "399181.95",
+   "Market Value": "386834.67",
    "Shares Held": "14031",
    "SEDOL": ""
   },
@@ -180,17 +189,8 @@
    "Ticker": "DOX",
    "Identifier": "G02602103",
    "Weight": "0.2",
-   "Market Value": "389906.16",
+   "Market Value": "373491",
    "Shares Held": "9222",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Calix Inc",
-   "Ticker": "CALX",
-   "Identifier": "13100M509",
-   "Weight": "0.2",
-   "Market Value": "382159.92",
-   "Shares Held": "11694",
    "SEDOL": ""
   },
   {
@@ -198,7 +198,7 @@
    "Ticker": "PODD",
    "Identifier": "45784P101",
    "Weight": "0.2",
-   "Market Value": "386764.74",
+   "Market Value": "379166.49",
    "Shares Held": "2763",
    "SEDOL": ""
   },
@@ -207,8 +207,17 @@
    "Ticker": "NMRK",
    "Identifier": "65158N102",
    "Weight": "0.2",
-   "Market Value": "386250",
+   "Market Value": "376980",
    "Shares Held": "38625",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Sprouts Farmers Market Inc",
+   "Ticker": "SFM",
+   "Identifier": "85208M102",
+   "Weight": "0.2",
+   "Market Value": "365758.82",
+   "Shares Held": "7529",
    "SEDOL": ""
   },
   {
@@ -216,7 +225,7 @@
    "Ticker": "TTD",
    "Identifier": "88339J105",
    "Weight": "0.2",
-   "Market Value": "388372.48",
+   "Market Value": "364349.44",
    "Shares Held": "25024",
    "SEDOL": ""
   },
@@ -225,7 +234,7 @@
    "Ticker": "LPTH",
    "Identifier": "532257805",
    "Weight": "0.19",
-   "Market Value": "360181.62",
+   "Market Value": "345797.37",
    "Shares Held": "57537",
    "SEDOL": ""
   },
@@ -234,17 +243,8 @@
    "Ticker": "NFLX",
    "Identifier": "64110L106",
    "Weight": "0.19",
-   "Market Value": "360834.24",
+   "Market Value": "352630.72",
    "Shares Held": "6032",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Sprouts Farmers Market Inc",
-   "Ticker": "SFM",
-   "Identifier": "85208M102",
-   "Weight": "0.19",
-   "Market Value": "365382.37",
-   "Shares Held": "7529",
    "SEDOL": ""
   },
   {
@@ -252,7 +252,7 @@
    "Ticker": "WINA",
    "Identifier": "974250102",
    "Weight": "0.19",
-   "Market Value": "363595.4",
+   "Market Value": "350614.6",
    "Shares Held": "1330",
    "SEDOL": ""
   },
@@ -261,7 +261,7 @@
    "Ticker": "ENPH",
    "Identifier": "29355A107",
    "Weight": "0.18",
-   "Market Value": "345836.92",
+   "Market Value": "335458.76",
    "Shares Held": "15262",
    "SEDOL": ""
   },
@@ -270,7 +270,7 @@
    "Ticker": "IPGP",
    "Identifier": "44980X109",
    "Weight": "0.18",
-   "Market Value": "349476.48",
+   "Market Value": "339649.28",
    "Shares Held": "5312",
    "SEDOL": ""
   },
@@ -279,7 +279,7 @@
    "Ticker": "NPKI",
    "Identifier": "651718504",
    "Weight": "0.18",
-   "Market Value": "336601.84",
+   "Market Value": "336201.6",
    "Shares Held": "40024",
    "SEDOL": ""
   },
@@ -288,7 +288,7 @@
    "Ticker": "QXO",
    "Identifier": "82846H405",
    "Weight": "0.18",
-   "Market Value": "335970",
+   "Market Value": "329101.28",
    "Shares Held": "29864",
    "SEDOL": ""
   },
@@ -297,7 +297,7 @@
    "Ticker": "NAGE",
    "Identifier": "171077407",
    "Weight": "0.13",
-   "Market Value": "255131.34",
+   "Market Value": "245925.57",
    "Shares Held": "131511",
    "SEDOL": ""
   },
@@ -306,7 +306,7 @@
    "Ticker": "IONS",
    "Identifier": "462222100",
    "Weight": "0.12",
-   "Market Value": "222461.58",
+   "Market Value": "221080.84",
    "Shares Held": "8122",
    "SEDOL": ""
   },
@@ -314,9 +314,9 @@
    "Name": "Cash & Other",
    "Ticker": "-",
    "Identifier": "Cash&Other",
-   "Weight": "0.07",
-   "Market Value": "140085.09",
-   "Shares Held": "140085.09",
+   "Weight": "0.08",
+   "Market Value": "152730.87",
+   "Shares Held": "152730.87",
    "SEDOL": ""
   },
   {
@@ -324,7 +324,7 @@
    "Ticker": "ADIG",
    "Identifier": "001026103",
    "Weight": "0.04",
-   "Market Value": "75780",
+   "Market Value": "74938",
    "Shares Held": "8420",
    "SEDOL": ""
   }

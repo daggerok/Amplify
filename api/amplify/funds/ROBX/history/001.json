@@ -2,7 +2,7 @@
  "ticker": "ROBX",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 65,
+ "totalRows": 67,
  "headers": [
   "Date",
   "Close",
@@ -399,6 +399,18 @@
    "Close": "18.26",
    "Adj Close": "18.26",
    "Volume": "400"
+  },
+  {
+   "Date": "Nov 19 2026",
+   "Close": "17.59",
+   "Adj Close": "17.59",
+   "Volume": "3500"
+  },
+  {
+   "Date": "Nov 20 2026",
+   "Close": "16.364799",
+   "Adj Close": "16.36",
+   "Volume": "6833"
   }
  ]
 }

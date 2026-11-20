@@ -14,29 +14,29 @@
  ],
  "rows": [
   {
-   "Name": "Invesco Advantage Municipal Income Trust II",
-   "Ticker": "VKI",
-   "Identifier": "46132E103",
-   "Weight": "3.91",
-   "Market Value": "54179.84",
-   "Shares Held": "6656",
-   "SEDOL": ""
-  },
-  {
    "Name": "Invesco California Value Municipal Income Trust",
    "Ticker": "VCV",
    "Identifier": "46132H106",
-   "Weight": "3.88",
-   "Market Value": "53829.36",
+   "Weight": "3.9",
+   "Market Value": "53712.72",
    "Shares Held": "5832",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Invesco Advantage Municipal Income Trust II",
+   "Ticker": "VKI",
+   "Identifier": "46132E103",
+   "Weight": "3.87",
+   "Market Value": "53314.56",
+   "Shares Held": "6656",
    "SEDOL": ""
   },
   {
    "Name": "Nuveen California AMT-Free Quality Municipal Income Fund",
    "Ticker": "NKX",
    "Identifier": "670651108",
-   "Weight": "3.82",
-   "Market Value": "52965.84",
+   "Weight": "3.81",
+   "Market Value": "52392.72",
    "Shares Held": "4776",
    "SEDOL": ""
   },
@@ -45,7 +45,7 @@
    "Ticker": "VMO",
    "Identifier": "46132C107",
    "Weight": "3.8",
-   "Market Value": "52655.04",
+   "Market Value": "52281.6",
    "Shares Held": "6224",
    "SEDOL": ""
   },
@@ -54,7 +54,7 @@
    "Ticker": "VKQ",
    "Identifier": "46131J103",
    "Weight": "3.78",
-   "Market Value": "52496",
+   "Market Value": "52001.92",
    "Shares Held": "6176",
    "SEDOL": ""
   },
@@ -62,8 +62,8 @@
    "Name": "Invesco Quality Municipal Income Trust",
    "Ticker": "IQI",
    "Identifier": "46133G107",
-   "Weight": "3.75",
-   "Market Value": "52067.12",
+   "Weight": "3.76",
+   "Market Value": "51700.88",
    "Shares Held": "6104",
    "SEDOL": ""
   },
@@ -71,17 +71,26 @@
    "Name": "NUVEEN ENHANCED MUNICIPAL CREDIT OPPORTUNITIES FUND",
    "Ticker": "NZF",
    "Identifier": "67070X101",
-   "Weight": "3.75",
-   "Market Value": "52018.08",
+   "Weight": "3.72",
+   "Market Value": "51183.04",
    "Shares Held": "4912",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Nuveen Municipal High Income Opportunity Fund",
+   "Ticker": "NMZ",
+   "Identifier": "670682103",
+   "Weight": "3.72",
+   "Market Value": "51143.76",
+   "Shares Held": "6024",
    "SEDOL": ""
   },
   {
    "Name": "Invesco Trust for Investment Grade Municipals",
    "Ticker": "VGM",
    "Identifier": "46131M106",
-   "Weight": "3.73",
-   "Market Value": "51707.92",
+   "Weight": "3.7",
+   "Market Value": "50882.48",
    "Shares Held": "5896",
    "SEDOL": ""
   },
@@ -89,18 +98,9 @@
    "Name": "NUVEEN ENHANCED AMT-FREE MUNICIPAL CREDIT OPPORTUNITIES FUND",
    "Ticker": "NVG",
    "Identifier": "67071L106",
-   "Weight": "3.71",
-   "Market Value": "51412.48",
+   "Weight": "3.68",
+   "Market Value": "50682.88",
    "Shares Held": "4864",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Nuveen Municipal High Income Opportunity Fund",
-   "Ticker": "NMZ",
-   "Identifier": "670682103",
-   "Weight": "3.7",
-   "Market Value": "51324.48",
-   "Shares Held": "6024",
    "SEDOL": ""
   },
   {
@@ -108,7 +108,7 @@
    "Ticker": "IIM",
    "Identifier": "46132P108",
    "Weight": "3.66",
-   "Market Value": "50800.8",
+   "Market Value": "50410.4",
    "Shares Held": "4880",
    "SEDOL": ""
   },
@@ -116,8 +116,8 @@
    "Name": "Nuveen New York AMT-Free Quality Municipal Income Fund",
    "Ticker": "NRK",
    "Identifier": "670656107",
-   "Weight": "3.65",
-   "Market Value": "50702.72",
+   "Weight": "3.63",
+   "Market Value": "49976.8",
    "Shares Held": "5584",
    "SEDOL": ""
   },
@@ -125,8 +125,8 @@
    "Name": "Nuveen AMT-Free Quality Municipal Income Fund",
    "Ticker": "NEA",
    "Identifier": "670657105",
-   "Weight": "3.51",
-   "Market Value": "48682.56",
+   "Weight": "3.52",
+   "Market Value": "48381.12",
    "Shares Held": "5024",
    "SEDOL": ""
   },
@@ -134,18 +134,9 @@
    "Name": "Nuveen New York Quality Municipal Income Fund",
    "Ticker": "NAN",
    "Identifier": "67066X107",
-   "Weight": "3.5",
-   "Market Value": "48539.52",
+   "Weight": "3.51",
+   "Market Value": "48285.12",
    "Shares Held": "5088",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Nuveen California Quality Municipal Income Fund",
-   "Ticker": "NAC",
-   "Identifier": "67066Y105",
-   "Weight": "3.49",
-   "Market Value": "48352.32",
-   "Shares Held": "4944",
    "SEDOL": ""
   },
   {
@@ -153,16 +144,25 @@
    "Ticker": "NAD",
    "Identifier": "67066V101",
    "Weight": "3.49",
-   "Market Value": "48414.32",
+   "Market Value": "48074.4",
    "Shares Held": "4856",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Nuveen California Quality Municipal Income Fund",
+   "Ticker": "NAC",
+   "Identifier": "67066Y105",
+   "Weight": "3.46",
+   "Market Value": "47610.72",
+   "Shares Held": "4944",
    "SEDOL": ""
   },
   {
    "Name": "Franklin Managed Municipal Income Trust",
    "Ticker": "PMM",
    "Identifier": "746823103",
-   "Weight": "3.31",
-   "Market Value": "45964.8",
+   "Weight": "3.3",
+   "Market Value": "45412.92",
    "Shares Held": "7560",
    "SEDOL": ""
   },
@@ -170,8 +170,8 @@
    "Name": "Aberdeen Municipal Income Fund",
    "Ticker": "MFM",
    "Identifier": "552738106",
-   "Weight": "3.2",
-   "Market Value": "44457.12",
+   "Weight": "3.18",
+   "Market Value": "43748.64",
    "Shares Held": "8856",
    "SEDOL": ""
   },
@@ -179,8 +179,8 @@
    "Name": "Western Asset Intermediate Muni Fund Inc",
    "Ticker": "SBI",
    "Identifier": "958435109",
-   "Weight": "3.19",
-   "Market Value": "44241.6",
+   "Weight": "3.16",
+   "Market Value": "43542.72",
    "Shares Held": "6240",
    "SEDOL": ""
   },
@@ -188,18 +188,9 @@
    "Name": "Eaton Vance Municipal Bond Fund",
    "Ticker": "EIM",
    "Identifier": "27827X101",
-   "Weight": "3.08",
-   "Market Value": "42684.24",
+   "Weight": "3.1",
+   "Market Value": "42635.68",
    "Shares Held": "4856",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Western Asset Managed Municipals Fund Inc",
-   "Ticker": "MMU",
-   "Identifier": "95766M105",
-   "Weight": "3.08",
-   "Market Value": "42686.64",
-   "Shares Held": "4696",
    "SEDOL": ""
   },
   {
@@ -207,7 +198,7 @@
    "Ticker": "MUA",
    "Identifier": "09254J102",
    "Weight": "3.07",
-   "Market Value": "42638.4",
+   "Market Value": "42230.16",
    "Shares Held": "4536",
    "SEDOL": ""
   },
@@ -215,9 +206,27 @@
    "Name": "PIMCO Municipal Income Fund II",
    "Ticker": "PML",
    "Identifier": "72200W106",
-   "Weight": "3.04",
-   "Market Value": "42112",
+   "Weight": "3.07",
+   "Market Value": "42176",
    "Shares Held": "6400",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Western Asset Managed Municipals Fund Inc",
+   "Ticker": "MMU",
+   "Identifier": "95766M105",
+   "Weight": "3.06",
+   "Market Value": "42101.99",
+   "Shares Held": "4696",
+   "SEDOL": ""
+  },
+  {
+   "Name": "BlackRock MuniYield Quality Fund III Inc",
+   "Ticker": "MYI",
+   "Identifier": "09254E103",
+   "Weight": "2.98",
+   "Market Value": "40985.92",
+   "Shares Held": "4208",
    "SEDOL": ""
   },
   {
@@ -225,52 +234,43 @@
    "Ticker": "NBH",
    "Identifier": "64124P101",
    "Weight": "2.97",
-   "Market Value": "41204.8",
+   "Market Value": "40797.28",
    "Shares Held": "4528",
-   "SEDOL": ""
-  },
-  {
-   "Name": "BlackRock MuniYield Quality Fund III Inc",
-   "Ticker": "MYI",
-   "Identifier": "09254E103",
-   "Weight": "2.96",
-   "Market Value": "41028",
-   "Shares Held": "4208",
-   "SEDOL": ""
-  },
-  {
-   "Name": "BlackRock MuniHoldings Fund Inc",
-   "Ticker": "MHD",
-   "Identifier": "09253N104",
-   "Weight": "2.94",
-   "Market Value": "40723.92",
-   "Shares Held": "3912",
-   "SEDOL": ""
-  },
-  {
-   "Name": "BlackRock MuniYield Quality Fund Inc",
-   "Ticker": "MQY",
-   "Identifier": "09254F100",
-   "Weight": "2.94",
-   "Market Value": "40763.52",
-   "Shares Held": "4032",
    "SEDOL": ""
   },
   {
    "Name": "BlackRock MuniYield New York Quality Fund Inc",
    "Ticker": "MYN",
    "Identifier": "09255E102",
-   "Weight": "2.93",
-   "Market Value": "40598.72",
+   "Weight": "2.96",
+   "Market Value": "40691.2",
    "Shares Held": "4624",
+   "SEDOL": ""
+  },
+  {
+   "Name": "BlackRock MuniYield Quality Fund Inc",
+   "Ticker": "MQY",
+   "Identifier": "09254F100",
+   "Weight": "2.95",
+   "Market Value": "40602.24",
+   "Shares Held": "4032",
+   "SEDOL": ""
+  },
+  {
+   "Name": "BlackRock MuniHoldings Fund Inc",
+   "Ticker": "MHD",
+   "Identifier": "09253N104",
+   "Weight": "2.93",
+   "Market Value": "40332.72",
+   "Shares Held": "3912",
    "SEDOL": ""
   },
   {
    "Name": "BlackRock MuniHoldings California Quality Fund Inc",
    "Ticker": "MUC",
    "Identifier": "09254L107",
-   "Weight": "2.89",
-   "Market Value": "40036.48",
+   "Weight": "2.88",
+   "Market Value": "39581.52",
    "Shares Held": "4136",
    "SEDOL": ""
   },
@@ -278,7 +278,7 @@
    "Name": "Invesco Government & Agency Portfolio 12/31/2031",
    "Ticker": "AGPXX",
    "Identifier": "825252885",
-   "Weight": "0.72",
+   "Weight": "0.73",
    "Market Value": "10026.96",
    "Shares Held": "10026.96",
    "SEDOL": ""
@@ -287,9 +287,9 @@
    "Name": "Cash & Other",
    "Ticker": "-",
    "Identifier": "Cash&Other",
-   "Weight": "0.58",
-   "Market Value": "7998.11",
-   "Shares Held": "7998.11",
+   "Weight": "0.66",
+   "Market Value": "9012.66",
+   "Shares Held": "9012.66",
    "SEDOL": ""
   }
  ]

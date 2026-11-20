@@ -2,7 +2,7 @@
  "ticker": "BWET",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 891,
+ "totalRows": 893,
  "headers": [
   "Date",
   "Close",
@@ -5355,6 +5355,18 @@
    "Close": "721.200012",
    "Adj Close": "721.2",
    "Volume": "70600"
+  },
+  {
+   "Date": "Nov 19 2026",
+   "Close": "740.289978",
+   "Adj Close": "740.29",
+   "Volume": "71800"
+  },
+  {
+   "Date": "Nov 20 2026",
+   "Close": "745.77002",
+   "Adj Close": "745.77",
+   "Volume": "47910"
   }
  ]
 }

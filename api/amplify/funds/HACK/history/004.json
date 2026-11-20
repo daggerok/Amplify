@@ -2,7 +2,7 @@
  "ticker": "HACK",
  "page": 4,
  "pageSize": 1000,
- "totalRows": 3022,
+ "totalRows": 3024,
  "headers": [
   "Date",
   "Close",
@@ -141,6 +141,18 @@
    "Close": "119.599998",
    "Adj Close": "119.6",
    "Volume": "1351500"
+  },
+  {
+   "Date": "Nov 19 2026",
+   "Close": "121.239998",
+   "Adj Close": "121.24",
+   "Volume": "1347300"
+  },
+  {
+   "Date": "Nov 20 2026",
+   "Close": "115.300003",
+   "Adj Close": "115.3",
+   "Volume": "728863"
   }
  ]
 }

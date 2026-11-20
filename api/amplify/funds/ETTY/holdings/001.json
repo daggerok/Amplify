@@ -2,7 +2,7 @@
  "ticker": "ETTY",
  "page": 1,
  "pageSize": 250,
- "totalRows": 6,
+ "totalRows": 7,
  "headers": [
   "Name",
   "Ticker",
@@ -17,7 +17,7 @@
    "Name": "Invesco Government & Agency Portfolio 12/31/2031",
    "Ticker": "AGPXX",
    "Identifier": "825252885",
-   "Weight": "54.77",
+   "Weight": "49.5",
    "Market Value": "905839.79",
    "Shares Held": "905839.79",
    "SEDOL": ""
@@ -26,35 +26,44 @@
    "Name": "Cash & Other",
    "Ticker": "-",
    "Identifier": "Cash&Other",
-   "Weight": "34.21",
-   "Market Value": "565717.38",
-   "Shares Held": "565717.38",
+   "Weight": "36",
+   "Market Value": "658703.2",
+   "Shares Held": "658703.2",
    "SEDOL": ""
   },
   {
    "Name": "iShares Ethereum Trust ETF",
    "Ticker": "ETHA",
    "Identifier": "46438R204",
-   "Weight": "11.85",
-   "Market Value": "195921",
-   "Shares Held": "4950",
+   "Weight": "15.09",
+   "Market Value": "276193",
+   "Shares Held": "6950",
    "SEDOL": ""
   },
   {
    "Name": "ETHA 02/19/2027 40.3 C",
    "Ticker": "4ETHA 270219C00040300",
    "Identifier": "4ETHA 270219C00040300",
-   "Weight": "10.07",
-   "Market Value": "166466.97",
-   "Shares Held": "369",
+   "Weight": "9.7",
+   "Market Value": "177576",
+   "Shares Held": "392",
+   "SEDOL": ""
+  },
+  {
+   "Name": "ETHA 11/24/2026 41.73 C",
+   "Ticker": "4ETHA 261124C00041730",
+   "Identifier": "4ETHA 261124C00041730",
+   "Weight": "-0.31",
+   "Market Value": "-5750",
+   "Shares Held": "-23",
    "SEDOL": ""
   },
   {
    "Name": "ETHA 11/24/2026 43.09 C",
    "Ticker": "4ETHA 261124C00043090",
    "Identifier": "4ETHA 261124C00043090",
-   "Weight": "-0.61",
-   "Market Value": "-10114.5",
+   "Weight": "-0.44",
+   "Market Value": "-8038.8",
    "Shares Held": "-330",
    "SEDOL": ""
   },
@@ -62,9 +71,9 @@
    "Name": "ETHA 02/19/2027 40.3 P",
    "Ticker": "4ETHA 270219P00040300",
    "Identifier": "4ETHA 270219P00040300",
-   "Weight": "-10.27",
-   "Market Value": "-169928.19",
-   "Shares Held": "-369",
+   "Weight": "-9.81",
+   "Market Value": "-179536",
+   "Shares Held": "-392",
    "SEDOL": ""
   }
  ]

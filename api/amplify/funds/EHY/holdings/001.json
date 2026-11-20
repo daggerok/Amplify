@@ -17,7 +17,7 @@
    "Name": "Invesco Government & Agency Portfolio 12/31/2031",
    "Ticker": "AGPXX",
    "Identifier": "825252885",
-   "Weight": "56.15",
+   "Weight": "55.99",
    "Market Value": "1808388.35",
    "Shares Held": "1808388.35",
    "SEDOL": ""
@@ -26,8 +26,8 @@
    "Name": "United States Treasury Bill 11/27/2026",
    "Ticker": "-",
    "Identifier": "912797SU2",
-   "Weight": "26.37",
-   "Market Value": "849268.52",
+   "Weight": "26.3",
+   "Market Value": "849362.6",
    "Shares Held": "850000",
    "SEDOL": ""
   },
@@ -35,17 +35,17 @@
    "Name": "Cash & Other",
    "Ticker": "-",
    "Identifier": "Cash&Other",
-   "Weight": "16.97",
-   "Market Value": "546563.23",
-   "Shares Held": "546563.23",
+   "Weight": "16.93",
+   "Market Value": "546909.56",
+   "Shares Held": "546909.56",
    "SEDOL": ""
   },
   {
    "Name": "ETHA 02/19/2027 40.3 C",
    "Ticker": "4ETHA 270219C00040300",
    "Identifier": "4ETHA 270219C00040300",
-   "Weight": "11.7",
-   "Market Value": "376693.55",
+   "Weight": "11.71",
+   "Market Value": "378255",
    "Shares Held": "835",
    "SEDOL": ""
   },
@@ -54,7 +54,7 @@
    "Ticker": "-",
    "Identifier": "912797VY0",
    "Weight": "1.55",
-   "Market Value": "49973.13",
+   "Market Value": "49978.58",
    "Shares Held": "50000",
    "SEDOL": ""
   },
@@ -62,8 +62,8 @@
    "Name": "ETHA 11/24/2026 43.09 C",
    "Ticker": "4ETHA 261124C00043090",
    "Identifier": "4ETHA 261124C00043090",
-   "Weight": "-0.79",
-   "Market Value": "-25592.75",
+   "Weight": "-0.63",
+   "Market Value": "-20340.6",
    "Shares Held": "-835",
    "SEDOL": ""
   },
@@ -71,8 +71,8 @@
    "Name": "ETHA 02/19/2027 40.3 P",
    "Ticker": "4ETHA 270219P00040300",
    "Identifier": "4ETHA 270219P00040300",
-   "Weight": "-11.94",
-   "Market Value": "-384525.85",
+   "Weight": "-11.84",
+   "Market Value": "-382430",
    "Shares Held": "-835",
    "SEDOL": ""
   }
