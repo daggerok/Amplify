@@ -2,7 +2,7 @@
  "ticker": "SOLM",
  "page": 1,
  "pageSize": 250,
- "totalRows": 11,
+ "totalRows": 10,
  "headers": [
   "Name",
   "Ticker",
@@ -17,26 +17,17 @@
    "Name": "Invesco Government & Agency Portfolio 12/31/2031",
    "Ticker": "AGPXX",
    "Identifier": "825252885",
-   "Weight": "37.04",
-   "Market Value": "509735.94",
-   "Shares Held": "509735.94",
-   "SEDOL": ""
-  },
-  {
-   "Name": "United States Treasury Bill 11/24/2026",
-   "Ticker": "-",
-   "Identifier": "912797VY0",
-   "Weight": "18.16",
-   "Market Value": "249892.88",
-   "Shares Held": "250000",
+   "Weight": "47.39",
+   "Market Value": "624656.63",
+   "Shares Held": "624656.63",
    "SEDOL": ""
   },
   {
    "Name": "Bitwise Solana Staking ETF",
    "Ticker": "BSOL",
    "Identifier": "091948109",
-   "Weight": "15.97",
-   "Market Value": "219821",
+   "Weight": "15.79",
+   "Market Value": "208103",
    "Shares Held": "21700",
    "SEDOL": ""
   },
@@ -44,26 +35,17 @@
    "Name": "United States Treasury Bill 12/01/2026",
    "Ticker": "-",
    "Identifier": "912797VZ7",
-   "Weight": "14.52",
-   "Market Value": "199763.45",
+   "Weight": "15.16",
+   "Market Value": "199871.08",
    "Shares Held": "200000",
-   "SEDOL": ""
-  },
-  {
-   "Name": "BSOL 02/19/2027 9.95 C",
-   "Ticker": "2BSOL 270219C00009950",
-   "Identifier": "2BSOL 270219C00009950",
-   "Weight": "11.97",
-   "Market Value": "164661.1",
-   "Shares Held": "1165",
    "SEDOL": ""
   },
   {
    "Name": "United States Treasury Bill 12/03/2026",
    "Ticker": "-",
    "Identifier": "912797VA2",
-   "Weight": "10.89",
-   "Market Value": "149789.05",
+   "Weight": "11.37",
+   "Market Value": "149870.5",
    "Shares Held": "150000",
    "SEDOL": ""
   },
@@ -71,35 +53,35 @@
    "Name": "United States Treasury Bill 02/16/2027",
    "Ticker": "-",
    "Identifier": "912797WZ6",
-   "Weight": "10.79",
-   "Market Value": "148483.33",
+   "Weight": "11.27",
+   "Market Value": "148574.48",
    "Shares Held": "150000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "BSOL 02/19/2027 9.95 C",
+   "Ticker": "2BSOL 270219C00009950",
+   "Identifier": "2BSOL 270219C00009950",
+   "Weight": "10.19",
+   "Market Value": "134266.25",
+   "Shares Held": "1165",
    "SEDOL": ""
   },
   {
    "Name": "United States Treasury Bill 11/27/2026",
    "Ticker": "-",
    "Identifier": "912797SU2",
-   "Weight": "3.63",
-   "Market Value": "49962.51",
+   "Weight": "3.79",
+   "Market Value": "49989.18",
    "Shares Held": "50000",
    "SEDOL": ""
   },
   {
-   "Name": "BSOL 11/24/2026 10.74 C",
-   "Ticker": "2BSOL 261124C00010740",
-   "Identifier": "2BSOL 261124C00010740",
-   "Weight": "-0.68",
-   "Market Value": "-9370",
-   "Shares Held": "-1000",
-   "SEDOL": ""
-  },
-  {
-   "Name": "BSOL 02/19/2027 9.95 P",
-   "Ticker": "2BSOL 270219P00009950",
-   "Identifier": "2BSOL 270219P00009950",
-   "Weight": "-9.2",
-   "Market Value": "-126577.25",
+   "Name": "BSOL 12/01/2026 10.21 C",
+   "Ticker": "2BSOL 261201C00010210",
+   "Identifier": "2BSOL 261201C00010210",
+   "Weight": "-1.59",
+   "Market Value": "-20970",
    "Shares Held": "-1165",
    "SEDOL": ""
   },
@@ -107,9 +89,18 @@
    "Name": "Cash & Other",
    "Ticker": "-",
    "Identifier": "Cash&Other",
-   "Weight": "-13.08",
-   "Market Value": "-180035.85",
-   "Shares Held": "-180035.85",
+   "Weight": "-2.14",
+   "Market Value": "-28175.26",
+   "Shares Held": "-28175.26",
+   "SEDOL": ""
+  },
+  {
+   "Name": "BSOL 02/19/2027 9.95 P",
+   "Ticker": "2BSOL 270219P00009950",
+   "Identifier": "2BSOL 270219P00009950",
+   "Weight": "-11.53",
+   "Market Value": "-152009.2",
+   "Shares Held": "-1165",
    "SEDOL": ""
   }
  ]

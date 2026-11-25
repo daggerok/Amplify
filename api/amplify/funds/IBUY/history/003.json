@@ -2,7 +2,7 @@
  "ticker": "IBUY",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2664,
+ "totalRows": 2666,
  "headers": [
   "Date",
   "Close",
@@ -3992,7 +3992,19 @@
    "Date": "Nov 20 2026",
    "Close": "64.449997",
    "Adj Close": "64.45",
-   "Volume": "16551"
+   "Volume": "16600"
+  },
+  {
+   "Date": "Nov 23 2026",
+   "Close": "66.300003",
+   "Adj Close": "66.3",
+   "Volume": "12500"
+  },
+  {
+   "Date": "Nov 24 2026",
+   "Close": "66.699997",
+   "Adj Close": "66.7",
+   "Volume": "2300"
   }
  ]
 }

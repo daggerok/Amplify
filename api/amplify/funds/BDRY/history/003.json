@@ -2,7 +2,7 @@
  "ticker": "BDRY",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2180,
+ "totalRows": 2182,
  "headers": [
   "Date",
   "Close",
@@ -1088,7 +1088,19 @@
    "Date": "Nov 20 2026",
    "Close": "12.12",
    "Adj Close": "12.12",
-   "Volume": "25760"
+   "Volume": "25800"
+  },
+  {
+   "Date": "Nov 23 2026",
+   "Close": "12.664",
+   "Adj Close": "12.66",
+   "Volume": "19900"
+  },
+  {
+   "Date": "Nov 24 2026",
+   "Close": "12.65",
+   "Adj Close": "12.65",
+   "Volume": "9300"
   }
  ]
 }

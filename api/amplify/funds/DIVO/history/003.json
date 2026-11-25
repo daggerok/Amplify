@@ -2,7 +2,7 @@
  "ticker": "DIVO",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2497,
+ "totalRows": 2499,
  "headers": [
   "Date",
   "Close",
@@ -2990,7 +2990,19 @@
    "Date": "Nov 20 2026",
    "Close": "43.98",
    "Adj Close": "43.98",
-   "Volume": "1929128"
+   "Volume": "1931900"
+  },
+  {
+   "Date": "Nov 23 2026",
+   "Close": "44.959999",
+   "Adj Close": "44.96",
+   "Volume": "1320500"
+  },
+  {
+   "Date": "Nov 24 2026",
+   "Close": "45.259998",
+   "Adj Close": "45.26",
+   "Volume": "1368000"
   }
  ]
 }

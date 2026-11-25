@@ -2,7 +2,7 @@
  "ticker": "EHY",
  "page": 1,
  "pageSize": 250,
- "totalRows": 7,
+ "totalRows": 6,
  "headers": [
   "Name",
   "Ticker",
@@ -17,7 +17,7 @@
    "Name": "Invesco Government & Agency Portfolio 12/31/2031",
    "Ticker": "AGPXX",
    "Identifier": "825252885",
-   "Weight": "55.99",
+   "Weight": "58.51",
    "Market Value": "1808388.35",
    "Shares Held": "1808388.35",
    "SEDOL": ""
@@ -26,8 +26,8 @@
    "Name": "United States Treasury Bill 11/27/2026",
    "Ticker": "-",
    "Identifier": "912797SU2",
-   "Weight": "26.3",
-   "Market Value": "849362.6",
+   "Weight": "27.49",
+   "Market Value": "849816.1",
    "Shares Held": "850000",
    "SEDOL": ""
   },
@@ -35,35 +35,26 @@
    "Name": "Cash & Other",
    "Ticker": "-",
    "Identifier": "Cash&Other",
-   "Weight": "16.93",
-   "Market Value": "546909.56",
-   "Shares Held": "546909.56",
+   "Weight": "20.51",
+   "Market Value": "633867.47",
+   "Shares Held": "633867.47",
    "SEDOL": ""
   },
   {
    "Name": "ETHA 02/19/2027 40.3 C",
    "Ticker": "4ETHA 270219C00040300",
    "Identifier": "4ETHA 270219C00040300",
-   "Weight": "11.71",
-   "Market Value": "378255",
+   "Weight": "10.16",
+   "Market Value": "313960",
    "Shares Held": "835",
    "SEDOL": ""
   },
   {
-   "Name": "United States Treasury Bill 11/24/2026",
-   "Ticker": "-",
-   "Identifier": "912797VY0",
-   "Weight": "1.55",
-   "Market Value": "49978.58",
-   "Shares Held": "50000",
-   "SEDOL": ""
-  },
-  {
-   "Name": "ETHA 11/24/2026 43.09 C",
-   "Ticker": "4ETHA 261124C00043090",
-   "Identifier": "4ETHA 261124C00043090",
-   "Weight": "-0.63",
-   "Market Value": "-20340.6",
+   "Name": "ETHA 12/01/2026 40.19 C",
+   "Ticker": "4ETHA 261201C00040190",
+   "Identifier": "4ETHA 261201C00040190",
+   "Weight": "-1.22",
+   "Market Value": "-37575",
    "Shares Held": "-835",
    "SEDOL": ""
   },
@@ -71,8 +62,8 @@
    "Name": "ETHA 02/19/2027 40.3 P",
    "Ticker": "4ETHA 270219P00040300",
    "Identifier": "4ETHA 270219P00040300",
-   "Weight": "-11.84",
-   "Market Value": "-382430",
+   "Weight": "-15.48",
+   "Market Value": "-478455",
    "Shares Held": "-835",
    "SEDOL": ""
   }

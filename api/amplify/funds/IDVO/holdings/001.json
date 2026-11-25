@@ -2,7 +2,7 @@
  "ticker": "IDVO",
  "page": 1,
  "pageSize": 250,
- "totalRows": 79,
+ "totalRows": 61,
  "headers": [
   "Name",
   "Ticker",
@@ -14,201 +14,174 @@
  ],
  "rows": [
   {
-   "Name": "Taiwan Semiconductor Manufacturing Co Ltd",
-   "Ticker": "TSM",
-   "Identifier": "874039100",
-   "Weight": "5.28",
-   "Market Value": "65458460.26",
-   "Shares Held": "185914",
+   "Name": "Invesco Government & Agency Portfolio 12/31/2031",
+   "Ticker": "AGPXX",
+   "Identifier": "825252885",
+   "Weight": "7.11",
+   "Market Value": "84144910.43",
+   "Shares Held": "84144910.43",
    "SEDOL": ""
   },
   {
-   "Name": "Bank of Montreal",
-   "Ticker": "BMO",
-   "Identifier": "063671101",
-   "Weight": "3.7",
-   "Market Value": "45801280.92",
-   "Shares Held": "284763",
+   "Name": "Taiwan Semiconductor Manufacturing Co Ltd",
+   "Ticker": "TSM",
+   "Identifier": "874039100",
+   "Weight": "5.26",
+   "Market Value": "62261661.6",
+   "Shares Held": "178298",
    "SEDOL": ""
   },
   {
    "Name": "Teva Pharmaceutical Industries Ltd",
    "Ticker": "TEVA",
    "Identifier": "M8769Q102",
-   "Weight": "3.64",
-   "Market Value": "45076576.7",
-   "Shares Held": "1169605",
+   "Weight": "3.8",
+   "Market Value": "44974435.7",
+   "Shares Held": "1121557",
    "SEDOL": ""
   },
   {
-   "Name": "Invesco Government & Agency Portfolio 12/31/2031",
-   "Ticker": "AGPXX",
-   "Identifier": "825252885",
-   "Weight": "3.61",
-   "Market Value": "44706901.37",
-   "Shares Held": "44706901.37",
+   "Name": "Bank of Montreal",
+   "Ticker": "BMO",
+   "Identifier": "063671101",
+   "Weight": "3.71",
+   "Market Value": "43894234.25",
+   "Shares Held": "273059",
    "SEDOL": ""
   },
   {
    "Name": "Mitsubishi UFJ Financial Group Inc",
    "Ticker": "MUFG",
    "Identifier": "606822104",
-   "Weight": "3.61",
-   "Market Value": "44692569.15",
-   "Shares Held": "2274431",
+   "Weight": "3.59",
+   "Market Value": "42463427.49",
+   "Shares Held": "2180967",
    "SEDOL": ""
   },
   {
    "Name": "Sumitomo Mitsui Financial Group Inc",
    "Ticker": "SMFG",
    "Identifier": "86562M209",
-   "Weight": "3.33",
-   "Market Value": "41237574.04",
-   "Shares Held": "1833596",
+   "Weight": "3.34",
+   "Market Value": "39507203.4",
+   "Shares Held": "1758220",
    "SEDOL": ""
   },
   {
    "Name": "Siemens AG",
    "Ticker": "SIEGY",
    "Identifier": "826197501",
-   "Weight": "3.2",
-   "Market Value": "39597511.36",
-   "Shares Held": "274373",
+   "Weight": "3.14",
+   "Market Value": "37149489.23",
+   "Shares Held": "263117",
    "SEDOL": ""
   },
   {
    "Name": "Fomento Economico Mexicano SAB de CV",
    "Ticker": "FMX",
    "Identifier": "344419106",
-   "Weight": "2.95",
-   "Market Value": "36546705.6",
-   "Shares Held": "286304",
-   "SEDOL": ""
-  },
-  {
-   "Name": "ASML Holding NV",
-   "Ticker": "ASML",
-   "Identifier": "N07059210",
-   "Weight": "2.74",
-   "Market Value": "33928055.4",
-   "Shares Held": "25017",
-   "SEDOL": ""
-  },
-  {
-   "Name": "BBB Foods Inc",
-   "Ticker": "TBBB",
-   "Identifier": "G0896C103",
-   "Weight": "2.62",
-   "Market Value": "32524477.68",
-   "Shares Held": "486602",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Agnico Eagle Mines Ltd",
-   "Ticker": "AEM",
-   "Identifier": "008474108",
-   "Weight": "2.58",
-   "Market Value": "31979987.52",
-   "Shares Held": "202098",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Banco Bilbao Vizcaya Argentaria SA",
-   "Ticker": "BBVA",
-   "Identifier": "05946K101",
-   "Weight": "2.53",
-   "Market Value": "31319064.56",
-   "Shares Held": "1281992",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Banco Santander SA",
-   "Ticker": "SAN",
-   "Identifier": "05964H105",
-   "Weight": "2.51",
-   "Market Value": "31047075.32",
-   "Shares Held": "2728214",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Vodafone Group PLC",
-   "Ticker": "VOD",
-   "Identifier": "92857W308",
-   "Weight": "2.5",
-   "Market Value": "31007884.31",
-   "Shares Held": "2186549",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Southern Copper Corp",
-   "Ticker": "SCCO",
-   "Identifier": "84265V105",
-   "Weight": "2.46",
-   "Market Value": "30465636.73",
-   "Shares Held": "215365.734",
-   "SEDOL": ""
-  },
-  {
-   "Name": "British American Tobacco PLC",
-   "Ticker": "BTI",
-   "Identifier": "110448107",
-   "Weight": "2.41",
-   "Market Value": "29855837.41",
-   "Shares Held": "519503",
-   "SEDOL": ""
-  },
-  {
-   "Name": "ASE Technology Holding Co Ltd",
-   "Ticker": "ASX",
-   "Identifier": "00215W100",
-   "Weight": "2.3",
-   "Market Value": "28466958.01",
-   "Shares Held": "933649",
+   "Weight": "2.91",
+   "Market Value": "34438799.36",
+   "Shares Held": "274544",
    "SEDOL": ""
   },
   {
    "Name": "SAP SE",
    "Ticker": "SAP",
    "Identifier": "803054204",
-   "Weight": "2.3",
-   "Market Value": "28498942.9",
-   "Shares Held": "140230",
+   "Weight": "2.8",
+   "Market Value": "33176428.75",
+   "Shares Held": "158929",
+   "SEDOL": ""
+  },
+  {
+   "Name": "ASML Holding NV",
+   "Ticker": "ASML",
+   "Identifier": "N07059210",
+   "Weight": "2.71",
+   "Market Value": "32077464.54",
+   "Shares Held": "24009",
+   "SEDOL": ""
+  },
+  {
+   "Name": "BBB Foods Inc",
+   "Ticker": "TBBB",
+   "Identifier": "G0896C103",
+   "Weight": "2.57",
+   "Market Value": "30402711.95",
+   "Shares Held": "463103",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Agnico Eagle Mines Ltd",
+   "Ticker": "AEM",
+   "Identifier": "008474108",
+   "Weight": "2.56",
+   "Market Value": "30323512.6",
+   "Shares Held": "193810",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Banco Santander SA",
+   "Ticker": "SAN",
+   "Identifier": "05964H105",
+   "Weight": "2.54",
+   "Market Value": "30058368.54",
+   "Shares Held": "2616046",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Banco Bilbao Vizcaya Argentaria SA",
+   "Ticker": "BBVA",
+   "Identifier": "05946K101",
+   "Weight": "2.52",
+   "Market Value": "29822720.96",
+   "Shares Held": "1229296",
+   "SEDOL": ""
+  },
+  {
+   "Name": "British American Tobacco PLC",
+   "Ticker": "BTI",
+   "Identifier": "110448107",
+   "Weight": "2.45",
+   "Market Value": "29013246.08",
+   "Shares Held": "498167",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Vodafone Group PLC",
+   "Ticker": "VOD",
+   "Identifier": "92857W308",
+   "Weight": "2.38",
+   "Market Value": "28179231.36",
+   "Shares Held": "2096669",
    "SEDOL": ""
   },
   {
    "Name": "Embraer SA",
    "Ticker": "EMBJ",
    "Identifier": "29082A107",
-   "Weight": "2.28",
-   "Market Value": "28202487.39",
-   "Shares Held": "1535247",
+   "Weight": "2.25",
+   "Market Value": "26616200.8",
+   "Shares Held": "1472135",
    "SEDOL": ""
   },
   {
    "Name": "Amplify Samsung SOFR ETF",
    "Ticker": "SOFR",
    "Identifier": "032108672",
-   "Weight": "2.23",
-   "Market Value": "27653028.35",
-   "Shares Held": "275607",
+   "Weight": "2.24",
+   "Market Value": "26535218",
+   "Shares Held": "264295",
    "SEDOL": ""
   },
   {
    "Name": "Wheaton Precious Metals Corp",
    "Ticker": "WPM",
    "Identifier": "962879102",
-   "Weight": "2.16",
-   "Market Value": "26760881.07",
-   "Shares Held": "230439",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Sasol Ltd",
-   "Ticker": "SSL",
-   "Identifier": "803866300",
-   "Weight": "2.04",
-   "Market Value": "25262603.63",
-   "Shares Held": "2157353",
+   "Weight": "2.18",
+   "Market Value": "25765685",
+   "Shares Held": "220975",
    "SEDOL": ""
   },
   {
@@ -216,62 +189,98 @@
    "Ticker": "IMO",
    "Identifier": "453038408",
    "Weight": "2.02",
-   "Market Value": "25069246.62",
-   "Shares Held": "215039",
+   "Market Value": "23912277.18",
+   "Shares Held": "206247",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Sasol Ltd",
+   "Ticker": "SSL",
+   "Identifier": "803866300",
+   "Weight": "2.02",
+   "Market Value": "23872855.7",
+   "Shares Held": "2068705",
    "SEDOL": ""
   },
   {
    "Name": "Eni SpA",
    "Ticker": "E",
    "Identifier": "26874R108",
-   "Weight": "1.99",
-   "Market Value": "24686495.58",
-   "Shares Held": "457242",
+   "Weight": "1.94",
+   "Market Value": "22915069.32",
+   "Shares Held": "438482",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Southern Copper Corp",
+   "Ticker": "SCCO",
+   "Identifier": "84265V105",
+   "Weight": "1.94",
+   "Market Value": "22915222.4",
+   "Shares Held": "167447.734",
+   "SEDOL": ""
+  },
+  {
+   "Name": "AstraZeneca PLC",
+   "Ticker": "AZN",
+   "Identifier": "G0593M107",
+   "Weight": "1.9",
+   "Market Value": "22506669.6",
+   "Shares Held": "122853",
    "SEDOL": ""
   },
   {
    "Name": "Shinhan Financial Group Co Ltd",
    "Ticker": "SHG",
    "Identifier": "824596100",
-   "Weight": "1.89",
-   "Market Value": "23375942.94",
-   "Shares Held": "369814",
+   "Weight": "1.9",
+   "Market Value": "22544337.66",
+   "Shares Held": "354638",
    "SEDOL": ""
   },
   {
    "Name": "Canadian Pacific Kansas City Ltd",
    "Ticker": "CP",
    "Identifier": "13646K108",
-   "Weight": "1.83",
-   "Market Value": "22628355",
-   "Shares Held": "247575",
+   "Weight": "1.86",
+   "Market Value": "22039087.98",
+   "Shares Held": "237439",
    "SEDOL": ""
   },
   {
    "Name": "Alibaba Group Holding Ltd",
    "Ticker": "BABA",
    "Identifier": "01609W102",
-   "Weight": "1.78",
-   "Market Value": "22075567.11",
-   "Shares Held": "264981",
+   "Weight": "1.82",
+   "Market Value": "21564368.62",
+   "Shares Held": "254117",
    "SEDOL": ""
   },
   {
    "Name": "Cameco Corp",
    "Ticker": "CCJ",
    "Identifier": "13321L108",
-   "Weight": "1.77",
-   "Market Value": "21905504.42",
-   "Shares Held": "356651",
+   "Weight": "1.73",
+   "Market Value": "20450272.65",
+   "Shares Held": "342035",
    "SEDOL": ""
   },
   {
-   "Name": "ArcelorMittal SA",
-   "Ticker": "MT",
-   "Identifier": "03938L203",
-   "Weight": "1.75",
-   "Market Value": "21712431.5",
-   "Shares Held": "366950",
+   "Name": "Novartis AG",
+   "Ticker": "NVS",
+   "Identifier": "66987V109",
+   "Weight": "1.68",
+   "Market Value": "19872875.82",
+   "Shares Held": "128702",
+   "SEDOL": ""
+  },
+  {
+   "Name": "ASE Technology Holding Co Ltd",
+   "Ticker": "ASX",
+   "Identifier": "00215W100",
+   "Weight": "1.67",
+   "Market Value": "19812327.01",
+   "Shares Held": "675497",
    "SEDOL": ""
   },
   {
@@ -279,35 +288,26 @@
    "Ticker": "BCS",
    "Identifier": "06738E204",
    "Weight": "1.65",
-   "Market Value": "20387399.24",
-   "Shares Held": "956257",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Novartis AG",
-   "Ticker": "NVS",
-   "Identifier": "66987V109",
-   "Weight": "1.64",
-   "Market Value": "20292211.8",
-   "Shares Held": "134190",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Petroleo Brasileiro SA - Petrobras",
-   "Ticker": "PBR",
-   "Identifier": "71654V408",
-   "Weight": "1.58",
-   "Market Value": "19582860.6",
-   "Shares Held": "1202140",
+   "Market Value": "19521759.05",
+   "Shares Held": "916945",
    "SEDOL": ""
   },
   {
    "Name": "Grupo Cibest SA",
    "Ticker": "CIB",
    "Identifier": "40090E106",
-   "Weight": "1.56",
-   "Market Value": "19363219.2",
-   "Shares Held": "232731",
+   "Weight": "1.55",
+   "Market Value": "18341247.87",
+   "Shares Held": "223211",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Petroleo Brasileiro SA - Petrobras",
+   "Ticker": "PBR",
+   "Identifier": "71654V408",
+   "Weight": "1.53",
+   "Market Value": "18063561.16",
+   "Shares Held": "1152748",
    "SEDOL": ""
   },
   {
@@ -315,107 +315,80 @@
    "Ticker": "BUD",
    "Identifier": "03524A108",
    "Weight": "1.51",
-   "Market Value": "18691728.51",
-   "Shares Held": "232250",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Itau Unibanco Holding SA",
-   "Ticker": "ITUB",
-   "Identifier": "465562106",
-   "Weight": "1.51",
-   "Market Value": "18684547.83",
-   "Shares Held": "2792907",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Rio Tinto PLC",
-   "Ticker": "RIO",
-   "Identifier": "767204100",
-   "Weight": "1.43",
-   "Market Value": "17710174.8",
-   "Shares Held": "237084",
-   "SEDOL": ""
-  },
-  {
-   "Name": "SK hynix Inc",
-   "Ticker": "SKHY",
-   "Identifier": "78392B206",
-   "Weight": "1.43",
-   "Market Value": "17713000.8",
-   "Shares Held": "148599",
-   "SEDOL": ""
-  },
-  {
-   "Name": "AstraZeneca PLC",
-   "Ticker": "AZN",
-   "Identifier": "G0593M107",
-   "Weight": "1.38",
-   "Market Value": "17109842.22",
-   "Shares Held": "97542",
+   "Market Value": "17833991.1",
+   "Shares Held": "222730",
    "SEDOL": ""
   },
   {
    "Name": "Unilever PLC",
    "Ticker": "UL",
    "Identifier": "904767803",
-   "Weight": "1.32",
-   "Market Value": "16351632",
-   "Shares Held": "258075",
+   "Weight": "1.36",
+   "Market Value": "16143837.93",
+   "Shares Held": "247491",
    "SEDOL": ""
   },
   {
    "Name": "YPF SA",
    "Ticker": "YPF",
    "Identifier": "984245100",
-   "Weight": "1.28",
-   "Market Value": "15896358.4",
-   "Shares Held": "477655",
+   "Weight": "1.23",
+   "Market Value": "14524924.05",
+   "Shares Held": "458055",
    "SEDOL": ""
   },
   {
-   "Name": "Tenaris SA",
-   "Ticker": "TS",
-   "Identifier": "88031M109",
-   "Weight": "1.17",
-   "Market Value": "14497360",
-   "Shares Held": "252128",
+   "Name": "ArcelorMittal SA",
+   "Ticker": "MT",
+   "Identifier": "03938L203",
+   "Weight": "1.2",
+   "Market Value": "14205310.68",
+   "Shares Held": "254211",
    "SEDOL": ""
   },
   {
    "Name": "Enel SpA",
    "Ticker": "ENLAY",
    "Identifier": "29265W207",
-   "Weight": "1.16",
-   "Market Value": "14426163.2",
-   "Shares Held": "1408805",
+   "Weight": "1.18",
+   "Market Value": "13941298.32",
+   "Shares Held": "1350901",
    "SEDOL": ""
   },
   {
    "Name": "America Movil SAB de CV",
    "Ticker": "AMX",
    "Identifier": "02390A101",
-   "Weight": "1.13",
-   "Market Value": "13953596.76",
-   "Shares Held": "561739",
+   "Weight": "1.12",
+   "Market Value": "13267368.21",
+   "Shares Held": "538667",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Tenaris SA",
+   "Ticker": "TS",
+   "Identifier": "88031M109",
+   "Weight": "1.11",
+   "Market Value": "13082066.48",
+   "Shares Held": "241768",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Itau Unibanco Holding SA",
+   "Ticker": "ITUB",
+   "Identifier": "465562106",
+   "Weight": "1.03",
+   "Market Value": "12171600",
+   "Shares Held": "1811250",
    "SEDOL": ""
   },
   {
    "Name": "Takeda Pharmaceutical Co Ltd",
    "Ticker": "TAK",
    "Identifier": "874060205",
-   "Weight": "0.88",
-   "Market Value": "10964532.02",
-   "Shares Held": "512122",
-   "SEDOL": ""
-  },
-  {
-   "Name": "STMicroelectronics NV",
-   "Ticker": "STM",
-   "Identifier": "861012102",
-   "Weight": "0.87",
-   "Market Value": "10802364.76",
-   "Shares Held": "246742",
+   "Weight": "0.94",
+   "Market Value": "11098091.6",
+   "Shares Held": "491066",
    "SEDOL": ""
   },
   {
@@ -423,8 +396,26 @@
    "Ticker": "RWEOY",
    "Identifier": "74975E303",
    "Weight": "0.83",
-   "Market Value": "10230073.56",
-   "Shares Held": "163786",
+   "Market Value": "9824478.3",
+   "Shares Held": "157066",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Rio Tinto PLC",
+   "Ticker": "RIO",
+   "Identifier": "767204100",
+   "Weight": "0.65",
+   "Market Value": "7703540.26",
+   "Shares Held": "105254",
+   "SEDOL": ""
+  },
+  {
+   "Name": "STMicroelectronics NV",
+   "Ticker": "STM",
+   "Identifier": "861012102",
+   "Weight": "0.63",
+   "Market Value": "7455024.8",
+   "Shares Held": "187784",
    "SEDOL": ""
   },
   {
@@ -432,71 +423,53 @@
    "Ticker": "TTE",
    "Identifier": "F92124100",
    "Weight": "0.63",
-   "Market Value": "7856340",
-   "Shares Held": "91088",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Nokia Oyj",
-   "Ticker": "NOK",
-   "Identifier": "654902204",
-   "Weight": "0.52",
-   "Market Value": "6411457.5",
-   "Shares Held": "854861",
+   "Market Value": "7445798.4",
+   "Shares Held": "87392",
    "SEDOL": ""
   },
   {
    "Name": "Banco Macro SA",
    "Ticker": "BMA",
    "Identifier": "05961W105",
-   "Weight": "0.49",
-   "Market Value": "6082451.2",
-   "Shares Held": "118060",
+   "Weight": "0.48",
+   "Market Value": "5672391.96",
+   "Shares Held": "113244",
+   "SEDOL": ""
+  },
+  {
+   "Name": "SK hynix Inc",
+   "Ticker": "SKHY",
+   "Identifier": "78392B206",
+   "Weight": "0.42",
+   "Market Value": "5018943.6",
+   "Shares Held": "44820",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Nokia Oyj",
+   "Ticker": "NOK",
+   "Identifier": "654902204",
+   "Weight": "0.39",
+   "Market Value": "4576617.44",
+   "Shares Held": "624368",
    "SEDOL": ""
   },
   {
    "Name": "Cash & Other",
    "Ticker": "-",
    "Identifier": "Cash&Other",
-   "Weight": "0.18",
-   "Market Value": "2256852.86",
-   "Shares Held": "2256852.86",
+   "Weight": "0.06",
+   "Market Value": "698296.5",
+   "Shares Held": "698296.5",
    "SEDOL": ""
   },
   {
-   "Name": "AMX US 11/20/26 C25",
-   "Ticker": "AMX 261120C00025000",
-   "Identifier": "AMX 261120C00025000",
+   "Name": "AEM US 12/18/26 C190",
+   "Ticker": "AEM 261218C00190000",
+   "Identifier": "AEM 261218C00190000",
    "Weight": "0",
-   "Market Value": "-360",
-   "Shares Held": "-24",
-   "SEDOL": ""
-  },
-  {
-   "Name": "ASML US 11/20/26 C1860",
-   "Ticker": "ASML 261120C01860000",
-   "Identifier": "ASML 261120C01860000",
-   "Weight": "0",
-   "Market Value": "-1350",
-   "Shares Held": "-60",
-   "SEDOL": ""
-  },
-  {
-   "Name": "ASML US 12/18/26 C1750",
-   "Ticker": "ASML 261218C01750000",
-   "Identifier": "ASML 261218C01750000",
-   "Weight": "0",
-   "Market Value": "-30937.5",
-   "Shares Held": "-75",
-   "SEDOL": ""
-  },
-  {
-   "Name": "ASX US 11/20/26 C50",
-   "Ticker": "ASX 261120C00050000",
-   "Identifier": "ASX 261120C00050000",
-   "Weight": "0",
-   "Market Value": "-45000.01",
-   "Shares Held": "-2000",
+   "Market Value": "-14625",
+   "Shares Held": "-225",
    "SEDOL": ""
   },
   {
@@ -504,7 +477,7 @@
    "Ticker": "ASX 261218C00042500",
    "Identifier": "ASX 261218C00042500",
    "Weight": "0",
-   "Market Value": "-45000",
+   "Market Value": "-10000.01",
    "Shares Held": "-2000",
    "SEDOL": ""
   },
@@ -513,17 +486,8 @@
    "Ticker": "ASX 261218C00045000",
    "Identifier": "ASX 261218C00045000",
    "Weight": "0",
-   "Market Value": "-15000",
+   "Market Value": "-3000.01",
    "Shares Held": "-1200",
-   "SEDOL": ""
-  },
-  {
-   "Name": "AZN US 11/20/26 C185",
-   "Ticker": "AZN 261120C00185000",
-   "Identifier": "AZN 261120C00185000",
-   "Weight": "0",
-   "Market Value": "-1650",
-   "Shares Held": "-330",
    "SEDOL": ""
   },
   {
@@ -531,134 +495,35 @@
    "Ticker": "BABA 261127C00095000",
    "Identifier": "BABA 261127C00095000",
    "Weight": "0",
-   "Market Value": "-8500",
+   "Market Value": "-1250",
    "Shares Held": "-500",
    "SEDOL": ""
   },
   {
-   "Name": "BMO US 11/20/26 C185",
-   "Ticker": "BMO 261120C00185000",
-   "Identifier": "BMO 261120C00185000",
+   "Name": "EMBJ US 12/18/26 C20",
+   "Ticker": "EMBJ 261218C00020000",
+   "Identifier": "EMBJ 261218C00020000",
    "Weight": "0",
-   "Market Value": "-38500",
-   "Shares Held": "-700",
+   "Market Value": "-21367.5",
+   "Shares Held": "-1221",
    "SEDOL": ""
   },
   {
-   "Name": "BTI US 11/20/26 C65",
-   "Ticker": "BTI 261120C00065000",
-   "Identifier": "BTI 261120C00065000",
+   "Name": "RIO US 12/18/26 C80",
+   "Ticker": "RIO 261218C00080000",
+   "Identifier": "RIO 261218C00080000",
    "Weight": "0",
-   "Market Value": "-3000.01",
-   "Shares Held": "-1200",
+   "Market Value": "-17250",
+   "Shares Held": "-300",
    "SEDOL": ""
   },
   {
-   "Name": "BUD US 11/20/26 C89",
-   "Ticker": "BUD 261120C00089000",
-   "Identifier": "BUD 261120C00089000",
+   "Name": "STM US 12/18/26 C46.5",
+   "Ticker": "STM 261218C00046500",
+   "Identifier": "STM 261218C00046500",
    "Weight": "0",
-   "Market Value": "-18750",
-   "Shares Held": "-500",
-   "SEDOL": ""
-  },
-  {
-   "Name": "CIB US 11/20/26 C105",
-   "Ticker": "CIB 261120C00105000",
-   "Identifier": "CIB 261120C00105000",
-   "Weight": "0",
-   "Market Value": "-43750",
-   "Shares Held": "-500",
-   "SEDOL": ""
-  },
-  {
-   "Name": "EMBJ 11/20/2026 21.25 C",
-   "Ticker": "EMBJ 261120C00021250",
-   "Identifier": "EMBJ 261120C00021250",
-   "Weight": "0",
-   "Market Value": "-52000",
-   "Shares Held": "-5200",
-   "SEDOL": ""
-  },
-  {
-   "Name": "MUFG US 11/20/26 C22.5",
-   "Ticker": "MUFG 261120C00022500",
-   "Identifier": "MUFG 261120C00022500",
-   "Weight": "0",
-   "Market Value": "-10000.01",
-   "Shares Held": "-2000",
-   "SEDOL": ""
-  },
-  {
-   "Name": "PBR US 11/20/26 C20",
-   "Ticker": "PBR 261120C00020000",
-   "Identifier": "PBR 261120C00020000",
-   "Weight": "0",
-   "Market Value": "-3000.03",
-   "Shares Held": "-6000",
-   "SEDOL": ""
-  },
-  {
-   "Name": "PBR US 11/20/26 C28",
-   "Ticker": "PBR 261120C00028000",
-   "Identifier": "PBR 261120C00028000",
-   "Weight": "0",
-   "Market Value": "-9000.02",
-   "Shares Held": "-3000",
-   "SEDOL": ""
-  },
-  {
-   "Name": "PBR US 11/20/26 C29",
-   "Ticker": "PBR 261120C00029000",
-   "Identifier": "PBR 261120C00029000",
-   "Weight": "0",
-   "Market Value": "-34500.01",
-   "Shares Held": "-1500",
-   "SEDOL": ""
-  },
-  {
-   "Name": "SKHY US 11/20/26 C190",
-   "Ticker": "SKHY 261120C00190000",
-   "Identifier": "SKHY 261120C00190000",
-   "Weight": "0",
-   "Market Value": "-800",
-   "Shares Held": "-400",
-   "SEDOL": ""
-  },
-  {
-   "Name": "STM US 11/20/26 C57",
-   "Ticker": "STM 261120C00057000",
-   "Identifier": "STM 261120C00057000",
-   "Weight": "0",
-   "Market Value": "-22500",
-   "Shares Held": "-600",
-   "SEDOL": ""
-  },
-  {
-   "Name": "STM US 12/18/26 C55",
-   "Ticker": "STM 261218C00055000",
-   "Identifier": "STM 261218C00055000",
-   "Weight": "0",
-   "Market Value": "-27000",
+   "Market Value": "-56250",
    "Shares Held": "-900",
-   "SEDOL": ""
-  },
-  {
-   "Name": "TEVA US 11/20/26 C45",
-   "Ticker": "TEVA 261120C00045000",
-   "Identifier": "TEVA 261120C00045000",
-   "Weight": "0",
-   "Market Value": "-1500.02",
-   "Shares Held": "-3000",
-   "SEDOL": ""
-  },
-  {
-   "Name": "TS US 11/20/26 C62.5",
-   "Ticker": "TS 261120C00062500",
-   "Identifier": "TS 261120C00062500",
-   "Weight": "0",
-   "Market Value": "-6000",
-   "Shares Held": "-600",
    "SEDOL": ""
   },
   {
@@ -666,62 +531,35 @@
    "Ticker": "TSM 261204C00450000",
    "Identifier": "TSM 261204C00450000",
    "Weight": "0",
-   "Market Value": "-17250",
+   "Market Value": "-7500",
    "Shares Held": "-750",
    "SEDOL": ""
   },
   {
-   "Name": "TTE US 11/20/26 C100",
-   "Ticker": "TTE 261120C00100000",
-   "Identifier": "TTE 261120C00100000",
-   "Weight": "0",
-   "Market Value": "-32000",
-   "Shares Held": "-400",
-   "SEDOL": ""
-  },
-  {
-   "Name": "UL US 11/20/26 C70",
-   "Ticker": "UL 261120C00070000",
-   "Identifier": "UL 261120C00070000",
-   "Weight": "0",
-   "Market Value": "-26250",
-   "Shares Held": "-700",
-   "SEDOL": ""
-  },
-  {
-   "Name": "IMO US 11/20/26 C145",
-   "Ticker": "IMO 261120C00145000",
-   "Identifier": "IMO 261120C00145000",
+   "Name": "ASML US 12/18/26 C1600",
+   "Ticker": "ASML 261218C01600000",
+   "Identifier": "ASML 261218C01600000",
    "Weight": "-0.01",
-   "Market Value": "-85000",
-   "Shares Held": "-500",
+   "Market Value": "-70500",
+   "Shares Held": "-75",
    "SEDOL": ""
   },
   {
-   "Name": "SAP US 11/20/26 C260",
-   "Ticker": "SAP 261120C00260000",
-   "Identifier": "SAP 261120C00260000",
+   "Name": "MT US 12/18/26 C60",
+   "Ticker": "MT 261218C00060000",
+   "Identifier": "MT 261218C00060000",
    "Weight": "-0.01",
-   "Market Value": "-62500",
-   "Shares Held": "-250",
+   "Market Value": "-76500",
+   "Shares Held": "-600",
    "SEDOL": ""
   },
   {
-   "Name": "TBBB US 11/20/26 C65",
-   "Ticker": "TBBB 261120C00065000",
-   "Identifier": "TBBB 261120C00065000",
-   "Weight": "-0.02",
-   "Market Value": "-207500",
-   "Shares Held": "-1000",
-   "SEDOL": ""
-  },
-  {
-   "Name": "ITUB US 11/20/26 C6",
-   "Ticker": "ITUB 261120C00006000",
-   "Identifier": "ITUB 261120C00006000",
-   "Weight": "-0.05",
-   "Market Value": "-675000",
-   "Shares Held": "-9000",
+   "Name": "WPM US 12/18/26 C135",
+   "Ticker": "WPM 261218C00135000",
+   "Identifier": "WPM 261218C00135000",
+   "Weight": "-0.01",
+   "Market Value": "-70437.5",
+   "Shares Held": "-575",
    "SEDOL": ""
   }
  ]

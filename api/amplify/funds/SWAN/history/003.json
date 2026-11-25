@@ -2,7 +2,7 @@
  "ticker": "SWAN",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2021,
+ "totalRows": 2023,
  "headers": [
   "Date",
   "Close",
@@ -132,9 +132,21 @@
   },
   {
    "Date": "Nov 20 2026",
-   "Close": "30.4793",
+   "Close": "30.48",
    "Adj Close": "30.48",
-   "Volume": "5408"
+   "Volume": "5400"
+  },
+  {
+   "Date": "Nov 23 2026",
+   "Close": "31.219999",
+   "Adj Close": "31.22",
+   "Volume": "27800"
+  },
+  {
+   "Date": "Nov 24 2026",
+   "Close": "31.110001",
+   "Adj Close": "31.11",
+   "Volume": "25900"
   }
  ]
 }

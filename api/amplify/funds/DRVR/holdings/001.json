@@ -17,8 +17,8 @@
    "Name": "United Parcel Service Inc",
    "Ticker": "UPS",
    "Identifier": "911312106",
-   "Weight": "4.85",
-   "Market Value": "37642.95",
+   "Weight": "4.86",
+   "Market Value": "38236.35",
    "Shares Held": "345",
    "SEDOL": ""
   },
@@ -26,26 +26,17 @@
    "Name": "Altria Group Inc",
    "Ticker": "MO",
    "Identifier": "02209S103",
-   "Weight": "4.47",
-   "Market Value": "34726.2",
+   "Weight": "4.42",
+   "Market Value": "34791.3",
    "Shares Held": "465",
-   "SEDOL": ""
-  },
-  {
-   "Name": "T Rowe Price Group Inc",
-   "Ticker": "TROW",
-   "Identifier": "74144T108",
-   "Weight": "3.88",
-   "Market Value": "30109.17",
-   "Shares Held": "287",
    "SEDOL": ""
   },
   {
    "Name": "Paychex Inc",
    "Ticker": "PAYX",
    "Identifier": "704326107",
-   "Weight": "3.76",
-   "Market Value": "29186.8",
+   "Weight": "3.83",
+   "Market Value": "30150.96",
    "Shares Held": "262",
    "SEDOL": ""
   },
@@ -53,44 +44,53 @@
    "Name": "PepsiCo Inc",
    "Ticker": "PEP",
    "Identifier": "713448108",
-   "Weight": "3.74",
-   "Market Value": "29051",
+   "Weight": "3.79",
+   "Market Value": "29820.12",
    "Shares Held": "209",
+   "SEDOL": ""
+  },
+  {
+   "Name": "T Rowe Price Group Inc",
+   "Ticker": "TROW",
+   "Identifier": "74144T108",
+   "Weight": "3.76",
+   "Market Value": "29586.83",
+   "Shares Held": "287",
    "SEDOL": ""
   },
   {
    "Name": "Best Buy Co Inc",
    "Ticker": "BBY",
    "Identifier": "086516101",
-   "Weight": "3.46",
-   "Market Value": "26902.17",
+   "Weight": "3.43",
+   "Market Value": "26997.02",
    "Shares Held": "271",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Regions Financial Corp",
-   "Ticker": "RF",
-   "Identifier": "7591EP100",
-   "Weight": "3.27",
-   "Market Value": "25416.3",
-   "Shares Held": "931",
    "SEDOL": ""
   },
   {
    "Name": "NIKE Inc",
    "Ticker": "NKE",
    "Identifier": "654106103",
-   "Weight": "3.26",
-   "Market Value": "25301.21",
+   "Weight": "3.35",
+   "Market Value": "26347.75",
    "Shares Held": "737",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Regions Financial Corp",
+   "Ticker": "RF",
+   "Identifier": "7591EP100",
+   "Weight": "3.25",
+   "Market Value": "25611.81",
+   "Shares Held": "931",
    "SEDOL": ""
   },
   {
    "Name": "Mondelez International Inc",
    "Ticker": "MDLZ",
    "Identifier": "609207105",
-   "Weight": "2.85",
-   "Market Value": "22137.53",
+   "Weight": "2.87",
+   "Market Value": "22582.37",
    "Shares Held": "337",
    "SEDOL": ""
   },
@@ -98,71 +98,80 @@
    "Name": "Tractor Supply Co",
    "Ticker": "TSCO",
    "Identifier": "892356106",
-   "Weight": "2.81",
-   "Market Value": "21849.36",
+   "Weight": "2.83",
+   "Market Value": "22249.8",
    "Shares Held": "564",
-   "SEDOL": ""
-  },
-  {
-   "Name": "PNC Financial Services Group Inc/The",
-   "Ticker": "PNC",
-   "Identifier": "693475105",
-   "Weight": "2.75",
-   "Market Value": "21364",
-   "Shares Held": "98",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Home Depot Inc/The",
-   "Ticker": "HD",
-   "Identifier": "437076102",
-   "Weight": "2.69",
-   "Market Value": "20874.16",
-   "Shares Held": "62",
    "SEDOL": ""
   },
   {
    "Name": "Accenture PLC",
    "Ticker": "ACN",
    "Identifier": "G1151C101",
-   "Weight": "2.67",
-   "Market Value": "20765.1",
+   "Weight": "2.8",
+   "Market Value": "22070.4",
    "Shares Held": "95",
    "SEDOL": ""
   },
   {
-   "Name": "Fifth Third Bancorp",
-   "Ticker": "FITB",
-   "Identifier": "316773100",
-   "Weight": "2.5",
-   "Market Value": "19424.7",
-   "Shares Held": "382",
+   "Name": "Home Depot Inc/The",
+   "Ticker": "HD",
+   "Identifier": "437076102",
+   "Weight": "2.79",
+   "Market Value": "21928.78",
+   "Shares Held": "62",
+   "SEDOL": ""
+  },
+  {
+   "Name": "PNC Financial Services Group Inc/The",
+   "Ticker": "PNC",
+   "Identifier": "693475105",
+   "Weight": "2.72",
+   "Market Value": "21424.76",
+   "Shares Held": "98",
    "SEDOL": ""
   },
   {
    "Name": "Target Corp",
    "Ticker": "TGT",
    "Identifier": "87612E106",
-   "Weight": "2.48",
-   "Market Value": "19257.9",
+   "Weight": "2.57",
+   "Market Value": "20246.9",
    "Shares Held": "115",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Fifth Third Bancorp",
+   "Ticker": "FITB",
+   "Identifier": "316773100",
+   "Weight": "2.48",
+   "Market Value": "19527.84",
+   "Shares Held": "382",
    "SEDOL": ""
   },
   {
    "Name": "Zoetis Inc",
    "Ticker": "ZTS",
    "Identifier": "98978V103",
-   "Weight": "2.46",
-   "Market Value": "19147.23",
+   "Weight": "2.45",
+   "Market Value": "19308.39",
    "Shares Held": "237",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Lowe's Cos Inc",
+   "Ticker": "LOW",
+   "Identifier": "548661107",
+   "Weight": "2.41",
+   "Market Value": "18945.28",
+   "Shares Held": "82",
    "SEDOL": ""
   },
   {
    "Name": "Philip Morris International Inc",
    "Ticker": "PM",
    "Identifier": "718172109",
-   "Weight": "2.4",
-   "Market Value": "18643",
+   "Weight": "2.34",
+   "Market Value": "18395",
    "Shares Held": "100",
    "SEDOL": ""
   },
@@ -171,25 +180,16 @@
    "Ticker": "DPZ",
    "Identifier": "25754A201",
    "Weight": "2.31",
-   "Market Value": "17966.28",
+   "Market Value": "18182.52",
    "Shares Held": "51",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Lowe's Cos Inc",
-   "Ticker": "LOW",
-   "Identifier": "548661107",
-   "Weight": "2.31",
-   "Market Value": "17969.48",
-   "Shares Held": "82",
    "SEDOL": ""
   },
   {
    "Name": "Automatic Data Processing Inc",
    "Ticker": "ADP",
    "Identifier": "053015103",
-   "Weight": "2.25",
-   "Market Value": "17469.02",
+   "Weight": "2.29",
+   "Market Value": "18025.82",
    "Shares Held": "58",
    "SEDOL": ""
   },
@@ -197,8 +197,8 @@
    "Name": "Snap-on Inc",
    "Ticker": "SNA",
    "Identifier": "833034101",
-   "Weight": "2.19",
-   "Market Value": "17014.56",
+   "Weight": "2.18",
+   "Market Value": "17165.76",
    "Shares Held": "48",
    "SEDOL": ""
   },
@@ -207,7 +207,7 @@
    "Ticker": "ABT",
    "Identifier": "002824100",
    "Weight": "2.14",
-   "Market Value": "16619.2",
+   "Market Value": "16862.4",
    "Shares Held": "160",
    "SEDOL": ""
   },
@@ -215,8 +215,8 @@
    "Name": "Starbucks Corp",
    "Ticker": "SBUX",
    "Identifier": "855244109",
-   "Weight": "2.12",
-   "Market Value": "16506.26",
+   "Weight": "2.13",
+   "Market Value": "16808.04",
    "Shares Held": "158",
    "SEDOL": ""
   },
@@ -224,8 +224,8 @@
    "Name": "Broadridge Financial Solutions Inc",
    "Ticker": "BR",
    "Identifier": "11133T103",
-   "Weight": "2.08",
-   "Market Value": "16192.66",
+   "Weight": "2.09",
+   "Market Value": "16441.86",
    "Shares Held": "89",
    "SEDOL": ""
   },
@@ -233,8 +233,8 @@
    "Name": "Illinois Tool Works Inc",
    "Ticker": "ITW",
    "Identifier": "452308109",
-   "Weight": "2.07",
-   "Market Value": "16059.62",
+   "Weight": "2.09",
+   "Market Value": "16457.5",
    "Shares Held": "58",
    "SEDOL": ""
   },
@@ -242,8 +242,8 @@
    "Name": "Marsh & McLennan Cos Inc",
    "Ticker": "MRSH",
    "Identifier": "571748102",
-   "Weight": "1.95",
-   "Market Value": "15144.84",
+   "Weight": "2",
+   "Market Value": "15773.84",
    "Shares Held": "74",
    "SEDOL": ""
   },
@@ -251,8 +251,8 @@
    "Name": "Aflac Inc",
    "Ticker": "AFL",
    "Identifier": "001055102",
-   "Weight": "1.78",
-   "Market Value": "13848.36",
+   "Weight": "1.77",
+   "Market Value": "13961.58",
    "Shares Held": "111",
    "SEDOL": ""
   },
@@ -260,18 +260,9 @@
    "Name": "Morgan Stanley",
    "Ticker": "MS",
    "Identifier": "617446448",
-   "Weight": "1.78",
-   "Market Value": "13823.42",
-   "Shares Held": "79",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Texas Instruments Inc",
-   "Ticker": "TXN",
-   "Identifier": "882508104",
    "Weight": "1.69",
-   "Market Value": "13144.5",
-   "Shares Held": "46",
+   "Market Value": "13334.41",
+   "Shares Held": "79",
    "SEDOL": ""
   },
   {
@@ -279,53 +270,62 @@
    "Ticker": "ALL",
    "Identifier": "020002101",
    "Weight": "1.65",
-   "Market Value": "12804.96",
+   "Market Value": "12978.72",
    "Shares Held": "48",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Fastenal Co",
-   "Ticker": "FAST",
-   "Identifier": "311900104",
-   "Weight": "1.64",
-   "Market Value": "12748.56",
-   "Shares Held": "242",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Goldman Sachs Group Inc/The",
-   "Ticker": "GS",
-   "Identifier": "38141G104",
-   "Weight": "1.64",
-   "Market Value": "12712.95",
-   "Shares Held": "15",
    "SEDOL": ""
   },
   {
    "Name": "Masco Corp",
    "Ticker": "MAS",
    "Identifier": "574599106",
-   "Weight": "1.62",
-   "Market Value": "12584.08",
+   "Weight": "1.64",
+   "Market Value": "12935.2",
    "Shares Held": "152",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Fastenal Co",
+   "Ticker": "FAST",
+   "Identifier": "311900104",
+   "Weight": "1.61",
+   "Market Value": "12649.34",
+   "Shares Held": "242",
    "SEDOL": ""
   },
   {
    "Name": "UnitedHealth Group Inc",
    "Ticker": "UNH",
    "Identifier": "91324P102",
-   "Weight": "1.57",
-   "Market Value": "12227.76",
+   "Weight": "1.61",
+   "Market Value": "12649.56",
    "Shares Held": "37",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Goldman Sachs Group Inc/The",
+   "Ticker": "GS",
+   "Identifier": "38141G104",
+   "Weight": "1.54",
+   "Market Value": "12090.3",
+   "Shares Held": "15",
    "SEDOL": ""
   },
   {
    "Name": "State Street Corp",
    "Ticker": "STT",
    "Identifier": "857477103",
-   "Weight": "1.56",
-   "Market Value": "12092.25",
+   "Weight": "1.53",
+   "Market Value": "12063.75",
    "Shares Held": "75",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Texas Instruments Inc",
+   "Ticker": "TXN",
+   "Identifier": "882508104",
+   "Weight": "1.51",
+   "Market Value": "11888.24",
+   "Shares Held": "46",
    "SEDOL": ""
   },
   {
@@ -333,7 +333,7 @@
    "Ticker": "QCOM",
    "Identifier": "747525103",
    "Weight": "1.42",
-   "Market Value": "11016.68",
+   "Market Value": "11217.28",
    "Shares Held": "68",
    "SEDOL": ""
   },
@@ -342,7 +342,7 @@
    "Ticker": "MSCI",
    "Identifier": "55354G100",
    "Weight": "1.21",
-   "Market Value": "9364.95",
+   "Market Value": "9508.8",
    "Shares Held": "15",
    "SEDOL": ""
   },
@@ -350,8 +350,8 @@
    "Name": "DR Horton Inc",
    "Ticker": "DHI",
    "Identifier": "23331A109",
-   "Weight": "1.14",
-   "Market Value": "8843.68",
+   "Weight": "1.2",
+   "Market Value": "9434.54",
    "Shares Held": "62",
    "SEDOL": ""
   },
@@ -360,7 +360,7 @@
    "Ticker": "RJF",
    "Identifier": "754730109",
    "Weight": "1.12",
-   "Market Value": "8738.4",
+   "Market Value": "8833",
    "Shares Held": "55",
    "SEDOL": ""
   },
@@ -368,8 +368,8 @@
    "Name": "Lennox International Inc",
    "Ticker": "LII",
    "Identifier": "526107107",
-   "Weight": "1.06",
-   "Market Value": "8222.88",
+   "Weight": "1.04",
+   "Market Value": "8206.08",
    "Shares Held": "24",
    "SEDOL": ""
   },
@@ -377,8 +377,8 @@
    "Name": "Williams-Sonoma Inc",
    "Ticker": "WSM",
    "Identifier": "969904101",
-   "Weight": "0.94",
-   "Market Value": "7281.78",
+   "Weight": "0.9",
+   "Market Value": "7057.71",
    "Shares Held": "33",
    "SEDOL": ""
   },
@@ -386,8 +386,8 @@
    "Name": "Cintas Corp",
    "Ticker": "CTAS",
    "Identifier": "172908105",
-   "Weight": "0.82",
-   "Market Value": "6348.68",
+   "Weight": "0.83",
+   "Market Value": "6547.04",
    "Shares Held": "29",
    "SEDOL": ""
   },
@@ -395,8 +395,8 @@
    "Name": "Steel Dynamics Inc",
    "Ticker": "STLD",
    "Identifier": "858119100",
-   "Weight": "0.7",
-   "Market Value": "5456.5",
+   "Weight": "0.68",
+   "Market Value": "5380.75",
    "Shares Held": "25",
    "SEDOL": ""
   },
@@ -404,8 +404,8 @@
    "Name": "Visa Inc",
    "Ticker": "V",
    "Identifier": "92826C839",
-   "Weight": "0.62",
-   "Market Value": "4827",
+   "Weight": "0.64",
+   "Market Value": "5001.36",
    "Shares Held": "12",
    "SEDOL": ""
   },
@@ -413,8 +413,8 @@
    "Name": "Mastercard Inc",
    "Ticker": "MA",
    "Identifier": "57636Q104",
-   "Weight": "0.56",
-   "Market Value": "4385.5",
+   "Weight": "0.58",
+   "Market Value": "4532.08",
    "Shares Held": "7",
    "SEDOL": ""
   },
@@ -422,17 +422,17 @@
    "Name": "Invesco Government & Agency Portfolio 12/31/2031",
    "Ticker": "AGPXX",
    "Identifier": "825252885",
-   "Weight": "0.47",
-   "Market Value": "3668.12",
-   "Shares Held": "3668.12",
+   "Weight": "0.48",
+   "Market Value": "3763.12",
+   "Shares Held": "3763.12",
    "SEDOL": ""
   },
   {
    "Name": "Texas Pacific Land Corp",
    "Ticker": "TPL",
    "Identifier": "88262P102",
-   "Weight": "0.46",
-   "Market Value": "3610.36",
+   "Weight": "0.42",
+   "Market Value": "3268.2",
    "Shares Held": "13",
    "SEDOL": ""
   },
@@ -440,18 +440,9 @@
    "Name": "KLA CORP",
    "Ticker": "KLAC",
    "Identifier": "482480100",
-   "Weight": "0.35",
-   "Market Value": "2688.12",
+   "Weight": "0.32",
+   "Market Value": "2539.35",
    "Shares Held": "19",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Lam Research Corp",
-   "Ticker": "LRCX",
-   "Identifier": "512807306",
-   "Weight": "0.24",
-   "Market Value": "1833.12",
-   "Shares Held": "9",
    "SEDOL": ""
   },
   {
@@ -459,8 +450,17 @@
    "Ticker": "-",
    "Identifier": "Cash&Other",
    "Weight": "0.23",
-   "Market Value": "1788.96",
-   "Shares Held": "1788.96",
+   "Market Value": "1797.7",
+   "Shares Held": "1797.7",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Lam Research Corp",
+   "Ticker": "LRCX",
+   "Identifier": "512807306",
+   "Weight": "0.22",
+   "Market Value": "1765.44",
+   "Shares Held": "9",
    "SEDOL": ""
   }
  ]

@@ -2,7 +2,7 @@
  "ticker": "YO",
  "page": 1,
  "pageSize": 250,
- "totalRows": 3,
+ "totalRows": 4,
  "headers": [
   "Name",
   "Ticker",
@@ -17,27 +17,36 @@
    "Name": "THE S&P 500 BUFFERED AUTOCALL INDEX -SWAP- RBC-L",
    "Ticker": "SPAC4VCTINDEX-TRS-02/17/28-L",
    "Identifier": "SPAC4VCTINDEX-TRS-02/17/28-L",
-   "Weight": "99.96",
-   "Market Value": "740910.98",
-   "Shares Held": "90",
+   "Weight": "100",
+   "Market Value": "987836.14",
+   "Shares Held": "120",
    "SEDOL": ""
   },
   {
    "Name": "United States Treasury Bill 02/11/2027",
    "Ticker": "-",
    "Identifier": "912797WB9",
-   "Weight": "98.22",
-   "Market Value": "727984.43",
-   "Shares Held": "735000",
+   "Weight": "45.45",
+   "Market Value": "448929.72",
+   "Shares Held": "453000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Invesco Government & Agency Portfolio 12/31/2031",
+   "Ticker": "AGPXX",
+   "Identifier": "825252885",
+   "Weight": "27.65",
+   "Market Value": "273111.17",
+   "Shares Held": "273111.17",
    "SEDOL": ""
   },
   {
    "Name": "Cash & Other",
    "Ticker": "-",
    "Identifier": "Cash&Other",
-   "Weight": "-98.22",
-   "Market Value": "-728022.01",
-   "Shares Held": "-728022.01",
+   "Weight": "-73.16",
+   "Market Value": "-722643.49",
+   "Shares Held": "-722643.49",
    "SEDOL": ""
   }
  ]

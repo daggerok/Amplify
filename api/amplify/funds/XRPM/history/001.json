@@ -2,7 +2,7 @@
  "ticker": "XRPM",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 254,
+ "totalRows": 256,
  "headers": [
   "Date",
   "Close",
@@ -1530,9 +1530,21 @@
   },
   {
    "Date": "Nov 20 2026",
-   "Close": "4.8013",
+   "Close": "4.801",
    "Adj Close": "4.8",
-   "Volume": "32694"
+   "Volume": "34800"
+  },
+  {
+   "Date": "Nov 23 2026",
+   "Close": "5.076",
+   "Adj Close": "5.08",
+   "Volume": "37300"
+  },
+  {
+   "Date": "Nov 24 2026",
+   "Close": "4.988",
+   "Adj Close": "4.99",
+   "Volume": "12200"
   }
  ]
 }
