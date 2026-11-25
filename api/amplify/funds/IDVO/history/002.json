@@ -2,7 +2,7 @@
  "ticker": "IDVO",
  "page": 2,
  "pageSize": 1000,
- "totalRows": 1058,
+ "totalRows": 1059,
  "headers": [
   "Date",
   "Close",
@@ -357,6 +357,12 @@
    "Close": "36.220001",
    "Adj Close": "36.22",
    "Volume": "259700"
+  },
+  {
+   "Date": "Nov 25 2026",
+   "Close": "36.41",
+   "Adj Close": "36.41",
+   "Volume": "424157"
   }
  ]
 }

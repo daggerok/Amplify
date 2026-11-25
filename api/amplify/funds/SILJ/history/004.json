@@ -2,7 +2,7 @@
  "ticker": "SILJ",
  "page": 4,
  "pageSize": 1000,
- "totalRows": 3518,
+ "totalRows": 3519,
  "headers": [
   "Date",
   "Close",
@@ -3117,6 +3117,12 @@
    "Close": "19.08",
    "Adj Close": "19.08",
    "Volume": "2646900"
+  },
+  {
+   "Date": "Nov 25 2026",
+   "Close": "19.91",
+   "Adj Close": "19.91",
+   "Volume": "6665055"
   }
  ]
 }

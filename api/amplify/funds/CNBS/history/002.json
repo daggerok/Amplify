@@ -2,7 +2,7 @@
  "ticker": "CNBS",
  "page": 2,
  "pageSize": 1000,
- "totalRows": 1847,
+ "totalRows": 1848,
  "headers": [
   "Date",
   "Close",
@@ -5091,6 +5091,12 @@
    "Close": "18.156",
    "Adj Close": "18.16",
    "Volume": "6300"
+  },
+  {
+   "Date": "Nov 25 2026",
+   "Close": "18.9865",
+   "Adj Close": "18.99",
+   "Volume": "8750"
   }
  ]
 }

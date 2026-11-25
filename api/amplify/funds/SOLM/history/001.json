@@ -2,7 +2,7 @@
  "ticker": "SOLM",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 266,
+ "totalRows": 267,
  "headers": [
   "Date",
   "Close",
@@ -1605,6 +1605,12 @@
    "Close": "5.05",
    "Adj Close": "5.05",
    "Volume": "14500"
+  },
+  {
+   "Date": "Nov 25 2026",
+   "Close": "5.0975",
+   "Adj Close": "5.1",
+   "Volume": "2363"
   }
  ]
 }

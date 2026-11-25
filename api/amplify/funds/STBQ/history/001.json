@@ -2,7 +2,7 @@
  "ticker": "STBQ",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 232,
+ "totalRows": 233,
  "headers": [
   "Date",
   "Close",
@@ -1401,6 +1401,12 @@
    "Close": "17.200001",
    "Adj Close": "17.2",
    "Volume": "600"
+  },
+  {
+   "Date": "Nov 25 2026",
+   "Close": "17.657101",
+   "Adj Close": "17.66",
+   "Volume": "3406"
   }
  ]
 }

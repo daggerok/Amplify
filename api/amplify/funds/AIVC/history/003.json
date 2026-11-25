@@ -2,7 +2,7 @@
  "ticker": "AIVC",
  "page": 3,
  "pageSize": 1000,
- "totalRows": 2695,
+ "totalRows": 2696,
  "headers": [
   "Date",
   "Close",
@@ -4179,6 +4179,12 @@
    "Close": "85",
    "Adj Close": "85",
    "Volume": "64800"
+  },
+  {
+   "Date": "Nov 25 2026",
+   "Close": "83.870003",
+   "Adj Close": "83.87",
+   "Volume": "44153"
   }
  ]
 }
