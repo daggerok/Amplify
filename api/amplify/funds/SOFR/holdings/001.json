@@ -17,54 +17,45 @@
    "Name": "SOF REPO 11/27/26 3.94% 11/27/2026",
    "Ticker": "SOF112726",
    "Identifier": "SOF112726",
-   "Weight": "32.23",
+   "Weight": "32.32",
    "Market Value": "150000000",
    "Shares Held": "150000000",
    "SEDOL": ""
   },
   {
-   "Name": "SOF REPO 11/25/2026 3.98% 11/25/2026",
-   "Ticker": "SOF1125263",
-   "Identifier": "SOF1125263",
-   "Weight": "29.09",
-   "Market Value": "135400000",
-   "Shares Held": "135400000",
+   "Name": "SOF REPO 11/27/2026 3.98% 11/27/2026",
+   "Ticker": "SOF1127264",
+   "Identifier": "SOF1127264",
+   "Weight": "29.18",
+   "Market Value": "135430000",
+   "Shares Held": "135430000",
    "SEDOL": ""
   },
   {
-   "Name": "SOF REPO 11/25/2026 3.97% 11/25/2026",
-   "Ticker": "SOF112526",
-   "Identifier": "SOF112526",
-   "Weight": "17.19",
-   "Market Value": "79999920",
-   "Shares Held": "79999920",
+   "Name": "SOF REPO 11/27/2026 3.97% 11/27/2026",
+   "Ticker": "SOF1127262",
+   "Identifier": "SOF1127262",
+   "Weight": "17.24",
+   "Market Value": "79999822.5",
+   "Shares Held": "79999822.5",
    "SEDOL": ""
   },
   {
-   "Name": "SOF REPO 11/25/2026 3.97% 11/25/2026",
-   "Ticker": "SOF1125262",
-   "Identifier": "SOF1125262",
-   "Weight": "15.04",
-   "Market Value": "69999531.36",
-   "Shares Held": "69999531.36",
+   "Name": "SOF REPO 11/27/2026 3.97% 11/27/2026",
+   "Ticker": "SOF1127263",
+   "Identifier": "SOF1127263",
+   "Weight": "15.08",
+   "Market Value": "69999197.49",
+   "Shares Held": "69999197.49",
    "SEDOL": ""
   },
   {
    "Name": "Brookfield Corporate Treasury Ltd 11/30/2026",
    "Ticker": "11271GLW1",
    "Identifier": "11271GLW1",
-   "Weight": "6.44",
-   "Market Value": "29982500",
+   "Weight": "6.46",
+   "Market Value": "29989500",
    "Shares Held": "30000000",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Cash & Other",
-   "Ticker": "-",
-   "Identifier": "Cash&Other",
-   "Weight": "0.01",
-   "Market Value": "63872.34",
-   "Shares Held": "63872.34",
    "SEDOL": ""
   },
   {
@@ -72,8 +63,17 @@
    "Ticker": "AGPXX",
    "Identifier": "825252885",
    "Weight": "0",
-   "Market Value": "6502.32",
-   "Shares Held": "6502.32",
+   "Market Value": "8444.51",
+   "Shares Held": "8444.51",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Cash & Other",
+   "Ticker": "-",
+   "Identifier": "Cash&Other",
+   "Weight": "-0.3",
+   "Market Value": "-1391959.98",
+   "Shares Held": "-1391959.98",
    "SEDOL": ""
   }
  ]

@@ -17,8 +17,8 @@
    "Name": "iShares iBoxx USD Investment Grade Corporate Bond ETF",
    "Ticker": "LQD",
    "Identifier": "464287242",
-   "Weight": "100.14",
-   "Market Value": "6450340.92",
+   "Weight": "101.3",
+   "Market Value": "6481414.92",
    "Shares Held": "62148",
    "SEDOL": ""
   },
@@ -27,26 +27,26 @@
    "Ticker": "AGPXX",
    "Identifier": "825252885",
    "Weight": "0.01",
-   "Market Value": "554.08",
-   "Shares Held": "554.08",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Cash & Other",
-   "Ticker": "-",
-   "Identifier": "Cash&Other",
-   "Weight": "-0.02",
-   "Market Value": "-1173.36",
-   "Shares Held": "-1173.36",
+   "Market Value": "658.44",
+   "Shares Held": "658.44",
    "SEDOL": ""
   },
   {
    "Name": "LQD 11/27/2026 103.69 C",
    "Ticker": "4LQD 261127C00103690",
    "Identifier": "4LQD 261127C00103690",
-   "Weight": "-0.13",
-   "Market Value": "-8370",
+   "Weight": "-0.29",
+   "Market Value": "-18249.3",
    "Shares Held": "-270",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Cash & Other",
+   "Ticker": "-",
+   "Identifier": "Cash&Other",
+   "Weight": "-1.03",
+   "Market Value": "-65924.37",
+   "Shares Held": "-65924.37",
    "SEDOL": ""
   }
  ]

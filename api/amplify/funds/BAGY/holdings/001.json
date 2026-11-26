@@ -17,7 +17,7 @@
    "Name": "Invesco Government & Agency Portfolio 12/31/2031",
    "Ticker": "AGPXX",
    "Identifier": "825252885",
-   "Weight": "51.77",
+   "Weight": "52.79",
    "Market Value": "3510611.12",
    "Shares Held": "3510611.12",
    "SEDOL": ""
@@ -26,8 +26,8 @@
    "Name": "United States Treasury Bill 02/16/2027",
    "Ticker": "-",
    "Identifier": "912797WZ6",
-   "Weight": "30.67",
-   "Market Value": "2080042.65",
+   "Weight": "31.29",
+   "Market Value": "2080573.15",
    "Shares Held": "2100000",
    "SEDOL": ""
   },
@@ -35,8 +35,8 @@
    "Name": "United States Treasury Bill 02/04/2027",
    "Ticker": "-",
    "Identifier": "912797VV6",
-   "Weight": "17.55",
-   "Market Value": "1190249.33",
+   "Weight": "17.9",
+   "Market Value": "1190531.66",
    "Shares Held": "1200000",
    "SEDOL": ""
   },
@@ -44,8 +44,8 @@
    "Name": "MBTX 02/19/2027 149.25 C",
    "Ticker": "4MBTX 270219C00149250",
    "Identifier": "4MBTX 270219C00149250",
-   "Weight": "7.45",
-   "Market Value": "505327.26",
+   "Weight": "8.13",
+   "Market Value": "540876.12",
    "Shares Held": "478",
    "SEDOL": ""
   },
@@ -53,8 +53,8 @@
    "Name": "United States Treasury Bill 02/09/2027",
    "Ticker": "-",
    "Identifier": "912797WY9",
-   "Weight": "2.19",
-   "Market Value": "148694.38",
+   "Weight": "2.24",
+   "Market Value": "148732.75",
    "Shares Held": "150000",
    "SEDOL": ""
   },
@@ -62,35 +62,35 @@
    "Name": "United States Treasury Bill 02/11/2027",
    "Ticker": "-",
    "Identifier": "912797WB9",
-   "Weight": "2.19",
-   "Market Value": "148652.22",
+   "Weight": "2.24",
+   "Market Value": "148692.17",
    "Shares Held": "150000",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Cash & Other",
-   "Ticker": "-",
-   "Identifier": "Cash&Other",
-   "Weight": "0.94",
-   "Market Value": "63674.86",
-   "Shares Held": "63674.86",
    "SEDOL": ""
   },
   {
    "Name": "MBTX 12/01/2026 147.59 C",
    "Ticker": "4MBTX 261201C00147590",
    "Identifier": "4MBTX 261201C00147590",
-   "Weight": "-0.8",
-   "Market Value": "-54492",
+   "Weight": "-1.12",
+   "Market Value": "-74434.16",
    "Shares Held": "-478",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Cash & Other",
+   "Ticker": "-",
+   "Identifier": "Cash&Other",
+   "Weight": "-1.58",
+   "Market Value": "-105080.42",
+   "Shares Held": "-105080.42",
    "SEDOL": ""
   },
   {
    "Name": "MBTX 02/19/2027 149.25 P",
    "Ticker": "4MBTX 270219P00149250",
    "Identifier": "4MBTX 270219P00149250",
-   "Weight": "-11.98",
-   "Market Value": "-812356.22",
+   "Weight": "-11.88",
+   "Market Value": "-789952.36",
    "Shares Held": "-478",
    "SEDOL": ""
   }

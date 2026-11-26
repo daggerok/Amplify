@@ -17,7 +17,7 @@
    "Name": "Invesco Government & Agency Portfolio 12/31/2031",
    "Ticker": "AGPXX",
    "Identifier": "825252885",
-   "Weight": "15.94",
+   "Weight": "16.11",
    "Market Value": "213263.8",
    "Shares Held": "213263.8",
    "SEDOL": ""
@@ -26,8 +26,8 @@
    "Name": "Amazon.com Inc",
    "Ticker": "AMZN",
    "Identifier": "023135106",
-   "Weight": "12.22",
-   "Market Value": "163483.92",
+   "Weight": "11.97",
+   "Market Value": "158390.64",
    "Shares Held": "648",
    "SEDOL": ""
   },
@@ -35,8 +35,8 @@
    "Name": "Infleqtion Inc",
    "Ticker": "INFQ",
    "Identifier": "45676K103",
-   "Weight": "9.17",
-   "Market Value": "122742.4",
+   "Weight": "9.49",
+   "Market Value": "125646.4",
    "Shares Held": "19360",
    "SEDOL": ""
   },
@@ -44,8 +44,8 @@
    "Name": "Microsoft Corp",
    "Ticker": "MSFT",
    "Identifier": "594918104",
-   "Weight": "8.3",
-   "Market Value": "111133.12",
+   "Weight": "8.29",
+   "Market Value": "109744.32",
    "Shares Held": "224",
    "SEDOL": ""
   },
@@ -53,8 +53,8 @@
    "Name": "Alphabet Inc",
    "Ticker": "GOOGL",
    "Identifier": "02079K305",
-   "Weight": "8.01",
-   "Market Value": "107155.2",
+   "Weight": "7.92",
+   "Market Value": "104870.4",
    "Shares Held": "384",
    "SEDOL": ""
   },
@@ -62,8 +62,8 @@
    "Name": "D-Wave Quantum Inc",
    "Ticker": "QBTS",
    "Identifier": "26740W109",
-   "Weight": "7.17",
-   "Market Value": "95977.6",
+   "Weight": "7.53",
+   "Market Value": "99680",
    "Shares Held": "14240",
    "SEDOL": ""
   },
@@ -71,8 +71,8 @@
    "Name": "HON HAI PRECISION INDUSTRY CO., LTD.-SWAP-GOLD-L",
    "Ticker": "6438564-TRS-08/20/29-L-GS",
    "Identifier": "6438564-TRS-08/20/29-L-GS",
-   "Weight": "7.03",
-   "Market Value": "94060.32",
+   "Weight": "6.44",
+   "Market Value": "85294.56",
    "Shares Held": "13700",
    "SEDOL": ""
   },
@@ -81,7 +81,7 @@
    "Ticker": "594918104-TRS-11/30/29-L-NBC",
    "Identifier": "594918104-TRS-11/30/29-L-NBC",
    "Weight": "5.89",
-   "Market Value": "78884.67",
+   "Market Value": "77898.87",
    "Shares Held": "159",
    "SEDOL": ""
   },
@@ -89,35 +89,35 @@
    "Name": "QUANTUM COMPUTING INC.-SWAP-GOLD-L",
    "Ticker": "74766W108-TRS-08/20/29-L-GS",
    "Identifier": "74766W108-TRS-08/20/29-L-GS",
-   "Weight": "5.38",
-   "Market Value": "71987.01",
+   "Weight": "5.71",
+   "Market Value": "75611.07",
    "Shares Held": "16473",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Hon Hai Precision Industry Co Ltd",
-   "Ticker": "2317 TT",
-   "Identifier": "6438564",
-   "Weight": "5.13",
-   "Market Value": "68657.17",
-   "Shares Held": "10000",
    "SEDOL": ""
   },
   {
    "Name": "IONQ, INC.-SWAP-NBCB-L",
    "Ticker": "46222L108-TRS-11/30/29-L-NBC",
    "Identifier": "46222L108-TRS-11/30/29-L-NBC",
-   "Weight": "4.98",
-   "Market Value": "66684.8",
+   "Weight": "5.29",
+   "Market Value": "70078.58",
    "Shares Held": "2977",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Hon Hai Precision Industry Co Ltd",
+   "Ticker": "2317 TT",
+   "Identifier": "6438564",
+   "Weight": "4.7",
+   "Market Value": "62258.8",
+   "Shares Held": "10000",
    "SEDOL": ""
   },
   {
    "Name": "QUANTA COMPUTER INC.-SWAP-GOLD-L",
    "Ticker": "6141011-TRS-08/20/29-L-GS",
    "Identifier": "6141011-TRS-08/20/29-L-GS",
-   "Weight": "4.74",
-   "Market Value": "63367.69",
+   "Weight": "4.4",
+   "Market Value": "58230.82",
    "Shares Held": "7400",
    "SEDOL": ""
   },
@@ -125,8 +125,8 @@
    "Name": "IonQ Inc",
    "Ticker": "IONQ",
    "Identifier": "46222L108",
-   "Weight": "4.11",
-   "Market Value": "55014.4",
+   "Weight": "4.37",
+   "Market Value": "57814.24",
    "Shares Held": "2456",
    "SEDOL": ""
   },
@@ -134,26 +134,17 @@
    "Name": "Keysight Technologies Inc",
    "Ticker": "KEYS",
    "Identifier": "49338L103",
-   "Weight": "4.07",
-   "Market Value": "54444",
+   "Weight": "4.05",
+   "Market Value": "53538",
    "Shares Held": "200",
-   "SEDOL": ""
-  },
-  {
-   "Name": "Quanta Computer Inc",
-   "Ticker": "2382 TT",
-   "Identifier": "6141011",
-   "Weight": "3.07",
-   "Market Value": "41103.36",
-   "Shares Held": "4800",
    "SEDOL": ""
   },
   {
    "Name": "Quantum Computing Inc",
    "Ticker": "QUBT",
    "Identifier": "74766W108",
-   "Weight": "2.97",
-   "Market Value": "39749.52",
+   "Weight": "3.15",
+   "Market Value": "41750.64",
    "Shares Held": "9096",
    "SEDOL": ""
   },
@@ -161,17 +152,26 @@
    "Name": "IONQ, INC.-SWAP-GOLD-L",
    "Ticker": "46222L108-TRS-08/20/29-L-GS",
    "Identifier": "46222L108-TRS-08/20/29-L-GS",
-   "Weight": "2.86",
-   "Market Value": "38281.6",
+   "Weight": "3.04",
+   "Market Value": "40229.86",
    "Shares Held": "1709",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Quanta Computer Inc",
+   "Ticker": "2382 TT",
+   "Identifier": "6141011",
+   "Weight": "2.85",
+   "Market Value": "37771.35",
+   "Shares Held": "4800",
    "SEDOL": ""
   },
   {
    "Name": "KEYSIGHT TECHNOLOGIES, INC.-SWAP-NBCB-L",
    "Ticker": "49338L103-TRS-11/30/29-L-NBC",
    "Identifier": "49338L103-TRS-11/30/29-L-NBC",
-   "Weight": "1.99",
-   "Market Value": "26677.56",
+   "Weight": "1.98",
+   "Market Value": "26233.62",
    "Shares Held": "98",
    "SEDOL": ""
   },
@@ -180,7 +180,7 @@
    "Ticker": "594918104-TRS-11/30/29-L-MX",
    "Identifier": "594918104-TRS-11/30/29-L-MX",
    "Weight": "1.85",
-   "Market Value": "24806.5",
+   "Market Value": "24496.5",
    "Shares Held": "50",
    "SEDOL": ""
   },
@@ -188,9 +188,9 @@
    "Name": "Cash & Other",
    "Ticker": "-",
    "Identifier": "Cash&Other",
-   "Weight": "-14.89",
-   "Market Value": "-199277.92",
-   "Shares Held": "-199277.92",
+   "Weight": "-15.07",
+   "Market Value": "-199403.91",
+   "Shares Held": "-199403.91",
    "SEDOL": ""
   }
  ]
