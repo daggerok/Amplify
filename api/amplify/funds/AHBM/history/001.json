@@ -2,7 +2,7 @@
  "ticker": "AHBM",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 70,
+ "totalRows": 71,
  "headers": [
   "Date",
   "Close",
@@ -429,6 +429,12 @@
    "Close": "14.6",
    "Adj Close": "14.6",
    "Volume": "500"
+  },
+  {
+   "Date": "Nov 27 2026",
+   "Close": "15.8362",
+   "Adj Close": "15.84",
+   "Volume": "905"
   }
  ]
 }

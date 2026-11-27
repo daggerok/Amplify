@@ -2,7 +2,7 @@
  "ticker": "TKNQ",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 233,
+ "totalRows": 234,
  "headers": [
   "Date",
   "Close",
@@ -1407,6 +1407,12 @@
    "Close": "19.813",
    "Adj Close": "19.81",
    "Volume": "100"
+  },
+  {
+   "Date": "Nov 27 2026",
+   "Close": "20.0807",
+   "Adj Close": "20.08",
+   "Volume": "123"
   }
  ]
 }

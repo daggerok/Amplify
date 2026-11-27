@@ -2,7 +2,7 @@
  "ticker": "ETTY",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 285,
+ "totalRows": 286,
  "headers": [
   "Date",
   "Close",
@@ -1719,6 +1719,12 @@
    "Close": "5.515",
    "Adj Close": "5.51",
    "Volume": "13900"
+  },
+  {
+   "Date": "Nov 27 2026",
+   "Close": "5.3092",
+   "Adj Close": "5.31",
+   "Volume": "7363"
   }
  ]
 }

@@ -2,7 +2,7 @@
  "ticker": "YYY",
  "page": 4,
  "pageSize": 1000,
- "totalRows": 3636,
+ "totalRows": 3637,
  "headers": [
   "Date",
   "Close",
@@ -3825,6 +3825,12 @@
    "Close": "10.04",
    "Adj Close": "10.04",
    "Volume": "1047900"
+  },
+  {
+   "Date": "Nov 27 2026",
+   "Close": "10.02",
+   "Adj Close": "10.02",
+   "Volume": "769355"
   }
  ]
 }
