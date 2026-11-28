@@ -74,7 +74,7 @@
    "yr10": null,
    "sinceInception": 4.46,
    "mo1": 0.32,
-   "qtd": 0.36
+   "qtd": 0.35
   },
   "quarterEnd": {
    "asOfDate": "Sep 30 2026",
@@ -236,6 +236,10 @@
    [
     "10/29/2026",
     "0.325"
+   ],
+   [
+    "11/27/2026",
+    "0.326"
    ]
   ]
  },
@@ -255,8 +259,8 @@
    "history/001.json"
   ],
   "pageSize": 1000,
-  "totalRows": 760,
-  "asOf": "Nov 25 2026",
+  "totalRows": 761,
+  "asOf": "Nov 27 2026",
   "source": "Yahoo Finance daily market-price closes / adjusted closes (not official NAV)"
  }
 }

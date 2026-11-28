@@ -2,7 +2,7 @@
  "ticker": "XWNG",
  "page": 1,
  "pageSize": 1000,
- "totalRows": 70,
+ "totalRows": 71,
  "headers": [
   "Date",
   "Close",
@@ -428,6 +428,12 @@
    "Date": "Nov 25 2026",
    "Close": "16.799999",
    "Adj Close": "16.8",
+   "Volume": "100"
+  },
+  {
+   "Date": "Nov 27 2026",
+   "Close": "17.870001",
+   "Adj Close": "17.87",
    "Volume": "100"
   }
  ]
