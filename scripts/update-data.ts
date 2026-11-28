@@ -975,7 +975,10 @@ export const HOLDINGS_HEADERS = ['Name', 'Ticker', 'Identifier', 'Weight', 'Mark
 /** Funds whose holdings legitimately fail a holdingsGuard check (geared, futures, look-through, top-N lists): ticker, or '*' for every fund -> relaxed checks. */
 export const HOLDINGS_GUARD_RELAX: Record<string, string[]> = { BDRY: ['sum'], BWET: ['sum'] }; // freight futures funds: weights add up to ~230
 /** Funds the issuer closed, each confirmed from an SEC filing or the issuer notice (`source`): never fetched or guarded, last published data kept, index row marked closed. */
-export const CLOSED_FUNDS: ClosedFund[] = [];
+export const CLOSED_FUNDS: ClosedFund[] = [
+  // in liquidation: no creation orders after 2026-11-26, trading halted at the close of 2026-12-03, proceeds on or about 2026-12-08 (issuer notice on the fund page); the feed lists only a money market fund and cash since 2026-11-26
+  { ticker: 'THNR', closed: '2026-12-03', source: 'https://amplifyetfs.com/thnr/' },
+];
 
 // Firestore weights are percent strings ("5.38%"); nothing here ever turns a missing value into 0.
 const textNumber = (value: unknown): string => {
