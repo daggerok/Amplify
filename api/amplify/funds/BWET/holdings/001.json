@@ -17,26 +17,35 @@
    "Name": "Cash & Other",
    "Ticker": "-",
    "Identifier": "Cash&Other",
-   "Weight": "68.38",
-   "Market Value": "80593050.81",
-   "Shares Held": "80593050.81",
+   "Weight": "70.39",
+   "Market Value": "88414202.75",
+   "Shares Held": "88414202.75",
    "SEDOL": ""
   },
   {
    "Name": "Invesco Government & Agency Portfolio 12/31/2031",
    "Ticker": "AGPXX",
    "Identifier": "825252885",
-   "Weight": "31.6",
+   "Weight": "29.65",
    "Market Value": "37244247.23",
    "Shares Held": "37244247.23",
+   "SEDOL": ""
+  },
+  {
+   "Name": "TD3C FFA 270kt Middle East Gulf to China USD/MT M Jan 27",
+   "Ticker": "DD3CM F27 INDEX",
+   "Identifier": "DD3CM F27",
+   "Weight": "22.27",
+   "Market Value": "27972000",
+   "Shares Held": "160",
    "SEDOL": ""
   },
   {
    "Name": "TD3C FFA 270kt Middle East Gulf to China USD/MT M Nov 26",
    "Ticker": "DD3CM X26 INDEX",
    "Identifier": "DD3CM X26",
-   "Weight": "23.56",
-   "Market Value": "27773630",
+   "Weight": "22.12",
+   "Market Value": "27779726",
    "Shares Held": "127",
    "SEDOL": ""
   },
@@ -44,44 +53,44 @@
    "Name": "TD3C FFA 270kt Middle East Gulf to China USD/MT M Dec 26",
    "Ticker": "DD3CM Z26 INDEX",
    "Identifier": "DD3CM Z26",
-   "Weight": "22.88",
-   "Market Value": "26964477",
+   "Weight": "21.49",
+   "Market Value": "26995576",
    "Shares Held": "137",
-   "SEDOL": ""
-  },
-  {
-   "Name": "TD3C FFA 270kt Middle East Gulf to China USD/MT M Jan 27",
-   "Ticker": "DD3CM F27 INDEX",
-   "Identifier": "DD3CM F27",
-   "Weight": "20.08",
-   "Market Value": "23666755",
-   "Shares Held": "145",
    "SEDOL": ""
   },
   {
    "Name": "TD3C FFA 270kt Middle East Gulf to China USD/MT M Feb 27",
    "Ticker": "DD3CM G27 INDEX",
    "Identifier": "DD3CM G27",
-   "Weight": "18.87",
-   "Market Value": "22240000",
-   "Shares Held": "160",
+   "Weight": "21.23",
+   "Market Value": "26665900",
+   "Shares Held": "185",
    "SEDOL": ""
   },
   {
    "Name": "TD3C FFA 270kt Middle East Gulf to China USD/MT Mar 27",
    "Ticker": "DD3CM H27 INDEX",
    "Identifier": "DD3CM H27",
-   "Weight": "15.73",
-   "Market Value": "18537000",
-   "Shares Held": "150",
+   "Weight": "19.22",
+   "Market Value": "24148975",
+   "Shares Held": "185",
    "SEDOL": ""
   },
   {
    "Name": "TD20 FFA 130kt West Africa to Continent USD/MT M Jan 27",
    "Ticker": "DD20M F27 INDEX",
    "Identifier": "DD20M F27",
-   "Weight": "3.42",
-   "Market Value": "4028010",
+   "Weight": "3.12",
+   "Market Value": "3924550",
+   "Shares Held": "70",
+   "SEDOL": ""
+  },
+  {
+   "Name": "TD20 FFA 130kt West Africa to Continent USD/MT M Feb 27",
+   "Ticker": "DD20M G27 INDEX",
+   "Identifier": "DD20M G27",
+   "Weight": "2.46",
+   "Market Value": "3084480",
    "Shares Held": "70",
    "SEDOL": ""
   },
@@ -89,26 +98,17 @@
    "Name": "TD20 FFA 130kt West Africa to Continent USD/MT M Nov 26",
    "Ticker": "DD20M X26 INDEX",
    "Identifier": "DD20M X26",
-   "Weight": "2.61",
-   "Market Value": "3070980",
+   "Weight": "2.44",
+   "Market Value": "3064545",
    "Shares Held": "45",
-   "SEDOL": ""
-  },
-  {
-   "Name": "TD20 FFA 130kt West Africa to Continent USD/MT M Feb 27",
-   "Ticker": "DD20M G27 INDEX",
-   "Identifier": "DD20M G27",
-   "Weight": "2.54",
-   "Market Value": "2998450",
-   "Shares Held": "70",
    "SEDOL": ""
   },
   {
    "Name": "TD20 FFA 130kt West Africa to Continent USD/MT M Mar 27",
    "Ticker": "DD20M H27 INDEX",
    "Identifier": "DD20M H27",
-   "Weight": "2.03",
-   "Market Value": "2396380",
+   "Weight": "1.96",
+   "Market Value": "2467570",
    "Shares Held": "70",
    "SEDOL": ""
   },
@@ -116,8 +116,8 @@
    "Name": "TD20 FFA 130kt West Africa to Continent USD/MT M Dec 26",
    "Ticker": "DD20M Z26 INDEX",
    "Identifier": "DD20M Z26",
-   "Weight": "1.41",
-   "Market Value": "1661250",
+   "Weight": "1.29",
+   "Market Value": "1619125",
    "Shares Held": "25",
    "SEDOL": ""
   }

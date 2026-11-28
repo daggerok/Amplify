@@ -17,8 +17,8 @@
    "Name": "iShares 20+ Year Treasury Bond ETF",
    "Ticker": "TLT",
    "Identifier": "464287432",
-   "Weight": "56.51",
-   "Market Value": "21629366.72",
+   "Weight": "56.27",
+   "Market Value": "21374253.81",
    "Shares Held": "263003",
    "SEDOL": ""
   },
@@ -26,9 +26,18 @@
    "Name": "United States Treasury Note/Bond 5.125% 08/15/2056",
    "Ticker": "-",
    "Identifier": "912810UW6",
-   "Weight": "44.39",
-   "Market Value": "16992450.09",
-   "Shares Held": "17280000",
+   "Weight": "43.31",
+   "Market Value": "16450769.62",
+   "Shares Held": "16950000",
+   "SEDOL": ""
+  },
+  {
+   "Name": "Cash & Other",
+   "Ticker": "-",
+   "Identifier": "Cash&Other",
+   "Weight": "0.64",
+   "Market Value": "244756.62",
+   "Shares Held": "244756.62",
    "SEDOL": ""
   },
   {
@@ -41,21 +50,12 @@
    "SEDOL": ""
   },
   {
-   "Name": "Cash & Other",
-   "Ticker": "-",
-   "Identifier": "Cash&Other",
-   "Weight": "-0.44",
-   "Market Value": "-167704.23",
-   "Shares Held": "-167704.23",
-   "SEDOL": ""
-  },
-  {
-   "Name": "TLT 11/27/2026 81.5 C",
-   "Ticker": "2TLT 261127C00081500",
-   "Identifier": "2TLT 261127C00081500",
-   "Weight": "-0.47",
-   "Market Value": "-181589.16",
-   "Shares Held": "-2271",
+   "Name": "TLT 12/04/2026 81.5 C",
+   "Ticker": "2TLT 261204C00081500",
+   "Identifier": "2TLT 261204C00081500",
+   "Weight": "-0.23",
+   "Market Value": "-88097",
+   "Shares Held": "-2381",
    "SEDOL": ""
   }
  ]

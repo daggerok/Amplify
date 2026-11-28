@@ -17,9 +17,9 @@
    "Name": "iShares iBoxx USD High Yield Corporate Bond ETF",
    "Ticker": "HYG",
    "Identifier": "464288513",
-   "Weight": "100.9",
-   "Market Value": "706585.68",
-   "Shares Held": "9234",
+   "Weight": "100.04",
+   "Market Value": "701287.94",
+   "Shares Held": "9154",
    "SEDOL": ""
   },
   {
@@ -32,21 +32,21 @@
    "SEDOL": ""
   },
   {
-   "Name": "HYG 11/27/2026 76.33 C",
-   "Ticker": "4HYG 261127C00076330",
-   "Identifier": "4HYG 261127C00076330",
-   "Weight": "-0.08",
-   "Market Value": "-586.73",
-   "Shares Held": "-23",
-   "SEDOL": ""
-  },
-  {
    "Name": "Cash & Other",
    "Ticker": "-",
    "Identifier": "Cash&Other",
-   "Weight": "-0.86",
-   "Market Value": "-6045.18",
-   "Shares Held": "-6045.18",
+   "Weight": "-0.01",
+   "Market Value": "-58.03",
+   "Shares Held": "-58.03",
+   "SEDOL": ""
+  },
+  {
+   "Name": "HYG 12/04/2026 76.21 C",
+   "Ticker": "4HYG 261204C00076210",
+   "Identifier": "4HYG 261204C00076210",
+   "Weight": "-0.08",
+   "Market Value": "-550",
+   "Shares Held": "-25",
    "SEDOL": ""
   }
  ]

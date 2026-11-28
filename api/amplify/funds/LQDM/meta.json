@@ -36,23 +36,23 @@
   "net": 0.54
  },
  "nav": {
-  "display": "$23.08",
-  "value": 23.0805,
-  "asOfDate": "Nov 25 2026"
+  "display": "$22.82",
+  "value": 22.8206,
+  "asOfDate": "Nov 27 2026"
  },
  "marketPrice": {
-  "display": "$23.10",
-  "value": 23.0951,
-  "asOfDate": "Nov 25 2026"
+  "display": "$22.84",
+  "value": 22.8353,
+  "asOfDate": "Nov 27 2026"
  },
  "premiumDiscount": {
   "display": "0.06%",
-  "value": 0.0633
+  "value": 0.0644
  },
  "aum": {
-  "display": "$6,462,552",
-  "value": 6462552.37,
-  "asOfDate": "Nov 25 2026",
+  "display": "$6,389,769",
+  "value": 6389768.5,
+  "asOfDate": "Nov 27 2026",
   "source": "Amplify Firestore daily net assets"
  },
  "yields": {
@@ -129,8 +129,8 @@
   ],
   "pageSize": 250,
   "totalRows": 4,
-  "asOfDate": "2026-11-27",
-  "asOf": "Nov 27 2026",
+  "asOfDate": "2026-11-30",
+  "asOf": "Nov 30 2026",
   "source": "amplifyetfs.com Firestore holdings feed (XL_Holdings.csv)",
   "status": "available"
  },
